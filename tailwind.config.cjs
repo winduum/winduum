@@ -2,7 +2,7 @@ const { tailwindColors, tailwindVariables, tailwindColorsAccent, tailwindColorsC
 const plugin = require('tailwindcss/plugin')
 
 const colors = [
-  'background', 'default', 'invert', 'light', 'dark', 'primary', 'secondary',
+  'background', 'default', 'light', 'dark', 'primary', 'secondary',
   'warning', 'error', 'info', 'success', 'accent'
 ]
 
