@@ -1,0 +1,40 @@
+@layer utilities {
+  :where(.ui-checkbox, .ui-radio) {
+    --ui-checkbox-size: 1rem;
+    --ui-checkbox-gap: 0.5rem;
+    --ui-checkbox-bg: rgb(var(--color-background));
+
+    display: flex;
+    align-items: center;
+    gap: 0 var(--ui-checkbox-gap);
+    flex-wrap: wrap;
+    width: max-content;
+
+    & input {
+      background-color: var(--ui-checkbox-bg);
+      display: block;
+      width: var(--ui-checkbox-size);
+      height: var(--ui-checkbox-size);
+      user-select: none;
+
+      &:checked {
+        background-color: rgb(var(--color-accent));
+      }
+
+      &:invalid {
+        & ~ em {
+          display: block;
+        }
+      }
+    }
+
+    & :where(label[for], input) {
+      cursor: pointer;
+    }
+
+    & em {
+      display: none;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@layer utilities {
+  :where(.ui-title) {
+    --ui-title-font-family: var(--font-secondary);
+    --ui-title-font-size: 0.875rem;
+
+    font-family: var(--ui-title-font-family);
+    font-size: var(--ui-title-font-size);
+
+    &.-sm {
+      --ui-title-font-size: 0.75rem;
+    }
+
+    &.-lg {
+      --ui-title-font-size: 1.125rem;
+    }
+  }
+}

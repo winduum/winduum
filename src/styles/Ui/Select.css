@@ -1,0 +1,5 @@
+@layer utilities {
+  :where(.ui-select) {
+
+  }
+}

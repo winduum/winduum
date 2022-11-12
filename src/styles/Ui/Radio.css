@@ -1,0 +1,7 @@
+@layer utilities {
+  :where(.ui-radio) {
+    & input {
+      border-radius: 50%;
+    }
+  }
+}

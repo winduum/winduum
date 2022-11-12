@@ -1,0 +1,61 @@
+@layer utilities {
+  :where(.ui-btn) {
+    --ui-btn-width: auto;
+    --ui-btn-height: 3rem;
+    --ui-btn-py: 0.375rem;
+    --ui-btn-px: 1.5rem;
+    --ui-btn-border-radius: var(--rounded);
+    --ui-btn-font-size: 0.875rem;
+    --ui-btn-font-weight: var(--font-medium);
+    --ui-btn-bg: rgb(var(--color-accent) / var(--ui-btn-bg-opacity));
+    --ui-btn-bg-opacity: var(--tw-bg-opacity, 1);
+    --ui-btn-color: rgb(var(--color-light) / var(--ui-btn-color-opacity));
+    --ui-btn-color-opacity: var(--tw-text-opacity, 1);
+
+    background-color: var(--ui-btn-bg);
+    padding: var(--ui-btn-py) var(--ui-btn-px);
+    color: var(--ui-btn-color);
+    border-radius: var(--ui-btn-border-radius);
+    cursor: pointer;
+
+    &.-outline {
+
+    }
+
+    &.-text {
+
+    }
+
+    &.-muted {
+
+    }
+
+    &:where(.-square, .-circle) {
+
+    }
+
+    &.-circle {
+
+    }
+
+    &.-sm {
+
+    }
+
+    &.-lg {
+
+    }
+
+    &.\@active {
+
+    }
+
+    &.\@loading {
+
+    }
+  }
+
+  :where(.ui-btn-group) {
+
+  }
+}

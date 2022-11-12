@@ -1,0 +1,17 @@
+@layer utilities {
+  :where(.ui-heading) {
+    --ui-heading-font-family: var(--font-primary);
+    --ui-heading-font-size: 1.5rem;
+
+    font-family: var(--ui-heading-font-family);
+    font-size: var(--ui-heading-font-size);
+
+    &.-sm {
+      --ui-heading-font-size: 1.25rem;
+    }
+
+    &.-lg {
+      --ui-heading-font-size: 2rem;
+    }
+  }
+}

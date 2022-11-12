@@ -1,0 +1,33 @@
+@layer utilities {
+  :where(.ui-input, .ui-select) {
+    --ui-input-py: 1rem;
+    --ui-input-px: 0.5rem;
+    --ui-input-bg: rgb(var(--color-background));
+
+    display: flex;
+    flex-direction: column;
+
+    & :where(input, textarea, select) {
+      background-color: var(--ui-input-bg);
+      padding: var(--ui-input-py) var(--ui-input-px);
+
+      &:invalid {
+        & ~ em {
+          display: block;
+        }
+      }
+    }
+
+    & label {
+      order: -1;
+    }
+
+    & em {
+      display: none;
+    }
+  }
+
+  :where(.ui-input-group) {
+
+  }
+}

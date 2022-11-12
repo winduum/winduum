@@ -1,0 +1,39 @@
+@layer utilities {
+  :where(.ui-notice) {
+    --ui-notice-bg: rgb(var(--color-accent));
+    --ui-notice-py: 1.25rem;
+    --ui-notice-px: 1.5rem;
+    --ui-notice-font-size: 0.875rem;
+    --ui-notice-border-radius: var(--rounded);
+    --ui-notice-outline-opacity: 0.1;
+
+    position: relative;
+    z-index: 1;
+    padding: var(--ui-notice-py) var(--ui-notice-px);
+    font-size: var(--ui-notice-font-size);
+    border-radius: var(--ui-notice-border-radius);
+    color: rgb(var(--color-current));
+
+    &:not([class*="bg-"]) {
+      &::before, &::after {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--ui-notice-border-radius);
+        z-index: -1;
+        content: "";
+      }
+
+      &::before {
+        background-color: var(--ui-notice-bg);
+        opacity: var(--ui-notice-outline-opacity);
+      }
+
+      &::after {
+        box-shadow: inset 0 0 0 1px var(--ui-notice-bg);
+        opacity: var(--ui-notice-outline-opacity);
+      }
+    }
+  }
+}

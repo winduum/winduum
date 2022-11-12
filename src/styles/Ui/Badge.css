@@ -1,0 +1,47 @@
+@layer utilities {
+  :where(.ui-badge) {
+    --ui-badge-width: auto;
+    --ui-badge-height: 1.5rem;
+    --ui-badge-py: 0.375rem;
+    --ui-badge-px: 1.5rem;
+    --ui-badge-border-radius: var(--rounded);
+    --ui-badge-font-size: 0.875rem;
+    --ui-badgefont-weight: var(--font-medium);
+    --ui-badge-bg: rgb(var(--color-accent) / var(--ui-btn-bg-opacity));
+    --ui-badge-bg-opacity: var(--tw-bg-opacity, 1);
+    --ui-badge-color: rgb(var(--color-light) / var(--ui-btn-color-opacity));
+    --ui-badge-color-opacity: var(--tw-text-opacity, 1);
+
+    background-color: var(--ui-badge-bg);
+    padding: var(--ui-badge-py) var(--ui-badge-px);
+    color: var(--ui-badge-color);
+
+    &.-outline {
+
+    }
+
+    &.-muted {
+
+    }
+
+    &:where(.-square, .-circle) {
+
+    }
+
+    &.-circle {
+
+    }
+
+    &.-sm {
+
+    }
+
+    &.-lg {
+
+    }
+  }
+
+  :where(.ui-badge-group) {
+
+  }
+}
