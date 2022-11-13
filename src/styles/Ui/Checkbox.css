@@ -10,6 +10,15 @@
     flex-wrap: wrap;
     width: max-content;
 
+    & :where(label[for], input) {
+      cursor: pointer;
+    }
+
+    & em {
+      display: none;
+      width: 100%;
+    }
+
     & input {
       background-color: var(--ui-checkbox-bg);
       display: block;
@@ -26,15 +35,6 @@
           display: block;
         }
       }
-    }
-
-    & :where(label[for], input) {
-      cursor: pointer;
-    }
-
-    & em {
-      display: none;
-      width: 100%;
     }
   }
 }

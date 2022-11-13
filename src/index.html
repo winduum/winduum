@@ -6,20 +6,99 @@
     <link rel="stylesheet" href="/src/styles/main.css">
     <script src="/src/scripts/main.js" type="module"></script>
 </head>
-<body class="bg-amber-100 p-md flex flex-col items-start gap-4">
-    <button class="ui-btn text-primary py-xs px-sm rounded-sm bg-secondary">Button</button>
+<body class="bg-blue-100/10 dark:bg-dark p-md flex flex-col items-start gap-4">
+    <button class="ui-btn -lg w-full">Button</button>
+    <button class="ui-btn -wide">Button</button>
+    <button class="ui-btn accent-secondary -raised">Button</button>
+    <button class="ui-btn text-dark -raised">Button</button>
+    <button class="ui-btn accent-error -outline">Button</button>
+    <button class="ui-btn -outline">Button</button>
+    <button class="ui-btn text-default -outline">Button</button>
+    <button class="ui-btn -text">Button</button>
+    <button class="ui-btn text-default -text">Button</button>
+    <button class="ui-btn -muted">Button</button>
+    <button class="ui-btn -muted">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
+        </svg>
+        Button
+    </button>
 
-    <button class="ui-btn bg-secondary -outline -circle -sm @active @loading">Button</button>
+    <div class="ui-btn-group">
+        <button class="ui-btn -outline">Button</button>
+        <button class="ui-btn -outline">Button</button>
+        <button class="ui-btn -outline">Button</button>
+    </div>
 
-    <div class="col flex-row"></div>
+    <div class="flex gap-2">
+        <button class="ui-btn -square">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
+            </svg>
+        </button>
+        <button class="ui-btn -outline -square">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
+            </svg>
+        </button>
+        <button class="ui-btn text-default -text -circle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
+            </svg>
+        </button>
+    </div>
+
+    <button class="ui-btn bg-secondary -outline -sm -active -loading">Button</button>
+    <button class="ui-btn -lg">Button</button>
+
+    <div class="col flex-row gap-2">
+        <button class="bg-white p-xs" id="action-btn-disabled">disabled</button>
+        <button class="bg-white p-xs" id="action-btn-active">active</button>
+        <button class="bg-white p-xs" id="action-btn-loading">loading</button>
+        <button class="bg-white p-xs" id="action-btn-dark">dark</button>
+    </div>
+
+    <script>
+        document.getElementById('action-btn-active').addEventListener('click', () => {
+            if (!document.querySelector('.ui-btn.-active')) {
+                document.querySelectorAll('.ui-btn').forEach(element => element.classList.add('-active'))
+            } else {
+                document.querySelectorAll('.ui-btn').forEach(element => element.classList.remove('-active'))
+            }
+        })
+
+        document.getElementById('action-btn-loading').addEventListener('click', () => {
+            if (!document.querySelector('.ui-btn.-loading')) {
+                document.querySelectorAll('.ui-btn').forEach(element => element.classList.add('-loading'))
+            } else {
+                document.querySelectorAll('.ui-btn').forEach(element => element.classList.remove('-loading'))
+            }
+        })
+
+        document.getElementById('action-btn-disabled').addEventListener('click', () => {
+            if (!document.querySelector('.ui-btn:disabled')) {
+                document.querySelectorAll('.ui-btn').forEach(element => element.setAttribute('disabled', ''))
+            } else {
+                document.querySelectorAll('.ui-btn').forEach(element => element.removeAttribute('disabled'))
+            }
+        })
+
+        document.getElementById('action-btn-dark').addEventListener('click', () => {
+            if (!document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+        })
+    </script>
 
     <div class="ui-image aspect-square">
         <img src="https://via.placeholder.com/128" alt="" loading="lazy">
     </div>
 
     <div class="ui-input">
-        <input type="text" required>
-        <label>Name</label>
+        <input type="text" id="input" required>
+        <label for="input">Name</label>
         <em>Not valid</em>
     </div>
 

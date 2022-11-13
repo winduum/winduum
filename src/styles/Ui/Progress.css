@@ -14,7 +14,6 @@
     color: rgb(var(--color-accent));
     width: 100%;
 
-
     &.-sm {
       --ui-progress-height: 0.5rem;
     }

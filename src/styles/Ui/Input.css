@@ -7,6 +7,14 @@
     display: flex;
     flex-direction: column;
 
+    & label {
+      order: -1;
+    }
+
+    & em {
+      display: none;
+    }
+
     & :where(input, textarea, select) {
       background-color: var(--ui-input-bg);
       padding: var(--ui-input-py) var(--ui-input-px);
@@ -16,14 +24,6 @@
           display: block;
         }
       }
-    }
-
-    & label {
-      order: -1;
-    }
-
-    & em {
-      display: none;
     }
   }
 

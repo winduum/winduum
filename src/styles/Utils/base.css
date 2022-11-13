@@ -19,7 +19,6 @@
   --container-padding: 5vw;
   --container-padding-calc: max(calc(50vw - (var(--container-width) / 2) + var(--container-padding)), var(--container-padding));
 
-
   @media (--media-t) {
     --container-padding: 3rem;
   }
@@ -47,7 +46,7 @@
 }
 
 :root {
-  --rounded: 1rem;
+  --rounded: 0.75rem;
   --rounded-xs: 0.5rem;
   --rounded-sm: 0.875rem;
   --rounded-base: 1rem;
@@ -71,7 +70,7 @@
 }
 
 :root {
-  --transition-duration: 0.3s;
+  --transition-duration: 0.15s;
   --transition-color: color var(--transition-duration) ease;
   --transition-background: background var(--transition-duration) ease;
   --transition-opacity: opacity var(--transition-duration) ease;
