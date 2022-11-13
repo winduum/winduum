@@ -113,7 +113,7 @@
       outline-offset: calc(var(--ui-btn-outline-width) * -1);
     }
 
-    &.-hover-full {
+    &.-hover-fill {
       --ui-btn-hover-opacity: 1;
     }
 
@@ -153,7 +153,7 @@
 
     &:hover {
       @media (hover: hover) and (pointer: fine) {
-        &.-hover-filled {
+        &.-hover-fill {
           --color-current: var(--color-light);
         }
 
@@ -164,7 +164,7 @@
     }
 
     &:is(:active, .-active) {
-      &.-hover-filled {
+      &.-hover-fill {
         --color-current: var(--color-light);
       }
 
