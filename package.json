@@ -4,7 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "eslint": "eslint '**/*.js' --fix",
     "stylelint": "npx stylelint '**/*.css' --fix",

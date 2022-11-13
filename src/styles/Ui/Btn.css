@@ -151,7 +151,16 @@
       }
     }
 
-    &:is(:hover, .-active) {
+
+    &:hover {
+      &::before {
+        @media (hover: hover) and (pointer: fine) {
+          opacity: var(--ui-btn-hover-opacity);
+        }
+      }
+    }
+
+    &:is(:active, .-active) {
       &::before {
         opacity: var(--ui-btn-hover-opacity);
       }
