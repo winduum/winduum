@@ -12,6 +12,7 @@
     --ui-btn-bg-opacity: var(--tw-bg-opacity, 1);
     --ui-btn-color: rgb(var(--color-current) / var(--ui-btn-color-opacity));
     --ui-btn-color-opacity: var(--tw-text-opacity, 1);
+    --ui-btn-hover-filter: invert(1);
     --ui-btn-hover-opacity: 0.2;
     --ui-btn-focus-opacity: 0.3;
     --ui-btn-disabled-opacity: 0.7;
@@ -19,6 +20,8 @@
     --ui-btn-outline-opacity: 0.5;
     --ui-btn-icon-font-size: 1.25rem;
     --ui-btn-gap: 0.375rem;
+    --ui-btn-loading-width: 1rem;
+    --ui-btn-loading-border-width: 2px;
 
     width: var(--ui-btn-width);
     height: var(--ui-btn-height);
@@ -55,65 +58,10 @@
       height: 100%;
       content: "";
       background-color: rgb(var(--color-current));
-      filter: invert(1);
+      filter: var(--ui-btn-hover-filter);
       z-index: -1;
       opacity: 0;
       transition: var(--transition-opacity);
-    }
-
-    &.-wide {
-      padding-left: calc(var(--ui-btn-px) * 2);
-      padding-right: calc(var(--ui-btn-px) * 2);
-    }
-
-    &.-raised {
-      --ui-btn-outline-opacity: 0.1;
-
-      outline: var(--ui-btn-outline-width) solid rgb(var(--color-current) / var(--ui-btn-outline-opacity));
-      outline-offset: calc(var(--ui-btn-outline-width) * -1);
-    }
-
-    &.-outline {
-      --color-current: var(--color-accent);
-      --ui-btn-hover-opacity: 0.1;
-      --ui-btn-focus-opacity: 0.15;
-
-      background-color: transparent;
-      outline: var(--ui-btn-outline-width) solid rgb(var(--color-accent) / var(--ui-btn-outline-opacity));
-      outline-offset: calc(var(--ui-btn-outline-width) * -1);
-
-      &::before {
-        background-color: var(--ui-btn-bg);
-        filter: none;
-      }
-    }
-
-    &:where(.-text, .-muted) {
-      --color-current: var(--color-accent);
-      --ui-btn-hover-opacity: 0.1;
-      --ui-btn-color: rgb(var(--color-accent) / var(--ui-btn-color-opacity));
-      --ui-btn-bg: transparent;
-
-      &::before {
-        filter: none;
-      }
-    }
-
-    &.-muted {
-      --ui-btn-hover-opacity: 0.3;
-
-      &::before {
-        opacity: 0.1;
-      }
-    }
-
-    &:where(.-square, .-circle) {
-      --ui-btn-py: var(--ui-btn-py);
-      --ui-btn-width: var(--ui-btn-height);
-    }
-
-    &.-circle {
-      border-radius: var(--rounded-full);
     }
 
     &.-sm {
@@ -126,6 +74,58 @@
       --ui-btn-px: 1.75rem;
     }
 
+    &.-wide {
+      padding-left: calc(var(--ui-btn-px) * 2);
+      padding-right: calc(var(--ui-btn-px) * 2);
+    }
+
+    &:where(.-outline, .-muted, .-text) {
+      --color-current: var(--color-accent);
+      --ui-btn-hover-opacity: 0.1;
+      --ui-btn-hover-filter: none;
+
+      background-color: transparent;
+
+      &::before {
+        background-color: var(--ui-btn-bg);
+      }
+    }
+
+    &.-outline {
+      --ui-btn-focus-opacity: 0.15;
+
+      outline: var(--ui-btn-outline-width) solid rgb(var(--color-accent) / var(--ui-btn-outline-opacity));
+      outline-offset: calc(var(--ui-btn-outline-width) * -1);
+    }
+
+    &.-muted {
+      --ui-btn-hover-opacity: 0.3;
+
+      &::before {
+        opacity: 0.1;
+      }
+    }
+
+    &.-raised {
+      --ui-btn-outline-opacity: 0.1;
+
+      outline: var(--ui-btn-outline-width) solid rgb(var(--color-current) / var(--ui-btn-outline-opacity));
+      outline-offset: calc(var(--ui-btn-outline-width) * -1);
+    }
+
+    &.-hover-full {
+      --ui-btn-hover-opacity: 1;
+    }
+
+    &:where(.-square, .-circle) {
+      --ui-btn-py: var(--ui-btn-py);
+      --ui-btn-width: var(--ui-btn-height);
+    }
+
+    &.-circle {
+      border-radius: var(--rounded-full);
+    }
+
     &.-loading {
       pointer-events: none;
       color: transparent;
@@ -136,31 +136,38 @@
 
       &::after {
         z-index: 1;
-        width: 1rem;
-        height: 1rem;
+        width: var(--ui-btn-loading-width);
+        height: var(--ui-btn-loading-width);
         content: "";
-        border: 2px solid rgb(var(--color-current));
+        border: var(--ui-btn-loading-border-width) solid rgb(var(--color-current));
         border-right-color: transparent;
         border-radius: 50%;
         animation: spin 0.45s infinite linear;
         position: absolute;
-        margin-left: -0.5rem;
-        margin-top: -0.5rem;
+        margin-left: calc(var(--ui-btn-loading-width) / 2 * -1);
+        margin-top: calc(var(--ui-btn-loading-width) / 2 * -1);
         left: 50%;
         top: 50%;
       }
     }
 
-
     &:hover {
-      &::before {
-        @media (hover: hover) and (pointer: fine) {
+      @media (hover: hover) and (pointer: fine) {
+        &.-hover-filled {
+          --color-current: var(--color-light);
+        }
+
+        &::before {
           opacity: var(--ui-btn-hover-opacity);
         }
       }
     }
 
     &:is(:active, .-active) {
+      &.-hover-filled {
+        --color-current: var(--color-light);
+      }
+
       &::before {
         opacity: var(--ui-btn-hover-opacity);
       }
