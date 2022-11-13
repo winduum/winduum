@@ -151,7 +151,7 @@
       }
     }
 
-    &:hover {
+    &:not(:disabled):hover {
       @media (hover: hover) and (pointer: fine) {
         &.-hover-fill {
           --color-current: var(--color-light);
@@ -163,7 +163,7 @@
       }
     }
 
-    &:is(:active, .-active) {
+    &:is(:not(:disabled):active, .-active) {
       &.-hover-fill {
         --color-current: var(--color-light);
       }
@@ -181,8 +181,8 @@
     }
 
     &:disabled {
-      pointer-events: none;
       opacity: var(--ui-btn-disabled-opacity);
+      cursor: not-allowed;
     }
   }
 

@@ -77,6 +77,10 @@
   --transition-transform: transform var(--transition-duration) ease;
   --transition-border: border-color var(--transition-duration) ease;
   --transition-shadow: box-shadow var(--transition-duration) ease;
+
+  @media (prefers-reduced-motion) {
+    --transition-duration: 0;
+  }
 }
 
 @custom-media --media-m (max-width: 47.9375em);
