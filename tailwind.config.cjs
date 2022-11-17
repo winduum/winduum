@@ -23,8 +23,6 @@ module.exports = {
     ringOpacity: false,
     ringOffsetWidth: false,
     ringOffsetColor: false,
-    gradientColorStops: false,
-    backgroundImage: false,
     accentColor: false
   },
   theme: {

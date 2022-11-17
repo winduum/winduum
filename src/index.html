@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
     <link rel="stylesheet" href="/src/styles/main.css">
     <script src="/src/scripts/main.js" type="module"></script>
+    <script src="/src/scripts/vue.js" type="module"></script>
 </head>
 <body class="bg-blue-100/10 dark:bg-dark p-md flex flex-col items-start gap-4">
     <button class="ui-btn -lg w-full -hover-fill">Button</button>
     <button class="ui-btn -wide">Button</button>
+    <button class="ui-btn bg-gradient-to-br from-purple-600 to-blue-500 -outline-gradient -hover-fill">Button</button>
+    <button class="ui-btn bg-gradient-to-br from-purple-600 to-blue-500">Button</button>
     <button class="ui-btn accent-secondary -raised">Button</button>
     <button class="ui-btn text-dark -raised">Button</button>
     <button class="ui-btn accent-error -outline">Button</button>
@@ -58,6 +61,8 @@
         <button class="bg-white p-xs" id="action-btn-loading">loading</button>
         <button class="bg-white p-xs" id="action-btn-dark">dark</button>
     </div>
+
+    <div id="app"></div>
 
     <script>
         document.getElementById('action-btn-active').addEventListener('click', () => {

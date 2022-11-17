@@ -7,8 +7,12 @@ import postcssNesting from 'postcss-nesting'
 import postcssCustomMedia from 'postcss-custom-media'
 import postcssCustomSelectors from 'postcss-custom-selectors'
 import postcssHasPseudo from 'css-has-pseudo'
+import vue from '@vitejs/plugin-vue'
 
 export default {
+    plugins: [
+        vue()
+    ],
     css: {
         postcss: {
             plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, postcssCustomSelectors, tailwindcss, autoprefixer, postcssHasPseudo]
