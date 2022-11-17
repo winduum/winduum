@@ -1,11 +1,27 @@
 @layer utilities {
   :where(.ui-select) {
-    & select {
-      padding-right: 2.5rem;
-      background-image: var(--icon-angle-down);
-      background-repeat: no-repeat;
-      background-position: right .75rem center;
-      background-size: 1.25rem 2rem;
+    --ui-input-icon-count-r: 2;
+    --ui-input-pr: var(--ui-input-icon-offset-r);
+
+    & :where([class^="icon-"]) {
+      margin-right: calc(var(--ui-input-icon-font-size) + var(--ui-input-icon-gap));
+    }
+
+    &::after {
+      width: 1em;
+      height: 1em;
+      background-color: currentColor;
+      content: "";
+      position: absolute;
+      z-index: 1;
+      font-size: 1.5rem;
+      right: calc(var(--ui-input-height) / 4);
+      top: calc(var(--ui-input-height) / 2);
+      margin-top: -0.75rem;
+      will-change: transform;
+      transition: transform 200ms;
+      mask: var(--icon-angle-down);
+      pointer-events: none;
     }
   }
 }

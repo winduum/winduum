@@ -7,6 +7,8 @@
     --ui-input-pl: var(--ui-input-px);
     --ui-input-pr: var(--ui-input-px);
     --ui-input-bg: rgb(var(--color-background));
+    --ui-input-placeholder-color: currentColor;
+    --ui-input-placeholder-opacity: 0.5;
     --ui-input-font-size: 0.875rem;
     --ui-input-font-weight: var(--font-medium);
     --ui-input-border-width: 1px;
@@ -16,24 +18,15 @@
     --ui-input-box-shadow: none;
     --ui-input-gap: 0.5rem;
     --ui-input-icon-font-size: 1.25rem;
-    --ui-input-icon-gap: 0.375rem;
     --ui-input-icon-count-l: 1;
     --ui-input-icon-count-r: 1;
+    --ui-input-icon-gap: 0.375rem;
     --ui-input-icon-inset-x: calc(var(--ui-input-px) - 0.25rem);
-    --ui-input-icon-offset-l: calc(
-      var(--ui-input-icon-inset-x)
-      + var(--ui-input-icon-font-size)
-      * var(--ui-input-icon-count-l)
-      + var(--ui-input-icon-gap)
-      * var(--ui-input-icon-count-l)
-    );
-    --ui-input-icon-offset-r: calc(
-      var(--ui-input-icon-inset-x)
-      + var(--ui-input-icon-font-size)
-      * var(--ui-input-icon-count-r)
-      + var(--ui-input-icon-gap)
-      * var(--ui-input-icon-count-r)
-    );
+    --ui-input-icon-inset-x-gap: 0.125rem;
+    --ui-input-icon-offset-l: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-l));
+    --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
+    --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
+    --ui-input-label-focus-opacity: 0.5;
 
     display: flex;
     flex-direction: column;
@@ -41,8 +34,31 @@
     gap: var(--ui-input-gap);
     position: relative;
 
+    & svg {
+      font-size: var(--ui-input-icon-font-size);
+      width: 1em;
+      height: 1em;
+    }
+
     & label {
-      display: none;
+      display: block;
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
+      transform-origin: 0 50%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transform: perspective(100px);
+      will-change: transform;
+      font-weight: var(--ui-input-font-weight);
+      left: var(--ui-input-pl);
+      right: var(--ui-input-pr);
+      top: calc(var(--ui-input-height) / 2);
+      line-height: var(--ui-input-font-size);
+      margin-top: calc(var(--ui-input-font-size) / 2 * -1);
+      order: -1;
     }
 
     & em {
@@ -57,12 +73,21 @@
       --ui-input-pr: var(--ui-input-icon-offset-r);
     }
 
-    &:has(.icon-l + .icon-l) {
-      --ui-input-icon-count-l: 2;
+    &:has(.icon-l > *:nth-child(2)) {
+      --ui-input-icon-count-r: 2;
     }
 
-    &:has(.icon-r + .icon-r) {
+    &:has(.icon-r > *:nth-child(2)) {
       --ui-input-icon-count-r: 2;
+    }
+
+    &:has(label) {
+      --ui-input-placeholder-color: transparent;
+
+      & :where(input, textarea, select) {
+        padding-top: calc(var(--ui-input-py) * 2);
+        padding-bottom: calc(var(--ui-input-py) * 0.5);
+      }
     }
 
     & :where(input, textarea, select) {
@@ -102,9 +127,22 @@
       &:focus {
         --ui-input-border-opacity: 1;
         --ui-input-border-color: var(--color-accent);
-        --ui-input-box-shadow: 0 0 0 0 rgb(var(--color-current)),
+        --ui-input-box-shadow:
+          0 0 0 0 rgb(var(--color-current)),
           0 0 0 3px rgb(var(--color-accent) / 0.2),
           0 1px 2px 0 rgb(var(--color-current) / 0.05);
+      }
+    }
+
+    & :where(input, textarea) {
+      &::placeholder {
+        color: var(--ui-input-placeholder-color);
+        opacity: var(--ui-input-placeholder-opacity);
+      }
+
+      &:is(:focus, :not(:placeholder-shown)) ~ label {
+        transform: var(--ui-input-label-focus-transform);
+        opacity: var(--ui-input-label-focus-opacity);
       }
     }
 
@@ -114,64 +152,57 @@
       min-height: var(--ui-input-height-textarea);
     }
 
-    @nest &.-invalid, .is-validated & :where(input, textarea, select):invalid {
-      --ui-input-border-opacity: 1;
-      --ui-input-border-color: var(--color-error);
-      --ui-input-box-shadow: 0 0 0 0 rgb(var(--color-current)),
-        0 0 0 3px rgb(var(--color-error) / 0.2),
-        0 1px 2px 0 rgb(var(--color-current) / 0.05);
-    }
-
     & :where([class^="icon-"]) {
-      --icon-nth: 0;
-
       position: absolute;
       z-index: 1;
       transition: var(--transition-opacity);
       content: "";
       top: calc(var(--ui-input-height) / 2);
       transform: translateY(-50%);
-      font-size: var(--ui-input-icon-font-size);
-      width: 1em;
-      height: 1em;
       line-height: 1em;
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 0;
+      gap: var(--ui-input-icon-gap);
 
       &.icon-l {
-        left: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-font-size) * var(--icon-nth));
-        margin-left: calc(var(--ui-input-icon-gap) * var(--icon-nth));
-
-        & + .icon-l {
-          --icon-nth: 1;
-        }
+        left: var(--ui-input-icon-inset-x);
       }
 
       &.icon-r {
-        right: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-font-size) * var(--icon-nth));
-        margin-right: calc(var(--ui-input-icon-gap) * var(--icon-nth));
-
-        & + .icon-r {
-          --icon-nth: 1;
-        }
+        right: var(--ui-input-icon-inset-x);
       }
+    }
 
-      &[aria-label]:not([class*="lib-hint"]) {
-        &::after {
-          content: attr(aria-label);
-          font-size: var(--ui-input-font-size);
-          display: block;
-        }
+    & :where([aria-label]) {
+      &::after {
+        content: attr(aria-label);
+        font-size: var(--ui-input-font-size);
+        min-width: var(--ui-input-icon-font-size);
+        text-align: center;
+        line-height: var(--ui-input-icon-font-size);
+        display: block;
       }
+    }
 
-      &[class*="lib-hint"] {
-        &::after {
-          white-space: normal;
-          line-height: 1.5;
-          word-wrap: normal;
-          width: 10rem;
-          font-weight: var(--font-normal);
-          font-size: 0.75rem;
-        }
+    & :where([class*="lib-hint"]) {
+      &::after {
+        white-space: normal;
+        line-height: 1.5;
+        word-wrap: normal;
+        width: 10rem;
+        font-weight: var(--font-normal);
+        font-size: 0.75rem;
       }
+    }
+
+    @nest &.-invalid, .is-validated & :where(input, textarea, select):invalid {
+      --ui-input-border-opacity: 1;
+      --ui-input-border-color: var(--color-error);
+      --ui-input-box-shadow:
+        0 0 0 0 rgb(var(--color-current)),
+        0 0 0 3px rgb(var(--color-error) / 0.2),
+        0 1px 2px 0 rgb(var(--color-current) / 0.05);
     }
   }
 

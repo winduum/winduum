@@ -20,25 +20,39 @@
     </div>
 
     <div class="ui-input">
+        <input type="text" id="input-label" placeholder="fill this input" required>
+        <label for="input-label">Name</label>
+    </div>
+
+    <div class="ui-input">
         <svg class="icon-l" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
         </svg>
-        <svg class="icon-r" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
-        </svg>
-        <svg class="icon-r text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-        </svg>
-        <input type="text" id="input" required>
+        <div class="icon-r">
+            <svg class="text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
+            </svg>
+        </div>
+        <input type="text" id="input" placeholder="fill this input" required>
         <label for="input">Name</label>
         <em>Not valid</em>
     </div>
 
-    <div class="ui-input">
-        <input type="text" id="input" required>
-        <span class="icon-r" aria-label="Kč"></span>
-        <label for="input">Name</label>
-        <em>Not valid</em>
+    <div>
+        <label class="ui-label">Price</label>
+        <div class="ui-input">
+            <input type="text" id="input" placeholder="Enter value.." required>
+            <div class="icon-r">
+                <svg class="text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+                <span aria-label="Kč"></span>
+            </div>
+            <em>Not valid</em>
+        </div>
     </div>
 
     <div class="ui-select">
@@ -48,6 +62,9 @@
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>
         </select>
+        <svg class="icon-r text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>
         <label>How are you?</label>
     </div>
 
