@@ -28,41 +28,28 @@
     --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
     --ui-input-label-focus-opacity: 0.5;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas: "label" "input" "info";
     font-size: var(--ui-input-font-size);
-    gap: var(--ui-input-gap);
     position: relative;
 
     & svg {
       font-size: var(--ui-input-icon-font-size);
       width: 1em;
-      height: 1em;
+      height: var(--ui-input-height);
     }
 
     & label {
+      grid-area: label;
       display: block;
-      position: absolute;
-      z-index: 1;
-      pointer-events: none;
-      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
-      transform-origin: 0 50%;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      transform: perspective(100px);
-      will-change: transform;
-      font-weight: var(--ui-input-font-weight);
-      left: var(--ui-input-pl);
-      right: var(--ui-input-pr);
-      top: calc(var(--ui-input-height) / 2);
-      line-height: var(--ui-input-font-size);
-      margin-top: calc(var(--ui-input-font-size) / 2 * -1);
       order: -1;
+      margin-bottom: var(--ui-input-gap);
     }
 
     & em {
+      grid-area: info;
       display: none;
+      margin-top: var(--ui-input-gap);
     }
 
     &:has(.icon-l) {
@@ -81,16 +68,8 @@
       --ui-input-icon-count-r: 2;
     }
 
-    &:has(label) {
-      --ui-input-placeholder-color: transparent;
-
-      & :where(input, textarea, select) {
-        padding-top: calc(var(--ui-input-py) * 2);
-        padding-bottom: calc(var(--ui-input-py) * 0.5);
-      }
-    }
-
     & :where(input, textarea, select) {
+      grid-area: input;
       background-clip: padding-box;
       background-color: var(--ui-input-bg);
       padding: var(--ui-input-py) var(--ui-input-pr) var(--ui-input-py) var(--ui-input-pl);
@@ -139,11 +118,6 @@
         color: var(--ui-input-placeholder-color);
         opacity: var(--ui-input-placeholder-opacity);
       }
-
-      &:is(:focus, :not(:placeholder-shown)) ~ label {
-        transform: var(--ui-input-label-focus-transform);
-        opacity: var(--ui-input-label-focus-opacity);
-      }
     }
 
     & :where(textarea) {
@@ -153,24 +127,25 @@
     }
 
     & :where([class^="icon-"]) {
-      position: absolute;
-      z-index: 1;
+      grid-area: input;
+      position: relative;
       transition: var(--transition-opacity);
       content: "";
-      top: calc(var(--ui-input-height) / 2);
-      transform: translateY(-50%);
       line-height: 1em;
       display: flex;
       flex-direction: row;
       flex-shrink: 0;
       gap: var(--ui-input-icon-gap);
+      align-items: center;
 
       &.icon-l {
         left: var(--ui-input-icon-inset-x);
+        margin-right: auto;
       }
 
       &.icon-r {
         right: var(--ui-input-icon-inset-x);
+        margin-left: auto;
       }
     }
 
@@ -196,6 +171,39 @@
       }
     }
 
+    &.-floating {
+      --ui-input-placeholder-color: transparent;
+
+      & label {
+        position: absolute;
+        z-index: 1;
+        pointer-events: none;
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
+        transform-origin: 0 50%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        transform: perspective(100px);
+        will-change: transform;
+        font-weight: var(--ui-input-font-weight);
+        left: var(--ui-input-pl);
+        right: var(--ui-input-pr);
+        top: calc(var(--ui-input-height) / 2);
+        line-height: var(--ui-input-font-size);
+        margin-top: calc(var(--ui-input-font-size) / 2 * -1);
+      }
+
+      & :where(input, textarea, select) {
+        padding-top: calc(var(--ui-input-py) * 2);
+        padding-bottom: calc(var(--ui-input-py) * 0.5);
+
+        &:is(:focus, :not(:placeholder-shown)) ~ label {
+          transform: var(--ui-input-label-focus-transform);
+          opacity: var(--ui-input-label-focus-opacity);
+        }
+      }
+    }
+
     @nest &.-invalid, .is-validated & :where(input, textarea, select):invalid {
       --ui-input-border-opacity: 1;
       --ui-input-border-color: var(--color-error);
@@ -208,7 +216,7 @@
 
   :where(.ui-input, .ui-select, .ui-input-group) {
     --ui-input-validity-size: 0.875rem;
-    --ui-input-validity-offset: 0;
+    --ui-input-validity-offset: 0.375rem;
 
     & em {
       font-size: var(--ui-input-validity-size);
