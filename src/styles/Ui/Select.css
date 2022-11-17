@@ -1,5 +1,11 @@
 @layer utilities {
   :where(.ui-select) {
-
+    & select {
+      padding-right: 2.5rem;
+      background-image: var(--icon-angle-down);
+      background-repeat: no-repeat;
+      background-position: right .75rem center;
+      background-size: 1.25rem 2rem;
+    }
   }
 }

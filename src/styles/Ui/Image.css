@@ -1,11 +1,17 @@
 @layer utilities {
   :where(.ui-image) {
+    --ui-image-bg: rgb(var(--color-background-200));
+    --rounded: 0;
+
     position: relative;
     display: block;
+    background-color: var(--ui-image-bg);
+    border-radius: var(--rounded);
 
     & > * {
       width: 100%;
       height: 100%;
+      border-radius: var(--rounded);
     }
   }
 }
