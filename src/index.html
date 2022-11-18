@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/src/styles/main.css">
     <script src="/src/scripts/main.js" type="module"></script>
 </head>
-<body class="bg-blue-100/10 dark:bg-dark p-md flex flex-col items-start gap-4">
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4">
     <div class="col flex-row gap-2">
         <button class="bg-white p-xs" id="action-btn-disabled">disabled</button>
         <button class="bg-white p-xs" id="action-btn-active">active</button>
@@ -99,26 +99,26 @@
 
     <script>
         document.getElementById('action-btn-active').addEventListener('click', () => {
-            if (!document.querySelector('.ui-btn.-active')) {
-                document.querySelectorAll('.ui-btn').forEach(element => element.classList.add('-active'))
+            if (!document.querySelector('.ui-input.-active')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('-active'))
             } else {
-                document.querySelectorAll('.ui-btn').forEach(element => element.classList.remove('-active'))
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('-active'))
             }
         })
 
         document.getElementById('action-btn-loading').addEventListener('click', () => {
-            if (!document.querySelector('.ui-btn.-loading')) {
-                document.querySelectorAll('.ui-btn').forEach(element => element.classList.add('-loading'))
+            if (!document.querySelector('.ui-input.-loading')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('-loading'))
             } else {
-                document.querySelectorAll('.ui-btn').forEach(element => element.classList.remove('-loading'))
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('-loading'))
             }
         })
 
         document.getElementById('action-btn-disabled').addEventListener('click', () => {
-            if (!document.querySelector('.ui-btn:disabled')) {
-                document.querySelectorAll('.ui-btn').forEach(element => element.setAttribute('disabled', ''))
+            if (!document.querySelector(':where(.ui-input, .ui-select) :where(input,select,textarea):disabled')) {
+                document.querySelectorAll(':where(.ui-input, .ui-select) :where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
             } else {
-                document.querySelectorAll('.ui-btn').forEach(element => element.removeAttribute('disabled'))
+                document.querySelectorAll(':where(.ui-input, .ui-select) :where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
             }
         })
 
