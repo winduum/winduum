@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <script src="/src/scripts/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4">
+    <div class="col flex-row gap-2">
+        <button class="bg-white p-xs" id="action-btn-disabled">disabled</button>
+        <button class="bg-white p-xs" id="action-btn-active">active</button>
+        <button class="bg-white p-xs" id="action-btn-loading">loading</button>
+        <button class="bg-white p-xs" id="action-btn-dark">dark</button>
+    </div>
+
+    <div class="ui-image aspect-square w-24 rounded">
+        <img src="https://via.placeholder.com/128" alt="" loading="lazy">
+    </div>
+
+    <div class="ui-input -floating">
+        <input type="text" id="input-label" placeholder=" " required>
+        <label for="input-label">Name</label>
+    </div>
+
+    <div class="ui-input">
+        <svg class="icon-l" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
+        </svg>
+        <div class="icon-r">
+            <svg class="text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
+            </svg>
+        </div>
+        <input type="text" id="input" placeholder="Enter a value.." required>
+        <label for="input">Name</label>
+        <em>Not valid</em>
+    </div>
+
+    <div>
+        <div class="ui-input">
+            <input type="text" placeholder="Enter a value.." required>
+            <label>Price</label>
+            <div class="icon-r">
+                <svg class="text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+                <span aria-label="Kč"></span>
+            </div>
+            <em>Not valid</em>
+        </div>
+    </div>
+
+    <div class="ui-select">
+        <select>
+            <option selected="" value="">- select option -</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <svg class="icon-r text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>
+        <label>How are you?</label>
+    </div>
+
+    <div class="ui-input">
+        <textarea id="textarea" required></textarea>
+        <label for="textarea">Name</label>
+    </div>
+
+    <div class="ui-input-group">
+        <label for="input">Name</label>
+        <div class="ui-btn -square -raised bg-gray-200 text-dark">@</div>
+        <div class="ui-input">
+            <input type="tel" id="input" required>
+        </div>
+        <button class="ui-btn">Button</button>
+        <em>Validation</em>
+    </div>
+
+    <label class="ui-label">Name</label>
+    <div class="ui-checkbox">
+        <input type="checkbox" id="checkbox" required>
+        <label for="checkbox">Name</label>
+        <em>Not valid</em>
+    </div>
+
+    <label class="ui-checkbox">
+        <input type="checkbox" required>
+    </label>
+
+    <label class="ui-radio">
+        <input type="checkbox" required>
+        <span>Name</span>
+        <em>Not valid</em>
+    </label>
+
+    <script>
+        document.getElementById('action-btn-active').addEventListener('click', () => {
+            if (!document.querySelector('.ui-input.-active')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('-active'))
+            } else {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('-active'))
+            }
+        })
+
+        document.getElementById('action-btn-loading').addEventListener('click', () => {
+            if (!document.querySelector('.ui-input.-loading')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('-loading'))
+            } else {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('-loading'))
+            }
+        })
+
+        document.getElementById('action-btn-disabled').addEventListener('click', () => {
+            if (!document.querySelector(':where(.ui-input, .ui-select) :where(input,select,textarea):disabled')) {
+                document.querySelectorAll(':where(.ui-input, .ui-select) :where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
+            } else {
+                document.querySelectorAll(':where(.ui-input, .ui-select) :where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
+            }
+        })
+
+        document.getElementById('action-btn-dark').addEventListener('click', () => {
+            if (!document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+        })
+    </script>
+</body>
+</html>

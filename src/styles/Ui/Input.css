@@ -1,12 +1,13 @@
 @layer utilities {
-  :where(.ui-input, .ui-select) {
+  :where(.ui-input, .ui-select, .ui-input-group) {
     --ui-input-height: 3rem;
     --ui-input-height-textarea: 8rem;
-    --ui-input-py: 0.5rem;
+    --ui-input-py: 0.875rem;
     --ui-input-px: 1rem;
     --ui-input-pl: var(--ui-input-px);
     --ui-input-pr: var(--ui-input-px);
     --ui-input-bg: rgb(var(--color-background));
+    --ui-input-color: currentColor;
     --ui-input-placeholder-color: currentColor;
     --ui-input-placeholder-opacity: 0.5;
     --ui-input-font-size: 0.875rem;
@@ -27,6 +28,8 @@
     --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
     --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
     --ui-input-label-focus-opacity: 0.5;
+    --ui-input-validity-size: 0.875rem;
+    --ui-input-validity-offset: 0.375rem;
 
     display: grid;
     grid-template-areas: "label" "input" "info";
@@ -49,7 +52,10 @@
     & em {
       grid-area: info;
       display: none;
-      margin-top: var(--ui-input-gap);
+      margin-top: var(--ui-input-validity-offset);
+      font-size: var(--ui-input-validity-size);
+      color: rgb(var(--color-error));
+      font-style: normal;
     }
 
     &:has(.icon-l) {
@@ -80,7 +86,7 @@
       height: var(--ui-input-height);
       font-weight: var(--ui-input-font-weight);
       border-radius: var(--ui-input-border-radius);
-      color: inherit;
+      color: var(--ui-input-color);
       border: var(--ui-input-border-width) solid rgb(var(--ui-input-border-color) / var(--ui-input-border-opacity));
 
       @nest .is-validated &:invalid {
@@ -205,40 +211,30 @@
     }
 
     @nest &.-invalid, .is-validated & :where(input, textarea, select):invalid {
+      --ui-input-bg: rgb(var(--color-error) / 0.1);
       --ui-input-border-opacity: 1;
       --ui-input-border-color: var(--color-error);
-      --ui-input-box-shadow:
-        0 0 0 0 rgb(var(--color-current)),
-        0 0 0 3px rgb(var(--color-error) / 0.2),
-        0 1px 2px 0 rgb(var(--color-current) / 0.05);
-    }
-  }
-
-  :where(.ui-input, .ui-select, .ui-input-group) {
-    --ui-input-validity-size: 0.875rem;
-    --ui-input-validity-offset: 0.375rem;
-
-    & em {
-      font-size: var(--ui-input-validity-size);
-      color: rgb(var(--color-error));
-      font-style: normal;
-      margin-top: var(--ui-input-validity-offset);
+      --ui-input-color: rgb(var(--color-error));
     }
   }
 
   :where(.ui-input-group) {
-    --ui-input-height: 3rem;
-    --ui-input-border-width: 1px;
-
     display: flex;
     align-items: flex-end;
+    flex-wrap: wrap;
 
     & .ui-btn {
-      height: var(--ui-input-height, auto);
+      --ui-btn-outline-width: 1px;
+      --ui-btn-height: var(--ui-input-height);
+    }
+
+    & :where(em, label) {
+      display: block;
+      width: 100%;
     }
 
     & > * {
-      &:not(:first-child) {
+      &:not(:first-child, label + *) {
         margin-left: calc(var(--ui-input-border-width) * -1);
 
         &, & :where(input, select) {
@@ -247,7 +243,7 @@
         }
       }
 
-      &:not(:last-child) {
+      &:not(:last-child, :has(+ em)) {
         &, & :where(input, select) {
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;

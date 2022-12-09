@@ -39,7 +39,6 @@
     justify-content: center;
     white-space: nowrap;
     flex-shrink: 0;
-    cursor: pointer;
     position: relative;
     z-index: 0;
     transition: var(--transition-opacity), var(--transition-background), var(--transition-color);
@@ -148,7 +147,7 @@
       border-radius: var(--rounded-full);
     }
 
-    &.-loading {
+    &:where(.-loading) {
       pointer-events: none;
       color: transparent;
 
@@ -236,4 +235,8 @@
       }
     }
   }
+}
+
+.test {
+  color: var(--color-primary-hsl)
 }

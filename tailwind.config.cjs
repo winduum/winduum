@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin')
 
 const colors = [
   'background', 'default', 'light', 'dark', 'primary', 'secondary',
-  'warning', 'error', 'info', 'success', 'accent'
+  'warning', 'error', 'info', 'success', 'accent', `current`
 ]
 
 const animations = [

@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 import tailwindcss from 'tailwindcss'
-import tailwindcssNesting from 'tailwindcss/nesting/index.js'
+import tailwindcssNesting from 'tailwindcss/nesting'
 import autoprefixer from 'autoprefixer'
 import postcssImport from 'postcss-import'
 import postcssNesting from 'postcss-nesting'

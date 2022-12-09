@@ -86,3 +86,13 @@ meter {
 :where(input, textarea) {
   cursor: text;
 }
+
+/* apply pointer cursor */
+:where(a[href], button) {
+  cursor: pointer;
+}
+
+/* fix firefox svg */
+:where(svg, use, path, symbol) {
+  all: revert-layer;
+}
