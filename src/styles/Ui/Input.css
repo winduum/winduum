@@ -1,5 +1,5 @@
 @layer utilities {
-  :where(.ui-input, .ui-select, .ui-input-group) {
+  :where(.ui-input, .ui-select, .ui-input-group, .ui-label) {
     --ui-input-height: 3rem;
     --ui-input-height-textarea: 8rem;
     --ui-input-py: 0.875rem;
@@ -26,31 +26,23 @@
     --ui-input-icon-inset-x-gap: 0.125rem;
     --ui-input-icon-offset-l: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-l));
     --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
+    --ui-input-validity-size: 0.875rem;
+    --ui-input-validity-offset: 0.375rem;
     --ui-input-label-font-size: 0.875rem;
     --ui-input-label-font-weight: var(--font-medium);
     --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
     --ui-input-label-focus-opacity: 0.5;
-    --ui-input-validity-size: 0.875rem;
-    --ui-input-validity-offset: 0.375rem;
 
-    display: grid;
-    grid-template-areas: "label" "input" "info";
-    font-size: var(--ui-input-font-size);
-    position: relative;
-
-    & svg {
-      font-size: var(--ui-input-icon-font-size);
-      width: 1em;
-      height: var(--ui-input-height);
+    &:where(label), & :where(label) {
+      margin-bottom: var(--ui-input-gap);
+      font-size: var(--ui-input-label-font-size);
+      font-weight: var(--ui-input-label-font-weight);
     }
 
     & label {
       grid-area: label;
       display: block;
       order: -1;
-      margin-bottom: var(--ui-input-gap);
-      font-size: var(--ui-input-label-font-size);
-      font-weight: var(--ui-input-label-font-weight);
     }
 
     & em {
@@ -60,6 +52,19 @@
       font-size: var(--ui-input-validity-size);
       color: rgb(var(--color-error));
       font-style: normal;
+    }
+  }
+
+  :where(.ui-input, .ui-select) {
+    display: grid;
+    grid-template-areas: "label" "input" "info";
+    font-size: var(--ui-input-font-size);
+    position: relative;
+
+    & svg {
+      font-size: var(--ui-input-icon-font-size);
+      width: 1em;
+      height: var(--ui-input-height);
     }
 
     &:has(.icon-l) {
