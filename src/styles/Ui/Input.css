@@ -26,6 +26,8 @@
     --ui-input-icon-inset-x-gap: 0.125rem;
     --ui-input-icon-offset-l: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-l));
     --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
+    --ui-input-label-font-size: 0.875rem;
+    --ui-input-label-font-weight: var(--font-medium);
     --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
     --ui-input-label-focus-opacity: 0.5;
     --ui-input-validity-size: 0.875rem;
@@ -47,6 +49,8 @@
       display: block;
       order: -1;
       margin-bottom: var(--ui-input-gap);
+      font-size: var(--ui-input-label-font-size);
+      font-weight: var(--ui-input-label-font-weight);
     }
 
     & em {
