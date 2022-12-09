@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/vituum/winduum" target="_blank" rel="noopener noreferrer">
+  <a href="https://stackblitz.com/github/vituum/winduum/tree/main" target="_blank" rel="noopener noreferrer">
     <img width="180" src="https://raw.githubusercontent.com/vituum/winduum/main/logo.svg" alt="Logo">
   </a>
 </p>
