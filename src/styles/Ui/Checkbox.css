@@ -89,7 +89,7 @@
         }
       }
 
-      &:invalid {
+      @nest .is-validated &:invalid {
         & ~ em {
           display: block;
         }

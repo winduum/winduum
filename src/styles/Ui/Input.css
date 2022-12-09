@@ -1,5 +1,5 @@
 @layer utilities {
-  :where(.ui-input, .ui-select, .ui-input-group, .ui-label) {
+  :where([class^="ui-input"], .ui-select, .ui-label) {
     --ui-input-height: 3rem;
     --ui-input-height-textarea: 8rem;
     --ui-input-py: 0.875rem;
@@ -33,19 +33,14 @@
     --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
     --ui-input-label-focus-opacity: 0.5;
 
-    &:where(label), & :where(label) {
+    &:where(label), & > :where(label:not([class^="ui"])) {
+      display: block;
       margin-bottom: var(--ui-input-gap);
       font-size: var(--ui-input-label-font-size);
       font-weight: var(--ui-input-label-font-weight);
     }
 
-    & label {
-      grid-area: label;
-      display: block;
-      order: -1;
-    }
-
-    & em {
+    & :where(em) {
       grid-area: info;
       display: none;
       margin-top: var(--ui-input-validity-offset);
@@ -61,12 +56,6 @@
     font-size: var(--ui-input-font-size);
     position: relative;
 
-    & svg {
-      font-size: var(--ui-input-icon-font-size);
-      width: 1em;
-      height: var(--ui-input-height);
-    }
-
     &:has(.icon-l) {
       --ui-input-pl: var(--ui-input-icon-offset-l);
     }
@@ -81,6 +70,17 @@
 
     &:has(.icon-r > *:nth-child(2)) {
       --ui-input-icon-count-r: 2;
+    }
+
+    & :where(label) {
+      grid-area: label;
+      order: -1;
+    }
+
+    & :where(svg) {
+      font-size: var(--ui-input-icon-font-size);
+      width: 1em;
+      height: var(--ui-input-height);
     }
 
     & :where(input, textarea, select) {
@@ -101,20 +101,6 @@
       @nest .is-validated &:invalid {
         & ~ em {
           display: block;
-        }
-      }
-
-      &:disabled {
-        cursor: default;
-        background-color: rgb(var(--color-background-100));
-      }
-
-      &:required {
-        & ~ label {
-          &::after {
-            color: rgb(var(--color-error));
-            content: " *";
-          }
         }
       }
 
@@ -186,7 +172,7 @@
       }
     }
 
-    &.-floating {
+    &:where(.-floating) {
       --ui-input-placeholder-color: transparent;
 
       & label {
@@ -215,6 +201,20 @@
         &:is(:focus, :not(:placeholder-shown)) ~ label {
           transform: var(--ui-input-label-focus-transform);
           opacity: var(--ui-input-label-focus-opacity);
+        }
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: rgb(var(--color-background-100));
+    }
+
+    &:required {
+      & ~ label {
+        &::after {
+          color: rgb(var(--color-error));
+          content: " *";
         }
       }
     }
@@ -258,6 +258,12 @@
           border-bottom-right-radius: 0;
         }
       }
+    }
+  }
+
+  :where(.ui-input-mask) {
+    & :where(.ui-switch, .ui-radio, .ui-checkbox) {
+      min-height: var(--ui-input-height);
     }
   }
 }

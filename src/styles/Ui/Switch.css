@@ -1,0 +1,102 @@
+.ui-switch {
+  --ui-switch-width: 3rem;
+  --ui-switch-height: 1.5rem;
+  --ui-switch-padding: 0.375rem;
+  --ui-switch-bg-raw: var(--color-dark);
+  --ui-switch-radius: 999px;
+  --ui-switch-validity-font-size: 0.875rem;
+  --ui-switch-validity-offset: 0.375rem;
+  --ui-switch-box-shadow: none;
+
+  @nest .dark & {
+    --ui-switch-bg-raw: var(--color-background-300);
+  }
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: max-content;
+
+  & em {
+    display: none;
+    width: 100%;
+    font-size: var(--ui-switch-validity-font-size);
+    color: rgb(var(--color-error));
+    font-style: normal;
+    margin-top: var(--ui-switch-validity-offset);
+  }
+
+  &.-sm {
+    --ui-switch-width: 2.5rem;
+    --ui-switch-height: 1.25rem;
+  }
+
+  &.-lg {
+    --ui-switch-width: 4rem;
+    --ui-switch-height: 2rem;
+  }
+
+  & input {
+    width: var(--ui-switch-width);
+    height: var(--ui-switch-height);
+    display: block;
+    position: relative;
+    border-radius: var(--ui-switch-radius);
+    background-color: rgb(var(--ui-switch-bg-raw));
+    transition: var(--transition-background);
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    color: inherit;
+    box-shadow: var(--ui-switch-box-shadow);
+
+    &::before {
+      width: calc(var(--ui-switch-height) - var(--ui-switch-padding));
+      height: calc(var(--ui-switch-height) - var(--ui-switch-padding));
+      background-color: rgb(var(--color-light));
+      border-radius: var(--ui-switch-radius);
+      position: absolute;
+      left: var(--ui-switch-height);
+      top: 50%;
+      content: "";
+      display: block;
+      margin-left: calc((var(--ui-switch-height) - var(--ui-switch-padding) + var(--ui-switch-padding) / 2) * -1);
+      transition: left var(--transition-duration), var(--transition-background);
+      transform: translateY(-50%);
+    }
+
+    @nest .is-validated &:invalid {
+      & ~ em {
+        display: block;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    &:focus {
+      --ui-switch-box-shadow:
+        0 0 0 0 rgb(var(--color-current)),
+        0 0 0 3px rgb(var(--color-current) / 0.2),
+        0 1px 2px 0 rgb(var(--color-current) / 0.05);
+    }
+
+    &:checked {
+      background-color: rgb(var(--color-accent));
+
+      &:focus {
+        --ui-switch-box-shadow:
+          0 0 0 0 rgb(var(--color-current)),
+          0 0 0 3px rgb(var(--color-accent) / 0.2),
+          0 1px 2px 0 rgb(var(--color-current) / 0.05);
+      }
+
+      &::before {
+        background-color: rgb(var(--color-light));
+        left: 100%;
+      }
+    }
+  }
+}
