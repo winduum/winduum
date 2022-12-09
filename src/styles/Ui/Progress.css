@@ -28,12 +28,12 @@
 
     &::-webkit-progress-value {
       background-color: currentColor;
-      border-radius: var(--ui-progress-radius);
+      border-radius: var(--ui-progress-border-radius);
     }
 
     &::-moz-progress-bar {
       background-color: currentColor;
-      border-radius: var(--ui-progress-radius);
+      border-radius: var(--ui-progress-border-radius);
     }
 
     &:indeterminate {

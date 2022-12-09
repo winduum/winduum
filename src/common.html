@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <script src="/src/scripts/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4">
+    <div class="ui-image aspect-square w-24 rounded">
+        <img src="https://via.placeholder.com/128" alt="" loading="lazy">
+    </div>
+    <h1 class="ui-heading -lg">Heading H1</h1>
+    <h2 class="ui-heading">Heading H2</h2>
+    <h3 class="ui-heading -sm">Heading H3</h3>
+    <h1 class="ui-title -lg">Title H1</h1>
+    <h2 class="ui-title">Title H2</h2>
+    <h3 class="ui-title uppercase text-accent -sm">Title H3</h3>
+    <a class="ui-link -underline" href="#">Link</a>
+    <progress class="ui-progress accent-error" value="50" max="100">15%</progress>
+    <progress class="ui-progress -sm" max="100">15%</progress>
+
+    <div class="ui-notice accent-success">
+        Success notice
+    </div>
+
+    <div class="ui-notice accent-error">
+        <div class="ui-text">
+            <h4>Nicely done!</h4>
+            <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Nullam in elit iaculis, tristique nisi ut, mollis tellus. Nunc venenatis elit vel placerat commodo. Vestibulum odio neque, hendrerit nec venenatis at, tincidunt ut magna. Etiam hendrerit ultrices pharetra.</p>
+        </div>
+        <button class="ui-btn">
+            <span>Button</span>
+        </button>
+    </div>
+
+    <div class="ui-text">
+        <h4>Nicely done!</h4>
+        <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Nullam in elit iaculis, tristique nisi ut, mollis tellus. Nunc venenatis elit vel placerat commodo. Vestibulum odio neque, hendrerit nec venenatis at, tincidunt ut magna. Etiam hendrerit ultrices pharetra.</p>
+    </div>
+
+    <div class="col flex-row gap-2">
+        <button class="bg-accent p-xs" id="action-btn-dark">dark</button>
+    </div>
+
+    <script>
+        document.getElementById('action-btn-dark').addEventListener('click', () => {
+            if (!document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+        })
+    </script>
+</body>
+</html>

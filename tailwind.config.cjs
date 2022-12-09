@@ -18,11 +18,6 @@ module.exports = {
   corePlugins: {
     preflight: false,
     container: false,
-    ringWidth: false,
-    ringColor: false,
-    ringOpacity: false,
-    ringOffsetWidth: false,
-    ringOffsetColor: false,
     accentColor: false
   },
   theme: {

@@ -1,7 +1,9 @@
 @layer utilities {
-  :where([class^="ui-input"], .ui-select, .ui-label) {
+  :where(.ui-input, .ui-input-group, .ui-input-mask, .ui-select) {
     --ui-input-height: 3rem;
     --ui-input-height-textarea: 8rem;
+    --ui-input-pt-floating: 1.25rem;
+    --ui-input-pb-floating: 0.4375rem;
     --ui-input-py: 0.875rem;
     --ui-input-px: 1rem;
     --ui-input-pl: var(--ui-input-px);
@@ -33,7 +35,7 @@
     --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
     --ui-input-label-focus-opacity: 0.5;
 
-    &:where(label), & > :where(label:not([class^="ui"])) {
+    & > :where(label:not([class^="ui"])) {
       display: block;
       margin-bottom: var(--ui-input-gap);
       font-size: var(--ui-input-label-font-size);
@@ -112,6 +114,20 @@
           0 0 0 3px rgb(var(--color-accent) / 0.2),
           0 1px 2px 0 rgb(var(--color-current) / 0.05);
       }
+
+      &:disabled {
+        cursor: default;
+        background-color: rgb(var(--color-default) / 0.1);
+      }
+
+      &:required {
+        & ~ label {
+          &::after {
+            color: rgb(var(--color-error));
+            content: " *";
+          }
+        }
+      }
     }
 
     & :where(input, textarea) {
@@ -175,7 +191,7 @@
     &:where(.-floating) {
       --ui-input-placeholder-color: transparent;
 
-      & label {
+      & :where(label) {
         position: absolute;
         z-index: 1;
         pointer-events: none;
@@ -195,26 +211,12 @@
       }
 
       & :where(input, textarea, select) {
-        padding-top: calc(var(--ui-input-py) * 2);
-        padding-bottom: calc(var(--ui-input-py) * 0.5);
+        padding-top: calc(var(--ui-input-pt-floating));
+        padding-bottom: calc(var(--ui-input-pb-floating));
 
         &:is(:focus, :not(:placeholder-shown)) ~ label {
           transform: var(--ui-input-label-focus-transform);
           opacity: var(--ui-input-label-focus-opacity);
-        }
-      }
-    }
-
-    &:disabled {
-      cursor: default;
-      background-color: rgb(var(--color-background-100));
-    }
-
-    &:required {
-      & ~ label {
-        &::after {
-          color: rgb(var(--color-error));
-          content: " *";
         }
       }
     }
@@ -262,7 +264,7 @@
   }
 
   :where(.ui-input-mask) {
-    & :where(.ui-switch, .ui-radio, .ui-checkbox) {
+    & :where([class^="ui-"]) {
       min-height: var(--ui-input-height);
     }
   }

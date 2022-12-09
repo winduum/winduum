@@ -43,7 +43,7 @@
     position: relative;
     border-radius: var(--ui-switch-radius);
     background-color: rgb(var(--ui-switch-bg-raw));
-    transition: var(--transition-background);
+    transition: var(--transition-background), var(--transition-shadow);
     cursor: pointer;
     appearance: none;
     outline: none;

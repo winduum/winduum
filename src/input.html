@@ -7,16 +7,11 @@
     <link rel="stylesheet" href="/src/styles/main.css">
     <script src="/src/scripts/main.js" type="module"></script>
 </head>
-<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4">
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4 accent-warning">
     <div class="col flex-row gap-2">
         <button class="bg-white p-xs" id="action-btn-disabled">disabled</button>
-        <button class="bg-white p-xs" id="action-btn-active">active</button>
         <button class="bg-white p-xs" id="action-btn-loading">loading</button>
         <button class="bg-white p-xs" id="action-btn-dark">dark</button>
-    </div>
-
-    <div class="ui-image aspect-square w-24 rounded">
-        <img src="https://via.placeholder.com/128" alt="" loading="lazy">
     </div>
 
     <div class="ui-input -floating">
@@ -71,6 +66,26 @@
     <div class="ui-input">
         <textarea id="textarea" required></textarea>
         <label for="textarea">Name</label>
+    </div>
+
+    <div class="ui-input -floating">
+        <input type="number" id="number" required placeholder=" ">
+        <label for="number">Number</label>
+    </div>
+
+    <div class="ui-input -floating">
+        <input type="datetime-local" id="datetime" required placeholder=" ">
+        <label for="datetime">Datetime</label>
+    </div>
+
+    <div class="ui-input -floating">
+        <input type="time" id="time" required placeholder=" ">
+        <label for="time">Datetime</label>
+    </div>
+
+    <div class="ui-input">
+        <input type="file" id="file" required>
+        <label for="file">Datetime</label>
     </div>
 
     <div class="ui-input-group">

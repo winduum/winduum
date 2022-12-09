@@ -1,17 +1,23 @@
 @layer utilities {
   :where(.ui-heading) {
     --ui-heading-font-family: var(--font-primary);
-    --ui-heading-font-size: 1.5rem;
+    --ui-heading-font-weight: var(--font-semibold);
+    --ui-heading-font-size: 1.25rem;
+    --ui-heading-line-height: calc(var(--ui-heading-font-size) + var(--ui-heading-line-height-ratio));
+    --ui-heading-line-height-ratio: 0.375rem;
 
     font-family: var(--ui-heading-font-family);
     font-size: var(--ui-heading-font-size);
+    line-height: var(--ui-heading-line-height);
+    font-weight: var(--ui-heading-font-weight);
 
-    &.-sm {
-      --ui-heading-font-size: 1.25rem;
+    &:where(.-sm) {
+      --ui-heading-font-size: 1.125rem;
+      --ui-heading-line-height-ratio: 0.125rem;
     }
 
-    &.-lg {
-      --ui-heading-font-size: 2rem;
+    &:where(.-lg) {
+      --ui-heading-font-size: 1.875rem;
     }
   }
 }

@@ -1,7 +1,7 @@
 @layer utilities {
   :where(.ui-btn) {
     --color-current: var(--color-light);
-    --ui-btn-width: auto;
+    --ui-btn-width: max-content;
     --ui-btn-height: 2.25rem;
     --ui-btn-py: 0.375rem;
     --ui-btn-px: 0.75rem;
@@ -44,12 +44,6 @@
     transition: var(--transition-opacity), var(--transition-background), var(--transition-color);
     gap: var(--ui-btn-gap);
 
-    & svg {
-      width: 1em;
-      height: 1em;
-      font-size: var(--ui-btn-icon-font-size);
-    }
-
     &::before {
       position: absolute;
       inset: 0;
@@ -63,12 +57,18 @@
       transition: var(--transition-opacity);
     }
 
-    &.-sm {
+    & :where(svg) {
+      width: 1em;
+      height: 1em;
+      font-size: var(--ui-btn-icon-font-size);
+    }
+
+    &:where(.-sm) {
       --ui-btn-height: 2rem;
       --ui-btn-px: 1rem;
     }
 
-    &.-lg {
+    &:where(.-lg) {
       --ui-btn-height: 3rem;
       --ui-btn-px: 1.75rem;
     }
@@ -144,7 +144,7 @@
     }
 
     &:where(.-circle) {
-      border-radius: var(--rounded-full);
+      --ui-btn-border-radius: var(--rounded-full);
     }
 
     &:where(.-loading) {
@@ -222,7 +222,7 @@
   :where(.ui-btn-group) {
     display: flex;
 
-    & .ui-btn {
+    & :where(.ui-btn) {
       &:not(:first-child) {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
@@ -235,8 +235,4 @@
       }
     }
   }
-}
-
-.test {
-  color: var(--color-primary-hsl)
 }

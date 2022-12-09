@@ -1,0 +1,23 @@
+::selection {
+  color: rgb(var(--color-light));
+  background-color: rgb(var(--color-accent));
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: rgb(255 255 255 / 0);
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where(svg) {
+  stroke-width: 1.5;
+}
+
+:where(hr) {
+  display: block;
+  border-top: 1px solid rgb(var(--color-current) / var(--tw-border-opacity, 1));
+}

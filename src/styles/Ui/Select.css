@@ -1,5 +1,6 @@
 @layer utilities {
   :where(.ui-select) {
+    --ui-input-icon-select-icon-font-size: 1.5rem;
     --ui-input-icon-count-r: 2;
     --ui-input-pr: var(--ui-input-icon-offset-r);
 
@@ -14,10 +15,10 @@
       content: "";
       position: absolute;
       z-index: 1;
-      font-size: 1.5rem;
+      font-size: var(--ui-input-icon-select-icon-font-size);
       right: calc(var(--ui-input-height) / 4);
       top: calc(var(--ui-input-height) / 2);
-      margin-top: -0.75rem;
+      margin-top: calc(var(--ui-input-icon-select-icon-font-size) / 2 * -1);
       will-change: transform;
       transition: transform 200ms;
       mask: var(--icon-angle-down);

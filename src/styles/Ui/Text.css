@@ -1,5 +1,206 @@
 @layer utilities {
   :where(.ui-text) {
+    --ui-text-size: 0.875rem;
+    --ui-text-size-line: 0.75rem;
+    --ui-text-weight: var(--font-normal);
+    --ui-text-weight-bold: var(--font-semibold);
 
+    font-weight: var(--ui-text-weight);
+    font-size: var(--ui-text-size);
+    line-height: calc(var(--ui-text-size) + var(--ui-text-size-line));
+
+    &:where(.-lg) {
+      --ui-text-size: 1.125rem;
+    }
+
+    & :where(a) {
+      text-decoration: underline;
+      transition: var(--transition-color);
+      color: rgb(var(--color-accent));
+
+      &:hover {
+        @media (hover: hover) and (pointer: fine) {
+          color: rgb(var(--color-accent) / 0.7);
+        }
+      }
+
+      &:focus-visible {
+        color: rgb(var(--color-accent) / 0.7);
+      }
+    }
+
+    & :where(b, strong) {
+      font-weight: var(--ui-text-weight-bold);
+    }
+
+    & :where(i, em) {
+      display: inline;
+      font-style: italic;
+    }
+
+    & :where(figure) {
+      margin: 1rem 0;
+
+      @media (--media-t) {
+        margin: 2rem 0;
+      }
+
+      & :where(figcaption) {
+        font-size: 0.875rem;
+        font-weight: var(--font-semibold);
+        margin-top: 0.875rem;
+      }
+    }
+
+    & :where(img) {
+      height: auto !important;
+    }
+
+    & :where(p) {
+      line-height: inherit;
+      margin: 0 0 0.25rem;
+
+      &:empty {
+        line-height: 1rem;
+      }
+
+      &::after {
+        content: "\00a0";
+      }
+    }
+
+    & :where(hr) {
+      margin: 1.25rem 0;
+    }
+
+    & :where(h1, h2, h3, h4, h5, h6) {
+      font-weight: var(--ui-text-weight-bold);
+      font-family: var(--font-secondary);
+      font-size: var(--ui-text-heading-size, 1rem);
+      line-height: calc(var(--ui-text-heading-size) + 0.5rem);
+      margin: 0 0 1.25rem;
+    }
+
+    & h1 {
+      --ui-text-heading-size: 2.25rem;
+    }
+
+    & h2 {
+      --ui-text-heading-size: 1.75rem;
+    }
+
+    & :where(h3, h4) {
+      --ui-text-heading-size: 1.25rem;
+    }
+
+    & :where(table) {
+      border: 0;
+
+      @media not all and (--media-m) {
+        min-width: 100%;
+      }
+
+      & :where(td, th) {
+        padding: 1rem 1.125rem;
+        text-align: left;
+      }
+
+      & :where(thead) {
+        font-weight: var(--ui-text-weight-bold);
+        border-bottom: 1px solid rgb(var(--color-current) / 0.075);
+      }
+
+      & :where(tbody tr) {
+        &:nth-of-type(even) {
+          background-color: rgb(var(--color-current) / 0.05);
+        }
+      }
+    }
+
+    & :where(iframe) {
+      max-width: 100%;
+    }
+
+    & :where(blockquote) {
+      background-color: rgb(var(--color-current) / 0.075);
+      border-left: 0.3125rem solid rgb(var(--color-accent) / 1);
+      padding: 1.25em 1.5em;
+      margin: 0;
+      font-size: inherit;
+    }
+
+    & :where(code) {
+      margin: 0;
+      border-radius: var(--rounded-xs);
+      padding: 0.25rem 0.5rem;
+      font-size: 0.85em;
+      color: #476582;
+      font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+      background-color: rgb(27 31 35 / 0.05);
+
+      @nest .dark & {
+        background-color: rgb(var(--color-background-100));
+        color: rgb(var(--color-primary));
+      }
+    }
+
+    & :where(ol) {
+      margin: 0 0 1.5rem;
+      padding: 0 0 0 1rem;
+
+      & :where(li) {
+        padding-left: 0.5rem;
+
+        &::marker {
+          color: rgb(var(--color-accent));
+        }
+      }
+    }
+
+    & :where(ul) {
+      list-style-type: none !important;
+      margin: 0 0 1.5rem;
+      padding: 0;
+
+      & :where(li) {
+        position: relative;
+        line-height: inherit;
+        padding-left: 1.5rem;
+
+        &:not(:last-of-type) {
+          margin: 0 0 0.5rem;
+        }
+
+        &::before {
+          width: 0.25rem;
+          height: 0.25rem;
+          position: absolute;
+          content: "";
+          border: 1px solid rgb(var(--color-accent));
+          background-color: rgb(var(--color-accent));
+          left: 0;
+          top: 0.625rem;
+          text-indent: 0;
+          border-radius: 50%;
+        }
+      }
+
+      &[style*="square"] {
+        & li {
+          &::before {
+            border-radius: 0;
+          }
+        }
+      }
+
+      &[style*="circle"] {
+        & li {
+          &::before {
+            border-radius: 50%;
+            background-color: transparent;
+          }
+        }
+      }
+    }
   }
 }
