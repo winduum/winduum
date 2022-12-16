@@ -1,9 +1,10 @@
 @import "src/styles/Base/reset.css";
 @import "src/styles/Base/default.css";
-@import "src/styles/Base/base.css";
+@import "src/styles/Base/config.css";
 @import "src/styles/Base/icons.css";
 @import "src/styles/Base/keyframes.css";
-@import "src/styles/Base/theme/main.css";
+@import "src/styles/Base/theme/default.css";
+@import "src/styles/Base/theme/dark.css";
 @import "Ui/+.css";
 @import "Components/+.css";
 @import "Libraries/+.css";
