@@ -1,10 +1,10 @@
-@import "Utils/reset.css";
-@import "Utils/default.css";
-@import "Utils/base.css";
-@import "Utils/icons.css";
-@import "Utils/keyframes.css";
-@import "Utils/theme/main.css";
+@import "src/styles/Base/reset.css";
+@import "src/styles/Base/default.css";
+@import "src/styles/Base/base.css";
+@import "src/styles/Base/icons.css";
+@import "src/styles/Base/keyframes.css";
+@import "src/styles/Base/theme/main.css";
 @import "Ui/+.css";
 @import "Components/+.css";
 @import "Libraries/+.css";
-@import "Utils/tailwind/base.css";
+@import "src/styles/Base/tailwind/base.css";
