@@ -63,22 +63,22 @@
       font-size: var(--ui-btn-icon-font-size);
     }
 
-    &:where(.-sm) {
+    &:where(.is-sm) {
       --ui-btn-height: 2rem;
       --ui-btn-px: 1rem;
     }
 
-    &:where(.-lg) {
+    &:where(.is-lg) {
       --ui-btn-height: 3rem;
       --ui-btn-px: 1.75rem;
     }
 
-    &:where(.-wide) {
+    &:where(.is-wide) {
       padding-left: calc(var(--ui-btn-px) * 2);
       padding-right: calc(var(--ui-btn-px) * 2);
     }
 
-    &:where(.-outline, .-muted, .-text) {
+    &:where(.is-outline, .is-muted, .is-text) {
       --color-current: var(--color-accent);
       --ui-btn-hover-opacity: 0.1;
       --ui-btn-hover-filter: none;
@@ -90,23 +90,23 @@
       }
     }
 
-    &:where(.-outline) {
+    &:where(.is-outline) {
       --ui-btn-focus-opacity: 0.15;
 
       outline: var(--ui-btn-outline-width) solid rgb(var(--color-accent) / var(--ui-btn-outline-opacity));
       outline-offset: calc(var(--ui-btn-outline-width) * -1);
     }
 
-    &:where(.-outline-gradient) {
+    &:where(.is-outline-gradient) {
       --ui-btn-focus-opacity: 0.15;
       --color-accent: var(--color-default);
       --color-current: var(--color-accent);
 
-      &.-loading.-hover-fill {
+      &.is-loading.is-hover-fill {
         --color-current: var(--color-light);
       }
 
-      &:not(.-loading) {
+      &:not(.is-loading) {
         &::after {
           content: "";
           position: absolute;
@@ -119,7 +119,7 @@
       }
     }
 
-    &:where(.-muted) {
+    &:where(.is-muted) {
       --ui-btn-hover-opacity: 0.3;
 
       &::before {
@@ -127,27 +127,27 @@
       }
     }
 
-    &:where(.-raised) {
+    &:where(.is-raised) {
       --ui-btn-outline-opacity: 0.1;
 
       outline: var(--ui-btn-outline-width) solid rgb(var(--color-current) / var(--ui-btn-outline-opacity));
       outline-offset: calc(var(--ui-btn-outline-width) * -1);
     }
 
-    &:where(.-hover-fill) {
+    &:where(.is-hover-fill) {
       --ui-btn-hover-opacity: 1;
     }
 
-    &:where(.-square, .-circle) {
+    &:where(.is-square, .is-circle) {
       --ui-btn-py: var(--ui-btn-py);
       --ui-btn-width: var(--ui-btn-height);
     }
 
-    &:where(.-circle) {
+    &:where(.is-circle) {
       --ui-btn-border-radius: var(--rounded-full);
     }
 
-    &:where(.-loading) {
+    &:where(.is-loading) {
       pointer-events: none;
       color: transparent;
 
@@ -178,11 +178,11 @@
           opacity: var(--ui-btn-hover-opacity);
         }
 
-        &.-hover-fill {
+        &.is-hover-fill {
           --color-current: var(--color-light);
         }
 
-        &.-outline-gradient {
+        &.is-outline-gradient {
           &::before, &::after {
             opacity: 0;
           }
@@ -190,16 +190,16 @@
       }
     }
 
-    &:is(:not(:disabled):active, .-active) {
+    &:is(:not(:disabled):active, .is-active) {
       &::before {
         opacity: var(--ui-btn-hover-opacity);
       }
 
-      &.-hover-fill {
+      &.is-hover-fill {
         --color-current: var(--color-light);
       }
 
-      &.-outline-gradient {
+      &.is-outline-gradient {
         &::before, &::after {
           opacity: 0;
         }

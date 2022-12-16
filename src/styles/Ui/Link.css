@@ -32,7 +32,7 @@
     --ui-link-underline-transform: none;
   }
 
-  &:where(.-underline)::after {
+  &:where(.is-underline)::after {
     content: "";
     border-bottom: var(--ui-link-underline-width) solid currentColor;
     opacity: var(--ui-link-underline-opacity);

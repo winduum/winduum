@@ -11,11 +11,11 @@
     line-height: var(--ui-title-line-height);
     font-weight: var(--ui-title-font-weight);
 
-    &:where(.-sm) {
+    &:where(.is-sm) {
       --ui-title-font-size: 0.75rem;
     }
 
-    &:where(.-lg) {
+    &:where(.is-lg) {
       --ui-title-font-size: 1.125rem;
     }
   }

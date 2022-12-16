@@ -9,7 +9,7 @@
     font-size: var(--ui-text-size);
     line-height: calc(var(--ui-text-size) + var(--ui-text-size-line));
 
-    &:where(.-lg) {
+    &:where(.is-lg) {
       --ui-text-size: 1.125rem;
     }
 

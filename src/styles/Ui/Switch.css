@@ -26,12 +26,12 @@
     margin-top: var(--ui-switch-validity-offset);
   }
 
-  &.-sm {
+  &.is-sm {
     --ui-switch-width: 2.5rem;
     --ui-switch-height: 1.25rem;
   }
 
-  &.-lg {
+  &.is-lg {
     --ui-switch-width: 4rem;
     --ui-switch-height: 2rem;
   }

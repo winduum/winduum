@@ -44,35 +44,35 @@
       font-size: var(--ui-badge-icon-font-size);
     }
 
-    &:where(.-outline) {
+    &:where(.is-outline) {
       outline: var(--ui-badge-outline-width) solid rgb(var(--color-accent) / var(--ui-badge-outline-opacity));
       outline-offset: calc(var(--ui-badge-outline-width) * -1);
     }
 
-    &:where(.-outline, .-muted) {
+    &:where(.is-outline, .is-muted) {
       --color-current: var(--color-accent);
       --ui-badge-bg: transparent;
     }
 
-    &:where(.-muted) {
+    &:where(.is-muted) {
       background-color: rgb(var(--color-current) / 0.1);
     }
 
-    &:where(.-square, .-circle) {
+    &:where(.is-square, .is-circle) {
       --ui-badge-px: var(--ui-badge-py);
       --ui-badge-width: var(--ui-badge-height);
     }
 
-    &:where(.-circle) {
+    &:where(.is-circle) {
       --ui-badge-border-radius: var(--rounded-full);
     }
 
-    &:where(.-sm) {
+    &:where(.is-sm) {
       --ui-badge-height: 1.25rem;
       --ui-badge-font-size: 0.625rem;
     }
 
-    &:where(.-lg) {
+    &:where(.is-lg) {
       --ui-badge-height: 1.75rem;
     }
 

@@ -11,12 +11,12 @@
     line-height: var(--ui-heading-line-height);
     font-weight: var(--ui-heading-font-weight);
 
-    &:where(.-sm) {
+    &:where(.is-sm) {
       --ui-heading-font-size: 1.125rem;
       --ui-heading-line-height-ratio: 0.125rem;
     }
 
-    &:where(.-lg) {
+    &:where(.is-lg) {
       --ui-heading-font-size: 1.875rem;
     }
   }
