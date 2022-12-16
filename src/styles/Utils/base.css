@@ -18,14 +18,6 @@
   --container-width-sm: 50rem;
   --container-padding: 5vw;
   --container-padding-calc: max(calc(50vw - (var(--container-width) / 2) + var(--container-padding)), var(--container-padding));
-
-  @media (--media-t) {
-    --container-padding: 3rem;
-  }
-
-  @media (--media-m) {
-    --section-padding: 2rem;
-  }
 }
 
 :root {
@@ -83,12 +75,13 @@
   }
 }
 
-@custom-media --media-m (max-width: 47.9375em);
-@custom-media --media-t (min-width: 48em);
-@custom-media --media-d (min-width: 60em);
-@custom-media --media-w (min-width: 76em);
-@custom-media --media-hd (min-width: 85em);
-@custom-media --media-shd (min-width: 88em);
-@custom-media --media-fhd (min-width: 100em);
-@custom-media --media-touch (max-width: 59.9375em);
-@custom-media --media-touch-only (max-width: 59.9375em) and (min-width: 47.9375em);
+@custom-media --media-xs (min-width: 22.5em);
+@custom-media --media-sm (min-width: 26em);
+@custom-media --media-md (min-width: 48em);
+@custom-media --media-lg (min-width: 60em);
+@custom-media --media-xl (min-width: 76em);
+@custom-media --media-2xl (min-width: 82em);
+@custom-media --media-3xl (min-width: 88em);
+@custom-media --media-4xl (min-width: 100em);
+@custom-media --media-xxl (min-width: 126em);
+@custom-media --media-2xxl (min-width: 158em);

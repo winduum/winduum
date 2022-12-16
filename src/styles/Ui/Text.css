@@ -41,7 +41,7 @@
     & :where(figure) {
       margin: 1rem 0;
 
-      @media (--media-t) {
+      @media (--media-md) {
         margin: 2rem 0;
       }
 
@@ -95,10 +95,7 @@
 
     & :where(table) {
       border: 0;
-
-      @media not all and (--media-m) {
-        min-width: 100%;
-      }
+      min-width: 100%;
 
       & :where(td, th) {
         padding: 1rem 1.125rem;

@@ -11,18 +11,18 @@
     "tailwind-helpers": "rollup utils/helpers.js --file utils/helpers.cjs --format cjs"
   },
   "devDependencies": {
-    "vite": "^4.0.0-beta.7",
+    "vite": "^4.0.1",
     "vue": "^3.2.45",
     "autoprefixer": "^10.4.13",
     "tailwindcss": "^3.2.4",
-    "postcss": "^8.4.19",
+    "postcss": "^8.4.20",
     "postcss-custom-media": "^9.0.1",
     "postcss-custom-selectors": "^7.0.0",
     "postcss-custom-properties": "^12.1.11",
     "postcss-import": "^15.1.0",
     "postcss-nesting": "^10.2.0",
-    "css-has-pseudo": "^4.0.1",
-    "@vitejs/plugin-vue": "^4.0.0-beta.0",
+    "css-has-pseudo": "^4.0.2",
+    "@vitejs/plugin-vue": "^4.0.0",
     "eslint": "^8.29.0",
     "eslint-config-standard": "^17.0.0",
     "stylelint-config-standard": "^29.0.0"

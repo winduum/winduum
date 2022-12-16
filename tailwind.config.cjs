@@ -34,14 +34,16 @@ module.exports = {
         DEFAULT: 'var(--rounded)'
       }),
       screens: {
-        m: { max: '47.9375em' },
-        t: '48em',
-        d: '60em',
-        w: '76em',
-        hd: '85em',
-        shd: '88em',
-        fhd: '100em',
-        touch: { max: '59.9375em' }
+        'xs': '22.5em',
+        'sm': '26em',
+        'md': '48em',
+        'lg': '60em',
+        'xl': '76em',
+        '2xl': '82em',
+        '3xl': '88em',
+        '4xl': '100em',
+        'xxl': '126em',
+        '2xxl': '158em'
       }
     },
   },

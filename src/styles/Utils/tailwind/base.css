@@ -20,7 +20,7 @@
     padding-right: var(--container-padding);
     max-width: var(--container-width);
 
-    &.is-size-sm {
+    &.is-sm {
       --container-width: var(--container-width-sm);
     }
   }
