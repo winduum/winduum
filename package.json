@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -31,12 +31,14 @@
   },
   "files": [
     "index.js",
+    "tailwind.config.cjs",
     "dist",
     "src",
     "utils"
   ],
   "exports": {
     ".": "./index.js",
+    "./tailwind.config.cjs": "./tailwind.config.cjs",
     "./main.css": "./dist/main.css",
     "./src/*": "./src/*",
     "./utils/*": "./utils/*"

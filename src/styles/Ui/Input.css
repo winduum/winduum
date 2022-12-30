@@ -1,271 +1,269 @@
-@layer utilities {
-  :where(.ui-input, .ui-input-group, .ui-input-mask, .ui-select) {
-    --ui-input-height: 3rem;
-    --ui-input-height-textarea: 8rem;
-    --ui-input-pt-floating: 1.25rem;
-    --ui-input-pb-floating: 0.4375rem;
-    --ui-input-py: 0.875rem;
-    --ui-input-px: 1rem;
-    --ui-input-pl: var(--ui-input-px);
-    --ui-input-pr: var(--ui-input-px);
-    --ui-input-bg: rgb(var(--color-background));
-    --ui-input-color: currentColor;
-    --ui-input-placeholder-color: currentColor;
-    --ui-input-placeholder-opacity: 0.5;
-    --ui-input-font-size: 0.875rem;
-    --ui-input-font-weight: var(--font-medium);
-    --ui-input-border-width: 1px;
-    --ui-input-border-color: var(--color-current);
-    --ui-input-border-opacity: 0.15;
-    --ui-input-border-radius: var(--rounded);
-    --ui-input-box-shadow: none;
-    --ui-input-gap: 0.5rem;
-    --ui-input-icon-font-size: 1.25rem;
-    --ui-input-icon-count-l: 1;
-    --ui-input-icon-count-r: 1;
-    --ui-input-icon-gap: 0.375rem;
-    --ui-input-icon-inset-x: calc(var(--ui-input-px) - 0.25rem);
-    --ui-input-icon-inset-x-gap: 0.125rem;
-    --ui-input-icon-offset-l: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-l));
-    --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
-    --ui-input-validity-size: 0.875rem;
-    --ui-input-validity-offset: 0.375rem;
-    --ui-input-label-font-size: 0.875rem;
-    --ui-input-label-font-weight: var(--font-medium);
-    --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
-    --ui-input-label-focus-opacity: 0.5;
+:where(.ui-input, .ui-input-group, .ui-input-mask, .ui-select) {
+  --ui-input-height: 3rem;
+  --ui-input-height-textarea: 8rem;
+  --ui-input-pt-floating: 1.25rem;
+  --ui-input-pb-floating: 0.4375rem;
+  --ui-input-py: 0.875rem;
+  --ui-input-px: 1rem;
+  --ui-input-pl: var(--ui-input-px);
+  --ui-input-pr: var(--ui-input-px);
+  --ui-input-bg: rgb(var(--color-background));
+  --ui-input-color: currentColor;
+  --ui-input-placeholder-color: currentColor;
+  --ui-input-placeholder-opacity: 0.5;
+  --ui-input-font-size: 0.875rem;
+  --ui-input-font-weight: var(--font-medium);
+  --ui-input-border-width: 1px;
+  --ui-input-border-color: var(--color-current);
+  --ui-input-border-opacity: 0.15;
+  --ui-input-border-radius: var(--rounded);
+  --ui-input-box-shadow: none;
+  --ui-input-gap: 0.5rem;
+  --ui-input-icon-font-size: 1.25rem;
+  --ui-input-icon-count-l: 1;
+  --ui-input-icon-count-r: 1;
+  --ui-input-icon-gap: 0.375rem;
+  --ui-input-icon-inset-x: calc(var(--ui-input-px) - 0.25rem);
+  --ui-input-icon-inset-x-gap: 0.125rem;
+  --ui-input-icon-offset-l: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-l));
+  --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
+  --ui-input-validity-size: 0.875rem;
+  --ui-input-validity-offset: 0.375rem;
+  --ui-input-label-font-size: 0.875rem;
+  --ui-input-label-font-weight: var(--font-medium);
+  --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
+  --ui-input-label-focus-opacity: 0.5;
 
-    & > :where(label:not([class^="ui"])) {
-      display: block;
-      margin-bottom: var(--ui-input-gap);
-      font-size: var(--ui-input-label-font-size);
-      font-weight: var(--ui-input-label-font-weight);
-    }
-
-    & :where(em) {
-      grid-area: info;
-      display: none;
-      margin-top: var(--ui-input-validity-offset);
-      font-size: var(--ui-input-validity-size);
-      color: rgb(var(--color-error));
-      font-style: normal;
-    }
+  & > :where(label:not([class^="ui"])) {
+    display: block;
+    margin-bottom: var(--ui-input-gap);
+    font-size: var(--ui-input-label-font-size);
+    font-weight: var(--ui-input-label-font-weight);
   }
 
-  :where(.ui-input, .ui-select) {
-    display: grid;
-    grid-template-areas: "label" "input" "info";
-    font-size: var(--ui-input-font-size);
-    position: relative;
+  & :where(em) {
+    grid-area: info;
+    display: none;
+    margin-top: var(--ui-input-validity-offset);
+    font-size: var(--ui-input-validity-size);
+    color: rgb(var(--color-error));
+    font-style: normal;
+  }
+}
 
-    &:has(.icon-l) {
-      --ui-input-pl: var(--ui-input-icon-offset-l);
-    }
+:where(.ui-input, .ui-select) {
+  display: grid;
+  grid-template-areas: "label" "input" "info";
+  font-size: var(--ui-input-font-size);
+  position: relative;
 
-    &:has(.icon-r) {
-      --ui-input-pr: var(--ui-input-icon-offset-r);
-    }
+  &:has(.icon-l) {
+    --ui-input-pl: var(--ui-input-icon-offset-l);
+  }
 
-    &:has(.icon-l > *:nth-child(2)) {
-      --ui-input-icon-count-r: 2;
-    }
+  &:has(.icon-r) {
+    --ui-input-pr: var(--ui-input-icon-offset-r);
+  }
 
-    &:has(.icon-r > *:nth-child(2)) {
-      --ui-input-icon-count-r: 2;
-    }
+  &:has(.icon-l > *:nth-child(2)) {
+    --ui-input-icon-count-r: 2;
+  }
 
-    & :where(label) {
-      grid-area: label;
-      order: -1;
-    }
+  &:has(.icon-r > *:nth-child(2)) {
+    --ui-input-icon-count-r: 2;
+  }
 
-    & :where(svg) {
-      font-size: var(--ui-input-icon-font-size);
-      width: 1em;
-      height: var(--ui-input-height);
-    }
+  & :where(label) {
+    grid-area: label;
+    order: -1;
+  }
 
-    & :where(input, textarea, select) {
-      grid-area: input;
-      background-clip: padding-box;
-      background-color: var(--ui-input-bg);
-      padding: var(--ui-input-py) var(--ui-input-pr) var(--ui-input-py) var(--ui-input-pl);
-      transition: var(--transition-border), var(--transition-shadow);
-      box-shadow: var(--ui-input-box-shadow);
-      line-height: normal;
-      font-size: inherit;
-      height: var(--ui-input-height);
-      font-weight: var(--ui-input-font-weight);
-      border-radius: var(--ui-input-border-radius);
-      color: var(--ui-input-color);
-      border: var(--ui-input-border-width) solid rgb(var(--ui-input-border-color) / var(--ui-input-border-opacity));
+  & :where(svg) {
+    font-size: var(--ui-input-icon-font-size);
+    width: 1em;
+    height: var(--ui-input-height);
+  }
 
-      @nest .is-validated &:invalid {
-        & ~ em {
-          display: block;
-        }
-      }
+  & :where(input, textarea, select) {
+    grid-area: input;
+    background-clip: padding-box;
+    background-color: var(--ui-input-bg);
+    padding: var(--ui-input-py) var(--ui-input-pr) var(--ui-input-py) var(--ui-input-pl);
+    transition: var(--transition-border), var(--transition-shadow);
+    box-shadow: var(--ui-input-box-shadow);
+    line-height: normal;
+    font-size: inherit;
+    height: var(--ui-input-height);
+    font-weight: var(--ui-input-font-weight);
+    border-radius: var(--ui-input-border-radius);
+    color: var(--ui-input-color);
+    border: var(--ui-input-border-width) solid rgb(var(--ui-input-border-color) / var(--ui-input-border-opacity));
 
-      &:focus {
-        --ui-input-border-opacity: 1;
-        --ui-input-border-color: var(--color-accent);
-        --ui-input-box-shadow:
-          0 0 0 0 rgb(var(--color-current)),
-          0 0 0 3px rgb(var(--color-accent) / 0.2),
-          0 1px 2px 0 rgb(var(--color-current) / 0.05);
-      }
-
-      &:disabled {
-        cursor: default;
-        background-color: rgb(var(--color-default) / 0.1);
-      }
-
-      &:required {
-        & ~ label {
-          &::after {
-            color: rgb(var(--color-error));
-            content: " *";
-          }
-        }
-      }
-    }
-
-    & :where(input, textarea) {
-      &::placeholder {
-        color: var(--ui-input-placeholder-color);
-        opacity: var(--ui-input-placeholder-opacity);
-      }
-    }
-
-    & :where(textarea) {
-      resize: vertical;
-      overflow: hidden;
-      min-height: var(--ui-input-height-textarea);
-    }
-
-    & :where([class^="icon-"]) {
-      grid-area: input;
-      position: relative;
-      transition: var(--transition-opacity);
-      content: "";
-      line-height: 1em;
-      display: flex;
-      flex-direction: row;
-      flex-shrink: 0;
-      gap: var(--ui-input-icon-gap);
-      align-items: center;
-
-      &.icon-l {
-        left: var(--ui-input-icon-inset-x);
-        margin-right: auto;
-      }
-
-      &.icon-r {
-        right: var(--ui-input-icon-inset-x);
-        margin-left: auto;
-      }
-    }
-
-    & :where([aria-label]) {
-      &::after {
-        content: attr(aria-label);
-        font-size: var(--ui-input-font-size);
-        min-width: var(--ui-input-icon-font-size);
-        text-align: center;
-        line-height: var(--ui-input-icon-font-size);
+    @nest .is-validated &:invalid {
+      & ~ em {
         display: block;
       }
     }
 
-    & :where([class*="lib-hint"]) {
-      &::after {
-        white-space: normal;
-        line-height: 1.5;
-        word-wrap: normal;
-        width: 10rem;
-        font-weight: var(--font-normal);
-        font-size: 0.75rem;
-      }
-    }
-
-    &:where(.is-floating) {
-      --ui-input-placeholder-color: transparent;
-
-      & :where(label) {
-        position: absolute;
-        z-index: 1;
-        pointer-events: none;
-        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
-        transform-origin: 0 50%;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        transform: perspective(100px);
-        will-change: transform;
-        font-weight: var(--ui-input-font-weight);
-        left: var(--ui-input-pl);
-        right: var(--ui-input-pr);
-        top: calc(var(--ui-input-height) / 2);
-        line-height: var(--ui-input-font-size);
-        margin-top: calc(var(--ui-input-font-size) / 2 * -1);
-      }
-
-      & :where(input, textarea, select) {
-        padding-top: calc(var(--ui-input-pt-floating));
-        padding-bottom: calc(var(--ui-input-pb-floating));
-
-        &:is(:focus, :not(:placeholder-shown)) ~ label {
-          transform: var(--ui-input-label-focus-transform);
-          opacity: var(--ui-input-label-focus-opacity);
-        }
-      }
-    }
-
-    @nest &.is-invalid, .is-validated & :where(input, textarea, select):invalid {
-      --ui-input-bg: rgb(var(--color-error) / 0.1);
+    &:focus {
       --ui-input-border-opacity: 1;
-      --ui-input-border-color: var(--color-error);
-      --ui-input-color: rgb(var(--color-error));
+      --ui-input-border-color: var(--color-accent);
+      --ui-input-box-shadow:
+        0 0 0 0 rgb(var(--color-current)),
+        0 0 0 3px rgb(var(--color-accent) / 0.2),
+        0 1px 2px 0 rgb(var(--color-current) / 0.05);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: rgb(var(--color-default) / 0.1);
+    }
+
+    &:required {
+      & ~ label {
+        &::after {
+          color: rgb(var(--color-error));
+          content: " *";
+        }
+      }
     }
   }
 
-  :where(.ui-input-group) {
+  & :where(input, textarea) {
+    &::placeholder {
+      color: var(--ui-input-placeholder-color);
+      opacity: var(--ui-input-placeholder-opacity);
+    }
+  }
+
+  & :where(textarea) {
+    resize: vertical;
+    overflow: hidden;
+    min-height: var(--ui-input-height-textarea);
+  }
+
+  & :where([class^="icon-"]) {
+    grid-area: input;
+    position: relative;
+    transition: var(--transition-opacity);
+    content: "";
+    line-height: 1em;
     display: flex;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-shrink: 0;
+    gap: var(--ui-input-icon-gap);
+    align-items: center;
 
-    & .ui-btn {
-      --ui-btn-outline-width: 1px;
-      --ui-btn-height: var(--ui-input-height);
+    &.icon-l {
+      left: var(--ui-input-icon-inset-x);
+      margin-right: auto;
     }
 
-    & :where(em, label) {
+    &.icon-r {
+      right: var(--ui-input-icon-inset-x);
+      margin-left: auto;
+    }
+  }
+
+  & :where([aria-label]) {
+    &::after {
+      content: attr(aria-label);
+      font-size: var(--ui-input-font-size);
+      min-width: var(--ui-input-icon-font-size);
+      text-align: center;
+      line-height: var(--ui-input-icon-font-size);
       display: block;
-      width: 100%;
+    }
+  }
+
+  & :where([class*="lib-hint"]) {
+    &::after {
+      white-space: normal;
+      line-height: 1.5;
+      word-wrap: normal;
+      width: 10rem;
+      font-weight: var(--font-normal);
+      font-size: 0.75rem;
+    }
+  }
+
+  &:where(.is-floating) {
+    --ui-input-placeholder-color: transparent;
+
+    & :where(label) {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
+      transform-origin: 0 50%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transform: perspective(100px);
+      will-change: transform;
+      font-weight: var(--ui-input-font-weight);
+      left: var(--ui-input-pl);
+      right: var(--ui-input-pr);
+      top: calc(var(--ui-input-height) / 2);
+      line-height: var(--ui-input-font-size);
+      margin-top: calc(var(--ui-input-font-size) / 2 * -1);
     }
 
-    & > * {
-      &:not(:first-child, label + *) {
-        margin-left: calc(var(--ui-input-border-width) * -1);
+    & :where(input, textarea, select) {
+      padding-top: calc(var(--ui-input-pt-floating));
+      padding-bottom: calc(var(--ui-input-pb-floating));
 
-        &, & :where(input, select) {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-      }
-
-      &:not(:last-child, :has(+ em)) {
-        &, & :where(input, select) {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
+      &:is(:focus, :not(:placeholder-shown)) ~ label {
+        transform: var(--ui-input-label-focus-transform);
+        opacity: var(--ui-input-label-focus-opacity);
       }
     }
   }
 
-  :where(.ui-input-mask) {
-    & :where([class^="ui-"]) {
-      min-height: var(--ui-input-height);
+  @nest &.is-invalid, .is-validated & :where(input, textarea, select):invalid {
+    --ui-input-bg: rgb(var(--color-error) / 0.1);
+    --ui-input-border-opacity: 1;
+    --ui-input-border-color: var(--color-error);
+    --ui-input-color: rgb(var(--color-error));
+  }
+}
+
+:where(.ui-input-group) {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  & .ui-btn {
+    --ui-btn-outline-width: 1px;
+    --ui-btn-height: var(--ui-input-height);
+  }
+
+  & :where(em, label) {
+    display: block;
+    width: 100%;
+  }
+
+  & > * {
+    &:not(:first-child, label + *) {
+      margin-left: calc(var(--ui-input-border-width) * -1);
+
+      &, & :where(input, select) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
+
+    &:not(:last-child, :has(+ em)) {
+      &, & :where(input, select) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+}
+
+:where(.ui-input-mask) {
+  & :where([class^="ui-"]) {
+    min-height: var(--ui-input-height);
   }
 }

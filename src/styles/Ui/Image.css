@@ -1,17 +1,15 @@
-@layer utilities {
-  :where(.ui-image) {
-    --ui-image-bg: rgb(var(--color-background-200));
-    --ui-image-border-radius: 0;
+:where(.ui-image) {
+  --ui-image-bg: rgb(var(--color-background-200));
+  --ui-image-border-radius: 0;
 
-    position: relative;
-    display: block;
-    background-color: var(--ui-image-bg);
-    border-radius: var(--ui-image-border-radius);
+  position: relative;
+  display: block;
+  background-color: var(--ui-image-bg);
+  border-radius: var(--ui-image-border-radius);
 
-    & > * {
-      width: 100%;
-      height: 100%;
-      border-radius: inherit;
-    }
+  & > * {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
   }
 }

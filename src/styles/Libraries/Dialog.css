@@ -1,5 +1,3 @@
-@layer utilities {
-  :where(.lib-dialog) {
+:where(.lib-dialog) {
 
-  }
 }

@@ -1,5 +1,3 @@
-@layer utilities {
-  :where(.c-table) {
+:where(.c-table) {
 
-  }
 }

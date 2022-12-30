@@ -1,5 +1,3 @@
-@layer utilities {
-  :where(.c-drawer) {
+:where(.c-drawer) {
 
-  }
 }

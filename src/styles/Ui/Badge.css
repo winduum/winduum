@@ -1,111 +1,109 @@
-@layer utilities {
-  :where(.ui-badge) {
-    --color-current: var(--color-light);
-    --ui-badge-width: max-content;
-    --ui-badge-height: 1.5rem;
-    --ui-badge-py: 0;
-    --ui-badge-px: 0.5rem;
-    --ui-badge-border-radius: var(--rounded-xs);
-    --ui-badge-font-size: 0.75rem;
-    --ui-badge-font-weight: var(--font-normal);
-    --ui-badge-bg: rgb(var(--color-accent) / var(--ui-badge-bg-opacity));
-    --ui-badge-bg-opacity: var(--tw-bg-opacity, 1);
-    --ui-badge-color: rgb(var(--color-current) / var(--ui-badge-color-opacity));
-    --ui-badge-color-opacity: var(--tw-text-opacity, 1);
-    --ui-badge-outline-width: 1px;
-    --ui-badge-outline-opacity: 0.75;
-    --ui-badge-icon-font-size: 0.875rem;
-    --ui-badge-gap: 0.25rem;
-    --ui-badge-focus-opacity: 0.3;
-    --ui-badge-hover-opacity: 0.8;
+:where(.ui-badge) {
+  --color-current: var(--color-light);
+  --ui-badge-width: max-content;
+  --ui-badge-height: 1.5rem;
+  --ui-badge-py: 0;
+  --ui-badge-px: 0.5rem;
+  --ui-badge-border-radius: var(--rounded-xs);
+  --ui-badge-font-size: 0.75rem;
+  --ui-badge-font-weight: var(--font-normal);
+  --ui-badge-bg: rgb(var(--color-accent) / var(--ui-badge-bg-opacity));
+  --ui-badge-bg-opacity: var(--tw-bg-opacity, 1);
+  --ui-badge-color: rgb(var(--color-current) / var(--ui-badge-color-opacity));
+  --ui-badge-color-opacity: var(--tw-text-opacity, 1);
+  --ui-badge-outline-width: 1px;
+  --ui-badge-outline-opacity: 0.75;
+  --ui-badge-icon-font-size: 0.875rem;
+  --ui-badge-gap: 0.25rem;
+  --ui-badge-focus-opacity: 0.3;
+  --ui-badge-hover-opacity: 0.8;
 
-    width: var(--ui-badge-width);
-    height: var(--ui-badge-height);
-    padding: var(--ui-badge-py) var(--ui-badge-px);
-    border-radius: var(--ui-badge-border-radius);
-    font-size: var(--ui-badge-font-size);
-    font-weight: var(--ui-badge-font-weight);
-    background-color: var(--ui-badge-bg);
-    color: var(--ui-badge-color);
-    display: inline-flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    white-space: nowrap;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 0;
-    gap: var(--ui-badge-gap);
-    transition: var(--transition-opacity);
+  width: var(--ui-badge-width);
+  height: var(--ui-badge-height);
+  padding: var(--ui-badge-py) var(--ui-badge-px);
+  border-radius: var(--ui-badge-border-radius);
+  font-size: var(--ui-badge-font-size);
+  font-weight: var(--ui-badge-font-weight);
+  background-color: var(--ui-badge-bg);
+  color: var(--ui-badge-color);
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 0;
+  gap: var(--ui-badge-gap);
+  transition: var(--transition-opacity);
 
-    & :where(svg) {
-      width: 1em;
-      height: 1em;
-      font-size: var(--ui-badge-icon-font-size);
-    }
-
-    &:where(.is-outline) {
-      outline: var(--ui-badge-outline-width) solid rgb(var(--color-accent) / var(--ui-badge-outline-opacity));
-      outline-offset: calc(var(--ui-badge-outline-width) * -1);
-    }
-
-    &:where(.is-outline, .is-muted) {
-      --color-current: var(--color-accent);
-      --ui-badge-bg: transparent;
-    }
-
-    &:where(.is-muted) {
-      background-color: rgb(var(--color-current) / 0.1);
-    }
-
-    &:where(.is-square, .is-circle) {
-      --ui-badge-px: var(--ui-badge-py);
-      --ui-badge-width: var(--ui-badge-height);
-    }
-
-    &:where(.is-circle) {
-      --ui-badge-border-radius: var(--rounded-full);
-    }
-
-    &:where(.is-sm) {
-      --ui-badge-height: 1.25rem;
-      --ui-badge-font-size: 0.625rem;
-    }
-
-    &:where(.is-lg) {
-      --ui-badge-height: 1.75rem;
-    }
-
-    &:where([href], button) {
-      &:hover {
-        @media (hover: hover) and (pointer: fine) {
-          opacity: var(--ui-badge-hover-opacity);
-        }
-      }
-
-      &:focus-visible {
-        z-index: 2;
-        box-shadow:
-          0 0 0 0 rgb(var(--color-current)),
-          0 0 0 max(2px, var(--ui-badge-outline-width)) rgb(var(--color-accent) / var(--ui-badge-focus-opacity));
-      }
-    }
+  & :where(svg) {
+    width: 1em;
+    height: 1em;
+    font-size: var(--ui-badge-icon-font-size);
   }
 
-  :where(.ui-badge-group) {
-    display: flex;
+  &:where(.is-outline) {
+    outline: var(--ui-badge-outline-width) solid rgb(var(--color-accent) / var(--ui-badge-outline-opacity));
+    outline-offset: calc(var(--ui-badge-outline-width) * -1);
+  }
 
-    & :where(.ui-badge) {
-      &:not(:first-child) {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        margin-left: calc(var(--ui-badge-outline-width) * -1);
-      }
+  &:where(.is-outline, .is-muted) {
+    --color-current: var(--color-accent);
+    --ui-badge-bg: transparent;
+  }
 
-      &:not(:last-child) {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
+  &:where(.is-muted) {
+    background-color: rgb(var(--color-current) / 0.1);
+  }
+
+  &:where(.is-square, .is-circle) {
+    --ui-badge-px: var(--ui-badge-py);
+    --ui-badge-width: var(--ui-badge-height);
+  }
+
+  &:where(.is-circle) {
+    --ui-badge-border-radius: var(--rounded-full);
+  }
+
+  &:where(.is-sm) {
+    --ui-badge-height: 1.25rem;
+    --ui-badge-font-size: 0.625rem;
+  }
+
+  &:where(.is-lg) {
+    --ui-badge-height: 1.75rem;
+  }
+
+  &:where([href], button) {
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        opacity: var(--ui-badge-hover-opacity);
       }
+    }
+
+    &:focus-visible {
+      z-index: 2;
+      box-shadow:
+        0 0 0 0 rgb(var(--color-current)),
+        0 0 0 max(2px, var(--ui-badge-outline-width)) rgb(var(--color-accent) / var(--ui-badge-focus-opacity));
+    }
+  }
+}
+
+:where(.ui-badge-group) {
+  display: flex;
+
+  & :where(.ui-badge) {
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: calc(var(--ui-badge-outline-width) * -1);
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 }

@@ -1,5 +1,3 @@
-@layer utilities {
-  :where(.c-dropdown) {
+:where(.c-dropdown) {
 
-  }
 }
