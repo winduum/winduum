@@ -127,7 +127,7 @@
   }
 
   &:where(.is-raised) {
-    --ui-btn-outline-opacity: 0.1;
+    --ui-btn-outline-opacity: 0.15;
 
     outline: var(--ui-btn-outline-width) solid rgb(var(--color-current) / var(--ui-btn-outline-opacity));
     outline-offset: calc(var(--ui-btn-outline-width) * -1);

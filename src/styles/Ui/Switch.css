@@ -17,15 +17,6 @@
   flex-wrap: wrap;
   width: max-content;
 
-  & em {
-    display: none;
-    width: 100%;
-    font-size: var(--ui-switch-validity-font-size);
-    color: rgb(var(--color-error));
-    font-style: normal;
-    margin-top: var(--ui-switch-validity-offset);
-  }
-
   &:where(.is-sm) {
     --ui-switch-width: 2.5rem;
     --ui-switch-height: 1.25rem;
@@ -63,12 +54,6 @@
       margin-left: calc((var(--ui-switch-height) - var(--ui-switch-padding) + var(--ui-switch-padding) / 2) * -1);
       transition: left var(--transition-duration), var(--transition-background);
       transform: translateY(-50%);
-    }
-
-    @nest .is-validated &:invalid {
-      & ~ em {
-        display: block;
-      }
     }
 
     &:disabled {

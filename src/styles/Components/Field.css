@@ -1,0 +1,41 @@
+:where(.c-field) {
+  --c-field-gap: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--c-field-gap);
+
+  @nest .is-validated &:has(:invalid) {
+    & :where(.ui-info[hidden]) {
+      display: block;
+    }
+  }
+
+  &:where(.is-horizontal) {
+    align-items: flex-start;
+    flex-direction: row;
+
+    & :where(.ui-label) {
+      min-height: var(--ui-input-height);
+      align-items: center;
+      display: flex;
+    }
+
+    & > :where(.col) {
+      gap: var(--c-field-gap);
+      justify-content: center;
+    }
+  }
+
+  &:has([required]) :where(.ui-label) {
+    &::after {
+      color: rgb(var(--color-error));
+      content: " *";
+    }
+  }
+
+  & :where(.is-input-offset) {
+    min-height: var(--ui-input-height);
+    justify-content: center;
+  }
+}

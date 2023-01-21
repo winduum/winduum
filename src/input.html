@@ -33,25 +33,21 @@
             </svg>
         </div>
         <input type="text" id="input" placeholder="Enter a value.." required>
-        <label for="input">Name</label>
-        <em>Not valid</em>
     </div>
 
     <div>
         <div class="ui-input">
             <input type="text" placeholder="Enter a value.." required>
-            <label>Price</label>
             <div class="icon-r">
                 <svg class="text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                 </svg>
                 <span aria-label="Kč"></span>
             </div>
-            <em>Not valid</em>
         </div>
     </div>
 
-    <div class="ui-select">
+    <div class="ui-select is-floating">
         <select>
             <option selected="" value="">- select option -</option>
             <option value="1">Option 1</option>
@@ -64,8 +60,8 @@
         <label>How are you?</label>
     </div>
 
-    <div class="ui-input">
-        <textarea id="textarea" required></textarea>
+    <div class="ui-input is-floating">
+        <textarea id="textarea" required placeholder=" "></textarea>
         <label for="textarea">Name</label>
     </div>
 
@@ -90,36 +86,31 @@
     </div>
 
     <div class="ui-input-group">
-        <label for="input">Name</label>
         <div class="ui-btn is-square is-raised bg-gray-200 text-dark">@</div>
         <div class="ui-input">
             <input type="tel" id="input" required>
         </div>
         <button class="ui-btn">Button</button>
-        <em>Validation</em>
     </div>
 
     <div class="flex gap-8">
-        <div class="ui-input">
-            <input type="text" placeholder=" " required>
-            <label>Name</label>
+        <div class="c-field">
+            <label class="ui-label">Name</label>
+            <div class="ui-input">
+                <input type="text" placeholder=" " required>
+            </div>
         </div>
-        <div class="ui-input-mask">
-            <label>Name</label>
-            <div class="ui-checkbox">
+        <div class="c-field">
+            <label class="ui-label">Name</label>
+            <div class="ui-checkbox is-input-offset">
                 <input type="checkbox" id="checkbox" required>
                 <label for="checkbox">Name</label>
-                <em>Not valid</em>
             </div>
         </div>
     </div>
     <div>
-        <div class="ui-input-mask">
-            <label>Name</label>
-            <div class="ui-switch">
-                <input type="checkbox" id="checkbox" required>
-                <em>Not valid</em>
-            </div>
+        <div class="ui-switch">
+            <input type="checkbox" id="checkbox" required>
         </div>
     </div>
 
@@ -134,14 +125,6 @@
     </label>
 
     <script>
-        document.getElementById('action-btn-active').addEventListener('click', () => {
-            if (!document.querySelector('.ui-input.is-active')) {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('is-active'))
-            } else {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('is-active'))
-            }
-        })
-
         document.getElementById('action-btn-loading').addEventListener('click', () => {
             if (!document.querySelector('.ui-input.is-loading')) {
                 document.querySelectorAll('.ui-input').forEach(element => element.classList.add('is-loading'))

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/tailwind.css">
+    <script src="/src/scripts/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4">
+<form class="grid grid-cols-12 gap-4 is-validated" novalidate>
+    <div class="c-field col-span-4">
+        <label class="ui-label" for="validationCustom01">First name</label>
+        <div class="ui-input">
+            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+        </div>
+    </div>
+    <div class="c-field col-span-4">
+        <label class="ui-label" for="validationCustom02">Last name</label>
+        <div class="ui-input">
+            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+        </div>
+    </div>
+    <div class="c-field col-span-4">
+        <label class="ui-label" for="validationCustomUsername">Username</label>
+        <div class="ui-input-group">
+            <div class="ui-btn accent-default bg-opacity-10 text-default is-raised is-square">
+                @
+            </div>
+            <div class="ui-input">
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <svg class="icon-r text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="ui-info text-error" hidden>
+            Please choose a username.
+        </div>
+    </div>
+    <div class="c-field col-span-6">
+        <label class="ui-label" for="validationCustom03">City</label>
+        <div class="ui-input">
+            <input type="text" class="form-control" id="validationCustom03" required>
+            <svg class="icon-r text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+        </div>
+        <div class="ui-info text-error" hidden>
+            Please provide a valid city.
+        </div>
+    </div>
+    <div class="c-field col-span-3">
+        <label for="validationCustom04" class="ui-label">State</label>
+        <div class="ui-select">
+            <select class="form-select" id="validationCustom04" required>
+                <option selected disabled value="">Choose...</option>
+                <option>...</option>
+            </select>
+            <svg class="icon-r text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+        </div>
+        <div class="ui-info text-error" hidden>
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="c-field col-span-3">
+        <label for="validationCustom05" class="ui-label">Zip</label>
+        <div class="ui-input">
+            <input type="text" class="form-control" id="validationCustom05" required>
+            <svg class="icon-r text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+        </div>
+        <div class="ui-info text-error" hidden>
+            Please provide a valid zip.
+        </div>
+    </div>
+    <div class="c-field col-span-12">
+        <div class="ui-checkbox">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+        </div>
+        <div class="ui-info text-error" hidden>
+            You must agree before submitting.
+        </div>
+    </div>
+    <div class="c-field col-span-12">
+        <button class="ui-btn" type="submit">Submit form</button>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/tailwind.css">
+    <script src="/src/scripts/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4 accent-warning">
+    <div class="col flex-row gap-2">
+        <button class="bg-white p-xs" id="action-btn-disabled">disabled</button>
+        <button class="bg-white p-xs" id="action-btn-loading">loading</button>
+        <button class="bg-white p-xs" id="action-btn-dark">dark</button>
+    </div>
+
+    <div class="c-field">
+        <label class="ui-label" for="input">Label</label>
+        <div class="ui-input">
+            <input type="text" id="input" placeholder=" " required>
+        </div>
+        <em class="ui-info">
+            Not good
+        </em>
+    </div>
+
+    <div class="c-field">
+        <div class="ui-input is-floating">
+            <input type="text" id="input-label" placeholder=" " required>
+            <label for="input-label">Name</label>
+        </div>
+        <em class="ui-info">
+            Not good
+        </em>
+    </div>
+
+    <div class="c-field">
+        <label class="ui-label">Name</label>
+        <div class="ui-input-group">
+            <div class="ui-btn is-square is-raised bg-gray-200 text-dark">@</div>
+            <div class="ui-input">
+                <input type="tel" required>
+            </div>
+            <button class="ui-btn">Button</button>
+        </div>
+        <em class="ui-info">Validation</em>
+    </div>
+
+    <div class="flex gap-8">
+        <div class="c-field">
+            <label class="ui-label">Label</label>
+            <div class="ui-input">
+                <input type="text" placeholder=" " required>
+            </div>
+            <em class="ui-info">
+                Not good
+            </em>
+        </div>
+        <div class="c-field">
+            <label class="ui-label">Label</label>
+            <div class="ui-checkbox is-input-offset">
+                <input type="checkbox" id="checkbox" required>
+                <label for="checkbox">Name</label>
+            </div>
+            <em class="ui-info">Not valid</em>
+        </div>
+    </div>
+    <div>
+        <div class="c-field">
+            <label class="ui-label">Name</label>
+            <div class="ui-switch">
+                <input type="checkbox" id="checkbox" required>
+            </div>
+            <em class="ui-info">Not valid</em>
+        </div>
+    </div>
+
+    <div class="c-field is-horizontal gap-4">
+        <div class="col">
+            <label class="ui-label">Label</label>
+        </div>
+        <div class="col">
+            <div class="ui-input">
+                <input type="text" placeholder=" " required>
+            </div>
+            <em class="ui-info w-full">
+                Not good
+            </em>
+        </div>
+    </div>
+
+    <div class="c-field is-horizontal gap-4">
+        <div class="col">
+            <label class="ui-label">Label</label>
+        </div>
+        <div class="col is-input-offset">
+            <label class="ui-checkbox">
+                <input type="checkbox" required>
+                This is a checkbox
+            </label>
+        </div>
+    </div>
+
+
+
+    <label class="ui-radio">
+        <input type="checkbox" required>
+        <span>Name</span>
+    </label>
+
+    <script>
+        document.getElementById('action-btn-active').addEventListener('click', () => {
+            if (!document.querySelector('.ui-input.is-active')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('is-active'))
+            } else {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('is-active'))
+            }
+        })
+
+        document.getElementById('action-btn-loading').addEventListener('click', () => {
+            if (!document.querySelector('.ui-input.is-loading')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('is-loading'))
+            } else {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('is-loading'))
+            }
+        })
+
+        document.getElementById('action-btn-disabled').addEventListener('click', () => {
+            if (!document.querySelector(':where(.ui-input, .ui-select) :where(input,select,textarea):disabled')) {
+                document.querySelectorAll(':where(.ui-input, .ui-select) :where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
+            } else {
+                document.querySelectorAll(':where(.ui-input, .ui-select) :where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
+            }
+        })
+
+        document.getElementById('action-btn-dark').addEventListener('click', () => {
+            if (!document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+        })
+    </script>
+</body>
+</html>

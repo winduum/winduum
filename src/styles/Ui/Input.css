@@ -1,10 +1,13 @@
-:where(.ui-input, .ui-input-group, .ui-input-mask, .ui-select) {
+:root {
   --ui-input-height: 3rem;
+}
+
+:where(.ui-input, .ui-select) {
   --ui-input-height-textarea: 8rem;
   --ui-input-pt-floating: 1.25rem;
   --ui-input-pb-floating: 0.4375rem;
   --ui-input-py: 0.875rem;
-  --ui-input-px: 1rem;
+  --ui-input-px: 0.875rem;
   --ui-input-pl: var(--ui-input-px);
   --ui-input-pr: var(--ui-input-px);
   --ui-input-bg: rgb(var(--color-background));
@@ -18,7 +21,6 @@
   --ui-input-border-opacity: 0.15;
   --ui-input-border-radius: var(--rounded);
   --ui-input-box-shadow: none;
-  --ui-input-gap: 0.5rem;
   --ui-input-icon-font-size: 1.25rem;
   --ui-input-icon-count-l: 1;
   --ui-input-icon-count-r: 1;
@@ -27,33 +29,13 @@
   --ui-input-icon-inset-x-gap: 0.125rem;
   --ui-input-icon-offset-l: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-l));
   --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
-  --ui-input-validity-size: 0.875rem;
-  --ui-input-validity-offset: 0.375rem;
-  --ui-input-label-font-size: 0.875rem;
-  --ui-input-label-font-weight: var(--font-medium);
-  --ui-input-label-focus-transform: translateY(-0.75rem) scale(0.8);
-  --ui-input-label-focus-opacity: 0.5;
+  --ui-input-label-floating-font-size: var(--ui-label-font-size);
+  --ui-input-label-floating-font-weight: var(--ui-label-font-weight);
+  --ui-input-label-floating-focus-transform: translateY(-0.6875rem) scale(0.8);
+  --ui-input-label-floating-focus-opacity: 0.5;
 
-  & > :where(label:not([class^="ui"])) {
-    display: block;
-    margin-bottom: var(--ui-input-gap);
-    font-size: var(--ui-input-label-font-size);
-    font-weight: var(--ui-input-label-font-weight);
-  }
-
-  & :where(em) {
-    grid-area: info;
-    display: none;
-    margin-top: var(--ui-input-validity-offset);
-    font-size: var(--ui-input-validity-size);
-    color: rgb(var(--color-error));
-    font-style: normal;
-  }
-}
-
-:where(.ui-input, .ui-select) {
   display: grid;
-  grid-template-areas: "label" "input" "info";
+  grid-template-areas: "input";
   font-size: var(--ui-input-font-size);
   position: relative;
 
@@ -71,11 +53,6 @@
 
   &:has(.icon-r > *:nth-child(2)) {
     --ui-input-icon-count-r: 2;
-  }
-
-  & :where(label) {
-    grid-area: label;
-    order: -1;
   }
 
   & :where(svg) {
@@ -99,12 +76,6 @@
     color: var(--ui-input-color);
     border: var(--ui-input-border-width) solid rgb(var(--ui-input-border-color) / var(--ui-input-border-opacity));
 
-    @nest .is-validated &:invalid {
-      & ~ em {
-        display: block;
-      }
-    }
-
     &:focus {
       --ui-input-border-opacity: 1;
       --ui-input-border-color: var(--color-accent);
@@ -119,12 +90,10 @@
       background-color: rgb(var(--color-default) / 0.1);
     }
 
-    &:required {
-      & ~ label {
-        &::after {
-          color: rgb(var(--color-error));
-          content: " *";
-        }
+    &:required ~ label {
+      &::after {
+        color: rgb(var(--color-error));
+        content: " *";
       }
     }
   }
@@ -144,22 +113,22 @@
 
   & :where([class^="icon-"]) {
     grid-area: input;
-    position: relative;
-    transition: var(--transition-opacity);
     content: "";
+    position: relative;
     line-height: 1em;
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
-    gap: var(--ui-input-icon-gap);
     align-items: center;
+    gap: var(--ui-input-icon-gap);
+    transition: var(--transition-opacity);
 
-    &.icon-l {
+    &:where(.icon-l) {
       left: var(--ui-input-icon-inset-x);
       margin-right: auto;
     }
 
-    &.icon-r {
+    &:where(.icon-r) {
       right: var(--ui-input-icon-inset-x);
       margin-left: auto;
     }
@@ -191,8 +160,8 @@
     --ui-input-placeholder-color: transparent;
 
     & :where(label) {
-      position: absolute;
-      z-index: 1;
+      grid-area: input;
+      align-self: start;
       pointer-events: none;
       transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
       transform-origin: 0 50%;
@@ -201,12 +170,11 @@
       overflow: hidden;
       transform: perspective(100px);
       will-change: transform;
-      font-weight: var(--ui-input-font-weight);
-      left: var(--ui-input-pl);
-      right: var(--ui-input-pr);
-      top: calc(var(--ui-input-height) / 2);
-      line-height: var(--ui-input-font-size);
-      margin-top: calc(var(--ui-input-font-size) / 2 * -1);
+      font-weight: var(--ui-input-label-floating-font-weight);
+      margin-left: var(--ui-input-pl);
+      margin-right: var(--ui-input-pr);
+      line-height: var(--ui-input-label-floating-font-size);
+      margin-top: calc(var(--ui-input-height) / 2 - (var(--ui-input-font-size) / 2));
     }
 
     & :where(input, textarea, select) {
@@ -214,8 +182,8 @@
       padding-bottom: calc(var(--ui-input-pb-floating));
 
       &:is(:focus, :not(:placeholder-shown)) ~ label {
-        transform: var(--ui-input-label-focus-transform);
-        opacity: var(--ui-input-label-focus-opacity);
+        transform: var(--ui-input-label-floating-focus-transform);
+        opacity: var(--ui-input-label-floating-focus-opacity);
       }
     }
   }
@@ -225,6 +193,7 @@
     --ui-input-border-opacity: 1;
     --ui-input-border-color: var(--color-error);
     --ui-input-color: rgb(var(--color-error));
+    --color-accent: var(--color-error);
   }
 }
 
@@ -233,18 +202,13 @@
   align-items: flex-end;
   flex-wrap: wrap;
 
-  & .ui-btn {
+  & :where(.ui-btn) {
     --ui-btn-outline-width: 1px;
     --ui-btn-height: var(--ui-input-height);
   }
 
-  & :where(em, label) {
-    display: block;
-    width: 100%;
-  }
-
   & > * {
-    &:not(:first-child, label + *) {
+    &:not(:first-child) {
       margin-left: calc(var(--ui-input-border-width) * -1);
 
       &, & :where(input, select) {
@@ -253,17 +217,11 @@
       }
     }
 
-    &:not(:last-child, :has(+ em)) {
+    &:not(:last-child) {
       &, & :where(input, select) {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
     }
-  }
-}
-
-:where(.ui-input-mask) {
-  & :where([class^="ui-"]) {
-    min-height: var(--ui-input-height);
   }
 }
