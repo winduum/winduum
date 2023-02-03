@@ -40,10 +40,9 @@
     "utils"
   ],
   "exports": {
-    ".": "./index.js",
-    "./tailwind-cjs": "./utils/helpers.cjs",
-    "./tailwind": "./utils/helpers.js",
-    "./tailwind.config.cjs": "./tailwind.config.cjs",
+    ".": "./utils/tailwind.cjs",
+    "./tailwind-cjs": "./utils/tailwind.cjs",
+    "./tailwind-esm": "./utils/tailwind.js",
     "./main.css": "./dist/main.css",
     "./tailwind.css": "./dist/tailwind.css",
     "./src/*": "./src/*",

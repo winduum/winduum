@@ -13,14 +13,14 @@
     flex-direction: column;
   }
 
-  .container {
+  :where(.container) {
     margin-left: auto;
     margin-right: auto;
     padding-left: var(--container-padding);
     padding-right: var(--container-padding);
     max-width: var(--container-width);
 
-    &.is-sm {
+    &:where(.is-sm) {
       --container-width: var(--container-width-sm);
     }
   }

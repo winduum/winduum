@@ -4,6 +4,6 @@ module.exports = {
     './src/**/*.{js,html}'
   ],
   plugins: [
-    require('winduum/tailwind-cjs')()
+    require('winduum')()
   ],
 }
