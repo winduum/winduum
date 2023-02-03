@@ -14,20 +14,20 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
     "autoprefixer": "^10.4.13",
-    "css-has-pseudo": "^4.0.2",
-    "eslint": "^8.32.0",
+    "css-has-pseudo": "^5.0.1",
+    "eslint": "^8.33.0",
     "eslint-config-standard": "^17.0.0",
     "postcss": "^8.4.21",
-    "postcss-custom-media": "^9.0.1",
-    "postcss-custom-properties": "^12.1.11",
-    "postcss-custom-selectors": "^7.0.0",
+    "postcss-custom-media": "^9.1.1",
+    "postcss-custom-properties": "^13.1.1",
+    "postcss-custom-selectors": "^7.1.1",
     "postcss-import": "^15.1.0",
-    "postcss-nesting": "^10.2.0",
+    "postcss-nesting": "^11.1.0",
     "stylelint-config-standard": "^29.0.0",
     "tailwindcss": "^3.2.4",
     "fast-glob": "^3.2.12",
-    "vite": "^4.0.4",
-    "vue": "^3.2.45"
+    "vite": "^4.1.1",
+    "vue": "^3.2.47"
   },
   "files": [
     "index.js",
