@@ -9,7 +9,10 @@
     "build-prod": "vite build -c vite.config.prod.js",
     "eslint": "eslint '**/*.js' --fix",
     "stylelint": "npx stylelint '**/*.css' --fix",
-    "tailwind-helpers": "rollup utils/helpers.js --file utils/helpers.cjs --format cjs"
+    "tailwind": "rollup utils/tailwind.js --file utils/tailwind.cjs -f cjs --exports named"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
@@ -38,6 +41,8 @@
   ],
   "exports": {
     ".": "./index.js",
+    "./tailwind-cjs": "./utils/helpers.cjs",
+    "./tailwind": "./utils/helpers.js",
     "./tailwind.config.cjs": "./tailwind.config.cjs",
     "./main.css": "./dist/main.css",
     "./tailwind.css": "./dist/tailwind.css",
