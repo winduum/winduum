@@ -188,7 +188,7 @@
     }
   }
 
-  @nest &.is-invalid, .is-validated & :where(input, textarea, select):invalid {
+  &.is-invalid, .is-validated & :where(input, textarea, select):invalid {
     --ui-input-bg: rgb(var(--color-error) / 0.1);
     --ui-input-border-opacity: 1;
     --ui-input-border-color: var(--color-error);

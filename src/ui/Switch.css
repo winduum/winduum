@@ -8,7 +8,7 @@
   --ui-switch-validity-offset: 0.375rem;
   --ui-switch-box-shadow: none;
 
-  @nest .dark & {
+  .dark & {
     --ui-switch-bg-raw: var(--color-background-300);
   }
 

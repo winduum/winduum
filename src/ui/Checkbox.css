@@ -96,7 +96,7 @@
     }
   }
 
-  @nest &.is-invalid, .is-validated & :where(input):invalid {
+  &.is-invalid, .is-validated & :where(input):invalid {
     --ui-checkbox-bg-raw: var(--color-error);
     --ui-checkbox-border-color-raw: var(--color-error);
     --ui-checkbox-checked-bg-raw: var(--color-error);
