@@ -14,5 +14,5 @@
     "selector-class-pattern": null,
     "import-notation": null
   },
-  "ignoreFiles": ["**/+.css"]
+  "ignoreFiles": ["**/+.css", "dist/**/*.css"]
 }
