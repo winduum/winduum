@@ -1,0 +1,18 @@
+@layer utilities {
+  .animation {
+    animation-duration: var(--transition-duration);
+    animation-fill-mode: both;
+  }
+
+  :where(.container) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    max-width: var(--container-width);
+
+    &:where(.is-sm) {
+      --container-width: var(--container-width-sm);
+    }
+  }
+}
