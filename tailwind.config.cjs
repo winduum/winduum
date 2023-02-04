@@ -1,7 +1,8 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    './src/**/*.{js,html}'
+    './src/**/*.{js,html}',
+    './playground/**/*.{js,html,vue}'
   ],
   plugins: [
     require('winduum')()

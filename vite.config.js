@@ -23,7 +23,7 @@ export default {
             '/src': resolve(process.cwd(), 'src')
         }
     },
-    root: resolve(process.cwd(), 'src'),
+    root: resolve(process.cwd(), 'playground'),
     publicDir: resolve(process.cwd(), 'public'),
     envDir: process.cwd(),
     build: {

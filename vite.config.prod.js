@@ -20,14 +20,14 @@ export default {
             '/src': resolve(process.cwd(), 'src')
         }
     },
-    root: resolve(process.cwd(), 'src'),
+    root: resolve(process.cwd(), 'playground'),
     publicDir: resolve(process.cwd(), 'public'),
     envDir: process.cwd(),
     build: {
         emptyOutDir: false,
         outDir: resolve(process.cwd(), 'dist'),
         rollupOptions: {
-            input: FastGlob.sync(['./src/styles/*.css']).map(entry => resolve(process.cwd(), entry)),
+            input: FastGlob.sync(['./src/*.css']).map(entry => resolve(process.cwd(), entry)),
             output: {
                 assetFileNames: `[name].[ext]`,
                 chunkFileNames: `[name].js`,

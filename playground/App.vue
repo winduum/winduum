@@ -8,5 +8,5 @@
 
 <style scoped>
     @import "tailwindcss/utilities";
-    @import "styles/ui/Btn.css";
+    @import "src/ui/Btn.css";
 </style>
