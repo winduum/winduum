@@ -73,14 +73,12 @@ const tailwindColorsAccent = (colors = []) => {
         if (Array.isArray(color)) {
             const rgb = hexToRgb(color[1]);
 
-            result[`.accent-${color[0]}`] = {
-                '--color-accent': `${rgb[0]} ${rgb[1]} ${rgb[2]}`,
-                'accent-color': 'rgb(var(--color-accent))'
+            result[`[class*="accent-${color[0]}"]`] = {
+                '--color-accent': `${rgb[0]} ${rgb[1]} ${rgb[2]}`
             };
         } else {
-            result[`.accent-${color}`] = {
-                '--color-accent': `var(--color-${color})`,
-                'accent-color': 'rgb(var(--color-accent))'
+            result[`[class*="accent-${color}"]`] = {
+                '--color-accent': `var(--color-${color})`
             };
         }
     });
@@ -95,14 +93,12 @@ const tailwindColorsCurrent = (colors = []) => {
         if (Array.isArray(color)) {
             const rgb = hexToRgb(color[1]);
 
-            result[`.text-${color[0]}`] = {
-                '--color-current': `${rgb[0]} ${rgb[1]} ${rgb[2]}`,
-                'color': 'rgb(var(--color-current))'
+            result[`[class*="text-${color[0]}"]`] = {
+                '--color-current': `${rgb[0]} ${rgb[1]} ${rgb[2]}`
             };
         } else {
-            result[`.text-${color}`] = {
-                '--color-current': `var(--color-${color})`,
-                'color': 'rgb(var(--color-current))'
+            result[`[class*="text-${color}"]`] = {
+                '--color-current': `var(--color-${color})`
             };
         }
     });
@@ -140,9 +136,7 @@ const createPlugin = (userConfig = {}) => {
     }, {
         corePlugins: {
             preflight: false,
-            container: false,
-            accentColor: false,
-            textColor: false
+            container: false
         },
         theme: {
             extend: {
