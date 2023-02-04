@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <Btn variant="-wide" size="-lg">Button</Btn>
+    <Btn variant="is-wide" size="is-lg">Button</Btn>
 </template>
 
 <style scoped>

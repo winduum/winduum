@@ -1,5 +1,6 @@
 'use strict';
 
+
 var plugin = require('tailwindcss/plugin');
 var twColors = require('tailwindcss/colors');
 var lodash = require('lodash');
@@ -73,11 +74,11 @@ const tailwindColorsAccent = (colors = []) => {
         if (Array.isArray(color)) {
             const rgb = hexToRgb(color[1]);
 
-            result[`[class*="accent-${color[0]}"]`] = {
+            result[`.accent-${color[0]}`] = {
                 '--color-accent': `${rgb[0]} ${rgb[1]} ${rgb[2]}`
             };
         } else {
-            result[`[class*="accent-${color}"]`] = {
+            result[`.accent-${color}`] = {
                 '--color-accent': `var(--color-${color})`
             };
         }
@@ -93,11 +94,11 @@ const tailwindColorsCurrent = (colors = []) => {
         if (Array.isArray(color)) {
             const rgb = hexToRgb(color[1]);
 
-            result[`[class*="text-${color[0]}"]`] = {
+            result[`.text-${color[0]}`] = {
                 '--color-current': `${rgb[0]} ${rgb[1]} ${rgb[2]}`
             };
         } else {
-            result[`[class*="text-${color}"]`] = {
+            result[`.text-${color}`] = {
                 '--color-current': `var(--color-${color})`
             };
         }
