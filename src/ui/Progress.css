@@ -13,11 +13,11 @@
   color: rgb(var(--color-accent));
   width: 100%;
 
-  &.is-sm {
+  &:where(.is-sm) {
     --ui-progress-height: 0.5rem;
   }
 
-  &.is-lg {
+  &:where(.is-lg) {
     --ui-progress-height: 1.5rem;
   }
 

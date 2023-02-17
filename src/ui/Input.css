@@ -1,8 +1,5 @@
-:root {
-  --ui-input-height: 3rem;
-}
-
 :where(.ui-input, .ui-select) {
+  --ui-input-height: 3rem;
   --ui-input-height-textarea: 8rem;
   --ui-input-pt-floating: 1.25rem;
   --ui-input-pb-floating: 0.4375rem;
@@ -29,8 +26,8 @@
   --ui-input-icon-inset-x-gap: 0.125rem;
   --ui-input-icon-offset-l: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-l));
   --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
-  --ui-input-label-floating-font-size: var(--ui-label-font-size);
-  --ui-input-label-floating-font-weight: var(--ui-label-font-weight);
+  --ui-input-label-floating-font-size: 0.875rem;
+  --ui-input-label-floating-font-weight: var(--font-medium);
   --ui-input-label-floating-focus-transform: translateY(-0.6875rem) scale(0.8);
   --ui-input-label-floating-focus-opacity: 0.5;
 
@@ -199,12 +196,14 @@
 
 :where(.ui-input-group) {
   display: flex;
-  align-items: flex-end;
   flex-wrap: wrap;
 
   & :where(.ui-btn) {
     --ui-btn-outline-width: 1px;
-    --ui-btn-height: var(--ui-input-height);
+    --ui-btn-height: 3rem;
+
+    flex-grow: 1;
+    height: auto;
   }
 
   & > * {

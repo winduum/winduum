@@ -27,7 +27,7 @@
     --ui-switch-height: 2rem;
   }
 
-  & input {
+  & :where(input) {
     width: var(--ui-switch-width);
     height: var(--ui-switch-height);
     display: block;

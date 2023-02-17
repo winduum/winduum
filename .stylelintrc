@@ -10,9 +10,10 @@
     "alpha-value-notation": "number",
     "property-no-vendor-prefix": [true, { "ignoreProperties": "appearance" }],
     "number-max-precision": [4, { "ignoreProperties": "letter-spacing" }],
-    "max-line-length": 140,
+    "max-line-length": 240,
     "selector-class-pattern": null,
-    "import-notation": null
+    "import-notation": null,
+    "no-duplicate-selectors": null
   },
   "ignoreFiles": ["**/+.css", "dist/**/*.css"]
 }

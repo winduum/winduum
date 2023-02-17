@@ -1,5 +1,5 @@
 :root {
-  --font-default: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-default: ui-sans-serif, system-ui, -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: var(--font-default);
   --font-secondary: var(--font-default);
 }
@@ -16,7 +16,7 @@
 
 :root {
   --container-width: 80rem;
-  --container-width-sm: 50rem;
+  --container-width-sm: 58rem;
   --container-padding: 5vw;
   --container-padding-calc: max(calc(50vw - (var(--container-width) / 2) + var(--container-padding)), var(--container-padding));
 }
@@ -75,14 +75,3 @@
     --transition-duration: 0;
   }
 }
-
-@custom-media --media-xs (min-width: 22.5em);
-@custom-media --media-sm (min-width: 26em);
-@custom-media --media-md (min-width: 48em);
-@custom-media --media-lg (min-width: 60em);
-@custom-media --media-xl (min-width: 76em);
-@custom-media --media-2xl (min-width: 82em);
-@custom-media --media-3xl (min-width: 88em);
-@custom-media --media-4xl (min-width: 100em);
-@custom-media --media-xxl (min-width: 126em);
-@custom-media --media-2xxl (min-width: 158em);

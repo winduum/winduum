@@ -1,5 +1,6 @@
 :where(.c-field) {
   --c-field-gap: 0.5rem;
+  --c-field-input-height: 3rem;
 
   display: flex;
   flex-direction: column;
@@ -35,7 +36,7 @@
   }
 
   & :where(.is-input-offset) {
-    min-height: var(--ui-input-height);
+    min-height: var(--c-field-input-height);
     justify-content: center;
   }
 }

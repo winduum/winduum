@@ -43,6 +43,15 @@
     font-size: var(--ui-badge-icon-font-size);
   }
 
+  &:where(.is-sm) {
+    --ui-badge-height: 1.25rem;
+    --ui-badge-font-size: 0.625rem;
+  }
+
+  &:where(.is-lg) {
+    --ui-badge-height: 1.75rem;
+  }
+
   &:where(.is-outline) {
     outline: var(--ui-badge-outline-width) solid rgb(var(--color-accent) / var(--ui-badge-outline-opacity));
     outline-offset: calc(var(--ui-badge-outline-width) * -1);
@@ -64,15 +73,6 @@
 
   &:where(.is-circle) {
     --ui-badge-border-radius: var(--rounded-full);
-  }
-
-  &:where(.is-sm) {
-    --ui-badge-height: 1.25rem;
-    --ui-badge-font-size: 0.625rem;
-  }
-
-  &:where(.is-lg) {
-    --ui-badge-height: 1.75rem;
   }
 
   &:where([href], button) {

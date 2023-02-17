@@ -7,7 +7,7 @@
     Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
     - The "symbol *" part is to solve Firefox SVG sprite bug
  */
-*:where(:not(html, iframe, canvas, img, svg, video, audio, svg *, symbol *)) {
+*:where(:not(html, iframe, canvas, img, svg, video, audio, svg *, symbol *, ol, ul)) {
   all: unset;
   display: revert;
 }
@@ -20,7 +20,7 @@
 }
 
 /* Remove list styles (bullets/numbers) */
-ol, ul, menu {
+:where(ol:not([type]), ul, menu) {
   list-style: none;
 }
 
@@ -80,6 +80,7 @@ meter {
 /* apply default cursor */
 :where(html) {
   cursor: default;
+  color: rgb(var(--color-default))
 }
 
 /* apply text cursor */

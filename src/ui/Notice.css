@@ -6,7 +6,7 @@
   --ui-notice-font-size: 0.875rem;
   --ui-notice-border-radius: var(--rounded);
   --ui-notice-outline-opacity: 0.1;
-  --ui-notice-gap: 1rem;
+  --ui-notice-gap: 1.25rem;
 
   position: relative;
   display: flex;
