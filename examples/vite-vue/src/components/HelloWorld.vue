@@ -13,7 +13,7 @@ const count = ref(0)
   <h1>{{ msg }}</h1>
 
   <div class="card p-xl space-y-8">
-    <UiBtn @click="count++">count is {{ count }}</UiBtn>
+    <UiBtn @click="count++" variant="is-outline" size="is-lg">count is {{ count }}</UiBtn>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
