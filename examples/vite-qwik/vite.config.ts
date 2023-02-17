@@ -7,7 +7,7 @@ import postcssNesting from "postcss-nesting";
 import postcssCustomMedia from "postcss-custom-media";
 import tailwindcssNesting from 'tailwindcss/nesting'
 import tailwindcss from "tailwindcss";
-import * as autoprefixer from "autoprefixer";
+import autoprefixer from "autoprefixer";
 import postcssHasPseudo from "css-has-pseudo";
 
 export default defineConfig(() => {
@@ -20,7 +20,14 @@ export default defineConfig(() => {
     },
     css: {
       postcss: {
-        plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer, postcssHasPseudo]
+        plugins: [
+          postcssImport,
+          tailwindcssNesting(postcssNesting),
+          postcssCustomMedia,
+          tailwindcss,
+          autoprefixer,
+          postcssHasPseudo
+        ]
       }
     },
   };
