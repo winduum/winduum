@@ -1,11 +1,4 @@
-@import "base/reset.css";
-@import "base/default.css";
-@import "base/breakpoints.css";
-@import "base/config.css";
-@import "base/icons.css";
-@import "base/keyframes.css";
-@import "base/theme/default.css";
-@import "base/theme/dark.css";
+@import "base/index.css";
 @import "ui/+.css";
 @import "components/+.css";
 @import "libraries/+.css";
