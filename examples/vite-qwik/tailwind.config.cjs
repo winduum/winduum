@@ -1,7 +1,7 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    './src/**/*.tsx'
+    './src/**/*.jsx'
   ],
   plugins: [
     require('winduum')()
