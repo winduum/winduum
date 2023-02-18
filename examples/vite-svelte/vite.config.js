@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { svelte } from '@sveltejs/vite-plugin-svelte'
 import postcssImport from "postcss-import"
 import postcssNesting from "postcss-nesting"
 import postcssCustomMedia from "postcss-custom-media"
@@ -10,7 +10,7 @@ import postcssHasPseudo from "css-has-pseudo"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [svelte()],
   css: {
     postcss: {
       plugins: [

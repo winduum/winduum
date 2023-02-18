@@ -1,0 +1,27 @@
+{
+  "name": "vite-svelte",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+  "winduum": "^0.1.9",
+  "css-has-pseudo": "^5.0.2"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.2",
+    "svelte": "^3.55.1",
+    "vite": "^4.1.0",
+    "stylelint-config-standard": "^30.0.1",
+    "tailwindcss": "^3.2.7",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "postcss-import": "^15.1.0",
+    "postcss-nesting": "^11.2.1",
+    "postcss-custom-media": "^9.1.2"
+  }
+}
