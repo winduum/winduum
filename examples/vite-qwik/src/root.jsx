@@ -2,6 +2,9 @@ import './global.css'
 import qwikLogo from './assets/qwik.svg'
 import { Counter } from './components/counter/counter.jsx';
 
+// to adding support for :has selector for unsupported browsers
+!CSS.supports('selector(:has(*))') && (async() => (await import('css-has-pseudo/browser')).default(document))()
+
 export default () => {
     return (
         <>
