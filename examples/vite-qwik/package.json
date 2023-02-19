@@ -8,9 +8,11 @@
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.jsx",
     "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },

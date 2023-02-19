@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import { qwikVite } from '@builder.io/qwik/optimizer'
+import { qwikCity } from '@builder.io/qwik-city/vite'
 import postcssImport from "postcss-import"
 import postcssNesting from "postcss-nesting"
 import postcssCustomMedia from "postcss-custom-media"
@@ -10,13 +11,13 @@ import postcssHasPseudo from "css-has-pseudo"
 
 export default defineConfig(() => {
   return {
-    plugins: [ qwikVite({
+    plugins: [qwikCity(), qwikVite({
       client: {
         input: './src/root.jsx',
         devInput: './src/entry.dev.jsx'
       },
       ssr: {
-        input: './src/entry.ssr.jsx'
+        input: './src/entry.ssr.jsx',
       }
     })],
     css: {
