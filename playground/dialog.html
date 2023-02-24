@@ -21,7 +21,7 @@
 <!--    </dialog>-->
 
     <script type="module">
-        import { showDialog, hideDialog } from '/src/libraries/Dialog.js'
+        import { showDialog, hideDialog, showDialogInline } from '/src/libraries/Dialog.js'
 
         document.querySelector('#dialogShow').addEventListener('click', async () => {
             await showDialog(`
@@ -34,12 +34,12 @@
         })
 
         document.querySelector('#dialogShowInline').addEventListener('click', async () => {
-            await showDialog(document.querySelector('dialog'))
+            await showDialogInline(document.querySelector('dialog'))
         })
 
         document.addEventListener('click', async ({ target }) => {
             if (target.id.startsWith('dialogHide')) {
-                await hideDialog({ remove: true })
+                await hideDialog({ remove: false })
             }
 
             if (target.id === 'dialogInDialog') {

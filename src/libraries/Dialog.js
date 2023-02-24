@@ -1,8 +1,45 @@
-const dialogSelector = selector => document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1] ?? null
+const dialogSelector = selector =>
+    typeof selector === 'string'
+    ? document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1] ?? null
+    : selector
 
 const removeDialog = async () => {
     await Promise.allSettled(dialogSelector('.lib-dialog').getAnimations().map(animation => animation.finished))
     dialogSelector('.lib-dialog').remove()
+}
+
+const showDialogInline = async (selector, options = { remove: true, append: false }) => {
+    return new Promise(resolve => {
+        if (!dialogSelector(selector)._hasDialogEvents) {
+            dialogSelector(selector)._hasDialogEvents = true
+
+            dialogSelector(selector).addEventListener('keydown', async ({ key }) => {
+                if (key === 'Escape') {
+                    dialogSelector(selector).setAttribute('inert', '')
+                }
+            })
+
+            dialogSelector(selector).addEventListener('mousedown', ({ target }) => {
+                if (target.nodeName === 'DIALOG') {
+                    window.HTMLDialogElement
+                        ? dialogSelector(selector).close()
+                        : dialogSelector(selector).removeAttribute('open')
+
+                    dialogSelector(selector).setAttribute('inert', '')
+                }
+            })
+        }
+
+        dialogSelector(selector).removeAttribute('inert')
+
+        window.HTMLDialogElement
+            ? dialogSelector(selector).showModal()
+            : dialogSelector(selector).setAttribute('open', '')
+
+        document.documentElement.style.setProperty('--lib-dialog-offset-r', `${window.innerWidth - document.body.clientWidth}px`)
+
+        resolve()
+    })
 }
 
 const showDialog = async (content, options = { remove: true, append: false }) => {
@@ -61,4 +98,4 @@ const fetchDialog = async ({ url }) => {
         .then(({ dialog }) => showDialog(dialog))
 }
 
-export { showDialog, hideDialog, fetchDialog }
+export { showDialog, hideDialog, fetchDialog, showDialogInline }
