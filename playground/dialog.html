@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+</head>
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4">
+    <button class="ui-btn" id="dialogShow">Open dialog</button>
+    <button class="ui-btn" id="dialogShowInline">Open dialog</button>
+    <input autofocus>
+
+<!--    <dialog class="lib-dialog">-->
+<!--        <div class="c-dialog">-->
+<!--            <input autofocus>-->
+<!--            <button class="ui-btn" id="dialogHide">Close dialog</button>-->
+<!--            <button class="ui-btn" id="dialogInDialog">Open dialog</button>-->
+<!--        </div>-->
+<!--    </dialog>-->
+
+    <script type="module">
+        import { showDialog, hideDialog } from '/src/libraries/Dialog.js'
+
+        document.querySelector('#dialogShow').addEventListener('click', async () => {
+            await showDialog(`
+               <div class="c-dialog">
+                    <input autofocus>
+                    <button class="ui-btn" id="dialogHide">Close dialog</button>
+                    <button class="ui-btn" id="dialogInDialog">Open dialog</button>
+                </div>
+            `)
+        })
+
+        document.querySelector('#dialogShowInline').addEventListener('click', async () => {
+            await showDialog(document.querySelector('dialog'))
+        })
+
+        document.addEventListener('click', async ({ target }) => {
+            if (target.id.startsWith('dialogHide')) {
+                await hideDialog({ remove: true })
+            }
+
+            if (target.id === 'dialogInDialog') {
+                await showDialog(`
+                   <div class="c-dialog">
+                        <input autofocus>
+                        <button class="ui-btn" id="dialogHideNext">Close dialog</button>
+                    </div>
+                `)
+            }
+        })
+    </script>
+</body>
+</html>

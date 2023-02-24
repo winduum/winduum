@@ -1,3 +1,23 @@
 :where(.lib-dialog) {
+  --lib-dialog-bg: var(--color-dark);
+  --lib-dialog-opacity: 0.8;
 
+  inset: 0;
+  z-index: var(--z-30);
+  position: fixed;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgb(var(--lib-dialog-bg) / var(--lib-dialog-opacity));
+  overscroll-behavior: contain;
+  display: flex;
+  padding: 2rem 0;
+
+  &:not([open]) {
+    animation: 0.3s ease 0s forwards 1 fade-out;
+    pointer-events: none;
+  }
+
+  &[open] {
+    animation: 0.3s ease 0s backwards 1 fade-in;
+  }
 }
