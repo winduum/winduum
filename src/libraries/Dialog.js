@@ -1,40 +1,54 @@
+const SELECTOR = '.lib-dialog[data-type="dynamic"]'
+
 const dialogSelector = selector =>
     typeof selector === 'string'
     ? document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1] ?? null
     : selector
 
-const removeDialog = async () => {
-    await Promise.allSettled(dialogSelector('.lib-dialog').getAnimations().map(animation => animation.finished))
-    dialogSelector('.lib-dialog').remove()
+const removeDialog = async (selector = SELECTOR) => {
+    await Promise.allSettled(dialogSelector(selector).getAnimations().map(animation => animation.finished))
+    dialogSelector(selector).remove()
 }
 
-const showDialogInline = async (selector, options = { remove: true, append: false }) => {
+const showDialog = async (options = {}) => {
+    options = Object.assign({ content: null, selector: SELECTOR, remove: false, append: false }, options)
+
     return new Promise(resolve => {
-        if (!dialogSelector(selector)._hasDialogEvents) {
-            dialogSelector(selector)._hasDialogEvents = true
-
-            dialogSelector(selector).addEventListener('keydown', async ({ key }) => {
-                if (key === 'Escape') {
-                    dialogSelector(selector).setAttribute('inert', '')
-                }
-            })
-
-            dialogSelector(selector).addEventListener('mousedown', ({ target }) => {
-                if (target.nodeName === 'DIALOG') {
-                    window.HTMLDialogElement
-                        ? dialogSelector(selector).close()
-                        : dialogSelector(selector).removeAttribute('open')
-
-                    dialogSelector(selector).setAttribute('inert', '')
-                }
-            })
+        if (!options.append && options.content) {
+            dialogSelector(options.selector)?.firstElementChild?.remove()
         }
 
-        dialogSelector(selector).removeAttribute('inert')
+        if (!dialogSelector(options.selector) || options.append || (options.selector && !options.content)) {
+            options.content &&
+                document.body.insertAdjacentHTML('beforeend', '<dialog class="lib-dialog" data-type="dynamic"></dialog>')
+
+            if (!dialogSelector(options.selector)._dialogHasEvents) {
+                dialogSelector(options.selector)._dialogHasEvents = true
+                
+                dialogSelector(options.selector).addEventListener('keydown', async ({ key }) => {
+                    if (key === 'Escape') {
+                        dialogSelector(options.selector).setAttribute('inert', '')
+
+                        options.remove && setTimeout(removeDialog, 1)
+                    }
+                })
+
+                dialogSelector(options.selector).addEventListener('mousedown', ({ target }) => {
+                    if (target.nodeName === 'DIALOG') {
+                        hideDialog(options)
+                    }
+                })
+            }
+        }
+
+        dialogSelector(options.selector).removeAttribute('inert')
+
+        options.content &&
+            dialogSelector(options.selector).insertAdjacentHTML('beforeend', options.content)
 
         window.HTMLDialogElement
-            ? dialogSelector(selector).showModal()
-            : dialogSelector(selector).setAttribute('open', '')
+            ? dialogSelector(options.selector).showModal()
+            : dialogSelector(options.selector).setAttribute('open', '')
 
         document.documentElement.style.setProperty('--lib-dialog-offset-r', `${window.innerWidth - document.body.clientWidth}px`)
 
@@ -42,50 +56,17 @@ const showDialogInline = async (selector, options = { remove: true, append: fals
     })
 }
 
-const showDialog = async (content, options = { remove: true, append: false }) => {
-    return new Promise(resolve => {
-        if (!options.append) {
-            dialogSelector('.lib-dialog')?.firstElementChild?.remove()
-        }
+const hideDialog = async (options = {}) => {
+    console.log(options)
 
-        if (!dialogSelector('.lib-dialog') || options.append) {
-            document.body.insertAdjacentHTML('beforeend', '<dialog class="lib-dialog"></dialog>')
+    options = Object.assign({ selector: SELECTOR, remove: true }, options)
 
-            dialogSelector('.lib-dialog').addEventListener('keydown', async ({ key }) => {
-                if (key === 'Escape') {
-                    dialogSelector('.lib-dialog').setAttribute('inert', '')
-
-                    options.remove && setTimeout(removeDialog, 1)
-                }
-            })
-
-            dialogSelector('.lib-dialog').addEventListener('mousedown', ({ target }) => {
-                if (target.nodeName === 'DIALOG') {
-                    hideDialog(options)
-                }
-            })
-        }
-
-        dialogSelector('.lib-dialog').removeAttribute('inert')
-        dialogSelector('.lib-dialog').insertAdjacentHTML('beforeend', content)
-
-        window.HTMLDialogElement
-            ? dialogSelector('.lib-dialog').showModal()
-            : dialogSelector('.lib-dialog').setAttribute('open', '')
-
-        document.documentElement.style.setProperty('--lib-dialog-offset-r', `${window.innerWidth - document.body.clientWidth}px`)
-
-        resolve()
-    })
-}
-
-const hideDialog = async (options = { remove: true }) => {
     return new Promise(async resolve => {
         window.HTMLDialogElement
-            ? dialogSelector('.lib-dialog').close()
-            : dialogSelector('.lib-dialog').removeAttribute('open')
+            ? dialogSelector(options.selector).close()
+            : dialogSelector(options.selector).removeAttribute('open')
 
-        dialogSelector('.lib-dialog').setAttribute('inert', '')
+        dialogSelector(options.selector).setAttribute('inert', '')
         options.remove && await removeDialog()
 
         resolve()
@@ -98,4 +79,4 @@ const fetchDialog = async ({ url }) => {
         .then(({ dialog }) => showDialog(dialog))
 }
 
-export { showDialog, hideDialog, fetchDialog, showDialogInline }
+export { showDialog, hideDialog, fetchDialog }

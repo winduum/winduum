@@ -12,43 +12,53 @@
     <button class="ui-btn" id="dialogShowInline">Open dialog</button>
     <input autofocus>
 
-<!--    <dialog class="lib-dialog">-->
-<!--        <div class="c-dialog">-->
-<!--            <input autofocus>-->
-<!--            <button class="ui-btn" id="dialogHide">Close dialog</button>-->
-<!--            <button class="ui-btn" id="dialogInDialog">Open dialog</button>-->
-<!--        </div>-->
-<!--    </dialog>-->
+    <dialog class="lib-dialog">
+        <div class="c-dialog">
+            <input autofocus>
+            <button class="ui-btn" id="dialogHideInline">Close dialog</button>
+            <button class="ui-btn" id="dialogInDialog">Open dialog</button>
+        </div>
+    </dialog>
 
     <script type="module">
-        import { showDialog, hideDialog, showDialogInline } from '/src/libraries/Dialog.js'
+        import { showDialog, hideDialog } from '/src/libraries/Dialog.js'
 
         document.querySelector('#dialogShow').addEventListener('click', async () => {
-            await showDialog(`
-               <div class="c-dialog">
-                    <input autofocus>
-                    <button class="ui-btn" id="dialogHide">Close dialog</button>
-                    <button class="ui-btn" id="dialogInDialog">Open dialog</button>
-                </div>
-            `)
+            await showDialog({
+                content: `
+                    <div class="c-dialog">
+                        <input autofocus>
+                        <button class="ui-btn" id="dialogHide">Close dialog</button>
+                        <button class="ui-btn" id="dialogInDialog">Open dialog</button>
+                    </div>
+                `
+            })
         })
 
         document.querySelector('#dialogShowInline').addEventListener('click', async () => {
-            await showDialogInline(document.querySelector('dialog'))
+            await showDialog({
+                selector: document.querySelector('dialog')
+            })
         })
 
         document.addEventListener('click', async ({ target }) => {
-            if (target.id.startsWith('dialogHide')) {
+            if (target.id === 'dialogHide' || target.id === 'dialogHideNext') {
                 await hideDialog({ remove: false })
             }
 
+            if (target.id === 'dialogHideInline') {
+                await hideDialog({ selector: document.querySelector('dialog'), remove: false })
+            }
+
             if (target.id === 'dialogInDialog') {
-                await showDialog(`
-                   <div class="c-dialog">
-                        <input autofocus>
-                        <button class="ui-btn" id="dialogHideNext">Close dialog</button>
-                    </div>
-                `)
+                await showDialog({
+                    content: `
+                       <div class="c-dialog">
+                            <input autofocus>
+                            <button class="ui-btn" id="dialogHideNext">Close dialog</button>
+                        </div>
+                    `
+                })
             }
         })
     </script>
