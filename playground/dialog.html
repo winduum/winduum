@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/src/main.css">
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
-<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4">
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4 min-h-[200vh]">
     <button class="ui-btn" id="dialogShow">Open dialog</button>
     <button class="ui-btn" id="dialogShowInline">Open dialog</button>
     <input autofocus>
@@ -16,12 +16,12 @@
         <div class="c-dialog">
             <input autofocus>
             <button class="ui-btn" id="dialogHideInline">Close dialog</button>
-            <button class="ui-btn" id="dialogInDialog">Open dialog</button>
+            <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
         </div>
     </dialog>
 
     <script type="module">
-        import { showDialog, hideDialog } from '/src/libraries/Dialog.js'
+        import { showDialog, closeDialog } from '/src/libraries/Dialog.js'
 
         document.querySelector('#dialogShow').addEventListener('click', async () => {
             await showDialog({
@@ -29,7 +29,7 @@
                     <div class="c-dialog">
                         <input autofocus>
                         <button class="ui-btn" id="dialogHide">Close dialog</button>
-                        <button class="ui-btn" id="dialogInDialog">Open dialog</button>
+                        <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
                     </div>
                 `
             })
@@ -43,11 +43,11 @@
 
         document.addEventListener('click', async ({ target }) => {
             if (target.id === 'dialogHide' || target.id === 'dialogHideNext') {
-                await hideDialog({ remove: false })
+                await closeDialog({ remove: false })
             }
 
             if (target.id === 'dialogHideInline') {
-                await hideDialog({ selector: document.querySelector('#customDialog'), remove: false })
+                await closeDialog({ selector: document.querySelector('#customDialog'), remove: false })
             }
 
             if (target.id === 'dialogInDialog') {

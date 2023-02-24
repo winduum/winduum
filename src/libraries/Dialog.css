@@ -21,3 +21,8 @@
     animation: 0.3s ease 0s backwards 1 fade-in;
   }
 }
+
+.is-lib-dialog-open {
+  overflow: hidden;
+  padding-right: var(--lib-dialog-scrollbar-width, 0);
+}

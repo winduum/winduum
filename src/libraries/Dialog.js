@@ -16,39 +16,41 @@ const dialogSelector = selector => typeof selector === 'string'
         ? document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1] ?? null
         : selector
 
-const removeDialog = async (selector = SELECTOR_DEFAULT) => {
-    await Promise.allSettled(dialogSelector(selector).getAnimations().map(animation => animation.finished))
-    dialogSelector(selector).remove()
+const dialogDismiss = async (options) => {
+    await Promise.allSettled(dialogSelector(options.selector).getAnimations().map(animation => animation.finished))
+    options.remove && dialogSelector(options.selector).remove()
+    dialogSelector(options.selector).setAttribute('inert', '')
+
+    if (!document.querySelector('dialog[open]')) {
+        document.documentElement.classList.remove('is-lib-dialog-open')
+    }
 }
 
 const showDialog = async (options = SHOW_DEFAULT) => {
-    options = Object.assign(SHOW_DEFAULT, options)
+    options = Object.assign({}, SHOW_DEFAULT, options)
 
-    if (!options.append && options.content) {
+    if (options.content && !options.append && dialogSelector(options.selector)) {
         dialogSelector(options.selector)?.firstElementChild?.remove()
     }
 
-    if (!dialogSelector(options.selector) || options.append || (options.selector && !options.content)) {
-        options.content &&
-            document.body.insertAdjacentHTML('beforeend', '<dialog class="lib-dialog" data-type="dynamic"></dialog>')
+    if (options.content && (options.append || !dialogSelector(options.selector))) {
+        document.body.insertAdjacentHTML('beforeend', '<dialog class="lib-dialog" data-type="dynamic"></dialog>')
+    }
 
-        if (!dialogSelector(options.selector)._dialogHasEvents) {
-            dialogSelector(options.selector)._dialogHasEvents = true
+    if (!dialogSelector(options.selector)._dialogHasEvents) {
+        dialogSelector(options.selector).addEventListener('keydown', async ({ key }) => {
+            if (key === 'Escape') {
+                setTimeout(() => dialogDismiss(options), 1)
+            }
+        })
 
-            dialogSelector(options.selector).addEventListener('keydown', async ({ key }) => {
-                if (key === 'Escape') {
-                    dialogSelector(options.selector).setAttribute('inert', '')
+        dialogSelector(options.selector).addEventListener('click', ({ target }) => {
+            if (target.nodeName === 'DIALOG') {
+                closeDialog(options)
+            }
+        })
 
-                    options.remove && setTimeout(removeDialog, 1)
-                }
-            })
-
-            dialogSelector(options.selector).addEventListener('mousedown', ({ target }) => {
-                if (target.nodeName === 'DIALOG') {
-                    hideDialog(options)
-                }
-            })
-        }
+        dialogSelector(options.selector)._dialogHasEvents = true
     }
 
     dialogSelector(options.selector).removeAttribute('inert')
@@ -60,18 +62,18 @@ const showDialog = async (options = SHOW_DEFAULT) => {
         ? dialogSelector(options.selector).showModal()
         : dialogSelector(options.selector).setAttribute('open', '')
 
-    document.documentElement.style.setProperty('--lib-dialog-offset-r', `${window.innerWidth - document.body.clientWidth}px`)
+    document.documentElement.classList.add('is-lib-dialog-open')
+    document.documentElement.style.setProperty('--lib-dialog-scrollbar-width', `${window.innerWidth - document.body.clientWidth}px`)
 }
 
-const hideDialog = async (options = CLOSE_DEFAULT) => {
-    options = Object.assign(CLOSE_DEFAULT, options)
+const closeDialog = async (options = CLOSE_DEFAULT) => {
+    options = Object.assign({}, CLOSE_DEFAULT, options)
 
     window.HTMLDialogElement
         ? dialogSelector(options.selector).close()
         : dialogSelector(options.selector).removeAttribute('open')
 
-    dialogSelector(options.selector).setAttribute('inert', '')
-    options.remove && await removeDialog()
+    await dialogDismiss(options)
 }
 
 const fetchDialog = async ({ url }) => {
@@ -80,4 +82,4 @@ const fetchDialog = async ({ url }) => {
         .then(({ dialog }) => showDialog(dialog))
 }
 
-export { showDialog, hideDialog, fetchDialog }
+export { showDialog, closeDialog, fetchDialog }
