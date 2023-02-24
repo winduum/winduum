@@ -12,7 +12,7 @@
     <button class="ui-btn" id="dialogShowInline">Open dialog</button>
     <input autofocus>
 
-    <dialog class="lib-dialog">
+    <dialog class="lib-dialog" id="customDialog">
         <div class="c-dialog">
             <input autofocus>
             <button class="ui-btn" id="dialogHideInline">Close dialog</button>
@@ -37,7 +37,7 @@
 
         document.querySelector('#dialogShowInline').addEventListener('click', async () => {
             await showDialog({
-                selector: document.querySelector('dialog')
+                selector: document.querySelector('#customDialog')
             })
         })
 
@@ -47,7 +47,7 @@
             }
 
             if (target.id === 'dialogHideInline') {
-                await hideDialog({ selector: document.querySelector('dialog'), remove: false })
+                await hideDialog({ selector: document.querySelector('#customDialog'), remove: false })
             }
 
             if (target.id === 'dialogInDialog') {
