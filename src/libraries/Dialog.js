@@ -1,17 +1,29 @@
-const SELECTOR = '.lib-dialog[data-type="dynamic"]'
+const selectorDefault = '.lib-dialog[data-type="dynamic"]'
+
+const showDialogDefault = {
+    content: undefined ?? null,
+    selector: selectorDefault ?? null,
+    remove: false ?? null,
+    append: false ?? null
+}
+
+const hideDialogDefault = {
+    selector: selectorDefault ?? null,
+    remove: false ?? null
+}
 
 const dialogSelector = selector =>
     typeof selector === 'string'
     ? document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1] ?? null
     : selector
 
-const removeDialog = async (selector = SELECTOR) => {
+const removeDialog = async (selector = selectorDefault) => {
     await Promise.allSettled(dialogSelector(selector).getAnimations().map(animation => animation.finished))
     dialogSelector(selector).remove()
 }
 
-const showDialog = async (options = {}) => {
-    options = Object.assign({ content: null, selector: SELECTOR, remove: false, append: false }, options)
+const showDialog = async (options = showDialogDefault) => {
+    options = Object.assign(showDialogDefault, options)
 
     return new Promise(resolve => {
         if (!options.append && options.content) {
@@ -24,7 +36,7 @@ const showDialog = async (options = {}) => {
 
             if (!dialogSelector(options.selector)._dialogHasEvents) {
                 dialogSelector(options.selector)._dialogHasEvents = true
-                
+
                 dialogSelector(options.selector).addEventListener('keydown', async ({ key }) => {
                     if (key === 'Escape') {
                         dialogSelector(options.selector).setAttribute('inert', '')
@@ -56,10 +68,9 @@ const showDialog = async (options = {}) => {
     })
 }
 
-const hideDialog = async (options = {}) => {
-    console.log(options)
+const hideDialog = async (options = hideDialogDefault) => {
 
-    options = Object.assign({ selector: SELECTOR, remove: true }, options)
+    options = Object.assign(hideDialogDefault, options)
 
     return new Promise(async resolve => {
         window.HTMLDialogElement
