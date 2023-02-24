@@ -58,11 +58,12 @@ const showDialog = async (options = DEFAULTS.show) => {
     options.content &&
         dialogSelector(options.selector).insertAdjacentHTML('beforeend', options.content)
 
+    document.documentElement.classList.add(DEFAULTS.openClass)
+
     window.HTMLDialogElement
         ? dialogSelector(options.selector).showModal()
         : dialogSelector(options.selector).setAttribute('open', '')
 
-    document.documentElement.classList.add(DEFAULTS.openClass)
     document.documentElement.style.setProperty('--lib-dialog-scrollbar-width', `${window.innerWidth - document.body.clientWidth}px`)
 }
 

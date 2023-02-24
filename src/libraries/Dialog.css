@@ -10,6 +10,7 @@
   background-color: rgb(var(--lib-dialog-bg) / var(--lib-dialog-opacity));
   overscroll-behavior: contain;
   display: flex;
+  visibility: hidden;
   padding: 2rem 0;
 
   &:not([open]) {
@@ -19,6 +20,10 @@
 
   &[open] {
     animation: 0.3s ease 0s backwards 1 fade-in;
+  }
+
+  .is-lib-dialog-open & {
+    visibility: visible;
   }
 }
 
