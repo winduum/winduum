@@ -1,10 +1,11 @@
-const DEFAULTS = {
+const defaultOptions = {
     openClass: 'is-lib-dialog-open',
     show: {
         content: undefined ?? null,
         selector: '.lib-dialog[data-type="dynamic"]' ?? null,
         remove: false ?? null,
-        append: false ?? null
+        append: false ?? null,
+        closable: true ?? null
     },
     close: {
         selector: '.lib-dialog[data-type="dynamic"]' ?? null,
@@ -22,12 +23,12 @@ const dialogDismiss = async (options) => {
     dialogSelector(options.selector).setAttribute('inert', '')
 
     if (!document.querySelector('dialog[open]')) {
-        document.documentElement.classList.remove(DEFAULTS.openClass)
+        document.documentElement.classList.remove(defaultOptions.openClass)
     }
 }
 
-const showDialog = async (options = DEFAULTS.show) => {
-    options = Object.assign({}, DEFAULTS.show, options)
+const showDialog = async (options = defaultOptions.show) => {
+    options = Object.assign({}, defaultOptions.show, options)
 
     if (options.content && !options.append && dialogSelector(options.selector)) {
         dialogSelector(options.selector)?.firstElementChild?.remove()
@@ -37,7 +38,7 @@ const showDialog = async (options = DEFAULTS.show) => {
         document.body.insertAdjacentHTML('beforeend', '<dialog class="lib-dialog" data-type="dynamic"></dialog>')
     }
 
-    if (!dialogSelector(options.selector)._dialogHasEvents) {
+    if (!dialogSelector(options.selector)._dialogHasEvents && options.closable) {
         dialogSelector(options.selector).addEventListener('keydown', async ({ key }) => {
             if (key === 'Escape') {
                 setTimeout(() => dialogDismiss(options), 1)
@@ -58,7 +59,7 @@ const showDialog = async (options = DEFAULTS.show) => {
     options.content &&
         dialogSelector(options.selector).insertAdjacentHTML('beforeend', options.content)
 
-    document.documentElement.classList.add(DEFAULTS.openClass)
+    document.documentElement.classList.add(defaultOptions.openClass)
 
     window.HTMLDialogElement
         ? dialogSelector(options.selector).showModal()
@@ -67,8 +68,8 @@ const showDialog = async (options = DEFAULTS.show) => {
     document.documentElement.style.setProperty('--lib-dialog-scrollbar-width', `${window.innerWidth - document.body.clientWidth}px`)
 }
 
-const closeDialog = async (options = DEFAULTS.close) => {
-    options = Object.assign({}, DEFAULTS.close, options)
+const closeDialog = async (options = defaultOptions.close) => {
+    options = Object.assign({}, defaultOptions.close, options)
 
     window.HTMLDialogElement
         ? dialogSelector(options.selector).close()
@@ -77,10 +78,10 @@ const closeDialog = async (options = DEFAULTS.close) => {
     await dialogDismiss(options)
 }
 
-const fetchDialog = async ({ url }) => {
-    fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+const fetchDialog = async ({ url, showOptions = {} }) => {
+    await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
         .then(response => response.json())
-        .then(({ dialog }) => showDialog(dialog))
+        .then(async ({ content }) => await showDialog({ content, ...showOptions }))
 }
 
 export { showDialog, closeDialog, fetchDialog }
