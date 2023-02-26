@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "type": "module",
   "main": "index.js",
   "scripts": {

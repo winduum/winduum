@@ -1,5 +1,5 @@
 @layer utilities {
-  .animation {
+  :where(.animate) {
     animation-duration: var(--transition-duration);
     animation-fill-mode: both;
   }

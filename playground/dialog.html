@@ -22,8 +22,10 @@
 
     <script type="module">
         import { showDialog, closeDialog } from '/src/libraries/Dialog.js'
+        import { showRipple } from '/src/libraries/Ripple.js'
 
-        document.querySelector('#dialogShow').addEventListener('click', async () => {
+        document.querySelector('#dialogShow').addEventListener('click', async ({ currentTarget, pageX, pageY }) => {
+            showRipple({ currentTarget, pageX, pageY })
             await showDialog({
                 content: `
                     <div class="c-dialog">

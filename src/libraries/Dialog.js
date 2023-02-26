@@ -2,13 +2,14 @@ const defaultOptions = {
     openClass: 'is-lib-dialog-open',
     show: {
         content: undefined ?? null,
-        selector: '.lib-dialog[data-type="dynamic"]' ?? null,
+        selector: '.lib-dialog.is-inserted' ?? null,
         remove: false ?? null,
         append: false ?? null,
-        closable: true ?? null
+        closable: true ?? null,
+        class: 'lib-dialog' ?? null
     },
     close: {
-        selector: '.lib-dialog[data-type="dynamic"]' ?? null,
+        selector: '.lib-dialog.is-inserted[open]' ?? null,
         remove: false ?? null
     }
 }
@@ -35,7 +36,7 @@ const showDialog = async (options = defaultOptions.show) => {
     }
 
     if (options.content && (options.append || !dialogSelector(options.selector))) {
-        document.body.insertAdjacentHTML('beforeend', '<dialog class="lib-dialog" data-type="dynamic"></dialog>')
+        document.body.insertAdjacentHTML('beforeend', `<dialog class="${defaultOptions.show.class} is-inserted"></dialog>`)
     }
 
     if (!dialogSelector(options.selector)._dialogHasEvents && options.closable) {

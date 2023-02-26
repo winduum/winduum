@@ -1,6 +1,9 @@
 :where(.lib-dialog) {
   --lib-dialog-bg: var(--color-dark);
   --lib-dialog-opacity: 0.8;
+  --lib-dialog-py: 2rem;
+  --lib-dialog-px: 1.5rem;
+  --lib-dialog-animation-duration: var(--transition-duration);
 
   inset: 0;
   z-index: var(--z-30);
@@ -11,15 +14,15 @@
   overscroll-behavior: contain;
   display: flex;
   visibility: hidden;
-  padding: 2rem 0;
+  padding: var(--lib-dialog-py) var(--lib-dialog-px);
 
   &:not([open]) {
-    animation: 0.3s ease 0s forwards 1 fade-out;
+    animation: var(--lib-dialog-animation-duration) ease 0s forwards 1 fade-out;
     pointer-events: none;
   }
 
   &[open] {
-    animation: 0.3s ease 0s backwards 1 fade-in;
+    animation: var(--lib-dialog-animation-duration) ease 0s backwards 1 fade-in;
   }
 
   .is-lib-dialog-open & {

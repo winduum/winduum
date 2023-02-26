@@ -1,6 +1,5 @@
 :where(.c-field) {
   --c-field-gap: 0.5rem;
-  --c-field-input-height: 3rem;
 
   display: flex;
   flex-direction: column;
@@ -12,31 +11,10 @@
     }
   }
 
-  &:where(.is-horizontal) {
-    align-items: flex-start;
-    flex-direction: row;
-
-    & :where(.ui-label) {
-      min-height: var(--ui-input-height);
-      align-items: center;
-      display: flex;
-    }
-
-    & > :where(.col) {
-      gap: var(--c-field-gap);
-      justify-content: center;
-    }
-  }
-
   &:has([required]) :where(.ui-label) {
     &::after {
       color: rgb(var(--color-error));
       content: " *";
     }
-  }
-
-  & :where(.is-input-offset) {
-    min-height: var(--c-field-input-height);
-    justify-content: center;
   }
 }

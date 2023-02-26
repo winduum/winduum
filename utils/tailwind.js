@@ -12,7 +12,7 @@ export const defaultConfig = {
     zIndex: [10, 20, 30, 40, 50, 60],
     spacing: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', 'section'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', 'full'],
-    animations: ['fade-in', 'fade-out'],
+    animations: ['fade-in', 'fade-out', 'ripple'],
     screens: {
         'xs': '22.5em',
         'sm': '26em',
