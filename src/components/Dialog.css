@@ -2,7 +2,6 @@
   --c-dialog-py: 1.5rem;
   --c-dialog-px: 1.5rem;
   --c-dialog-width: 35rem;
-  --c-dialog-offset-y: 2rem;
   --c-dialog-animation-duration: var(--transition-duration);
 
   animation: var(--c-dialog-animation-duration) ease 0s backwards 1 fade-in-down;
