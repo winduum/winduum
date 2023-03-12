@@ -1,0 +1,11 @@
+---
+const { class: className, ...attrs } = Astro.props;
+---
+
+<button class={`ui-btn ${className}`} {...attrs}>
+    <slot />
+</button>
+
+<style>
+	@import "winduum/src/ui/btn.css";
+</style>
