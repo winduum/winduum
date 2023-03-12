@@ -21,3 +21,18 @@
   border-top: 2px solid rgb(var(--color-current) / var(--tw-border-opacity, 1));
   border-radius: var(--rounded);
 }
+
+:where(html) {
+  font-family: var(--font-primary);
+  font-weight: var(--font-normal);
+  height: 100%;
+  line-height: 1.5;
+  cursor: default;
+}
+
+:where(body) {
+  min-height: 100%;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-default));
+  accent-color: rgb(var(--color-accent));
+}

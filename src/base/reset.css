@@ -77,12 +77,6 @@ meter {
   -webkit-user-drag: element;
 }
 
-/* apply default cursor */
-:where(html) {
-  cursor: default;
-  color: rgb(var(--color-default))
-}
-
 /* apply text cursor */
 :where(input, textarea) {
   cursor: text;
