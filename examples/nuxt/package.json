@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "winduum": "^0.1.10"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "css-has-pseudo": "^5.0.2",
+    "nuxt": "^3.2.3",
+    "postcss": "^8.4.21",
+    "postcss-custom-media": "^9.1.2",
+    "postcss-import": "^15.1.0",
+    "postcss-nesting": "^11.2.1",
+    "stylelint-config-standard": "^30.0.1",
+    "tailwindcss": "^3.2.7"
+  }
+}
