@@ -1,41 +1,19 @@
 @import "winduum/src/base/index.css";
 @import "winduum/src/base/tailwind/base.css";
 
+
 :root {
-  font-family: var(--font-default);
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgb(var(--color-light) / 87%);
-  background-color: rgb(var(--color-dark));
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
-
-  @media (prefers-color-scheme: light) {
-    color: rgb(var(--color-dark));
-    background-color: rgb(var(--color-light));
-  }
 }
 
-a {
-  font-weight: 500;
-  color: rgb(var(--color-primary));
-  text-decoration: inherit;
-
-  &:hover {
-    color: rgb(var(--color-primary) / 70%);
-  }
-}
 
 body {
-  margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -48,4 +26,19 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
 }

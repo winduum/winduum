@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "astro": "^2.1.2",
-    "winduum": "^0.1.10"
+    "winduum": "^0.1.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

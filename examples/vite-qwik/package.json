@@ -17,7 +17,7 @@
     "qwik": "qwik"
   },
   "dependencies": {
-    "winduum": "^0.1.9",
+    "winduum": "^0.1.11",
     "css-has-pseudo": "^5.0.2"
   },
   "devDependencies": {
