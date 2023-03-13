@@ -20,8 +20,8 @@ const dialogSelector = selector => typeof selector === 'string'
 
 const dialogDismiss = async (options) => {
     await Promise.allSettled(dialogSelector(options.selector).getAnimations().map(animation => animation.finished))
-    options.remove && dialogSelector(options.selector).remove()
     dialogSelector(options.selector).setAttribute('inert', '')
+    options.remove && dialogSelector(options.selector).remove()
 
     if (!document.querySelector('dialog[open]')) {
         document.documentElement.classList.remove(defaultOptions.openClass)
@@ -85,4 +85,4 @@ const fetchDialog = async ({ url, showOptions = {} }) => {
         .then(async ({ content }) => await showDialog({ content, ...showOptions }))
 }
 
-export { showDialog, closeDialog, fetchDialog }
+export { showDialog, closeDialog, fetchDialog, dialogSelector, dialogDismiss }
