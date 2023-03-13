@@ -9,7 +9,7 @@ const defaultOptions = {
         class: 'lib-dialog' ?? null
     },
     close: {
-        selector: '.lib-dialog.is-inserted[open]' ?? null,
+        selector: '.lib-dialog.is-inserted' ?? null,
         remove: false ?? null
     }
 }
