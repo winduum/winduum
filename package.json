@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -16,9 +16,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.14",
     "css-has-pseudo": "^5.0.2",
-    "eslint": "^8.34.0",
+    "eslint": "^8.36.0",
     "eslint-config-standard": "^17.0.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
