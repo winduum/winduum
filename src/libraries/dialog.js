@@ -1,88 +1,99 @@
 const defaultOptions = {
     openClass: 'is-lib-dialog-open',
+    scrollbarWidthProperty: '--lib-dialog-scrollbar-width',
     show: {
-        content: undefined ?? null,
-        selector: '.lib-dialog.is-inserted' ?? null,
-        remove: false ?? null,
-        append: false ?? null,
         closable: true ?? null,
-        class: 'lib-dialog' ?? null
+        remove: false ?? null
     },
     close: {
-        selector: '.lib-dialog.is-inserted' ?? null,
         remove: false ?? null
+    },
+    insert: {
+        selector: '.lib-dialog.is-inserted' ?? null,
+        class: 'lib-dialog is-inserted' ?? null,
+        remove: true ?? null,
+        append: false ?? null
     }
 }
 
-const dialogSelector = selector => typeof selector === 'string'
-        ? document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1] ?? null
-        : selector
-
-const dialogDismiss = async (options) => {
-    await Promise.allSettled(dialogSelector(options.selector).getAnimations().map(animation => animation.finished))
-    dialogSelector(options.selector).setAttribute('inert', '')
-    options.remove && dialogSelector(options.selector).remove()
+const dismissDialog = async (selector, options = defaultOptions.close) => {
+    await Promise.allSettled(selector.getAnimations().map(animation => animation.finished))
+    selector.setAttribute('inert', '')
+    options.remove && selector.remove()
 
     if (!document.querySelector('dialog[open]')) {
         document.documentElement.classList.remove(defaultOptions.openClass)
     }
 }
 
-const showDialog = async (options = defaultOptions.show) => {
+const showDialog = async (selector, options = defaultOptions.show) => {
     options = Object.assign({}, defaultOptions.show, options)
 
-    if (options.content && !options.append && dialogSelector(options.selector)) {
-        dialogSelector(options.selector)?.firstElementChild?.remove()
-    }
+    document.documentElement.style.setProperty(defaultOptions.scrollbarWidthProperty, `${window.innerWidth - document.body.clientWidth}px`)
 
-    if (options.content && (options.append || !dialogSelector(options.selector))) {
-        document.body.insertAdjacentHTML('beforeend', `<dialog class="${defaultOptions.show.class} is-inserted"></dialog>`)
-    }
-
-    if (!dialogSelector(options.selector)._dialogHasEvents && options.closable) {
-        dialogSelector(options.selector).addEventListener('keydown', async ({ key }) => {
+    if (!selector._dialogHasEvents && options.closable) {
+        selector.addEventListener('keydown', async ({ key }) => {
             if (key === 'Escape') {
-                setTimeout(() => dialogDismiss(options), 1)
+                setTimeout(() => dismissDialog(selector, options), 1)
             }
         })
 
-        dialogSelector(options.selector).addEventListener('click', ({ target }) => {
+        selector.addEventListener('click', ({ target }) => {
             if (target.nodeName === 'DIALOG') {
-                closeDialog(options)
+                closeDialog(selector, options)
             }
         })
 
-        dialogSelector(options.selector)._dialogHasEvents = true
+        selector._dialogHasEvents = true
     }
 
-    dialogSelector(options.selector).removeAttribute('inert')
-
-    options.content &&
-        dialogSelector(options.selector).insertAdjacentHTML('beforeend', options.content)
+    selector.removeAttribute('inert')
 
     document.documentElement.classList.add(defaultOptions.openClass)
 
     window.HTMLDialogElement
-        ? dialogSelector(options.selector).showModal()
-        : dialogSelector(options.selector).setAttribute('open', '')
-
-    document.documentElement.style.setProperty('--lib-dialog-scrollbar-width', `${window.innerWidth - document.body.clientWidth}px`)
+        ? selector.showModal()
+        : selector.setAttribute('open', '')
 }
 
-const closeDialog = async (options = defaultOptions.close) => {
+const closeDialog = async (selector, options = defaultOptions.close) => {
     options = Object.assign({}, defaultOptions.close, options)
 
     window.HTMLDialogElement
-        ? dialogSelector(options.selector).close()
-        : dialogSelector(options.selector).removeAttribute('open')
+        ? selector.close()
+        : selector.removeAttribute('open')
 
-    await dialogDismiss(options)
+    await dismissDialog(selector, options)
 }
 
-const fetchDialog = async ({ url, showOptions = {} }) => {
+const insertDialog = async (content, options = defaultOptions.insert) => {
+    options = Object.assign({}, defaultOptions.insert, options)
+
+    const dialogSelector = selector => document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1]
+
+    if (!dialogSelector(options.selector) || options.append) {
+        document.body.insertAdjacentHTML('beforeend', `<dialog class="${options.class}">${content}</dialog>`)
+    } else {
+        dialogSelector(options.selector)?.firstElementChild?.remove()
+        dialogSelector(options.selector).insertAdjacentHTML('beforeend', content)
+    }
+
+    await showDialog(dialogSelector(options.selector), options)
+}
+
+const fetchDialog = async ({ url, options = {} }) => {
     await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
         .then(response => response.json())
-        .then(async ({ content }) => await showDialog({ content, ...showOptions }))
+        .then(async ({ content }) => await insertDialog(content, options))
 }
 
-export { showDialog, closeDialog, fetchDialog, dialogSelector, dialogDismiss }
+export { showDialog, closeDialog, insertDialog, fetchDialog }
+
+export default {
+    defaults: defaultOptions,
+    dismiss: dismissDialog,
+    show: showDialog,
+    close: closeDialog,
+    insert: insertDialog,
+    fetch: fetchDialog
+}

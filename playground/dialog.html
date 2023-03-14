@@ -19,48 +19,41 @@
             <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
         </div>
     </dialog>
-
     <script type="module">
-        import { showDialog, closeDialog } from '/src/libraries/Dialog.js'
+        import { showDialog, closeDialog, insertDialog } from '/src/libraries/dialog.js'
         import { showRipple } from '/src/libraries/Ripple.js'
 
         document.querySelector('#dialogShow').addEventListener('click', async ({ currentTarget, pageX, pageY }) => {
             showRipple({ currentTarget, pageX, pageY })
-            await showDialog({
-                content: `
-                    <div class="c-dialog">
-                        <input autofocus>
-                        <button class="ui-btn" id="dialogHide">Close dialog</button>
-                        <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
-                    </div>
-                `
-            })
+            await insertDialog(`
+                <div class="c-dialog">
+                    <input autofocus>
+                    <button class="ui-btn" id="dialogHide">Close dialog</button>
+                    <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
+                </div>
+            `)
         })
 
         document.querySelector('#dialogShowInline').addEventListener('click', async () => {
-            await showDialog({
-                selector: document.querySelector('#customDialog')
-            })
+            await showDialog(document.querySelector('#customDialog'))
         })
 
         document.addEventListener('click', async ({ target }) => {
             if (target.id === 'dialogHide' || target.id === 'dialogHideNext') {
-                await closeDialog({ remove: false })
+                await closeDialog(target.closest('dialog'), { remove: true })
             }
 
             if (target.id === 'dialogHideInline') {
-                await closeDialog({ selector: document.querySelector('#customDialog'), remove: false })
+                await closeDialog(document.querySelector('#customDialog'))
             }
 
             if (target.id === 'dialogInDialog') {
-                await showDialog({
-                    content: `
-                       <div class="c-dialog">
-                            <input autofocus>
-                            <button class="ui-btn" id="dialogHideNext">Close dialog</button>
-                        </div>
-                    `
-                })
+                await insertDialog(`
+                   <div class="c-dialog">
+                        <input autofocus value="asd">
+                        <button class="ui-btn" id="dialogHideNext">Close dialog</button>
+                    </div>
+                `, { append: true })
             }
         })
     </script>
