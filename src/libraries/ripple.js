@@ -1,27 +1,25 @@
-const showRipple = ({ currentTarget, pageX, pageY }) => {
-    if (currentTarget.querySelector('.lib-ripple') === null) {
+const showRipple = ({ currentTarget, pageX, pageY }, selector = currentTarget.querySelector('.lib-ripple')) => {
+    if (!selector) {
         currentTarget.insertAdjacentHTML('beforeend', "<div class='lib-ripple'></div>")
+        selector = currentTarget.querySelector('.lib-ripple')
     }
 
-    const ripple = currentTarget.querySelector('.lib-ripple')
+    selector.classList.remove('animation-ripple')
 
-    ripple.classList.remove('animation-ripple')
-
-    if (ripple.clientWidth === 0 && ripple.clientHeight === 0) {
+    if (selector.clientWidth === 0 && selector.clientHeight === 0) {
         const d = Math.max(currentTarget.offsetWidth, currentTarget.offsetHeight)
 
-        ripple.style.width = d + 'px'
-        ripple.style.height = d + 'px'
+        selector.style.width = d + 'px'
+        selector.style.height = d + 'px'
     }
 
-    let x, y
-
-    x = pageX - currentTarget.offsetLeft - (ripple.clientWidth / 2)
-    y = pageY - currentTarget.offsetTop - (ripple.clientHeight / 2)
-
-    ripple.style.top = y + 'px'
-    ripple.style.left = x + 'px'
-    ripple.classList.add('animation-ripple')
+    selector.style.top = pageX - currentTarget.offsetLeft - (selector.clientWidth / 2) + 'px'
+    selector.style.left = pageY - currentTarget.offsetTop - (selector.clientHeight / 2) + 'px'
+    selector.classList.add('animation-ripple')
 }
 
 export { showRipple }
+
+export default {
+    show: showRipple
+}
