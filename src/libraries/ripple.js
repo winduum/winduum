@@ -1,3 +1,7 @@
+/**
+ * Shows a ripple effect.
+ * @type {typeof import("./ripple").showRipple}
+ */
 const showRipple = ({ currentTarget, pageX, pageY }, selector = currentTarget.querySelector('.lib-ripple')) => {
     if (!selector) {
         currentTarget.insertAdjacentHTML('beforeend', "<div class='lib-ripple'></div>")

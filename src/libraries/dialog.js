@@ -2,8 +2,7 @@ const defaultOptions = {
     openClass: 'is-lib-dialog-open',
     scrollbarWidthProperty: '--lib-dialog-scrollbar-width',
     show: {
-        closable: true ?? null,
-        remove: false ?? null
+        closable: true ?? null
     },
     close: {
         remove: false ?? null
@@ -16,6 +15,12 @@ const defaultOptions = {
     }
 }
 
+/**
+ * Dismisses a dialog.
+ * @type {typeof import("./dialog").dismissDialog}
+ * @param selector - The dialog element to dismiss.
+ * @param options - The options for closing the dialog.
+ */
 const dismissDialog = async (selector, options = defaultOptions.close) => {
     await Promise.allSettled(selector.getAnimations().map(animation => animation.finished))
     selector.setAttribute('inert', '')
@@ -26,6 +31,12 @@ const dismissDialog = async (selector, options = defaultOptions.close) => {
     }
 }
 
+/**
+ * Shows a dialog.
+ * @type {typeof import("./dialog").showDialog}
+ * @param selector - The dialog element to show.
+ * @param options - The options for showing the dialog.
+ */
 const showDialog = async (selector, options = defaultOptions.show) => {
     options = Object.assign({}, defaultOptions.show, options)
 
@@ -56,6 +67,12 @@ const showDialog = async (selector, options = defaultOptions.show) => {
         : selector.setAttribute('open', '')
 }
 
+/**
+ * Dismisses a dialog.
+ * @type {typeof import("./dialog").closeDialog}
+ * @param selector - The dialog element to dismiss.
+ * @param options - The options for closing the dialog.
+ */
 const closeDialog = async (selector, options = defaultOptions.close) => {
     options = Object.assign({}, defaultOptions.close, options)
 
@@ -66,6 +83,12 @@ const closeDialog = async (selector, options = defaultOptions.close) => {
     await dismissDialog(selector, options)
 }
 
+/**
+ * Inserts a dialog into the DOM.
+ * @type {typeof import("./dialog").insertDialog}
+ * @param content - The HTML content to insert into the dialog.
+ * @param options - The options for inserting the dialog.
+ */
 const insertDialog = async (content, options = defaultOptions.insert) => {
     options = Object.assign({}, defaultOptions.insert, options)
 
@@ -81,10 +104,15 @@ const insertDialog = async (content, options = defaultOptions.insert) => {
     await showDialog(dialogSelector(options.selector), options)
 }
 
-const fetchDialog = async ({ url, options = {} }) => {
+/**
+ * Fetches a dialog from a URL and inserts it into the DOM.
+ * @type {typeof import("./dialog").fetchDialog}
+ * @param options - The options for fetching and inserting the dialog.
+ */
+const fetchDialog = async ({ url, insertOptions = {} }) => {
     await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
         .then(response => response.json())
-        .then(async ({ content }) => await insertDialog(content, options))
+        .then(async ({ content }) => await insertDialog(content, insertOptions))
 }
 
 export { showDialog, closeDialog, insertDialog, fetchDialog }
