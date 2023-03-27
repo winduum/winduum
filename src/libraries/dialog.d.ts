@@ -15,11 +15,11 @@ export interface DefaultOptions {
     };
 }
 
-export declare function dismissDialog(selector: HTMLElement, options?: DefaultOptions['close']) : Promise<void>;
+export declare function dismissDialog(selector: HTMLDialogElement, options?: DefaultOptions['close']) : Promise<void>;
 
-export declare function showDialog(selector: HTMLElement, options?: DefaultOptions['show']): Promise<void>;
+export declare function showDialog(selector: HTMLDialogElement, options?: DefaultOptions['show']): Promise<void>;
 
-export declare function closeDialog(selector: HTMLElement, options?: DefaultOptions['close']): Promise<void>;
+export declare function closeDialog(selector: HTMLDialogElement, options?: DefaultOptions['close']): Promise<void>;
 
 export declare function insertDialog(content: string, options?: DefaultOptions['insert']): Promise<void>;
 

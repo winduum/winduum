@@ -42,7 +42,7 @@ const showDialog = async (selector, options = defaultOptions.show) => {
 
     document.documentElement.style.setProperty(defaultOptions.scrollbarWidthProperty, `${window.innerWidth - document.body.clientWidth}px`)
 
-    if (!selector._dialogHasEvents && options.closable) {
+    if (!selector?._dialogHasEvents && options.closable) {
         selector.addEventListener('keydown', async ({ key }) => {
             if (key === 'Escape') {
                 setTimeout(() => dismissDialog(selector, options), 1)
@@ -68,7 +68,7 @@ const showDialog = async (selector, options = defaultOptions.show) => {
 }
 
 /**
- * Dismisses a dialog.
+ * Closes and dismisses a dialog.
  * @type {typeof import("./dialog").closeDialog}
  * @param selector - The dialog element to dismiss.
  * @param options - The options for closing the dialog.
