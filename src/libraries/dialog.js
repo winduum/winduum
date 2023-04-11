@@ -15,6 +15,8 @@ const defaultOptions = {
     }
 }
 
+const dialogSelector = selector => document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1]
+
 /**
  * Dismisses a dialog.
  * @type {typeof import("./dialog").dismissDialog}
@@ -92,8 +94,6 @@ const closeDialog = async (selector, options = defaultOptions.close) => {
 const insertDialog = async (content, options = defaultOptions.insert) => {
     options = Object.assign({}, defaultOptions.insert, options)
 
-    const dialogSelector = selector => document.querySelectorAll(selector)[document.querySelectorAll(selector).length - 1]
-
     if (!dialogSelector(options.selector) || options.append) {
         document.body.insertAdjacentHTML('beforeend', `<dialog class="${options.class}">${content}</dialog>`)
     } else {
@@ -115,7 +115,7 @@ const fetchDialog = async ({ url, insertOptions = {} }) => {
         .then(async ({ content }) => await insertDialog(content, insertOptions))
 }
 
-export { showDialog, closeDialog, insertDialog, fetchDialog }
+export { showDialog, closeDialog, insertDialog, fetchDialog, dialogSelector, dismissDialog }
 
 export default {
     defaults: defaultOptions,
