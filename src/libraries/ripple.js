@@ -2,7 +2,7 @@
  * Shows a ripple effect.
  * @type {typeof import("./ripple").showRipple}
  */
-const showRipple = ({ currentTarget, pageX, pageY }, selector = currentTarget.querySelector('.lib-ripple')) => {
+const showRipple = ({ currentTarget, layerX, layerY }, selector = currentTarget.querySelector('.lib-ripple')) => {
     if (!selector) {
         currentTarget.insertAdjacentHTML('beforeend', "<div class='lib-ripple'></div>")
         selector = currentTarget.querySelector('.lib-ripple')
@@ -17,8 +17,8 @@ const showRipple = ({ currentTarget, pageX, pageY }, selector = currentTarget.qu
         selector.style.height = d + 'px'
     }
 
-    selector.style.top = pageX - currentTarget.offsetLeft - (selector.clientWidth / 2) + 'px'
-    selector.style.left = pageY - currentTarget.offsetTop - (selector.clientHeight / 2) + 'px'
+    selector.style.top = layerX - (selector.clientWidth / 2) + 'px'
+    selector.style.left = layerY - (selector.clientHeight / 2) + 'px'
     selector.classList.add('animation-ripple')
 }
 
