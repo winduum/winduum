@@ -1,16 +1,19 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-stylistic/config",
+    "stylelint-config-standard"
+  ],
   "rules": {
+    "stylistic/selector-list-comma-newline-after": "always-multi-line",
+    "stylistic/string-quotes": "double",
+    "stylistic/max-line-length": 240,
     "at-rule-no-unknown": [true, {"ignoreAtRules": ["layer", "tailwind"]}],
-    "selector-list-comma-newline-after": "always-multi-line",
-    "string-quotes": "double",
     "length-zero-no-unit": [true, {"ignore": ["custom-properties"]}],
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
     "alpha-value-notation": "number",
     "property-no-vendor-prefix": [true, { "ignoreProperties": "appearance" }],
     "number-max-precision": [4, { "ignoreProperties": "letter-spacing" }],
-    "max-line-length": 240,
-    "import-notation": null,
+    "import-notation": "string",
     "no-duplicate-selectors": null
   },
   "ignoreFiles": ["**/+.css", "dist/**/*.css"]
