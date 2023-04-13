@@ -1,3 +1,6 @@
+## 0.1.18 (2023-04-12)
+* feat: lib-ripple - fix values typo
+
 ## 0.1.17 (2023-04-11)
 * feat: lib-ripple - fix incorrect values
 

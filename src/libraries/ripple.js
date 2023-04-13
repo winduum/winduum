@@ -17,8 +17,8 @@ const showRipple = ({ currentTarget, layerX, layerY }, selector = currentTarget.
         selector.style.height = d + 'px'
     }
 
-    selector.style.top = layerX - (selector.clientWidth / 2) + 'px'
-    selector.style.left = layerY - (selector.clientHeight / 2) + 'px'
+    selector.style.top = layerY - (selector.clientHeight / 2) + 'px'
+    selector.style.left = layerX - (selector.clientWidth / 2) + 'px'
     selector.classList.add('animation-ripple')
 }
 
