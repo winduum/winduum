@@ -1,0 +1,13 @@
+:is(.ui-btn-hover-fill) {
+  --ui-btn-hover-opacity: 1;
+
+  &:not(:disabled):hover {
+    @media (hover: hover) and (pointer: fine) {
+      --color-current: var(--color-light);
+    }
+  }
+
+  &:is(:not(:disabled):active, .ui-btn-active) {
+    --color-current: var(--color-light);
+  }
+}

@@ -1,0 +1,16 @@
+:is(.ui-btn-group) {
+  display: flex;
+
+  & :where(.ui-btn) {
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: calc(var(--ui-btn-outline-width) * -1);
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}

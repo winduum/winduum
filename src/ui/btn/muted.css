@@ -1,0 +1,7 @@
+:is(.ui-btn-muted) {
+    --ui-btn-hover-opacity: 0.3;
+
+    &::before {
+        opacity: 0.1;
+    }
+}
