@@ -1,4 +1,4 @@
-:is(.ui-btn-lg) {
-    --ui-btn-height: 3rem;
-    --ui-btn-px: 1.75rem;
+:is(.ui-btn.lg) {
+  --ui-btn-height: 3rem;
+  --ui-btn-px: 1.75rem;
 }

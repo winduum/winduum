@@ -1,35 +1,35 @@
-:is(.ui-btn-outline-gradient) {
-    --ui-btn-focus-opacity: 0.15;
-    --color-accent: var(--color-default);
-    --color-current: var(--color-accent);
+:is(.ui-btn.outline-gradient) {
+  --ui-btn-focus-opacity: 0.15;
+  --color-accent: var(--color-default);
+  --color-current: var(--color-accent);
 
-    &:is(.ui-btn-loading.ui-btn-hover-fill) {
-        --color-current: var(--color-light);
-    }
+  &:is(.loading.hover-fill) {
+    --color-current: var(--color-light);
+  }
 
-    &:not(.ui-btn-loading) {
-        &::after {
-            content: "";
-            position: absolute;
-            background-color: rgb(var(--color-background));
-            inset: var(--ui-btn-outline-width);
-            border-radius: calc(var(--ui-btn-border-radius) / 1.25);
-            z-index: -1;
-            transition: var(--transition-opacity);
-        }
+  &:not(.loading) {
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: rgb(var(--color-background));
+      inset: var(--ui-btn-outline-width);
+      border-radius: calc(var(--ui-btn-border-radius) / 1.25);
+      z-index: -1;
+      transition: var(--transition-opacity);
     }
+  }
 
-    &:not(:disabled):hover {
-        @media (hover: hover) and (pointer: fine) {
-            &::before, &::after {
-                opacity: 0;
-            }
-        }
+  &:not(:disabled):hover {
+    @media (hover: hover) and (pointer: fine) {
+      &::before, &::after {
+        opacity: 0;
+      }
     }
+  }
 
-    &:is(:not(:disabled):active, .ui-btn-active) {
-        &::before, &::after {
-            opacity: 0;
-        }
+  &:is(:not(:disabled):active, .active) {
+    &::before, &::after {
+      opacity: 0;
     }
+  }
 }

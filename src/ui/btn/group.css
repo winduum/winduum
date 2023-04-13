@@ -1,4 +1,4 @@
-:is(.ui-btn-group) {
+:where(.ui-btn-group) {
   display: flex;
 
   & :where(.ui-btn) {

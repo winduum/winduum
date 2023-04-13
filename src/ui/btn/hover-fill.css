@@ -1,4 +1,4 @@
-:is(.ui-btn-hover-fill) {
+:is(.ui-btn.hover-fill) {
   --ui-btn-hover-opacity: 1;
 
   &:not(:disabled):hover {
@@ -7,7 +7,7 @@
     }
   }
 
-  &:is(:not(:disabled):active, .ui-btn-active) {
+  &:is(:not(:disabled):active, .active) {
     --color-current: var(--color-light);
   }
 }

@@ -60,7 +60,7 @@
     font-size: var(--ui-btn-icon-font-size);
   }
 
-  &:is(.ui-btn-outline, .ui-btn-muted, .ui-btn-text) {
+  &:is(.outline, .muted, .text) {
     --color-current: var(--color-accent);
     --ui-btn-hover-opacity: 0.1;
     --ui-btn-hover-filter: none;
@@ -80,7 +80,7 @@
     }
   }
 
-  &:is(:not(:disabled):active, .ui-btn-active) {
+  &:is(:not(:disabled):active, .active) {
     &::before {
       opacity: var(--ui-btn-hover-opacity);
     }
