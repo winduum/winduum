@@ -1,7 +1,4 @@
-:is(.ui-btn.muted) {
-  --ui-btn-hover-opacity: 0.3;
-
-  &::before {
-    opacity: 0.1;
-  }
+.ui-btn:where(.muted) {
+  --ui-btn-hover-opacity: 30%;
+  --ui-btn-bg-opacity: 10%;
 }

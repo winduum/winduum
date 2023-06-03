@@ -1,6 +1,8 @@
-:is(.ui-btn.raised) {
-  --ui-btn-outline-opacity: 0.15;
+.ui-btn:where(.raised) {
+  --ui-btn-border-width: 2px;
+  --ui-btn-border-opacity: calc(var(--tw-border-opacity, 0.5) * 100%);
 
-  outline: var(--ui-btn-outline-width) solid rgb(var(--color-current) / var(--ui-btn-outline-opacity));
-  outline-offset: calc(var(--ui-btn-outline-width) * -1);
+  border: var(--ui-btn-border-width) solid color-mix(in srgb, var(--color-accent) var(--ui-btn-border-opacity), var(--ui-btn-focus-mix));
+  padding-left: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
+  padding-right: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
 }

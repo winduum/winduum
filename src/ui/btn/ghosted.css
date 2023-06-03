@@ -1,0 +1,4 @@
+.ui-btn:where(.ghosted) {
+  --ui-btn-outline-width: 2px;
+  --ui-btn-outline-offset: -2px;
+}

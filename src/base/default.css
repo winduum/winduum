@@ -8,12 +8,12 @@
   -webkit-tap-highlight-color: rgb(255 255 255 / 0);
 }
 
-:where([hidden]) {
-  display: none;
-}
-
 :where(svg) {
   stroke-width: 1.5;
+}
+
+:where(button) {
+  cursor: pointer;
 }
 
 :where(hr) {
@@ -32,7 +32,7 @@
 
 :where(body) {
   min-height: 100%;
-  background-color: rgb(var(--color-background));
-  color: rgb(var(--color-default));
-  accent-color: rgb(var(--color-accent));
+  background-color: var(--color-body);
+  color: var(--color-base);
+  accent-color: var(--color-accent);
 }

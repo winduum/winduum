@@ -1,4 +1,4 @@
-:is(.ui-btn.square) {
-  --ui-btn-py: var(--ui-btn-py);
+.ui-btn:where(.square) {
+  --ui-btn-px: var(--ui-btn-py);
   --ui-btn-width: var(--ui-btn-height);
 }

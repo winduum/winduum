@@ -1,0 +1,27 @@
+:is(.ui-btn.gradient-bordered) {
+  --ui-btn-border-width: 2px;
+  --ui-btn-hover-mix: transparent;
+  --ui-btn-hover-opacity: 10%;
+  --ui-btn-active-mix: transparent;
+  --ui-btn-active-opacity: 20%;
+  --ui-btn-bg-opacity: 0%;
+  --color-current: var(--color-base);
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: color-mix(in sRGB, var(--color-body) calc(100% - var(--ui-btn-bg-opacity)), transparent);
+    inset: var(--ui-btn-border-width);
+    border-radius: calc(var(--ui-btn-border-radius) / 1.25);
+    z-index: -1;
+    transition: var(--transition-background);
+  }
+
+  &:where(.hover-fill) {
+    --ui-btn-bg-opacity: 100%;
+
+    &::before {
+      background-color: color-mix(in sRGB, var(--color-body) var(--ui-btn-bg-opacity), transparent);
+    }
+  }
+}

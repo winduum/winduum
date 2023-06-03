@@ -3,11 +3,13 @@
 @import "lg.css";
 @import "loading.css";
 @import "wide.css";
-@import "outline.css";
-@import "outline-gradient.css";
+@import "bordered.css";
+@import "hover-fill.css";
+@import "gradient.css";
+@import "gradient-bordered.css";
+@import "ghosted.css";
 @import "muted.css";
 @import "raised.css";
 @import "square.css";
 @import "circle.css";
-@import "hover-fill.css";
 @import "group.css";

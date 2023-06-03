@@ -1,7 +1,9 @@
-:where(.ui-btn-group) {
+.ui-btn-group {
   display: flex;
 
   & :where(.ui-btn) {
+    --ui-btn-outline-offset: 0;
+
     &:not(:first-child) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;

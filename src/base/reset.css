@@ -1,5 +1,5 @@
 /***
-    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
+    The new CSS reset - version 1.8.4 (last updated 14.2.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
 ***/
 
@@ -19,6 +19,11 @@
   box-sizing: border-box;
 }
 
+/* Reapply the pointer cursor for anchor tags */
+:where(a, button) {
+  cursor: revert;
+}
+
 /* Remove list styles (bullets/numbers) */
 :where(ol:not([type]), ul, menu) {
   list-style: none;
@@ -26,7 +31,8 @@
 
 /* For images to not be able to exceed their container */
 img {
-  max-width: 100%;
+  max-inline-size: 100%;
+  max-block-size: 100%;
 }
 
 /* removes spacing between cells in tables */
@@ -37,6 +43,7 @@ table {
 /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
 input, textarea {
   user-select: auto;
+  cursor: revert;
 }
 
 /* revert the 'white-space' property for textarea elements on Safari */
@@ -50,9 +57,19 @@ meter {
   appearance: revert;
 }
 
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+}
+
 /* reset default text opacity of input placeholder */
 ::placeholder {
   color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: initial;
 }
 
 /* fix the feature of 'hidden' attribute.
@@ -77,14 +94,9 @@ meter {
   -webkit-user-drag: element;
 }
 
-/* apply text cursor */
-:where(input, textarea) {
-  cursor: text;
-}
-
-/* apply pointer cursor */
-:where(a[href], button) {
-  cursor: pointer;
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
 }
 
 /* fix firefox svg */

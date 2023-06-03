@@ -1,0 +1,14 @@
+:root {
+  --color-primary-rgb: 3 138 255;
+  --color-secondary-rgb: 69 71 72;
+  --color-base-rgb: 17 19 21;
+  --color-body-rgb: 255 255 255;
+  --color-success-rgb: 33 154 67;
+  --color-error-rgb: 254 50 75;
+  --color-warning-rgb: 254 179 53;
+  --color-info-rgb: 45 168 234;
+  --color-light-rgb: 255 255 255;
+  --color-dark-rgb: 17 19 21;
+  --color-accent-rgb: var(--color-primary-rgb);
+  --color-current-rgb: var(--color-base-rgb);
+}

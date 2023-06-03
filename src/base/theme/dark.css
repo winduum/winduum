@@ -1,9 +1,5 @@
 :root.dark {
-  --color-default: 201 209 217;
-  --color-invert: 14 17 22;
-  --color-secondary: 39 41 46;
-  --color-background: 25 26 27;
-  --color-background-100: 14 15 16;
-  --color-background-200: 26 32 38;
-  --color-background-300: 30 36 46;
+  --color-secondary: rgb(var(--color-secondary-rgb));
+  --color-base: rgb(var(--color-base-rgb));
+  --color-body: rgb(var(--color-body-rgb));
 }

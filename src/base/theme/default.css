@@ -1,17 +1,24 @@
 :root {
+  --color-primary: rgb(var(--color-primary-rgb));
+  --color-primary-darker: color-mix(in sRGB, var(--color-primary) 75%, black);
+  --color-primary-lighter: color-mix(in sRGB, var(--color-primary) 75%, white);
+  --color-secondary: rgb(var(--color-secondary-rgb));
+  --color-secondary-darker: color-mix(in sRGB, var(--color-secondary) 75%, black);
+  --color-secondary-lighter: color-mix(in sRGB, var(--color-secondary) 75%, white);
+  --color-success: rgb(var(--color-success-rgb));
+  --color-error: rgb(var(--color-error-rgb));
+  --color-warning: rgb(var(--color-warning-rgb));
+  --color-info: rgb(var(--color-info-rgb));
+  --color-base: var(--color-base-primary);
+  --color-base-primary: rgb(var(--color-base-rgb));
+  --color-base-secondary: color-mix(in sRGB, var(--color-base) 75%, white);
+  --color-base-tertiary: color-mix(in sRGB, var(--color-base) 50%, white);
+  --color-body: var(--color-body-primary);
+  --color-body-primary: rgb(var(--color-body-rgb));
+  --color-body-secondary: color-mix(in sRGB, var(--color-body) 75%, white);
+  --color-body-tertiary: color-mix(in sRGB, var(--color-body) 50%, white);
+  --color-light: rgb(var(--color-light-rgb));
+  --color-dark: rgb(var(--color-dark-rgb));
   --color-accent: var(--color-primary);
-  --color-current: var(--color-default);
-  --color-default: 17 19 21;
-  --color-primary: 3 138 255;
-  --color-secondary: 69 71 72;
-  --color-light: 255 255 255;
-  --color-dark: 17 19 21;
-  --color-success: 33 154 67;
-  --color-error: 254 50 75;
-  --color-warning: 254 179 53;
-  --color-info: 45 168 234;
-  --color-background: 255 255 255;
-  --color-background-100: 249 250 252;
-  --color-background-200: 235 235 235;
-  --color-background-300: 225 225 225;
+  --color-current: var(--color-base);
 }

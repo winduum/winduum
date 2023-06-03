@@ -1,4 +1,4 @@
-:is(.ui-btn.wide) {
-  padding-left: calc(var(--ui-btn-px) * 2);
-  padding-right: calc(var(--ui-btn-px) * 2);
+.ui-btn:where(.wide) {
+  padding-left: calc(var(--ui-btn-px) * 1.5);
+  padding-right: calc(var(--ui-btn-px) * 1.5);
 }

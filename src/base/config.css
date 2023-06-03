@@ -5,16 +5,6 @@
 }
 
 :root {
-  --color-google: 49 45 45;
-  --color-linkedin: 40 103 178;
-  --color-youtube: 255 0 0;
-  --color-instagram: 193 53 132;
-  --color-twitter: 29 161 242;
-  --color-facebook: 24 119 242;
-  --color-apple: 0 0 0;
-}
-
-:root {
   --container-width: 80rem;
   --container-width-sm: 58rem;
   --container-padding: 5vw;

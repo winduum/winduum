@@ -5,6 +5,6 @@ module.exports = {
     './playground/**/*.{js,html,vue}'
   ],
   plugins: [
-    require('winduum')()
+    require('./utils/tailwind.cjs')()
   ],
 }
