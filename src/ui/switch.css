@@ -1,15 +1,15 @@
-:where(.ui-switch) {
+.ui-switch {
   --ui-switch-width: 3rem;
   --ui-switch-height: 1.5rem;
   --ui-switch-padding: 0.375rem;
-  --ui-switch-bg-raw: var(--color-dark);
-  --ui-switch-radius: 999px;
-  --ui-switch-validity-font-size: 0.875rem;
-  --ui-switch-validity-offset: 0.375rem;
-  --ui-switch-box-shadow: none;
+  --ui-switch-bg: var(--color-dark);
+  --ui-switch-radius: var(--rounded-full);
+  --ui-switch-outline-width: 3px;
+  --ui-switch-outline-offset: 0;
+  --ui-switch-outline-opacity: 20%;
 
-  .dark & {
-    --ui-switch-bg-raw: var(--color-background-300);
+  :where(.dark) & {
+    --ui-switch-bg: var(--color-body-tertiary);
   }
 
   display: flex;
@@ -17,12 +17,12 @@
   flex-wrap: wrap;
   width: max-content;
 
-  &:where(.is-sm) {
+  &:where(.sm) {
     --ui-switch-width: 2.5rem;
     --ui-switch-height: 1.25rem;
   }
 
-  &:where(.is-lg) {
+  &:where(.lg) {
     --ui-switch-width: 4rem;
     --ui-switch-height: 2rem;
   }
@@ -33,18 +33,21 @@
     display: block;
     position: relative;
     border-radius: var(--ui-switch-radius);
-    background-color: rgb(var(--ui-switch-bg-raw));
-    transition: var(--transition-background), var(--transition-shadow);
+    background-color: var(--ui-switch-bg);
+    transition:
+      var(--transition-background),
+      outline-color var(--transition-duration),
+      outline-offset var(--transition-duration);
     cursor: pointer;
     appearance: none;
-    outline: none;
+    outline: var(--ui-switch-outline-width) solid transparent;
+    outline-offset: 0;
     color: inherit;
-    box-shadow: var(--ui-switch-box-shadow);
 
     &::before {
       width: calc(var(--ui-switch-height) - var(--ui-switch-padding));
       height: calc(var(--ui-switch-height) - var(--ui-switch-padding));
-      background-color: rgb(var(--color-light));
+      background-color: var(--color-light);
       border-radius: var(--ui-switch-radius);
       position: absolute;
       left: var(--ui-switch-height);
@@ -62,24 +65,16 @@
     }
 
     &:focus {
-      --ui-switch-box-shadow:
-        0 0 0 0 rgb(var(--color-current)),
-        0 0 0 3px rgb(var(--color-current) / 0.2),
-        0 1px 2px 0 rgb(var(--color-current) / 0.05);
+      outline-color: color-mix(in sRGB, var(--color-current) var(--ui-switch-outline-opacity), transparent);
+      outline-offset: var(--ui-switch-outline-offset);
     }
 
     &:checked {
-      background-color: rgb(var(--color-accent));
-
-      &:focus {
-        --ui-switch-box-shadow:
-          0 0 0 0 rgb(var(--color-current)),
-          0 0 0 3px rgb(var(--color-accent) / 0.2),
-          0 1px 2px 0 rgb(var(--color-current) / 0.05);
-      }
+      --color-current: var(--color-accent);
+      --ui-switch-bg: var(--color-accent);
 
       &::before {
-        background-color: rgb(var(--color-light));
+        background-color: var(--color-light);
         left: 100%;
       }
     }

@@ -1,11 +1,11 @@
-:where(.c-field) {
+.c-field {
   --c-field-gap: 0.5rem;
 
   display: flex;
   flex-direction: column;
   gap: var(--c-field-gap);
 
-  .is-validated &:has(:invalid) {
+  .validated &:has(:invalid) {
     & :where(.ui-info[hidden]) {
       display: block;
     }
@@ -13,7 +13,7 @@
 
   &:has([required]) :where(.ui-label) {
     &::after {
-      color: rgb(var(--color-error));
+      color: var(--color-error);
       content: " *";
     }
   }

@@ -1,0 +1,35 @@
+:is(.ui-input, .ui-select):where(.floating) {
+  --ui-input-label-floating-font-size: 0.875rem;
+  --ui-input-label-floating-font-weight: var(--font-medium);
+  --ui-input-label-floating-focus-transform: translateY(-0.6875rem) scale(0.8);
+  --ui-input-label-floating-focus-opacity: 0.5;
+  --ui-input-placeholder-color: transparent;
+
+  & :where(label) {
+    grid-area: input;
+    align-self: start;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
+    transform-origin: 0 50%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transform: perspective(100px);
+    will-change: transform;
+    font-weight: var(--ui-input-label-floating-font-weight);
+    margin-left: var(--ui-input-pl);
+    margin-right: var(--ui-input-pr);
+    line-height: var(--ui-input-label-floating-font-size);
+    margin-top: calc(var(--ui-input-height) / 2 - (var(--ui-input-font-size) / 2));
+  }
+
+  & :where(input, textarea, select) {
+    padding-top: calc(var(--ui-input-pt-floating));
+    padding-bottom: calc(var(--ui-input-pb-floating));
+
+    &:is(:focus, :not(:placeholder-shown)) ~ label {
+      transform: var(--ui-input-label-floating-focus-transform);
+      opacity: var(--ui-input-label-floating-focus-opacity);
+    }
+  }
+}

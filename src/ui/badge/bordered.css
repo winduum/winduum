@@ -1,0 +1,8 @@
+.ui-badge:where(.bordered) {
+  --ui-badge-border-width: 2px;
+  --ui-badge-border-opacity: calc(var(--tw-border-opacity, 1) * 100%);
+
+  border: var(--ui-badge-border-width) solid color-mix(in sRGB, var(--color-accent) var(--ui-badge-border-opacity), transparent);
+  padding-left: calc(var(--ui-badge-px) - var(--ui-badge-border-width));
+  padding-right: calc(var(--ui-badge-px) - var(--ui-badge-border-width));
+}

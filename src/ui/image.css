@@ -1,11 +1,10 @@
-:where(.ui-image) {
-  --ui-image-bg: rgb(var(--color-background-200));
-  --ui-image-border-radius: 0;
+.ui-image {
+  --ui-image-bg: var(--color-body-secondary);
 
   position: relative;
   display: block;
   background-color: var(--ui-image-bg);
-  border-radius: var(--ui-image-border-radius);
+  border-radius: inherit;
 
   & > * {
     width: 100%;

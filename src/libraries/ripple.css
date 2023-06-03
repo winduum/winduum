@@ -1,6 +1,6 @@
-:where(.lib-ripple) {
+.lib-ripple {
   --lib-ripple-animation-duration: 1s;
-  --lib-ripple-bg: rgb(var(--color-background) / var(--tw-bg-opacity, 0.4));
+  --lib-ripple-bg: rgb(var(--color-body-rgb) / var(--tw-bg-opacity, 0.4));
 
   position: absolute;
   background: var(--lib-ripple-bg);

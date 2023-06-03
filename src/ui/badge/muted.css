@@ -1,0 +1,3 @@
+.ui-badge:where(.muted) {
+  --ui-badge-bg-opacity: 10%;
+}

@@ -1,0 +1,30 @@
+.ui-input-group {
+  display: flex;
+  flex-wrap: wrap;
+
+  & :where(.ui-btn) {
+    --ui-btn-border-width: 1px;
+    --ui-btn-height: 3rem;
+
+    flex-grow: 1;
+    height: auto;
+  }
+
+  & > * {
+    &:not(:first-child) {
+      margin-left: calc(var(--ui-input-border-width) * -1);
+
+      &, & :where(input, select) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &:not(:last-child) {
+      &, & :where(input, select) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+}

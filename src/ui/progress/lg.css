@@ -1,0 +1,3 @@
+.ui-progress:where(.lg) {
+  --ui-progress-height: 1.5rem;
+}

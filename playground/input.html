@@ -15,7 +15,7 @@
         <button class="bg-white p-xs" id="action-btn-dark">dark</button>
     </div>
 
-    <div class="ui-input is-floating">
+    <div class="ui-input floating">
         <input type="text" id="input-label" placeholder=" " required>
         <label for="input-label">Name</label>
     </div>
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div class="ui-select is-floating">
+    <div class="ui-select floating">
         <select>
             <option selected="" value="">- select option -</option>
             <option value="1">Option 1</option>
@@ -60,22 +60,22 @@
         <label>How are you?</label>
     </div>
 
-    <div class="ui-input is-floating">
+    <div class="ui-input floating">
         <textarea id="textarea" required placeholder=" "></textarea>
         <label for="textarea">Name</label>
     </div>
 
-    <div class="ui-input is-floating">
+    <div class="ui-input floating">
         <input type="number" id="number" required placeholder=" ">
         <label for="number">Number</label>
     </div>
 
-    <div class="ui-input is-floating">
+    <div class="ui-input floating">
         <input type="datetime-local" id="datetime" required placeholder=" ">
         <label for="datetime">Datetime</label>
     </div>
 
-    <div class="ui-input is-floating">
+    <div class="ui-input floating">
         <input type="time" id="time" required placeholder=" ">
         <label for="time">Datetime</label>
     </div>
@@ -86,7 +86,7 @@
     </div>
 
     <div class="ui-input-group">
-        <div class="ui-btn is-square is-raised bg-gray-200 text-dark">@</div>
+        <div class="ui-btn square raised bg-gray-200 text-dark">@</div>
         <div class="ui-input">
             <input type="tel" id="input" required>
         </div>
@@ -102,7 +102,7 @@
         </div>
         <div class="c-field">
             <label class="ui-label">Name</label>
-            <div class="ui-checkbox is-input-offset">
+            <div class="ui-checkbox input-offset">
                 <input type="checkbox" id="checkbox" required>
                 <label for="checkbox">Name</label>
             </div>
@@ -126,10 +126,10 @@
 
     <script>
         document.getElementById('action-btn-loading').addEventListener('click', () => {
-            if (!document.querySelector('.ui-input.is-loading')) {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('is-loading'))
+            if (!document.querySelector('.ui-input.loading')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('loading'))
             } else {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('is-loading'))
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('loading'))
             }
         })
 

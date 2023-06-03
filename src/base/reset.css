@@ -30,29 +30,29 @@
 }
 
 /* For images to not be able to exceed their container */
-img {
+:where(img) {
   max-inline-size: 100%;
   max-block-size: 100%;
 }
 
 /* removes spacing between cells in tables */
-table {
+:where(table) {
   border-collapse: collapse;
 }
 
 /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
-input, textarea {
+:where(input, textarea) {
   user-select: auto;
   cursor: revert;
 }
 
 /* revert the 'white-space' property for textarea elements on Safari */
-textarea {
+:where(textarea) {
   white-space: revert;
 }
 
 /* minimum style to allow to style meter element */
-meter {
+:where(meter) {
   -webkit-appearance: revert;
   appearance: revert;
 }

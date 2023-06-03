@@ -1,4 +1,4 @@
-:where(.ui-label) {
+.ui-label {
   --ui-label-font-size: 0.875rem;
   --ui-label-font-weight: var(--font-medium);
 

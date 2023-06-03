@@ -1,0 +1,47 @@
+.ui-link:where(.underlined) {
+  --ui-link-underline-color: currentColor;
+  --ui-link-underline-width: 1px;
+  --ui-link-underline-opacity: 0;
+  --ui-link-underline-transform: translateY(-0.125rem);
+
+  &:where(.underlined-visible) {
+    --ui-link-underline-opacity: 1;
+    --ui-link-underline-transform: none;
+    --ui-link-underline-color: var(--color-accent);
+  }
+
+  &::after, & span::after {
+    content: "";
+    border-bottom: var(--ui-link-underline-width) solid var(--ui-link-underline-color);
+    opacity: var(--ui-link-underline-opacity);
+    position: absolute;
+    inset: auto 0 0;
+    transition: var(--transition-opacity), var(--transition-transform);
+    transform: var(--ui-link-underline-transform);
+  }
+
+  &:has(svg) {
+    &::after {
+      content: normal;
+    }
+  }
+
+  & :where(span) {
+    position: relative;
+    inset: auto;
+  }
+
+  &:is([href], button) {
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        --ui-link-underline-opacity: 1;
+        --ui-link-underline-transform: none;
+      }
+    }
+
+    &:focus-visible {
+      --ui-link-underline-opacity: 1;
+      --ui-link-underline-transform: none;
+    }
+  }
+}

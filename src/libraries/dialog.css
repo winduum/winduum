@@ -1,5 +1,5 @@
-:where(.lib-dialog) {
-  --lib-ripple-bg: rgb(var(--color-dark) / var(--tw-bg-opacity, 0.8));
+.lib-dialog {
+  --lib-ripple-bg: rgb(var(--color-dark-rgb) / var(--tw-bg-opacity, 0.8));
   --lib-dialog-py: 2rem;
   --lib-dialog-px: 1.5rem;
   --lib-dialog-animation-duration: var(--transition-duration);

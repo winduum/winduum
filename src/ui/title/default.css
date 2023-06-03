@@ -1,0 +1,12 @@
+.ui-title {
+  --ui-title-font-family: var(--font-secondary);
+  --ui-title-font-weight: var(--font-semibold);
+  --ui-title-font-size: 0.875rem;
+  --ui-title-line-height: calc(var(--ui-heading-font-size) + var(--ui-heading-line-height-ratio));
+  --ui-title-line-height-ratio: 0.375rem;
+
+  font-family: var(--ui-title-font-family);
+  font-size: var(--ui-title-font-size);
+  line-height: var(--ui-title-line-height);
+  font-weight: var(--ui-title-font-weight);
+}

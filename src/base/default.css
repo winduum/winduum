@@ -1,6 +1,6 @@
 ::selection {
-  color: rgb(var(--color-light));
-  background-color: rgb(var(--color-accent));
+  color: var(--color-light);
+  background-color: var(--color-accent);
 }
 
 :where(*) {
@@ -10,6 +10,8 @@
 
 :where(svg) {
   stroke-width: 1.5;
+  width: 1em;
+  height: 1em;
 }
 
 :where(button) {

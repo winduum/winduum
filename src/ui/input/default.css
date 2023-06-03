@@ -1,0 +1,84 @@
+:is(.ui-input, .ui-select) {
+  --ui-input-height: 3rem;
+  --ui-input-height-textarea: 8rem;
+  --ui-input-pt-floating: 1.25rem;
+  --ui-input-pb-floating: 0.4375rem;
+  --ui-input-py: 0.875rem;
+  --ui-input-px: 0.875rem;
+  --ui-input-pl: var(--ui-input-px);
+  --ui-input-pr: var(--ui-input-px);
+  --ui-input-bg: var(--color-body-rgb);
+  --ui-input-color: currentColor;
+  --ui-input-placeholder-color: currentColor;
+  --ui-input-placeholder-opacity: 0.5;
+  --ui-input-font-size: 0.875rem;
+  --ui-input-font-weight: var(--font-medium);
+  --ui-input-border-width: 1px;
+  --ui-input-border-color: var(--color-current-rgb);
+  --ui-input-border-opacity: 0.15;
+  --ui-input-border-radius: var(--rounded);
+  --ui-input-box-shadow: none;
+
+  display: grid;
+  grid-template-areas: "input";
+  font-size: var(--ui-input-font-size);
+  position: relative;
+
+  & :where(input, textarea, select) {
+    grid-area: input;
+    background-clip: padding-box;
+    background-color: var(--ui-input-bg);
+    padding: var(--ui-input-py) var(--ui-input-pr) var(--ui-input-py) var(--ui-input-pl);
+    transition: var(--transition-border), var(--transition-shadow);
+    box-shadow: var(--ui-input-box-shadow);
+    line-height: normal;
+    font-size: inherit;
+    height: var(--ui-input-height);
+    font-weight: var(--ui-input-font-weight);
+    border-radius: var(--ui-input-border-radius);
+    color: var(--ui-input-color);
+    border: var(--ui-input-border-width) solid rgb(var(--ui-input-border-color) / var(--ui-input-border-opacity));
+
+    &:focus {
+      --ui-input-border-opacity: 1;
+      --ui-input-border-color: var(--color-accent-rgb);
+      --ui-input-box-shadow:
+        0 0 0 0 rgb(var(--color-current-rgb)),
+        0 0 0 3px rgb(var(--color-accent-rgb) / 0.2),
+        0 1px 2px 0 rgb(var(--color-current-rgb) / 0.05);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: rgb(var(--color-base-rgb) / 0.1);
+    }
+
+    &:required ~ label {
+      &::after {
+        color: var(--color-error);
+        content: " *";
+      }
+    }
+  }
+
+  & :where(input, textarea) {
+    &::placeholder {
+      color: var(--ui-input-placeholder-color);
+      opacity: var(--ui-input-placeholder-opacity);
+    }
+  }
+
+  & :where(textarea) {
+    resize: vertical;
+    overflow: hidden;
+    min-height: var(--ui-input-height-textarea);
+  }
+
+  &.invalid, .validated & :where(input, textarea, select):invalid {
+    --ui-input-bg: rgb(var(--color-error-rgb) / 0.1);
+    --ui-input-border-opacity: 1;
+    --ui-input-border-color: var(--color-error);
+    --ui-input-color: var(--color-error);
+    --color-accent: var(--color-error);
+  }
+}

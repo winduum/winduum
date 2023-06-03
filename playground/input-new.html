@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/src/tailwind.css">
     <script src="/src/main.js" type="module"></script>
 </head>
-<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4 accent-warning">
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4 accent-warning validated">
     <div class="col flex-row gap-2">
         <button class="bg-white p-xs" id="action-btn-disabled">disabled</button>
         <button class="bg-white p-xs" id="action-btn-loading">loading</button>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="c-field">
-        <div class="ui-input is-floating">
+        <div class="ui-input floating">
             <input type="text" id="input-label" placeholder=" " required>
             <label for="input-label">Name</label>
         </div>
@@ -38,7 +38,7 @@
     <div class="c-field">
         <label class="ui-label">Name</label>
         <div class="ui-input-group">
-            <div class="ui-btn is-square is-raised bg-gray-200 text-dark">@</div>
+            <div class="ui-btn square raised bg-gray-200 text-dark">@</div>
             <div class="ui-input">
                 <input type="tel" required>
             </div>
@@ -59,7 +59,7 @@
         </div>
         <div class="c-field">
             <label class="ui-label">Label</label>
-            <div class="ui-checkbox is-input-offset">
+            <div class="ui-checkbox input-offset">
                 <input type="checkbox" id="checkbox" required>
                 <label for="checkbox">Name</label>
             </div>
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <div class="c-field is-horizontal gap-4">
+    <div class="c-field horizontal gap-4">
         <div class="col">
             <label class="ui-label">Label</label>
         </div>
@@ -90,11 +90,11 @@
         </div>
     </div>
 
-    <div class="c-field is-horizontal gap-4">
+    <div class="c-field horizontal gap-4">
         <div class="col">
             <label class="ui-label">Label</label>
         </div>
-        <div class="col is-input-offset">
+        <div class="col input-offset">
             <label class="ui-checkbox">
                 <input type="checkbox" required>
                 This is a checkbox
@@ -111,18 +111,18 @@
 
     <script>
         document.getElementById('action-btn-active').addEventListener('click', () => {
-            if (!document.querySelector('.ui-input.is-active')) {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('is-active'))
+            if (!document.querySelector('.ui-input.active')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('active'))
             } else {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('is-active'))
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('active'))
             }
         })
 
         document.getElementById('action-btn-loading').addEventListener('click', () => {
-            if (!document.querySelector('.ui-input.is-loading')) {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('is-loading'))
+            if (!document.querySelector('.ui-input.loading')) {
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('loading'))
             } else {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('is-loading'))
+                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('loading'))
             }
         })
 

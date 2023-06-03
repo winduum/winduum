@@ -1,0 +1,33 @@
+.ui-link {
+  --ui-link-font-size: 0.875rem;
+  --ui-link-font-weight: var(--font-semibold);
+  --ui-link-hover-color: var(--color-accent);
+  --ui-link-hover-opacity: 1;
+  --ui-link-active-opacity: 0.8;
+  --ui-link-gap: 0.5rem;
+
+  font-size: var(--ui-link-font-size);
+  font-weight: var(--ui-link-font-weight);
+  transition: var(--transition-opacity), var(--transition-color);
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  gap: var(--ui-link-gap);
+
+  &:is([href], button) {
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        color: var(--ui-link-hover-color);
+        opacity: var(--ui-link-hover-opacity);
+      }
+    }
+
+    &:active {
+      opacity: var(--ui-link-active-opacity);
+    }
+
+    &:focus-visible {
+      color: var(--ui-link-hover-color);
+    }
+  }
+}

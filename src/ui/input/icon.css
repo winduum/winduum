@@ -1,0 +1,66 @@
+:is(.ui-input, .ui-select) {
+  --ui-input-icon-font-size: 1.25rem;
+  --ui-input-icon-count-l: 1;
+  --ui-input-icon-count-r: 1;
+  --ui-input-icon-gap: 0.375rem;
+  --ui-input-icon-inset-x: calc(var(--ui-input-px) - 0.25rem);
+  --ui-input-icon-inset-x-gap: 0.125rem;
+  --ui-input-icon-offset-l: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-l));
+  --ui-input-icon-offset-r: calc(var(--ui-input-icon-inset-x) + var(--ui-input-icon-inset-x-gap) + (var(--ui-input-icon-font-size) + var(--ui-input-icon-gap)) * var(--ui-input-icon-count-r));
+
+  &:has(.icon-l) {
+    --ui-input-pl: var(--ui-input-icon-offset-l);
+  }
+
+  &:has(.icon-r) {
+    --ui-input-pr: var(--ui-input-icon-offset-r);
+  }
+
+  &:has(.icon-l > *:nth-child(2)) {
+    --ui-input-icon-count-r: 2;
+  }
+
+  &:has(.icon-r > *:nth-child(2)) {
+    --ui-input-icon-count-r: 2;
+  }
+
+  & :where(svg) {
+    font-size: var(--ui-input-icon-font-size);
+    width: 1em;
+    height: var(--ui-input-height);
+  }
+
+  & :where([class^="icon-"]) {
+    grid-area: input;
+    content: "";
+    position: relative;
+    line-height: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--ui-input-icon-gap);
+    transition: var(--transition-opacity);
+
+    &:where(.icon-l) {
+      left: var(--ui-input-icon-inset-x);
+      margin-right: auto;
+    }
+
+    &:where(.icon-r) {
+      right: var(--ui-input-icon-inset-x);
+      margin-left: auto;
+    }
+  }
+
+  & :where([aria-label]) {
+    &::after {
+      content: attr(aria-label);
+      font-size: var(--ui-input-font-size);
+      min-width: var(--ui-input-icon-font-size);
+      text-align: center;
+      line-height: var(--ui-input-icon-font-size);
+      display: block;
+    }
+  }
+}
