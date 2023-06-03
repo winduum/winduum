@@ -17,7 +17,7 @@
 
     <div class="c-field">
         <label class="ui-label" for="input">Label</label>
-        <div class="ui-input">
+        <div class="ui-control">
             <input type="text" id="input" placeholder=" " required>
         </div>
         <em class="ui-info">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="c-field">
-        <div class="ui-input floating">
+        <div class="ui-control floating">
             <input type="text" id="input-label" placeholder=" " required>
             <label for="input-label">Name</label>
         </div>
@@ -37,9 +37,9 @@
 
     <div class="c-field">
         <label class="ui-label">Name</label>
-        <div class="ui-input-group">
+        <div class="ui-control-group">
             <div class="ui-btn square raised bg-gray-200 text-dark">@</div>
-            <div class="ui-input">
+            <div class="ui-control">
                 <input type="tel" required>
             </div>
             <button class="ui-btn">Button</button>
@@ -50,7 +50,7 @@
     <div class="flex gap-8">
         <div class="c-field">
             <label class="ui-label">Label</label>
-            <div class="ui-input">
+            <div class="ui-control">
                 <input type="text" placeholder=" " required>
             </div>
             <em class="ui-info">
@@ -81,7 +81,7 @@
             <label class="ui-label">Label</label>
         </div>
         <div class="col">
-            <div class="ui-input">
+            <div class="ui-control">
                 <input type="text" placeholder=" " required>
             </div>
             <em class="ui-info w-full">
@@ -111,26 +111,26 @@
 
     <script>
         document.getElementById('action-btn-active').addEventListener('click', () => {
-            if (!document.querySelector('.ui-input.active')) {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('active'))
+            if (!document.querySelector('.ui-control.active')) {
+                document.querySelectorAll('.ui-control').forEach(element => element.classList.add('active'))
             } else {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('active'))
+                document.querySelectorAll('.ui-control').forEach(element => element.classList.remove('active'))
             }
         })
 
         document.getElementById('action-btn-loading').addEventListener('click', () => {
-            if (!document.querySelector('.ui-input.loading')) {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.add('loading'))
+            if (!document.querySelector('.ui-control.loading')) {
+                document.querySelectorAll('.ui-control').forEach(element => element.classList.add('loading'))
             } else {
-                document.querySelectorAll('.ui-input').forEach(element => element.classList.remove('loading'))
+                document.querySelectorAll('.ui-control').forEach(element => element.classList.remove('loading'))
             }
         })
 
         document.getElementById('action-btn-disabled').addEventListener('click', () => {
-            if (!document.querySelector(':where(.ui-input, .ui-select) :where(input,select,textarea):disabled')) {
-                document.querySelectorAll(':where(.ui-input, .ui-select) :where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
+            if (!document.querySelector(':where(.ui-control, .ui-control) :where(input,select,textarea):disabled')) {
+                document.querySelectorAll(':where(.ui-control, .ui-control) :where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
             } else {
-                document.querySelectorAll(':where(.ui-input, .ui-select) :where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
+                document.querySelectorAll(':where(.ui-control, .ui-control) :where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
             }
         })
 

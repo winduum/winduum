@@ -4,9 +4,9 @@ import lodash from 'lodash'
 
 export const defaultConfig = {
     colors: [
-        'default', 'light', 'dark', 'primary', 'secondary',
+        'light', 'dark', 'primary', 'secondary',
         'warning', 'error', 'info', 'success', 'accent', 'current',
-        'background', 'background-lighter', 'background-darker'
+        'base', 'body', 'body-primary', 'body-secondary', 'body-tertiary'
     ],
     fontFamily: ['primary', 'secondary'],
     fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],

@@ -1,0 +1,84 @@
+.ui-control {
+  --ui-control-height: 3rem;
+  --ui-control-height-textarea: 8rem;
+  --ui-control-pt-floating: 1.25rem;
+  --ui-control-pb-floating: 0.4375rem;
+  --ui-control-py: 0.875rem;
+  --ui-control-px: 0.875rem;
+  --ui-control-pl: var(--ui-control-px);
+  --ui-control-pr: var(--ui-control-px);
+  --ui-control-bg: var(--color-body-rgb);
+  --ui-control-color: currentColor;
+  --ui-control-placeholder-color: currentColor;
+  --ui-control-placeholder-opacity: 0.5;
+  --ui-control-font-size: 0.875rem;
+  --ui-control-font-weight: var(--font-medium);
+  --ui-control-border-width: 1px;
+  --ui-control-border-color: var(--color-current-rgb);
+  --ui-control-border-opacity: 0.15;
+  --ui-control-border-radius: var(--rounded);
+  --ui-control-box-shadow: none;
+
+  display: grid;
+  grid-template-areas: "input";
+  font-size: var(--ui-control-font-size);
+  position: relative;
+
+  & :where(input, textarea, select) {
+    grid-area: input;
+    background-clip: padding-box;
+    background-color: var(--ui-control-bg);
+    padding: var(--ui-control-py) var(--ui-control-pr) var(--ui-control-py) var(--ui-control-pl);
+    transition: var(--transition-border), var(--transition-shadow);
+    box-shadow: var(--ui-control-box-shadow);
+    line-height: normal;
+    font-size: inherit;
+    height: var(--ui-control-height);
+    font-weight: var(--ui-control-font-weight);
+    border-radius: var(--ui-control-border-radius);
+    color: var(--ui-control-color);
+    border: var(--ui-control-border-width) solid rgb(var(--ui-control-border-color) / var(--ui-control-border-opacity));
+
+    &:focus {
+      --ui-control-border-opacity: 1;
+      --ui-control-border-color: var(--color-accent-rgb);
+      --ui-control-box-shadow:
+        0 0 0 0 rgb(var(--color-current-rgb)),
+        0 0 0 3px rgb(var(--color-accent-rgb) / 20%),
+        0 1px 2px 0 rgb(var(--color-current-rgb) / 5%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: rgb(var(--color-base-rgb) / 10%);
+    }
+
+    &:required ~ label {
+      &::after {
+        color: var(--color-error);
+        content: " *";
+      }
+    }
+  }
+
+  & :where(input, textarea) {
+    &::placeholder {
+      color: var(--ui-control-placeholder-color);
+      opacity: var(--ui-control-placeholder-opacity);
+    }
+  }
+
+  & :where(textarea) {
+    resize: vertical;
+    overflow: hidden;
+    min-height: var(--ui-control-height-textarea);
+  }
+
+  &.invalid, .validated & :where(input, textarea, select):invalid {
+    --ui-control-bg: rgb(var(--color-error-rgb) / 10%);
+    --ui-control-border-opacity: 1;
+    --ui-control-border-color: var(--color-error-rgb);
+    --ui-control-color: var(--color-error);
+    --color-accent-rgb: var(--color-error-rgb);
+  }
+}

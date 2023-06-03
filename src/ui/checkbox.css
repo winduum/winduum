@@ -1,4 +1,4 @@
-:is(.ui-checkbox, .ui-radio) {
+.ui-checkbox {
   --ui-checkbox-width: 1.375rem;
   --ui-checkbox-font-size: 0.875rem;
   --ui-checkbox-gap: 0.625rem;
@@ -24,6 +24,11 @@
   flex-wrap: wrap;
   width: fit-content;
   font-size: var(--ui-checkbox-font-size);
+
+  &:has([type="radio"]) {
+    --ui-checkbox-icon: var(--icon-radio);
+    --ui-checkbox-radius: 50%;
+  }
 
   & :where(label[for], input) {
     cursor: pointer;

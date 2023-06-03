@@ -2,7 +2,9 @@
 * feat: restructure components to child files for better modularity
 * feat(bc): new color pallet with `color-mix`, colors now have also `-rgb` variants for better compatibility
 * feat(bc): removed `is-` prefix for most components
-* feat(bc): following classes were also renamed - `text` -> `ghosted`, `outline` -> `bordered`, `underline` -> `underlined` 
+* feat(bc): following classes were also renamed - `text` -> `ghosted`, `outline` -> `bordered`, `underline` -> `underlined`
+* feat(bc): `ui-select` and `ui-input` were replaced with `ui-control`
+* feat(bc): `ui-radio` is now replaced with `ui-checkbox`
 
 ## 0.1.18 (2023-04-12)
 * feat: lib-ripple - fix values typo

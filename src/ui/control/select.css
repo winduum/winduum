@@ -1,0 +1,27 @@
+.ui-control:has(select) {
+  --ui-control-icon-select-font-size: 1.5rem;
+  --ui-control-icon-count-r: 2;
+  --ui-control-pr: var(--ui-control-icon-offset-r);
+
+  & :where([class^="icon-"]) {
+    margin-right: calc(var(--ui-control-icon-font-size) + var(--ui-control-icon-gap));
+  }
+
+  &::after {
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    font-size: var(--ui-control-icon-select-font-size);
+    right: calc(var(--ui-control-height) / 4);
+    top: calc(var(--ui-control-height) / 2);
+    margin-top: calc(var(--ui-control-icon-select-font-size) / 2 * -1);
+    will-change: transform;
+    transition: transform 200ms;
+    mask: var(--icon-angle-down);
+    pointer-events: none;
+    grid-area: input;
+  }
+}

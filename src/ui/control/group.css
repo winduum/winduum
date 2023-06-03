@@ -1,4 +1,4 @@
-.ui-input-group {
+.ui-control-group {
   display: flex;
   flex-wrap: wrap;
 
@@ -12,7 +12,7 @@
 
   & > * {
     &:not(:first-child) {
-      margin-left: calc(var(--ui-input-border-width) * -1);
+      margin-left: calc(var(--ui-control-border-width) * -1);
 
       &, & :where(input, select) {
         border-top-left-radius: 0;

@@ -29,6 +29,7 @@
   --ui-btn-loading-width: 1rem;
   --ui-btn-loading-border-width: 2px;
 
+  max-width: var(--ui-btn-width);
   width: var(--ui-btn-width);
   height: var(--ui-btn-height);
   padding: var(--ui-btn-py) var(--ui-btn-px);
