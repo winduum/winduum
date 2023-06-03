@@ -2,7 +2,7 @@
   --ui-btn-border-width: 2px;
   --ui-btn-border-opacity: calc(var(--tw-border-opacity, 1) * 100%);
 
-  border: var(--ui-btn-border-width) solid color-mix(in srgb, var(--color-accent) var(--ui-btn-border-opacity), transparent);
+  border: var(--ui-btn-border-width) solid color-mix(in sRGB, var(--color-accent) var(--ui-btn-border-opacity), transparent);
   padding-left: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
   padding-right: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
 }

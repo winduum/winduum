@@ -10,7 +10,6 @@
     "at-rule-no-unknown": [true, {"ignoreAtRules": ["layer", "tailwind"]}],
     "length-zero-no-unit": [true, {"ignore": ["custom-properties"]}],
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
-    "alpha-value-notation": "number",
     "property-no-vendor-prefix": [true, { "ignoreProperties": "appearance" }],
     "number-max-precision": [4, { "ignoreProperties": "letter-spacing" }],
     "import-notation": "string",
