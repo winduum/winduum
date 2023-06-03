@@ -1,3 +1,9 @@
+## 0.2.0 (2023-06-03)
+* feat: restructure components to child files for better modularity
+* feat(bc): new color pallet with `color-mix`, colors now have also `-rgb` variants for better compatibility
+* feat(bc): removed `is-` prefix for most components
+* feat(bc): following classes were also renamed - `text` -> `ghosted`, `outline` -> `bordered`, `underline` -> `underlined` 
+
 ## 0.1.18 (2023-04-12)
 * feat: lib-ripple - fix values typo
 
