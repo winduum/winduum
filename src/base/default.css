@@ -5,6 +5,7 @@
 
 :where(*) {
   outline: none;
+  border: 0 solid transparent;
   -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
 }
 
@@ -37,4 +38,14 @@
   background-color: var(--color-body);
   color: var(--color-base);
   accent-color: var(--color-accent);
+}
+
+:where(input[type="time"]) {
+  &::-webkit-datetime-edit-fields-wrapper,
+  &::-webkit-datetime-edit-text,
+  &::-webkit-datetime-edit,
+  &::-webkit-datetime-edit-hour-field,
+  &::-webkit-datetime-edit-minute-field {
+    padding: 0;
+  }
 }

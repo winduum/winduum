@@ -13,7 +13,7 @@ export const defaultConfig = {
     zIndex: [10, 20, 30, 40, 50, 60],
     spacing: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', 'section'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', 'full'],
-    animations: ['fade-in', 'fade-out', 'ripple'],
+    animations: ['fade-in', 'fade-out', 'fade-in-down', 'fade-out-up', 'ripple', 'spin', 'move-indeterminate'],
     screens: {
         xs: '22.5em',
         sm: '26em',
@@ -130,10 +130,21 @@ export const tailwindAnimations = (values) => {
 export const createPlugin = (userConfig = {}) => {
     userConfig = lodash.merge(defaultConfig, userConfig)
 
-    return plugin(({ addUtilities }) => {
+    return plugin(({ addUtilities, theme, variants, e }) => {
         addUtilities(Object.assign(tailwindColorsAccent(getTailwindColors(twColors)), tailwindColorsAccent(userConfig.colors)))
         addUtilities(Object.assign(tailwindColorsCurrent(getTailwindColors(twColors)), tailwindColorsCurrent(userConfig.colors)))
         addUtilities(tailwindAnimations(userConfig.animations))
+        addUtilities([
+            Object.entries(theme('spacing')).map(([key, value]) => {
+                return {
+                    [`.${e(`sq-${key}`)}`]: {
+                        '--sq': `${value}`,
+                        width: 'var(--sq)',
+                        height: 'var(--sq)'
+                    }
+                }
+            })
+        ], variants('sq'))
     }, {
         corePlugins: {
             preflight: false,

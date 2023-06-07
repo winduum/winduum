@@ -1,10 +1,6 @@
 :root {
   --color-primary: rgb(var(--color-primary-rgb));
-  --color-primary-darker: color-mix(in sRGB, var(--color-primary) 75%, black);
-  --color-primary-lighter: color-mix(in sRGB, var(--color-primary) 75%, white);
   --color-secondary: rgb(var(--color-secondary-rgb));
-  --color-secondary-darker: color-mix(in sRGB, var(--color-secondary) 75%, black);
-  --color-secondary-lighter: color-mix(in sRGB, var(--color-secondary) 75%, white);
   --color-success: rgb(var(--color-success-rgb));
   --color-error: rgb(var(--color-error-rgb));
   --color-warning: rgb(var(--color-warning-rgb));

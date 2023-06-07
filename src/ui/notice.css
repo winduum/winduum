@@ -1,4 +1,4 @@
-:where(.ui-notice) {
+.ui-notice {
   --color-current: var(--color-accent);
   --ui-notice-bg: var(--color-accent);
   --ui-notice-py: 1.25rem;

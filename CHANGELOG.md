@@ -1,5 +1,6 @@
 ## 0.2.0 (2023-06-03)
 * feat: restructure components to child files for better modularity
+* feat: added `sq-` tailwind utility class
 * feat(bc): new color pallet with `color-mix`, colors now have also `-rgb` variants for better compatibility
 * feat(bc): removed `is-` prefix for most components
 * feat(bc): following classes were also renamed - `text` -> `ghosted`, `outline` -> `bordered`, `underline` -> `underlined`
