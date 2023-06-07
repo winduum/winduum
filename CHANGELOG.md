@@ -4,7 +4,7 @@
 * feat(bc): removed `is-` prefix for most components
 * feat(bc): following classes were also renamed - `text` -> `ghosted`, `outline` -> `bordered`, `underline` -> `underlined`
 * feat(bc): `ui-select` and `ui-input` were replaced with `ui-control`
-* feat(bc): `ui-radio` is now replaced with `ui-checkbox`
+* feat(bc): `ui-radio` and `ui-checkbox` is now replaced with `ui-check`
 
 ## 0.1.18 (2023-04-12)
 * feat: lib-ripple - fix values typo
