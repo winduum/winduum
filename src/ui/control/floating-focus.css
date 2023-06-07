@@ -1,0 +1,8 @@
+.ui-control:where(.floating) {
+  & :where(input, textarea, select) {
+    &:is(:focus, :not(:placeholder-shown)) ~ label {
+      transform: var(--ui-control-floating-label-focus-transform);
+      opacity: var(--ui-control-floating-label-focus-opacity);
+    }
+  }
+}

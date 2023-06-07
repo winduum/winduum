@@ -5,26 +5,18 @@
   & :where(.ui-btn) {
     --ui-btn-border-width: 1px;
     --ui-btn-height: 3rem;
-
-    flex-grow: 1;
-    height: auto;
   }
 
   & > * {
     &:not(:first-child) {
-      margin-left: calc(var(--ui-control-border-width) * -1);
-
-      &, & :where(input, select) {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
     &:not(:last-child) {
-      &, & :where(input, select) {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 }

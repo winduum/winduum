@@ -134,10 +134,10 @@
         })
 
         document.getElementById('action-btn-disabled').addEventListener('click', () => {
-            if (!document.querySelector(':where(.ui-control, .ui-control) :where(input,select,textarea):disabled')) {
-                document.querySelectorAll(':where(.ui-control, .ui-control) :where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
+            if (!document.querySelector(':where(input,select,textarea):disabled')) {
+                document.querySelectorAll(':where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
             } else {
-                document.querySelectorAll(':where(.ui-control, .ui-control) :where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
+                document.querySelectorAll(':where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
             }
         })
 

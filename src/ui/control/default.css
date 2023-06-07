@@ -7,50 +7,59 @@
   --ui-control-px: 0.875rem;
   --ui-control-pl: var(--ui-control-px);
   --ui-control-pr: var(--ui-control-px);
-  --ui-control-bg: var(--color-body-rgb);
+  --ui-control-bg: var(--color-body);
   --ui-control-color: currentColor;
   --ui-control-placeholder-color: currentColor;
   --ui-control-placeholder-opacity: 0.5;
   --ui-control-font-size: 0.875rem;
   --ui-control-font-weight: var(--font-medium);
   --ui-control-border-width: 1px;
-  --ui-control-border-color: var(--color-current-rgb);
-  --ui-control-border-opacity: 0.15;
+  --ui-control-border-color: var(--color-current);
+  --ui-control-border-mix: transparent;
+  --ui-control-border-opacity: 15%;
   --ui-control-border-radius: var(--rounded);
-  --ui-control-box-shadow: none;
+  --ui-control-outline-width: 2px;
+  --ui-control-outline-offset: 0;
+  --ui-control-outline-opacity: 20%;
+  --ui-control-disabled-opacity: 5%;
+  --ui-control-error-opacity: 10%;
 
   display: grid;
   grid-template-areas: "input";
   font-size: var(--ui-control-font-size);
   position: relative;
+  border-radius: var(--ui-control-border-radius);
 
   & :where(input, textarea, select) {
     grid-area: input;
     background-clip: padding-box;
     background-color: var(--ui-control-bg);
     padding: var(--ui-control-py) var(--ui-control-pr) var(--ui-control-py) var(--ui-control-pl);
-    transition: var(--transition-border), var(--transition-shadow);
-    box-shadow: var(--ui-control-box-shadow);
+    transition:
+      var(--transition-border),
+      outline-color var(--transition-duration),
+      outline-offset var(--transition-duration);
     line-height: normal;
     font-size: inherit;
     height: var(--ui-control-height);
     font-weight: var(--ui-control-font-weight);
-    border-radius: var(--ui-control-border-radius);
+    border-radius: inherit;
     color: var(--ui-control-color);
-    border: var(--ui-control-border-width) solid rgb(var(--ui-control-border-color) / var(--ui-control-border-opacity));
+    border: var(--ui-control-border-width) solid color-mix(in sRGB, var(--ui-control-border-color) var(--ui-control-border-opacity), var(--ui-control-border-mix));
+    outline: var(--ui-control-outline-width) solid transparent;
+    outline-offset: 0;
 
     &:focus {
-      --ui-control-border-opacity: 1;
-      --ui-control-border-color: var(--color-accent-rgb);
-      --ui-control-box-shadow:
-        0 0 0 0 rgb(var(--color-current-rgb)),
-        0 0 0 3px rgb(var(--color-accent-rgb) / 20%),
-        0 1px 2px 0 rgb(var(--color-current-rgb) / 5%);
+      --ui-control-border-opacity: 100%;
+      --ui-control-border-color: var(--color-accent);
+
+      outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-control-outline-opacity), transparent);
+      outline-offset: var(--ui-control-outline-offset);
     }
 
     &:disabled {
-      cursor: default;
-      background-color: rgb(var(--color-base-rgb) / 10%);
+      cursor: not-allowed;
+      background-color: color-mix(in sRGB, var(--color-base) var(--ui-control-disabled-opacity), var(--ui-control-bg));
     }
 
     &:required ~ label {
@@ -75,10 +84,11 @@
   }
 
   &.invalid, .validated & :where(input, textarea, select):invalid {
-    --ui-control-bg: rgb(var(--color-error-rgb) / 10%);
-    --ui-control-border-opacity: 1;
-    --ui-control-border-color: var(--color-error-rgb);
+    --ui-control-border-opacity: 100%;
+    --ui-control-border-color: var(--color-error);
     --ui-control-color: var(--color-error);
-    --color-accent-rgb: var(--color-error-rgb);
+    --color-accent: var(--color-error);
+
+    background-color: color-mix(in sRGB, var(--color-error) var(--ui-control-error-opacity), var(--ui-control-bg));
   }
 }

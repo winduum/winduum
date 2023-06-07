@@ -17,6 +17,7 @@
   --ui-check-outline-width: 3px;
   --ui-check-outline-offset: 0;
   --ui-check-outline-opacity: 20%;
+  --ui-check-disabled-opacity: 50%;
 
   display: flex;
   align-items: center;
@@ -40,8 +41,6 @@
   }
 
   & :where(input) {
-    --color-current: var(--color-light);
-
     display: flex;
     width: var(--ui-check-width);
     height: var(--ui-check-width);
@@ -66,7 +65,7 @@
       text-indent: 0;
       display: block;
       transition: var(--transition-color), var(--transition-opacity), var(--transition-transform);
-      color: var(--color-current);
+      color: var(--color-light);
       content: "";
       background-color: currentColor;
       mask: var(--ui-check-icon);
@@ -84,19 +83,29 @@
       }
     }
 
-    &:is(:hover, :focus-visible) {
-      --ui-check-bg: var(--ui-check-checked-bg);
-      --ui-check-border-color: var(--ui-check-checked-bg);
-      --ui-check-border-opacity: 75%;
-      --ui-check-bg-opacity: 10%;
+    &:not(:disabled) {
+      &:is(:hover, :focus-visible) {
+        --ui-check-bg: var(--ui-check-checked-bg);
+        --ui-check-border-color: var(--ui-check-checked-bg);
+        --ui-check-border-opacity: 75%;
+        --ui-check-bg-opacity: 10%;
+      }
+
+      &:focus {
+        --ui-check-border-color: var(--ui-check-checked-bg);
+        --ui-check-border-opacity: 75%;
+
+        outline-color: color-mix(in sRGB, var(--ui-check-checked-bg) var(--ui-check-outline-opacity), transparent);
+        outline-offset: var(--ui-check-outline-offset);
+      }
     }
 
-    &:focus {
-      --ui-check-border-color: var(--ui-check-checked-bg);
-      --ui-check-border-opacity: 75%;
+    &:disabled {
+      --ui-check-bg-opacity: 15%;
+      --ui-check-bg: var(--color-current);
 
-      outline-color: color-mix(in sRGB, var(--ui-check-checked-bg) var(--ui-check-outline-opacity), transparent);
-      outline-offset: var(--ui-check-outline-offset);
+      cursor: not-allowed;
+      opacity: var(--ui-check-disabled-opacity);
     }
 
     &:checked {
