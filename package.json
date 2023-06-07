@@ -2,7 +2,8 @@
   "name": "winduum",
   "version": "0.2.0",
   "type": "module",
-  "main": "index.js",
+  "main": "utils/tailwind.cjs",
+  "module": "utils/tailwind.js",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -39,17 +40,14 @@
     "utils"
   ],
   "exports": {
-    ".": "./utils/tailwind.cjs",
-    "./tailwind-cjs": "./utils/tailwind.cjs",
-    "./tailwind-esm": "./utils/tailwind.js",
     "./main.css": "./dist/main.css",
     "./tailwind.css": "./dist/tailwind.css",
     "./src/*": "./src/*",
     "./utils/*": "./utils/*"
   },
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   },
   "repository": {
     "type": "git",
