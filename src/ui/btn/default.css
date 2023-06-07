@@ -23,7 +23,7 @@
   --ui-btn-active-mix: black;
   --ui-btn-active-opacity: 90%;
   --ui-btn-active-color: var(--color-current);
-  --ui-btn-focus-mix: white;
+  --ui-btn-focus-mix: transparent;
   --ui-btn-focus-opacity: 50%;
   --ui-btn-disabled-opacity: 70%;
   --ui-btn-loading-width: 1rem;
