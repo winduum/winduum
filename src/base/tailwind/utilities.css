@@ -1,10 +1,10 @@
 @layer utilities {
-  :where(.animate) {
+  .animate {
     animation-duration: var(--transition-duration);
     animation-fill-mode: both;
   }
 
-  :where(.container) {
+  .container {
     margin-left: auto;
     margin-right: auto;
     padding-left: var(--container-padding);
