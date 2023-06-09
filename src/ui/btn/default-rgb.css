@@ -1,0 +1,9 @@
+.ui-btn {
+  --color-current-rgb: var(--color-light-rgb);
+  --ui-btn-bg: rgb(var(--color-accent-rgb) / var(--ui-btn-bg-opacity));
+  --ui-btn-color: rgb(var(--color-current-rgb) / var(--ui-btn-color-opacity));
+
+  &:where(.bordered, .muted, .ghosted) {
+    --color-current-rgb: var(--color-accent-rgb);
+  }
+}
