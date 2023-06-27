@@ -1,6 +1,6 @@
 .ui-btn:where(.bordered) {
   --ui-btn-border-width: 2px;
-  --ui-btn-border-opacity: calc(var(--tw-border-opacity, 1) * 100%);
+  --ui-btn-border-opacity: calc(var(--tw-border-opacity, 0.5) * 100%);
 
   border: var(--ui-btn-border-width) solid color-mix(in sRGB, var(--color-accent) var(--ui-btn-border-opacity), transparent);
   padding-left: calc(var(--ui-btn-px) - var(--ui-btn-border-width));

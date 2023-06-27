@@ -11,7 +11,7 @@
     padding-right: var(--container-padding);
     max-width: var(--container-width);
 
-    &:where(.sm) {
+    &:where(.container-sm) {
       --container-width: var(--container-width-sm);
     }
   }

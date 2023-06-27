@@ -94,11 +94,6 @@
   -webkit-user-drag: element;
 }
 
-/* Revert Modal native behavior */
-:where(dialog:modal) {
-  all: revert;
-}
-
 /* fix firefox svg */
 :where(svg, use, path, symbol) {
   all: revert-layer;

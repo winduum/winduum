@@ -33,6 +33,10 @@
   gap: var(--ui-badge-gap);
   transition: var(--transition-opacity);
 
+  & :where(svg) {
+    font-size: 0.875rem;
+  }
+
   &:where(.bordered, .muted) {
     --color-current: var(--color-accent);
     --ui-badge-bg-opacity: 0%;

@@ -1,8 +1,9 @@
 .ui-link {
+  --color-accent: var(--color-current);
   --ui-link-font-size: 0.875rem;
-  --ui-link-font-weight: var(--font-semibold);
+  --ui-link-font-weight: var(--font-medium);
   --ui-link-hover-color: var(--color-accent);
-  --ui-link-hover-opacity: 1;
+  --ui-link-hover-opacity: 0.8;
   --ui-link-active-opacity: 0.8;
   --ui-link-gap: 0.5rem;
 

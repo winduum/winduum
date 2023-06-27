@@ -18,7 +18,7 @@
   --ui-control-border-mix: transparent;
   --ui-control-border-opacity: 15%;
   --ui-control-border-radius: var(--rounded);
-  --ui-control-outline-width: 2px;
+  --ui-control-outline-width: 3px;
   --ui-control-outline-offset: 0;
   --ui-control-outline-opacity: 20%;
   --ui-control-disabled-opacity: 5%;

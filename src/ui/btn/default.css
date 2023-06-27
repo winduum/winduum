@@ -7,7 +7,7 @@
   --ui-btn-px: 0.75rem;
   --ui-btn-border-radius: var(--rounded);
   --ui-btn-font-size: 0.875rem;
-  --ui-btn-font-weight: var(--font-semibold);
+  --ui-btn-font-weight: var(--font-medium);
   --ui-btn-letter-spacing: 0;
   --ui-btn-bg: color-mix(in sRGB, var(--color-accent) var(--ui-btn-bg-opacity), var(--ui-btn-bg-mix));
   --ui-btn-bg-mix: transparent;
@@ -57,6 +57,10 @@
   gap: var(--ui-btn-gap);
   outline: var(--ui-btn-outline-width) solid transparent;
   outline-offset: 0;
+
+  & :where(svg) {
+    font-size: 1.25rem;
+  }
 
   &:where(.bordered, .muted, .ghosted) {
     --ui-btn-hover-mix: transparent;
