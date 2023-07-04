@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "0.2.0-beta.7",
+  "version": "0.2.0-beta.8",
   "type": "module",
   "main": "utils/tailwind.cjs",
   "module": "utils/tailwind.js",
