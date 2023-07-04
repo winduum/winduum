@@ -17,17 +17,15 @@
   --ui-btn-outline-width: 2px;
   --ui-btn-outline-offset: 2px;
   --ui-btn-outline-opacity: 50%;
-  --ui-btn-hover-mix: black;
-  --ui-btn-hover-opacity: 80%;
   --ui-btn-hover-color: var(--color-current);
-  --ui-btn-active-mix: black;
-  --ui-btn-active-opacity: 90%;
+  --ui-btn-hover-bg-mix: black;
+  --ui-btn-hover-bg-opacity: 80%;
   --ui-btn-active-color: var(--color-current);
-  --ui-btn-focus-mix: transparent;
-  --ui-btn-focus-opacity: 50%;
+  --ui-btn-active-bg-mix: black;
+  --ui-btn-active-bg-opacity: 90%;
+  --ui-btn-focus-outline-color-mix: transparent;
+  --ui-btn-focus-outline-color-opacity: 50%;
   --ui-btn-disabled-opacity: 70%;
-  --ui-btn-loading-width: 1rem;
-  --ui-btn-loading-border-width: 2px;
 
   max-width: var(--ui-btn-width);
   width: var(--ui-btn-width);
@@ -53,7 +51,7 @@
     var(--transition-background),
     var(--transition-color),
     outline-color var(--transition-duration),
-    outline-offset var(--transition-duration);
+    outline-offset 100ms cubic-bezier(0.4, 0, 0.2, 1);
   gap: var(--ui-btn-gap);
   outline: var(--ui-btn-outline-width) solid transparent;
   outline-offset: 0;
@@ -63,12 +61,12 @@
   }
 
   &:where(.bordered, .muted, .ghosted) {
-    --ui-btn-hover-mix: transparent;
-    --ui-btn-hover-opacity: 10%;
-    --ui-btn-active-mix: transparent;
-    --ui-btn-active-opacity: 20%;
-    --color-current: var(--color-accent);
+    --ui-btn-hover-bg-mix: transparent;
+    --ui-btn-hover-bg-opacity: 10%;
+    --ui-btn-active-bg-mix: transparent;
+    --ui-btn-active-bg-opacity: 20%;
     --ui-btn-bg-opacity: 0%;
+    --color-current: var(--color-accent);
   }
 
   &:is([href], button, [role="button"]) {
@@ -81,20 +79,20 @@
       &:hover {
         @media (hover: hover) and (pointer: fine) {
           --ui-btn-color: var(--ui-btn-hover-color);
-          --ui-btn-bg-mix: var(--ui-btn-hover-mix);
-          --ui-btn-bg-opacity: var(--ui-btn-hover-opacity);
+          --ui-btn-bg-mix: var(--ui-btn-hover-bg-mix);
+          --ui-btn-bg-opacity: var(--ui-btn-hover-bg-opacity);
         }
       }
 
       &:focus {
-        outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-btn-focus-opacity), var(--ui-btn-focus-mix));
+        outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-btn-focus-outline-color-opacity), var(--ui-btn-focus-outline-color-mix));
         outline-offset: var(--ui-btn-outline-offset);
       }
 
       &:is(:active, .active) {
         --ui-btn-color: var(--ui-btn-active-color);
-        --ui-btn-bg-mix: var(--ui-btn-active-mix);
-        --ui-btn-bg-opacity: var(--ui-btn-active-opacity);
+        --ui-btn-bg-mix: var(--ui-btn-active-bg-mix);
+        --ui-btn-bg-opacity: var(--ui-btn-active-bg-opacity);
       }
     }
   }

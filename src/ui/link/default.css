@@ -2,13 +2,15 @@
   --color-accent: var(--color-current);
   --ui-link-font-size: 0.875rem;
   --ui-link-font-weight: var(--font-medium);
+  --ui-link-letter-spacing: 0;
   --ui-link-hover-color: var(--color-accent);
-  --ui-link-hover-opacity: 0.8;
-  --ui-link-active-opacity: 0.8;
+  --ui-link-hover-opacity: 0.75;
+  --ui-link-active-opacity: 0.75;
   --ui-link-gap: 0.5rem;
 
   font-size: var(--ui-link-font-size);
   font-weight: var(--ui-link-font-weight);
+  letter-spacing: var(--ui-link-letter-spacing);
   transition: var(--transition-opacity), var(--transition-color);
   display: inline-flex;
   align-items: center;
@@ -23,12 +25,12 @@
       }
     }
 
-    &:active {
-      opacity: var(--ui-link-active-opacity);
-    }
-
     &:focus-visible {
       color: var(--ui-link-hover-color);
+    }
+
+    &:active {
+      opacity: var(--ui-link-active-opacity);
     }
   }
 }

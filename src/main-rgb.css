@@ -1,1 +1,11 @@
+@import "ui/btn/default-rgb.css";
+@import "ui/btn/bordered-rgb.css";
+@import "ui/btn/gradient-bordered-rgb.css";
+@import "ui/badge/default-rgb.css";
+@import "ui/badge/bordered-rgb.css";
 @import "ui/control/default-rgb.css";
+@import "ui/progress/default-rgb.css";
+@import "ui/check-rgb.css";
+@import "ui/switch-rgb.css";
+@import "ui/notice-rgb.css";
+@import "ui/text-rgb.css";

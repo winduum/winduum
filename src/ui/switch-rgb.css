@@ -1,0 +1,11 @@
+.ui-switch {
+  & :where(input) {
+    &:focus {
+      outline-color: rgb(var(--color-current-rgb) / var(--ui-switch-outline-opacity));
+    }
+
+    &:checked {
+      --color-current-rgb: var(--color-accent-rgb);
+    }
+  }
+}

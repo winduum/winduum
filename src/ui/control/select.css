@@ -1,7 +1,10 @@
 .ui-control:has(select) {
   --ui-control-icon-select-font-size: 1.5rem;
-  --ui-control-icon-count-r: 2;
   --ui-control-pr: var(--ui-control-icon-offset-r);
+
+  &:has(.icon-r) {
+    --ui-control-icon-count-r: 2;
+  }
 
   & :where([class^="icon-"]) {
     margin-right: calc(var(--ui-control-icon-font-size) + var(--ui-control-icon-gap));
@@ -18,8 +21,6 @@
     right: var(--ui-control-icon-inset-x);
     top: calc(var(--ui-control-height) / 2);
     margin-top: calc(var(--ui-control-icon-select-font-size) / 2 * -1);
-    will-change: transform;
-    transition: transform 200ms;
     mask: var(--icon-angle-down);
     pointer-events: none;
     grid-area: input;

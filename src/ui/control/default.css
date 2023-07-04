@@ -22,7 +22,7 @@
   --ui-control-outline-offset: 0;
   --ui-control-outline-opacity: 20%;
   --ui-control-disabled-opacity: 5%;
-  --ui-control-error-opacity: 10%;
+  --ui-control-invalid-bg-opacity: 10%;
 
   display: grid;
   grid-template-areas: "input";
@@ -89,6 +89,6 @@
     --ui-control-color: var(--color-error);
     --color-accent: var(--color-error);
 
-    background-color: color-mix(in sRGB, var(--color-error) var(--ui-control-error-opacity), var(--ui-control-bg));
+    background-color: color-mix(in sRGB, var(--color-error) var(--ui-control-invalid-bg-opacity), var(--ui-control-bg));
   }
 }

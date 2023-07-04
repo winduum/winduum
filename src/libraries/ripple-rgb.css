@@ -1,0 +1,3 @@
+.lib-ripple {
+  --lib-ripple-bg: rgb(var(--color-body-rgb) / var(--tw-bg-opacity, 0.4));
+}

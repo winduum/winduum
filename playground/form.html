@@ -9,11 +9,14 @@
     <script src="/src/main.js" type="module"></script>
 
     <script>
-        if (CSS.supports('color: color-mix(in srgb, red 0%, red)')) {
+        if (!CSS.supports('color: color-mix(in srgb, red 0%, red)')) {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = '/src/main-rgb.css';
-            document.head.appendChild(link);
+
+            console.log()
+
+            document.head.insertBefore(link, document.querySelector(`[href="/src/main.css"]`).nextSibling);
         }
     </script>
 </head>

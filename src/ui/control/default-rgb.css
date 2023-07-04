@@ -6,6 +6,12 @@
 
     &:focus {
       --ui-control-border-color: var(--color-accent-rgb);
+
+      outline-color: rgb(var(--color-accent-rgb) / var(--ui-control-outline-opacity));
+    }
+
+    &:disabled {
+      background-color: rgb(var(--color-base-rgb) / var(--ui-control-disabled-opacity));
     }
   }
 
@@ -13,6 +19,6 @@
     --ui-control-border-color: var(--color-error-rgb);
     --color-accent-rgb: var(--color-error-rgb);
 
-    background-color: rgb(var(--color-error-rgb) / var(--ui-control-error-opacity));
+    background-color: rgb(var(--color-error-rgb) / var(--ui-control-invalid-bg-opacity));
   }
 }

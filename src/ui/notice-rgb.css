@@ -1,0 +1,6 @@
+.ui-notice {
+  --ui-notice-bg: var(--color-accent-rgb);
+
+  background-color: rgb(var(--ui-notice-bg) / 10%);
+  outline: var(--ui-notice-outline-width) solid rgb(var(--ui-notice-bg) / var(--ui-notice-outline-opacity));
+}

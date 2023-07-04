@@ -5,13 +5,17 @@
   & :where(.ui-btn) {
     --ui-btn-border-width: 1px;
     --ui-btn-height: 3rem;
+    --ui-btn-outline-offset: 0;
   }
 
   & > * {
     &:not(:first-child) {
-      border-left: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+
+      &, :where(input, select) {
+        border-left: 0;
+      }
     }
 
     &:not(:last-child) {

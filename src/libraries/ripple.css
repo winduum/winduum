@@ -1,6 +1,6 @@
 .lib-ripple {
   --lib-ripple-animation-duration: 1s;
-  --lib-ripple-bg: rgb(var(--color-body-rgb) / var(--tw-bg-opacity, 0.4));
+  --lib-ripple-bg: color-mix(in sRGB, var(--color-body) calc(var(--tw-bg-opacity, 0.4) * 100%), transparent);
 
   position: absolute;
   background: var(--lib-ripple-bg);
