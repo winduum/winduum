@@ -6,6 +6,7 @@
     --ui-btn-border-width: 1px;
     --ui-btn-height: 3rem;
     --ui-btn-outline-offset: 0;
+    --ui-btn-border-opacity: 15%;
   }
 
   & > * {

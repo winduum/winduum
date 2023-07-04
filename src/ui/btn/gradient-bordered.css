@@ -1,9 +1,10 @@
 :is(.ui-btn.gradient-bordered) {
   --ui-btn-border-width: 2px;
-  --ui-btn-hover-mix: transparent;
-  --ui-btn-hover-opacity: 10%;
-  --ui-btn-active-mix: transparent;
-  --ui-btn-active-opacity: 20%;
+  --ui-btn-hover-bg-mix: transparent;
+  --ui-btn-hover-bg-opacity: 10%;
+  --ui-btn-active-bg-mix: transparent;
+  --ui-btn-active-bg-opacity: 20%;
+  --ui-btn-focus-outline-offset: 0;
   --ui-btn-bg-opacity: 0%;
   --color-current: var(--color-base);
 
