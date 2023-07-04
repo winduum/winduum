@@ -4,9 +4,10 @@ import lodash from 'lodash'
 
 export const defaultConfig = {
     colors: [
-        'light', 'dark', 'primary', 'secondary',
+        'light', 'dark', 'primary',
         'warning', 'error', 'info', 'success', 'accent', 'current',
-        'base', 'body', 'body-primary', 'body-secondary', 'body-tertiary'
+        'base', 'base-primary', 'base-secondary', 'base-tertiary',
+        'body', 'body-primary', 'body-secondary', 'body-tertiary'
     ],
     fontFamily: ['primary', 'secondary'],
     fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
@@ -74,12 +75,14 @@ export const tailwindColorsAccent = (colors = []) => {
 
             result[`.accent-${color[0]}`] = {
                 '--color-accent-rgb': `${rgb[0]} ${rgb[1]} ${rgb[2]}`,
-                '--color-accent': `rgb(${rgb[0]} ${rgb[1]} ${rgb[2]})`
+                '--color-accent': `rgb(${rgb[0]} ${rgb[1]} ${rgb[2]})`,
+                '--color-accent-current': `var(--color-${color}-current, var(--color-light))`
             }
         } else {
             result[`.accent-${color}`] = {
                 '--color-accent-rgb': `var(--color-${color}-rgb)`,
-                '--color-accent': `var(--color-${color})`
+                '--color-accent': `var(--color-${color})`,
+                '--color-accent-current': `var(--color-${color}-current, var(--color-light))`
             }
         }
     })

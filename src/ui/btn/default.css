@@ -1,5 +1,5 @@
 .ui-btn {
-  --color-current: var(--color-light);
+  --color-current: var(--color-accent-current);
   --ui-btn-width: max-content;
   --ui-btn-height: 2.25rem;
   --ui-btn-gap: 0.375rem;
@@ -55,13 +55,12 @@
   outline: var(--ui-btn-outline-width) solid transparent;
   outline-offset: 0;
 
-  &:where(.accent-base) {
-    --ui-btn-hover-bg-mix: white;
+  &:where([class*="accent-base"]) {
+    --ui-btn-hover-bg-mix: var(--color-base-mix);
+  }
 
-    :where(.dark) & {
-      --ui-btn-hover-bg-mix: black;
-      --color-current: var(--color-dark);
-    }
+  &:where([class*="accent-body"]) {
+    --ui-btn-hover-bg-mix: var(--color-body-mix);
   }
 
   & :where(svg) {

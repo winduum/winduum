@@ -3,5 +3,7 @@
   --color-body-mix: white;
   --color-secondary: rgb(var(--color-secondary-rgb));
   --color-base: rgb(var(--color-base-rgb));
+  --color-base-current: var(--color-dark);
   --color-body: rgb(var(--color-body-rgb));
+  --color-body-current: var(--color-light);
 }
