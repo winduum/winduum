@@ -1,3 +1,6 @@
+## 0.2.1 (2023-06-03)
+* patch release
+
 ## 0.2.0 (2023-06-03)
 * feat: restructure components to child files for better modularity
 * feat: added `sq-` tailwind utility class
