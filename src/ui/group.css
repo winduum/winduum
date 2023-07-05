@@ -1,12 +1,19 @@
-.ui-control-group {
+.ui-group {
   display: flex;
   flex-wrap: wrap;
 
-  & :where(.ui-btn) {
-    --ui-btn-border-width: 1px;
-    --ui-btn-height: 3rem;
-    --ui-btn-outline-offset: 0;
-    --ui-btn-border-opacity: 15%;
+  &:has(.ui-control) {
+    :where(.ui-btn) {
+      --ui-btn-border-width: 1px;
+      --ui-btn-border-opacity: 15%;
+      --ui-btn-height: auto;
+
+      min-width: 3rem;
+    }
+  }
+
+  :where(.ui-btn) {
+    --ui-btn-focus-outline-offset: 0;
   }
 
   & > * {
@@ -14,7 +21,7 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
 
-      &, :where(input, select) {
+      &, & :where(input, select) {
         border-left: 0;
       }
     }

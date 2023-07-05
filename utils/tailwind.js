@@ -55,11 +55,19 @@ export const getTailwindColors = (twColors) => {
 
 export const tailwindColors = (colors = []) => {
     colors.forEach(name => {
-        colors[name] = ({ opacityValue }) => {
+        colors[name + '-rgb'] = ({ opacityValue }) => {
             if (opacityValue === undefined) {
                 return `rgb(var(--color-${name}-rgb))`
             }
             return `rgb(var(--color-${name}-rgb) / ${opacityValue})`
+        }
+
+        colors[name] = ({ opacityValue }) => {
+            if (opacityValue === undefined) {
+                return `var(--color-${name})`
+            }
+
+            return `color-mix(in sRGB, var(--color-${name}) calc(${opacityValue} * 100%), transparent)`
         }
     })
 
