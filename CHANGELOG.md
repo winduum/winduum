@@ -1,4 +1,4 @@
-## 0.2.0 (2023-06-03)
+## 0.2.0 (2023-07-05)
 * feat: restructure components to child files for better modularity
 * feat: added `sq-` tailwind utility class
 * feat(bc): new color pallet with `color-mix`, colors now have also `-rgb` variants for better compatibility
@@ -6,6 +6,7 @@
 * feat(bc): following classes were also renamed - `text` -> `ghosted`, `outline` -> `bordered`, `underline` -> `underlined`
 * feat(bc): `ui-select` and `ui-input` were replaced with `ui-control`
 * feat(bc): `ui-radio` and `ui-checkbox` is now replaced with `ui-check`
+* feat(bc): `ui-input-group`,`ui-btn-group` and `ui-badge-group` is now replaced with `ui-group`
 
 ## 0.1.18 (2023-04-12)
 * feat: lib-ripple - fix values typo

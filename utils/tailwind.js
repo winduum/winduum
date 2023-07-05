@@ -149,9 +149,8 @@ export const createPlugin = (userConfig = {}) => {
             Object.entries(theme('spacing')).map(([key, value]) => {
                 return {
                     [`.${e(`sq-${key}`)}`]: {
-                        '--sq': `${value}`,
-                        width: 'var(--sq)',
-                        height: 'var(--sq)'
+                        width: value,
+                        height: value
                     }
                 }
             })
