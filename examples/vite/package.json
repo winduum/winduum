@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "winduum": "^0.1.11",
+    "winduum": "^0.2.1",
     "css-has-pseudo": "^5.0.2"
   },
   "devDependencies": {
