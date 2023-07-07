@@ -4,7 +4,7 @@
   --ui-badge-height: 1.5rem;
   --ui-badge-py: 0;
   --ui-badge-px: 0.5rem;
-  --ui-badge-border-radius: var(--rounded-xs);
+  --ui-badge-border-radius: var(--rounded-lg);
   --ui-badge-font-size: 0.75rem;
   --ui-badge-font-weight: var(--font-normal);
   --ui-badge-bg: color-mix(in sRGB, var(--color-accent) var(--ui-badge-bg-opacity), var(--ui-badge-bg-mix));

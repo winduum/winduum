@@ -7,13 +7,13 @@
   --color-info: rgb(var(--color-info-rgb));
   --color-base: var(--color-base-primary);
   --color-base-current: var(--color-light);
-  --color-base-mix: white;
+  --color-base-mix: var(--color-body);
   --color-base-primary: rgb(var(--color-base-rgb));
   --color-base-secondary: color-mix(in sRGB, var(--color-base) 75%, var(--color-base-mix));
   --color-base-tertiary: color-mix(in sRGB, var(--color-base) 50%, var(--color-base-mix));
   --color-body: var(--color-body-primary);
   --color-body-current: var(--color-dark);
-  --color-body-mix: black;
+  --color-body-mix: var(--color-base);
   --color-body-primary: rgb(var(--color-body-rgb));
   --color-body-secondary: color-mix(in sRGB, var(--color-body) 95%, var(--color-body-mix));
   --color-body-tertiary: color-mix(in sRGB, var(--color-body) 90%, var(--color-body-mix));

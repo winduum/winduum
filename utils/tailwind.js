@@ -12,8 +12,9 @@ export const defaultConfig = {
     fontFamily: ['primary', 'secondary'],
     fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
     zIndex: [10, 20, 30, 40, 50, 60],
-    spacing: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', 'section'],
-    borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', 'full'],
+    fontSize: ['xs', 'sm', 'root', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
+    spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'section'],
+    borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
     animations: ['fade-in', 'fade-out', 'fade-in-down', 'fade-out-up', 'ripple', 'spin', 'move-indeterminate'],
     screens: {
         xs: '22.5em',
@@ -126,6 +127,14 @@ export const tailwindVariables = (type, variables = [], values = {}) => {
     return values
 }
 
+export const tailwindVariablesFont = (type, variables = [], values = {}) => {
+    variables.forEach(name => {
+        values[name] = [`var(--${type}-${name})`, `calc(var(--${type}-${name}) + 0.5rem)`]
+    })
+
+    return values
+}
+
 export const tailwindAnimations = (values) => {
     const result = {}
 
@@ -161,8 +170,12 @@ export const createPlugin = (userConfig = {}) => {
             container: false
         },
         theme: {
+            fontSize: {
+                base: undefined
+            },
             extend: {
                 colors: tailwindColors(userConfig.colors),
+                fontSize: tailwindVariablesFont('text', userConfig.fontSize),
                 fontFamily: tailwindVariables('font', userConfig.fontFamily),
                 fontWeight: tailwindVariables('font', userConfig.fontWeight),
                 zIndex: tailwindVariables('z', userConfig.zIndex, {

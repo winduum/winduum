@@ -11,7 +11,7 @@
   background-color: var(--color-body-primary);
   width: 100%;
   max-width: var(--c-dialog-width);
-  border-radius: var(--rounded-md);
+  border-radius: var(--rounded-3xl);
   padding: var(--c-dialog-py) var(--c-dialog-px);
 
   :where(dialog:not([open])) & {
