@@ -1,3 +1,7 @@
+## 0.2.2 (2023-07-07)
+* fix: package.json exports
+* fix: `<hr>` border added color-mix
+
 ## 0.2.1 (2023-07-05)
 * patch release
 
