@@ -6,7 +6,7 @@
   background-color: var(--ui-image-bg);
   border-radius: inherit;
 
-  & > * {
+  & > *:not(source) {
     display: block;
     width: 100%;
     height: 100%;

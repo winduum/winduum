@@ -7,7 +7,7 @@
   --ui-control-px: 0.875rem;
   --ui-control-pl: var(--ui-control-px);
   --ui-control-pr: var(--ui-control-px);
-  --ui-control-bg: var(--color-body);
+  --ui-control-bg: transparent;
   --ui-control-color: currentColor;
   --ui-control-placeholder-color: currentColor;
   --ui-control-placeholder-opacity: 0.5;

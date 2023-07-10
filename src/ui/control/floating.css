@@ -4,7 +4,6 @@
   --ui-control-floating-label-focus-transform: translateY(-0.6875rem) scale(0.8);
   --ui-control-floating-label-focus-opacity: 50%;
   --ui-control-floating-label-transition-duration: 0.4s;
-  --ui-control-placeholder-color: transparent;
 
   & :where(label) {
     grid-area: input;

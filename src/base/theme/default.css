@@ -16,7 +16,9 @@
   --color-accent: var(--color-primary);
   --color-accent-current: var(--color-primary-current);
   --color-light: rgb(var(--color-light-rgb));
+  --color-light-current: var(--color-dark);
   --color-dark: rgb(var(--color-dark-rgb));
+  --color-dark-current: var(--color-light);
   --color-success: rgb(var(--color-success-rgb));
   --color-error: rgb(var(--color-error-rgb));
   --color-warning: rgb(var(--color-warning-rgb));

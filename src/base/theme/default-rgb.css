@@ -7,10 +7,12 @@
   --color-body-current-rgb: var(--color-main-rgb);
   --color-accent-rgb: var(--color-primary-rgb);
   --color-accent-current-rgb: var(--color-light-rgb);
+  --color-light-rgb: 255 255 255;
+  --color-light-current-rgb: var(--color-dark-rgb);
+  --color-dark-rgb: 17 19 21;
+  --color-dark-current-rgb: var(--color-light-rgb);
   --color-success-rgb: 33 154 67;
   --color-error-rgb: 254 50 75;
   --color-warning-rgb: 254 179 53;
   --color-info-rgb: 45 168 234;
-  --color-light-rgb: 255 255 255;
-  --color-dark-rgb: 17 19 21;
 }

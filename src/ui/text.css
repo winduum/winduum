@@ -3,8 +3,7 @@
   --ui-text-size-line: 0.75rem;
   --ui-text-weight: var(--font-normal);
   --ui-text-weight-bold: var(--font-semibold);
-  --ui-text-content-my: 1.5rem;
-  --ui-text-content-my-sm: 1rem;
+  --ui-text-content-my: 1rem;
   --ui-text-content-my-lg: 2rem;
 
   font-weight: var(--ui-text-weight);
@@ -13,6 +12,7 @@
 
   &:where(.lg) {
     --ui-text-size: 1.125rem;
+    --ui-text-size-line: 1rem;
   }
 
   & :where(a) {
@@ -59,7 +59,7 @@
     line-height: inherit;
 
     &:not(:only-child) {
-      margin: var(--ui-text-content-my-sm) 0;
+      margin: var(--ui-text-content-my) 0;
     }
 
     &:last-child {
@@ -67,7 +67,7 @@
     }
 
     &:empty {
-      line-height: var(--ui-text-content-my-sm);
+      line-height: var(--ui-text-content-my);
       margin: 0;
     }
 
@@ -87,7 +87,7 @@
     font-family: var(--font-secondary);
     font-size: var(--ui-text-heading-size, 1rem);
     line-height: calc(var(--ui-text-heading-size) + 0.5rem);
-    margin: var(--ui-text-content-my) 0 var(--ui-text-content-my-sm);
+    margin: var(--ui-text-content-my-lg) 0 var(--ui-text-content-my);
 
     &:first-child {
       margin-top: 0;

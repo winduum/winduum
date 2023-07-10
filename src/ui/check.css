@@ -2,7 +2,7 @@
   --ui-check-width: 1.375rem;
   --ui-check-font-size: 0.875rem;
   --ui-check-gap: 0.625rem;
-  --ui-check-bg: var(--color-body);
+  --ui-check-bg: transparent;
   --ui-check-bg-mix: transparent;
   --ui-check-bg-opacity: calc(var(--tw-bg-opacity, 0.1) * 100%);
   --ui-check-border-color: var(--color-body-current);
