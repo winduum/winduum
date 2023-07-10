@@ -1,9 +1,9 @@
 .ui-badge {
-  --color-current-rgb: var(--color-light-rgb);
+  --color-body-current-rgb: var(--color-accent-current-rgb);
   --ui-badge-bg: rgb(var(--color-accent-rgb) / var(--ui-badge-bg-opacity));
-  --ui-badge-color: rgb(var(--color-current-rgb) / var(--ui-badge-color-opacity));
+  --ui-badge-color: rgb(var(--color-body-current-rgb) / var(--ui-badge-color-opacity));
 
   &:where(.bordered, .muted) {
-    --color-current-rgb: var(--color-accent-rgb);
+    --color-body-current-rgb: var(--color-accent-rgb);
   }
 }

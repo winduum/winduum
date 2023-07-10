@@ -1,5 +1,5 @@
 .ui-control {
-  --ui-control-border-color: var(--color-current-rgb);
+  --ui-control-border-color: var(--color-body-current-rgb);
 
   & :where(input, textarea, select) {
     border: var(--ui-control-border-width) solid rgb(var(--ui-control-border-color) / var(--ui-control-border-opacity));
@@ -11,7 +11,7 @@
     }
 
     &:disabled {
-      background-color: rgb(var(--color-base-rgb) / var(--ui-control-disabled-opacity));
+      background-color: rgb(var(--color-main-rgb) / var(--ui-control-disabled-opacity));
     }
   }
 

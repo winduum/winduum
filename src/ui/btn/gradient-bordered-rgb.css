@@ -1,5 +1,5 @@
 :is(.ui-btn.gradient-bordered) {
-  --color-current-rgb: var(--color-base-rgb);
+  --color-body-current-rgb: var(--color-body-current-rgb);
 
   &::before {
     background-color: rgb(var(--color-body-rgb) / calc(100% - var(--ui-btn-bg-opacity)));

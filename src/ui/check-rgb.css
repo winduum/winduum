@@ -1,6 +1,6 @@
 .ui-check {
   --ui-check-bg: var(--color-body-rgb);
-  --ui-check-border-color: var(--color-current-rgb);
+  --ui-check-border-color: var(--color-body-current-rgb);
   --ui-check-checked-bg: var(--color-accent-rgb);
 
   & :where(input) {
@@ -14,7 +14,7 @@
     }
 
     &:disabled {
-      --ui-check-bg: var(--color-current-rgb);
+      --ui-check-bg: var(--color-body-current-rgb);
     }
 
     &:checked {
@@ -23,7 +23,6 @@
   }
 
   &.invalid, .validated & :where(input):invalid {
-    --color-current-rgb: var(--color-error-rgb);
     --ui-check-bg: var(--color-error-rgb);
     --ui-check-border-color: var(--color-error-rgb);
     --ui-check-checked-bg: var(--color-error-rgb);

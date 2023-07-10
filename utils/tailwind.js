@@ -1,18 +1,53 @@
 import plugin from 'tailwindcss/plugin'
+import flattenColorPalette from 'tailwindcss/src/util/flattenColorPalette'
+import toColorValue from 'tailwindcss/src/util/toColorValue'
+import { parseColor, formatColor } from 'tailwindcss/src/util/color'
 import twColors from 'tailwindcss/colors'
 import lodash from 'lodash'
 
+function withAlphaVariable ({ color, property, variable }) {
+    const properties = [].concat(property)
+    if (typeof color === 'function') {
+        return {
+            ...Object.fromEntries(
+                properties.map((p) => {
+                    return [p, color({ opacityVariable: variable, opacityValue: `var(${variable}, 1)` })]
+                })
+            )
+        }
+    }
+
+    const parsed = parseColor(color)
+
+    if (parsed === null) {
+        return Object.fromEntries(properties.map((p) => [p, color]))
+    }
+
+    if (parsed.alpha !== undefined) {
+        // Has an alpha value, return color as-is
+        return Object.fromEntries(properties.map((p) => [p, color]))
+    }
+
+    return {
+        ...Object.fromEntries(
+            properties.map((p) => {
+                return [p, formatColor({ ...parsed, alpha: `var(${variable}, 1)` })]
+            })
+        )
+    }
+}
+
 export const defaultConfig = {
     colors: [
-        'light', 'dark', 'primary',
-        'warning', 'error', 'info', 'success', 'accent', 'current',
-        'base', 'base-primary', 'base-secondary', 'base-tertiary',
+        'primary', 'accent',
+        'warning', 'error', 'info', 'success', 'light', 'dark',
+        'main', 'main-primary', 'main-secondary', 'main-tertiary',
         'body', 'body-primary', 'body-secondary', 'body-tertiary'
     ],
     fontFamily: ['primary', 'secondary'],
     fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
     zIndex: [10, 20, 30, 40, 50, 60],
-    fontSize: ['xs', 'sm', 'root', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
+    fontSize: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
     spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'section'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
     animations: ['fade-in', 'fade-out', 'fade-in-down', 'fade-out-up', 'ripple', 'spin', 'move-indeterminate'],
@@ -27,6 +62,9 @@ export const defaultConfig = {
         '4xl': '100em',
         xxl: '126em',
         '2xxl': '158em'
+    },
+    settings: {
+        rgbFallback: true
     }
 }
 
@@ -56,20 +94,11 @@ export const getTailwindColors = (twColors) => {
 
 export const tailwindColors = (colors = []) => {
     colors.forEach(name => {
-        colors[name + '-rgb'] = ({ opacityValue }) => {
-            if (opacityValue === undefined) {
-                return `rgb(var(--color-${name}-rgb))`
-            }
-            return `rgb(var(--color-${name}-rgb) / ${opacityValue})`
+        if (defaultConfig.settings.rgbFallback) {
+            colors[name + '-rgb'] = `rgb(var(--color-${name}-rgb) / <alpha-value>)`
         }
 
-        colors[name] = ({ opacityValue }) => {
-            if (opacityValue === undefined) {
-                return `var(--color-${name})`
-            }
-
-            return `color-mix(in sRGB, var(--color-${name}) calc(${opacityValue} * 100%), transparent)`
-        }
+        colors[name] = `color-mix(in sRGB, var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
     })
 
     return colors
@@ -82,37 +111,25 @@ export const tailwindColorsAccent = (colors = []) => {
         if (Array.isArray(color)) {
             const rgb = hexToRgb(color[1])
 
-            result[`.accent-${color[0]}`] = {
-                '--color-accent-rgb': `${rgb[0]} ${rgb[1]} ${rgb[2]}`,
+            result[`.accent-${color[0]}`] = Object.assign(defaultConfig.settings.rgbFallback
+                ? {
+                    '--color-accent-rgb': `${rgb[0]} ${rgb[1]} ${rgb[2]}`,
+                    '--color-accent-current-rgb': `var(--color-${color}-current-rgb, var(--color-light-rgb))`
+                }
+                : {}, {
                 '--color-accent': `rgb(${rgb[0]} ${rgb[1]} ${rgb[2]})`,
                 '--color-accent-current': `var(--color-${color}-current, var(--color-light))`
-            }
+            })
         } else {
-            result[`.accent-${color}`] = {
-                '--color-accent-rgb': `var(--color-${color}-rgb)`,
+            result[`.accent-${color}`] = Object.assign(defaultConfig.settings.rgbFallback
+                ? {
+                    '--color-accent-rgb': `var(--color-${color}-rgb)`,
+                    '--color-accent-current-rgb': `var(--color-${color}-current-rgb, var(--color-light-rgb))`
+                }
+                : {}, {
                 '--color-accent': `var(--color-${color})`,
                 '--color-accent-current': `var(--color-${color}-current, var(--color-light))`
-            }
-        }
-    })
-
-    return result
-}
-
-export const tailwindColorsCurrent = (colors = []) => {
-    const result = {}
-
-    colors.forEach(color => {
-        if (Array.isArray(color)) {
-            const rgb = hexToRgb(color[1])
-
-            result[`.text-${color[0]}`] = {
-                '--color-current': `${rgb[0]} ${rgb[1]} ${rgb[2]}`
-            }
-        } else {
-            result[`.text-${color}`] = {
-                '--color-current': `var(--color-${color})`
-            }
+            })
         }
     })
 
@@ -150,9 +167,41 @@ export const tailwindAnimations = (values) => {
 export const createPlugin = (userConfig = {}) => {
     userConfig = lodash.merge(defaultConfig, userConfig)
 
-    return plugin(({ addUtilities, theme, variants, e }) => {
+    return plugin(({ addUtilities, matchUtilities, theme, variants, e, corePlugins }) => {
         addUtilities(Object.assign(tailwindColorsAccent(getTailwindColors(twColors)), tailwindColorsAccent(userConfig.colors)))
-        addUtilities(Object.assign(tailwindColorsCurrent(getTailwindColors(twColors)), tailwindColorsCurrent(userConfig.colors)))
+        matchUtilities(
+            {
+                text: (value, extra) => {
+                    const matchValue = toColorValue(value).match(/var\((.*?)\)/)
+                    const fallbackRgb = matchValue && matchValue[0].includes('-rgb')
+
+                    const colorProperties = {}
+
+                    if (fallbackRgb) {
+                        colorProperties['--color-body-current-rgb'] = matchValue[0]
+                    }
+
+                    if (!corePlugins('textOpacity')) {
+                        return {
+                            ...colorProperties,
+                            '--color-body-current': toColorValue(value),
+                            color: toColorValue(value)
+                        }
+                    }
+
+                    return {
+                        ...colorProperties,
+                        '--color-body-current': toColorValue(value),
+                        ...withAlphaVariable({
+                            color: value,
+                            property: 'color',
+                            variable: '--tw-text-opacity'
+                        })
+                    }
+                }
+            },
+            { values: flattenColorPalette(theme('textColor')), type: ['color', 'any'] }
+        )
         addUtilities(tailwindAnimations(userConfig.animations))
         addUtilities([
             Object.entries(theme('spacing')).map(([key, value]) => {
@@ -167,12 +216,10 @@ export const createPlugin = (userConfig = {}) => {
     }, {
         corePlugins: {
             preflight: false,
-            container: false
+            container: false,
+            textColor: false
         },
         theme: {
-            fontSize: {
-                base: undefined
-            },
             extend: {
                 colors: tailwindColors(userConfig.colors),
                 fontSize: tailwindVariablesFont('text', userConfig.fontSize),

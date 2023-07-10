@@ -21,7 +21,7 @@
 
 :where(hr) {
   display: block;
-  border-top: 1px solid color-mix(in sRGB, var(--color-current) calc(var(--tw-border-opacity, 0.15) * 100%), transparent);
+  border-top: 1px solid color-mix(in sRGB, var(--color-accent-current) calc(var(--tw-border-opacity, 0.15) * 100%), transparent);
   border-radius: var(--rounded);
 }
 
@@ -36,7 +36,7 @@
 :where(body) {
   min-height: 100%;
   background-color: var(--color-body);
-  color: var(--color-base);
+  color: var(--color-main);
   accent-color: var(--color-accent);
 }
 

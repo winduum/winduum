@@ -1,13 +1,16 @@
 :root {
   --color-primary-rgb: 3 138 255;
-  --color-base-rgb: 17 19 21;
+  --color-primary-current-rgb: var(--color-light-rgb);
+  --color-main-rgb: 17 19 21;
+  --color-main-current-rgb: var(--color-body-rgb);
   --color-body-rgb: 255 255 255;
+  --color-body-current-rgb: var(--color-main-rgb);
+  --color-accent-rgb: var(--color-primary-rgb);
+  --color-accent-current-rgb: var(--color-light-rgb);
   --color-success-rgb: 33 154 67;
   --color-error-rgb: 254 50 75;
   --color-warning-rgb: 254 179 53;
   --color-info-rgb: 45 168 234;
   --color-light-rgb: 255 255 255;
   --color-dark-rgb: 17 19 21;
-  --color-accent-rgb: var(--color-primary-rgb);
-  --color-current-rgb: var(--color-base-rgb);
 }

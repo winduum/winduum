@@ -5,12 +5,15 @@
     <title>Winduum UI</title>
     <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
     <link rel="stylesheet" href="/src/main.css">
+<!--    <link rel="stylesheet" href="/src/main-rgb.css">-->
     <link rel="stylesheet" href="/src/tailwind.css">
     <script src="/src/main.js" type="module"></script>
     <script src="/vue.js" type="module"></script>
 </head>
 <body class="bg-blue-100/10 dark:bg-dark p-md flex flex-col items-start gap-4">
-    <button class="ui-btn bordered accent-base">Button</button>
+    <button class="ui-btn bordered accent-main">Button</button>
+    <div class="bg-light p-4"><button class="ui-btn bordered accent-dark">Light btn</button></div>
+    <div class="bg-dark p-4"><button class="ui-btn bordered accent-light">Light btn</button></div>
     <button class="ui-btn lg w-full">Button</button>
     <button class="ui-btn wide">Button</button>
     <button class="ui-btn gradient gradient-bordered focus:!outline-purple-600/30 bg-gradient-to-br from-purple-600 to-blue-500">Button</button>
@@ -18,12 +21,12 @@
     <button class="ui-btn gradient focus:!outline-purple-600 bg-gradient-to-br from-purple-600 to-blue-500">Button</button>
     <button class="ui-btn raised accent-secondary">Button</button>
     <button class="ui-btn raised text-dark">Button</button>
-    <button class="ui-btn bordered accent-base">Button</button>
+    <button class="ui-btn bordered accent-main">Button</button>
     <button class="ui-btn bordered accent-error">Button</button>
     <button class="ui-btn bordered hover-fill">Button fill</button>
-    <button class="ui-btn bordered hover-fill text-base">Button</button>
+    <button class="ui-btn bordered hover-fill text-main">Button</button>
     <button class="ui-btn ghosted hover-fill">Button</button>
-    <button class="ui-btn ghosted text-base">Button</button>
+    <button class="ui-btn ghosted text-main">Button</button>
     <button class="ui-btn muted">Button</button>
     <button class="ui-btn muted">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -49,7 +52,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
             </svg>
         </button>
-        <button class="ui-btn ghosted circle text-base">
+        <button class="ui-btn ghosted circle text-main">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
             </svg>
