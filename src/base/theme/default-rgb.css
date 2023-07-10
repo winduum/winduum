@@ -1,12 +1,13 @@
 :root {
+  --color-current-rgb: var(--color-body-current-rgb);
+  --color-accent-rgb: var(--color-primary-rgb);
+  --color-accent-current-rgb: var(--color-light-rgb);
   --color-primary-rgb: 3 138 255;
   --color-primary-current-rgb: var(--color-light-rgb);
   --color-main-rgb: 17 19 21;
   --color-main-current-rgb: var(--color-body-rgb);
   --color-body-rgb: 255 255 255;
   --color-body-current-rgb: var(--color-main-rgb);
-  --color-accent-rgb: var(--color-primary-rgb);
-  --color-accent-current-rgb: var(--color-light-rgb);
   --color-light-rgb: 255 255 255;
   --color-light-current-rgb: var(--color-dark-rgb);
   --color-dark-rgb: 17 19 21;

@@ -65,12 +65,12 @@
     }
 
     &:focus {
-      outline-color: color-mix(in sRGB, var(--color-body-current) var(--ui-switch-outline-opacity), transparent);
+      outline-color: color-mix(in sRGB, var(--color-current) var(--ui-switch-outline-opacity), transparent);
       outline-offset: var(--ui-switch-outline-offset);
     }
 
     &:checked {
-      --color-body-current: var(--color-accent);
+      --color-current: var(--color-accent);
       --ui-switch-bg: var(--color-accent);
 
       &::before {

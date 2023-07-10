@@ -43,7 +43,7 @@ function withAlphaVariable ({ color: color$1, property, variable }) {
 
 const defaultConfig = {
     colors: [
-        'primary', 'accent',
+        'primary', 'accent', 'current',
         'warning', 'error', 'info', 'success', 'light', 'dark',
         'main', 'main-primary', 'main-secondary', 'main-tertiary',
         'body', 'body-primary', 'body-secondary', 'body-tertiary'
@@ -182,20 +182,26 @@ const createPlugin = (userConfig = {}) => {
                     const colorProperties = {};
 
                     if (fallbackRgb) {
-                        colorProperties['--color-body-current-rgb'] = matchValue[0];
+                        colorProperties['--color-current-rgb'] = matchValue[0];
+                    }
+
+                    if ((matchValue && matchValue[0] === 'var(--color-current)') || (matchValue && matchValue[0] === 'var(--color-current-rgb)')) {
+                        return {
+                            color: toColorValue(value)
+                        }
                     }
 
                     if (!corePlugins('textOpacity')) {
                         return {
                             ...colorProperties,
-                            '--color-body-current': toColorValue(value),
+                            '--color-current': toColorValue(value),
                             color: toColorValue(value)
                         }
                     }
 
                     return {
                         ...colorProperties,
-                        '--color-body-current': toColorValue(value),
+                        '--color-current': toColorValue(value),
                         ...withAlphaVariable({
                             color: value,
                             property: 'color',

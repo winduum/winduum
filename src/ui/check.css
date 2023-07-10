@@ -5,7 +5,7 @@
   --ui-check-bg: transparent;
   --ui-check-bg-mix: transparent;
   --ui-check-bg-opacity: calc(var(--tw-bg-opacity, 0.1) * 100%);
-  --ui-check-border-color: var(--color-body-current);
+  --ui-check-border-color: var(--color-current);
   --ui-check-border-mix: transparent;
   --ui-check-border-opacity: calc(var(--tw-border-opacity, 0.2) * 100%);
   --ui-check-border-width: 1px;
@@ -102,7 +102,7 @@
 
     &:disabled {
       --ui-check-bg-opacity: 15%;
-      --ui-check-bg: var(--color-body-current);
+      --ui-check-bg: var(--color-current);
 
       cursor: not-allowed;
       opacity: var(--ui-check-disabled-opacity);

@@ -1,4 +1,7 @@
 :root {
+  --color-current: var(--color-body-current);
+  --color-accent: var(--color-primary);
+  --color-accent-current: var(--color-primary-current);
   --color-primary: rgb(var(--color-primary-rgb));
   --color-primary-current: var(--color-light);
   --color-main: var(--color-main-primary);
@@ -13,8 +16,6 @@
   --color-body-primary: rgb(var(--color-body-rgb));
   --color-body-secondary: color-mix(in sRGB, var(--color-body) 95%, var(--color-body-mix));
   --color-body-tertiary: color-mix(in sRGB, var(--color-body) 90%, var(--color-body-mix));
-  --color-accent: var(--color-primary);
-  --color-accent-current: var(--color-primary-current);
   --color-light: rgb(var(--color-light-rgb));
   --color-light-current: var(--color-dark);
   --color-dark: rgb(var(--color-dark-rgb));

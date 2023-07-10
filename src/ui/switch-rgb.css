@@ -5,7 +5,7 @@
     }
 
     &:checked {
-      --color-body-current-rgb: var(--color-accent-rgb);
+      --color-current-rgb: var(--color-accent-rgb);
     }
   }
 }

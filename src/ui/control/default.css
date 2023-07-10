@@ -14,7 +14,7 @@
   --ui-control-font-size: 0.875rem;
   --ui-control-font-weight: var(--font-medium);
   --ui-control-border-width: 1px;
-  --ui-control-border-color: var(--color-body-current);
+  --ui-control-border-color: var(--color-current);
   --ui-control-border-mix: transparent;
   --ui-control-border-opacity: 15%;
   --ui-control-border-radius: var(--rounded);
@@ -59,7 +59,7 @@
 
     &:disabled {
       cursor: not-allowed;
-      background-color: color-mix(in sRGB, var(--color-body-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
+      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
     }
 
     &:required ~ label {

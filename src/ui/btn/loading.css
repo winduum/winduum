@@ -14,7 +14,7 @@
     width: var(--ui-btn-loading-width);
     height: var(--ui-btn-loading-width);
     content: "";
-    border: var(--ui-btn-loading-border-width) solid var(--color-body-current);
+    border: var(--ui-btn-loading-border-width) solid var(--color-current);
     border-right-color: transparent;
     border-radius: 50%;
     animation: spin 0.45s infinite linear;
