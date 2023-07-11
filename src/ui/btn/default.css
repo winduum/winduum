@@ -26,7 +26,6 @@
   --ui-btn-focus-outline-offset: 2px;
   --ui-btn-disabled-opacity: 70%;
 
-  max-width: var(--ui-btn-width);
   width: var(--ui-btn-width);
   height: var(--ui-btn-height);
   padding: var(--ui-btn-py) var(--ui-btn-px);

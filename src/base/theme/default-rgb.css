@@ -2,7 +2,7 @@
   --color-current-rgb: var(--color-main-rgb);
   --color-current-fg-rgb: var(--color-main-fg-rgb);
   --color-accent-rgb: var(--color-primary-rgb);
-  --color-accent-fg-rgb: var(--color-light-rgb);
+  --color-accent-fg-rgb: var(--color-primary-fg-rgb);
   --color-primary-rgb: 3 138 255;
   --color-primary-fg-rgb: var(--color-light-rgb);
   --color-main-rgb: 17 19 21;

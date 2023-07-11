@@ -13,11 +13,11 @@
   stroke-width: 1.5;
 }
 
-:where(svg:not[width]) {
+:where(svg:not([width])) {
   width: 1.25em;
 }
 
-:where(svg:not[height]) {
+:where(svg:not([height])) {
   height: 1.25em;
 }
 
@@ -27,7 +27,7 @@
 
 :where(hr) {
   display: block;
-  border-top: 1px solid color-mix(in sRGB, var(--color-accent-fg) calc(var(--tw-border-opacity, 0.15) * 100%), transparent);
+  border-top: 1px solid color-mix(in sRGB, var(--color-current) calc(var(--tw-border-opacity, 0.15) * 100%), transparent);
   border-radius: var(--rounded);
 }
 

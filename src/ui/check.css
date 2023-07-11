@@ -22,9 +22,9 @@
   display: flex;
   align-items: center;
   gap: 0 var(--ui-check-gap);
-  flex-wrap: wrap;
   width: fit-content;
   font-size: var(--ui-check-font-size);
+  text-wrap: balance;
 
   &:has([type="radio"]) {
     --ui-check-icon: var(--icon-radio);
@@ -59,13 +59,14 @@
       outline-offset var(--transition-duration);
     font-size: var(--ui-check-icon-font-size);
     cursor: pointer;
+    flex-shrink: 0;
 
     &::before {
       line-height: var(--ui-check-icon-font-size);
       text-indent: 0;
       display: block;
       transition: var(--transition-color), var(--transition-opacity), var(--transition-transform);
-      color: var(--color-light);
+      color: var(--color-accent-fg);
       content: "";
       background-color: currentColor;
       mask: var(--ui-check-icon);

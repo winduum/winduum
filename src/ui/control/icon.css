@@ -27,7 +27,7 @@
   & :where(svg) {
     font-size: var(--ui-control-icon-font-size);
     width: 1em;
-    height: var(--ui-control-height);
+    height: 1em;
   }
 
   & :where([class^="icon-"]) {
