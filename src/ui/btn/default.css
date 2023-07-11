@@ -1,5 +1,5 @@
 .ui-btn {
-  --color-current: var(--color-accent-current);
+  --color-current: var(--color-accent-fg);
   --ui-btn-width: max-content;
   --ui-btn-height: 2.25rem;
   --ui-btn-gap: 0.375rem;
@@ -56,11 +56,11 @@
   outline-offset: 0;
 
   &:where([class*="accent-base"]) {
-    --ui-btn-hover-bg-mix: var(--color-main-mix);
+    --ui-btn-hover-bg-mix: var(--color-main-fg);
   }
 
   &:where([class*="accent-body"]) {
-    --ui-btn-hover-bg-mix: var(--color-body-mix);
+    --ui-btn-hover-bg-mix: var(--color-body-fg);
   }
 
   & :where(svg) {

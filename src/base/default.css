@@ -27,7 +27,7 @@
 
 :where(hr) {
   display: block;
-  border-top: 1px solid color-mix(in sRGB, var(--color-accent-current) calc(var(--tw-border-opacity, 0.15) * 100%), transparent);
+  border-top: 1px solid color-mix(in sRGB, var(--color-accent-fg) calc(var(--tw-border-opacity, 0.15) * 100%), transparent);
   border-radius: var(--rounded);
 }
 

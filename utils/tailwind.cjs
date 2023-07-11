@@ -6,7 +6,6 @@ var plugin = require('tailwindcss/plugin');
 var flattenColorPalette = require('tailwindcss/src/util/flattenColorPalette');
 var toColorValue = require('tailwindcss/src/util/toColorValue');
 var color = require('tailwindcss/src/util/color');
-var twColors = require('tailwindcss/colors');
 var lodash = require('lodash');
 
 function withAlphaVariable ({ color: color$1, property, variable }) {
@@ -68,37 +67,13 @@ const defaultConfig = {
         '2xxl': '158em'
     },
     settings: {
-        rgbFallback: true
+        rgb: true
     }
-};
-
-const hexToRgb = hex => hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b)
-    .substring(1).match(/.{2}/g)
-    .map(x => parseInt(x, 16));
-
-const getTailwindColors = (twColors) => {
-    const accentColors = [];
-
-    Object.keys(twColors).forEach(color => {
-        if (color.match(/(lightBlue|warmGray|trueGray|coolGray|blueGray)/)) {
-            return
-        }
-
-        if (typeof twColors[color] === 'object') {
-            Object.keys(twColors[color]).forEach(variant => {
-                accentColors.push([`${color.replace(/[A-Z]/g, m => '-' + m.toLowerCase())}-${variant}`, twColors[color][variant]]);
-            });
-        } else {
-            accentColors.push([color, twColors[color]]);
-        }
-    });
-
-    return accentColors
 };
 
 const tailwindColors = (colors = []) => {
     colors.forEach(name => {
-        if (defaultConfig.settings.rgbFallback) {
+        if (defaultConfig.settings.rgb) {
             colors[name + '-rgb'] = `rgb(var(--color-${name}-rgb) / <alpha-value>)`;
         }
 
@@ -106,38 +81,6 @@ const tailwindColors = (colors = []) => {
     });
 
     return colors
-};
-
-const tailwindColorsAccent = (colors = []) => {
-    const result = {};
-
-    colors.forEach(color => {
-        if (Array.isArray(color)) {
-            const rgb = hexToRgb(color[1]);
-
-            result[`.accent-${color[0]}`] = Object.assign(defaultConfig.settings.rgbFallback
-                ? {
-                    '--color-accent-rgb': `${rgb[0]} ${rgb[1]} ${rgb[2]}`,
-                    '--color-accent-current-rgb': `var(--color-${color}-current-rgb, var(--color-light-rgb))`
-                }
-                : {}, {
-                '--color-accent': `rgb(${rgb[0]} ${rgb[1]} ${rgb[2]})`,
-                '--color-accent-current': `var(--color-${color}-current, var(--color-light))`
-            });
-        } else {
-            result[`.accent-${color}`] = Object.assign(defaultConfig.settings.rgbFallback
-                ? {
-                    '--color-accent-rgb': `var(--color-${color}-rgb)`,
-                    '--color-accent-current-rgb': `var(--color-${color}-current-rgb, var(--color-light-rgb))`
-                }
-                : {}, {
-                '--color-accent': `var(--color-${color})`,
-                '--color-accent-current': `var(--color-${color}-current, var(--color-light))`
-            });
-        }
-    });
-
-    return result
 };
 
 const tailwindVariables = (type, variables = [], values = {}) => {
@@ -172,10 +115,57 @@ const createPlugin = (userConfig = {}) => {
     userConfig = lodash.merge(defaultConfig, userConfig);
 
     return plugin(({ addUtilities, matchUtilities, theme, variants, e, corePlugins }) => {
-        addUtilities(Object.assign(tailwindColorsAccent(getTailwindColors(twColors)), tailwindColorsAccent(userConfig.colors)));
         matchUtilities(
             {
-                text: (value, extra) => {
+                accent: (value) => {
+                    const matchValue = toColorValue(value).match(/var\((.*?)\)/);
+                    const fallbackRgb = matchValue && matchValue[0].includes('-rgb');
+
+                    const colorProperties = {};
+
+                    if (fallbackRgb) {
+                        colorProperties['--color-accent-rgb'] = matchValue[0];
+                    }
+
+                    if ((matchValue && matchValue[0] === 'var(--color-accent)') || (matchValue && matchValue[0] === 'var(--color-accent-rgb)')) {
+                        return {
+                            'accent-color': matchValue && toColorValue(value).includes('calc(1 * 100%)') ? matchValue[0] : toColorValue(value)
+                        }
+                    }
+
+                    if (matchValue) {
+                        if (fallbackRgb) {
+                            colorProperties['--color-accent-fg-rgb'] = `var(${matchValue[1].replace('-rgb', '-fg-rgb')})`;
+                        }
+
+                        if (toColorValue(value).includes('calc(1 * 100%)') || toColorValue(value).includes(' / 1')) {
+                            return {
+                                ...colorProperties,
+                                '--color-accent': fallbackRgb ? toColorValue(value) : matchValue[0],
+                                '--color-accent-fg': fallbackRgb ? `rgb(var(${matchValue[1].replace('-rgb', '-fg-rgb')}, var(--color-light-rgb)))` : `var(${matchValue[1]}-fg, var(--color-light))`,
+                                'accent-color': 'var(--color-accent)'
+                            }
+                        } else {
+                            return {
+                                ...colorProperties,
+                                '--color-accent': toColorValue(value),
+                                '--color-accent-fg': fallbackRgb ? `rgb(var(${matchValue[1].replace('-rgb', '-fg-rgb')}, var(--color-light-rgb)))` : `var(${matchValue[1]}-fg, var(--color-light))`,
+                                'accent-color': 'var(--color-accent)'
+                            }
+                        }
+                    }
+
+                    return {
+                        '--color-accent': toColorValue(value),
+                        'accent-color': toColorValue(value)
+                    }
+                }
+            },
+            { values: flattenColorPalette(theme('accentColor')), type: ['color', 'any'] }
+        );
+        matchUtilities(
+            {
+                text: (value) => {
                     const matchValue = toColorValue(value).match(/var\((.*?)\)/);
                     const fallbackRgb = matchValue && matchValue[0].includes('-rgb');
 
@@ -191,22 +181,32 @@ const createPlugin = (userConfig = {}) => {
                         }
                     }
 
+                    const color = matchValue
+                        ? { color: 'var(--color-current)' }
+                        : {
+                            ...withAlphaVariable({
+                                color: value,
+                                property: 'color',
+                                variable: '--tw-text-opacity'
+                            })
+                        };
+
                     if (!corePlugins('textOpacity')) {
                         return {
                             ...colorProperties,
                             '--color-current': toColorValue(value),
-                            color: toColorValue(value)
+                            ...color
                         }
                     }
 
                     return {
                         ...colorProperties,
-                        '--color-current': toColorValue(value),
                         ...withAlphaVariable({
                             color: value,
-                            property: 'color',
+                            property: '--color-current',
                             variable: '--tw-text-opacity'
-                        })
+                        }),
+                        ...color
                     }
                 }
             },
@@ -227,9 +227,11 @@ const createPlugin = (userConfig = {}) => {
         corePlugins: {
             preflight: false,
             container: false,
-            textColor: false
+            textColor: false,
+            accentColor: false
         },
         theme: {
+            accentOpacity: ({ theme }) => theme('opacity'),
             extend: {
                 colors: tailwindColors(userConfig.colors),
                 fontSize: tailwindVariablesFont('text', userConfig.fontSize),
@@ -252,10 +254,7 @@ const createPlugin = (userConfig = {}) => {
 exports.createPlugin = createPlugin;
 exports.default = createPlugin;
 exports.defaultConfig = defaultConfig;
-exports.getTailwindColors = getTailwindColors;
-exports.hexToRgb = hexToRgb;
 exports.tailwindAnimations = tailwindAnimations;
 exports.tailwindColors = tailwindColors;
-exports.tailwindColorsAccent = tailwindColorsAccent;
 exports.tailwindVariables = tailwindVariables;
 exports.tailwindVariablesFont = tailwindVariablesFont;
