@@ -1,0 +1,30 @@
+.ui-control {
+  :where([type="file"]) {
+    overflow: hidden;
+
+    &::file-selector-button {
+      --file-selector-button-bg-opacity: 15%;
+
+      all: unset;
+      background-color: color-mix(in sRGB, var(--color-current) var(--file-selector-button-bg-opacity), transparent);
+      color: var(--color-current);
+      height: calc(var(--ui-control-height) - var(--ui-control-border-width) * 2);
+      border: 0;
+      padding: 0 1rem;
+      margin-right: 0.75rem;
+      border-top-right-radius: var(--rounded);
+      border-bottom-right-radius: var(--rounded);
+      font-size: var(--ui-control-font-size);
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      margin-top: calc(var(--ui-control-py) * -1);
+      margin-left: calc(var(--ui-control-pl) * -1);
+      transition: var(--transition-background);
+
+      &:is(:hover, :focus) {
+        --file-selector-button-bg-opacity: 20%;
+      }
+    }
+  }
+}
