@@ -1,4 +1,4 @@
-.ui-control:where(.floating) {
+.ui-control:has(label) {
   --ui-control-floating-label-font-size: 0.875rem;
   --ui-control-floating-label-font-weight: var(--font-medium);
   --ui-control-floating-label-focus-transform: translateY(-0.6875rem) scale(0.8);

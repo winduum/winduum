@@ -1,4 +1,4 @@
-.ui-control:where(.floating) {
+.ui-control:has(label) {
   --ui-control-placeholder-color: transparent;
 
   & :where(input, textarea, select) {
