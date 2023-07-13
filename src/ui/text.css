@@ -129,11 +129,6 @@
 
   & :where(iframe) {
     max-width: 100%;
-
-    &:where([src*="youtube.com"]) {
-      aspect-ratio: 16/9;
-      height: auto;
-    }
   }
 
   & :where(blockquote) {

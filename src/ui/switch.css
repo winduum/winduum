@@ -1,6 +1,8 @@
 .ui-switch {
   --ui-switch-width: 3rem;
   --ui-switch-height: 1.5rem;
+  --ui-switch-font-size: 0.875rem;
+  --ui-switch-gap: 0.625rem;
   --ui-switch-padding: 0.375rem;
   --ui-switch-bg: var(--color-dark);
   --ui-switch-radius: var(--rounded-full);
@@ -14,8 +16,19 @@
 
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  width: max-content;
+  gap: 0 var(--ui-switch-gap);
+  width: fit-content;
+  font-size: var(--ui-switch-font-size);
+  text-wrap: balance;
+
+  & :where(label[for], input) {
+    cursor: pointer;
+  }
+
+  & :where(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
 
   &:where(.sm) {
     --ui-switch-width: 2.5rem;
@@ -38,7 +51,6 @@
       var(--transition-background),
       outline-color var(--transition-duration),
       outline-offset var(--transition-duration);
-    cursor: pointer;
     appearance: none;
     outline: var(--ui-switch-outline-width) solid transparent;
     outline-offset: 0;
@@ -57,6 +69,13 @@
       margin-left: calc((var(--ui-switch-height) - var(--ui-switch-padding) + var(--ui-switch-padding) / 2) * -1);
       transition: left var(--transition-duration), var(--transition-background);
       transform: translateY(-50%);
+    }
+
+    &:where(:required) {
+      & + *::after {
+        color: var(--color-error);
+        content: " *";
+      }
     }
 
     &:disabled {
@@ -78,5 +97,9 @@
         left: 100%;
       }
     }
+  }
+
+  &.invalid, .validated & :where(input):invalid {
+    --ui-switch-bg: var(--color-error);
   }
 }

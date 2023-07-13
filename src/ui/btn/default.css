@@ -54,7 +54,7 @@
   outline: var(--ui-btn-outline-width) solid transparent;
   outline-offset: 0;
 
-  &:where([class*="accent-base"]) {
+  &:where([class*="accent-main"]) {
     --ui-btn-hover-bg-mix: var(--color-main-fg);
   }
 
