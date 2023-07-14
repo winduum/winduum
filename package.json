@@ -35,7 +35,7 @@
   },
   "files": [
     "index.js",
-    "tailwind.config.cjs",
+    "tailwind.config.js",
     "dist",
     "src",
     "utils"
