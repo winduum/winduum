@@ -6,7 +6,7 @@
   --ui-btn-active-bg-opacity: 20%;
   --ui-btn-focus-outline-offset: 0;
   --ui-btn-bg-opacity: 0%;
-  --color-current: var(--color-base);
+  --color-current: var(--color-main);
 
   &::before {
     content: "";

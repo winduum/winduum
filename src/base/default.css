@@ -11,7 +11,13 @@
 
 :where(svg) {
   stroke-width: 1.5;
+}
+
+:where(svg:not([width])) {
   width: 1.25em;
+}
+
+:where(svg:not([height])) {
   height: 1.25em;
 }
 
@@ -36,7 +42,7 @@
 :where(body) {
   min-height: 100%;
   background-color: var(--color-body);
-  color: var(--color-base);
+  color: var(--color-main);
   accent-color: var(--color-accent);
 }
 

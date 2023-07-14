@@ -23,7 +23,6 @@
   }
 
   &.invalid, .validated & :where(input):invalid {
-    --color-current-rgb: var(--color-error-rgb);
     --ui-check-bg: var(--color-error-rgb);
     --ui-check-border-color: var(--color-error-rgb);
     --ui-check-checked-bg: var(--color-error-rgb);

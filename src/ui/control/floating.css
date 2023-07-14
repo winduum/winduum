@@ -1,10 +1,9 @@
-.ui-control:where(.floating) {
+.ui-control {
   --ui-control-floating-label-font-size: 0.875rem;
   --ui-control-floating-label-font-weight: var(--font-medium);
   --ui-control-floating-label-focus-transform: translateY(-0.6875rem) scale(0.8);
   --ui-control-floating-label-focus-opacity: 50%;
   --ui-control-floating-label-transition-duration: 0.4s;
-  --ui-control-placeholder-color: transparent;
 
   & :where(label) {
     grid-area: input;
@@ -24,7 +23,7 @@
     margin-top: calc(var(--ui-control-height) / 2 - (var(--ui-control-font-size) / 2));
   }
 
-  & :where(input, textarea, select) {
+  &:has(label) :where(input, textarea, select) {
     padding-top: calc(var(--ui-control-pt-floating));
     padding-bottom: calc(var(--ui-control-pb-floating));
   }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+<!--    <link rel="stylesheet" href="/src/main-rgb.css">-->
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="/src/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark p-md flex flex-col items-start gap-4">
+    <h1 class="text-primary accent-current">Text primary</h1>
+    <h1 class="text-primary/50">Text primary</h1>
+    <h1 class="text-red-400/50 text-opacity-60">Text primary</h1>
+    <h1 class="text-primary-rgb">Text primary</h1>
+    <h1 class="text-primary-rgb/50">Text primary</h1>
+    <h1 class="text-current-rgb">Text primary</h1>
+    <div class="col flex-row gap-2 text-current">
+        <button class="p-xs" id="action-btn-dark">dark</button>
+    </div>
+    <script>
+        document.getElementById('action-btn-dark').addEventListener('click', () => {
+            if (!document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+        })
+    </script>
+</body>
+</html>

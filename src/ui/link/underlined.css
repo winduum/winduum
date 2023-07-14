@@ -1,5 +1,6 @@
 .ui-link:where([class*="underlined"]) {
   --ui-link-hover-opacity: 1;
+  --ui-link-active-opacity: 0.75;
   --ui-link-underline-color: currentColor;
   --ui-link-underline-width: 1px;
   --ui-link-underline-opacity: 0;
@@ -10,7 +11,7 @@
     --ui-link-underline-transform: none;
     --ui-link-underline-color: var(--color-accent);
     --ui-link-hover-opacity: 0.75;
-    --ui-link-active-opacity: 0.75;
+    --ui-link-active-opacity: 1;
   }
 
   &::after, & span::after {

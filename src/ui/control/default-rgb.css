@@ -11,7 +11,7 @@
     }
 
     &:disabled {
-      background-color: rgb(var(--color-base-rgb) / var(--ui-control-disabled-opacity));
+      background-color: rgb(var(--color-main-rgb) / var(--ui-control-disabled-opacity));
     }
   }
 

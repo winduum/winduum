@@ -1,5 +1,5 @@
 .ui-badge {
-  --color-current: var(--color-accent-current);
+  --color-current: var(--color-accent-fg);
   --ui-badge-width: max-content;
   --ui-badge-height: 1.5rem;
   --ui-badge-py: 0;

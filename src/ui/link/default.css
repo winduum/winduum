@@ -5,7 +5,7 @@
   --ui-link-letter-spacing: 0;
   --ui-link-hover-color: var(--color-accent);
   --ui-link-hover-opacity: 0.75;
-  --ui-link-active-opacity: 0.75;
+  --ui-link-active-opacity: 1;
   --ui-link-gap: 0.5rem;
 
   font-size: var(--ui-link-font-size);
@@ -27,6 +27,7 @@
 
     &:focus-visible {
       color: var(--ui-link-hover-color);
+      opacity: var(--ui-link-hover-opacity);
     }
 
     &:active {

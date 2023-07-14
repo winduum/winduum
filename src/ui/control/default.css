@@ -7,7 +7,7 @@
   --ui-control-px: 0.875rem;
   --ui-control-pl: var(--ui-control-px);
   --ui-control-pr: var(--ui-control-px);
-  --ui-control-bg: var(--color-body);
+  --ui-control-bg: transparent;
   --ui-control-color: currentColor;
   --ui-control-placeholder-color: currentColor;
   --ui-control-placeholder-opacity: 0.5;
@@ -59,7 +59,7 @@
 
     &:disabled {
       cursor: not-allowed;
-      background-color: color-mix(in sRGB, var(--color-base) var(--ui-control-disabled-opacity), var(--ui-control-bg));
+      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
     }
 
     &:required ~ label {

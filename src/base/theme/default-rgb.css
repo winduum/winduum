@@ -1,13 +1,20 @@
 :root {
+  --color-current-rgb: var(--color-main-rgb);
+  --color-current-fg-rgb: var(--color-main-fg-rgb);
+  --color-accent-rgb: var(--color-primary-rgb);
+  --color-accent-fg-rgb: var(--color-primary-fg-rgb);
   --color-primary-rgb: 3 138 255;
-  --color-base-rgb: 17 19 21;
+  --color-primary-fg-rgb: var(--color-light-rgb);
+  --color-main-rgb: 17 19 21;
+  --color-main-fg-rgb: var(--color-body-rgb);
   --color-body-rgb: 255 255 255;
+  --color-body-fg-rgb: var(--color-main-rgb);
+  --color-light-rgb: 255 255 255;
+  --color-light-fg-rgb: var(--color-dark-rgb);
+  --color-dark-rgb: 17 19 21;
+  --color-dark-fg-rgb: var(--color-light-rgb);
   --color-success-rgb: 33 154 67;
   --color-error-rgb: 254 50 75;
   --color-warning-rgb: 254 179 53;
   --color-info-rgb: 45 168 234;
-  --color-light-rgb: 255 255 255;
-  --color-dark-rgb: 17 19 21;
-  --color-accent-rgb: var(--color-primary-rgb);
-  --color-current-rgb: var(--color-base-rgb);
 }

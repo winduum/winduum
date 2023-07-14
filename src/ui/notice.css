@@ -19,7 +19,7 @@
   background-color: color-mix(in sRGB, var(--ui-notice-bg) 10%, transparent);
   outline: var(--ui-notice-outline-width) solid color-mix(in sRGB, var(--ui-notice-bg) var(--ui-notice-outline-opacity), transparent);
   outline-offset: var(--ui-notice-outline-offset);
-  color: var(--color-current);
+  color: var(--color-accent);
   gap: var(--ui-notice-gap);
 
   & :where(hr) {

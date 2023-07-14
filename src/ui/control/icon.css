@@ -27,7 +27,7 @@
   & :where(svg) {
     font-size: var(--ui-control-icon-font-size);
     width: 1em;
-    height: var(--ui-control-height);
+    height: 1em;
   }
 
   & :where([class^="icon-"]) {
@@ -41,6 +41,7 @@
     align-items: center;
     gap: var(--ui-control-icon-gap);
     transition: var(--transition-opacity);
+    height: var(--ui-control-height);
 
     &:where(.icon-l) {
       left: var(--ui-control-icon-inset-x);

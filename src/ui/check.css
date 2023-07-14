@@ -2,7 +2,7 @@
   --ui-check-width: 1.375rem;
   --ui-check-font-size: 0.875rem;
   --ui-check-gap: 0.625rem;
-  --ui-check-bg: var(--color-body);
+  --ui-check-bg: transparent;
   --ui-check-bg-mix: transparent;
   --ui-check-bg-opacity: calc(var(--tw-bg-opacity, 0.1) * 100%);
   --ui-check-border-color: var(--color-current);
@@ -22,9 +22,9 @@
   display: flex;
   align-items: center;
   gap: 0 var(--ui-check-gap);
-  flex-wrap: wrap;
   width: fit-content;
   font-size: var(--ui-check-font-size);
+  text-wrap: balance;
 
   &:has([type="radio"]) {
     --ui-check-icon: var(--icon-radio);
@@ -59,13 +59,14 @@
       outline-offset var(--transition-duration);
     font-size: var(--ui-check-icon-font-size);
     cursor: pointer;
+    flex-shrink: 0;
 
     &::before {
       line-height: var(--ui-check-icon-font-size);
       text-indent: 0;
       display: block;
       transition: var(--transition-color), var(--transition-opacity), var(--transition-transform);
-      color: var(--color-light);
+      color: var(--color-accent-fg);
       content: "";
       background-color: currentColor;
       mask: var(--ui-check-icon);
@@ -121,7 +122,6 @@
   }
 
   &.invalid, .validated & :where(input):invalid {
-    --color-current: var(--color-error);
     --ui-check-bg: var(--color-error);
     --ui-check-border-color: var(--color-error);
     --ui-check-checked-bg: var(--color-error);
