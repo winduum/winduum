@@ -231,7 +231,6 @@ const createPlugin = (userConfig = {}) => {
             accentColor: false
         },
         theme: {
-            accentOpacity: ({ theme }) => theme('opacity'),
             extend: {
                 colors: tailwindColors(userConfig.colors),
                 fontSize: tailwindVariablesFont('text', userConfig.fontSize),

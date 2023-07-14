@@ -1,3 +1,13 @@
+## 0.3.0 (2023-14-07)
+* feat(bc): color `base` was renamed to `main` due to TailwindCSS naming conflict
+* feat: added loading `skeleton` tailwind class
+* feat: added foreground colors to color pallet
+* feat: added file input to `ui-control`
+* feat: removed floating class from `ui-control`, it's automatic via `:has` now
+* feat: added loading skeleton to `ui-image`
+* feat: improved TailwindCSS `textColor` and `accentColor`, each class now includes related CSS properties
+* feat: added css properties tokens for `fontSize`
+
 ## 0.2.2 (2023-07-07)
 * fix: package.json exports
 * fix: `<hr>` border added color-mix
