@@ -67,7 +67,8 @@ const defaultConfig = {
         '2xxl': '158em'
     },
     settings: {
-        rgb: true
+        rgb: true,
+        colorMix: true
     }
 };
 
@@ -77,7 +78,9 @@ const tailwindColors = (colors = []) => {
             colors[name + '-rgb'] = `rgb(var(--color-${name}-rgb) / <alpha-value>)`;
         }
 
-        colors[name] = `color-mix(in sRGB, var(--color-${name}) calc(<alpha-value> * 100%), transparent)`;
+        colors[name] = defaultConfig.settings.colorMix
+            ? `color-mix(in sRGB, var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
+            : `rgb(var(--color-${name}) / <alpha-value>)`;
     });
 
     return colors
@@ -143,21 +146,21 @@ const createPlugin = (userConfig = {}) => {
                                 ...colorProperties,
                                 '--color-accent': fallbackRgb ? toColorValue(value) : matchValue[0],
                                 '--color-accent-fg': fallbackRgb ? `rgb(var(${matchValue[1].replace('-rgb', '-fg-rgb')}, var(--color-light-rgb)))` : `var(${matchValue[1]}-fg, var(--color-light))`,
-                                'accent-color': 'var(--color-accent)'
+                                'accent-color': defaultConfig.settings.colorMix ? 'var(--color-accent)' : 'rgb(var(--color-accent))'
                             }
                         } else {
                             return {
                                 ...colorProperties,
                                 '--color-accent': toColorValue(value),
                                 '--color-accent-fg': fallbackRgb ? `rgb(var(${matchValue[1].replace('-rgb', '-fg-rgb')}, var(--color-light-rgb)))` : `var(${matchValue[1]}-fg, var(--color-light))`,
-                                'accent-color': 'var(--color-accent)'
+                                'accent-color': defaultConfig.settings.colorMix ? 'var(--color-accent)' : 'rgb(var(--color-accent))'
                             }
                         }
                     }
 
                     return {
                         '--color-accent': toColorValue(value),
-                        'accent-color': toColorValue(value)
+                        'accent-color': 'var(--color-accent)'
                     }
                 }
             },
