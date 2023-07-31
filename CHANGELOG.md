@@ -1,3 +1,6 @@
+## 0.3.1 (2023-31-07)
+* feat: added option to disable `color-mix` in tailwindcss plugin as option `settings.colorMix` set to `false`
+
 ## 0.3.0 (2023-14-07)
 * feat(bc): color `base` was renamed to `main` due to TailwindCSS naming conflict
 * feat: added loading `skeleton` tailwind class
