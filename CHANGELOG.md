@@ -1,3 +1,6 @@
+## 0.3.2 (2023-08-27)
+* fix: dark mode colors mismatch
+
 ## 0.3.1 (2023-31-07)
 * feat: added option to disable `color-mix` in tailwindcss plugin as option `settings.colorMix` set to `false`
 
