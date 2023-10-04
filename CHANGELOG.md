@@ -1,3 +1,6 @@
+## 0.3.3 (2023-10-04)
+* fix: ui-title typo
+
 ## 0.3.2 (2023-08-27)
 * fix: dark mode colors mismatch
 
