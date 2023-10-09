@@ -66,16 +66,6 @@
     font-size: calc(var(--ui-btn-font-size) + 0.125rem);
   }
 
-  &:where(.bordered, .muted, .ghosted) {
-    --ui-btn-hover-bg-mix: transparent;
-    --ui-btn-hover-bg-opacity: 10%;
-    --ui-btn-active-bg-mix: transparent;
-    --ui-btn-active-bg-opacity: 20%;
-    --ui-btn-focus-outline-offset: -2px;
-    --ui-btn-bg-opacity: 0%;
-    --color-current: var(--color-accent);
-  }
-
   &:is([href], button, [role="button"]) {
     &:disabled {
       opacity: var(--ui-btn-disabled-opacity);

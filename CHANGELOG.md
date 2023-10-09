@@ -1,3 +1,7 @@
+## 0.3.4 (2023-10-09)
+* fix: missing placeholder on ui-control
+* feat: improved ui-btn, ui-badge variants code
+
 ## 0.3.3 (2023-10-04)
 * fix: ui-title typo
 

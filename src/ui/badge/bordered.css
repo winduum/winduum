@@ -1,4 +1,6 @@
 .ui-badge:where(.bordered) {
+  --color-current: var(--color-accent);
+  --ui-badge-bg-opacity: 0%;
   --ui-badge-border-width: 1px;
   --ui-badge-border-opacity: calc(var(--tw-border-opacity, 1) * 100%);
 
