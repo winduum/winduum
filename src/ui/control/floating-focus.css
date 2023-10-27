@@ -1,4 +1,6 @@
-.ui-control:has(label) {
+.ui-control:has(:not([type="color"]) ~ label) {
+  --ui-control-floating-label-focus-transform: translateY(-0.6875rem) scale(0.8);
+  --ui-control-floating-label-focus-opacity: 50%;
   --ui-control-placeholder-color: transparent;
 
   & :where(input, textarea, select) {

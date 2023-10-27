@@ -1,12 +1,8 @@
-.ui-control {
+:root {
   --ui-control-height: 3rem;
   --ui-control-height-textarea: 8rem;
-  --ui-control-pt-floating: 1.25rem;
-  --ui-control-pb-floating: 0.4375rem;
-  --ui-control-py: 0.875rem;
-  --ui-control-px: 0.875rem;
-  --ui-control-pl: var(--ui-control-px);
-  --ui-control-pr: var(--ui-control-px);
+  --ui-control-py: 0;
+  --ui-control-px: 0.75rem;
   --ui-control-bg: transparent;
   --ui-control-color: currentColor;
   --ui-control-placeholder-color: currentColor;
@@ -23,50 +19,65 @@
   --ui-control-outline-opacity: 20%;
   --ui-control-disabled-opacity: 5%;
   --ui-control-invalid-bg-opacity: 10%;
+}
 
-  display: grid;
-  grid-template-areas: "input";
-  font-size: var(--ui-control-font-size);
+.ui-control {
+  display: flex;
+  place-items: center;
   position: relative;
+  font-size: var(--ui-control-font-size);
   border-radius: var(--ui-control-border-radius);
+  background-color: var(--ui-control-bg);
+  transition:
+    var(--transition-border),
+    outline-color var(--transition-duration),
+    outline-offset var(--transition-duration);
+  font-weight: var(--ui-control-font-weight);
+  color: var(--ui-control-color);
+  border: var(--ui-control-border-width) solid color-mix(in sRGB, var(--ui-control-border-color) var(--ui-control-border-opacity), var(--ui-control-border-mix));
+  outline: var(--ui-control-outline-width) solid transparent;
+  outline-offset: 0;
+  height: var(--ui-control-height);
+
+  & :where(.icon-l) {
+    padding-left: var(--ui-control-px);
+  }
+
+  & :where(.icon-r) {
+    padding-right: var(--ui-control-px);
+  }
+
+  &:has(textarea) {
+    height: auto;
+  }
+
+  &:has(:disabled) {
+    cursor: not-allowed;
+    background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
+  }
 
   & :where(input, textarea, select) {
-    grid-area: input;
-    background-clip: padding-box;
-    background-color: var(--ui-control-bg);
-    padding: var(--ui-control-py) var(--ui-control-pr) var(--ui-control-py) var(--ui-control-pl);
-    transition:
-      var(--transition-border),
-      outline-color var(--transition-duration),
-      outline-offset var(--transition-duration);
-    line-height: normal;
-    font-size: inherit;
-    height: var(--ui-control-height);
-    font-weight: var(--ui-control-font-weight);
-    border-radius: inherit;
-    color: var(--ui-control-color);
-    border: var(--ui-control-border-width) solid color-mix(in sRGB, var(--ui-control-border-color) var(--ui-control-border-opacity), var(--ui-control-border-mix));
-    outline: var(--ui-control-outline-width) solid transparent;
-    outline-offset: 0;
+    place-self: stretch;
+    padding: var(--ui-control-py) var(--ui-control-px);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 
-    &:focus {
-      --ui-control-border-opacity: 100%;
-      --ui-control-border-color: var(--color-accent);
-
-      outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-control-outline-opacity), transparent);
-      outline-offset: var(--ui-control-outline-offset);
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+      width: 1.25rem;
+      height: 1.25rem;
     }
 
-    &:disabled {
-      cursor: not-allowed;
-      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
+    &::-moz-color-swatch {
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: var(--ui-control-border-radius);
     }
 
-    &:required ~ label {
-      &::after {
-        color: var(--color-error);
-        content: " *";
-      }
+    &::-webkit-color-swatch {
+      border-radius: var(--ui-control-border-radius);
     }
   }
 
@@ -79,11 +90,18 @@
 
   & :where(textarea) {
     resize: vertical;
-    overflow: hidden;
     min-height: var(--ui-control-height-textarea);
   }
 
-  &.invalid, .validated & :where(input, textarea, select):invalid {
+  &:focus-within {
+    --ui-control-border-opacity: 100%;
+    --ui-control-border-color: var(--color-accent);
+
+    outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-control-outline-opacity), transparent);
+    outline-offset: var(--ui-control-outline-offset);
+  }
+
+  &.invalid, .validated &:has(:invalid) {
     --ui-control-border-opacity: 100%;
     --ui-control-border-color: var(--color-error);
     --ui-control-color: var(--color-error);

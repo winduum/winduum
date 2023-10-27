@@ -1,13 +1,25 @@
-.ui-control {
+.ui-control:has(:not([type="color"]) ~ label) {
+  --ui-control-floating-pt: 0.875rem;
   --ui-control-floating-label-font-size: 0.875rem;
   --ui-control-floating-label-font-weight: var(--font-medium);
-  --ui-control-floating-label-focus-transform: translateY(-0.6875rem) scale(0.8);
-  --ui-control-floating-label-focus-opacity: 50%;
   --ui-control-floating-label-transition-duration: 0.4s;
 
+  display: grid;
+  grid-template-areas: "start control end";
+  grid-template-columns: auto 1fr auto;
+
+  &:has(select) {
+    grid-template-areas: "start control end select";
+    grid-template-columns: auto 1fr auto auto;
+
+    &::after {
+      grid-area: select;
+    }
+  }
+
   & :where(label) {
-    grid-area: input;
-    align-self: start;
+    grid-area: control;
+    place-self: start;
     pointer-events: none;
     transition: transform var(--ui-control-floating-label-transition-duration) cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
     transform-origin: 0 50%;
@@ -17,14 +29,28 @@
     transform: perspective(100px);
     will-change: transform;
     font-weight: var(--ui-control-floating-label-font-weight);
-    margin-left: var(--ui-control-pl);
-    margin-right: var(--ui-control-pr);
     line-height: var(--ui-control-floating-label-font-size);
     margin-top: calc(var(--ui-control-height) / 2 - (var(--ui-control-font-size) / 2));
+    margin-left: var(--ui-control-px);
   }
 
-  &:has(label) :where(input, textarea, select) {
-    padding-top: calc(var(--ui-control-pt-floating));
-    padding-bottom: calc(var(--ui-control-pb-floating));
+  &:has(:required) label {
+    &::after {
+      color: var(--color-error);
+      content: " *";
+    }
+  }
+
+  & :where(input, textarea, select) {
+    grid-area: control;
+    padding-top: calc(var(--ui-control-floating-pt));
+
+    &::-webkit-calendar-picker-indicator {
+      margin-top: calc(var(--ui-control-floating-pt) * -1);
+    }
+
+    & ~ *:not(label) {
+      grid-area: end;
+    }
   }
 }

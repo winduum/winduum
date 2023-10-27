@@ -1,21 +1,19 @@
 .ui-control {
   --ui-control-border-color: var(--color-current-rgb);
 
-  & :where(input, textarea, select) {
-    border: var(--ui-control-border-width) solid rgb(var(--ui-control-border-color) / var(--ui-control-border-opacity));
+  border: var(--ui-control-border-width) solid rgb(var(--ui-control-border-color) / var(--ui-control-border-opacity));
 
-    &:focus {
-      --ui-control-border-color: var(--color-accent-rgb);
-
-      outline-color: rgb(var(--color-accent-rgb) / var(--ui-control-outline-opacity));
-    }
-
-    &:disabled {
-      background-color: rgb(var(--color-main-rgb) / var(--ui-control-disabled-opacity));
-    }
+  &:has(:disabled) {
+    background-color: rgb(var(--color-main-rgb) / var(--ui-control-disabled-opacity));
   }
 
-  &.invalid, .validated & :where(input, textarea, select):invalid {
+  &:focus-visible {
+    --ui-control-border-color: var(--color-accent-rgb);
+
+    outline-color: rgb(var(--color-accent-rgb) / var(--ui-control-outline-opacity));
+  }
+
+  &.invalid, .validated &:has(:invalid) {
     --ui-control-border-color: var(--color-error-rgb);
     --color-accent-rgb: var(--color-error-rgb);
 
