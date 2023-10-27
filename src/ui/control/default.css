@@ -1,8 +1,9 @@
 :root {
   --ui-control-height: 3rem;
   --ui-control-height-textarea: 8rem;
-  --ui-control-py: 0;
   --ui-control-px: 0.75rem;
+  --ui-control-ps: 0rem;
+  --ui-control-pe: 0rem;
   --ui-control-bg: transparent;
   --ui-control-color: currentColor;
   --ui-control-placeholder-color: currentColor;
@@ -22,8 +23,8 @@
 }
 
 .ui-control {
-  display: flex;
-  place-items: center;
+  display: grid;
+  grid-template-areas: "body";
   position: relative;
   font-size: var(--ui-control-font-size);
   border-radius: var(--ui-control-border-radius);
@@ -38,15 +39,6 @@
   outline: var(--ui-control-outline-width) solid transparent;
   outline-offset: 0;
   height: var(--ui-control-height);
-  cursor: text;
-
-  & :where(.icon-l) {
-    padding-left: var(--ui-control-px);
-  }
-
-  & :where(.icon-r) {
-    padding-right: var(--ui-control-px);
-  }
 
   &:has(textarea) {
     height: auto;
@@ -57,29 +49,18 @@
     background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
   }
 
+  & > * {
+    grid-area: body;
+  }
+
   & :where(input, textarea, select) {
     place-self: stretch;
-    padding: var(--ui-control-py) var(--ui-control-px);
+    padding-top: var(--ui-control-pt, 0);
+    padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps)) calc(var(--ui-control-px) + var(--ui-control-pe));
     text-overflow: ellipsis;
     overflow: hidden;
     display: flex;
     align-items: center;
-
-    &::-webkit-color-swatch-wrapper {
-      padding: 0;
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-
-    &::-moz-color-swatch {
-      width: 1.25rem;
-      height: 1.25rem;
-      border-radius: var(--ui-control-border-radius);
-    }
-
-    &::-webkit-color-swatch {
-      border-radius: var(--ui-control-border-radius);
-    }
   }
 
   & :where(input, textarea) {

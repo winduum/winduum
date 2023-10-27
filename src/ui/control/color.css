@@ -1,0 +1,26 @@
+.ui-control {
+  & :where(input, textarea, select) {
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    &::-moz-color-swatch {
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: var(--ui-control-border-radius);
+    }
+
+    &::-webkit-color-swatch {
+      border-radius: var(--ui-control-border-radius);
+    }
+
+    &[type="color"] ~ label {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-inline: calc(var(--ui-control-px) + 2rem) var(--ui-control-px);
+    }
+  }
+}

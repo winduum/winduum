@@ -1,16 +1,24 @@
 .ui-control:has(select) {
-  --ui-control-select-icon-sq: 1.5rem;
+  --ui-control-select-icon-size: 1.5rem;
   --ui-control-select-icon-mr: 0.5rem;
 
-  cursor: pointer;
+  &:has(.icon-r) {
+    --ui-control-pe: calc(2 * var(--ui-control-icon-size) + var(--ui-control-px));
+  }
+
+  & :where(.icon-r) {
+    margin-inline-end: var(--ui-control-icon-size);
+  }
 
   &::after {
     content: "";
-    width: var(--ui-control-select-icon-sq);
-    height: var(--ui-control-select-icon-sq);
+    width: var(--ui-control-select-icon-size);
+    height: var(--ui-control-select-icon-size);
     background-color: currentColor;
     mask: var(--icon-angle-down);
     pointer-events: none;
-    margin-right: var(--ui-control-select-icon-mr);
+    grid-area: body;
+    align-self: center;
+    margin-inline: auto var(--ui-control-select-icon-mr);
   }
 }
