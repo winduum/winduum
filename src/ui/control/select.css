@@ -2,6 +2,8 @@
   --ui-control-select-icon-sq: 1.5rem;
   --ui-control-select-icon-mr: 0.5rem;
 
+  cursor: pointer;
+
   &::after {
     content: "";
     width: var(--ui-control-select-icon-sq);

@@ -49,6 +49,10 @@
       margin-top: calc(var(--ui-control-floating-pt) * -1);
     }
 
+    &::-webkit-search-cancel-button {
+      transform: translateY(calc(var(--ui-control-floating-pt) / 2 * -1));
+    }
+
     & ~ *:not(label) {
       grid-area: end;
     }

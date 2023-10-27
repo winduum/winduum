@@ -38,6 +38,7 @@
   outline: var(--ui-control-outline-width) solid transparent;
   outline-offset: 0;
   height: var(--ui-control-height);
+  cursor: text;
 
   & :where(.icon-l) {
     padding-left: var(--ui-control-px);
