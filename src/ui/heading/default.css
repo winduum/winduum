@@ -9,4 +9,5 @@
   font-size: var(--ui-heading-font-size);
   line-height: var(--ui-heading-line-height);
   font-weight: var(--ui-heading-font-weight);
+  text-wrap: balance;
 }

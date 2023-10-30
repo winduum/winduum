@@ -1,4 +1,4 @@
-:root {
+.ui-control {
   --ui-control-height: 3rem;
   --ui-control-height-textarea: 8rem;
   --ui-control-px: 0.75rem;
@@ -20,9 +20,7 @@
   --ui-control-outline-opacity: 20%;
   --ui-control-disabled-opacity: 5%;
   --ui-control-invalid-bg-opacity: 10%;
-}
 
-.ui-control {
   display: grid;
   grid-template-areas: "body";
   position: relative;

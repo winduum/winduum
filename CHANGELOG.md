@@ -1,3 +1,10 @@
+## 0.4.0 (2023-10-30)
+* feat: ui-control, refactor - styles are now applied on parent
+* feat: ui-control, added support for input[type="color"]
+* feat: ui-control, improved webkit styles
+* feat: improved support for web components - :root selector is now :root, :host
+* feat: other small improvements
+
 ## 0.3.4 (2023-10-09)
 * fix: missing placeholder on ui-control
 * feat: improved ui-btn, ui-badge variants code

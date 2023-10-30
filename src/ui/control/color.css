@@ -1,15 +1,20 @@
 .ui-control {
+  --ui-control-color-swatch-width: 1.25rem;
+  --ui-control-color-swatch-height: 1.25rem;
+  --ui-control-color-swatch-px: 2rem;
+
   & :where(input, textarea, select) {
     &::-webkit-color-swatch-wrapper {
+      width: var(--ui-control-color-swatch-width);
+      height: var(--ui-control-color-swatch-height);
       padding: 0;
-      width: 1.25rem;
-      height: 1.25rem;
     }
 
     &::-moz-color-swatch {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: var(--ui-control-color-swatch-width);
+      height: var(--ui-control-color-swatch-height);
       border-radius: var(--ui-control-border-radius);
+      margin: 0;
     }
 
     &::-webkit-color-swatch {
@@ -20,7 +25,7 @@
       height: 100%;
       display: flex;
       align-items: center;
-      padding-inline: calc(var(--ui-control-px) + 2rem) var(--ui-control-px);
+      padding-inline: calc(var(--ui-control-px) + var(--ui-control-color-swatch-px)) var(--ui-control-px);
     }
   }
 }

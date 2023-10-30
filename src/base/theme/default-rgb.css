@@ -1,4 +1,4 @@
-:root {
+:root, :host {
   --color-current-rgb: var(--color-main-rgb);
   --color-current-fg-rgb: var(--color-main-fg-rgb);
   --color-accent-rgb: var(--color-primary-rgb);

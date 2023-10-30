@@ -1,4 +1,4 @@
-:root.dark {
+:root.dark, :host.dark {
   --color-main-rgb: 255 255 255;
   --color-body-rgb: 25 26 27;
 }

@@ -4,9 +4,12 @@
   --ui-title-font-size: 0.875rem;
   --ui-title-line-height: calc(var(--ui-title-font-size) + var(--ui-title-line-height-ratio));
   --ui-title-line-height-ratio: 0.375rem;
+  --ui-title-letter-spacing: 0;
 
   font-family: var(--ui-title-font-family);
   font-size: var(--ui-title-font-size);
   line-height: var(--ui-title-line-height);
   font-weight: var(--ui-title-font-weight);
+  letter-spacing: var(--ui-title-letter-spacing);
+  text-wrap: balance;
 }

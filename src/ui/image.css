@@ -2,7 +2,7 @@
   position: relative;
   display: block;
   border-radius: inherit;
-  z-index: 0;
+  flex-shrink: 0;
 
   &:not([class*="bg-"])::before {
     content: "";
