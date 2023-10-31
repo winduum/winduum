@@ -1,6 +1,6 @@
 .ui-btn {
   --color-current: var(--color-accent-fg);
-  --ui-btn-width: auto;
+  --ui-btn-width: fit-content;
   --ui-btn-height: 2.25rem;
   --ui-btn-gap: 0.375rem;
   --ui-btn-py: 0.375rem;
