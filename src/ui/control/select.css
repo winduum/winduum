@@ -1,13 +1,14 @@
 .ui-control:has(select) {
   --ui-control-select-icon-size: 1.5rem;
-  --ui-control-select-icon-mr: 0.5rem;
+  --ui-control-select-icon-me: calc(var(--ui-control-px) - 0.25rem);
+  --ui-control-pe: calc(var(--ui-control-select-icon-size) + 0.25rem);
 
   &:has(.icon-r) {
-    --ui-control-pe: calc(2 * var(--ui-control-icon-size) + var(--ui-control-px));
+    --ui-control-icon-count-e: 2;
   }
 
   & :where(.icon-r) {
-    margin-inline-end: var(--ui-control-icon-size);
+    margin-inline-end: var(--ui-control-select-icon-size);
   }
 
   &::after {
@@ -19,6 +20,6 @@
     pointer-events: none;
     grid-area: body;
     align-self: center;
-    margin-inline: auto var(--ui-control-select-icon-mr);
+    margin-inline: auto var(--ui-control-select-icon-me);
   }
 }

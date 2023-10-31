@@ -42,11 +42,6 @@
     height: auto;
   }
 
-  &:has(:disabled) {
-    cursor: not-allowed;
-    background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
-  }
-
   & > * {
     grid-area: body;
   }
@@ -59,6 +54,11 @@
     overflow: hidden;
     display: flex;
     align-items: center;
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
+    }
   }
 
   & :where(input, textarea) {

@@ -1,21 +1,23 @@
 .ui-control {
   --ui-control-icon-size: 1.25rem;
   --ui-control-icon-gap: 0.375rem;
+  --ui-control-icon-count-s: 1;
+  --ui-control-icon-count-e: 1;
 
   &:has(.icon-l) {
-    --ui-control-ps: calc(var(--ui-control-icon-size) + var(--ui-control-px));
+    --ui-control-ps: calc(var(--ui-control-icon-count-s) * (var(--ui-control-icon-size) + var(--ui-control-icon-gap)) - var(--ui-control-icon-gap) + var(--ui-control-px));
   }
 
   &:has(.icon-r) {
-    --ui-control-pe: calc(var(--ui-control-icon-size) + var(--ui-control-px));
+    --ui-control-pe: calc(var(--ui-control-icon-count-e) * (var(--ui-control-icon-size) + var(--ui-control-icon-gap)) - var(--ui-control-icon-gap) + var(--ui-control-px));
   }
 
   &:has(.icon-l > *:nth-child(2)) {
-    --ui-control-ps: calc(2 * var(--ui-control-icon-size) + var(--ui-control-icon-gap) + var(--ui-control-px));
+    --ui-control-icon-count-s: 2;
   }
 
   &:has(.icon-r > *:nth-child(2)) {
-    --ui-control-pe: calc(2 * var(--ui-control-icon-size) + var(--ui-control-icon-gap) + var(--ui-control-px));
+    --ui-control-icon-count-e: 2;
   }
 
   & :where(.icon-l) {
