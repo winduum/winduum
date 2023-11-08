@@ -1,7 +1,7 @@
 ## 0.4.0 (2023-10-30)
 * feat(bc): ui-control - refactor, styles are now applied on parent, should go better together with custom selects like [Headless UI](https://headlessui.com/react/listbox)
 * feat(bc): ui-control - icon refactor, it's much simplified now
-* feat: ui-control - added support for input[type="color"], control now supports all input types!
+* feat: ui-control - added support for `input[type="color"]`, control now supports all input types!
 * feat: ui-control - improved webkit styles
 * feat: improved support for web components - `:root` selector is now `:root, :host`
 * feat: other small improvements
