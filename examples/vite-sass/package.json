@@ -9,17 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "winduum": "^0.2.1",
-    "css-has-pseudo": "^5.0.2"
+    "winduum": "^0.3.4",
+    "css-has-pseudo": "^6.0.0"
   },
   "devDependencies": {
-    "vite": "^4.1.2",
-    "sass": "^1.58.3",
-    "tailwindcss": "^3.2.7",
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
+    "vite": "^4.5.0",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.5",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",
-    "postcss-nesting": "^11.2.1",
-    "postcss-custom-media": "^9.1.2"
+    "postcss-nesting": "^12.0.1",
+    "postcss-custom-media": "^10.0.2"
   }
 }
