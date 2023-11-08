@@ -1,10 +1,12 @@
-.ui-control:has(label) {
+.ui-control:has(:not([type="color"]) ~ label) {
+  --ui-control-label-focus-transform: translateY(-0.6875rem) scale(0.8);
+  --ui-control-label-focus-opacity: 50%;
   --ui-control-placeholder-color: transparent;
 
   & :where(input, textarea, select) {
     &:is(:focus, :not(:placeholder-shown)) ~ label {
-      transform: var(--ui-control-floating-label-focus-transform);
-      opacity: var(--ui-control-floating-label-focus-opacity);
+      transform: var(--ui-control-label-focus-transform);
+      opacity: var(--ui-control-label-focus-opacity);
     }
   }
 }

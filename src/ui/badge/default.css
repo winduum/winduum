@@ -1,6 +1,6 @@
 .ui-badge {
   --color-current: var(--color-accent-fg);
-  --ui-badge-width: max-content;
+  --ui-badge-width: fit-content;
   --ui-badge-height: 1.5rem;
   --ui-badge-py: 0;
   --ui-badge-px: 0.5rem;
@@ -29,7 +29,6 @@
   white-space: nowrap;
   flex-shrink: 0;
   position: relative;
-  z-index: 0;
   gap: var(--ui-badge-gap);
   transition: var(--transition-opacity);
 }

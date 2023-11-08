@@ -21,6 +21,7 @@
   outline-offset: var(--ui-notice-outline-offset);
   color: var(--color-accent);
   gap: var(--ui-notice-gap);
+  text-wrap: balance;
 
   & :where(hr) {
     --tw-border-opacity: 0.2;

@@ -10,11 +10,6 @@
   font-size: var(--ui-text-size);
   line-height: calc(var(--ui-text-size) + var(--ui-text-size-line));
 
-  &:where(.lg) {
-    --ui-text-size: 1.125rem;
-    --ui-text-size-line: 1rem;
-  }
-
   & :where(a) {
     text-decoration: underline;
     transition: var(--transition-color);

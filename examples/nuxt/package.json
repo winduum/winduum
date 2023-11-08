@@ -8,17 +8,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "winduum": "^0.2.1"
+    "winduum": "^0.3.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "css-has-pseudo": "^5.0.2",
-    "nuxt": "^3.2.3",
-    "postcss": "^8.4.21",
-    "postcss-custom-media": "^9.1.2",
+    "autoprefixer": "^10.4.16",
+    "css-has-pseudo": "^6.0.0",
+    "nuxt": "^3.8.1",
+    "postcss": "^8.4.31",
+    "postcss-custom-media": "^10.0.2",
     "postcss-import": "^15.1.0",
-    "postcss-nesting": "^11.2.1",
-    "stylelint-config-standard": "^30.0.1",
-    "tailwindcss": "^3.2.7"
+    "postcss-nesting": "^12.0.1",
+    "stylelint-config-standard": "^34.0.0",
+    "tailwindcss": "^3.3.5"
   }
 }

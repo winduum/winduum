@@ -1,17 +1,10 @@
-:root {
+:root, :host {
   --font-default: ui-sans-serif, system-ui, -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: var(--font-default);
   --font-secondary: var(--font-default);
 }
 
-:root {
-  --container-width: 80rem;
-  --container-width-sm: 58rem;
-  --container-padding: 5vw;
-  --container-padding-calc: max(calc(50vw - (var(--container-width) / 2) + var(--container-padding)), var(--container-padding));
-}
-
-:root {
+:root, :host {
   --font-bold: 700;
   --font-semibold: 600;
   --font-medium: 500;
@@ -20,7 +13,7 @@
   --font-thin: 200;
 }
 
-:root {
+:root, :host {
   --z-10: 10;
   --z-20: 20;
   --z-30: 30;
@@ -28,7 +21,7 @@
   --z-50: 50;
 }
 
-:root {
+:root, :host {
   --rounded: var(--rounded-xl);
   --rounded-xs: 0.125rem;
   --rounded-sm: 0.25rem;
@@ -43,7 +36,7 @@
   --rounded-full: 9999px;
 }
 
-:root {
+:root, :host {
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 0.875rem;
@@ -56,7 +49,7 @@
   --spacing-6xl: 3.75rem;
 }
 
-:root {
+:root, :host {
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -72,7 +65,14 @@
   --text-9xl: 8rem;
 }
 
-:root {
+:root, :host {
+  --container-width: 80rem;
+  --container-width-sm: 58rem;
+  --container-padding: 5vw;
+  --container-padding-calc: max(calc(50vw - (var(--container-width) / 2) + var(--container-padding)), var(--container-padding));
+}
+
+:root, :host {
   --transition-duration: 0.15s;
   --transition-color: color var(--transition-duration) ease;
   --transition-background: background var(--transition-duration) ease;

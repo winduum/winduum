@@ -14,11 +14,11 @@
 }
 
 :where(svg:not([width])) {
-  width: 1.25em;
+  width: 1.25rem;
 }
 
 :where(svg:not([height])) {
-  height: 1.25em;
+  height: 1.25rem;
 }
 
 :where(button) {

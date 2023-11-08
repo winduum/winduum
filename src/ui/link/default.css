@@ -1,5 +1,6 @@
 .ui-link {
   --color-accent: var(--color-current);
+  --ui-link-color: inherit;
   --ui-link-font-size: 0.875rem;
   --ui-link-font-weight: var(--font-medium);
   --ui-link-letter-spacing: 0;
@@ -16,6 +17,7 @@
   align-items: center;
   position: relative;
   gap: var(--ui-link-gap);
+  color: var(--ui-link-color);
 
   &:is([href], button) {
     &:hover {

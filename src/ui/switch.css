@@ -30,16 +30,6 @@
     text-decoration: underline;
   }
 
-  &:where(.sm) {
-    --ui-switch-width: 2.5rem;
-    --ui-switch-height: 1.25rem;
-  }
-
-  &:where(.lg) {
-    --ui-switch-width: 4rem;
-    --ui-switch-height: 2rem;
-  }
-
   & :where(input) {
     width: var(--ui-switch-width);
     height: var(--ui-switch-height);

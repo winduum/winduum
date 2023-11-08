@@ -1,30 +1,43 @@
-.ui-control {
-  --ui-control-floating-label-font-size: 0.875rem;
-  --ui-control-floating-label-font-weight: var(--font-medium);
-  --ui-control-floating-label-focus-transform: translateY(-0.6875rem) scale(0.8);
-  --ui-control-floating-label-focus-opacity: 50%;
-  --ui-control-floating-label-transition-duration: 0.4s;
+.ui-control:has(:not([type="color"]) ~ label) {
+  --ui-control-pt: 0.875rem;
+  --ui-control-label-font-size: 0.875rem;
+  --ui-control-label-font-weight: var(--font-medium);
+  --ui-control-label-transition-duration: 0.4s;
 
   & :where(label) {
-    grid-area: input;
     align-self: start;
     pointer-events: none;
-    transition: transform var(--ui-control-floating-label-transition-duration) cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
+    transition: transform var(--ui-control-label-transition-duration) cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
     transform-origin: 0 50%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     transform: perspective(100px);
     will-change: transform;
-    font-weight: var(--ui-control-floating-label-font-weight);
-    margin-left: var(--ui-control-pl);
-    margin-right: var(--ui-control-pr);
-    line-height: var(--ui-control-floating-label-font-size);
+    font-weight: var(--ui-control-label-font-weight);
+    line-height: var(--ui-control-label-font-size);
     margin-top: calc(var(--ui-control-height) / 2 - (var(--ui-control-font-size) / 2));
+    margin-inline: calc(var(--ui-control-px) + var(--ui-control-ps)) calc(var(--ui-control-px) + var(--ui-control-pe));
   }
 
-  &:has(label) :where(input, textarea, select) {
-    padding-top: calc(var(--ui-control-pt-floating));
-    padding-bottom: calc(var(--ui-control-pb-floating));
+  &:has(:required) label {
+    &::after {
+      color: var(--color-error);
+      content: " *";
+    }
+  }
+
+  & :where(input) {
+    &::-webkit-calendar-picker-indicator {
+      margin-top: calc(var(--ui-control-pt) * -1);
+    }
+
+    &::-webkit-search-cancel-button {
+      transform: translateY(calc(var(--ui-control-pt) / 2 * -1));
+    }
+  }
+
+  & :where(textarea) {
+    padding-top: calc(var(--ui-control-pt) + calc(var(--ui-control-height) / 2 - (var(--ui-control-font-size))));
   }
 }

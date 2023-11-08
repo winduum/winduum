@@ -1,20 +1,21 @@
 {
-  "name": "@example/less",
-  "version": "0.0.1",
-  "type": "module",
+  "name": "vite-lit",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "winduum": "^0.3.4",
-    "css-has-pseudo": "^6.0.0"
+    "lit": "^3.0.1",
+    "winduum": "^0.4.0-next.4"
   },
   "devDependencies": {
     "vite": "^4.5.0",
-    "less": "^4.2.0",
+    "stylelint-config-standard": "^34.0.0",
+    "css-has-pseudo": "^6.0.0",
     "tailwindcss": "^3.3.5",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
