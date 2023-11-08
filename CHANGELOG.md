@@ -1,4 +1,4 @@
-## 0.4.0 (2023-10-30)
+## 0.4.0 (2023-11-08)
 * feat(bc): ui-control - refactor, styles are now applied on parent, should go better together with custom selects like [Headless UI](https://headlessui.com/react/listbox)
 * feat(bc): ui-control - icon refactor, it's much simplified now
 * feat: ui-control - added support for `input[type="color"]`, control now supports all input types!
@@ -16,10 +16,10 @@
 ## 0.3.2 (2023-08-27)
 * fix: dark mode colors mismatch
 
-## 0.3.1 (2023-31-07)
+## 0.3.1 (2023-07-31)
 * feat: added option to disable `color-mix` in tailwindcss plugin as option `settings.colorMix` set to `false`
 
-## 0.3.0 (2023-14-07)
+## 0.3.0 (2023-07-14)
 * feat(bc): color `base` was renamed to `main` due to TailwindCSS naming conflict
 * feat: added loading `skeleton` tailwind class
 * feat: added foreground colors to color pallet
