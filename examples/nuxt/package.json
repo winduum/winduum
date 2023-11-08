@@ -8,7 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "winduum": "^0.3.4"
+    "winduum": "latest"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.3.8",
-    "winduum": "^0.3.4",
+    "winduum": "latest",
     "css-has-pseudo": "^6.0.0"
   },
   "devDependencies": {
