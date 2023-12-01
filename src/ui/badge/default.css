@@ -3,16 +3,16 @@
   --ui-badge-width: fit-content;
   --ui-badge-height: 1.5rem;
   --ui-badge-py: 0;
-  --ui-badge-px: 0.5rem;
+  --ui-badge-px: var(--spacing-2xl);
   --ui-badge-border-radius: var(--rounded-lg);
-  --ui-badge-font-size: 0.75rem;
+  --ui-badge-font-size: var(--text-xs);
   --ui-badge-font-weight: var(--font-normal);
   --ui-badge-bg: color-mix(in sRGB, var(--color-accent) var(--ui-badge-bg-opacity), var(--ui-badge-bg-mix));
   --ui-badge-bg-mix: transparent;
   --ui-badge-bg-opacity: calc(var(--tw-bg-opacity, 1) * 100%);
   --ui-badge-color: color-mix(in sRGB, var(--color-current) var(--ui-badge-color-opacity), transparent);
   --ui-badge-color-opacity: calc(var(--tw-text-opacity, 1) * 100%);
-  --ui-badge-gap: 0.25rem;
+  --ui-badge-gap: var(--spacing-xs);
 
   width: var(--ui-badge-width);
   height: var(--ui-badge-height);
