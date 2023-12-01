@@ -67,9 +67,10 @@
 
 :root, :host {
   --container-width: 80rem;
-  --container-width-sm: 58rem;
+  --container-lg-width: 90rem;
+  --container-lg: calc((var(--container-lg-width) - var(--container-width)) / 2);
   --container-padding: 5vw;
-  --container-padding-calc: max(calc(50vw - (var(--container-width) / 2) + var(--container-padding)), var(--container-padding));
+  --container-padding-calc: max(calc(50vw - (var(--container-width) / 2)), var(--container-padding));
 }
 
 :root, :host {
