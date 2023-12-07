@@ -36,7 +36,7 @@ html {
 }
 
 /* For images to not be able to exceed their container */
-:where(img) {
+:where(img, iframe) {
   max-inline-size: 100%;
   max-block-size: 100%;
 }

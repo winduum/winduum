@@ -1,14 +1,23 @@
 .ui-text {
-  --ui-text-size: 0.875rem;
+  --ui-text-size: 1rem;
   --ui-text-size-line: 0.75rem;
-  --ui-text-weight: var(--font-normal);
   --ui-text-weight-bold: var(--font-semibold);
   --ui-text-content-my: 1rem;
   --ui-text-content-my-lg: 2rem;
+  --ui-text-marker-gap: 1rem;
+  --ui-text-marker-width: 0.375em;
 
-  font-weight: var(--ui-text-weight);
+  font-weight: var(--ui-text-weight, var(--font-normal));
   font-size: var(--ui-text-size);
   line-height: calc(var(--ui-text-size) + var(--ui-text-size-line));
+
+  & > :is(*:first-child) {
+    margin-block-start: 0;
+  }
+
+  & > :is(*:last-child) {
+    margin-block-end: 0;
+  }
 
   & :where(a) {
     text-decoration: underline;
@@ -35,46 +44,28 @@
     font-style: italic;
   }
 
-  & :where(figure) {
-    margin: var(--ui-text-content-my) 0;
-  }
-
-  & :where(figcaption) {
-    font-size: 0.875rem;
-    font-weight: var(--font-semibold);
-    margin-top: 0.25rem;
-    line-height: 1.5;
-  }
-
   & :where(img) {
+    display: block;
     height: auto;
   }
 
   & :where(p) {
-    line-height: inherit;
-
-    &:not(:only-child) {
-      margin: var(--ui-text-content-my) 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin-block: var(--ui-text-content-my);
 
     &:empty {
-      line-height: var(--ui-text-content-my);
+      line-height: 0;
       margin: 0;
-    }
 
-    &::after {
-      content: "\00a0";
+      &::after {
+        content: "\00a0";
+      }
     }
   }
 
   & :where(hr) {
     --tw-border-opacity: 0.1;
 
-    margin: var(--ui-text-content-my-lg) 0;
+    margin-block: var(--ui-text-content-my-lg);
   }
 
   & :where(h1, h2, h3, h4, h5, h6) {
@@ -82,11 +73,7 @@
     font-family: var(--font-secondary);
     font-size: var(--ui-text-heading-size, 1rem);
     line-height: calc(var(--ui-text-heading-size) + 0.5rem);
-    margin: var(--ui-text-content-my-lg) 0 var(--ui-text-content-my);
-
-    &:first-child {
-      margin-top: 0;
-    }
+    margin-block: var(--ui-text-content-my-lg) var(--ui-text-content-my);
   }
 
   & :where(h1) {
@@ -122,45 +109,27 @@
     }
   }
 
-  & :where(iframe) {
-    max-width: 100%;
-  }
+  & :where(ol, ul) {
+    --ui-text-marker-gap: 1rem;
 
-  & :where(blockquote) {
-    border-left: 0.3125rem solid var(--color-accent);
-    padding: 0.5rem 1.25rem;
-    margin: 1rem 0;
-    font-size: inherit;
-  }
+    margin-inline-start: 0.75rem;
+    padding-inline-start: calc(var(--ui-text-marker-width) + var(--ui-text-marker-gap));
+    margin-block: var(--ui-text-content-my);
 
-  & :where(code) {
-    margin: 0 0.25rem;
-    border-radius: var(--rounded-sm);
-    padding: 0.25rem 0.375rem;
-    font-size: 0.85em;
-    color: var(--color-accent);
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-    background-color: rgb(27 31 35 / 5%);
-
-    :where(.dark) & {
-      background-color: var(--color-body-secondary);
+    & :where(li) {
+      margin-block: 0.5em;
+      padding-inline-start: 1ch;
     }
   }
 
   & :where(ol) {
-    margin: var(--ui-text-content-my) 0;
-    padding: 0 0 0 1rem;
-
     &:not([type]) {
       list-style: decimal;
     }
 
     & :where(li) {
-      padding-left: 0.5rem;
-
-      &:not(:last-child) {
-        margin: 0 0 0.5rem;
-      }
+      margin-block: 0.5em;
+      padding-inline-start: 1ch;
 
       &::marker {
         color: var(--color-accent);
@@ -170,48 +139,70 @@
   }
 
   & :where(ul) {
-    list-style-type: none !important;
-    margin: var(--ui-text-content-my) 0;
-    padding: 0;
-
     & :where(li) {
-      position: relative;
-      line-height: inherit;
-      padding-left: 1.25rem;
+      list-style-type: "";
 
-      &:not(:last-child) {
-        margin: 0 0 0.5rem;
+      & > :where(*:not(ul,ol)):first-child {
+        margin-block-start: -1lh;
       }
 
       &::before {
-        width: 0.375rem;
-        height: 0.375rem;
-        position: absolute;
-        content: "";
+        position: relative;
+        top: var(--ui-text-marker-top, 0);
+        left: calc(((var(--ui-text-marker-gap) / 2)) * -1);
+        display: inline-block;
+        width: var(--ui-text-marker-width);
+        height: var(--ui-text-marker-width);
         border: 1px solid var(--color-accent);
-        background-color: var(--color-accent);
-        left: 0;
-        top: 0.6875rem;
-        text-indent: 0;
-        border-radius: 50%;
+        background-color: var(--ui-text-marker-bg, var(--color-accent));
+        border-radius: var(--ui-text-marker-radius, 50%);
+        margin-left: calc(var(--ui-text-marker-width) * -1);
+        content: var(--ui-text-marker-content, "");
+        line-height: var(--ui-text-marker-width);
+        vertical-align: middle;
+        text-align: center;
+        will-change: transform;
       }
     }
 
     &[style*="square"] {
-      & :where(li) {
-        &::before {
-          border-radius: 0;
-        }
-      }
+      --ui-text-marker-radius: 0;
     }
 
     &[style*="circle"] {
-      & :where(li) {
-        &::before {
-          border-radius: 50%;
-          background-color: transparent;
-        }
-      }
+      --ui-text-marker-bg: transparent;
     }
+  }
+
+  & :where(blockquote) {
+    border-left: 0.375rem solid var(--color-accent);
+    padding: 0.5rem 1.25rem;
+    margin-block: var(--ui-text-content-my);
+    font-size: inherit;
+  }
+
+  & :where(code) {
+    margin-inline: 0.25rem;
+    border-radius: var(--rounded-sm);
+    padding: 0.25rem 0.375rem;
+    font-size: 0.875em;
+    color: var(--color-accent);
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    background-color: rgb(27 31 35 / 5%);
+
+    :where(.dark) & {
+      background-color: var(--color-body-secondary);
+    }
+  }
+
+  & :where(figure) {
+    margin-block: var(--ui-text-content-my);
+  }
+
+  & :where(figcaption) {
+    font-size: 87.5%;
+    line-height: 1.5;
+    font-weight: var(--font-semibold);
+    margin-block-start: 0.5rem;
   }
 }
