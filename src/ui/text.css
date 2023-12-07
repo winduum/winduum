@@ -110,10 +110,8 @@
   }
 
   & :where(ol, ul) {
-    --ui-text-marker-gap: 1rem;
-
     margin-inline-start: 0.75rem;
-    padding-inline-start: calc(var(--ui-text-marker-width) + var(--ui-text-marker-gap));
+    padding-inline-start: 1rem;
     margin-block: var(--ui-text-content-my);
 
     & :where(li) {
@@ -140,28 +138,20 @@
 
   & :where(ul) {
     & :where(li) {
+      position: relative;
       list-style-type: "";
 
-      & > :where(*:not(ul,ol)):first-child {
-        margin-block-start: -1lh;
-      }
-
       &::before {
-        position: relative;
-        top: var(--ui-text-marker-top, 0);
-        left: calc(((var(--ui-text-marker-gap) / 2)) * -1);
-        display: inline-block;
         width: var(--ui-text-marker-width);
         height: var(--ui-text-marker-width);
+        position: absolute;
         border: 1px solid var(--color-accent);
         background-color: var(--ui-text-marker-bg, var(--color-accent));
+        left: calc((var(--ui-text-marker-gap) - var(--ui-text-marker-width) / 2) * -1);
+        top: 0.5lh;
+        margin-top: calc(var(--ui-text-marker-width) / 2 * -1);
         border-radius: var(--ui-text-marker-radius, 50%);
-        margin-left: calc(var(--ui-text-marker-width) * -1);
-        content: var(--ui-text-marker-content, "");
-        line-height: var(--ui-text-marker-width);
-        vertical-align: middle;
-        text-align: center;
-        will-change: transform;
+        content: "";
       }
     }
 
