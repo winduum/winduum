@@ -42,6 +42,6 @@
   }
 
   &:where(input)::after {
-    content: attr(aria-label)
+    content: attr(aria-label);
   }
 }

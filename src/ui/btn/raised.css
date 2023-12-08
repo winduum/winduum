@@ -1,12 +1,12 @@
 .ui-btn {
-  &:is(.raised) {
-    --ui-btn-border-width: 2px;
-    --ui-btn-border-opacity: calc(var(--tw-border-opacity, 0.85) * 100%);
-  }
-
   &:where(.raised) {
     border: var(--ui-btn-border-width) solid color-mix(in sRGB, var(--color-accent) var(--ui-btn-border-opacity), var(--color-current));
     padding-left: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
     padding-right: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
+  }
+
+  &:is(.raised) {
+    --ui-btn-border-width: 2px;
+    --ui-btn-border-opacity: calc(var(--tw-border-opacity, 0.85) * 100%);
   }
 }
