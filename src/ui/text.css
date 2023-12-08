@@ -1,15 +1,14 @@
 .ui-text {
-  --ui-text-size: 1rem;
-  --ui-text-size-line: 0.75rem;
-  --ui-text-weight-bold: var(--font-semibold);
+  --ui-text-font-size: inherit;
+  --ui-text-font-weight-bold: var(--font-semibold);
+  --ui-text-line-height: 1.75;
   --ui-text-content-my: 1rem;
   --ui-text-content-my-lg: 2rem;
-  --ui-text-marker-gap: 1rem;
-  --ui-text-marker-width: 0.375em;
+  --ui-text-content-marker-size: 0.375em;
 
-  font-weight: var(--ui-text-weight, var(--font-normal));
-  font-size: var(--ui-text-size);
-  line-height: calc(var(--ui-text-size) + var(--ui-text-size-line));
+  font-weight: var(--ui-text-font-weight, var(--font-normal));
+  font-size: var(--ui-text-font-size);
+  line-height: var(--ui-text-line-height);
 
   & > :is(*:first-child) {
     margin-block-start: 0;
@@ -36,7 +35,7 @@
   }
 
   & :where(b, strong) {
-    font-weight: var(--ui-text-weight-bold);
+    font-weight: var(--ui-text-font-weight-bold);
   }
 
   & :where(i, em) {
@@ -69,23 +68,23 @@
   }
 
   & :where(h1, h2, h3, h4, h5, h6) {
-    font-weight: var(--ui-text-weight-bold);
+    font-weight: var(--ui-text-font-weight-bold);
     font-family: var(--font-secondary);
-    font-size: var(--ui-text-heading-size, 1rem);
-    line-height: calc(var(--ui-text-heading-size) + 0.5rem);
+    font-size: var(--ui-text-heading-font-size, 1rem);
+    line-height: calc(var(--ui-text-heading-font-size) + 0.5rem);
     margin-block: var(--ui-text-content-my-lg) var(--ui-text-content-my);
   }
 
   & :where(h1) {
-    --ui-text-heading-size: 2.25rem;
+    --ui-text-heading-font-size: 2.25rem;
   }
 
   & :where(h2) {
-    --ui-text-heading-size: 1.75rem;
+    --ui-text-heading-font-size: 1.75rem;
   }
 
   & :where(h3, h4) {
-    --ui-text-heading-size: 1.25rem;
+    --ui-text-heading-font-size: 1.25rem;
   }
 
   & :where(table) {
@@ -98,7 +97,7 @@
     }
 
     & :where(thead) {
-      font-weight: var(--ui-text-weight-bold);
+      font-weight: var(--ui-text-font-weight-bold);
       border-bottom: 1px solid color-mix(in sRGB, var(--color-current) 7.5%, transparent);
     }
 
@@ -131,7 +130,7 @@
 
       &::marker {
         color: var(--color-accent);
-        font-weight: var(--ui-text-weight-bold);
+        font-weight: var(--ui-text-font-weight-bold);
       }
     }
   }
@@ -142,15 +141,18 @@
       list-style-type: "";
 
       &::before {
-        width: var(--ui-text-marker-width);
-        height: var(--ui-text-marker-width);
+        width: var(--ui-text-content-marker-size);
+        height: var(--ui-text-content-marker-size);
         position: absolute;
+        left: -0.75em;
+        top: 0.5lh;
         border: 1px solid var(--color-accent);
         background-color: var(--ui-text-marker-bg, var(--color-accent));
-        left: calc((var(--ui-text-marker-gap) - var(--ui-text-marker-width) / 2) * -1);
-        top: 0.5lh;
-        margin-top: calc(var(--ui-text-marker-width) / 2 * -1);
+        margin-inline-start: calc((var(--ui-text-content-marker-size) / 2) * -1);
+        margin-block-start: calc(var(--ui-text-content-marker-size) / 2 * -1);
         border-radius: var(--ui-text-marker-radius, 50%);
+        mask: var(--ui-text-content-marker-mask);
+        will-change: transform;
         content: "";
       }
     }
