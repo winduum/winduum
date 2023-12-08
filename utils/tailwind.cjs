@@ -235,6 +235,9 @@ const createPlugin = (userConfig = {}) => {
         },
         theme: {
             extend: {
+                transitionDuration: {
+                    DEFAULT: 'var(--transition-duration)'
+                },
                 colors: tailwindColors(userConfig.colors),
                 fontSize: tailwindVariablesFont('text', userConfig.fontSize),
                 fontFamily: tailwindVariables('font', userConfig.fontFamily),

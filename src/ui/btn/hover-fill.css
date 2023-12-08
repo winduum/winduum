@@ -1,4 +1,4 @@
-.ui-btn:where(.hover-fill) {
+.ui-btn:is(.hover-fill) {
   --ui-btn-hover-bg-mix: black;
   --ui-btn-hover-bg-opacity: 100%;
   --ui-btn-active-bg-mix: black;

@@ -1,4 +1,4 @@
-.ui-btn:where(.muted) {
+.ui-btn:is(.muted) {
   --color-current: var(--color-accent);
   --ui-btn-hover-bg-mix: transparent;
   --ui-btn-active-bg-mix: transparent;

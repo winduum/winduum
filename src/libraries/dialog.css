@@ -2,7 +2,7 @@
   --lib-ripple-bg: color-mix(in sRGB, var(--color-dark) calc(var(--tw-bg-opacity, 0.8) * 100%), transparent);
   --lib-dialog-py: 2rem;
   --lib-dialog-px: 1.5rem;
-  --lib-dialog-animation-duration: var(--transition-duration);
+  --lib-dialog-animation-duration: var(--duration);
 
   inset: 0;
   z-index: var(--z-30);

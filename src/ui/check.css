@@ -55,8 +55,8 @@
     transition:
       var(--transition-border),
       var(--transition-background),
-      outline-color var(--transition-duration),
-      outline-offset var(--transition-duration);
+      outline-color var(--duration),
+      outline-offset var(--duration);
     font-size: var(--ui-check-icon-font-size);
     cursor: pointer;
     flex-shrink: 0;

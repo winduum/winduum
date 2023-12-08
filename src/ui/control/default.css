@@ -29,8 +29,8 @@
   background-color: var(--ui-control-bg);
   transition:
     var(--transition-border),
-    outline-color var(--transition-duration),
-    outline-offset var(--transition-duration);
+    outline-color var(--duration),
+    outline-offset var(--duration);
   font-weight: var(--ui-control-font-weight);
   color: var(--ui-control-color);
   border: var(--ui-control-border-width) solid color-mix(in sRGB, var(--ui-control-border-color) var(--ui-control-border-opacity), var(--ui-control-border-mix));

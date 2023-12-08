@@ -45,6 +45,7 @@ export const defaultConfig = {
     ],
     fontFamily: ['primary', 'secondary'],
     fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
+    ease: ['linear', 'in', 'out', 'in-out'],
     zIndex: [10, 20, 30, 40, 50, 60],
     fontSize: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
     spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'section'],
@@ -231,6 +232,13 @@ export const createPlugin = (userConfig = {}) => {
         },
         theme: {
             extend: {
+                transitionProperty: {
+                    DEFAULT: 'var(--transition)'
+                },
+                transitionDuration: {
+                    DEFAULT: 'var(--duration)'
+                },
+                transitionTimingFunction: tailwindVariables('ease', userConfig.ease),
                 colors: tailwindColors(userConfig.colors),
                 fontSize: tailwindVariablesFont('text', userConfig.fontSize),
                 fontFamily: tailwindVariables('font', userConfig.fontFamily),

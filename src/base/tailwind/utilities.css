@@ -1,6 +1,6 @@
 @layer components {
   .animate {
-    animation-duration: var(--transition-duration);
+    animation-duration: var(--duration);
     animation-fill-mode: both;
   }
 
@@ -8,7 +8,7 @@
     text-underline-position: under;
     text-decoration-thickness: max(1px, 0.0625em);
     text-underline-offset: -0.125rem;
-    transition: all var(--transition-duration);
+    transition: all var(--duration) var(--ease-in-out);
 
     &:where([href], button, .interactive) {
       &:hover {

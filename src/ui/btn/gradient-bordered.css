@@ -1,4 +1,4 @@
-:is(.ui-btn.gradient-bordered) {
+.ui-btn:is(.gradient-bordered) {
   --ui-btn-border-width: 2px;
   --ui-btn-hover-bg-mix: transparent;
   --ui-btn-hover-bg-opacity: 10%;
@@ -13,7 +13,7 @@
     position: absolute;
     background-color: color-mix(in sRGB, var(--color-body) calc(100% - var(--ui-btn-bg-opacity)), transparent);
     inset: var(--ui-btn-border-width);
-    border-radius: calc(var(--ui-btn-border-radius) / 1.25);
+    border-radius: calc(var(--ui-btn-border-radius, var(--rounded)) / 1.25);
     z-index: -1;
     transition: var(--transition-background);
   }

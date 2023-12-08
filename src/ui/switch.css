@@ -39,8 +39,8 @@
     background-color: var(--ui-switch-bg);
     transition:
       var(--transition-background),
-      outline-color var(--transition-duration),
-      outline-offset var(--transition-duration);
+      outline-color var(--duration),
+      outline-offset var(--duration);
     appearance: none;
     outline: var(--ui-switch-outline-width) solid transparent;
     outline-offset: 0;
@@ -57,7 +57,7 @@
       content: "";
       display: block;
       margin-left: calc((var(--ui-switch-height) - var(--ui-switch-padding) + var(--ui-switch-padding) / 2) * -1);
-      transition: left var(--transition-duration), var(--transition-background);
+      transition: left var(--duration), var(--transition-background);
       transform: translateY(-50%);
     }
 
