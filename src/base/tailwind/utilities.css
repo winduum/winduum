@@ -1,29 +1,36 @@
-@layer utilities {
+@layer components {
   .animate {
     animation-duration: var(--transition-duration);
     animation-fill-mode: both;
   }
 
-  .container {
-    display: grid;
-    grid-template-columns:
-      [container-full-start] minmax(var(--container-padding), 1fr)
-      [container-lg-start] minmax(0, var(--container-lg))
-      [container-start] min(100% - (var(--container-padding) * 2), var(--container-width)) [container-end]
-      minmax(0, var(--container-lg)) [container-lg-end]
-      minmax(var(--container-padding), 1fr) [container-full-end];
-  }
+  .underline {
+    text-underline-position: under;
+    text-decoration-thickness: max(1px, 0.0625em);
+    text-underline-offset: -0.125rem;
+    transition: all var(--transition-duration);
 
-  :where(.container > *) {
-    grid-column: container;
+    &:where([href], button, .interactive) {
+      &:hover {
+        @media (hover: hover) and (pointer: fine) {
+          text-decoration-color: var(--color-current);
+          text-underline-offset: 0;
+        }
+      }
+
+      &:focus {
+        text-decoration-color: var(--color-current);
+        text-underline-offset: 0;
+      }
+    }
   }
 
   :where(.border-inner-t > *:not(:first-child)) {
-    border-top: 1px solid var(--color-body-tertiary);
+    border-top: 1px solid var(--border-inner-t-color, var(--color-body-tertiary));
   }
 
   :where(.border-inner-r > *:not(:first-child)) {
-    border-left: 1px solid var(--color-body-tertiary);
+    border-left: 1px solid var(--border-inner-r-color, var(--color-body-tertiary));
   }
 
   .flex-col {

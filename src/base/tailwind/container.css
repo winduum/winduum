@@ -1,0 +1,23 @@
+:root, :host {
+  --container-width: 80rem;
+  --container-lg-width: 90rem;
+  --container-lg: calc((var(--container-lg-width) - var(--container-width)) / 2);
+  --container-padding: 5vw;
+  --container-padding-calc: max(calc(50vw - (var(--container-width) / 2)), var(--container-padding));
+}
+
+@layer components {
+  .grid-cols-container {
+    display: grid;
+    grid-template-columns:
+      [container-full-start] minmax(var(--container-padding), 1fr)
+      [container-lg-start] minmax(0, var(--container-lg))
+      [container-start] min(100% - (var(--container-padding) * 2), var(--container-width)) [container-end]
+      minmax(0, var(--container-lg)) [container-lg-end]
+      minmax(var(--container-padding), 1fr) [container-full-end];
+  }
+
+  :where(.grid-cols-container > *) {
+    grid-column: container;
+  }
+}

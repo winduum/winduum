@@ -1,4 +1,3 @@
-.ui-heading:where(.sm) {
-  --ui-heading-font-size: 1.125rem;
-  --ui-heading-line-height-ratio: 0.125rem;
+.ui-heading:is(.sm) {
+  --ui-heading-font-size: var(--text-lg);
 }

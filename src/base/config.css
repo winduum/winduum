@@ -30,8 +30,8 @@
   --rounded-xl: 0.75rem;
   --rounded-2xl: 1rem;
   --rounded-3xl: 1.5rem;
-  --rounded-4xl: 1.875rem;
-  --rounded-5xl: 2.25rem;
+  --rounded-4xl: 2rem;
+  --rounded-5xl: 2.5rem;
   --rounded-6xl: 3rem;
   --rounded-full: 9999px;
 }
@@ -39,14 +39,17 @@
 :root, :host {
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
-  --spacing-md: 0.875rem;
+  --spacing-md: 0.75rem;
   --spacing-lg: 1rem;
   --spacing-xl: 1.25rem;
   --spacing-2xl: 1.5rem;
-  --spacing-3xl: 1.875rem;
-  --spacing-4xl: 2.25rem;
-  --spacing-5xl: 3rem;
-  --spacing-6xl: 3.75rem;
+  --spacing-3xl: 1.75rem;
+  --spacing-4xl: 2rem;
+  --spacing-5xl: 2.5rem;
+  --spacing-6xl: 3rem;
+  --spacing-7xl: 3.5rem;
+  --spacing-8xl: 4rem;
+  --spacing-9xl: 5rem;
 }
 
 :root, :host {
@@ -66,15 +69,7 @@
 }
 
 :root, :host {
-  --container-width: 80rem;
-  --container-lg-width: 90rem;
-  --container-lg: calc((var(--container-lg-width) - var(--container-width)) / 2);
-  --container-padding: 5vw;
-  --container-padding-calc: max(calc(50vw - (var(--container-width) / 2)), var(--container-padding));
-}
-
-:root, :host {
-  --transition-duration: 0.15s;
+  --transition-duration: 150ms;
   --transition-color: color var(--transition-duration) ease;
   --transition-background: background var(--transition-duration) ease;
   --transition-opacity: opacity var(--transition-duration) ease;
