@@ -3,7 +3,7 @@
   --ui-badge-width: fit-content;
   --ui-badge-height: 1.5rem;
   --ui-badge-py: 0;
-  --ui-badge-px: var(--spacing-2xl);
+  --ui-badge-px: var(--spacing-sm);
   --ui-badge-border-radius: var(--rounded-lg);
   --ui-badge-font-size: var(--text-xs);
   --ui-badge-font-weight: var(--font-normal);

@@ -1,14 +1,14 @@
 .ui-text {
-  --ui-text-font-size: inherit;
-  --ui-text-font-weight-bold: var(--font-semibold);
-  --ui-text-line-height: 1.75;
+  --ui-text-content-bold: var(--font-semibold);
   --ui-text-content-my: 1rem;
   --ui-text-content-my-lg: 2rem;
   --ui-text-content-marker-size: 0.375em;
 
   font-weight: var(--ui-text-font-weight, var(--font-normal));
-  font-size: var(--ui-text-font-size);
-  line-height: var(--ui-text-line-height);
+  font-size: var(--ui-text-font-size, inherit);
+  line-height: var(--ui-text-line-height, 1.75);
+  letter-spacing: var(--ui-text-letter-spacing, 0);
+  font-family: var(--ui-text-font-family, var(--font-primary));
 
   & > :is(*:first-child) {
     margin-block-start: 0;
@@ -35,12 +35,11 @@
   }
 
   & :where(b, strong) {
-    font-weight: var(--ui-text-font-weight-bold);
+    font-weight: var(--ui-text-content-bold);
   }
 
-  & :where(i, em) {
-    display: inline;
-    font-style: italic;
+  & :where(s, u, em, i) {
+    all: revert;
   }
 
   & :where(img) {
@@ -68,23 +67,33 @@
   }
 
   & :where(h1, h2, h3, h4, h5, h6) {
-    font-weight: var(--ui-text-font-weight-bold);
+    font-weight: var(--ui-text-heading-font-weight, var(--ui-text-content-bold));
     font-family: var(--font-secondary);
-    font-size: var(--ui-text-heading-font-size, 1rem);
+    font-size: var(--ui-text-heading-font-size);
     line-height: calc(var(--ui-text-heading-font-size) + 0.5rem);
+    letter-spacing: var(--ui-text-heading-letter-spacing);
     margin-block: var(--ui-text-content-my-lg) var(--ui-text-content-my);
+    color: var(--ui-text-heading-color, inherit);
   }
 
   & :where(h1) {
-    --ui-text-heading-font-size: 2.25rem;
+    --ui-text-heading-font-size: var(--text-4xl);
   }
 
   & :where(h2) {
-    --ui-text-heading-font-size: 1.75rem;
+    --ui-text-heading-font-size: var(--text-3xl);
   }
 
-  & :where(h3, h4) {
-    --ui-text-heading-font-size: 1.25rem;
+  & :where(h3) {
+    --ui-text-heading-font-size: var(--text-2xl);
+  }
+
+  & :where(h4) {
+    --ui-text-heading-font-size: var(--text-xl);
+  }
+
+  & :where(h5) {
+    --ui-text-heading-font-size: var(--text-lg);
   }
 
   & :where(table) {
@@ -97,7 +106,7 @@
     }
 
     & :where(thead) {
-      font-weight: var(--ui-text-font-weight-bold);
+      font-weight: var(--ui-text-content-bold);
       border-bottom: 1px solid color-mix(in sRGB, var(--color-current) 7.5%, transparent);
     }
 
@@ -125,12 +134,9 @@
     }
 
     & :where(li) {
-      margin-block: 0.5em;
-      padding-inline-start: 1ch;
-
       &::marker {
         color: var(--color-accent);
-        font-weight: var(--ui-text-font-weight-bold);
+        font-weight: var(--ui-text-content-bold);
       }
     }
   }
@@ -147,10 +153,10 @@
         left: -0.75em;
         top: 0.5lh;
         border: 1px solid var(--color-accent);
-        background-color: var(--ui-text-marker-bg, var(--color-accent));
+        background-color: var(--ui-text-content-marker-bg, var(--color-accent));
         margin-inline-start: calc((var(--ui-text-content-marker-size) / 2) * -1);
         margin-block-start: calc(var(--ui-text-content-marker-size) / 2 * -1);
-        border-radius: var(--ui-text-marker-radius, 50%);
+        border-radius: var(--ui-text-content-marker-radius, 50%);
         mask: var(--ui-text-content-marker-mask);
         will-change: transform;
         content: "";
@@ -158,11 +164,11 @@
     }
 
     &[style*="square"] {
-      --ui-text-marker-radius: 0;
+      --ui-text-content-marker-radius: 0;
     }
 
     &[style*="circle"] {
-      --ui-text-marker-bg: transparent;
+      --ui-text-content-marker-bg: transparent;
     }
   }
 
@@ -174,13 +180,13 @@
   }
 
   & :where(code) {
-    margin-inline: 0.25rem;
+    font-size: 87.5%;
+    margin-inline: var(--spacing-xs);
     border-radius: var(--rounded-sm);
     padding: 0.25rem 0.375rem;
-    font-size: 0.875em;
     color: var(--color-accent);
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-    background-color: rgb(27 31 35 / 5%);
+    background-color: color-mix(in sRGB, var(--color-current) 5%, transparent);
 
     :where(.dark) & {
       background-color: var(--color-body-secondary);
