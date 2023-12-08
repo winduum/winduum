@@ -1,7 +1,6 @@
 .ui-text {
   --ui-text-content-bold: var(--font-semibold);
-  --ui-text-content-my: 1rem;
-  --ui-text-content-my-lg: 2rem;
+  --ui-text-content-my: 1.25em;
   --ui-text-content-marker-size: 0.375em;
 
   font-weight: var(--ui-text-font-weight, var(--font-normal));
@@ -63,7 +62,7 @@
   & :where(hr) {
     --tw-border-opacity: 0.1;
 
-    margin-block: var(--ui-text-content-my-lg);
+    margin-block: var(--ui-text-hr-my, 3em);
   }
 
   & :where(h1, h2, h3, h4, h5, h6) {
@@ -72,7 +71,7 @@
     font-size: var(--ui-text-heading-font-size);
     line-height: calc(var(--ui-text-heading-font-size) + 0.5rem);
     letter-spacing: var(--ui-text-heading-letter-spacing);
-    margin-block: var(--ui-text-content-my-lg) var(--ui-text-content-my);
+    margin-block: var(--ui-text-heading-my, 1.5em 0.5em);
     color: var(--ui-text-heading-color, inherit);
   }
 
