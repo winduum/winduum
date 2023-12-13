@@ -61,7 +61,7 @@ export const showDialog = async (selector, options = defaultOptions.show) => {
             if (target.nodeName === 'DIALOG') {
                 options.onCloseStart()
                 await closeDialog(selector, options)
-                options.onClose()
+                options.onCloseEnd()
             }
         })
 
