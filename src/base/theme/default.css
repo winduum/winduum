@@ -1,4 +1,5 @@
 :root, :host {
+  --color-scheme: light;
   --color-current: rgb(var(--color-current-rgb));
   --color-current-fg: rgb(var(--color-current-fg-rgb));
   --color-accent: rgb(var(--color-accent-rgb));
@@ -23,6 +24,4 @@
   --color-error: rgb(var(--color-error-rgb));
   --color-warning: rgb(var(--color-warning-rgb));
   --color-info: rgb(var(--color-info-rgb));
-
-  color-scheme: light;
 }

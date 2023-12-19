@@ -1,34 +1,28 @@
 .ui-badge {
   --color-current: var(--color-accent-fg);
-  --ui-badge-width: fit-content;
   --ui-badge-height: 1.5rem;
   --ui-badge-py: 0;
   --ui-badge-px: var(--spacing-sm);
-  --ui-badge-border-radius: var(--rounded-lg);
-  --ui-badge-font-size: var(--text-xs);
-  --ui-badge-font-weight: var(--font-normal);
-  --ui-badge-bg: color-mix(in sRGB, var(--color-accent) var(--ui-badge-bg-opacity), var(--ui-badge-bg-mix));
-  --ui-badge-bg-mix: transparent;
+  --ui-badge-bg: color-mix(in sRGB, var(--color-accent) var(--ui-badge-bg-opacity), var(--ui-badge-bg-mix, transparent));
   --ui-badge-bg-opacity: calc(var(--tw-bg-opacity, 1) * 100%);
   --ui-badge-color: color-mix(in sRGB, var(--color-current) var(--ui-badge-color-opacity), transparent);
   --ui-badge-color-opacity: calc(var(--tw-text-opacity, 1) * 100%);
-  --ui-badge-gap: var(--spacing-xs);
 
-  width: var(--ui-badge-width);
+  width: var(--ui-badge-width, auto);
   height: var(--ui-badge-height);
   padding: var(--ui-badge-py) var(--ui-badge-px);
-  border-radius: var(--ui-badge-border-radius);
-  font-size: var(--ui-badge-font-size);
-  font-weight: var(--ui-badge-font-weight);
+  border-radius: var(--ui-badge-border-radius, var(--rounded-lg));
+  font-size: var(--ui-badge-font-size, var(--text-xs));
+  font-weight: var(--ui-badge-font-weight, var(--font-normal));
   background-color: var(--ui-badge-bg);
   color: var(--ui-badge-color);
   display: inline-flex;
-  align-items: center;
   text-align: center;
+  align-items: center;
   justify-content: center;
   white-space: nowrap;
   flex-shrink: 0;
   position: relative;
-  gap: var(--ui-badge-gap);
+  gap: var(--ui-badge-gap, var(--spacing-xs));
   transition: var(--transition-opacity);
 }

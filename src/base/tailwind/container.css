@@ -1,7 +1,10 @@
 :root, :host {
+  --container: min(100% - (var(--container-padding) * 2), var(--container-width));
+  --container-sm: min(100% - (var(--container-padding) * 2), var(--container-sm-width));
+  --container-lg: min(100% - (var(--container-padding) * 2), var(--container-lg-width));
   --container-width: 80rem;
+  --container-sm-width: 50rem;
   --container-lg-width: 90rem;
-  --container-lg: calc((var(--container-lg-width) - var(--container-width)) / 2);
   --container-padding: 5vw;
   --container-padding-calc: max(calc(50vw - (var(--container-width) / 2)), var(--container-padding));
 }
@@ -11,9 +14,11 @@
     display: grid;
     grid-template-columns:
       [container-full-start] minmax(var(--container-padding), 1fr)
-      [container-lg-start] minmax(0, var(--container-lg))
-      [container-start] min(100% - (var(--container-padding) * 2), var(--container-width)) [container-end]
-      minmax(0, var(--container-lg)) [container-lg-end]
+      [container-lg-start] minmax(0, calc((var(--container-lg-width) - var(--container-width)) / 2))
+      [container-start] minmax(0, calc((var(--container-width) - var(--container-sm-width)) / 2))
+      [container-sm-start] min(100% - (var(--container-padding) * 2), var(--container-sm-width)) [container-sm-end]
+      minmax(0, calc((var(--container-width) - var(--container-sm-width)) / 2)) [container-end]
+      minmax(0, calc((var(--container-lg-width) - var(--container-width)) / 2)) [container-lg-end]
       minmax(var(--container-padding), 1fr) [container-full-end];
   }
 

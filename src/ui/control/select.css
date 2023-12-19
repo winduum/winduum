@@ -16,7 +16,7 @@
     width: var(--ui-control-select-icon-size);
     height: var(--ui-control-select-icon-size);
     background-color: currentColor;
-    mask: var(--icon-angle-down);
+    mask: var(--mask-angle-down);
     pointer-events: none;
     grid-area: body;
     align-self: center;

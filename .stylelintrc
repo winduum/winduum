@@ -1,12 +1,8 @@
 {
   "extends": [
-    "stylelint-stylistic/config",
     "stylelint-config-standard"
   ],
   "rules": {
-    "stylistic/selector-list-comma-newline-after": "always-multi-line",
-    "stylistic/string-quotes": "double",
-    "stylistic/max-line-length": 240,
     "at-rule-no-unknown": [true, {"ignoreAtRules": ["layer", "tailwind"]}],
     "length-zero-no-unit": [true, {"ignore": ["custom-properties"]}],
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],

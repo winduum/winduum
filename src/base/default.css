@@ -37,6 +37,7 @@
   height: 100%;
   line-height: 1.5;
   cursor: default;
+  color-scheme: var(--color-scheme);
 }
 
 :where(body) {

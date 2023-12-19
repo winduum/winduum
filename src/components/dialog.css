@@ -1,20 +1,15 @@
 .c-dialog {
-  --c-dialog-py: 1.5rem;
-  --c-dialog-px: 1.5rem;
-  --c-dialog-width: 35rem;
-  --c-dialog-animation-duration: var(--duration);
-
-  animation: var(--c-dialog-animation-duration) ease 0s backwards 1 fade-in-down;
+  animation: var(--duration) ease 0s backwards 1 fade-in-down;
   position: relative;
   z-index: var(--z-20);
   margin: auto;
   background-color: var(--color-body-primary);
   width: 100%;
-  max-width: var(--c-dialog-width);
+  max-width: var(--c-dialog-width, 35rem);
   border-radius: var(--rounded-3xl);
-  padding: var(--c-dialog-py) var(--c-dialog-px);
+  padding: var(--c-dialog-py, 1.5rem) var(--c-dialog-px, 1.5rem);
 
   :where(dialog:not([open])) & {
-    animation: var(--c-dialog-animation-duration) ease 0s forwards 1 fade-out-up;
+    animation: var(--duration) ease 0s forwards 1 fade-out-up;
   }
 }

@@ -8,7 +8,7 @@
   --ui-btn-color: color-mix(in sRGB, var(--color-current) var(--ui-btn-color-opacity), transparent);
   --ui-btn-color-opacity: calc(var(--tw-text-opacity, 1) * 100%);
 
-  width: var(--ui-btn-width, fit-content);
+  width: var(--ui-btn-width, auto);
   height: var(--ui-btn-height);
   padding: var(--ui-btn-py) var(--ui-btn-px);
   border-radius: var(--ui-btn-border-radius, var(--rounded));
@@ -20,15 +20,13 @@
   user-select: none;
   overflow: hidden;
   display: inline-flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   position: relative;
   flex-shrink: 0;
   z-index: 0;
-  transition-property: var(--transition), outline-color, outline-offset;
-  transition-timing-function: var(--ease-in-out);
-  transition-duration: var(--duration);
   gap: var(--ui-btn-gap, 0.375rem);
   outline: var(--ui-btn-outline-width, 2px) solid transparent;
   outline-offset: 0;

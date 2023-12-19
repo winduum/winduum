@@ -1,27 +1,22 @@
 .lib-dialog {
-  --lib-ripple-bg: color-mix(in sRGB, var(--color-dark) calc(var(--tw-bg-opacity, 0.8) * 100%), transparent);
-  --lib-dialog-py: 2rem;
-  --lib-dialog-px: 1.5rem;
-  --lib-dialog-animation-duration: var(--duration);
-
   inset: 0;
   z-index: var(--z-30);
   position: fixed;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: var(--lib-ripple-bg);
+  background-color: var(--lib-ripple-bg, color-mix(in sRGB, var(--color-dark) calc(var(--tw-bg-opacity, 0.8) * 100%), transparent));
   overscroll-behavior: contain;
   display: flex;
-  visibility: hidden;
-  padding: var(--lib-dialog-py) var(--lib-dialog-px);
+  padding: var(--lib-dialog-py, 2rem) var(--lib-dialog-px, 1.5rem);
+  transition: var(--transition-background);
 
-  &:not([open]) {
-    animation: var(--lib-dialog-animation-duration) ease 0s forwards 1 fade-out;
-    pointer-events: none;
+  &, &::backdrop {
+    visibility: hidden;
   }
 
-  &[open] {
-    animation: var(--lib-dialog-animation-duration) ease 0s backwards 1 fade-in;
+  &:not([open]) {
+    background-color: transparent;
+    pointer-events: none;
   }
 
   .is-lib-dialog-open & {

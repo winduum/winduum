@@ -5,19 +5,25 @@
     <title>Winduum UI</title>
     <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
     <link rel="stylesheet" href="/src/main.css">
-    <link rel="stylesheet" href="/src/main-rgb.css">
     <link rel="stylesheet" href="/src/tailwind.css">
     <script src="/src/main.js" type="module"></script>
 </head>
-<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md grid-cols-container gap-4" style="--container-width: 50rem">
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light py-md grid-cols-container gap-y-4" style="--container-width: var(--container-sm-width)">
     <div class="ui-image aspect-square w-24 rounded">
         <img src="https://via.placeholder.com/128" alt="" loading="lazy">
     </div>
     <button class="ui-heading lg">Heading H1</button>
     <h2 class="ui-heading">Heading H2</h2>
     <h3 class="ui-heading sm">Heading H3</h3>
-    <h1 class="ui-title lg">Title H1</h1>
-    <h2 class="ui-title">Title</h2>
+    <h4 class="ui-title lg">Title H4</h4>
+    <h5 class="ui-title">Title H5</h5>
+    <h6 class="ui-title sm">Title H6</h6>
+
+    <div class="flex divide-x divide-gap-x-xl divide-body-tertiary">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
 
     <a href="#" class="ui-title underline">
         Title Link

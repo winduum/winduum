@@ -1,15 +1,16 @@
-.ui-btn:where(.bordered) {
-  --color-current: var(--color-accent);
-  --ui-btn-hover-bg-mix: transparent;
-  --ui-btn-hover-bg-opacity: 10%;
-  --ui-btn-active-bg-mix: transparent;
-  --ui-btn-active-bg-opacity: 20%;
-  --ui-btn-focus-outline-offset: -2px;
-  --ui-btn-bg-opacity: 0%;
-  --ui-btn-border-width: 1px;
-  --ui-btn-border-opacity: calc(var(--tw-border-opacity, 0.3) * 100%);
+.ui-btn {
+  &:where(.bordered) {
+    border: var(--ui-btn-border-width, 1px) solid color-mix(in sRGB, var(--color-accent) var(--ui-btn-border-opacity, calc(var(--tw-border-opacity, 0.3) * 100%)), transparent);
+    padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width, 1px));
+  }
 
-  border: var(--ui-btn-border-width) solid color-mix(in sRGB, var(--color-accent) var(--ui-btn-border-opacity), transparent);
-  padding-left: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
-  padding-right: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
+  &:is(.bordered) {
+    --color-current: var(--color-accent);
+    --ui-btn-hover-bg-mix: transparent;
+    --ui-btn-hover-bg-opacity: 10%;
+    --ui-btn-active-bg-mix: transparent;
+    --ui-btn-active-bg-opacity: 20%;
+    --ui-btn-focus-outline-offset: -2px;
+    --ui-btn-bg-opacity: 0%;
+  }
 }

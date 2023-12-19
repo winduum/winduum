@@ -51,6 +51,7 @@ export const defaultConfig = {
     spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'section'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
     animations: ['fade-in', 'fade-out', 'fade-in-down', 'fade-out-up', 'ripple', 'spin', 'move-indeterminate'],
+    mask: ['check', 'radio', 'angle-up', 'angle-down'],
     screens: {
         xs: '22.5em',
         sm: '26em',
@@ -99,12 +100,36 @@ export const tailwindVariablesFont = (type, variables = [], values = {}) => {
     return values
 }
 
+export const tailwindPropertyUtilities = (type, variables = []) => {
+    const result = {}
+
+    variables.forEach(name => {
+        result[`.${type}-${name}`] = {
+            [type]: `var(--${type}-${name})`
+        }
+    })
+
+    return result
+}
+
 export const tailwindAnimations = (values) => {
     const result = {}
 
     values.forEach(value => {
         result[`.animation-${value}`] = {
             'animation-name': value
+        }
+    })
+
+    return result
+}
+
+export const tailwindMask = (values) => {
+    const result = {}
+
+    values.forEach(value => {
+        result[`.mask-${value}`] = {
+            mask: value
         }
     })
 
@@ -213,6 +238,25 @@ export const createPlugin = (userConfig = {}) => {
             { values: flattenColorPalette(theme('textColor')), type: ['color', 'any'] }
         )
         addUtilities(tailwindAnimations(userConfig.animations))
+        addUtilities(tailwindPropertyUtilities('mask', userConfig.mask))
+        addUtilities([
+            Object.entries(theme('spacing')).map(([key, value]) => {
+                return {
+                    [`.${e(`divide-gap-x-${key}`)}`]: {
+                        '& > :where(*:not(:first-child))': {
+                            paddingLeft: value,
+                            marginLeft: value
+                        }
+                    },
+                    [`.${e(`divide-gap-y-${key}`)}`]: {
+                        '& > :where(*:not(:first-child))': {
+                            paddingTop: value,
+                            marginTop: value
+                        }
+                    }
+                }
+            })
+        ])
         addUtilities([
             Object.entries(theme('spacing')).map(([key, value]) => {
                 return {
@@ -226,7 +270,6 @@ export const createPlugin = (userConfig = {}) => {
     }, {
         corePlugins: {
             preflight: false,
-            container: false,
             textColor: false,
             accentColor: false
         },

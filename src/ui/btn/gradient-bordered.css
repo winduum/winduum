@@ -1,28 +1,34 @@
-.ui-btn:is(.gradient-bordered) {
-  --ui-btn-border-width: 2px;
-  --ui-btn-hover-bg-mix: transparent;
-  --ui-btn-hover-bg-opacity: 10%;
-  --ui-btn-active-bg-mix: transparent;
-  --ui-btn-active-bg-opacity: 20%;
-  --ui-btn-focus-outline-offset: 0;
-  --ui-btn-bg-opacity: 0%;
-  --color-current: var(--color-main);
+.ui-btn {
+  &:where(.gradient-bordered) {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: color-mix(in sRGB, var(--color-body) calc(100% - var(--ui-btn-bg-opacity)), transparent);
+      inset: var(--ui-btn-border-width);
+      border-radius: calc(var(--ui-btn-border-radius, var(--rounded)) / 1.25);
+      z-index: -1;
+      transition: var(--transition-background);
+    }
 
-  &::before {
-    content: "";
-    position: absolute;
-    background-color: color-mix(in sRGB, var(--color-body) calc(100% - var(--ui-btn-bg-opacity)), transparent);
-    inset: var(--ui-btn-border-width);
-    border-radius: calc(var(--ui-btn-border-radius, var(--rounded)) / 1.25);
-    z-index: -1;
-    transition: var(--transition-background);
+    &:where(.hover-fill) {
+      &::before {
+        background-color: color-mix(in sRGB, var(--color-body) var(--ui-btn-bg-opacity), transparent);
+      }
+    }
   }
 
-  &:where(.hover-fill) {
-    --ui-btn-bg-opacity: 100%;
+  &:is(.gradient-bordered) {
+    --ui-btn-border-width: 2px;
+    --ui-btn-hover-bg-mix: transparent;
+    --ui-btn-hover-bg-opacity: 10%;
+    --ui-btn-active-bg-mix: transparent;
+    --ui-btn-active-bg-opacity: 20%;
+    --ui-btn-focus-outline-offset: 0;
+    --ui-btn-bg-opacity: 0%;
+    --color-current: var(--color-main);
 
-    &::before {
-      background-color: color-mix(in sRGB, var(--color-body) var(--ui-btn-bg-opacity), transparent);
+    &:is(.hover-fill) {
+      --ui-btn-bg-opacity: 100%;
     }
   }
 }
