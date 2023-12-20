@@ -8,8 +8,7 @@
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
     "property-no-vendor-prefix": [true, { "ignoreProperties": "appearance" }],
     "number-max-precision": [4, { "ignoreProperties": "letter-spacing" }],
-    "import-notation": "string",
-    "no-duplicate-selectors": null
+    "import-notation": "string"
   },
   "ignoreFiles": ["**/+.css", "dist/**/*.css"]
 }

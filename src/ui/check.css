@@ -4,12 +4,11 @@
   --ui-check-icon-width: 1.125rem;
 
   display: inline-flex;
-  align-items: center;
-  gap: 0 var(--ui-check-gap, var(--spacing-md));
+  gap: var(--ui-check-gap, 0.75rem);
   font-weight: var(--ui-check-font-weight, var(--font-normal));
   font-size: var(--ui-check-font-size, var(--text-sm));
   line-height: var(--ui-check-line-height, calc(1em + var(--ui-check-line-height-ratio, 0.25lh)));
-  letter-spacing: var(--ui-check-letter-spacing, 0);
+  letter-spacing: var(--ui-check-letter-spacing, inherit);
   text-wrap: balance;
 
   &:has([type="radio"]) {
@@ -33,21 +32,14 @@
     background-color: var(--ui-check-bg, color-mix(in sRGB, var(--color-current) var(--ui-check-bg-opacity, calc(var(--tw-bg-opacity, 0) * 100%)), var(--ui-check-bg-mix, transparent)));
     border: var(--ui-check-border-width, 1px) solid color-mix(in sRGB, var(--ui-check-border-color, var(--color-current)) var(--ui-check-border-opacity, calc(var(--tw-border-opacity, 0.2) * 100%)), var(--ui-check-border-mix, transparent));
     border-radius: var(--ui-check-radius, var(--rounded-md));
-    user-select: none;
     outline: var(--ui-check-outline-width, 3px) solid transparent;
     outline-offset: 0;
-    justify-content: center;
-    align-items: center;
-    transition:
-      var(--transition-border),
-      var(--transition-background),
-      outline-color var(--duration),
-      outline-offset var(--duration);
-    cursor: pointer;
+    transition-property: var(--transition);
+    transition-timing-function: var(--ease-in-out);
+    transition-duration: var(--duration);
     flex-shrink: 0;
 
     &::before {
-      display: block;
       transition: var(--transition-color), var(--transition-opacity), var(--transition-transform);
       color: var(--color-accent-fg);
       content: "";
@@ -58,6 +50,7 @@
       will-change: transform;
       width: var(--ui-check-icon-width);
       height: var(--ui-check-icon-width);
+      margin: auto;
     }
 
     &:where(:required) {
@@ -88,7 +81,7 @@
       --ui-check-bg-opacity: 15%;
 
       cursor: not-allowed;
-      opacity: var(--ui-check-disabled-opacity, 50%);
+      opacity: var(--ui-check-disabled-opacity, 0.5);
     }
 
     &:checked {

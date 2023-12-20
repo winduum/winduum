@@ -1,24 +1,18 @@
 .ui-switch {
   --ui-switch-width: 3rem;
   --ui-switch-height: 1.5rem;
-  --ui-switch-font-size: 0.875rem;
-  --ui-switch-gap: 0.625rem;
-  --ui-switch-padding: 0.375rem;
-  --ui-switch-bg: var(--color-dark);
-  --ui-switch-radius: var(--rounded-full);
-  --ui-switch-outline-width: 3px;
-  --ui-switch-outline-offset: 0;
-  --ui-switch-outline-opacity: 20%;
+  --ui-check-icon-size: 1.125rem;
 
   :where(.dark) & {
     --ui-switch-bg: var(--color-body-tertiary);
   }
 
-  display: flex;
-  align-items: center;
-  gap: 0 var(--ui-switch-gap);
-  width: fit-content;
-  font-size: var(--ui-switch-font-size);
+  display: inline-flex;
+  gap: var(--ui-switch-gap, 0.75rem);
+  font-weight: var(--ui-switch-font-weight, var(--font-normal));
+  font-size: var(--ui-switch-font-size, var(--text-sm));
+  line-height: var(--ui-switch-line-height, calc(1em + var(--ui-switch-line-height-ratio, 0.25lh)));
+  letter-spacing: var(--ui-switch-letter-spacing, inherit);
   text-wrap: balance;
 
   & :where(label[for], input) {
@@ -31,34 +25,28 @@
   }
 
   & :where(input) {
+    display: flex;
     width: var(--ui-switch-width);
     height: var(--ui-switch-height);
-    display: block;
-    position: relative;
-    border-radius: var(--ui-switch-radius);
-    background-color: var(--ui-switch-bg);
-    transition:
-      var(--transition-background),
-      outline-color var(--duration),
-      outline-offset var(--duration);
-    appearance: none;
-    outline: var(--ui-switch-outline-width) solid transparent;
+    background-color: var(--ui-switch-bg, var(--color-dark));
+    border-radius: var(--ui-switch-radius, var(--rounded-full));
+    outline: var(--ui-switch-outline-width, 3px) solid transparent;
     outline-offset: 0;
-    color: inherit;
+    transition-property: var(--transition);
+    transition-timing-function: var(--ease-in-out);
+    transition-duration: var(--duration);
+    flex-shrink: 0;
+    position: relative;
+    padding: calc((var(--ui-switch-height) - var(--ui-check-icon-size)) / 2);
 
     &::before {
-      width: calc(var(--ui-switch-height) - var(--ui-switch-padding));
-      height: calc(var(--ui-switch-height) - var(--ui-switch-padding));
-      background-color: var(--color-light);
-      border-radius: var(--ui-switch-radius);
-      position: absolute;
-      left: var(--ui-switch-height);
-      top: 50%;
       content: "";
-      display: block;
-      margin-left: calc((var(--ui-switch-height) - var(--ui-switch-padding) + var(--ui-switch-padding) / 2) * -1);
-      transition: left var(--duration), var(--transition-background);
-      transform: translateY(-50%);
+      width: var(--ui-check-icon-size);
+      height: var(--ui-check-icon-size);
+      background-color: var(--color-light);
+      border-radius: inherit;
+      margin-block: auto;
+      transition: var(--transition-all);
     }
 
     &:where(:required) {
@@ -69,13 +57,13 @@
     }
 
     &:disabled {
-      opacity: 0.8;
-      pointer-events: none;
+      cursor: not-allowed;
+      opacity: var(--ui-switch-disabled-opacity, 0.5);
     }
 
     &:focus {
-      outline-color: color-mix(in sRGB, var(--color-current) var(--ui-switch-outline-opacity), transparent);
-      outline-offset: var(--ui-switch-outline-offset);
+      outline-color: color-mix(in sRGB, var(--color-current) var(--ui-switch-outline-opacity, 20%), transparent);
+      outline-offset: var(--ui-switch-outline-offset, 0);
     }
 
     &:checked {
@@ -83,8 +71,7 @@
       --ui-switch-bg: var(--color-accent);
 
       &::before {
-        background-color: var(--color-light);
-        left: 100%;
+        margin-left: calc(100% - var(--ui-check-icon-size));
       }
     }
   }

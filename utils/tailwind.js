@@ -257,16 +257,6 @@ export const createPlugin = (userConfig = {}) => {
                 }
             })
         ])
-        addUtilities([
-            Object.entries(theme('spacing')).map(([key, value]) => {
-                return {
-                    [`.${e(`sq-${key}`)}`]: {
-                        width: value,
-                        height: value
-                    }
-                }
-            })
-        ], variants('sq'))
     }, {
         corePlugins: {
             preflight: false,

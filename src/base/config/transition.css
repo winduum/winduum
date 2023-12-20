@@ -11,7 +11,7 @@
 }
 
 :root, :host {
-  --transition: color, background-color, border-color, text-decoration-color, fill, stroke, oacity, box-shadow, transform, filter, backdrop-filter;
+  --transition: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, outline-color, outline-offset;
   --transition-all: all var(--duration) var(--ease-in-out);
   --transition-color: color var(--duration) var(--ease-in-out);
   --transition-background: background var(--duration) var(--ease-in-out);
