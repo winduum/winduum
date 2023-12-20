@@ -1,7 +1,7 @@
 .ui-control:has(select) {
   --ui-control-select-icon-size: 1.5rem;
-  --ui-control-select-icon-me: calc(var(--ui-control-px) - 0.25rem);
-  --ui-control-pe: calc(var(--ui-control-select-icon-size) + 0.25rem);
+  --ui-control-select-icon-me: -0.25rem;
+  --ui-control-pe: calc(var(--ui-control-select-icon-size) + var(--ui-control-select-icon-me));
 
   &:has(.icon-r) {
     --ui-control-icon-count-e: 2;
@@ -18,7 +18,7 @@
     background-color: currentColor;
     mask: var(--mask-angle-down);
     pointer-events: none;
-    grid-area: body;
+    grid-area: 1/-1;
     align-self: center;
     margin-inline: auto var(--ui-control-select-icon-me);
   }

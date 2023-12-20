@@ -21,21 +21,16 @@
   }
 
   & :where(.icon-l) {
-    inset-inline-start: var(--ui-control-px);
     margin-inline-end: auto;
   }
 
   & :where(.icon-r) {
-    inset-inline-end: var(--ui-control-px);
     margin-inline-start: auto;
   }
 
   & :where(.icon-l, .icon-r) {
-    position: relative;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    align-self: center;
     gap: var(--ui-control-icon-gap);
   }
 }

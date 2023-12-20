@@ -1,43 +1,31 @@
 .ui-control:has(:not([type="color"]) ~ label) {
-  --ui-control-pt: 0.875rem;
-  --ui-control-label-font-size: 0.875rem;
-  --ui-control-label-font-weight: var(--font-medium);
-  --ui-control-label-transition-duration: 0.4s;
-
   & :where(label) {
-    align-self: start;
     pointer-events: none;
-    transition: transform var(--ui-control-label-transition-duration) cubic-bezier(0.25, 0.8, 0.25, 1), var(--transition-color), var(--transition-opacity);
+    transition: var(--transition-transform), var(--transition-color), var(--transition-opacity);
     transform-origin: 0 50%;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
-    transform: perspective(100px);
+    overflow: clip;
     will-change: transform;
-    font-weight: var(--ui-control-label-font-weight);
-    line-height: var(--ui-control-label-font-size);
-    margin-top: calc(var(--ui-control-height) / 2 - (var(--ui-control-font-size) / 2));
-    margin-inline: calc(var(--ui-control-px) + var(--ui-control-ps)) calc(var(--ui-control-px) + var(--ui-control-pe));
+    margin-inline: var(--ui-control-ps, 0) var(--ui-control-pe, 0);
   }
 
-  &:has(:required) label {
-    &::after {
-      color: var(--color-error);
-      content: " *";
-    }
+  &:has(:required) label::after {
+    color: var(--color-error);
+    content: " *";
+  }
+
+  & :where(textarea + label) {
+    margin-block-start: 0;
   }
 
   & :where(input) {
     &::-webkit-calendar-picker-indicator {
-      margin-top: calc(var(--ui-control-pt) * -1);
+      margin-top: calc(var(--ui-control-py) * -1);
     }
 
     &::-webkit-search-cancel-button {
-      transform: translateY(calc(var(--ui-control-pt) / 2 * -1));
+      transform: translateY(calc(var(--ui-control-py) / 2 * -1));
     }
-  }
-
-  & :where(textarea) {
-    padding-top: calc(var(--ui-control-pt) + calc(var(--ui-control-height) / 2 - (var(--ui-control-font-size))));
   }
 }
