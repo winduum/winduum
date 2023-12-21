@@ -33,4 +33,8 @@
     align-items: center;
     gap: var(--ui-control-icon-gap);
   }
+
+  &:has(textarea) :where(.icon-l, .icon-r) {
+    margin-block-start: var(--ui-control-py);
+  }
 }

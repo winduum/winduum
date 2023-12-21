@@ -42,7 +42,7 @@
 
     &:disabled {
       cursor: not-allowed;
-      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity, 5%), var(--ui-control-bg));
+      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity, 5%), var(--ui-control-bg, transparent));
     }
   }
 

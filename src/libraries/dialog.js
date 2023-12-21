@@ -31,6 +31,7 @@ export const dismissDialog = async (selector, options = defaultOptions.close) =>
     options.remove && selector.remove()
 
     if (!document.querySelector('dialog[open]')) {
+        document.documentElement.style.removeProperty(defaultOptions.scrollbarWidthProperty)
         document.documentElement.classList.remove(defaultOptions.openClass)
     }
 }
