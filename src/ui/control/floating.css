@@ -1,5 +1,5 @@
 .ui-control:where(:has(:not([type="color"]) ~ label)) {
-  --ui-control-label-translate-y: 10px;
+  --ui-control-label-translate-y: 0.625rem;
   --ui-control-label-scale: 0.8;
   --ui-control-placeholder-color: transparent;
 
@@ -30,11 +30,10 @@
   & :where(input, select) {
     padding-block: calc(var(--ui-control-py) + var(--ui-control-label-translate-y) * var(--ui-control-label-scale)) calc(var(--ui-control-py) - var(--ui-control-label-translate-y) * var(--ui-control-label-scale));
 
-    &::-webkit-calendar-picker-indicator {
-      transform: translateY(calc((var(--ui-control-label-translate-y) * var(--ui-control-label-scale) * -1)));
-    }
-
-    &::-webkit-search-cancel-button {
+    &::-webkit-calendar-picker-indicator,
+    &::-webkit-search-cancel-button,
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
       transform: translateY(calc(var(--ui-control-label-translate-y) * var(--ui-control-label-scale) * -1));
     }
   }

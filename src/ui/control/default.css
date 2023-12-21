@@ -3,13 +3,14 @@
   --ui-control-height-textarea: 8rem;
   --ui-control-px: 0.75rem;
   --ui-control-py: 0.75rem;
-  --ui-control-font-size: var(--text-sm);
   --ui-control-border-width: 1px;
 
   display: grid;
   height: var(--ui-control-height);
-  font-size: var(--ui-control-font-size);
+  font-family: var(--ui-contro-font-family, var(--font-primary));
   font-weight: var(--ui-control-font-weight, var(--font-medium));
+  font-size: var(--ui-control-font-size, var(--text-sm));
+  letter-spacing: var(--ui-control-letter-spacing, inherit);
   background-color: var(--ui-control-bg, transparent);
   color: var(--ui-control-color, currentColor);
   border-radius: var(--ui-control-border-radius, var(--rounded));
