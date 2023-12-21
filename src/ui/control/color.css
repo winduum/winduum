@@ -3,7 +3,7 @@
   --ui-control-color-swatch-height: 1.25rem;
   --ui-control-color-swatch-border-radius: var(--rounded-full);
 
-  & :where(input, textarea, select) {
+  & :where(input) {
     &::-webkit-color-swatch-wrapper {
       width: var(--ui-control-color-swatch-width);
       height: var(--ui-control-color-swatch-height);

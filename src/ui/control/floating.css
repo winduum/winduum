@@ -1,4 +1,8 @@
-.ui-control:has(:not([type="color"]) ~ label) {
+.ui-control:where(:has(:not([type="color"]) ~ label)) {
+  --ui-control-label-translate-y: 10px;
+  --ui-control-label-scale: 0.8;
+  --ui-control-placeholder-color: transparent;
+
   & :where(label) {
     pointer-events: none;
     transition: var(--transition-transform), var(--transition-color), var(--transition-opacity);
@@ -10,22 +14,28 @@
     margin-inline: var(--ui-control-ps, 0) var(--ui-control-pe, 0);
   }
 
-  &:has(:required) label::after {
+  &:where(:has(:required)) :where(label)::after {
     color: var(--color-error);
     content: " *";
   }
 
-  & :where(textarea + label) {
-    margin-block-start: 0;
+  & :where(textarea) {
+    padding-block-start: calc(var(--ui-control-py) + var(--ui-control-label-translate-y) * var(--ui-control-label-scale));
+
+    & + :where(label) {
+      margin-block-start: var(--ui-control-py);
+    }
   }
 
-  & :where(input) {
+  & :where(input, select) {
+    padding-block: calc(var(--ui-control-py) + var(--ui-control-label-translate-y) * var(--ui-control-label-scale)) calc(var(--ui-control-py) - var(--ui-control-label-translate-y) * var(--ui-control-label-scale));
+
     &::-webkit-calendar-picker-indicator {
-      margin-top: calc(var(--ui-control-py) * -1);
+      transform: translateY(calc((var(--ui-control-label-translate-y) * var(--ui-control-label-scale) * -1)));
     }
 
     &::-webkit-search-cancel-button {
-      transform: translateY(calc(var(--ui-control-py) / 2 * -1));
+      transform: translateY(calc(var(--ui-control-label-translate-y) * var(--ui-control-label-scale) * -1));
     }
   }
 }
