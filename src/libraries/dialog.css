@@ -25,6 +25,10 @@
 }
 
 .is-lib-dialog-open {
-  overflow: hidden;
+  scrollbar-width: none;
   padding-right: var(--lib-dialog-scrollbar-width, 0);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -2,7 +2,6 @@ import plugin from 'tailwindcss/plugin'
 import flattenColorPalette from 'tailwindcss/src/util/flattenColorPalette'
 import toColorValue from 'tailwindcss/src/util/toColorValue'
 import { parseColor, formatColor } from 'tailwindcss/src/util/color'
-import lodash from 'lodash'
 
 function withAlphaVariable ({ color, property, variable }) {
     const properties = [].concat(property)
@@ -65,7 +64,7 @@ export const defaultConfig = {
         '2xxl': '158em'
     },
     settings: {
-        rgb: true,
+        rgb: false,
         colorMix: true
     }
 }
@@ -137,7 +136,10 @@ export const tailwindMask = (values) => {
 }
 
 export const createPlugin = (userConfig = {}) => {
-    userConfig = lodash.merge(defaultConfig, userConfig)
+    userConfig = {
+        ...defaultConfig,
+        userConfig
+    }
 
     return plugin(({ addUtilities, matchUtilities, theme, variants, e, corePlugins }) => {
         matchUtilities(

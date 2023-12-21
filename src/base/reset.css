@@ -79,12 +79,6 @@ html {
   content: initial;
 }
 
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-:where([hidden]) {
-  display: none;
-}
-
 /* revert for bug in Chromium browsers
    - fix for the content editable attribute will work properly.
    - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
@@ -109,4 +103,8 @@ html {
 /* fix firefox svg */
 :where(svg, use, path, symbol) {
   all: revert-layer;
+}
+
+:where(search) {
+  display: block;
 }
