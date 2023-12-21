@@ -1,3 +1,5 @@
+@import "base/theme/default-rgb.css";
+@import "base/theme/dark-rgb.css";
 @import "ui/btn/default-rgb.css";
 @import "ui/btn/bordered-rgb.css";
 @import "ui/btn/gradient-bordered-rgb.css";

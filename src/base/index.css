@@ -3,7 +3,5 @@
 @import "breakpoints.css";
 @import "config.css";
 @import "keyframes.css";
-@import "theme/default-rgb.css";
 @import "theme/default.css";
-@import "theme/dark-rgb.css";
 @import "theme/dark.css";
