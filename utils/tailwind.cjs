@@ -6,7 +6,6 @@ var plugin = require('tailwindcss/plugin');
 var flattenColorPalette = require('tailwindcss/src/util/flattenColorPalette');
 var toColorValue = require('tailwindcss/src/util/toColorValue');
 var color = require('tailwindcss/src/util/color');
-var lodash = require('lodash');
 
 function withAlphaVariable ({ color: color$1, property, variable }) {
     const properties = [].concat(property);
@@ -49,11 +48,13 @@ const defaultConfig = {
     ],
     fontFamily: ['primary', 'secondary'],
     fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
+    ease: ['linear', 'in', 'out', 'in-out'],
     zIndex: [10, 20, 30, 40, 50, 60],
     fontSize: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
     spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'section'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
     animations: ['fade-in', 'fade-out', 'fade-in-down', 'fade-out-up', 'ripple', 'spin', 'move-indeterminate'],
+    mask: ['check', 'radio', 'angle-up', 'angle-down'],
     screens: {
         xs: '22.5em',
         sm: '26em',
@@ -67,7 +68,7 @@ const defaultConfig = {
         '2xxl': '158em'
     },
     settings: {
-        rgb: true,
+        rgb: false,
         colorMix: true
     }
 };
@@ -102,6 +103,18 @@ const tailwindVariablesFont = (type, variables = [], values = {}) => {
     return values
 };
 
+const tailwindPropertyUtilities = (type, variables = []) => {
+    const result = {};
+
+    variables.forEach(name => {
+        result[`.${type}-${name}`] = {
+            [type]: `var(--${type}-${name})`
+        };
+    });
+
+    return result
+};
+
 const tailwindAnimations = (values) => {
     const result = {};
 
@@ -114,8 +127,23 @@ const tailwindAnimations = (values) => {
     return result
 };
 
+const tailwindMask = (values) => {
+    const result = {};
+
+    values.forEach(value => {
+        result[`.mask-${value}`] = {
+            mask: value
+        };
+    });
+
+    return result
+};
+
 const createPlugin = (userConfig = {}) => {
-    userConfig = lodash.merge(defaultConfig, userConfig);
+    userConfig = {
+        ...defaultConfig,
+        userConfig
+    };
 
     return plugin(({ addUtilities, matchUtilities, theme, variants, e, corePlugins }) => {
         matchUtilities(
@@ -184,15 +212,13 @@ const createPlugin = (userConfig = {}) => {
                         }
                     }
 
-                    const color = matchValue
-                        ? { color: 'var(--color-current)' }
-                        : {
-                            ...withAlphaVariable({
-                                color: value,
-                                property: 'color',
-                                variable: '--tw-text-opacity'
-                            })
-                        };
+                    const color = {
+                        ...withAlphaVariable({
+                            color: value,
+                            property: 'color',
+                            variable: '--tw-text-opacity'
+                        })
+                    };
 
                     if (!corePlugins('textOpacity')) {
                         return {
@@ -216,28 +242,40 @@ const createPlugin = (userConfig = {}) => {
             { values: flattenColorPalette(theme('textColor')), type: ['color', 'any'] }
         );
         addUtilities(tailwindAnimations(userConfig.animations));
+        addUtilities(tailwindPropertyUtilities('mask', userConfig.mask));
         addUtilities([
             Object.entries(theme('spacing')).map(([key, value]) => {
                 return {
-                    [`.${e(`sq-${key}`)}`]: {
-                        width: value,
-                        height: value
+                    [`.${e(`divide-gap-x-${key}`)}`]: {
+                        '& > :where(*:not(:first-child))': {
+                            paddingLeft: value,
+                            marginLeft: value
+                        }
+                    },
+                    [`.${e(`divide-gap-y-${key}`)}`]: {
+                        '& > :where(*:not(:first-child))': {
+                            paddingTop: value,
+                            marginTop: value
+                        }
                     }
                 }
             })
-        ], variants('sq'));
+        ]);
     }, {
         corePlugins: {
             preflight: false,
-            container: false,
             textColor: false,
             accentColor: false
         },
         theme: {
             extend: {
-                transitionDuration: {
-                    DEFAULT: 'var(--transition-duration)'
+                transitionProperty: {
+                    DEFAULT: 'var(--transition)'
                 },
+                transitionDuration: {
+                    DEFAULT: 'var(--duration)'
+                },
+                transitionTimingFunction: tailwindVariables('ease', userConfig.ease),
                 colors: tailwindColors(userConfig.colors),
                 fontSize: tailwindVariablesFont('text', userConfig.fontSize),
                 fontFamily: tailwindVariables('font', userConfig.fontFamily),
@@ -261,5 +299,7 @@ exports.default = createPlugin;
 exports.defaultConfig = defaultConfig;
 exports.tailwindAnimations = tailwindAnimations;
 exports.tailwindColors = tailwindColors;
+exports.tailwindMask = tailwindMask;
+exports.tailwindPropertyUtilities = tailwindPropertyUtilities;
 exports.tailwindVariables = tailwindVariables;
 exports.tailwindVariablesFont = tailwindVariablesFont;

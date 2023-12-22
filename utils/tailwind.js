@@ -208,15 +208,13 @@ export const createPlugin = (userConfig = {}) => {
                         }
                     }
 
-                    const color = matchValue
-                        ? { color: 'var(--color-current)' }
-                        : {
-                            ...withAlphaVariable({
-                                color: value,
-                                property: 'color',
-                                variable: '--tw-text-opacity'
-                            })
-                        }
+                    const color = {
+                        ...withAlphaVariable({
+                            color: value,
+                            property: 'color',
+                            variable: '--tw-text-opacity'
+                        })
+                    }
 
                     if (!corePlugins('textOpacity')) {
                         return {
