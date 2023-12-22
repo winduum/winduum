@@ -12,7 +12,7 @@
   height: var(--ui-btn-height);
   padding: var(--ui-btn-py) var(--ui-btn-px);
   border-radius: var(--ui-btn-border-radius, var(--rounded));
-  font-size: var(--ui-btn-font-size, 0.875rem);
+  font-size: var(--ui-btn-font-size, var(--text-sm));
   font-weight: var(--ui-btn-font-weight, var(--font-medium));
   letter-spacing: var(--ui-btn-letter-spacing, 0);
   background-color: var(--ui-btn-bg);
