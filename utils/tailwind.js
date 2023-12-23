@@ -257,6 +257,18 @@ export const createPlugin = (userConfig = {}) => {
                 }
             })
         ])
+        addUtilities({
+            '.flex-center': {
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'var(--spacing-sm)'
+            },
+            '.flex-between': {
+                display: 'flex',
+                justifyContent: 'between',
+                gap: 'var(--spacing-sm)'
+            }
+        })
     }, {
         corePlugins: {
             preflight: false,

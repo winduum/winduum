@@ -44,18 +44,6 @@
     display: flex;
   }
 
-  .flex-between {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--spacing-sm);
-  }
-
-  .flex-center {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-  }
-  
   [hidden] {
     display: none;
   }

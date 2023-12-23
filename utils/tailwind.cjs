@@ -51,7 +51,7 @@ const defaultConfig = {
     ease: ['linear', 'in', 'out', 'in-out'],
     zIndex: [10, 20, 30, 40, 50, 60],
     fontSize: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
-    spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'section'],
+    spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
     animations: ['fade-in', 'fade-out', 'fade-in-down', 'fade-out-up', 'ripple', 'spin', 'move-indeterminate'],
     mask: ['check', 'radio', 'angle-up', 'angle-down'],
@@ -261,6 +261,18 @@ const createPlugin = (userConfig = {}) => {
                 }
             })
         ]);
+        addUtilities({
+            '.flex-center': {
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'var(--spacing-sm)'
+            },
+            '.flex-between': {
+                display: 'flex',
+                justifyContent: 'between',
+                gap: 'var(--spacing-sm)'
+            }
+        });
     }, {
         corePlugins: {
             preflight: false,
