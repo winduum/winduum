@@ -1,26 +1,18 @@
 .ui-notice {
   --color-current: var(--color-accent);
-  --ui-notice-bg: var(--color-accent);
-  --ui-notice-py: 1.25rem;
-  --ui-notice-px: 1.5rem;
-  --ui-notice-font-size: 0.875rem;
-  --ui-notice-border-radius: var(--rounded);
   --ui-notice-outline-width: 1px;
-  --ui-notice-outline-offset: calc(var(--ui-notice-outline-width) * -1);
-  --ui-notice-outline-opacity: 10%;
-  --ui-notice-gap: 1.25rem;
 
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--ui-notice-py) var(--ui-notice-px);
-  font-size: var(--ui-notice-font-size);
-  border-radius: var(--ui-notice-border-radius);
-  background-color: color-mix(in sRGB, var(--ui-notice-bg) 10%, transparent);
-  outline: var(--ui-notice-outline-width) solid color-mix(in sRGB, var(--ui-notice-bg) var(--ui-notice-outline-opacity), transparent);
-  outline-offset: var(--ui-notice-outline-offset);
+  padding: var(--ui-notice-py, 1.25rem) var(--ui-notice-px, 1.5rem);
+  font-size: var(--ui-notice-font-size, var(--text-sm));
+  border-radius:  var(--rounded);
+  background-color: color-mix(in sRGB, var(--color-accent) 10%, transparent);
+  outline: var(--ui-notice-outline-width) solid color-mix(in sRGB, var(--color-accent) var(--ui-notice-outline-opacity, 10%), transparent);
+  outline-offset: var(--ui-notice-outline-offset, calc(var(--ui-notice-outline-width) * -1));
   color: var(--color-accent);
-  gap: var(--ui-notice-gap);
+  gap: var(--ui-notice-gap, 1.25rem);
   text-wrap: balance;
 
   & :where(hr) {

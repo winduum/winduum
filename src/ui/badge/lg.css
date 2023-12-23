@@ -1,3 +1,3 @@
-.ui-badge:where(.lg) {
+.ui-badge:is(.lg) {
   --ui-badge-height: 1.75rem;
 }

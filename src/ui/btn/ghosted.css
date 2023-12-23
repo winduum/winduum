@@ -1,4 +1,4 @@
-.ui-btn:where(.ghosted) {
+.ui-btn:is(.ghosted) {
   --ui-btn-hover-bg-mix: transparent;
   --ui-btn-hover-bg-opacity: 10%;
   --ui-btn-active-bg-mix: transparent;

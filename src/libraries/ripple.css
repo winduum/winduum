@@ -1,11 +1,8 @@
 .lib-ripple {
-  --lib-ripple-animation-duration: 1s;
-  --lib-ripple-bg: color-mix(in sRGB, var(--color-body) calc(var(--tw-bg-opacity, 0.4) * 100%), transparent);
-
   position: absolute;
-  background: var(--lib-ripple-bg);
+  background: var(--lib-ripple-bg, color-mix(in sRGB, var(--color-body) calc(var(--tw-bg-opacity, 0.4) * 100%), transparent));
   border-radius: 50%;
   transform: scale(0);
-  animation-duration: var(--lib-ripple-animation-duration);
+  animation-duration: var(--lib-ripple-animation-duration, 1s);
   pointer-events: none;
 }

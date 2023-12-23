@@ -1,0 +1,35 @@
+.ui-btn {
+  transition-property: var(--transition);
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: var(--duration);
+
+  &:is([href], button, [role="button"], input, .interactive) {
+    cursor: pointer;
+
+    &:disabled {
+      opacity: var(--ui-btn-disabled-opacity, 0.7);
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        @media (hover: hover) and (pointer: fine) {
+          --ui-btn-color: var(--ui-btn-hover-color, var(--color-current));
+          --ui-btn-bg-mix: var(--ui-btn-hover-bg-mix, black);
+          --ui-btn-bg-opacity: var(--ui-btn-hover-bg-opacity, 80%);
+        }
+      }
+
+      &:focus {
+        outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-btn-focus-outline-color-opacity, 50%), var(--ui-btn-focus-outline-color-mix, transparent));
+        outline-offset: var(--ui-btn-focus-outline-offset, 2px);
+      }
+
+      &:is(:active, :checked, .active) {
+        --ui-btn-color: var(--ui-btn-active-color, var(--color-current));
+        --ui-btn-bg-mix: var(--ui-btn-active-bg-mix, black);
+        --ui-btn-bg-opacity: var(--ui-btn-active-bg-opacity, 90%);
+      }
+    }
+  }
+}

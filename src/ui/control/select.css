@@ -1,13 +1,13 @@
 .ui-control:has(select) {
   --ui-control-select-icon-size: 1.5rem;
-  --ui-control-select-icon-me: calc(var(--ui-control-px) - 0.25rem);
-  --ui-control-pe: calc(var(--ui-control-select-icon-size) + 0.25rem);
+  --ui-control-select-icon-me: -0.25rem;
+  --ui-control-pe: calc(var(--ui-control-select-icon-size) + var(--ui-control-select-icon-me));
 
-  &:has(.icon-r) {
+  &:has(.icon-e) {
     --ui-control-icon-count-e: 2;
   }
 
-  & :where(.icon-r) {
+  & :where(.icon-e) {
     margin-inline-end: var(--ui-control-select-icon-size);
   }
 
@@ -16,9 +16,9 @@
     width: var(--ui-control-select-icon-size);
     height: var(--ui-control-select-icon-size);
     background-color: currentColor;
-    mask: var(--icon-angle-down);
+    mask: var(--mask-angle-down);
     pointer-events: none;
-    grid-area: body;
+    grid-area: control-p;
     align-self: center;
     margin-inline: auto var(--ui-control-select-icon-me);
   }

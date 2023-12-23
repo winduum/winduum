@@ -5,21 +5,40 @@
     <title>Winduum UI</title>
     <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
     <link rel="stylesheet" href="/src/main.css">
-    <link rel="stylesheet" href="/src/main-rgb.css">
     <link rel="stylesheet" href="/src/tailwind.css">
     <script src="/src/main.js" type="module"></script>
 </head>
-<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4">
-    <div class="ui-image aspect-square w-24 rounded">
-        <img src="https://via.placeholder.com/128" alt="" loading="lazy">
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light py-md grid-cols-container gap-y-4" style="--container-width: var(--container-sm-width)">
+    <div class="ui-image before:skeleton rounded">
+        <img src="https://via.placeholder.com/128x128" alt="" width="128" height="128" loading="lazy">
     </div>
-    <h1 class="ui-heading lg">Heading H1</h1>
+    <button class="ui-heading lg">Heading H1</button>
     <h2 class="ui-heading">Heading H2</h2>
     <h3 class="ui-heading sm">Heading H3</h3>
-    <h1 class="ui-title lg">Title H1</h1>
-    <h2 class="ui-title">Title H2</h2>
+    <h4 class="ui-title lg">Title H4</h4>
+    <h5 class="ui-title">Title H5</h5>
+    <h6 class="ui-title sm">Title H6</h6>
+
+    <div class="flex divide-x divide-gap-x-xl divide-body-tertiary">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+
+    <a href="#" class="ui-title underline">
+        Title Link
+    </a>
+    <a href="#" class="ui-title flex-center underline decoration-transparent">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+        </svg>
+        Title Link Transparent
+    </a>
+    <a href="#" class="ui-title underline decoration-transparent hover:decoration-primary">Title Link Transparent</a>
+
+
     <h3 class="ui-title uppercase text-accent sm">Title H3</h3>
-    <a class="ui-link underlined" href="#">Link</a>
+    <a class="ui-title underlined hover:text-accent" href="#">Link</a>
     <progress class="ui-progress accent-error" value="50" max="100">15%</progress>
     <progress class="ui-progress sm" max="100">15%</progress>
 
@@ -42,7 +61,7 @@
         <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Nullam in elit iaculis, tristique nisi ut, mollis tellus. Nunc venenatis elit vel placerat commodo. Vestibulum odio neque, hendrerit nec venenatis at, tincidunt ut magna. Etiam hendrerit ultrices pharetra.</p>
     </div>
 
-    <div class="ui-text container lg">
+    <div class="ui-text lg">
         <h1>h1 heading</h1>
         <h2>h2 heading</h2>
         <h3>h3 heading</h3>
@@ -51,7 +70,7 @@
         <h6>h6 heading</h6>
         <p>Lorem ipsum dolor</p>
         <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget efficitur
+        <p>Lorem ipsum dolor sit amet, <i>consectetur adipiscing elit</i>. <u>Donec eget</u> <s>efficitur</s>
             metus. In bibendum nisi et dui <a href="#">sagittis efficitur</a>. Proin porttitor diam at quam
             finibus, quis porttitor turpis ullamcorper. Quisque iaculis imperdiet nunc in
             hendrerit. Nulla facilisi. Sed at sodales ex. Vivamus ornare auctor ligula et
@@ -119,6 +138,21 @@
             <li>Milk</li>
         </ol>
         <p></p>
+        <ul>
+            <li>
+                <p><strong>I often do this thing where list items have headings.</strong></p>
+                <p>For some reason I think this looks cool which is unfortunate because it's pretty annoying to get the styles right.</p>
+                <p>I often have two or three paragraphs in these list items, too, so the hard part is getting the spacing between the paragraphs, list item heading, and separate list items to all make sense. Pretty tough honestly, you could make a strong argument that you just shouldn't write this way.</p>
+            </li>
+            <li>
+                <p><strong>Since this is a list, I need at least two items.</strong></p>
+                <p>I explained what I'm doing already in the previous list item, but a list wouldn't be a list if it only had one item, and we really want this to look realistic. That's why I've added this second list item so I actually have something to look at when writing the styles.</p>
+            </li>
+            <li>
+                <p><strong>It's not a bad idea to add a third item either.</strong></p>
+                <p>I think it probably would've been fine to just use two items but three is definitely not worse, and since I seem to be having no trouble making up arbitrary things to type, I might as well include it.</p>
+            </li>
+        </ul>
         <blockquote>Ut venenatis, nisl scelerisque sollicitudin fermentum, quam libero hendrerit ipsum, ut blandit est tellus sit amet turpis.</blockquote>
         <figure>
             <blockquote class="blockquote">
@@ -170,7 +204,7 @@
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="560" height="315" frameborder="0"></iframe>
     </div>
 
-    <div class="ui-text lg container container-sm">
+    <div class="ui-text lg">
         <p class="lead">Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.</p>
         <p>By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you <em>really are</em> just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.</p>
         <p>We get lots of complaints about it actually, with people regularly asking us things like:</p>

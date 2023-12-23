@@ -1,18 +1,27 @@
-@layer utilities {
+@layer components {
   .animate {
-    animation-duration: var(--transition-duration);
+    animation-duration: var(--duration);
     animation-fill-mode: both;
   }
 
-  .container {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
-    max-width: var(--container-width);
+  .underline {
+    text-underline-position: under;
+    text-decoration-thickness: max(1px, 0.0625em);
+    text-underline-offset: -0.125rem;
+    transition: all var(--duration) var(--ease-in-out);
 
-    &:where(.container-sm) {
-      --container-width: var(--container-width-sm);
+    &:where([href], button, .interactive) {
+      &:hover {
+        @media (hover: hover) and (pointer: fine) {
+          text-decoration-color: var(--color-current);
+          text-underline-offset: 0;
+        }
+      }
+
+      &:focus {
+        text-decoration-color: var(--color-current);
+        text-underline-offset: 0;
+      }
     }
   }
 
@@ -29,5 +38,13 @@
     animation: skeleton-wave 1.5s linear infinite;
     opacity: 0.3;
     transition: opacity 0.3s ease-out;
+  }
+
+  .flex-col {
+    display: flex;
+  }
+
+  [hidden] {
+    display: none;
   }
 }

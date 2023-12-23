@@ -1,4 +1,4 @@
-.ui-btn:where(.sm) {
+.ui-btn:is(.sm) {
   --ui-btn-height: 2rem;
   --ui-btn-px: 1rem;
 }

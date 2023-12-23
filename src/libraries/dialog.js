@@ -2,7 +2,9 @@ export const defaultOptions = {
     openClass: 'is-lib-dialog-open',
     scrollbarWidthProperty: '--lib-dialog-scrollbar-width',
     show: {
-        closable: true ?? null
+        closable: true ?? null,
+        onCloseStart: () => null,
+        onCloseEnd: () => null
     },
     close: {
         remove: false ?? null
@@ -29,6 +31,7 @@ export const dismissDialog = async (selector, options = defaultOptions.close) =>
     options.remove && selector.remove()
 
     if (!document.querySelector('dialog[open]')) {
+        document.documentElement.style.removeProperty(defaultOptions.scrollbarWidthProperty)
         document.documentElement.classList.remove(defaultOptions.openClass)
     }
 }
@@ -47,13 +50,19 @@ export const showDialog = async (selector, options = defaultOptions.show) => {
     if (!selector?._dialogHasEvents && options.closable) {
         selector.addEventListener('keydown', async ({ key }) => {
             if (key === 'Escape') {
-                setTimeout(() => dismissDialog(selector, options), 1)
+                setTimeout(async () => {
+                    options.onCloseStart()
+                    await dismissDialog(selector, options)
+                    options.onCloseEnd()
+                }, 1)
             }
         })
 
-        selector.addEventListener('click', ({ target }) => {
+        selector.addEventListener('click', async ({ target }) => {
             if (target.nodeName === 'DIALOG') {
-                closeDialog(selector, options)
+                options.onCloseStart()
+                await closeDialog(selector, options)
+                options.onCloseEnd()
             }
         })
 

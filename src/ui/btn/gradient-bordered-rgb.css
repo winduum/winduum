@@ -1,4 +1,4 @@
-:is(.ui-btn.gradient-bordered) {
+.ui-btn:is(.gradient-bordered) {
   --color-current-rgb: var(--color-current-rgb);
 
   &::before {

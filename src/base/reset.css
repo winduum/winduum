@@ -1,5 +1,5 @@
 /***
-    The new CSS reset - version 1.11.1 (last updated 24.10.2023)
+    The new CSS reset - version 1.11.2 (last updated 15.11.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
 ***/
 
@@ -36,7 +36,7 @@ html {
 }
 
 /* For images to not be able to exceed their container */
-:where(img) {
+:where(img, iframe) {
   max-inline-size: 100%;
   max-block-size: 100%;
 }
@@ -79,12 +79,6 @@ html {
   content: initial;
 }
 
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-:where([hidden]) {
-  display: none;
-}
-
 /* revert for bug in Chromium browsers
    - fix for the content editable attribute will work properly.
    - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
@@ -101,7 +95,16 @@ html {
   -webkit-user-drag: element;
 }
 
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+  display: none;
+}
+
 /* fix firefox svg */
 :where(svg, use, path, symbol) {
   all: revert-layer;
+}
+
+:where(search) {
+  display: block;
 }

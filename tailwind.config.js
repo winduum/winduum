@@ -1,4 +1,6 @@
 import winduum from './utils/tailwind.js'
+import containerQueries from '@tailwindcss/container-queries'
+import animate from 'tailwindcss-animate'
 
 export default {
     darkMode: 'class',
@@ -7,6 +9,8 @@ export default {
         './playground/**/*.{js,html,vue}'
     ],
     plugins: [
-        winduum()
+        winduum(),
+        containerQueries,
+        animate
     ]
 }

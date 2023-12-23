@@ -1,10 +1,11 @@
-.ui-badge:where(.bordered) {
-  --color-current: var(--color-accent);
-  --ui-badge-bg-opacity: 0%;
-  --ui-badge-border-width: 1px;
-  --ui-badge-border-opacity: calc(var(--tw-border-opacity, 1) * 100%);
+.ui-badge {
+  &:where(.bordered) {
+    border: var(--ui-badge-border-width, 1px) solid color-mix(in sRGB, var(--color-accent) var(--ui-badge-border-opacity, calc(var(--tw-border-opacity, 1) * 100%)), transparent);
+    padding-inline: calc(var(--ui-badge-px) - var(--ui-badge-border-width, 1px));
+  }
 
-  border: var(--ui-badge-border-width) solid color-mix(in sRGB, var(--color-accent) var(--ui-badge-border-opacity), transparent);
-  padding-left: calc(var(--ui-badge-px) - var(--ui-badge-border-width));
-  padding-right: calc(var(--ui-badge-px) - var(--ui-badge-border-width));
+  &:is(.bordered) {
+    --color-current: var(--color-accent);
+    --ui-badge-bg-opacity: 0%;
+  }
 }

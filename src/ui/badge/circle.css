@@ -1,4 +1,4 @@
-.ui-badge:where(.circle) {
+.ui-badge:is(.circle) {
   --ui-badge-px: var(--ui-badge-py);
   --ui-badge-width: var(--ui-badge-height);
   --ui-badge-border-radius: var(--rounded-full);

@@ -1,3 +1,7 @@
+::after, ::before {
+  --tw-content: "";
+}
+
 ::selection {
   color: var(--color-light);
   background-color: var(--color-accent);
@@ -32,11 +36,11 @@
 }
 
 :where(html) {
+  color-scheme: var(--color-scheme);
   font-family: var(--font-primary);
   font-weight: var(--font-normal);
   height: 100%;
   line-height: 1.5;
-  cursor: default;
 }
 
 :where(body) {

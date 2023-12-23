@@ -1,4 +1,4 @@
-.ui-btn:where(.circle) {
+.ui-btn:is(.circle) {
   --ui-btn-px: var(--ui-btn-py);
   --ui-btn-width: var(--ui-btn-height);
   --ui-btn-border-radius: var(--rounded-full);

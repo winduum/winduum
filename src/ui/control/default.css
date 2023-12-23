@@ -2,69 +2,59 @@
   --ui-control-height: 3rem;
   --ui-control-height-textarea: 8rem;
   --ui-control-px: 0.75rem;
-  --ui-control-ps: 0rem;
-  --ui-control-pe: 0rem;
-  --ui-control-bg: transparent;
-  --ui-control-color: currentColor;
-  --ui-control-placeholder-color: currentColor;
-  --ui-control-placeholder-opacity: 0.5;
-  --ui-control-font-size: 0.875rem;
-  --ui-control-font-weight: var(--font-medium);
+  --ui-control-py: 0.75rem;
   --ui-control-border-width: 1px;
-  --ui-control-border-color: var(--color-current);
-  --ui-control-border-mix: transparent;
-  --ui-control-border-opacity: 15%;
-  --ui-control-border-radius: var(--rounded);
-  --ui-control-outline-width: 3px;
-  --ui-control-outline-offset: 0;
-  --ui-control-outline-opacity: 20%;
-  --ui-control-disabled-opacity: 5%;
-  --ui-control-invalid-bg-opacity: 10%;
 
   display: grid;
-  grid-template-areas: "body";
-  position: relative;
-  font-size: var(--ui-control-font-size);
-  border-radius: var(--ui-control-border-radius);
-  background-color: var(--ui-control-bg);
-  transition:
-    var(--transition-border),
-    outline-color var(--transition-duration),
-    outline-offset var(--transition-duration);
-  font-weight: var(--ui-control-font-weight);
-  color: var(--ui-control-color);
-  border: var(--ui-control-border-width) solid color-mix(in sRGB, var(--ui-control-border-color) var(--ui-control-border-opacity), var(--ui-control-border-mix));
-  outline: var(--ui-control-outline-width) solid transparent;
-  outline-offset: 0;
   height: var(--ui-control-height);
+  font-family: var(--ui-contro-font-family, var(--font-primary));
+  font-weight: var(--ui-control-font-weight, var(--font-medium));
+  font-size: var(--ui-control-font-size, var(--text-sm));
+  letter-spacing: var(--ui-control-letter-spacing, inherit);
+  background-color: var(--ui-control-bg, transparent);
+  color: var(--ui-control-color, currentColor);
+  border-radius: var(--ui-control-border-radius, var(--rounded));
+  border: var(--ui-control-border-width) solid color-mix(in sRGB, var(--ui-control-border-color, var(--color-current)) var(--ui-control-border-opacity, 15%), var(--ui-control-border-mix, transparent));
+  outline: var(--ui-control-outline-width, 3px) solid transparent;
+  outline-offset: 0;
+  transition-property: var(--transition);
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: var(--duration);
+  grid-template:
+    [control-start] calc(var(--ui-control-py) - var(--ui-control-border-width))
+    [control-p] 1fr
+    calc(var(--ui-control-py) - var(--ui-control-border-width)) [control-end] /
+    [control-start] var(--ui-control-px)
+    [control-p] 1fr
+    var(--ui-control-px) [control-end];
 
   &:has(textarea) {
     height: auto;
   }
 
-  & > * {
-    grid-area: body;
+  & > :where(*) {
+    grid-area: control-p;
+    align-self: center;
   }
 
   & :where(input, textarea, select) {
-    place-self: stretch;
-    padding-top: var(--ui-control-pt, 0);
-    padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps)) calc(var(--ui-control-px) + var(--ui-control-pe));
     text-overflow: ellipsis;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
+    overflow: clip;
+    padding-block: var(--ui-control-py);
+    padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps, 0rem)) calc(var(--ui-control-px) + var(--ui-control-pe, 0rem));
+    grid-area: control;
+    align-self: stretch;
 
     &:disabled {
       cursor: not-allowed;
-      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity), var(--ui-control-bg));
+      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity, 5%), var(--ui-control-bg, transparent));
     }
   }
 
   & :where(input, textarea) {
     &::placeholder {
-      color: var(--ui-control-placeholder-color);
-      opacity: var(--ui-control-placeholder-opacity);
+      color: var(--ui-control-placeholder-color, currentColor);
+      opacity: var(--ui-control-placeholder-opacity, 0.5);
     }
   }
 
@@ -77,8 +67,8 @@
     --ui-control-border-opacity: 100%;
     --ui-control-border-color: var(--color-accent);
 
-    outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-control-outline-opacity), transparent);
-    outline-offset: var(--ui-control-outline-offset);
+    outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-control-outline-opacity, 20%), transparent);
+    outline-offset: var(--ui-control-outline-offset, 0);
   }
 
   &.invalid, .validated &:has(:invalid) {
@@ -87,6 +77,6 @@
     --ui-control-color: var(--color-error);
     --color-accent: var(--color-error);
 
-    background-color: color-mix(in sRGB, var(--color-error) var(--ui-control-invalid-bg-opacity), var(--ui-control-bg));
+    background-color: color-mix(in sRGB, var(--color-error) var(--ui-control-invalid-bg-opacity, 10%), var(--ui-control-bg));
   }
 }

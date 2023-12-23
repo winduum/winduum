@@ -2,6 +2,8 @@ export interface DefaultOptions {
     openClass: string;
     scrollbarWidthProperty: string;
     show: {
+        onCloseStart: Function
+        onCloseEnd: Function
         closable: boolean | null;
     };
     close: {

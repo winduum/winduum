@@ -2,7 +2,6 @@ import plugin from 'tailwindcss/plugin'
 import flattenColorPalette from 'tailwindcss/src/util/flattenColorPalette'
 import toColorValue from 'tailwindcss/src/util/toColorValue'
 import { parseColor, formatColor } from 'tailwindcss/src/util/color'
-import lodash from 'lodash'
 
 function withAlphaVariable ({ color, property, variable }) {
     const properties = [].concat(property)
@@ -45,11 +44,13 @@ export const defaultConfig = {
     ],
     fontFamily: ['primary', 'secondary'],
     fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
+    ease: ['linear', 'in', 'out', 'in-out'],
     zIndex: [10, 20, 30, 40, 50, 60],
     fontSize: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
-    spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'section'],
+    spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
     animations: ['fade-in', 'fade-out', 'fade-in-down', 'fade-out-up', 'ripple', 'spin', 'move-indeterminate'],
+    mask: ['check', 'radio', 'angle-up', 'angle-down'],
     screens: {
         xs: '22.5em',
         sm: '26em',
@@ -63,7 +64,7 @@ export const defaultConfig = {
         '2xxl': '158em'
     },
     settings: {
-        rgb: true,
+        rgb: false,
         colorMix: true
     }
 }
@@ -98,6 +99,18 @@ export const tailwindVariablesFont = (type, variables = [], values = {}) => {
     return values
 }
 
+export const tailwindPropertyUtilities = (type, variables = []) => {
+    const result = {}
+
+    variables.forEach(name => {
+        result[`.${type}-${name}`] = {
+            [type]: `var(--${type}-${name})`
+        }
+    })
+
+    return result
+}
+
 export const tailwindAnimations = (values) => {
     const result = {}
 
@@ -110,8 +123,23 @@ export const tailwindAnimations = (values) => {
     return result
 }
 
+export const tailwindMask = (values) => {
+    const result = {}
+
+    values.forEach(value => {
+        result[`.mask-${value}`] = {
+            mask: value
+        }
+    })
+
+    return result
+}
+
 export const createPlugin = (userConfig = {}) => {
-    userConfig = lodash.merge(defaultConfig, userConfig)
+    userConfig = {
+        ...defaultConfig,
+        userConfig
+    }
 
     return plugin(({ addUtilities, matchUtilities, theme, variants, e, corePlugins }) => {
         matchUtilities(
@@ -180,15 +208,13 @@ export const createPlugin = (userConfig = {}) => {
                         }
                     }
 
-                    const color = matchValue
-                        ? { color: 'var(--color-current)' }
-                        : {
-                            ...withAlphaVariable({
-                                color: value,
-                                property: 'color',
-                                variable: '--tw-text-opacity'
-                            })
-                        }
+                    const color = {
+                        ...withAlphaVariable({
+                            color: value,
+                            property: 'color',
+                            variable: '--tw-text-opacity'
+                        })
+                    }
 
                     if (!corePlugins('textOpacity')) {
                         return {
@@ -212,25 +238,52 @@ export const createPlugin = (userConfig = {}) => {
             { values: flattenColorPalette(theme('textColor')), type: ['color', 'any'] }
         )
         addUtilities(tailwindAnimations(userConfig.animations))
+        addUtilities(tailwindPropertyUtilities('mask', userConfig.mask))
         addUtilities([
             Object.entries(theme('spacing')).map(([key, value]) => {
                 return {
-                    [`.${e(`sq-${key}`)}`]: {
-                        width: value,
-                        height: value
+                    [`.${e(`divide-gap-x-${key}`)}`]: {
+                        '& > :where(*:not(:first-child))': {
+                            paddingLeft: value,
+                            marginLeft: value
+                        }
+                    },
+                    [`.${e(`divide-gap-y-${key}`)}`]: {
+                        '& > :where(*:not(:first-child))': {
+                            paddingTop: value,
+                            marginTop: value
+                        }
                     }
                 }
             })
-        ], variants('sq'))
+        ])
+        addUtilities({
+            '.flex-center': {
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'var(--spacing-sm)'
+            },
+            '.flex-between': {
+                display: 'flex',
+                justifyContent: 'between',
+                gap: 'var(--spacing-sm)'
+            }
+        })
     }, {
         corePlugins: {
             preflight: false,
-            container: false,
             textColor: false,
             accentColor: false
         },
         theme: {
             extend: {
+                transitionProperty: {
+                    DEFAULT: 'var(--transition)'
+                },
+                transitionDuration: {
+                    DEFAULT: 'var(--duration)'
+                },
+                transitionTimingFunction: tailwindVariables('ease', userConfig.ease),
                 colors: tailwindColors(userConfig.colors),
                 fontSize: tailwindVariablesFont('text', userConfig.fontSize),
                 fontFamily: tailwindVariables('font', userConfig.fontFamily),
