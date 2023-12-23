@@ -40,8 +40,6 @@
   & :where(input, textarea, select) {
     text-overflow: ellipsis;
     overflow: clip;
-    display: flex;
-    align-items: center;
     padding-block: var(--ui-control-py);
     padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps, 0rem)) calc(var(--ui-control-px) + var(--ui-control-pe, 0rem));
     grid-area: control;
