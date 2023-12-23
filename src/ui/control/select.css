@@ -18,7 +18,7 @@
     background-color: currentColor;
     mask: var(--mask-angle-down);
     pointer-events: none;
-    grid-area: 1/-1;
+    grid-area: control-p;
     align-self: center;
     margin-inline: auto var(--ui-control-select-icon-me);
   }

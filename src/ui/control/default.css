@@ -20,15 +20,21 @@
   transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
-  padding-inline: var(--ui-control-px);
+  grid-template:
+    [control-start] calc(var(--ui-control-py) - var(--ui-control-border-width))
+    [control-p] 1fr
+    calc(var(--ui-control-py) - var(--ui-control-border-width)) [control-end] /
+    [control-start] var(--ui-control-px)
+    [control-p] 1fr
+    var(--ui-control-px) [control-end];
 
   &:has(textarea) {
     height: auto;
   }
 
-  & > * {
-    grid-area: 1/-1;
-    margin-block: auto;
+  & > :where(*) {
+    grid-area: control-p;
+    align-self: center;
   }
 
   & :where(input, textarea, select) {
@@ -38,7 +44,8 @@
     align-items: center;
     padding-block: var(--ui-control-py);
     padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps, 0rem)) calc(var(--ui-control-px) + var(--ui-control-pe, 0rem));
-    margin-inline: calc(var(--ui-control-px) * -1);
+    grid-area: control;
+    align-self: stretch;
 
     &:disabled {
       cursor: not-allowed;

@@ -22,7 +22,7 @@
     padding-block-start: calc(var(--ui-control-py) + var(--ui-control-label-translate-y) * var(--ui-control-label-scale));
 
     & + :where(label) {
-      margin-block-start: var(--ui-control-py);
+      align-self: start;
     }
   }
 
