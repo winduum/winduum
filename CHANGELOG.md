@@ -1,4 +1,4 @@
-## 0.5.0 (2023-12-22)
+## 0.5.0 (2023-12-23)
 * feat(bc): refactor of all components and CSS Properties, improved specificity
 * feat(bc): removed `rgb` colors from default configuration, if you want compatibility use `-rgb.css`
 * feat(bc): removed `container` utility class
@@ -8,20 +8,20 @@
 * feat(bc): `ui-control` elements `icon-l` and `icon-r` were renamed to `icon-s` and `icon-e`
 * feat(bc): `base/icon.css` was renamed to `base/config/mask.css` and TailwindCSS mask utility was added
 * feat(bc): removed `sq` TailwindCSS utility, use `size` from tw v3.4 now
-* feat: removed lodash dependency in TailwindCSS plugin
-* feat: added new `divide-gap` TailwindCSS utility
+* feat(js): added `onCloseStart` and `onCloseEnd` to `lib-dialog` show options
+* feat(plugin): removed lodash dependency in TailwindCSS plugin
+* feat(plugin): added new `divide-gap` TailwindCSS utility
+* feat(plugin): transition CSS Properties are now unified with TailwindCSS
 * feat: added `text-wrap: balance` to most of the components
 * feat: updated compatibility for TailwindCSS v3.4
 * feat: added new `grid-cols-container` utility class for doing containers via grid
 * feat: added new utilities such us `underline`, `flex-center`, `flex-between`
 * feat: `config.css` was split into multiple files for better modularity
-* feat: transition CSS Properties are now unified with TailwindCSS
 * feat: `reset.css` was updated to v1.11.2
 * feat: added `color-scheme` to `default.css`
 * feat: utilities are using `@layer components` for lower specificity
 * feat: colors were changed to TailwindCSS counterparts
 * feat: remove use of `overflow:hidden` from all files
-* feat(js): added `onCloseStart` and `onCloseEnd` to `lib-dialog` show options
 
 ## 0.4.0 (2023-11-08)
 * feat(bc): ui-control - refactor, styles are now applied on parent, should go better together with custom selects like [Headless UI](https://headlessui.com/react/listbox)
