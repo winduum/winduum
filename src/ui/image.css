@@ -1,9 +1,8 @@
 .ui-image {
   position: relative;
-  display: flex;
+  display: inline-flex;
   border-radius: inherit;
   flex-shrink: 0;
-  max-width: max-content;
 
   &::before {
     position: absolute;
