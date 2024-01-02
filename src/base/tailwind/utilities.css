@@ -5,26 +5,19 @@
   }
 
   .underline {
-    text-underline-position: under;
-    text-underline-offset: var(--tw-underline-offset, calc(max(1px, 0.0625em) * -1));
-    text-decoration-thickness: max(1px, 0.0625em);
-    transition: all var(--duration) var(--ease-in-out);
+    text-underline-offset: var(--tw-underline-offset, 0.125em);
   }
 
   .decoration-transparent {
-    text-underline-offset: var(--tw-underline-offset-transparent, -0.25rem);
-
     &:where([href], button, .interactive) {
-      &:hover {
-        @media (hover: hover) and (pointer: fine) {
-          text-decoration-color: var(--color-current);
-          text-underline-offset: var(--tw-underline-offset, calc(max(1px, 0.0625em) * -1));
-        }
+      transition: all var(--duration) var(--ease-in-out);
+
+      &:not(:hover, :focus) {
+        text-underline-offset: var(--tw-underline-offset-transparent, -0.25em);
       }
 
-      &:focus {
+      &:is(:hover, :focus) {
         text-decoration-color: var(--color-current);
-        text-underline-offset: var(--tw-underline-offset, calc(max(1px, 0.0625em) * -1));
       }
     }
   }
