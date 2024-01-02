@@ -12,7 +12,7 @@
   }
 
   .decoration-transparent {
-    text-underline-offset: var(--tw-underline-offset-transparent, -0.125rem);
+    text-underline-offset: var(--tw-underline-offset-transparent, -0.25rem);
 
     &:where([href], button, .interactive) {
       &:hover {

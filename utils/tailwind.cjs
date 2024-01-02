@@ -142,7 +142,7 @@ const tailwindMask = (values) => {
 const createPlugin = (userConfig = {}) => {
     userConfig = {
         ...defaultConfig,
-        userConfig
+        ...userConfig
     };
 
     return plugin(({ addUtilities, matchUtilities, theme, variants, e, corePlugins }) => {
