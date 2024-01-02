@@ -33,6 +33,7 @@
   display: block;
   border-top: 1px solid color-mix(in sRGB, var(--color-current) calc(var(--tw-border-opacity, 0.15) * 100%), transparent);
   border-radius: var(--rounded);
+  width: 100%;
 }
 
 :where(html) {
