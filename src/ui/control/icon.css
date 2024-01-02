@@ -35,6 +35,6 @@
   }
 
   &:has(textarea) :where(.icon-s, .icon-e) {
-    margin-block-start: var(--ui-control-py);
+    align-self: start;
   }
 }
