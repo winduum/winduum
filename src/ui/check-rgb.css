@@ -4,17 +4,13 @@
   --ui-check-checked-bg: var(--color-accent-rgb);
 
   & :where(input) {
-    background-color: rgb(var(--ui-check-bg) / var(--ui-check-bg-opacity));
-    border: var(--ui-check-border-width) solid rgb(var(--ui-check-border-color) / var(--ui-check-border-opacity));
+    background-color: rgb(var(--ui-check-bg) / var(--ui-check-bg-opacity, 0));
+    border: var(--ui-check-border-width, 1px) solid rgb(var(--ui-check-border-color, var(--color-current)) / var(--ui-check-border-opacity, calc(var(--tw-border-opacity, 0.2) * 100%)));
 
     &:not(:disabled) {
       &:focus {
-        outline-color: rgb(var(--ui-check-checked-bg) / var(--ui-check-outline-opacity));
+        outline-color: rgb(var(--ui-check-checked-bg) / var(--ui-check-outline-opacity, 20%));
       }
-    }
-
-    &:disabled {
-      --ui-check-bg: var(--color-current-rgb);
     }
 
     &:checked {

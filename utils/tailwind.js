@@ -138,7 +138,7 @@ export const tailwindMask = (values) => {
 export const createPlugin = (userConfig = {}) => {
     userConfig = {
         ...defaultConfig,
-        userConfig
+        ...userConfig
     }
 
     return plugin(({ addUtilities, matchUtilities, theme, variants, e, corePlugins }) => {
