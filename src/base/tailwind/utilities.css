@@ -6,27 +6,27 @@
 
   .underline {
     text-underline-position: under;
+    text-underline-offset: var(--tw-underline-offset, calc(max(1px, 0.0625em) * -1));
     text-decoration-thickness: max(1px, 0.0625em);
-    text-underline-offset: var(--underline-offset, 0);
     transition: all var(--duration) var(--ease-in-out);
+  }
+
+  .decoration-transparent {
+    text-underline-offset: var(--tw-underline-offset-transparent, -0.125rem);
 
     &:where([href], button, .interactive) {
       &:hover {
         @media (hover: hover) and (pointer: fine) {
           text-decoration-color: var(--color-current);
-          text-underline-offset: 0;
+          text-underline-offset: var(--tw-underline-offset, calc(max(1px, 0.0625em) * -1));
         }
       }
 
       &:focus {
         text-decoration-color: var(--color-current);
-        text-underline-offset: 0;
+        text-underline-offset: var(--tw-underline-offset, calc(max(1px, 0.0625em) * -1));
       }
     }
-  }
-
-  .decoration-transparent {
-    text-underline-offset: var(--underline-offset-transparent, -0.125rem);
   }
 
   .skeleton {
