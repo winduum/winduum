@@ -141,7 +141,7 @@ export const createPlugin = (userConfig = {}) => {
         ...userConfig
     }
 
-    return plugin(({ addUtilities, matchUtilities, theme, variants, e, corePlugins }) => {
+    return plugin(({ addUtilities, addComponents, matchUtilities, theme, variants, e, corePlugins }) => {
         matchUtilities(
             {
                 accent: (value) => {
@@ -239,7 +239,7 @@ export const createPlugin = (userConfig = {}) => {
         )
         addUtilities(tailwindAnimations(userConfig.animations))
         addUtilities(tailwindPropertyUtilities('mask', userConfig.mask))
-        addUtilities([
+        addComponents([
             Object.entries(theme('spacing')).map(([key, value]) => {
                 return {
                     [`.${e(`divide-gap-x-${key}`)}`]: {
@@ -257,7 +257,7 @@ export const createPlugin = (userConfig = {}) => {
                 }
             })
         ])
-        addUtilities({
+        addComponents({
             '.flex-center': {
                 display: 'flex',
                 alignItems: 'center',
@@ -265,7 +265,7 @@ export const createPlugin = (userConfig = {}) => {
             },
             '.flex-between': {
                 display: 'flex',
-                justifyContent: 'between',
+                justifyContent: 'space-between',
                 gap: 'var(--spacing-sm)'
             }
         })
