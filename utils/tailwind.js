@@ -265,7 +265,7 @@ export const createPlugin = (userConfig = {}) => {
             },
             '.flex-between': {
                 display: 'flex',
-                justifyContent: 'between',
+                justifyContent: 'space-between',
                 gap: 'var(--spacing-sm)'
             }
         })

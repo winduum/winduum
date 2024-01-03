@@ -1,5 +1,5 @@
 ## 0.5.2 (2024-01-03)
-* fix: tailwindcss utilities specificity
+* fix: tailwindcss utilities and specificity
 
 ## 0.5.1 (2024-01-02)
 * feat: changed `ui-image` from `flex` to `inline-flex`
