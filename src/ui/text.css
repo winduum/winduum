@@ -181,16 +181,6 @@
 
   & :where(code) {
     font-size: 87.5%;
-    margin-inline: var(--spacing-xs);
-    border-radius: var(--rounded-sm);
-    padding: 0.25em 0.375em;
-    color: var(--color-accent);
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-    background-color: color-mix(in sRGB, var(--color-current) 5%, transparent);
-
-    :where(.dark) & {
-      background-color: var(--color-body-secondary);
-    }
   }
 
   & :where(figure) {

@@ -41,7 +41,7 @@
 
     &::before {
       transition: var(--transition-color), var(--transition-opacity), var(--transition-transform);
-      color: var(--color-accent-fg);
+      color: var(--color-accent-foreground);
       content: "";
       background-color: currentColor;
       mask: var(--ui-check-icon, var(--mask-check));

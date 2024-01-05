@@ -1,5 +1,5 @@
 .ui-btn {
-  --color-current: var(--color-accent-fg);
+  --color-current: var(--color-accent-foreground);
   --ui-btn-height: 2.25rem;
   --ui-btn-py: 0.375rem;
   --ui-btn-px: 0.75rem;
@@ -32,11 +32,11 @@
   outline-offset: 0;
 
   &:where([class*="accent-main"]) {
-    --ui-btn-hover-bg-mix: var(--color-main-fg);
+    --ui-btn-hover-bg-mix: var(--color-main-foreground);
   }
 
   &:where([class*="accent-body"]) {
-    --ui-btn-hover-bg-mix: var(--color-body-fg);
+    --ui-btn-hover-bg-mix: var(--color-body-foreground);
   }
 
   &:where(input)::after {
