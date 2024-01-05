@@ -1,0 +1,35 @@
+.ui-progress {
+  &::-webkit-meter-inner-element {
+    position: relative;
+    display: block;
+  }
+
+  &::-webkit-meter-bar {
+    border: 0;
+    background: transparent;
+  }
+
+  &::-webkit-meter-optimum-value {
+    background: var(--color-success);
+  }
+
+  &::-webkit-meter-suboptimum-value {
+    background: var(--color-warning);
+  }
+
+  &::-webkit-meter-even-less-good-value {
+    background: var(--color-error);
+  }
+
+  &:-moz-meter-optimum::-moz-meter-bar {
+    background: var(--color-success);
+  }
+
+  &:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: var(--color-warning);
+  }
+
+  &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: var(--color-error);
+  }
+}

@@ -208,12 +208,18 @@
 </div>
 <div>
     <div class="ui-switch">
-        <input type="checkbox" id="checkbox" required>
+        <input type="checkbox" required id="my-switch">
+        <script>
+            document.getElementById("my-switch").indeterminate = true
+        </script>
     </div>
 </div>
 
 <label class="ui-check sq-4">
-    <input type="checkbox" required>
+    <input type="checkbox" required id="my-checkbox">
+    <script>
+        document.getElementById("my-checkbox").indeterminate = true
+    </script>
 </label>
 
 <label class="ui-radio">

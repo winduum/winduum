@@ -84,7 +84,11 @@
       opacity: var(--ui-check-disabled-opacity, 0.5);
     }
 
-    &:checked {
+    &:indeterminate {
+      --ui-check-icon: var(--mask-indeterminate);
+    }
+
+    &:is(:checked, :indeterminate) {
       --ui-check-border-opacity: 0%;
       --ui-check-bg: var(--ui-check-checked-bg);
 
