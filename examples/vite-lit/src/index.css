@@ -1,11 +1,8 @@
 @import "winduum/src/base/default.css";
 @import "winduum/src/base/breakpoints.css";
 @import "winduum/src/base/config.css";
-@import "winduum/src/base/icons.css";
 @import "winduum/src/base/keyframes.css";
-@import "winduum/src/base/theme/default-rgb.css";
 @import "winduum/src/base/theme/default.css";
-@import "winduum/src/base/theme/dark-rgb.css";
 @import "winduum/src/base/theme/dark.css";
 @import "winduum/src/tailwind.css";
 
