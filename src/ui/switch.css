@@ -74,6 +74,12 @@
         margin-left: calc(100% - var(--ui-check-icon-size));
       }
     }
+
+    &:indeterminate {
+      &::before {
+        margin-left: calc(50% - var(--ui-check-icon-size) / 2);
+      }
+    }
   }
 
   &.invalid, .validated & :where(input):invalid {
