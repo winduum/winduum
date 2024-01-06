@@ -4,7 +4,7 @@
   position: fixed;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: var(--lib-ripple-bg, color-mix(in sRGB, var(--color-dark) calc(var(--tw-bg-opacity, 0.8) * 100%), transparent));
+  background-color: var(--lib-ripple-bg, color-mix(in var(--space), var(--color-dark) calc(var(--tw-bg-opacity, 0.8) * 100%), transparent));
   overscroll-behavior: contain;
   display: flex;
   padding: var(--lib-dialog-py, 2rem) var(--lib-dialog-px, 1.5rem);

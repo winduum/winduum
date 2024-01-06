@@ -14,7 +14,7 @@
   background-color: var(--ui-control-bg, transparent);
   color: var(--ui-control-color, currentColor);
   border-radius: var(--ui-control-border-radius, var(--rounded));
-  border: var(--ui-control-border-width) solid color-mix(in sRGB, var(--ui-control-border-color, var(--color-current)) var(--ui-control-border-opacity, 15%), var(--ui-control-border-mix, transparent));
+  border: var(--ui-control-border-width) solid color-mix(in var(--space), var(--ui-control-border-color, var(--color-current)) var(--ui-control-border-opacity, 15%), var(--ui-control-border-mix, transparent));
   outline: var(--ui-control-outline-width, 3px) solid transparent;
   outline-offset: 0;
   transition-property: var(--transition);
@@ -47,7 +47,7 @@
 
     &:disabled {
       cursor: not-allowed;
-      background-color: color-mix(in sRGB, var(--color-current) var(--ui-control-disabled-opacity, 5%), var(--ui-control-bg, transparent));
+      background-color: color-mix(in var(--space), var(--color-current) var(--ui-control-disabled-opacity, 5%), var(--ui-control-bg, transparent));
     }
   }
 
@@ -67,7 +67,7 @@
     --ui-control-border-opacity: 100%;
     --ui-control-border-color: var(--color-accent);
 
-    outline-color: color-mix(in sRGB, var(--color-accent) var(--ui-control-outline-opacity, 20%), transparent);
+    outline-color: color-mix(in var(--space), var(--color-accent) var(--ui-control-outline-opacity, 20%), transparent);
     outline-offset: var(--ui-control-outline-offset, 0);
   }
 
@@ -77,6 +77,6 @@
     --ui-control-color: var(--color-error);
     --color-accent: var(--color-error);
 
-    background-color: color-mix(in sRGB, var(--color-error) var(--ui-control-invalid-bg-opacity, 10%), var(--ui-control-bg));
+    background-color: color-mix(in var(--space), var(--color-error) var(--ui-control-invalid-bg-opacity, 10%), var(--ui-control-bg));
   }
 }

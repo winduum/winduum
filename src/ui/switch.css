@@ -62,7 +62,7 @@
     }
 
     &:focus {
-      outline-color: color-mix(in sRGB, var(--color-current) var(--ui-switch-outline-opacity, 20%), transparent);
+      outline-color: color-mix(in var(--space), var(--color-current) var(--ui-switch-outline-opacity, 20%), transparent);
       outline-offset: var(--ui-switch-outline-offset, 0);
     }
 

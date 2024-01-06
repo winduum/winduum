@@ -29,8 +29,8 @@
     display: flex;
     width: var(--ui-check-width);
     height: var(--ui-check-width);
-    background-color: var(--ui-check-bg, color-mix(in sRGB, var(--color-current) var(--ui-check-bg-opacity, 0), var(--ui-check-bg-mix, transparent)));
-    border: var(--ui-check-border-width, 1px) solid color-mix(in sRGB, var(--ui-check-border-color, var(--color-current)) var(--ui-check-border-opacity, calc(var(--tw-border-opacity, 0.2) * 100%)), var(--ui-check-border-mix, transparent));
+    background-color: var(--ui-check-bg, color-mix(in var(--space), var(--color-current) var(--ui-check-bg-opacity, 0), var(--ui-check-bg-mix, transparent)));
+    border: var(--ui-check-border-width, 1px) solid color-mix(in var(--space), var(--ui-check-border-color, var(--color-current)) var(--ui-check-border-opacity, calc(var(--tw-border-opacity, 0.2) * 100%)), var(--ui-check-border-mix, transparent));
     border-radius: var(--ui-check-radius, var(--rounded-md));
     outline: var(--ui-check-outline-width, 3px) solid transparent;
     outline-offset: 0;
@@ -72,7 +72,7 @@
         --ui-check-border-color: var(--ui-check-checked-bg);
         --ui-check-border-opacity: 75%;
 
-        outline-color: color-mix(in sRGB, var(--ui-check-checked-bg) var(--ui-check-outline-opacity, 20%), transparent);
+        outline-color: color-mix(in var(--space), var(--ui-check-checked-bg) var(--ui-check-outline-opacity, 20%), transparent);
         outline-offset: var(--ui-check-outline-offset, 0);
       }
     }

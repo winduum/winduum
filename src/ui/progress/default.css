@@ -1,5 +1,5 @@
 .ui-progress {
-  --ui-progress-bg: color-mix(in sRGB, var(--color-accent) var(--ui-progress-bg-opacity), var(--color-body));
+  --ui-progress-bg: color-mix(in var(--space), var(--color-accent) var(--ui-progress-bg-opacity), var(--color-body));
   --ui-progress-bg-opacity: calc(var(--tw-bg-opacity, 1) * 10%);
 
   height: var(--ui-progress-height, 1rem);

@@ -25,12 +25,12 @@
 
     &:hover {
       @media (hover: hover) and (pointer: fine) {
-        color: color-mix(in sRGB, var(--color-accent) 70%, transparent);
+        color: color-mix(in var(--space), var(--color-accent) 70%, transparent);
       }
     }
 
     &:focus-visible {
-      color: color-mix(in sRGB, var(--color-accent) 70%, transparent);
+      color: color-mix(in var(--space), var(--color-accent) 70%, transparent);
     }
   }
 
@@ -108,12 +108,12 @@
 
     & :where(thead) {
       font-weight: var(--ui-text-content-bold);
-      border-bottom: 1px solid color-mix(in sRGB, var(--color-current) 7.5%, transparent);
+      border-bottom: 1px solid color-mix(in var(--space), var(--color-current) 7.5%, transparent);
     }
 
     & :where(tbody tr) {
       &:nth-of-type(even) {
-        background-color: color-mix(in sRGB, var(--color-current) 5%, transparent);
+        background-color: color-mix(in var(--space), var(--color-current) 5%, transparent);
       }
     }
   }

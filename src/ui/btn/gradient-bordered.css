@@ -3,7 +3,7 @@
     &::before {
       content: "";
       position: absolute;
-      background-color: color-mix(in sRGB, var(--color-body) calc(100% - var(--ui-btn-bg-opacity)), transparent);
+      background-color: color-mix(in var(--space), var(--color-body) calc(100% - var(--ui-btn-bg-opacity)), transparent);
       inset: var(--ui-btn-border-width);
       border-radius: calc(var(--ui-btn-border-radius, var(--rounded)) / 1.25);
       z-index: -1;
@@ -12,7 +12,7 @@
 
     &:where(.hover-fill) {
       &::before {
-        background-color: color-mix(in sRGB, var(--color-body) var(--ui-btn-bg-opacity), transparent);
+        background-color: color-mix(in var(--space), var(--color-body) var(--ui-btn-bg-opacity), transparent);
       }
     }
   }

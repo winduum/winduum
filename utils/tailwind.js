@@ -76,7 +76,7 @@ export const tailwindColors = (colors = []) => {
         }
 
         colors[name] = defaultConfig.settings.colorMix
-            ? `color-mix(in sRGB, var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
+            ? `color-mix(in var(--space), var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
             : `rgb(var(--color-${name}) / <alpha-value>)`
     })
 
@@ -145,7 +145,7 @@ export const createPlugin = (userConfig = {}) => {
         matchUtilities(
             {
                 accent: (value) => {
-                    const matchValue = toColorValue(value).match(/var\((.*?)\)/)
+                    const matchValue = toColorValue(value).match(/var\((--color-.*?)\)/)
                     const fallbackRgb = matchValue && matchValue[0].includes('-rgb')
 
                     const colorProperties = {}

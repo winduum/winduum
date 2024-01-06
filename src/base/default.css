@@ -59,7 +59,7 @@
 }
 
 :where(html) {
-  color-scheme: var(--color-scheme);
+  color-scheme: var(--scheme);
   font-family: var(--font-primary);
   font-weight: var(--font-normal);
   block-size: 100%;
