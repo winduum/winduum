@@ -13,7 +13,7 @@ export class UiBadge extends LitElement {
                 box-sizing: border-box;
               }
             `, unsafeCSS(
-                UiBadgeCss.replaceAll('.ui-badge:', ':host(:').replaceAll(' {', ') {').replaceAll('.ui-badge)', ':host')
+                UiBadgeCss.replaceAll('.ui-badge', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
             )
         ]
     }

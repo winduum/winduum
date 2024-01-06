@@ -1,4 +1,4 @@
-@import "winduum/src/base/default.css";
+@import "winduum/src/base/reset.css";
 @import "winduum/src/base/breakpoints.css";
 @import "winduum/src/base/config.css";
 @import "winduum/src/base/keyframes.css";
@@ -6,14 +6,79 @@
 @import "winduum/src/base/theme/dark.css";
 @import "winduum/src/tailwind.css";
 
-:root {
-  font-synthesis: none;
-  text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-size-adjust: 100%;
+::after, ::before {
+  --tw-content: "";
 }
 
+::selection {
+  color: var(--color-light);
+  background-color: var(--color-accent);
+}
+
+:where(svg) {
+  stroke-width: 1.5;
+}
+
+:where(svg:not([width])) {
+  width: 1.25rem;
+}
+
+:where(svg:not([height])) {
+  height: 1.25rem;
+}
+
+:where(button) {
+  cursor: pointer;
+}
+
+:where(hr) {
+  border-top: 1px solid var(--color-body-tertiary);
+  border-radius: var(--rounded);
+  width: 100%;
+}
+
+:where(code) {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-body-secondary);
+  border-radius: var(--rounded-sm);
+  color: var(--color-accent);
+}
+
+:where(kbd) {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-body-secondary);
+  border-radius: var(--rounded-sm);
+  border: 1px solid var(--color-body-tertiary);
+}
+
+:where(:not(pre) > code, kbd) {
+  white-space: nowrap;
+}
+
+:where(pre > code) {
+  display: block;
+  margin: 0;
+}
+
+:where(html) {
+  color-scheme: var(--color-scheme);
+  font-family: var(--font-primary);
+  font-weight: var(--font-normal);
+  block-size: 100%;
+  line-height: 1.5;
+  text-size-adjust: 100%;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+:where(body) {
+  min-block-size: 100%;
+  background-color: var(--color-body);
+  color: var(--color-main);
+  accent-color: var(--color-accent);
+}
 
 body {
   display: flex;

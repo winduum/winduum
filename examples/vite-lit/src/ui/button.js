@@ -5,12 +5,13 @@ export class UiButton extends LitElement {
     constructor () {
         super()
 
-        this.classList.add('interactive')
+        this.role = 'button'
+        this.tabIndex = '0'
     }
 
     render () {
         return html`
-          <a href="#" style="display: contents; color: inherit"><slot></slot></a>
+          <a href="#" title="test"><slot></slot></a>
         `
     }
 
@@ -20,8 +21,20 @@ export class UiButton extends LitElement {
               :host, * {
                 box-sizing: border-box;
               }
+              
+              a {
+                display: contents;
+                color: inherit;
+                
+                &::before {
+                  position: absolute;
+                  inset: 0;
+                  content: "";
+                }
+              }
+              
             `, unsafeCSS(
-                UiBtnCss.replaceAll('.ui-btn:', ':host(:').replaceAll(' {', ') {').replaceAll('.ui-btn)', ':host')
+                UiBtnCss.replaceAll('.ui-btn', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
             )
         ]
     }

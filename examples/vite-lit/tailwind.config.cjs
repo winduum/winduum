@@ -6,5 +6,5 @@ module.exports = {
   ],
   plugins: [
     require('winduum')()
-  ],
+  ]
 }

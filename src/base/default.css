@@ -2,6 +2,12 @@
   --tw-content: "";
 }
 
+:where(*),
+:where(*)::before,
+:where(*)::after {
+  border: 0 solid currentColor;
+}
+
 ::selection {
   color: var(--color-light);
   background-color: var(--color-accent);

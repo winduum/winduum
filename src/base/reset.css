@@ -74,8 +74,6 @@
 :where(*)::before,
 :where(*)::after {
   box-sizing: border-box;
-  outline: none;
-  border: 0 solid currentColor;
   -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
 }
 
@@ -164,9 +162,7 @@ Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
   }
 
   &::-webkit-calendar-picker-indicator,
-  &::-webkit-search-cancel-button,
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
+  &::-webkit-search-cancel-button {
     align-self: center;
     background-position: 50% 50%;
   }
