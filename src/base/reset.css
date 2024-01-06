@@ -1,26 +1,71 @@
 /* Reset all */
-:where(address), :where(blockquote), :where(body), :where(caption), :where(cite), :where(code),
-:where(dd), :where(details), :where(dialog), :where(dl), :where(dt), :where(fieldset),
-:where(figcaption), :where(figure), :where(h1, h2, h3, h4, h5, h6), :where(hgroup), :where(hr), :where(html),
-:where(input), :where(kbd), :where(label), :where(legend), :where(li), :where(mark),
-:where(menu), :where(ol), :where(optgroup), :where(option), :where(output),
-:where(pre), :where(select), :where(summary), :where(table), :where(td),
-:where(textarea), :where(th), :where(thead), :where(time), :where(tr), :where(ul),
-:where(progress), :where(meter), :where(button), :where(p), :where(a) {
+:where(a),
+:where(address),
+:where(button),
+:where(blockquote),
+:where(body),
+:where(caption),
+:where(cite),
+:where(code),
+:where(dd),
+:where(details),
+:where(dialog),
+:where(dl),
+:where(dt),
+:where(fieldset),
+:where(figcaption),
+:where(figure),
+:where(h1, h2, h3, h4, h5, h6),
+:where(hgroup),
+:where(hr),
+:where(html),
+:where(input),
+:where(kbd),
+:where(label),
+:where(legend),
+:where(li),
+:where(mark),
+:where(menu),
+:where(ol),
+:where(optgroup),
+:where(option),
+:where(output),
+:where(p),
+:where(pre),
+:where(select),
+:where(summary),
+:where(table),
+:where(td),
+:where(textarea),
+:where(th),
+:where(thead),
+:where(time),
+:where(tr),
+:where(ul),
+:where(progress),
+:where(meter) {
   all: unset;
   display: revert;
 }
 
 /* Reset block */
-:where(img), :where(svg), :where(video), :where(canvas),
-:where(audio), :where(iframe), :where(embed), :where(object),
-:where(search), :where(hr), :where(summary) {
+:where(img),
+:where(svg),
+:where(video),
+:where(canvas),
+:where(audio),
+:where(iframe),
+:where(embed),
+:where(object),
+:where(search),
+:where(hr),
+:where(summary) {
   display: block;
 }
 
 /* Improve consistency of default fonts in all browsers. */
 :where(code), :where(kbd), :where(samp), :where(pre) {
-  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 1em;
 }
 
@@ -34,14 +79,25 @@
   -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
 }
 
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+:where(sub, sup) {
+  vertical-align: baseline;
+  font-size: 100%;
+}
+
+:where(sub) {
+  font-variant-position: sub;
+}
+
+:where(sup) {
+  font-variant-position: super;
+}
+
 /* Add the correct text decoration in Chrome, Edge, and Safari. */
 :where(abbr[title]) {
   text-decoration: underline dotted;
-}
-
-/* Add the correct font size in all browsers. */
-:where(small) {
-  font-size: 80%;
 }
 
 /* Reapply the pointer cursor for anchor tags */
@@ -51,7 +107,7 @@
 
 /* Remove list styles (bullets/numbers) */
 :where(ol:not([type]), ul, menu) {
-  list-style-type: '';
+  list-style-type: "";
 }
 
 /* For images to not be able to exceed their container */
@@ -97,11 +153,6 @@
   -webkit-user-drag: element;
 }
 
-/* Remove details summary webkit styles */
-::-webkit-details-marker {
-  display: none;
-}
-
 /* Fix input styles */
 :where(input) {
   &::-webkit-datetime-edit-fields-wrapper,
@@ -119,4 +170,9 @@
     align-self: center;
     background-position: 50% 50%;
   }
+}
+
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+  display: none;
 }

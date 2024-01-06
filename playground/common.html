@@ -45,10 +45,32 @@
 
 
     <h3 class="ui-title uppercase text-accent sm">Title H3</h3>
-    <button class="ui-title underline hover:text-accent" href="#">Link</button>
-    <meter class="ui-progress bg-warning/10" value="50" min="0" max="100" low="33" optimum="80" high="66"></meter>
-    <progress class="ui-progress accent-error" value="50" max="100">15%</progress>
-    <progress class="ui-progress sm" max="100">15%</progress>
+
+    <div class="c-tooltip">
+        <div class="ui-title"></div>
+        <div class="c-drop c-tooltip-main">
+        </div>
+    </div>
+    <div class="c-popover">
+        <button class="ui-title"></button>
+        <div class="c-drop c-popover-main">
+        </div>
+    </div>
+
+    <dialog class="c-dialog">
+        <div class="c-dialog-main"></div>
+    </dialog>
+
+    <div class="c-toast">
+        <div class="c-toast-main">
+        </div>
+    </div>
+
+    <div class="flex-col gap-4">
+        <meter class="ui-progress bg-warning/10" value="50" min="0" max="100" low="33" optimum="80" high="66"></meter>
+        <progress class="ui-progress accent-error" value="50" max="100">15%</progress>
+        <progress class="ui-progress sm" max="100">15%</progress>
+    </div>
 
     <div class="ui-notice accent-success">
         Success notice

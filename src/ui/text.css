@@ -8,6 +8,7 @@
   font-size: var(--ui-text-font-size, inherit);
   line-height: var(--ui-text-line-height, calc(1em + var(--ui-text-line-height-ratio, 0.5lh)));
   letter-spacing: var(--ui-text-letter-spacing, 0);
+  text-wrap: pretty;
 
   & > :is(*:first-child) {
     margin-block-start: 0;

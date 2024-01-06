@@ -166,21 +166,21 @@ const createPlugin = (userConfig = {}) => {
 
                     if (matchValue) {
                         if (fallbackRgb) {
-                            colorProperties['--color-accent-fg-rgb'] = `var(${matchValue[1].replace('-rgb', '-fg-rgb')})`;
+                            colorProperties['--color-accent-foreground-rgb'] = `var(${matchValue[1].replace('-rgb', '-foreground-rgb')})`;
                         }
 
                         if (toColorValue(value).includes('calc(1 * 100%)') || toColorValue(value).includes(' / 1')) {
                             return {
                                 ...colorProperties,
                                 '--color-accent': fallbackRgb ? toColorValue(value) : matchValue[0],
-                                '--color-accent-fg': fallbackRgb ? `rgb(var(${matchValue[1].replace('-rgb', '-fg-rgb')}, var(--color-light-rgb)))` : `var(${matchValue[1]}-fg, var(--color-light))`,
+                                '--color-accent-foreground': fallbackRgb ? `rgb(var(${matchValue[1].replace('-rgb', '-foreground-rgb')}, var(--color-light-rgb)))` : `var(${matchValue[1]}-foreground, var(--color-light))`,
                                 'accent-color': defaultConfig.settings.colorMix ? 'var(--color-accent)' : 'rgb(var(--color-accent))'
                             }
                         } else {
                             return {
                                 ...colorProperties,
                                 '--color-accent': toColorValue(value),
-                                '--color-accent-fg': fallbackRgb ? `rgb(var(${matchValue[1].replace('-rgb', '-fg-rgb')}, var(--color-light-rgb)))` : `var(${matchValue[1]}-fg, var(--color-light))`,
+                                '--color-accent-foreground': fallbackRgb ? `rgb(var(${matchValue[1].replace('-rgb', '-foreground-rgb')}, var(--color-light-rgb)))` : `var(${matchValue[1]}-foreground, var(--color-light))`,
                                 'accent-color': defaultConfig.settings.colorMix ? 'var(--color-accent)' : 'rgb(var(--color-accent))'
                             }
                         }

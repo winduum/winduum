@@ -1,0 +1,17 @@
+.underline {
+  text-underline-offset: var(--tw-underline-offset, 0.125em);
+}
+
+.decoration-transparent {
+  &:where([href], button, .interactive) {
+    transition: all var(--duration) var(--ease-in-out);
+
+    &:not(:hover, :focus) {
+      text-underline-offset: var(--tw-underline-offset-transparent, -0.25em);
+    }
+
+    &:is(:hover, :focus) {
+      text-decoration-color: var(--color-current);
+    }
+  }
+}
