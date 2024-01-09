@@ -44,6 +44,7 @@
     padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps, 0rem)) calc(var(--ui-control-px) + var(--ui-control-pe, 0rem));
     grid-area: control;
     align-self: stretch;
+    align-items: center;
 
     &:disabled {
       cursor: not-allowed;
