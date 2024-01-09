@@ -1,4 +1,4 @@
 @import "base/index.css";
 @import "ui/index.css";
-@import "components/+.css";
-@import "libraries/+.css";
+@import "components/index.css";
+@import "libraries/index.css";
