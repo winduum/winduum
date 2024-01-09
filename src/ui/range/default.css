@@ -3,6 +3,7 @@
   --ui-range-thumb-size: 1.125rem;
   --ui-range-thumb-border-width: 0;
   --ui-range-thumb-border-color: var(--ui-range-thumb-bg);
+  --ui-range-track-direction: right;
   --ui-range-track-height: 0.375rem;
   --ui-range-track-bg: var(--color-accent);
   --ui-range-track-outline-width: 2px;
@@ -18,11 +19,11 @@
     z-index: 1;
 
     &::-webkit-slider-runnable-track {
-      height: var(--ui-range-track-height);
+      block-size: var(--ui-range-track-height);
       border-radius: var(--rounded-full);
       background:
         linear-gradient(
-          to right,
+          to var(--ui-range-track-direction),
           var(--ui-range-track-bg) 0%,
           var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
           var(--ui-range-bg) var(--ui-range-track-start, 0%),
@@ -31,11 +32,11 @@
     }
 
     &::-moz-range-track {
-      height: var(--ui-range-track-height);
+      block-size: var(--ui-range-track-height);
       border-radius: var(--rounded-full);
       background:
         linear-gradient(
-          to right,
+          to var(--ui-range-track-direction),
           var(--ui-range-track-bg) 0%,
           var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
           var(--ui-range-bg) var(--ui-range-track-start, 0%),
@@ -54,7 +55,7 @@
       pointer-events: auto;
       outline: var(--ui-range-track-outline-width) solid transparent;
       transition: outline-color var(--duration) linear;
-      margin-top: calc(var(--ui-range-track-height) * -1);
+      margin-block-start: calc(var(--ui-range-track-height) * -1);
 
       &:active {
         outline-color: color-mix(in srgb, var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);

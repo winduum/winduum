@@ -1,0 +1,7 @@
+.ui-range:where(.vertical) {
+  --ui-range-track-direction: top;
+
+  :where(input) {
+    writing-mode: vertical-rl;
+  }
+}
