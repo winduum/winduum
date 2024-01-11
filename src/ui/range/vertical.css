@@ -3,5 +3,6 @@
 
   :where(input) {
     writing-mode: vertical-rl;
+    writing-mode: sideways-lr;
   }
 }
