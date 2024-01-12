@@ -9,6 +9,7 @@ export const defaultOptions = {
 /**
  * @param {import("./range").TrackOptions} options
  * @param {'start' | 'end'} track
+ * @returns void
  */
 export const setTrackProperty = ({ element, value, max }, track = defaultOptions.track) => {
     element.style.setProperty('--ui-range-track-' + track, `${(value / max * 100).toString()}%`)
@@ -17,6 +18,7 @@ export const setTrackProperty = ({ element, value, max }, track = defaultOptions
 /**
  * @param {HTMLInputElement} target
  * @param {import("./range").DefaultOptions} options
+ * @returns void
  */
 export const setValue = (target, options = {}) => {
     const { selector, track } = {
@@ -54,6 +56,7 @@ export const setValue = (target, options = {}) => {
 /**
  * @param {HTMLInputElement} target
  * @param {import("./range").OutputOptions} options
+ * @returns void
  */
 export const setOutputValue = (target, options = {}) => {
     const { element, lang, formatOptions } = {

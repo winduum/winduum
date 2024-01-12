@@ -1,6 +1,7 @@
 /**
  * @param {import("./compare").Position} event
  * @param {import("./compare").PositionOptions} options
+ * @returns void
  */
 export const setPosition = ({ currentTarget }, options = {}) => {
     const { selector, propertyName } = {
@@ -15,6 +16,7 @@ export const setPosition = ({ currentTarget }, options = {}) => {
 /**
  * @param {import("./compare").KeyboardStep} event
  * @param {Number} step
+ * @returns void
  */
 export const setKeyboardStep = ({ key, currentTarget }, step = 10) => {
     if (key?.toLowerCase() !== 'arrowright' && key?.toLowerCase() !== 'arrowleft') return
@@ -25,6 +27,7 @@ export const setKeyboardStep = ({ key, currentTarget }, step = 10) => {
 /**
  * @param {import("./compare").MouseStep} event
  * @param {Number} step
+ * @returns void
  */
 export const setMouseStep = ({ currentTarget }, step = 0.1) => {
     currentTarget.step = step

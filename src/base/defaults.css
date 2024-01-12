@@ -14,14 +14,12 @@
 }
 
 :where(button:not(:disabled)),
+:where(summary),
 :where([type="checkbox"]:not(:disabled)),
 :where([type="radio"]:not(:disabled)),
 :where(.interactive:not([aria-disabled="true"])) {
   cursor: var(--cursor, pointer);
-}
-
-:where(svg) {
-  stroke-width: 1.5;
+  user-select: none;
 }
 
 :where(svg:not([width])) {
