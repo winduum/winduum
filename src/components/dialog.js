@@ -1,6 +1,6 @@
 export const defaultOptions = {
-    openClass: 'is-lib-dialog-open',
-    scrollbarWidthProperty: '--lib-dialog-scrollbar-width',
+    openClass: 'is-c-dialog-open',
+    scrollbarWidthProperty: '--c-dialog-scrollbar-width',
     show: {
         closable: true ?? null,
         onCloseStart: () => null,
@@ -10,8 +10,8 @@ export const defaultOptions = {
         remove: false ?? null
     },
     insert: {
-        selector: '.lib-dialog.is-inserted' ?? null,
-        class: 'lib-dialog is-inserted' ?? null,
+        selector: '.c-dialog.is-inserted' ?? null,
+        class: 'c-dialog is-inserted' ?? null,
         remove: true ?? null,
         append: false ?? null
     }

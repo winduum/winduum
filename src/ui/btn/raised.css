@@ -5,7 +5,8 @@
   }
 
   &:is(.raised) {
+    --tw-border-opacity: 0.85;
     --ui-btn-border-width: 2px;
-    --ui-btn-border-opacity: calc(var(--tw-border-opacity, 0.85) * 100%);
+    --ui-btn-border-opacity: calc(var(--tw-border-opacity) * 100%);
   }
 }

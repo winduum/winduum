@@ -5,7 +5,7 @@
 
   & :where(input) {
     background-color: rgb(var(--ui-check-bg) / var(--ui-check-bg-opacity, 0));
-    border: var(--ui-check-border-width, 1px) solid rgb(var(--ui-check-border-color, var(--color-current)) / var(--ui-check-border-opacity, calc(var(--tw-border-opacity, 0.2) * 100%)));
+    border: var(--ui-check-border-width, 1px) solid rgb(var(--ui-check-border-color, var(--color-current)) / var(--ui-check-border-opacity, calc(var(--tw-border-opacity) * 100%)));
 
     &:not(:disabled) {
       &:focus {

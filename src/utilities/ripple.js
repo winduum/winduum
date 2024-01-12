@@ -2,10 +2,10 @@
  * Shows a ripple effect.
  * @type {typeof import("./ripple").showRipple}
  */
-export const showRipple = ({ currentTarget, layerX, layerY }, selector = currentTarget.querySelector('.lib-ripple')) => {
+export const showRipple = ({ currentTarget, layerX, layerY }, selector = currentTarget.querySelector('.ripple')) => {
     if (!selector) {
-        currentTarget.insertAdjacentHTML('beforeend', "<div class='lib-ripple'></div>")
-        selector = currentTarget.querySelector('.lib-ripple')
+        currentTarget.insertAdjacentHTML('beforeend', "<div class='ripple'></div>")
+        selector = currentTarget.querySelector('.ripple')
     }
 
     selector.classList.remove('animation-ripple')

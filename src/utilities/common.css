@@ -1,0 +1,12 @@
+.animate {
+  animation-duration: var(--duration);
+  animation-fill-mode: both;
+}
+
+.flex-col {
+  display: flex;
+}
+
+[hidden] {
+  display: none;
+}

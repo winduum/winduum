@@ -1,0 +1,36 @@
+.c-dialog {
+  --tw-bg-opacity: 0.8;
+
+  inset: 0;
+  z-index: var(--z-30);
+  position: fixed;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--c-dialog-bg, color-mix(in var(--space), var(--color-dark) calc(var(--tw-bg-opacity) * 100%), transparent));
+  overscroll-behavior: contain;
+  display: flex;
+  padding: var(--c-dialog-py, 2rem) var(--c-dialog-px, 1.5rem);
+  transition: var(--transition-background);
+
+  &, &::backdrop {
+    visibility: hidden;
+  }
+
+  &:not([open]) {
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  .is-c-dialog-open & {
+    visibility: visible;
+  }
+}
+
+.is-c-dialog-open {
+  scrollbar-width: none;
+  padding-inline-end: var(--c-dialog-scrollbar-width, 0);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -9,10 +9,9 @@
   --container-padding-calc: max(calc(50vw - (var(--container-width) / 2)), var(--container-padding));
 }
 
-@layer components {
-  .grid-cols-container {
-    display: grid;
-    grid-template-columns:
+.grid-cols-container {
+  display: grid;
+  grid-template-columns:
       [container-full-start] minmax(var(--container-padding), 1fr)
       [container-lg-start] minmax(0, calc((var(--container-lg-width) - var(--container-width)) / 2))
       [container-start] minmax(0, calc((var(--container-width) - var(--container-sm-width)) / 2))
@@ -20,9 +19,8 @@
       minmax(0, calc((var(--container-width) - var(--container-sm-width)) / 2)) [container-end]
       minmax(0, calc((var(--container-lg-width) - var(--container-width)) / 2)) [container-lg-end]
       minmax(var(--container-padding), 1fr) [container-full-end];
-  }
+}
 
-  :where(.grid-cols-container > *) {
-    grid-column: container;
-  }
+:where(.grid-cols-container > *) {
+  grid-column: container;
 }
