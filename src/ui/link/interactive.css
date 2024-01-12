@@ -1,0 +1,24 @@
+.ui-link {
+  --color-accent: currentColor;
+  --tw-text-opacity: 1;
+  --tw-text-space: var(--space);
+  --tw-text-mix: var(--color-body);
+
+  &:is([href], button, .interactive) {
+    &:not(:disabled) {
+      transition: all var(--duration) var(--ease-in-out);
+      color: color-mix(in var(--tw-text-space), var(--color-accent) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
+
+      &:hover {
+        @media (hover: hover) and (pointer: fine) {
+          --tw-text-opacity: 0.75;
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px dotted currentColor;
+        outline-offset: 2px;
+      }
+    }
+  }
+}

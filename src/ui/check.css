@@ -16,10 +16,6 @@
     --ui-check-radius: 50%;
   }
 
-  & :where(label[for], input) {
-    cursor: pointer;
-  }
-
   & :where(a) {
     color: var(--color-accent);
     text-decoration: underline;

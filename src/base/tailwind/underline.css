@@ -11,7 +11,7 @@
     }
 
     &:is(:hover, :focus) {
-      text-decoration-color: var(--color-current);
+      text-decoration-color: currentColor;
     }
   }
 }

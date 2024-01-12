@@ -10,7 +10,14 @@
 
 ::selection {
   color: var(--color-light);
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
+}
+
+:where(button:not(:disabled)),
+:where([type="checkbox"]:not(:disabled)),
+:where([type="radio"]:not(:disabled)),
+:where(.interactive:not([aria-disabled="true"])) {
+  cursor: var(--cursor, pointer);
 }
 
 :where(svg) {
@@ -23,10 +30,6 @@
 
 :where(svg:not([height])) {
   height: 1.25rem;
-}
-
-:where(button) {
-  cursor: pointer;
 }
 
 :where(hr) {
