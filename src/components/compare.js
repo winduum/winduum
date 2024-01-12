@@ -4,13 +4,13 @@
  * @returns void
  */
 export const setPosition = ({ currentTarget }, options = {}) => {
-    const { selector, propertyName } = {
+    const { selector, positionProperty } = {
         selector: '.c-compare',
-        propertyName: '--c-compare-position',
+        positionProperty: '--c-compare-position',
         ...options
     }
 
-    currentTarget.closest(selector).style.setProperty(propertyName, `${currentTarget.value}%`)
+    currentTarget.closest(selector).style.setProperty(positionProperty, `${currentTarget.value}%`)
 }
 
 /**

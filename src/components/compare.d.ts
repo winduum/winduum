@@ -13,5 +13,5 @@ export interface MouseStep {
 
 export interface PositionOptions {
     selector?: string
-    propertyName?: string
+    positionProperty?: string
 }
