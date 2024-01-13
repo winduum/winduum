@@ -20,13 +20,9 @@
     background-color: transparent;
     pointer-events: none;
   }
-
-  .is-c-dialog-open & {
-    visibility: visible;
-  }
 }
 
-.is-c-dialog-open {
+html:has(.c-dialog.visible) {
   scrollbar-width: none;
   padding-inline-end: var(--c-dialog-scrollbar-width, 0);
 

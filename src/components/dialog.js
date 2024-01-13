@@ -2,7 +2,7 @@
  * @type {import("./dialog").DefaultOptions}
 */
 export const defaultOptions = {
-    openClass: 'is-c-dialog-open',
+    openClass: 'visible',
     scrollbarWidthProperty: '--c-dialog-scrollbar-width',
     closable: true ?? null,
     remove: false ?? null
@@ -22,13 +22,13 @@ export const dialogSelector = selector => document.querySelectorAll(selector)[do
 export const dismissDialog = async (selector, options = defaultOptions) => {
     await Promise.allSettled(selector.getAnimations().map(animation => animation.finished))
     selector.inert = true
+    selector.classList.remove(options.openClass)
     selector.dispatchEvent(new CustomEvent('c-dialog:dismiss'))
 
     options.remove && selector.remove()
 
     if (!document.querySelector('dialog[open]')) {
         document.documentElement.style.removeProperty(options.scrollbarWidthProperty)
-        document.documentElement.classList.remove(options.openClass)
     }
 }
 
@@ -49,7 +49,7 @@ export const showDialog = async (selector, options = {}) => {
     if (!selector?._dialogHasEvents && options.closable) {
         selector.addEventListener('keydown', ({ key }) => {
             if (key === 'Escape') {
-                requestAnimationFrame(() => dismissDialog(selector, options))
+                setTimeout(() => dismissDialog(selector, options), 1)
             }
         })
 
@@ -63,8 +63,7 @@ export const showDialog = async (selector, options = {}) => {
     }
 
     selector.inert = false
-
-    document.documentElement.classList.add(options.openClass)
+    selector.classList.add(options.openClass)
 
     window.HTMLDialogElement
         ? selector.showModal()
@@ -98,11 +97,12 @@ export const closeDialog = async (selector, options = {}) => {
  */
 export const insertDialog = async (content, options = {}) => {
     options = {
-        selector: '.c-dialog.is-inserted' ?? null,
-        class: 'c-dialog is-inserted' ?? null,
-        remove: true ?? null,
+        selector: '.c-dialog.inserted' ?? null,
+        class: 'c-dialog inserted' ?? null,
         append: false ?? null,
-        show: {},
+        show: {
+            remove: true ?? null
+        },
         ...options
     }
 
