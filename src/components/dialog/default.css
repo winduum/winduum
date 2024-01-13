@@ -1,15 +1,17 @@
 .c-dialog {
   --tw-bg-opacity: 0.8;
+  --c-dialog-py: 2rem;
+  --c-dialog-px: 1.5rem;
 
   inset: 0;
   z-index: var(--z-30);
   position: fixed;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: var(--c-dialog-bg, color-mix(in var(--space), var(--color-dark) calc(var(--tw-bg-opacity) * 100%), transparent));
+  background-color: var(--c-dialog-bg, color-mix(in var(--space), var(--color-dark) var(--c-dialog-bg-opacity, calc(var(--tw-bg-opacity) * 100%)), transparent));
   overscroll-behavior: contain;
   display: flex;
-  padding: var(--c-dialog-py, 2rem) var(--c-dialog-px, 1.5rem);
+  padding: var(--c-dialog-py) var(--c-dialog-px);
   transition: var(--transition-background);
 
   &, &::backdrop {
