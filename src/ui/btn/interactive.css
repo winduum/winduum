@@ -3,7 +3,7 @@
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
 
-  &:is([href], button, input, .interactive) {
+  &:is([href], button, [role="button"], input) {
     &:disabled {
       opacity: var(--ui-btn-disabled-opacity, 0.7);
       cursor: not-allowed;
