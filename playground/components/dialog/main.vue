@@ -12,8 +12,8 @@
 </script>
 
 <template>
-    <Dialog ref="root">
-        <div class="c-card c-dialog-main">
+    <Dialog ref="root" class="c-dialog-main">
+        <div class="c-dialog-content">
             <div class="flex-between">
                 {{heading}}
                 <button @click="root.close()">close</button>
