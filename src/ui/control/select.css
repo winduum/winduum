@@ -3,11 +3,11 @@
   --ui-control-select-icon-me: -0.25rem;
   --ui-control-pe: calc(var(--ui-control-select-icon-size) + var(--ui-control-select-icon-me));
 
-  &:has(.icon-e) {
+  &:has(.end) {
     --ui-control-icon-count-e: 2;
   }
 
-  & :where(.icon-e) {
+  & :where(.end) {
     margin-inline-end: var(--ui-control-select-icon-size);
   }
 
