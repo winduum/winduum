@@ -9,6 +9,7 @@ _This should be last version with such major breaking changes and is much closer
 * feat(bc): tailwindcss utilities were moved to separate directory utilities
 * feat(bc): `lib-ripple` was renamed to `ripple` and moved to utilities directory
 * feat(bc): `ui-control` grid area includes `c-` prefix now
+* feat(bc): removed `onCloseStart` and `onCloseEnd` from `c-dialog` show options, use `close` and `c-dialog:dismiss` events on dialog instead
 * feat: added new ui component `ui-range` input slider
 * feat: added new ui component `ui-rating` input checkbox based
 * feat: added new component `c-card`
