@@ -86,7 +86,7 @@
       opacity: var(--ui-check-disabled-opacity, 0.5);
     }
 
-    &:indeterminate {
+    &[type="checkbox"]:indeterminate {
       --ui-check-icon: var(--mask-indeterminate);
     }
 
