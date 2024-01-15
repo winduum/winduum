@@ -1,0 +1,38 @@
+.ui-group {
+  --ui-control-border-mix: var(--color-body-primary);
+  --ui-btn-focus-outline-mix: var(--color-body-primary);
+  --ui-btn-focus-outline-offset: 0;
+
+  display: flex;
+  border-radius: var(--rounded);
+
+  &:has(.ui-control) {
+    > :where(.ui-btn) {
+      min-width: var(--ui-control-height);
+      height: auto;
+    }
+
+    > :is(.ui-btn) {
+      --ui-btn-border-width: var(--ui-control-border-width);
+    }
+  }
+
+  & > :where(*) {
+    border-radius: inherit;
+
+    &:focus-within {
+      z-index: 1;
+    }
+
+    &:where(:not(:first-child)) {
+      margin-inline-start: calc(var(--ui-control-border-width) * -1);
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+
+    &:where(:not(:last-child)) {
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+    }
+  }
+}

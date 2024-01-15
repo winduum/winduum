@@ -1,0 +1,20 @@
+.ui-notice {
+  --color-current: var(--color-accent);
+
+  padding: var(--ui-notice-py, 1.25rem) var(--ui-notice-px, 1.5rem);
+  font-size: var(--ui-notice-font-size, var(--text-sm));
+  border-radius: var(--rounded);
+  background-color: color-mix(in var(--space), var(--color-accent) 10%, transparent);
+  outline: var(--ui-notice-outline-width, 1px) solid color-mix(in var(--space), var(--color-accent) var(--ui-notice-outline-opacity, 10%), transparent);
+  outline-offset: var(--ui-notice-outline-offset, calc(var(--ui-notice-outline-width, 1px) * -1));
+  color: var(--color-accent);
+  gap: var(--ui-notice-gap, var(--spacing-xl));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-wrap: balance;
+
+  & :where(hr) {
+    --tw-border-opacity: 0.2;
+  }
+}

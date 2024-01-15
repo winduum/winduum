@@ -1,6 +1,4 @@
 .ui-control {
-  --ui-control-icon-size: 1.25rem;
-  --ui-control-icon-gap: 0.375rem;
   --ui-control-s: calc(var(--ui-control-icon-count-s, 1) * (var(--ui-control-icon-size) + var(--ui-control-icon-gap)) - var(--ui-control-icon-gap));
   --ui-control-e: calc(var(--ui-control-icon-count-e, 1) * (var(--ui-control-icon-size) + var(--ui-control-icon-gap)) - var(--ui-control-icon-gap));
 
@@ -24,14 +22,14 @@
     margin-inline-end: auto;
   }
 
-  & :where(.start) {
+  & :where(.end) {
     margin-inline-start: auto;
   }
 
   & :where(.start, .end) {
+    gap: var(--ui-control-icon-gap);
     display: flex;
     align-items: center;
-    gap: var(--ui-control-icon-gap);
   }
 
   &:has(textarea) :where(.start, .end) {

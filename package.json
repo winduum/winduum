@@ -12,7 +12,7 @@
     "eslint-fix": "eslint 'src/**/*.js' --fix",
     "stylelint": "npx stylelint 'src/**/*.css'",
     "stylelint-fix": "npx stylelint 'src/**/*.css' --fix",
-    "tailwind": "rollup utils/tailwind.js --file utils/tailwind.cjs -f cjs --exports named"
+    "tailwind": "rollup plugin/tailwind.js --file plugin/tailwind.cjs -f cjs --exports named"
   },
   "devDependencies": {
     "@stylistic/stylelint-config": "^1.0.1",

@@ -2,9 +2,6 @@
   --tw-bg-opacity: 1;
   --tw-text-opacity: 1;
   --color-current: var(--color-accent-foreground);
-  --ui-badge-height: 1.5rem;
-  --ui-badge-py: 0;
-  --ui-badge-px: 0.5rem;
   --ui-badge-bg: color-mix(in var(--space), var(--color-accent) var(--ui-badge-bg-opacity), var(--ui-badge-bg-mix, transparent));
   --ui-badge-bg-opacity: calc(var(--tw-bg-opacity) * 100%);
   --ui-badge-color: color-mix(in var(--space), var(--color-current) var(--ui-badge-color-opacity), transparent);
@@ -20,6 +17,7 @@
   letter-spacing: var(--ui-badge-letter-spacing, inherit);
   background-color: var(--ui-badge-bg);
   color: var(--ui-badge-color);
+  gap: var(--ui-badge-gap, var(--spacing-xs));
   display: inline-flex;
   text-align: center;
   align-items: center;
@@ -27,6 +25,5 @@
   white-space: nowrap;
   flex-shrink: 0;
   position: relative;
-  gap: var(--ui-badge-gap, var(--spacing-xs));
   transition: var(--transition-opacity);
 }

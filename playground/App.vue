@@ -20,5 +20,4 @@
 
 <style scoped>
     @import "tailwindcss/utilities";
-    @import "../src/ui/btn/index.css";
 </style>

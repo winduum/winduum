@@ -1,0 +1,5 @@
+:root, :host {
+  --ui-control-color-swatch-width: 1.25rem;
+  --ui-control-color-swatch-height: 1.25rem;
+  --ui-control-color-swatch-border-radius: var(--rounded-full);
+}

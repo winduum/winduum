@@ -1,0 +1,5 @@
+:root, :host {
+  --ui-btn-height: 2.25rem;
+  --ui-btn-py: 0.375rem;
+  --ui-btn-px: 0.75rem;
+}

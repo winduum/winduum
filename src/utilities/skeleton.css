@@ -1,12 +1,12 @@
 .skeleton {
   background:
-      linear-gradient(
-          270deg,
-          color-mix(in var(--space), var(--color-body) 50%, var(--color-main)),
-          color-mix(in var(--space), var(--color-body) 80%, var(--color-main)),
-          color-mix(in var(--space), var(--color-body) 80%, var(--color-main)),
-          color-mix(in var(--space), var(--color-body) 50%, var(--color-main))
-      );
+    linear-gradient(
+      270deg,
+      color-mix(in var(--space), var(--color-body) 50%, var(--color-main)),
+      color-mix(in var(--space), var(--color-body) 80%, var(--color-main)),
+      color-mix(in var(--space), var(--color-body) 80%, var(--color-main)),
+      color-mix(in var(--space), var(--color-body) 50%, var(--color-main))
+    );
   background-size: 400% 100%;
   animation: skeleton-wave 1.5s linear infinite;
   opacity: 0.3;

@@ -1,8 +1,1 @@
-.c-card {
-  --c-card-py: 1.5rem;
-  --c-card-px: 2rem;
-
-  background-color: var(--color-body-primary);
-  border-radius: var(--rounded-3xl);
-  padding: var(--c-card-py) var(--c-card-px);
-}
+@import "card/index.css";
