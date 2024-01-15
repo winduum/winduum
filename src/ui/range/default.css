@@ -2,7 +2,7 @@
   --ui-range-thumb-bg: var(--color-accent);
   --ui-range-thumb-border-color: var(--ui-range-thumb-bg);
   --ui-range-track-bg: var(--color-accent);
-  --ui-range-bg: color-mix(in sRGB, var(--color-accent) 10%, var(--color-light));
+  --ui-range-bg: color-mix(in var(--space), var(--color-accent) 10%, var(--color-light));
 
   display: grid;
   min-height: var(--ui-range-thumb-size);
@@ -52,7 +52,7 @@
       margin-block-start: calc(var(--ui-range-track-height) * -1);
 
       &:active {
-        outline-color: color-mix(in sRGB, var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
+        outline-color: color-mix(in var(--space), var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
         cursor: grabbing;
       }
     }
@@ -70,18 +70,18 @@
       transition: outline-color var(--duration), outline-offset var(--duration);
 
       &:active {
-        outline-color: color-mix(in sRGB, var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
+        outline-color: color-mix(in var(--space), var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
         cursor: grabbing;
       }
     }
 
     &:focus-visible {
       &::-webkit-slider-thumb {
-        outline-color: color-mix(in sRGB, var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
+        outline-color: color-mix(in var(--space), var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
       }
 
       &::-moz-range-thumb {
-        outline-color: color-mix(in sRGB, var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
+        outline-color: color-mix(in var(--space), var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
       }
     }
   }
