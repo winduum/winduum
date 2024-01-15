@@ -7,11 +7,14 @@
 </script>
 
 <template>
-    <UiBtn variant="wide" size="lg" @click="dialogMain.root.show()">Button</UiBtn>
-    <UiBtn>Button</UiBtn>
+    <div class="p-6">
+        <UiBtn @click="dialogMain.root.show({
+            closable: true
+        })">Open Dialog</UiBtn>
+    </div>
 
     <Teleport to="body">
-        <DialogMain ref="dialogMain" heading="Test" />
+        <DialogMain ref="dialogMain" heading="Hello there!" />
     </Teleport>
 </template>
 

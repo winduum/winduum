@@ -46,15 +46,16 @@ export const showDialog = async (selector, options = {}) => {
 
     document.documentElement.style.setProperty(options.scrollbarWidthProperty, `${window.innerWidth - document.body.clientWidth}px`)
 
-    if (!selector?._dialogHasEvents && options.closable) {
-        selector.addEventListener('keydown', ({ key }) => {
-            if (key === 'Escape') {
-                setTimeout(() => dismissDialog(selector, options), 1)
+    if (!selector?._dialogHasEvents) {
+        selector.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                e.preventDefault()
+                options.closable && closeDialog(selector, options)
             }
         })
 
         selector.addEventListener('click', ({ target }) => {
-            if (target.nodeName === 'DIALOG') {
+            if (target.nodeName === 'DIALOG' && options.closable) {
                 closeDialog(selector, options)
             }
         })
@@ -98,7 +99,6 @@ export const closeDialog = async (selector, options = {}) => {
 export const insertDialog = async (content, options = {}) => {
     options = {
         selector: '.c-dialog.inserted' ?? null,
-        class: 'c-dialog inserted' ?? null,
         append: false ?? null,
         show: {
             remove: true ?? null
@@ -107,11 +107,12 @@ export const insertDialog = async (content, options = {}) => {
     }
 
     if (!dialogSelector(options.selector) || options.append) {
-        document.body.insertAdjacentHTML('beforeend', `<dialog class="${options.class}">${content}</dialog>`)
+        document.body.insertAdjacentHTML('beforeend', content)
     } else {
-        dialogSelector(options.selector)?.firstElementChild?.remove()
-        dialogSelector(options.selector).insertAdjacentHTML('beforeend', content)
+        dialogSelector(options.selector).outerHTML = content
     }
+
+    dialogSelector(options.selector).classList.add('inserted')
 
     await showDialog(dialogSelector(options.selector), options.show)
 }

@@ -1,26 +1,18 @@
 <script setup>
-    import { showDialog, closeDialog } from '/src/components/dialog.js'
     import { ref } from 'vue'
+    import { showDialog, closeDialog } from '/src/components/dialog.js'
 
     const root = ref()
-    const isOpen = ref(false)
+    const open = ref(false)
 
-    const show = async () => {
-        isOpen.value = true
-
-        setTimeout(() => showDialog(root.value, { closable: false }))
-    }
-
-    const shouldClose = async ({ target, key }) => {
-        if (key === 'Escape' || target.nodeName === 'DIALOG') {
-            await close()
-        }
+    const show = async options => {
+        open.value = true
+        requestAnimationFrame(() => showDialog(root.value, options))
     }
 
     const close = async () => {
         await closeDialog(root.value)
-
-        isOpen.value = false
+        open.value = false
     }
 
     defineExpose({
@@ -30,7 +22,7 @@
 </script>
 
 <template>
-    <dialog v-if="isOpen" ref="root" class="c-dialog" @keydown="shouldClose" @click="shouldClose">
+    <dialog v-if="open" ref="root" class="c-dialog" @c-dialog:dismiss="open = false">
         <slot :close="close"></slot>
     </dialog>
 </template>

@@ -30,11 +30,13 @@
         document.querySelector('#dialogShow').addEventListener('click', async ({ currentTarget, pageX, pageY }) => {
             showRipple({ currentTarget, pageX, pageY })
             await insertDialog(`
-                <div class="c-dialog-content">
-                    <input autofocus>
-                    <button class="ui-btn" id="dialogHide">Close dialog</button>
-                    <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
-                </div>
+                <dialog class="c-dialog inserted">
+                    <div class="c-dialog-content">
+                        <input autofocus>
+                        <button class="ui-btn" id="dialogHide">Close dialog</button>
+                        <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
+                    </div>
+                </dialog>
             `)
         })
 
@@ -53,11 +55,13 @@
 
             if (target.id === 'dialogInDialog') {
                 await insertDialog(`
-                   <div class="c-dialog-content">
-                        <input autofocus value="asd">
-                        <button class="ui-btn" id="dialogHideNext">Close dialog</button>
-                    </div>
-                `, { append: true })
+                   <dialog class="c-dialog inserted">
+                       <div class="c-dialog-content">
+                            <input autofocus value="asd">
+                            <button class="ui-btn" id="dialogHideNext">Close dialog</button>
+                        </div>
+                   </dialog>
+                `, { append: false })
             }
         })
     </script>
