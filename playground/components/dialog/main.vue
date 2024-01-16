@@ -1,13 +1,19 @@
-<script setup>
+<script setup lang="ts">
     import { ref } from 'vue'
     import Dialog from '../dialog.vue'
 
-    const root = ref()
+    interface Props {
+        heading?: string
+    }
 
-    defineProps(['heading'])
+    defineProps<Props>()
+
+    const root = ref()
+    const data = ref<Props>({})
 
     defineExpose({
-        root
+        root,
+        data
     })
 </script>
 
