@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "0.6.0-next.3",
+  "version": "0.6.0-next.5",
   "type": "module",
   "main": "utils/tailwind.cjs",
   "module": "utils/tailwind.js",
@@ -12,7 +12,8 @@
     "eslint-fix": "eslint 'src/**/*.js' --fix",
     "stylelint": "npx stylelint 'src/**/*.css'",
     "stylelint-fix": "npx stylelint 'src/**/*.css' --fix",
-    "tailwind": "rollup utils/tailwind.js --file utils/tailwind.cjs -f cjs --exports named"
+    "tailwind": "rollup plugin/tailwind.js --file plugin/tailwind.cjs -f cjs --exports named",
+    "publish-next": "npm publish --tag next"
   },
   "devDependencies": {
     "@stylistic/stylelint-config": "^1.0.1",

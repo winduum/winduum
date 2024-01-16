@@ -34,7 +34,7 @@
     }
 
     &:focus-visible ~ .ui-btn {
-      outline-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+      outline-color: color-mix(in var(--space), var(--color-accent) 50%, transparent);
       outline-offset: 2px;
     }
 

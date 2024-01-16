@@ -1,0 +1,4 @@
+:root, :host {
+  --c-rating-gap: 0.25rem;
+  --c-rating-opacity: 0.2;
+}

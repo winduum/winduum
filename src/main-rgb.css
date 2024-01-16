@@ -5,7 +5,7 @@
 @import "ui/badge/bordered-rgb.css";
 @import "ui/control/default-rgb.css";
 @import "ui/progress/default-rgb.css";
-@import "ui/check-rgb.css";
-@import "ui/switch-rgb.css";
-@import "ui/notice-rgb.css";
-@import "ui/text-rgb.css";
+@import "ui/check/default-rgb.css";
+@import "ui/switch/default-rgb.css";
+@import "ui/notice/default-rgb.css";
+@import "ui/text/default-rgb.css";

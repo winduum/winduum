@@ -7,7 +7,7 @@
     --color-dark: color(display-p3 0.09 0.09 0.09);
     --color-success: color(display-p3 0.09 0.64 0.29);
     --color-error: color(display-p3 0.86 0.15 0.15);
-    --color-warning: color(display-p3 0.92 0.70 0.03);
+    --color-warning: color(display-p3 0.92 0.7 0.03);
     --color-info: color(display-p3 0.05 0.65 0.91);
   }
 }

@@ -1,10 +1,4 @@
 .ui-control {
-  --ui-control-height: 3rem;
-  --ui-control-height-textarea: 8rem;
-  --ui-control-px: 0.75rem;
-  --ui-control-py: 0.75rem;
-  --ui-control-border-width: 1px;
-
   display: grid;
   height: var(--ui-control-height);
   font-family: var(--ui-contro-font-family, var(--font-primary));
@@ -21,28 +15,28 @@
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
   grid-template:
-    [control-start] calc(var(--ui-control-py) - var(--ui-control-border-width))
-    [control-p] 1fr
-    calc(var(--ui-control-py) - var(--ui-control-border-width)) [control-end] /
-    [control-start] var(--ui-control-px)
-    [control-p] 1fr
-    var(--ui-control-px) [control-end];
+    [c-control-start] calc(var(--ui-control-py) - var(--ui-control-border-width))
+    [c-control-p] 1fr
+    calc(var(--ui-control-py) - var(--ui-control-border-width)) [c-control-end] /
+    [c-control-start] var(--ui-control-px)
+    [c-control-p] 1fr
+    var(--ui-control-px) [c-control-end];
 
   &:has(textarea) {
     height: auto;
   }
 
   & > :where(*) {
-    grid-area: control-p;
+    grid-area: c-control-p;
     align-self: center;
   }
 
-  & :where(input, textarea, select) {
-    text-overflow: ellipsis;
-    overflow: clip;
+  & > :where(input, textarea, select) {
     padding-block: var(--ui-control-py);
     padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps, 0rem)) calc(var(--ui-control-px) + var(--ui-control-pe, 0rem));
-    grid-area: control;
+    text-overflow: ellipsis;
+    overflow: clip;
+    grid-area: c-control;
     align-self: stretch;
     align-items: center;
 
@@ -52,16 +46,16 @@
     }
   }
 
-  & :where(input, textarea) {
+  & > :where(input, textarea) {
     &::placeholder {
       color: var(--ui-control-placeholder-color, currentColor);
       opacity: var(--ui-control-placeholder-opacity, 0.5);
     }
   }
 
-  & :where(textarea) {
-    resize: vertical;
+  & > :where(textarea) {
     min-height: var(--ui-control-height-textarea);
+    resize: vertical;
   }
 
   &:focus-within {

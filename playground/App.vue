@@ -10,13 +10,16 @@
             heading: 'Hello there'
         }
 
-        dialogMain.value.root.show()
+        dialogMain.value.root.show({
+            closable: true
+        })
     }
 </script>
 
 <template>
-    <UiBtn variant="wide" size="lg" @click="showDialog">Button</UiBtn>
-    <UiBtn>Button</UiBtn>
+    <div class="p-6">
+        <UiBtn @click="showDialog">Open Dialog</UiBtn>
+    </div>
 
     <Teleport to="body">
         <DialogMain ref="dialogMain" v-bind="dialogMain?.data" />
@@ -25,5 +28,4 @@
 
 <style scoped>
     @import "tailwindcss/utilities";
-    @import "../src/ui/btn/index.css";
 </style>

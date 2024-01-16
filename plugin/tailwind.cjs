@@ -44,7 +44,11 @@ const defaultConfig = {
         'primary', 'accent', 'current',
         'warning', 'error', 'info', 'success', 'light', 'dark',
         'main', 'main-primary', 'main-secondary', 'main-tertiary',
-        'body', 'body-primary', 'body-secondary', 'body-tertiary'
+        'body', 'body-primary', 'body-secondary', 'body-tertiary',
+        'primary-foreground', 'accent-foreground', 'current-foreground',
+        'warning-foreground', 'error-foreground', 'info-foreground', 'success-foreground', 'light-foreground', 'dark-foreground',
+        'main-foreground', 'main-primary-foreground', 'main-secondary-foreground', 'main-tertiary-foreground',
+        'body-foreground', 'body-primary-foreground', 'body-secondary-foreground', 'body-tertiary-foreground'
     ],
     fontFamily: ['primary', 'secondary'],
     fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
@@ -127,25 +131,13 @@ const tailwindAnimations = (values) => {
     return result
 };
 
-const tailwindMask = (values) => {
-    const result = {};
-
-    values.forEach(value => {
-        result[`.mask-${value}`] = {
-            mask: value
-        };
-    });
-
-    return result
-};
-
 const createPlugin = (userConfig = {}) => {
     userConfig = {
         ...defaultConfig,
         ...userConfig
     };
 
-    return plugin(({ addUtilities, addComponents, matchUtilities, theme, variants, e, corePlugins }) => {
+    return plugin(({ addUtilities, addComponents, matchUtilities, theme, e, corePlugins }) => {
         matchUtilities(
             {
                 accent: (value) => {
@@ -241,8 +233,8 @@ const createPlugin = (userConfig = {}) => {
             },
             { values: flattenColorPalette(theme('textColor')), type: ['color', 'any'] }
         );
-        addUtilities(tailwindAnimations(userConfig.animations));
-        addUtilities(tailwindPropertyUtilities('mask', userConfig.mask));
+        addComponents(tailwindAnimations(userConfig.animations));
+        addComponents(tailwindPropertyUtilities('mask', userConfig.mask));
         addComponents([
             Object.entries(theme('spacing')).map(([key, value]) => {
                 return {
@@ -271,6 +263,15 @@ const createPlugin = (userConfig = {}) => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 gap: 'var(--spacing-sm)'
+            },
+            '.dot': {
+                '--tw-bg-opacity': '1',
+                display: 'inline-flex',
+                width: '0.625rem',
+                height: '0.625rem',
+                borderRadius: 'var(--rounded-full)',
+                backgroundColor: 'color-mix(in srgb, var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent)',
+                flexShrink: '0'
             }
         });
     }, {
@@ -311,7 +312,6 @@ exports.default = createPlugin;
 exports.defaultConfig = defaultConfig;
 exports.tailwindAnimations = tailwindAnimations;
 exports.tailwindColors = tailwindColors;
-exports.tailwindMask = tailwindMask;
 exports.tailwindPropertyUtilities = tailwindPropertyUtilities;
 exports.tailwindVariables = tailwindVariables;
 exports.tailwindVariablesFont = tailwindVariablesFont;

@@ -1,7 +1,7 @@
 .ui-control:has([type="file"]) {
   overflow: clip;
 
-  :where([type="file"]) {
+  > :where([type="file"]) {
     &:is(:hover, :focus) {
       --ui-control-file-selector-button-bg-opacity: 20%;
     }

@@ -1,3 +1,28 @@
+## 0.6.0 (2024-01-15)
+_This should be last version with such major breaking changes and is much closer to **1.0**_
+* feat(bc): `lib-dialog` was renamed to `c-dialog`, `c-dialog` was renamed to `c-dialog-content`
+* feat(bc): major `c-dialog` refactor, js api was changed a bit
+* feat(bc): `ui-control` elements `icon-s` and `icon-e` were renamed to `start` and `end` (final change)
+* feat(bc): interactive class was removed, `cursor: pointer` is now optional on elements via `--cursor` CSS property in `base/defaults.css`
+* feat(bc): major paths refactor, a lot of components has `*-props.css` variants now
+* feat(bc): `base/default.css` was renamed to `base/defaults.css`
+* feat(bc): tailwindcss utilities were moved to separate directory utilities
+* feat(bc): `lib-ripple` was renamed to `ripple` and moved to utilities directory
+* feat(bc): `ui-control` grid area includes `c-` prefix now
+* feat(bc): removed `onCloseStart` and `onCloseEnd` from `c-dialog` show options, use `close` and `c-dialog:dismiss` events on dialog instead
+* feat: added new ui component `ui-range` input slider
+* feat: added new ui component `ui-rating` input checkbox based
+* feat: added new component `c-card`
+* feat: added new component `c-compare`
+* feat: added new component `c-details` for smooth toggle animations
+* feat: added new P3 color space theme
+* feat: added new modern css reset, improved compatibility with lit
+* feat: added `ui-link` component removed in previous version
+* feat: improved `ui-group` component, now includes `vertical` variant
+* feat: foreground color classes are now included in tailwindcss plugin and were renamed from `fg` to `foreground` for better compatibility
+* fix: `tw-opacity` classes defaults to all components
+* fix: missing `align-items: center` on `ui-control` select
+
 ## 0.5.3 (2024-01-05)
 * feat: added indeterminate checkbox, radio, switch
 * feat: added meter html element variant for ui-progress

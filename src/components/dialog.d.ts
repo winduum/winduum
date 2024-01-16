@@ -12,7 +12,6 @@ export interface DefaultOptions {
 export interface InsertOptions {
     selector?: string | null
     class?: string | null
-    remove?: boolean | null
     append?: boolean | null
     show?: DefaultOptions
 }

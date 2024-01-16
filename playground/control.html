@@ -116,7 +116,7 @@
         <svg class="start w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
         </svg>
-        <button class="self-stretch col-[control] row-[control] ps-10 pe-16">Enter a value..</button>
+        <button class="self-stretch col-[c-control] row-[c-control] ps-10 pe-16">Enter a value..</button>
         <div class="end flex gap-1.5">
             <svg class="size-5 text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
@@ -237,12 +237,54 @@
         <input type="file" id="file" required>
     </div>
 
-    <div class="ui-group">
-        <div class="ui-btn square muted bordered accent-main">@</div>
+    <div class="ui-group vertical">
         <div class="ui-control">
+            <input type="text" placeholder="1234 1234 1234 1234" required>
+        </div>
+        <div class="ui-control">
+            <input type="text" placeholder="MM/YY" required>
+        </div>
+        <div class="ui-group horizontal">
+            <div class="ui-control">
+                <input type="text" placeholder="MM/YY" required>
+            </div>
+            <div class="ui-control">
+                <input type="text" placeholder="CVC" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-group">
+        <div class="ui-control bg-body-secondary w-[--ui-control-height] flex-center justify-center">
+            @
+        </div>
+        <button class="ui-btn accent-info">Button</button>
+        <div class="ui-control accent-error">
             <input type="tel" id="input" required>
         </div>
-        <button class="ui-btn">Button</button>
+        <button class="ui-btn accent-info">Button</button>
+    </div>
+
+    <div class="ui-group">
+        <div class="ui-control bg-body-secondary h-auto">
+            <span class="col-[c-control-p]">https://example.com/</span>
+        </div>
+        <div class="ui-control">
+            <textarea type="text" required></textarea>
+        </div>
+    </div>
+
+    <div class="ui-group">
+        <div class="ui-control bg-body-secondary h-auto">
+            <span class="col-[c-control-p]">https://example.com/</span>
+        </div>
+        <div class="ui-control">        <select>
+            <option selected="" value="">- select option -</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        </div>
     </div>
 
     <div class="flex gap-8">
@@ -270,8 +312,8 @@
         <input type="checkbox" required>
     </label>
 
-    <label class="ui-radio">
-        <input type="checkbox" required>
+    <label class="ui-check">
+        <input type="radio" name="asdf" required>
         <span>Name</span>
         <em>Not valid</em>
     </label>

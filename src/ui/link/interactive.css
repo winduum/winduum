@@ -6,8 +6,8 @@
 
   &:is([href], button, [role="button"]) {
     &:not(:disabled) {
-      transition: all var(--duration) var(--ease-in-out);
       color: color-mix(in var(--tw-text-space), var(--color-accent) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
+      transition: all var(--duration) var(--ease-in-out);
 
       &:hover {
         @media (hover: hover) and (pointer: fine) {
