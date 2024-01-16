@@ -27,10 +27,10 @@
         import { showDialog, closeDialog, insertDialog } from '/src/components/dialog.js'
         import { showRipple } from '/src/utilities/ripple.js'
 
-        document.querySelector('#dialogShow').addEventListener('click', async ({ currentTarget, pageX, pageY }) => {
-            showRipple({ currentTarget, pageX, pageY })
+        document.querySelector('#dialogShow').addEventListener('click', async event => {
+            showRipple(event)
             await insertDialog(`
-                <dialog class="c-dialog inserted">
+                <dialog class="c-dialog">
                     <div class="c-dialog-content">
                         <input autofocus>
                         <button class="ui-btn" id="dialogHide">Close dialog</button>
@@ -55,7 +55,7 @@
 
             if (target.id === 'dialogInDialog') {
                 await insertDialog(`
-                   <dialog class="c-dialog inserted">
+                   <dialog class="c-dialog">
                        <div class="c-dialog-content">
                             <input autofocus value="asd">
                             <button class="ui-btn" id="dialogHideNext">Close dialog</button>

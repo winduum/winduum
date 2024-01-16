@@ -1,8 +1,10 @@
 /**
  * Shows a ripple effect.
- * @type {typeof import("./ripple").showRipple}
+ * @param {MouseEvent<HTMLElement>} event - The dialog element to dismiss.
+ * @param {HTMLElement} selector - The options for closing the dialog.
+ * @returns void
  */
-export const showRipple = ({ currentTarget, layerX, layerY }, selector = currentTarget.querySelector('.ripple')) => {
+export const showRipple = ({ currentTarget, offsetX, offsetY }, selector = currentTarget.querySelector('.ripple')) => {
     if (!selector) {
         currentTarget.insertAdjacentHTML('beforeend', "<div class='ripple'></div>")
         selector = currentTarget.querySelector('.ripple')
@@ -17,8 +19,8 @@ export const showRipple = ({ currentTarget, layerX, layerY }, selector = current
         selector.style.height = d + 'px'
     }
 
-    selector.style.top = layerY - (selector.clientHeight / 2) + 'px'
-    selector.style.left = layerX - (selector.clientWidth / 2) + 'px'
+    selector.style.top = offsetY - (selector.clientHeight / 2) + 'px'
+    selector.style.left = offsetX - (selector.clientWidth / 2) + 'px'
     selector.classList.add('animation-ripple')
 }
 

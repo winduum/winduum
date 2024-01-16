@@ -4,8 +4,8 @@
 export const defaultOptions = {
     openClass: 'visible',
     scrollbarWidthProperty: '--c-dialog-scrollbar-width',
-    closable: true ?? null,
-    remove: false ?? null
+    closable: true,
+    remove: false
 }
 
 /**
@@ -98,21 +98,23 @@ export const closeDialog = async (selector, options = {}) => {
  */
 export const insertDialog = async (content, options = {}) => {
     options = {
-        selector: '.c-dialog.inserted' ?? null,
-        append: false ?? null,
+        selector: 'dialog.inserted',
+        class: 'inserted',
+        append: false,
         show: {
-            remove: true ?? null
+            remove: true
         },
         ...options
     }
 
-    if (!dialogSelector(options.selector) || options.append) {
-        document.body.insertAdjacentHTML('beforeend', content)
-    } else {
-        dialogSelector(options.selector).outerHTML = content
-    }
+    const dialog = new DOMParser().parseFromString(content, 'text/html').body.firstChild
+    dialog.classList.add(options.class)
 
-    dialogSelector(options.selector).classList.add('inserted')
+    if (!dialogSelector(options.selector) || options.append) {
+        document.body.insertAdjacentHTML('beforeend', dialog.outerHTML)
+    } else {
+        dialogSelector(options.selector).outerHTML = dialog.outerHTML
+    }
 
     await showDialog(dialogSelector(options.selector), options.show)
 }

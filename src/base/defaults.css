@@ -13,10 +13,10 @@
   background-color: var(--color-primary);
 }
 
-:where(button:not(:disabled)),
-:where(summary),
-:where([type="checkbox"]:not(:disabled)),
-:where([type="radio"]:not(:disabled)),
+:where(button:enabled),
+:where([type="checkbox"]:enabled),
+:where([type="radio"]:enabled),
+:where(summary:not([aria-disabled="true"])),
 :where([role="button"]:not([aria-disabled="true"])) {
   cursor: var(--cursor, pointer);
   user-select: none;
