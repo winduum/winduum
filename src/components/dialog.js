@@ -4,7 +4,6 @@
 export const defaultOptions = {
     openClass: 'visible',
     scrollbarWidthProperty: '--c-dialog-scrollbar-width',
-    closable: true,
     remove: false
 }
 
@@ -40,6 +39,7 @@ export const dismissDialog = async (selector, options = defaultOptions) => {
  */
 export const showDialog = async (selector, options = {}) => {
     options = {
+        closable: true,
         ...defaultOptions,
         ...options
     }
