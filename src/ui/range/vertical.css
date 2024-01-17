@@ -1,8 +1,12 @@
 .ui-range:where(.vertical) {
-  --ui-range-track-direction: top;
+  container-type: size;
+  width: var(--ui-range-track-height);
 
   :where(input) {
-    writing-mode: vertical-rl;
-    writing-mode: sideways-lr;
+    transform: rotate(-90deg);
+    width: 100cqh;
+    height: 100cqw;
+    transform-origin: 0 0;
+    top: 100%;
   }
 }

@@ -6,7 +6,7 @@
       &::-webkit-slider-runnable-track {
         background:
           linear-gradient(
-            to var(--ui-range-track-direction),
+            to right,
             var(--ui-range-bg) 0%,
             var(--ui-range-bg) var(--ui-range-track-start, 0%),
             var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
@@ -19,7 +19,7 @@
       &::-moz-range-track {
         background:
           linear-gradient(
-            to var(--ui-range-track-direction),
+            to right,
             var(--ui-range-bg) 0%,
             var(--ui-range-bg) var(--ui-range-track-start, 0%),
             var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
