@@ -2,7 +2,7 @@
   --ui-range-thumb-bg: var(--color-accent);
   --ui-range-thumb-border-color: var(--ui-range-thumb-bg);
   --ui-range-track-bg: var(--color-accent);
-  --ui-range-bg: color-mix(in var(--space), var(--color-accent) 10%, var(--color-light));
+  --ui-range-bg: color-mix(in var(--space), var(--color-accent) 10%, var(--color-body));
 
   display: grid;
   min-height: var(--ui-range-thumb-size);
