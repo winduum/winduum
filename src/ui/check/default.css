@@ -62,7 +62,7 @@
       }
     }
 
-    &:not(:disabled) {
+    &:enabled {
       &:is(:hover, :focus-visible) {
         --color-current: var(--ui-check-checked-bg);
         --ui-check-border-color: var(--ui-check-checked-bg);

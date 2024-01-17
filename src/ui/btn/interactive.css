@@ -9,7 +9,7 @@
       cursor: not-allowed;
     }
 
-    &:not(:disabled) {
+    &:enabled {
       &:hover {
         @media (hover: hover) and (pointer: fine) {
           --ui-btn-color: var(--ui-btn-hover-color, var(--color-current));

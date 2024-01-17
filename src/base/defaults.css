@@ -50,15 +50,6 @@
   border: 1px solid var(--color-body-tertiary);
 }
 
-:where(:not(pre) > code, kbd) {
-  white-space: nowrap;
-}
-
-:where(pre > code) {
-  display: block;
-  margin: 0;
-}
-
 :where(html) {
   color-scheme: var(--scheme);
   font-family: var(--font-primary);

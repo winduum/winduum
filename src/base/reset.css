@@ -59,7 +59,8 @@
 :where(object),
 :where(search),
 :where(hr),
-:where(summary) {
+:where(summary),
+:where(pre > code) {
   display: block;
 }
 

@@ -7,7 +7,7 @@
     background-color: rgb(var(--ui-check-bg) / var(--ui-check-bg-opacity, 0));
     border: var(--ui-check-border-width, 1px) solid rgb(var(--ui-check-border-color, var(--color-current)) / var(--ui-check-border-opacity, calc(var(--tw-border-opacity) * 100%)));
 
-    &:not(:disabled) {
+    &:enabled {
       &:focus {
         outline-color: rgb(var(--ui-check-checked-bg) / var(--ui-check-outline-opacity, 20%));
       }

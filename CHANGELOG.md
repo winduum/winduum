@@ -15,6 +15,7 @@ _This should be last version with such major breaking changes and is much closer
 * feat: added new component `c-card`
 * feat: added new component `c-compare`
 * feat: added new component `c-details` for smooth toggle animations
+* feat: added new utility `dot` for little dots
 * feat: added new P3 color space theme
 * feat: added new modern css reset, improved compatibility with lit
 * feat: added `ui-link` component removed in previous version
