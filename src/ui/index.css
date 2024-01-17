@@ -1,5 +1,5 @@
 @import "badge.css";
-@import "btn/index.css";
+@import "btn.css";
 @import "check.css";
 @import "control.css";
 @import "group.css";
@@ -7,8 +7,11 @@
 @import "image.css";
 @import "info.css";
 @import "label.css";
+@import "link.css";
 @import "notice.css";
 @import "progress.css";
+@import "range.css";
+@import "rating.css";
 @import "switch.css";
 @import "text.css";
 @import "title.css";

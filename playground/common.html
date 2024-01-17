@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="font-sans">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Winduum UI</title>
@@ -19,10 +19,31 @@
     <h5 class="ui-title">Title H5</h5>
     <h6 class="ui-title sm">Title H6</h6>
 
+    <ul style="max-width: 400px">
+        <li>Lorem ipsum dolor sit amet, consectetur. Donec eget efficitur metus In
+            bibendum nisi et dui
+        </li>
+        <li>Donec eget efficitur metus</li>
+    </ul>
+
     <div class="flex divide-x divide-gap-x-xl divide-body-tertiary">
         <div>A</div>
         <div>B</div>
         <div>C</div>
+    </div>
+
+    <div class="flex-col items-start gap-2.5">
+        <button class="ui-link" disabled>
+            Link
+        </button>
+
+        <a href="#" class="ui-link underline">
+            Link
+        </a>
+
+        <a href="#" class="ui-link accent-primary underline decoration-transparent">
+            Link
+        </a>
     </div>
 
     <a href="#" class="ui-title underline hover:text-primary">
@@ -38,10 +59,32 @@
 
 
     <h3 class="ui-title uppercase text-accent sm">Title H3</h3>
-    <button class="ui-title underline hover:text-accent" href="#">Link</button>
-    <meter class="ui-progress bg-warning/10" value="50" min="0" max="100" low="33" optimum="80" high="66"></meter>
-    <progress class="ui-progress accent-error" value="50" max="100">15%</progress>
-    <progress class="ui-progress sm" max="100">15%</progress>
+
+    <div class="c-tooltip">
+        <div class="ui-title"></div>
+        <div class="c-tooltip-content">
+        </div>
+    </div>
+    <div class="c-popover">
+        <div role="button" class="ui-title" tabindex="0"></div>
+        <div class="c-popover-content" tabindex="0">
+        </div>
+    </div>
+
+    <dialog class="c-dialog c-dialog-login">
+        <div class="c-dialog-content"></div>
+    </dialog>
+
+    <div class="c-toast">
+        <div class="c-toast-item">
+        </div>
+    </div>
+
+    <div class="flex-col gap-4">
+        <meter class="ui-progress bg-warning/10" value="50" min="0" max="100" low="33" optimum="80" high="66"></meter>
+        <progress class="ui-progress accent-error" value="50" max="100">15%</progress>
+        <progress class="ui-progress sm" max="100">15%</progress>
+    </div>
 
     <div class="ui-notice accent-success">
         Success notice

@@ -1,0 +1,43 @@
+.ui-range {
+  :where(input) {
+    &:not(:only-of-type) {
+      pointer-events: none;
+
+      &::-webkit-slider-runnable-track {
+        background:
+          linear-gradient(
+            to right,
+            var(--ui-range-bg) 0%,
+            var(--ui-range-bg) var(--ui-range-track-start, 0%),
+            var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
+            var(--ui-range-track-bg) var(--ui-range-track-end, 100%),
+            var(--ui-range-bg) var(--ui-range-track-end, 100%),
+            var(--ui-range-bg) 100%
+          );
+      }
+
+      &::-moz-range-track {
+        background:
+          linear-gradient(
+            to right,
+            var(--ui-range-bg) 0%,
+            var(--ui-range-bg) var(--ui-range-track-start, 0%),
+            var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
+            var(--ui-range-track-bg) var(--ui-range-track-end, 100%),
+            var(--ui-range-bg) var(--ui-range-track-end, 100%),
+            var(--ui-range-bg) 100%
+          );
+      }
+
+      ~ input {
+        &::-webkit-slider-runnable-track {
+          background: transparent;
+        }
+
+        &::-moz-range-track {
+          background: transparent;
+        }
+      }
+    }
+  }
+}

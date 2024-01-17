@@ -1,4 +1,4 @@
-import winduum from './utils/tailwind.js'
+import winduum from './plugin/tailwind.js'
 import containerQueries from '@tailwindcss/container-queries'
 import animate from 'tailwindcss-animate'
 

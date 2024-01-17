@@ -1,0 +1,5 @@
+:root, :host {
+  --ui-switch-width: 3rem;
+  --ui-switch-height: 1.5rem;
+  --ui-check-icon-size: 1.125rem;
+}

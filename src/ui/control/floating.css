@@ -1,16 +1,13 @@
 .ui-control:where(:has(:not([type="color"]) ~ label)) {
-  --ui-control-label-translate-y: 0.625rem;
-  --ui-control-label-scale: 0.8;
-
-  & :where(label) {
+  & > :where(label) {
+    margin-inline: var(--ui-control-ps, 0) var(--ui-control-pe, 0);
     pointer-events: none;
-    transition: var(--transition-transform), var(--transition-color), var(--transition-opacity);
     transform-origin: 0 50%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: clip;
     will-change: transform;
-    margin-inline: var(--ui-control-ps, 0) var(--ui-control-pe, 0);
+    transition: var(--transition-transform), var(--transition-color), var(--transition-opacity);
   }
 
   &:where(:has(:required)) :where(label)::after {
@@ -18,7 +15,7 @@
     content: " *";
   }
 
-  & :where(textarea) {
+  & > :where(textarea) {
     padding-block-start: calc(var(--ui-control-py) + var(--ui-control-label-translate-y) * var(--ui-control-label-scale));
 
     & + :where(label) {
@@ -26,7 +23,7 @@
     }
   }
 
-  & :where(input, select) {
+  & > :where(input, select) {
     padding-block: calc(var(--ui-control-py) + var(--ui-control-label-translate-y) * var(--ui-control-label-scale)) calc(var(--ui-control-py) - var(--ui-control-label-translate-y) * var(--ui-control-label-scale));
 
     &::-webkit-calendar-picker-indicator,

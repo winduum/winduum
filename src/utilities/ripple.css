@@ -1,0 +1,10 @@
+.ripple {
+  position: absolute;
+  background: color-mix(in var(--space), var(--color-body) 40%, transparent);
+  border-radius: 50%;
+  transform: scale(0);
+  animation-duration: 1s;
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+}

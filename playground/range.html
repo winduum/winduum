@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="/src/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid-cols-container">
+    <div class="w-full flex-col gap-4">
+        <div>
+            <div class="flex-between items-center">
+                <output class="flex-center gap-1 before:content-[attr(data-unit)]" data-unit="$" id="from" aria-label="Price from">0</output>
+                <output class="flex-center gap-1 before:content-[attr(data-unit)]" data-unit="$" id="to" aria-label="Price to">10 000</output>
+            </div>
+            <div class="ui-range mt-2.5" data-controller="ui-range">
+                <input type="range" value="0" step="100" max="10000" min="0" id="range-from" aria-labelledby="from">
+                <input type="range" value="10000" step="100" max="10000" min="0" id="range-to" aria-labelledby="to">
+            </div>
+        </div>
+        <div class="flex-col items-center">
+            <output class="flex-center gap-1 before:content-[attr(data-unit)]" data-unit="$" id="single" aria-label="Price">10 000</output>
+            <div class="ui-range vertical mt-2.5 h-48">
+                <input type="range" value="0" step="10" max="100" min="0" id="range-single">
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { setValue, setOutputValue } from '/src/ui/range.js'
+
+        const rangeFrom = document.querySelector('#range-from')
+        const rangeTo = document.querySelector('#range-to')
+        const rangeSingle = document.querySelector('#range-single')
+
+        const setFromValue = ({ currentTarget }) => {
+            setValue(currentTarget)
+
+            setOutputValue(currentTarget, {
+                element: document.querySelector('#from')
+            })
+        }
+
+        const setToValue = ({ currentTarget }) => {
+            setValue(currentTarget, {
+                track: 'end'
+            })
+
+            setOutputValue(currentTarget, {
+                element: document.querySelector('#to')
+            })
+        }
+
+        const setSingleValue = ({ currentTarget }) => {
+            setValue(currentTarget)
+
+            setOutputValue(currentTarget, {
+                element: document.querySelector('#single')
+            })
+        }
+
+        setFromValue({ currentTarget: rangeFrom })
+        rangeFrom.addEventListener('input', setFromValue)
+
+        setToValue({ currentTarget: rangeTo })
+        rangeTo.addEventListener('input', setToValue)
+
+        setSingleValue({ currentTarget: rangeSingle })
+        rangeSingle.addEventListener('input', setSingleValue)
+    </script>
+</body>
+</html>

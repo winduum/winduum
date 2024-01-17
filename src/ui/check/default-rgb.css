@@ -1,0 +1,26 @@
+.ui-check {
+  --ui-check-bg: var(--color-body-rgb);
+  --ui-check-border-color: var(--color-current-rgb);
+  --ui-check-checked-bg: var(--color-accent-rgb);
+
+  & :where(input) {
+    background-color: rgb(var(--ui-check-bg) / var(--ui-check-bg-opacity, 0));
+    border: var(--ui-check-border-width, 1px) solid rgb(var(--ui-check-border-color, var(--color-current)) / var(--ui-check-border-opacity, calc(var(--tw-border-opacity) * 100%)));
+
+    &:enabled {
+      &:focus {
+        outline-color: rgb(var(--ui-check-checked-bg) / var(--ui-check-outline-opacity, 20%));
+      }
+    }
+
+    &:checked {
+      background-color: rgb(var(--ui-check-checked-bg));
+    }
+  }
+
+  &.invalid, .validated & :where(input):invalid {
+    --ui-check-bg: var(--color-error-rgb);
+    --ui-check-border-color: var(--color-error-rgb);
+    --ui-check-checked-bg: var(--color-error-rgb);
+  }
+}

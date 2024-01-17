@@ -1,43 +1,43 @@
 import { LitElement, unsafeCSS, css, html } from 'lit'
-import UiBtn from 'winduum/src/ui/btn/index.css?inline';
+import UiBtnCss from 'winduum/src/ui/btn/index.css?inline'
 
 export class UiButton extends LitElement {
-  constructor() {
-    super()
+    constructor () {
+        super()
 
-    this.classList.add('ui-btn')
-  }
+        this.role = 'button'
+        this.tabIndex = '0'
+    }
 
-  render() {
-    return html`
-      <a href="/">
-        <slot></slot>
-      </a>
-    `
-  }
+    render () {
+        return html`
+          <a href="#" title="test"><slot></slot></a>
+        `
+    }
 
-  static get styles() {
-    console.log(UiBtn)
-
-    return [
-      css`
-        :host, :host * {
-          box-sizing: border-box;
-        }
-        
-        :where(a, button) {
-          all: inherit;
-          margin: calc(var(--ui-btn-py) * -1) calc(var(--ui-btn-px) * -1);
-          cursor: pointer;
-        }
-        
-        :root span {
-          display: none;
-        }
-      `,
-      unsafeCSS(UiBtn.replaceAll('.ui-btn', ':host'))
-    ]
-  }
+    static get styles () {
+        return [
+            css`
+              :host, * {
+                box-sizing: border-box;
+              }
+              
+              a {
+                display: contents;
+                color: inherit;
+                
+                &::before {
+                  position: absolute;
+                  inset: 0;
+                  content: "";
+                }
+              }
+              
+            `, unsafeCSS(
+                UiBtnCss.replaceAll('.ui-btn', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
+            )
+        ]
+    }
 }
 
 window.customElements.define('ui-button', UiButton)

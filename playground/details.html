@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="/src/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid-cols-container">
+    <div class="w-full flex-col gap-4">
+        <details class="c-details group bg-body-secondary p-4 rounded">
+            <summary class="flex-center text-primary" data-action="toggleDetails">
+                <span class="ui-title">Show more</span>
+                <svg class="size-4 group-open:-scale-y-100 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </summary>
+            <div style="display: none">
+                <div class="pt-4">
+                    Details content
+                </div>
+            </div>
+        </details>
+        <details class="c-details group bg-body-secondary p-4 rounded" open>
+            <summary class="flex-center text-primary" data-action="toggleDetails">
+                <span class="ui-title">Show more</span>
+                <svg class="size-4 group-open:-scale-y-100 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </summary>
+            <div>
+                <div class="pt-4">
+                    Details content
+                </div>
+            </div>
+        </details>
+        <details class="c-details group bg-body-secondary p-4 rounded">
+            <summary class="w-fit flex">
+                <label class="ui-check">
+                    <input type="checkbox" data-action="toggleDetails" autocomplete="off">
+                    Fill more
+                </label>
+            </summary>
+            <div style="display: none">
+                <div class="ui-control max-w-96 mt-4">
+                    <input>
+                </div>
+            </div>
+        </details>
+
+        <details class="c-details group bg-body-secondary p-4 rounded" open>
+            <summary class="flex-center text-primary" data-action="accordionDetails">
+                <span class="ui-title">Accordion 1</span>
+                <svg class="size-4 group-open:-scale-y-100 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </summary>
+            <div>
+                <div class="pt-4">
+                    Details content
+                </div>
+            </div>
+        </details>
+        <details class="c-details group bg-body-secondary p-4 rounded">
+            <summary class="flex-center text-primary" data-action="accordionDetails">
+                <span class="ui-title">Accordion 2</span>
+                <svg class="size-4 group-open:-scale-y-100 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </summary>
+            <div style="display: none">
+                <div class="pt-4">
+                    Details content
+                </div>
+            </div>
+        </details>
+        <details class="c-details group bg-body-secondary p-4 rounded">
+            <summary class="flex-center text-primary" data-action="accordionDetails">
+                <span class="ui-title">Accordion 3</span>
+                <svg class="size-4 group-open:-scale-y-100 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </summary>
+            <div style="display: none">
+                <div class="pt-4">
+                    Details content
+                </div>
+            </div>
+        </details>
+        <script type="module">
+            import { toggleDetails, closeDetails } from '/src/components/details.js'
+
+            document.querySelectorAll('[data-action="toggleDetails"]').forEach(summary => {
+                summary.addEventListener('click', event => {
+                    if (event.currentTarget.tagName !== 'INPUT') event.preventDefault()
+
+                    toggleDetails(summary)
+                })
+            })
+
+            document.querySelectorAll('[data-action="accordionDetails"]').forEach(summary => {
+                summary.addEventListener('click', event => {
+                    event.preventDefault()
+
+                    const { currentTarget } = event
+
+                    closeDetails(currentTarget.closest('body').querySelector('details[open]:has([data-action="accordionDetails"]) summary'))
+
+                    toggleDetails(currentTarget)
+                })
+            })
+        </script>
+    </div>
+</body>
+</html>

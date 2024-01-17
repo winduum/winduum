@@ -1,11 +1,12 @@
 .ui-btn {
   &:where(.raised) {
-    border: var(--ui-btn-border-width) solid color-mix(in sRGB, var(--color-accent) var(--ui-btn-border-opacity), var(--color-current));
+    border: var(--ui-btn-border-width) solid color-mix(in var(--space), var(--color-accent) var(--ui-btn-border-opacity), var(--color-current));
     padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
   }
 
   &:is(.raised) {
+    --tw-border-opacity: 0.85;
     --ui-btn-border-width: 2px;
-    --ui-btn-border-opacity: calc(var(--tw-border-opacity, 0.85) * 100%);
+    --ui-btn-border-opacity: calc(var(--tw-border-opacity) * 100%);
   }
 }

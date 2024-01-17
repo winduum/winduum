@@ -1,0 +1,12 @@
+.ui-range:where(.vertical) {
+  container-type: size;
+  min-width: var(--ui-range-thumb-size);
+
+  :where(input) {
+    transform: rotate(-90deg);
+    width: 100cqh;
+    height: 100cqw;
+    transform-origin: 0 0;
+    top: 100%;
+  }
+}

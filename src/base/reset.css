@@ -1,28 +1,102 @@
-/***
-    The new CSS reset - version 1.11.2 (last updated 15.11.2023)
-    GitHub page: https://github.com/elad2412/the-new-css-reset
-***/
-
-/*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
-    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
- */
-*:where(:not(html, iframe, canvas, img, svg, video, audio, svg *, symbol *, ol, ul, sub, sup)) {
+/* Reset all */
+:where(a),
+:where(address),
+:where(button),
+:where(blockquote),
+:where(body),
+:where(caption),
+:where(cite),
+:where(code),
+:where(dd),
+:where(details),
+:where(dialog),
+:where(dl),
+:where(dt),
+:where(fieldset),
+:where(figcaption),
+:where(figure),
+:where(h1, h2, h3, h4, h5, h6),
+:where(hgroup),
+:where(hr),
+:where(html),
+:where(input),
+:where(kbd),
+:where(label),
+:where(legend),
+:where(li),
+:where(mark),
+:where(menu),
+:where(ol),
+:where(optgroup),
+:where(option),
+:where(output),
+:where(p),
+:where(pre),
+:where(select),
+:where(summary),
+:where(table),
+:where(td),
+:where(textarea),
+:where(th),
+:where(thead),
+:where(time),
+:where(tr),
+:where(ul),
+:where(progress),
+:where(meter) {
   all: unset;
   display: revert;
 }
 
-/* Preferred box-sizing value */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* Reset block */
+:where(img),
+:where(svg),
+:where(video),
+:where(canvas),
+:where(audio),
+:where(iframe),
+:where(embed),
+:where(object),
+:where(search),
+:where(hr),
+:where(summary),
+:where(pre > code) {
+  display: block;
 }
 
-/* Fix mobile Safari increase font-size on landscape mode */
-html {
-  text-size-adjust: none;
+/* Improve consistency of default fonts in all browsers. */
+:where(code), :where(kbd), :where(samp), :where(pre) {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 1em;
+}
+
+/* Preferred box-sizing value */
+:where(*),
+:where(*)::before,
+:where(*)::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+:where(sub, sup) {
+  vertical-align: baseline;
+  font-size: 100%;
+}
+
+:where(sub) {
+  font-variant-position: sub;
+}
+
+:where(sup) {
+  font-variant-position: super;
+}
+
+/* Add the correct text decoration in Chrome, Edge, and Safari. */
+:where(abbr[title]) {
+  text-decoration: underline dotted;
 }
 
 /* Reapply the pointer cursor for anchor tags */
@@ -32,7 +106,7 @@ html {
 
 /* Remove list styles (bullets/numbers) */
 :where(ol:not([type]), ul, menu) {
-  list-style: none;
+  list-style-type: "";
 }
 
 /* For images to not be able to exceed their container */
@@ -57,26 +131,9 @@ html {
   white-space: revert;
 }
 
-/* minimum style to allow to style meter element */
-:where(meter) {
-  -webkit-appearance: revert;
-  appearance: revert;
-}
-
-/* preformatted text - use only for this feature */
-:where(pre) {
-  all: revert;
-  box-sizing: border-box;
-}
-
 /* reset default text opacity of input placeholder */
 ::placeholder {
   color: unset;
-}
-
-/* remove default dot (•) sign */
-::marker {
-  content: initial;
 }
 
 /* revert for bug in Chromium browsers
@@ -95,16 +152,24 @@ html {
   -webkit-user-drag: element;
 }
 
+/* Fix input styles */
+:where(input) {
+  &::-webkit-datetime-edit-fields-wrapper,
+  &::-webkit-datetime-edit-text,
+  &::-webkit-datetime-edit,
+  &::-webkit-datetime-edit-hour-field,
+  &::-webkit-datetime-edit-minute-field {
+    padding: 0;
+  }
+
+  &::-webkit-calendar-picker-indicator,
+  &::-webkit-search-cancel-button {
+    align-self: center;
+    background-position: 50% 50%;
+  }
+}
+
 /* Remove details summary webkit styles */
 ::-webkit-details-marker {
   display: none;
-}
-
-/* fix firefox svg */
-:where(svg, use, path, symbol) {
-  all: revert-layer;
-}
-
-:where(search) {
-  display: block;
 }

@@ -3,7 +3,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-color: color-mix(in sRGB, var(--ui-btn-bg-mix) calc(100% - var(--ui-btn-bg-opacity)), transparent);
+    background-color: color-mix(in var(--space), var(--ui-btn-bg-mix) calc(100% - var(--ui-btn-bg-opacity)), transparent);
     z-index: -1;
     transition: var(--transition-background);
   }

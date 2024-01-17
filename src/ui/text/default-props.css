@@ -1,0 +1,5 @@
+:root, :host {
+  --ui-text-content-bold: var(--font-semibold);
+  --ui-text-content-my: var(--spacing-xl);
+  --ui-text-content-marker-size: 0.375em;
+}

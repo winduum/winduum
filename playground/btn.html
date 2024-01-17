@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="font-sans">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Winduum UI</title>
@@ -11,7 +11,7 @@
     <script src="/vue.js" type="module"></script>
 </head>
 <body class="bg-blue-100/10 dark:bg-dark p-md flex flex-col items-start gap-4">
-    <div class="flex-col">
+    <div class="ui-group vertical">
         <a role="button" class="ui-btn">Link</a>
         <button type="submit" class="ui-btn">Button</button>
         <input type="button" value="Input" class="ui-btn" />
@@ -58,6 +58,12 @@
         <button class="ui-btn bordered">Button</button>
     </div>
 
+    <div class="ui-group">
+        <button class="ui-btn">Button</button>
+        <button class="ui-btn">Button</button>
+        <button class="ui-btn">Button</button>
+    </div>
+
     <div class="flex gap-2">
         <button class="ui-btn square">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -85,8 +91,6 @@
         <button class="bg-white p-xs" id="action-btn-loading">loading</button>
         <button class="bg-white p-xs" id="action-btn-dark">dark</button>
     </div>
-
-    <div id="app"></div>
 
     <script>
         document.getElementById('action-btn-active').addEventListener('click', () => {

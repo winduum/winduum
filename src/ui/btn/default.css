@@ -1,12 +1,11 @@
 .ui-btn {
-  --color-current: var(--color-accent-fg);
-  --ui-btn-height: 2.25rem;
-  --ui-btn-py: 0.375rem;
-  --ui-btn-px: 0.75rem;
-  --ui-btn-bg: color-mix(in sRGB, var(--color-accent) var(--ui-btn-bg-opacity), var(--ui-btn-bg-mix, transparent));
-  --ui-btn-bg-opacity: calc(var(--tw-bg-opacity, 1) * 100%);
-  --ui-btn-color: color-mix(in sRGB, var(--color-current) var(--ui-btn-color-opacity), transparent);
-  --ui-btn-color-opacity: calc(var(--tw-text-opacity, 1) * 100%);
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  --color-current: var(--color-accent-foreground);
+  --ui-btn-bg: color-mix(in var(--space), var(--color-accent) var(--ui-btn-bg-opacity), var(--ui-btn-bg-mix, transparent));
+  --ui-btn-bg-opacity: calc(var(--tw-bg-opacity) * 100%);
+  --ui-btn-color: color-mix(in var(--space), var(--color-current) var(--ui-btn-color-opacity), transparent);
+  --ui-btn-color-opacity: calc(var(--tw-text-opacity) * 100%);
 
   width: var(--ui-btn-width, auto);
   height: var(--ui-btn-height);
@@ -17,6 +16,9 @@
   letter-spacing: var(--ui-btn-letter-spacing, 0);
   background-color: var(--ui-btn-bg);
   color: var(--ui-btn-color);
+  gap: var(--ui-btn-gap, var(--spacing-sm));
+  outline: var(--ui-btn-outline-width, 2px) solid transparent;
+  outline-offset: 0;
   user-select: none;
   overflow: hidden;
   display: inline-flex;
@@ -27,16 +29,13 @@
   position: relative;
   flex-shrink: 0;
   z-index: 0;
-  gap: var(--ui-btn-gap, 0.375rem);
-  outline: var(--ui-btn-outline-width, 2px) solid transparent;
-  outline-offset: 0;
 
-  &:where([class*="accent-main"]) {
-    --ui-btn-hover-bg-mix: var(--color-main-fg);
+  &:where(.accent-main) {
+    --ui-btn-hover-bg-mix: var(--color-main-foreground);
   }
 
-  &:where([class*="accent-body"]) {
-    --ui-btn-hover-bg-mix: var(--color-body-fg);
+  &:where(.accent-body) {
+    --ui-btn-hover-bg-mix: var(--color-body-foreground);
   }
 
   &:where(input)::after {
