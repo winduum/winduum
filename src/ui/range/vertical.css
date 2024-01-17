@@ -1,6 +1,6 @@
 .ui-range:where(.vertical) {
   container-type: size;
-  width: var(--ui-range-track-height);
+  min-width: var(--ui-range-thumb-size);
 
   :where(input) {
     transform: rotate(-90deg);
