@@ -18,6 +18,7 @@ _This should be last version with such major breaking changes and is much closer
 * feat: added new utility `dot` for little dots
 * feat: added new P3 color space theme
 * feat: added new modern css reset, improved compatibility with lit
+* feat: added experimental lit example demo
 * feat: added `ui-link` component removed in previous version
 * feat: improved `ui-group` component, now includes `vertical` variant
 * feat: foreground color classes are now included in tailwindcss plugin and were renamed from `fg` to `foreground` for better compatibility

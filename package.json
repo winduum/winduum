@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "0.6.0-next.10",
+  "version": "0.6.0",
   "type": "module",
   "main": "utils/tailwind.cjs",
   "module": "utils/tailwind.js",
@@ -33,7 +33,7 @@
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
     "vite": "^5.0.11",
-    "vue": "^3.4.9",
+    "vue": "^3.4.14",
     "slide-element": "^2.3.1"
   },
   "files": [
