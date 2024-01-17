@@ -1,17 +1,15 @@
 .ui-link {
-  --color-accent: var(--color-current);
   --tw-text-opacity: 1;
   --tw-text-space: var(--space);
-  --tw-text-mix: transparent;
 
-  &:is([href], button, [role="button"]) {
+  &:where([href], button, [role="button"]) {
+    color: color-mix(in var(--tw-text-space), currentColor calc(var(--tw-text-opacity) * 100%), transparent);
+    transition: all var(--duration) var(--ease-in-out);
+
     &:not(:disabled) {
-      color: color-mix(in var(--tw-text-space), var(--color-accent) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
-      transition: all var(--duration) var(--ease-in-out);
-
       &:hover {
         @media (hover: hover) and (pointer: fine) {
-          --tw-text-opacity: 0.75;
+          --tw-text-opacity: 0.35;
         }
       }
 

@@ -1,9 +1,9 @@
 .ui-btn:is(.muted) {
-  --color-current: var(--color-accent);
   --ui-btn-hover-bg-mix: transparent;
   --ui-btn-active-bg-mix: transparent;
-  --ui-btn-active-bg-opacity: 20%;
+  --ui-btn-active-bg-opacity: 0.2;
   --ui-btn-focus-outline-offset: -2px;
-  --ui-btn-hover-bg-opacity: 30%;
-  --ui-btn-bg-opacity: 10%;
+  --ui-btn-hover-bg-opacity: 0.3;
+  --color-accent-foreground: var(--color-accent);
+  --tw-bg-opacity: 0.1;
 }

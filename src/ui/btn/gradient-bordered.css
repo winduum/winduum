@@ -1,9 +1,11 @@
 .ui-btn {
   &:where(.gradient-bordered) {
     &::before {
+      --tw-bg-space: var(--space);
+
       content: "";
       position: absolute;
-      background-color: color-mix(in var(--space), var(--color-body) calc(100% - var(--ui-btn-bg-opacity)), transparent);
+      background-color: color-mix(in var(--tw-bg-space), var(--color-body) calc(100% - var(--tw-bg-opacity) * 100%), transparent);
       inset: var(--ui-btn-border-width);
       border-radius: calc(var(--ui-btn-border-radius, var(--rounded)) / 1.25);
       z-index: -1;
@@ -12,7 +14,7 @@
 
     &:where(.hover-fill) {
       &::before {
-        background-color: color-mix(in var(--space), var(--color-body) var(--ui-btn-bg-opacity), transparent);
+        background-color: color-mix(in var(--tw-bg-space), var(--color-body) calc(var(--tw-bg-opacity) * 100%), transparent);
       }
     }
   }
@@ -20,15 +22,15 @@
   &:is(.gradient-bordered) {
     --ui-btn-border-width: 2px;
     --ui-btn-hover-bg-mix: transparent;
-    --ui-btn-hover-bg-opacity: 10%;
+    --ui-btn-hover-bg-opacity: 0.1;
     --ui-btn-active-bg-mix: transparent;
-    --ui-btn-active-bg-opacity: 20%;
+    --ui-btn-active-bg-opacity: 0.2;
     --ui-btn-focus-outline-offset: 0;
-    --ui-btn-bg-opacity: 0%;
-    --color-current: var(--color-main);
+    --color-accent-foreground: var(--color-main);
+    --tw-bg-opacity: 0;
 
     &:is(.hover-fill) {
-      --ui-btn-bg-opacity: 100%;
+      --tw-bg-opacity: 1;
     }
   }
 }
