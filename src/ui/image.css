@@ -3,7 +3,6 @@
   display: inline-flex;
   border-radius: inherit;
   flex-shrink: 0;
-  max-width: fit-content;
 
   &::before {
     position: absolute;

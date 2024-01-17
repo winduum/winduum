@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "0.6.0-next.5",
+  "version": "0.6.0-next.10",
   "type": "module",
   "main": "utils/tailwind.cjs",
   "module": "utils/tailwind.js",
@@ -41,19 +41,19 @@
     "tailwind.config.js",
     "dist",
     "src",
-    "utils"
+    "plugin"
   ],
   "exports": {
     ".": {
-      "default": "./utils/tailwind.js",
-      "require": "./utils/tailwind.cjs",
-      "import": "./utils/tailwind.js"
+      "default": "./plugin/tailwind.js",
+      "require": "./plugin/tailwind.cjs",
+      "import": "./plugin/tailwind.js"
     },
     "./main.css": "./dist/main.css",
     "./main-rgb.css": "./dist/main-rgb.css",
     "./tailwind.css": "./dist/tailwind.css",
     "./src/*": "./src/*",
-    "./utils/*": "./utils/*",
+    "./plugin/*": "./plugin/*",
     "./base/*": "./src/base/*",
     "./components/*": "./src/components/*",
     "./libraries/*": "./src/libraries/*",

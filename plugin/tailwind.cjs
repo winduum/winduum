@@ -3,41 +3,9 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var plugin = require('tailwindcss/plugin');
+var withAlphaVariable = require('tailwindcss/src/util/withAlphaVariable');
 var flattenColorPalette = require('tailwindcss/src/util/flattenColorPalette');
 var toColorValue = require('tailwindcss/src/util/toColorValue');
-var color = require('tailwindcss/src/util/color');
-
-function withAlphaVariable ({ color: color$1, property, variable }) {
-    const properties = [].concat(property);
-    if (typeof color$1 === 'function') {
-        return {
-            ...Object.fromEntries(
-                properties.map((p) => {
-                    return [p, color$1({ opacityVariable: variable, opacityValue: `var(${variable}, 1)` })]
-                })
-            )
-        }
-    }
-
-    const parsed = color.parseColor(color$1);
-
-    if (parsed === null) {
-        return Object.fromEntries(properties.map((p) => [p, color$1]))
-    }
-
-    if (parsed.alpha !== undefined) {
-        // Has an alpha value, return color as-is
-        return Object.fromEntries(properties.map((p) => [p, color$1]))
-    }
-
-    return {
-        ...Object.fromEntries(
-            properties.map((p) => {
-                return [p, color.formatColor({ ...parsed, alpha: `var(${variable}, 1)` })]
-            })
-        )
-    }
-}
 
 const defaultConfig = {
     colors: [

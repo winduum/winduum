@@ -1,39 +1,7 @@
 import plugin from 'tailwindcss/plugin'
+import withAlphaVariable from 'tailwindcss/src/util/withAlphaVariable'
 import flattenColorPalette from 'tailwindcss/src/util/flattenColorPalette'
 import toColorValue from 'tailwindcss/src/util/toColorValue'
-import { parseColor, formatColor } from 'tailwindcss/src/util/color'
-
-function withAlphaVariable ({ color, property, variable }) {
-    const properties = [].concat(property)
-    if (typeof color === 'function') {
-        return {
-            ...Object.fromEntries(
-                properties.map((p) => {
-                    return [p, color({ opacityVariable: variable, opacityValue: `var(${variable}, 1)` })]
-                })
-            )
-        }
-    }
-
-    const parsed = parseColor(color)
-
-    if (parsed === null) {
-        return Object.fromEntries(properties.map((p) => [p, color]))
-    }
-
-    if (parsed.alpha !== undefined) {
-        // Has an alpha value, return color as-is
-        return Object.fromEntries(properties.map((p) => [p, color]))
-    }
-
-    return {
-        ...Object.fromEntries(
-            properties.map((p) => {
-                return [p, formatColor({ ...parsed, alpha: `var(${variable}, 1)` })]
-            })
-        )
-    }
-}
 
 export const defaultConfig = {
     colors: [
