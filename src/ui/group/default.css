@@ -1,8 +1,4 @@
 .ui-group {
-  --ui-control-border-mix: var(--color-body-primary);
-  --ui-btn-focus-outline-mix: var(--color-body-primary);
-  --ui-btn-focus-outline-offset: 0;
-
   display: flex;
   border-radius: var(--rounded);
 
@@ -19,6 +15,15 @@
 
   & > :where(*) {
     border-radius: inherit;
+
+    &:is(.ui-control) {
+      --tw-border-mix: var(--color-body-primary);
+      --tw-outline-mix: var(--color-body-primary);
+    }
+
+    &:is(.ui-btn) {
+      --ui-btn-focus-outline-offset: 0;
+    }
 
     &:focus-within {
       z-index: 1;

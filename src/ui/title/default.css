@@ -2,7 +2,7 @@
   font-family: var(--ui-title-font-family, var(--font-secondary));
   font-weight: var(--ui-title-font-weight, var(--font-semibold));
   font-size: var(--ui-title-font-size, var(--text-sm));
-  line-height: var(--ui-title-line-height, calc(1em + var(--ui-title-line-height-ratio, 0.15lh)));
+  line-height: var(--ui-title-line-height, calc(1em + 0.15lh));
   letter-spacing: var(--ui-title-letter-spacing, 0);
   text-wrap: balance;
 }

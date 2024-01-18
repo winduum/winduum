@@ -7,17 +7,17 @@
   border-radius: inherit;
 
   > *, &::before {
-    grid-area: 1/1;
     position: relative;
-    z-index: 1;
     pointer-events: none;
+    grid-area: 1/1;
+    z-index: 1;
   }
 
   &::before {
-    content: "";
-    inline-size: 1px;
     background-color: var(--color-accent);
     inset-inline-start: var(--c-compare-position);
+    inline-size: 1px;
+    content: "";
   }
 
   > :where(input) {
@@ -27,15 +27,14 @@
 
     &:is(:focus-visible, :active) {
       ~ .ui-btn {
-        --ui-btn-color: var(--color-current);
-        --ui-btn-bg-mix: black;
-        --ui-btn-bg-opacity: 80%;
+        --tw-bg-mix: var(--ui-btn-hover-bg-mix, var(--color-dark));
+        --tw-bg-opacity: 0.8;
       }
     }
 
     &:focus-visible ~ .ui-btn {
-      outline-color: color-mix(in var(--space), var(--color-accent) 50%, transparent);
-      outline-offset: 2px;
+      --ui-btn-outline-offset: 2px;
+      --tw-outline-opacity: 0.5;
     }
 
     &:active {
@@ -44,9 +43,9 @@
   }
 
   > :where(.ui-btn) {
-    margin-block: auto;
     inset-inline-start: var(--c-compare-position);
     margin-inline-start: calc(var(--ui-btn-width) / 2 * -1);
+    margin-block: auto;
   }
 
   > :where(.ui-image) {
@@ -59,8 +58,8 @@
       grid-area: 1/1;
 
       &:first-child {
-        position: relative;
         clip-path: var(--c-compare-clip-path);
+        position: relative;
       }
     }
   }

@@ -1,12 +1,12 @@
 .ui-check {
   --ui-check-checked-bg: var(--color-accent);
 
-  display: inline-flex;
-  gap: var(--ui-check-gap, var(--spacing-md));
   font-weight: var(--ui-check-font-weight, var(--font-normal));
   font-size: var(--ui-check-font-size, var(--text-sm));
-  line-height: var(--ui-check-line-height, calc(1em + var(--ui-check-line-height-ratio, 0.25lh)));
+  line-height: var(--ui-check-line-height, calc(1em + 0.25lh));
   letter-spacing: var(--ui-check-letter-spacing, inherit);
+  gap: var(--ui-check-gap, var(--spacing-md));
+  display: inline-flex;
   text-wrap: balance;
 
   &:has([type="radio"]) {
@@ -20,33 +20,47 @@
   }
 
   & :where(input) {
+    --color-accent: currentColor;
+    --tw-bg-space: var(--space);
+    --tw-border-space: var(--space);
     --tw-border-opacity: 0.2;
+    --tw-border-mix: transparent;
+    --tw-outline-opacity: 0;
+    --tw-outline-space: var(--space);
+    --tw-bg-opacity: 0;
+    --tw-bg-mix: transparent;
 
     width: var(--ui-check-size);
     height: var(--ui-check-size);
-    background-color: var(--ui-check-bg, color-mix(in var(--space), var(--color-current) var(--ui-check-bg-opacity, 0%), var(--ui-check-bg-mix, transparent)));
+    border-radius: var(--ui-check-border-radius, var(--rounded-md));
+    background-color: color-mix(in var(--tw-bg-space), var(--ui-check-bg, var(--color-accent)) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
     border:
       var(--ui-check-border-width, 1px) solid
       color-mix(
-        in var(--space),
-        var(--ui-check-border-color, var(--color-current)) var(--ui-check-border-opacity, calc(var(--tw-border-opacity) * 100%)),
-        var(--ui-check-border-mix, transparent)
+        in var(--tw-border-space),
+        var(--ui-check-border-color, var(--color-accent)) calc(var(--tw-border-opacity) * 100%),
+        var(--tw-border-mix, transparent)
       );
-    border-radius: var(--ui-check-radius, var(--rounded-md));
-    outline: var(--ui-check-outline-width, 3px) solid transparent;
+    outline:
+      var(--ui-check-outline-width, 3px) solid
+      color-mix(
+        in var(--tw-outline-space),
+        var(--ui-check-checked-bg) calc(var(--tw-outline-opacity) * 100%),
+        transparent
+      );
+    outline-offset: var(--ui-check-outline-offset, 0);
     transition-property: var(--transition);
     transition-timing-function: var(--ease-in-out);
     transition-duration: var(--duration);
-    outline-offset: 0;
-    flex-shrink: 0;
     display: flex;
+    flex-shrink: 0;
 
     &::before {
       width: var(--ui-check-icon-size);
       height: var(--ui-check-icon-size);
       color: var(--color-accent-foreground);
       mask: var(--ui-check-icon, var(--mask-check));
-      transition: var(--transition-color), var(--transition-opacity), var(--transition-transform);
+      transition: inherit;
       content: "";
       background-color: currentColor;
       opacity: 0;
@@ -64,35 +78,35 @@
 
     &:enabled {
       &:is(:hover, :focus-visible) {
-        --color-current: var(--ui-check-checked-bg);
         --ui-check-border-color: var(--ui-check-checked-bg);
-        --ui-check-border-opacity: 75%;
-        --ui-check-bg-opacity: 10%;
+        --color-accent: var(--ui-check-checked-bg);
+        --tw-border-opacity: 0.75;
+        --tw-bg-opacity: 0.1;
       }
 
       &:focus {
         --ui-check-border-color: var(--ui-check-checked-bg);
-        --ui-check-border-opacity: 75%;
-
-        outline-color: color-mix(in var(--space), var(--ui-check-checked-bg) var(--ui-check-outline-opacity, 20%), transparent);
-        outline-offset: var(--ui-check-outline-offset, 0);
+        --ui-check-outline-offset: var(--ui-check-focus-outline-offset, 0);
+        --tw-border-opacity: 0.75;
+        --tw-outline-opacity: 0.2;
       }
     }
 
     &:disabled {
-      --ui-check-bg-opacity: 15%;
+      --tw-bg-opacity: 0.15;
 
       cursor: not-allowed;
       opacity: var(--ui-check-disabled-opacity, 0.5);
     }
 
-    &[type="checkbox"]:indeterminate {
+    &:where([type="checkbox"]):indeterminate {
       --ui-check-icon: var(--mask-indeterminate);
     }
 
     &:is(:checked, [type="checkbox"]:indeterminate) {
-      --ui-check-border-opacity: 0%;
       --ui-check-bg: var(--ui-check-checked-bg);
+      --tw-bg-opacity: 1;
+      --tw-border-opacity: 0;
 
       &::before {
         opacity: 1;
@@ -102,9 +116,9 @@
   }
 
   &.invalid, .validated & :where(input):invalid {
-    --color-current: var(--color-error);
     --ui-check-border-color: var(--color-error);
     --ui-check-checked-bg: var(--color-error);
-    --ui-check-border-opacity: 100%;
+    --color-accent-foreground: var(--color-error);
+    --tw-border-opacity: 1;
   }
 }

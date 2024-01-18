@@ -12,11 +12,11 @@
   &::after {
     width: var(--ui-control-select-icon-size);
     height: var(--ui-control-select-icon-size);
-    margin-inline: auto var(--ui-control-select-icon-me);
     mask: var(--mask-angle-down);
+    margin-inline: auto var(--ui-control-select-icon-me);
+    grid-area: c-control-p;
     background-color: currentColor;
     pointer-events: none;
-    grid-area: c-control-p;
     align-self: center;
     content: "";
   }

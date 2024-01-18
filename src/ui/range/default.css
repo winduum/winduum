@@ -2,86 +2,99 @@
   --ui-range-thumb-bg: var(--color-accent);
   --ui-range-thumb-border-color: var(--ui-range-thumb-bg);
   --ui-range-track-bg: var(--color-accent);
-  --ui-range-bg: color-mix(in var(--space), var(--color-accent) 10%, var(--color-body));
+  --ui-range-track: linear-gradient(
+      to right,
+      var(--ui-range-track-bg) 0%,
+      var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
+      transparent var(--ui-range-track-start, 0%),
+      transparent var(--ui-range-track-end, 100%)
+  );
 
+  min-block-size: var(--ui-range-thumb-size);
   display: grid;
-  min-height: var(--ui-range-thumb-size);
 
   :where(input) {
-    grid-area: 1/1;
+    --tw-bg-space: var(--space);
+    --tw-bg-opacity: 0.1;
+    --tw-bg-mix: var(--color-body);
+
+    block-size: var(--ui-range-track-height);
+    background-color: color-mix(in var(--tw-bg-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
     position: relative;
-    z-index: 1;
+    grid-area: 1/1;
 
     &::-webkit-slider-runnable-track {
       block-size: var(--ui-range-track-height);
       border-radius: var(--rounded-full);
-      background:
-        linear-gradient(
-          to right,
-          var(--ui-range-track-bg) 0%,
-          var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
-          var(--ui-range-bg) var(--ui-range-track-start, 0%),
-          var(--ui-range-bg) var(--ui-range-track-end, 100%)
-        );
+      background: var(--ui-range-track);
     }
 
     &::-moz-range-track {
       block-size: var(--ui-range-track-height);
       border-radius: var(--rounded-full);
-      background:
-        linear-gradient(
-          to right,
-          var(--ui-range-track-bg) 0%,
-          var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
-          var(--ui-range-bg) var(--ui-range-track-start, 0%),
-          var(--ui-range-bg) var(--ui-range-track-end, 100%)
-        );
+      background: var(--ui-range-track);
     }
 
     &::-webkit-slider-thumb {
-      appearance: none;
+      --tw-outline-opacity: var(--ui-range-thumb-outline-opacity, 0);
+      --tw-outline-space: var(--space);
+
       width: var(--ui-range-thumb-size);
       height: var(--ui-range-thumb-size);
       background-color: var(--ui-range-thumb-bg);
       border-radius: var(--rounded-full);
       border: var(--ui-range-thumb-border-width) solid var(--ui-range-thumb-border-color);
-      cursor: grab;
-      pointer-events: auto;
-      outline: var(--ui-range-track-outline-width) solid transparent;
-      transition: outline-color var(--duration) linear;
+      outline: var(--ui-range-thumb-outline-width) solid
+        color-mix(
+            in var(--tw-outline-space),
+            var(--ui-range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),
+            transparent
+        );
       margin-block-start: calc((var(--ui-range-thumb-size) - var(--ui-range-track-height)) / 2 * -1);
+      transition: outline-color var(--duration) linear;
+      cursor: var(--ui-range-thumb-cursor, grab);
+      appearance: none;
+      pointer-events: auto;
 
       &:active {
-        outline-color: color-mix(in var(--space), var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
-        cursor: grabbing;
+        --ui-range-thumb-cursor: grabbing;
+        --tw-outline-opacity: var(--ui-range-thumb-focus-outline-opacity);
       }
     }
 
     &::-moz-range-thumb {
-      appearance: none;
+      --tw-outline-opacity: var(--ui-range-thumb-outline-opacity, 0);
+      --tw-outline-space: var(--space);
+
       width: var(--ui-range-thumb-size);
       height: var(--ui-range-thumb-size);
       background-color: var(--ui-range-thumb-bg);
       border-radius: var(--rounded-full);
       border: var(--ui-range-thumb-border-width) solid var(--ui-range-thumb-border-color);
-      cursor: grab;
-      pointer-events: auto;
-      outline: var(--ui-range-track-outline-width) solid transparent;
+      outline: var(--ui-range-thumb-outline-width) solid
+        color-mix(
+          in var(--tw-outline-space),
+          var(--ui-range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),
+          transparent
+        );
       transition: outline-color var(--duration), outline-offset var(--duration);
+      cursor: var(--ui-range-thumb-cursor, grab);
+      appearance: none;
+      pointer-events: auto;
 
       &:active {
-        outline-color: color-mix(in var(--space), var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
-        cursor: grabbing;
+        --ui-range-thumb-cursor: grabbing;
+        --tw-outline-opacity: var(--ui-range-thumb-focus-outline-opacity);
       }
     }
 
     &:focus-visible {
       &::-webkit-slider-thumb {
-        outline-color: color-mix(in var(--space), var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
+        --tw-outline-opacity: var(--ui-range-thumb-focus-outline-opacity);
       }
 
       &::-moz-range-thumb {
-        outline-color: color-mix(in var(--space), var(--ui-range-thumb-bg) var(--ui-range-track-outline-opacity), transparent);
+        --tw-outline-opacity: var(--ui-range-thumb-focus-outline-opacity);
       }
     }
   }

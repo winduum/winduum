@@ -1,16 +1,37 @@
 .ui-control {
+  --tw-border-opacity: 0.15;
+  --tw-border-space: var(--space);
+  --tw-border-mix: transparent;
+  --tw-bg-space: var(--space);
+  --tw-bg-opacity: 1;
+  --tw-bg-mix: transparent;
+  --tw-outline-opacity: 0;
+  --tw-outline-space: var(--space);
+
   display: grid;
-  height: var(--ui-control-height);
+  block-size: var(--ui-control-height);
   font-family: var(--ui-contro-font-family, var(--font-primary));
   font-weight: var(--ui-control-font-weight, var(--font-medium));
   font-size: var(--ui-control-font-size, var(--text-sm));
   letter-spacing: var(--ui-control-letter-spacing, inherit);
-  background-color: var(--ui-control-bg, transparent);
+  background-color: color-mix(in var(--tw-bg-space), var(--ui-control-bg, transparent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
   color: var(--ui-control-color, currentColor);
   border-radius: var(--ui-control-border-radius, var(--rounded));
-  border: var(--ui-control-border-width) solid color-mix(in var(--space), var(--ui-control-border-color, var(--color-current)) var(--ui-control-border-opacity, 15%), var(--ui-control-border-mix, transparent));
-  outline: var(--ui-control-outline-width, 3px) solid transparent;
-  outline-offset: 0;
+  border:
+    var(--ui-control-border-width) solid
+    color-mix(
+      in var(--tw-border-space),
+      var(--ui-control-border-color, currentColor) calc(var(--tw-border-opacity) * 100%),
+      var(--tw-border-mix)
+    );
+  outline:
+    var(--ui-control-outline-width, 3px) solid
+    color-mix(
+      in var(--tw-outline-space),
+      var(--color-accent) calc(var(--tw-outline-opacity) * 100%),
+      transparent
+    );
+  outline-offset: var(--ui-control-outline-offset, 0);
   transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
@@ -34,15 +55,14 @@
   & > :where(input, textarea, select) {
     padding-block: var(--ui-control-py);
     padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps, 0rem)) calc(var(--ui-control-px) + var(--ui-control-pe, 0rem));
+    grid-area: c-control;
     text-overflow: ellipsis;
     overflow: clip;
-    grid-area: c-control;
     align-self: stretch;
     align-items: center;
 
     &:disabled {
       cursor: not-allowed;
-      background-color: color-mix(in var(--space), var(--color-current) var(--ui-control-disabled-opacity, 5%), var(--ui-control-bg, transparent));
     }
   }
 
@@ -54,24 +74,28 @@
   }
 
   & > :where(textarea) {
-    min-height: var(--ui-control-height-textarea);
+    min-block-size: var(--ui-control-height-textarea);
     resize: vertical;
   }
 
   &:focus-within {
-    --ui-control-border-opacity: 100%;
     --ui-control-border-color: var(--color-accent);
+    --ui-control-outline-offset: var(--ui-control-focus-outline-offset, 0);
+    --tw-border-opacity: 1;
+    --tw-outline-opacity: 0.2;
+  }
 
-    outline-color: color-mix(in var(--space), var(--color-accent) var(--ui-control-outline-opacity, 20%), transparent);
-    outline-offset: var(--ui-control-outline-offset, 0);
+  &.disabled, &:has(:disabled) {
+    --ui-control-bg: currentColor;
+    --tw-bg-opacity: var(--ui-control-disabled-opacity, 0.05);
   }
 
   &.invalid, .validated &:has(:invalid) {
-    --ui-control-border-opacity: 100%;
     --ui-control-border-color: var(--color-error);
     --ui-control-color: var(--color-error);
+    --ui-control-bg: var(--color-error);
     --color-accent: var(--color-error);
-
-    background-color: color-mix(in var(--space), var(--color-error) var(--ui-control-invalid-bg-opacity, 10%), var(--ui-control-bg));
+    --tw-border-opacity: 1;
+    --tw-bg-opacity: var(--ui-control-invalid-bg-opacity, 0.1);
   }
 }

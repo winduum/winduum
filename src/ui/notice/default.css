@@ -1,17 +1,26 @@
 .ui-notice {
-  --color-current: var(--color-accent);
+  --tw-bg-opacity: 0.1;
+  --tw-bg-space: var(--space);
+  --tw-outline-opacity: 0.1;
+  --tw-outline-space: var(--space);
 
   padding: var(--ui-notice-py, 1.25rem) var(--ui-notice-px, 1.5rem);
   font-size: var(--ui-notice-font-size, var(--text-sm));
   border-radius: var(--rounded);
-  background-color: color-mix(in var(--space), var(--color-accent) 10%, transparent);
-  outline: var(--ui-notice-outline-width, 1px) solid color-mix(in var(--space), var(--color-accent) var(--ui-notice-outline-opacity, 10%), transparent);
-  outline-offset: var(--ui-notice-outline-offset, calc(var(--ui-notice-outline-width, 1px) * -1));
+  background-color: color-mix(in var(--tw-bg-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent);
   color: var(--color-accent);
-  gap: var(--ui-notice-gap, var(--spacing-xl));
-  position: relative;
+  outline:
+    var(--ui-notice-outline-width, 1px) solid
+    color-mix(
+      in var(--tw-outline-space),
+      var(--color-accent) calc(var(--tw-outline-opacity) * 100%),
+      transparent
+    );
+  outline-offset: var(--ui-notice-outline-offset, calc(var(--ui-notice-outline-width, 1px) * -1));
+  gap: var(--spacing-xl);
   display: flex;
   flex-direction: column;
+  position: relative;
   text-wrap: balance;
 
   & :where(hr) {

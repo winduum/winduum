@@ -7,6 +7,34 @@ var withAlphaVariable = require('tailwindcss/src/util/withAlphaVariable');
 var flattenColorPalette = require('tailwindcss/src/util/flattenColorPalette');
 var toColorValue = require('tailwindcss/src/util/toColorValue');
 
+var FlexUtility = {
+    '.flex-center': {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 'var(--spacing-sm)'
+    },
+    '.flex-between': {
+        display: 'flex',
+        justifyContent: 'space-between',
+        gap: 'var(--spacing-sm)'
+    }
+};
+
+var DotUtility = {
+    '.dot': {
+        '--tw-bg-opacity': '1',
+        display: 'inline-flex',
+        width: '0.625rem',
+        height: '0.625rem',
+        borderRadius: 'var(--rounded-full)',
+        backgroundColor: 'color-mix(in srgb, var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent)',
+        flexShrink: '0'
+    }
+};
+
+/**
+ * @type {import('./tailwind').PluginOptions} options.
+ */
 const defaultConfig = {
     colors: [
         'primary', 'accent', 'current',
@@ -45,6 +73,10 @@ const defaultConfig = {
     }
 };
 
+/**
+ * @param {[]} colors
+ * @returns {[]}
+ */
 const tailwindColors = (colors = []) => {
     colors.forEach(name => {
         if (defaultConfig.settings.rgb) {
@@ -59,6 +91,12 @@ const tailwindColors = (colors = []) => {
     return colors
 };
 
+/**
+ * @param {string} type
+ * @param {string[]} variables
+ * @param {Object} values
+ * @returns {Object}
+ */
 const tailwindVariables = (type, variables = [], values = {}) => {
     variables.forEach(name => {
         values[name] = `var(--${type}-${name})`;
@@ -67,6 +105,12 @@ const tailwindVariables = (type, variables = [], values = {}) => {
     return values
 };
 
+/**
+ * @param {string} type
+ * @param {string[]} variables
+ * @param {Object} values
+ * @returns {Object}
+ */
 const tailwindVariablesFont = (type, variables = [], values = {}) => {
     variables.forEach(name => {
         values[name] = [`var(--${type}-${name})`, `calc(var(--${type}-${name}) + 0.5rem)`];
@@ -75,6 +119,11 @@ const tailwindVariablesFont = (type, variables = [], values = {}) => {
     return values
 };
 
+/**
+ * @param {string} type
+ * @param {string[]} variables
+ * @returns {Object}
+ */
 const tailwindPropertyUtilities = (type, variables = []) => {
     const result = {};
 
@@ -87,6 +136,10 @@ const tailwindPropertyUtilities = (type, variables = []) => {
     return result
 };
 
+/**
+ * @param {string[]} values
+ * @returns {Object}
+ */
 const tailwindAnimations = (values) => {
     const result = {};
 
@@ -99,13 +152,16 @@ const tailwindAnimations = (values) => {
     return result
 };
 
+/**
+ * @param {import('./tailwind').PluginOptions} userConfig
+ */
 const createPlugin = (userConfig = {}) => {
     userConfig = {
         ...defaultConfig,
         ...userConfig
     };
 
-    return plugin(({ addUtilities, addComponents, matchUtilities, theme, e, corePlugins }) => {
+    return plugin(({ addComponents, matchUtilities, theme, e, corePlugins }) => {
         matchUtilities(
             {
                 accent: (value) => {
@@ -222,25 +278,8 @@ const createPlugin = (userConfig = {}) => {
             })
         ]);
         addComponents({
-            '.flex-center': {
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--spacing-sm)'
-            },
-            '.flex-between': {
-                display: 'flex',
-                justifyContent: 'space-between',
-                gap: 'var(--spacing-sm)'
-            },
-            '.dot': {
-                '--tw-bg-opacity': '1',
-                display: 'inline-flex',
-                width: '0.625rem',
-                height: '0.625rem',
-                borderRadius: 'var(--rounded-full)',
-                backgroundColor: 'color-mix(in srgb, var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent)',
-                flexShrink: '0'
-            }
+            ...FlexUtility,
+            ...DotUtility
         });
     }, {
         corePlugins: {

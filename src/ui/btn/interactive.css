@@ -1,9 +1,17 @@
 .ui-btn {
+  --tw-outline-space: var(--space);
+  --tw-outline-opacity: 0;
+  --tw-outline-mix: transparent;
+
   transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
+  outline-color: color-mix(in var(--tw-outline-space), var(--color-accent) calc(var(--tw-outline-opacity) * 100%), var(--tw-outline-mix));
+  outline-offset: var(--ui-btn-outline-offset, 0);
 
   &:is([href], button, [role="button"], input) {
+    cursor: var(--cursor, pointer);
+
     &:disabled {
       opacity: var(--ui-btn-disabled-opacity, 0.75);
       cursor: not-allowed;
@@ -19,10 +27,8 @@
       }
 
       &:focus {
-        --tw-outline-space: var(--space);
-
-        outline-color: color-mix(in var(--tw-outline-space), var(--color-accent) var(--ui-btn-focus-outline-opacity, 50%), var(--ui-btn-focus-outline-mix, transparent));
-        outline-offset: var(--ui-btn-focus-outline-offset, 2px);
+        --ui-btn-outline-offset: var(--ui-btn-focus-outline-offset, 2px);
+        --tw-outline-opacity: 0.5;
       }
 
       &:is(:active, :checked, .active) {

@@ -33,7 +33,7 @@
 :where(hr) {
   --tw-border-opacity: 1;
 
-  border-top: 1px solid color-mix(in var(--space), currentColor calc(var(--tw-border-opacity) * 100%), transparent);
+  border-block-start: 1px solid color-mix(in var(--space), currentColor calc(var(--tw-border-opacity) * 100%), transparent);
   border-radius: var(--rounded);
   width: 100%;
 }

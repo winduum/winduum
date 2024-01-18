@@ -1,12 +1,11 @@
 .ui-progress {
-  --tw-bg-opacity: 1;
-  --ui-progress-bg: color-mix(in var(--space), var(--color-accent) var(--ui-progress-bg-opacity), var(--color-body));
-  --ui-progress-bg-opacity: calc(var(--tw-bg-opacity) * 10%);
+  --tw-bg-opacity: 0.1;
+  --tw-bg-space: var(--space);
 
-  height: var(--ui-progress-height, 1rem);
+  inline-size: 100%;
+  block-size: var(--ui-progress-height, 1rem);
   border-radius: var(--ui-progress-border-radius, var(--rounded-full));
-  background-color: var(--ui-progress-bg);
-  width: 100%;
+  background-color: color-mix(in var(--tw-bg-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--color-body));
   overflow: clip;
 
   &::-webkit-progress-bar {
@@ -23,7 +22,7 @@
 
   &:indeterminate {
     animation: 1.5s linear 0s forwards infinite move-indeterminate;
-    background-image: linear-gradient(to right, var(--color-accent) 30%, var(--ui-progress-bg) 30%);
+    background-image: linear-gradient(to right, var(--color-accent) 30%, transparent 30%);
     background-position: top left;
     background-repeat: no-repeat;
     background-size: 150% 150%;

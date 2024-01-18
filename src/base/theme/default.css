@@ -1,8 +1,6 @@
 :root, :host {
   --space: sRGB;
   --scheme: light;
-  --color-current: var(--color-main);
-  --color-current-foreground: var(--color-main-foreground);
   --color-accent: var(--color-primary);
   --color-accent-foreground: var(--color-primary-foreground);
   --color-primary: #3b82f6; /* color.blue.500 */

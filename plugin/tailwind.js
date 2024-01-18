@@ -2,7 +2,12 @@ import plugin from 'tailwindcss/plugin'
 import withAlphaVariable from 'tailwindcss/src/util/withAlphaVariable'
 import flattenColorPalette from 'tailwindcss/src/util/flattenColorPalette'
 import toColorValue from 'tailwindcss/src/util/toColorValue'
+import FlexUtility from './utilities/flex.js'
+import DotUtility from './utilities/dot.js'
 
+/**
+ * @type {import('./tailwind').PluginOptions} options.
+ */
 export const defaultConfig = {
     colors: [
         'primary', 'accent', 'current',
@@ -36,11 +41,15 @@ export const defaultConfig = {
         '2xxl': '158em'
     },
     settings: {
-        rgb: false,
+        rgb: true,
         colorMix: true
     }
 }
 
+/**
+ * @param {[]} colors
+ * @returns {[]}
+ */
 export const tailwindColors = (colors = []) => {
     colors.forEach(name => {
         if (defaultConfig.settings.rgb) {
@@ -55,6 +64,12 @@ export const tailwindColors = (colors = []) => {
     return colors
 }
 
+/**
+ * @param {string} type
+ * @param {string[]} variables
+ * @param {Object} values
+ * @returns {Object}
+ */
 export const tailwindVariables = (type, variables = [], values = {}) => {
     variables.forEach(name => {
         values[name] = `var(--${type}-${name})`
@@ -63,6 +78,12 @@ export const tailwindVariables = (type, variables = [], values = {}) => {
     return values
 }
 
+/**
+ * @param {string} type
+ * @param {string[]} variables
+ * @param {Object} values
+ * @returns {Object}
+ */
 export const tailwindVariablesFont = (type, variables = [], values = {}) => {
     variables.forEach(name => {
         values[name] = [`var(--${type}-${name})`, `calc(var(--${type}-${name}) + 0.5rem)`]
@@ -71,6 +92,11 @@ export const tailwindVariablesFont = (type, variables = [], values = {}) => {
     return values
 }
 
+/**
+ * @param {string} type
+ * @param {string[]} variables
+ * @returns {Object}
+ */
 export const tailwindPropertyUtilities = (type, variables = []) => {
     const result = {}
 
@@ -83,6 +109,10 @@ export const tailwindPropertyUtilities = (type, variables = []) => {
     return result
 }
 
+/**
+ * @param {string[]} values
+ * @returns {Object}
+ */
 export const tailwindAnimations = (values) => {
     const result = {}
 
@@ -95,13 +125,16 @@ export const tailwindAnimations = (values) => {
     return result
 }
 
+/**
+ * @param {import('./tailwind').PluginOptions} userConfig
+ */
 export const createPlugin = (userConfig = {}) => {
     userConfig = {
         ...defaultConfig,
         ...userConfig
     }
 
-    return plugin(({ addUtilities, addComponents, matchUtilities, theme, e, corePlugins }) => {
+    return plugin(({ addComponents, matchUtilities, theme, e, corePlugins }) => {
         matchUtilities(
             {
                 accent: (value) => {
@@ -152,46 +185,28 @@ export const createPlugin = (userConfig = {}) => {
         )
         matchUtilities(
             {
-                text: (value) => {
-                    const matchValue = toColorValue(value).match(/var\((.*?)\)/)
-                    const fallbackRgb = matchValue && matchValue[0].includes('-rgb')
+                text: value => {
+                    const matchValue = toColorValue(value).match(/var\((--color-.*?)\)/)
+                    const withCurrentRgb = {}
 
-                    const colorProperties = {}
-
-                    if (fallbackRgb) {
-                        colorProperties['--color-current-rgb'] = matchValue[0]
+                    if (matchValue && defaultConfig.settings.rgb) {
+                        withCurrentRgb['--tw-text-current-rgb'] = matchValue[1].includes('rgb') ? matchValue[0] : `var(${matchValue[1]}-rgb)`
                     }
 
-                    if ((matchValue && matchValue[0] === 'var(--color-current)') || (matchValue && matchValue[0] === 'var(--color-current-rgb)')) {
+                    if (!corePlugins('textOpacity')) {
                         return {
+                            ...withCurrentRgb,
                             color: toColorValue(value)
                         }
                     }
 
-                    const color = {
+                    return {
+                        ...withCurrentRgb,
                         ...withAlphaVariable({
                             color: value,
                             property: 'color',
                             variable: '--tw-text-opacity'
                         })
-                    }
-
-                    if (!corePlugins('textOpacity')) {
-                        return {
-                            ...colorProperties,
-                            '--color-current': toColorValue(value),
-                            ...color
-                        }
-                    }
-
-                    return {
-                        ...colorProperties,
-                        ...withAlphaVariable({
-                            color: value,
-                            property: '--color-current',
-                            variable: '--tw-text-opacity'
-                        }),
-                        ...color
                     }
                 }
             },
@@ -218,25 +233,8 @@ export const createPlugin = (userConfig = {}) => {
             })
         ])
         addComponents({
-            '.flex-center': {
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--spacing-sm)'
-            },
-            '.flex-between': {
-                display: 'flex',
-                justifyContent: 'space-between',
-                gap: 'var(--spacing-sm)'
-            },
-            '.dot': {
-                '--tw-bg-opacity': '1',
-                display: 'inline-flex',
-                width: '0.625rem',
-                height: '0.625rem',
-                borderRadius: 'var(--rounded-full)',
-                backgroundColor: 'color-mix(in srgb, var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent)',
-                flexShrink: '0'
-            }
+            ...FlexUtility,
+            ...DotUtility
         })
     }, {
         corePlugins: {

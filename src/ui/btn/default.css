@@ -5,8 +5,8 @@
   --tw-bg-space: var(--space);
   --tw-text-space: var(--space);
 
-  width: var(--ui-btn-width);
-  height: var(--ui-btn-height);
+  inline-size: var(--ui-btn-width);
+  block-size: var(--ui-btn-height);
   padding: var(--ui-btn-py) var(--ui-btn-px);
   border-radius: var(--ui-btn-border-radius, var(--rounded));
   font-size: var(--ui-btn-font-size, var(--text-sm));
@@ -18,13 +18,13 @@
   outline: var(--ui-btn-outline-width, 2px) solid transparent;
   outline-offset: 0;
   user-select: none;
-  overflow: hidden;
+  overflow: clip;
   display: inline-flex;
   text-align: center;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
   position: relative;
+  line-height: 1;
   flex-shrink: 0;
   z-index: 0;
 

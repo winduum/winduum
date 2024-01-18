@@ -21,12 +21,12 @@
 
     &:hover {
       @media (hover: hover) and (pointer: fine) {
-        color: color-mix(in var(--space), var(--color-accent) 70%, transparent);
+        color: color-mix(in var(--space), var(--color-accent) 75%, transparent);
       }
     }
 
     &:focus-visible {
-      color: color-mix(in var(--space), var(--color-accent) 70%, transparent);
+      color: color-mix(in var(--space), var(--color-accent) 75%, transparent);
     }
   }
 
@@ -66,7 +66,7 @@
     font-family: var(--ui-text-heading-font-family, var(--font-secondary));
     font-weight: var(--ui-text-heading-font-weight, var(--ui-text-content-bold));
     font-size: var(--ui-text-heading-font-size);
-    line-height: var(--ui-text-heading-line-height, calc(1em + var(--ui-text-heading-line-height-ratio, 0.25lh)));
+    line-height: var(--ui-text-heading-line-height, calc(1em + 0.25lh));
     letter-spacing: var(--ui-text-heading-letter-spacing);
     margin-block: var(--ui-text-heading-my, 1.5em 0.5em);
     color: var(--ui-text-heading-color, inherit);
@@ -104,12 +104,12 @@
 
     & :where(thead) {
       font-weight: var(--ui-text-content-bold);
-      border-bottom: 1px solid color-mix(in var(--space), var(--color-current) 7.5%, transparent);
+      border-block-end: 1px solid color-mix(in var(--space), currentColor 10%, transparent);
     }
 
     & :where(tbody tr) {
       &:nth-of-type(even) {
-        background-color: color-mix(in var(--space), var(--color-current) 5%, transparent);
+        background-color: color-mix(in var(--space), currentColor 5%, transparent);
       }
     }
   }

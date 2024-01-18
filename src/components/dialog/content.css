@@ -2,7 +2,7 @@
   background-color: var(--color-body-primary);
   border-radius: var(--rounded-3xl);
   padding: var(--c-dialog-py) var(--c-dialog-px);
-  width: min(100%, var(--c-dialog-width, 35rem));
+  inline-size: min(100%, var(--c-dialog-width, 35rem));
   margin: auto;
   animation: var(--duration) ease 0s backwards 1 fade-in-down;
 
