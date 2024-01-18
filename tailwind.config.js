@@ -9,7 +9,11 @@ export default {
         './playground/**/*.{js,html,vue}'
     ],
     plugins: [
-        winduum(),
+        winduum({
+            settings: {
+                rgb: false
+            }
+        }),
         containerQueries,
         animate
     ]
