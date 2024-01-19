@@ -1,3 +1,8 @@
+## 0.7.0 (2024-01-19)
+* feat(bc): removed `--color-current` css property
+* feat(bc): minor component refactor with removal `--color-current`, some css properties were removed
+* feat: added types to tailwindcss plugin and minor refactor
+
 ## 0.6.0 (2024-01-17)
 _This should be last version with such major breaking changes and is much closer to **1.0**_
 * feat(bc): `lib-dialog` was renamed to `c-dialog`, `c-dialog` was renamed to `c-dialog-content`

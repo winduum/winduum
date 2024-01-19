@@ -253,19 +253,20 @@ const createPlugin = (userConfig = {}) => {
 
     userConfig = {
         ...defaultConfig,
-        ...userConfig
+        ...userConfig,
+        settings
     };
 
     return plugin(({ addComponents, matchUtilities, theme, e, corePlugins }) => {
         matchUtilities(
             {
-                accent: value => accentColor({ value }, settings)
+                accent: value => accentColor({ value }, userConfig.settings)
             },
             { values: flattenColorPalette(theme('accentColor')), type: ['color', 'any'] }
         );
         matchUtilities(
             {
-                text: value => textColor({ value, corePlugins }, settings)
+                text: value => textColor({ value, corePlugins }, userConfig.settings)
             },
             { values: flattenColorPalette(theme('textColor')), type: ['color', 'any'] }
         );
