@@ -2,13 +2,14 @@
   --ui-range-thumb-bg: var(--color-accent);
   --ui-range-thumb-border-color: var(--ui-range-thumb-bg);
   --ui-range-track-bg: var(--color-accent);
-  --ui-range-track: linear-gradient(
+  --ui-range-track:
+    linear-gradient(
       to right,
       var(--ui-range-track-bg) 0%,
       var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
       transparent var(--ui-range-track-start, 0%),
       transparent var(--ui-range-track-end, 100%)
-  );
+    );
 
   min-block-size: var(--ui-range-thumb-size);
   display: grid;
@@ -44,11 +45,12 @@
       background-color: var(--ui-range-thumb-bg);
       border-radius: var(--rounded-full);
       border: var(--ui-range-thumb-border-width) solid var(--ui-range-thumb-border-color);
-      outline: var(--ui-range-thumb-outline-width) solid
+      outline:
+        var(--ui-range-thumb-outline-width) solid
         color-mix(
-            in var(--tw-outline-space),
-            var(--ui-range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),
-            transparent
+          in var(--tw-outline-space),
+          var(--ui-range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),
+          transparent
         );
       margin-block-start: calc((var(--ui-range-thumb-size) - var(--ui-range-track-height)) / 2 * -1);
       transition: outline-color var(--duration) linear;
@@ -71,7 +73,8 @@
       background-color: var(--ui-range-thumb-bg);
       border-radius: var(--rounded-full);
       border: var(--ui-range-thumb-border-width) solid var(--ui-range-thumb-border-color);
-      outline: var(--ui-range-thumb-outline-width) solid
+      outline:
+        var(--ui-range-thumb-outline-width) solid
         color-mix(
           in var(--tw-outline-space),
           var(--ui-range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),

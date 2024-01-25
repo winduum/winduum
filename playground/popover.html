@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="/src/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid-cols-container">
+<div class="w-full flex-col gap-4">
+    <div class="c-popover w-max">
+        <div class="c-tooltip bottom" aria-label="I am tooltip">
+            <div role="button" class="ui-btn" tabindex="0">Popover</div>
+        </div>
+        <div class="c-popover-content center shadow mt-2.5 p-2 w-32 flex-col">
+            <div class="c-tooltip right" aria-label="I am tooltip">
+                <button class="ui-btn ghosted accent-main justify-start w-full">Item 1</button>
+            </div>
+            <div class="c-popover">
+                <button class="ui-btn ghosted accent-main justify-start w-full">Item 2</button>
+                <div class="c-popover-content right shadow ml-4 p-2 w-32 flex-col">
+                    <div class="c-tooltip right" aria-label="I am tooltip">
+                        <button class="ui-btn ghosted accent-main justify-start w-full">Item 1</button>
+                    </div>
+                    <button class="ui-btn ghosted accent-main justify-start">Item 2</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c-tooltip bottom w-max" aria-label="I am tooltip">
+        <div role="button" class="ui-btn" tabindex="0">Popover</div>
+    </div>
+</div>
+</body>
+</html>

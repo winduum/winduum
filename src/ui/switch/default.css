@@ -26,7 +26,8 @@
     padding: calc((var(--ui-switch-height) - var(--ui-check-icon-size)) / 2);
     border-radius: var(--ui-switch-radius, var(--rounded-full));
     background-color: var(--ui-switch-bg, var(--color-main));
-    outline: var(--ui-switch-outline-width, 2px) solid
+    outline:
+      var(--ui-switch-outline-width, 2px) solid
       color-mix(
         in var(--tw-outline-space),
         var(--ui-switch-outline-color, var(--color-main)) calc(var(--tw-outline-opacity) * 100%),
