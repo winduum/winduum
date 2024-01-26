@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="/src/main.js" type="module"></script>
+</head>
+<body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid-cols-container">
+    <div class="w-full flex-col gap-4 items-start">
+        <button class="ui-btn" id="insertToast">Show toast</button>
+    </div>
+    <script type="module">
+        import { insertToaster, insertToast, closeToast } from '/src/components/toast.js'
+
+        window.insertToast.addEventListener('click', () => {
+            insertToaster(document.body, {
+                classes: ['items-end']
+            })
+            insertToast(document.querySelector('.c-toaster'), {
+                title: 'Hello toast',
+                text: 'Amazing toast',
+                slotEnd: `<button class="ui-btn muted ml-auto" data-action="closeToast">Close</button>`
+            })
+
+            const closeToastButton = document.querySelectorAll('[data-action="closeToast"]')[document.querySelectorAll('[data-action="closeToast"]').length - 1]
+
+            closeToastButton.addEventListener('click', ({ currentTarget }) => {
+                closeToast(currentTarget.closest('.c-toast'))
+            })
+        })
+    </script>
+</body>
+</html>
