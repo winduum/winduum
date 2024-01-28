@@ -1,6 +1,6 @@
 <script setup>
     import { ref } from 'vue'
-    import { showDialog, closeDialog } from '/src/components/dialog.js'
+    import { showDialog, closeDialog } from '/src/components/dialog'
 
     const root = ref()
     const open = ref(false)

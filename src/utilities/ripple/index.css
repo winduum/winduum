@@ -1,0 +1,12 @@
+.ripple {
+  --tw-bg-opacity: 0.4;
+
+  background-color: color-mix(in var(--space), var(--color-body) calc(var(--tw-bg-opacity) * 100%), transparent);
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation-duration: 1s;
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+}

@@ -25,5 +25,5 @@ export const showRipple = ({ currentTarget, offsetX, offsetY }, selector = curre
 }
 
 export default {
-    show: showRipple
+    showRipple
 }

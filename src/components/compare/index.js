@@ -1,6 +1,6 @@
 /**
- * @param {import("./compare").Position} event
- * @param {import("./compare").PositionOptions} options
+ * @param {import("./types/index").Position} event
+ * @param {import("./types/index").PositionOptions} options
  * @returns void
  */
 export const setPosition = ({ currentTarget }, options = {}) => {
@@ -14,7 +14,7 @@ export const setPosition = ({ currentTarget }, options = {}) => {
 }
 
 /**
- * @param {import("./compare").KeyboardStep} event
+ * @param {import("./types/index").KeyboardStep} event
  * @param {Number} step
  * @returns void
  */
@@ -25,10 +25,16 @@ export const setKeyboardStep = ({ key, currentTarget }, step = 10) => {
 }
 
 /**
- * @param {import("./compare").MouseStep} event
+ * @param {import("./types/index").MouseStep} event
  * @param {Number} step
  * @returns void
  */
 export const setMouseStep = ({ currentTarget }, step = 0.1) => {
     currentTarget.step = step
+}
+
+export default {
+    setPosition,
+    setKeyboardStep,
+    setMouseStep
 }

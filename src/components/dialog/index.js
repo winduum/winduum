@@ -1,7 +1,7 @@
 import { animationsFinished } from '../common.js'
 
 /**
- * @type {import("./dialog").DefaultOptions}
+ * @type {import("./types/index").DefaultOptions}
 */
 export const defaultOptions = {
     openClass: 'visible',
@@ -17,7 +17,7 @@ export const dialogSelector = selector => document.querySelectorAll(selector)[do
 /**
  * Dismisses a dialog.
  * @param {HTMLDialogElement} selector - The dialog element to dismiss.
- * @param {import("./dialog").DefaultOptions} options - The options for closing the dialog.
+ * @param {import("./types/index").DefaultOptions} options - The options for closing the dialog.
  * @returns Promise<void>
  */
 export const dismissDialog = async (selector, options = defaultOptions) => {
@@ -35,8 +35,8 @@ export const dismissDialog = async (selector, options = defaultOptions) => {
 
 /**
  * Shows a dialog.
- * @param {import("./dialog").DialogElement} selector - The dialog element to show.
- * @param {import("./dialog").DefaultOptions} options - The options for showing the dialog.
+ * @param {import("./types/index").DialogElement} selector - The dialog element to show.
+ * @param {import("./types/index").DefaultOptions} options - The options for showing the dialog.
  * @returns Promise<void>
  */
 export const showDialog = async (selector, options = {}) => {
@@ -76,7 +76,7 @@ export const showDialog = async (selector, options = {}) => {
 /**
  * Closes and dismisses a dialog.
  * @param {HTMLDialogElement} selector - The dialog element to dismiss.
- * @param {import("./dialog").DefaultOptions} options - The options for closing the dialog.
+ * @param {import("./types/index").DefaultOptions} options - The options for closing the dialog.
  * @returns Promise<void>
  */
 export const closeDialog = async (selector, options = {}) => {
@@ -95,7 +95,7 @@ export const closeDialog = async (selector, options = {}) => {
 /**
  * Inserts a dialog into the DOM.
  * @param {string} content - The HTML content to insert into the dialog.
- * @param {import("./dialog").InsertOptions} options - The options for inserting the dialog.
+ * @param {import("./types/index").InsertOptions} options - The options for inserting the dialog.
  * @returns Promise<void>
  */
 export const insertDialog = async (content, options = {}) => {
@@ -123,7 +123,7 @@ export const insertDialog = async (content, options = {}) => {
 
 /**
  * Fetches a dialog from a URL and inserts it into the DOM.
- * @param {import("./dialog").FetchOptions} options - The options for fetching and inserting the dialog.
+ * @param {import("./types/index").FetchOptions} options - The options for fetching and inserting the dialog.
  */
 export const fetchDialog = async ({ url, insert = {} }) => {
     await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
@@ -132,10 +132,10 @@ export const fetchDialog = async ({ url, insert = {} }) => {
 }
 
 export default {
-    defaults: defaultOptions,
-    dismiss: dismissDialog,
-    show: showDialog,
-    close: closeDialog,
-    insert: insertDialog,
-    fetch: fetchDialog
+    defaultOptions,
+    dismissDialog,
+    showDialog,
+    closeDialog,
+    insertDialog,
+    fetchDialog
 }

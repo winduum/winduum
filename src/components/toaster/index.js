@@ -2,34 +2,7 @@ import { animationsFinished, nextRepaint } from '../../common.js'
 
 /**
  * @param {HTMLElement} element
- * @param {import('./index').ShowToastOptions} options
- * @returns Promise<void>
- */
-export const showToast = async (element, options = {}) => {
-    options = {
-        visibleClass: 'in',
-        autoHide: null,
-        heightProperty: '--c-toast-height',
-        close: {},
-        ...options
-    }
-
-    element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
-    element.style.height = '0'
-
-    await animationsFinished(element)
-
-    element.style.height = ''
-    element.classList.add(options.visibleClass)
-
-    if (options.autoHide) {
-        setTimeout(() => closeToast(element, options.close), options.autoHide * ((element.parentElement.children.length + 1) / 2))
-    }
-}
-
-/**
- * @param {HTMLElement} element
- * @param {import('./index').CloseToastOptions} options
+ * @param {import('./types/index').CloseToastOptions} options
  * @returns Promise<void>
  */
 export const closeToast = async (element, options = {}) => {
@@ -56,7 +29,34 @@ export const closeToast = async (element, options = {}) => {
 
 /**
  * @param {HTMLElement} element
- * @param {import('./index').InsertToasterOptions} options
+ * @param {import('./types/index').ShowToastOptions} options
+ * @returns Promise<void>
+ */
+export const showToast = async (element, options = {}) => {
+    options = {
+        visibleClass: 'in',
+        autoHide: null,
+        heightProperty: '--c-toast-height',
+        close: {},
+        ...options
+    }
+
+    element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
+    element.style.height = '0'
+
+    await animationsFinished(element)
+
+    element.style.height = ''
+    element.classList.add(options.visibleClass)
+
+    if (options.autoHide) {
+        setTimeout(() => closeToast(element, options.close), options.autoHide * ((element.parentElement.children.length + 1) / 2))
+    }
+}
+
+/**
+ * @param {HTMLElement} element
+ * @param {import('./types/index').InsertToasterOptions} options
  * @returns Promise<void>
  */
 export const insertToaster = async (element, options = {}) => {
@@ -66,13 +66,13 @@ export const insertToaster = async (element, options = {}) => {
     }
 
     if (!document.querySelector('.c-toaster')) {
-        element.insertAdjacentHTML('beforeend', `<div class="c-toaster ${options.classes}"></div>`)
+        element.insertAdjacentHTML('beforeend', `<ol class="c-toaster ${options.classes}"></ol>`)
     }
 }
 
 /**
  * @param {HTMLElement} element
- * @param {import('./index').InsertToastOptions} options
+ * @param {import('./types/index').InsertToastOptions} options
  * @returns Promise<void>
  */
 export const insertToast = async (element, options = {}) => {
@@ -87,7 +87,7 @@ export const insertToast = async (element, options = {}) => {
     }
 
     element.insertAdjacentHTML('beforeend', `
-        <div class="c-toast ${options.classes}" role="status" aria-live="assertive" aria-atomic="true">
+        <li class="c-toast ${options.classes}" role="status" aria-live="assertive" aria-atomic="true">
             <div class="c-toast-content">
                ${options.start}
                 <div class="flex-col">
@@ -96,7 +96,7 @@ export const insertToast = async (element, options = {}) => {
                 </div>
                 ${options.end}
             </div>
-        </div>
+        </li>
     `)
 
     await showToast(element.children[element.children.length - 1], options.show)
@@ -104,11 +104,19 @@ export const insertToast = async (element, options = {}) => {
 
 /**
  * @param {HTMLElement} element
- * @param {import('./index').CloseToastOptions} options
+ * @param {import('./types/index').CloseToastOptions} options
  * @returns Promise<void>
  */
 export const closeToaster = (element, options = {}) => {
     [...element.children].forEach(toast =>
         closeToast(toast, options)
     )
+}
+
+export default {
+    closeToast,
+    showToast,
+    insertToast,
+    insertToaster,
+    closeToaster
 }

@@ -1,5 +1,5 @@
 /**
- * @type {import("./range").DefaultOptions}
+ * @type {import("./types/index").DefaultOptions}
  */
 export const defaultOptions = {
     selector: '.ui-range',
@@ -7,7 +7,7 @@ export const defaultOptions = {
 }
 
 /**
- * @param {import("./range").TrackOptions} options
+ * @param {import("./types/index").TrackOptions} options
  * @param {'start' | 'end'} track
  * @returns void
  */
@@ -17,7 +17,7 @@ export const setTrackProperty = ({ element, value, max }, track = defaultOptions
 
 /**
  * @param {HTMLInputElement} target
- * @param {import("./range").DefaultOptions} options
+ * @param {import("./types/index").DefaultOptions} options
  * @returns void
  */
 export const setValue = (target, options = {}) => {
@@ -55,7 +55,7 @@ export const setValue = (target, options = {}) => {
 
 /**
  * @param {HTMLInputElement} target
- * @param {import("./range").OutputOptions} options
+ * @param {import("./types/index").OutputOptions} options
  * @returns void
  */
 export const setOutputValue = (target, options = {}) => {
@@ -71,4 +71,11 @@ export const setOutputValue = (target, options = {}) => {
     }
 
     element.innerHTML = Number(target.value).toLocaleString(lang, formatOptions)
+}
+
+export default {
+    defaultOptions,
+    setTrackProperty,
+    setValue,
+    setOutputValue
 }
