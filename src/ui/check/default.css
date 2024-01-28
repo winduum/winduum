@@ -21,30 +21,27 @@
 
   & :where(input) {
     --color-accent: currentColor;
-    --tw-bg-space: var(--space);
-    --tw-border-space: var(--space);
     --tw-border-opacity: 0.2;
     --tw-border-mix: transparent;
     --tw-outline-opacity: 0;
-    --tw-outline-space: var(--space);
     --tw-bg-opacity: 0;
     --tw-bg-mix: transparent;
 
     width: var(--ui-check-size);
     height: var(--ui-check-size);
     border-radius: var(--ui-check-border-radius, var(--rounded-md));
-    background-color: color-mix(in var(--tw-bg-space), var(--ui-check-bg, var(--color-accent)) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+    background-color: color-mix(in var(--space), var(--ui-check-bg, var(--color-accent)) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
     border:
       var(--ui-check-border-width, 1px) solid
       color-mix(
-        in var(--tw-border-space),
+        in var(--space),
         var(--ui-check-border-color, var(--color-accent)) calc(var(--tw-border-opacity) * 100%),
         var(--tw-border-mix, transparent)
       );
     outline:
       var(--ui-check-outline-width, 3px) solid
       color-mix(
-        in var(--tw-outline-space),
+        in var(--space),
         var(--ui-check-checked-bg) calc(var(--tw-outline-opacity) * 100%),
         transparent
       );

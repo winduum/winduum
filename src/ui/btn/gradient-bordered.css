@@ -1,11 +1,9 @@
 .ui-btn {
   &:where(.gradient-bordered) {
     &::before {
-      --tw-bg-space: var(--space);
-
       content: "";
       position: absolute;
-      background-color: color-mix(in var(--tw-bg-space), var(--color-body) calc(100% - var(--tw-bg-opacity) * 100%), transparent);
+      background-color: color-mix(in var(--space), var(--color-body) calc(100% - var(--tw-bg-opacity) * 100%), transparent);
       inset: var(--ui-btn-border-width);
       border-radius: calc(var(--ui-btn-border-radius, var(--rounded)) / 1.25);
       z-index: -1;
@@ -14,7 +12,7 @@
 
     &:where(.hover-fill) {
       &::before {
-        background-color: color-mix(in var(--tw-bg-space), var(--color-body) calc(var(--tw-bg-opacity) * 100%), transparent);
+        background-color: color-mix(in var(--space), var(--color-body) calc(var(--tw-bg-opacity) * 100%), transparent);
       }
     }
   }

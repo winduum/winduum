@@ -7,7 +7,7 @@
 
     &::file-selector-button {
       all: unset;
-      background-color: color-mix(in var(--tw-bg-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent);
+      background-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent);
       block-size: calc(var(--ui-control-height) - var(--ui-control-border-width) * 2);
       padding-inline: var(--ui-control-px);
       margin-inline: calc(var(--ui-control-px) * -1) var(--ui-control-px);

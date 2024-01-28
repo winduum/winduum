@@ -1,9 +1,8 @@
 .ui-btn {
   &:where(.bordered) {
     --tw-border-opacity: 0.3;
-    --tw-border-space: var(--space);
 
-    border: var(--ui-btn-border-width, 1px) solid color-mix(in var(--tw-border-space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
+    border: var(--ui-btn-border-width, 1px) solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
     padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width, 1px));
   }
 

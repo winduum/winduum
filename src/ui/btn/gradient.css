@@ -1,11 +1,9 @@
 .ui-btn:where(.gradient) {
   &::before {
-    --tw-bg-space: var(--space);
-
     content: "";
     position: absolute;
     inset: 0;
-    background-color: color-mix(in var(--tw-bg-space), var(--tw-bg-mix) calc(100% - var(--tw-bg-opacity) * 100%), transparent);
+    background-color: color-mix(in var(--space), var(--tw-bg-mix) calc(100% - var(--tw-bg-opacity) * 100%), transparent);
     z-index: -1;
     transition: var(--transition-background);
   }

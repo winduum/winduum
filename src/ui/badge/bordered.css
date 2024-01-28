@@ -1,9 +1,8 @@
 .ui-badge {
   &:where(.bordered) {
     --tw-border-opacity: 1;
-    --tw-border-space: var(--space);
 
-    border: var(--ui-badge-border-width, 1px) solid color-mix(in var(--tw-border-space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
+    border: var(--ui-badge-border-width, 1px) solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
     padding-inline: calc(var(--ui-badge-px) - var(--ui-badge-border-width, 1px));
   }
 

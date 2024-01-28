@@ -18,7 +18,6 @@
 
   & :where(input) {
     --tw-outline-opacity: 0;
-    --tw-outline-space: var(--space);
 
     display: flex;
     inline-size: var(--ui-switch-width);
@@ -29,7 +28,7 @@
     outline:
       var(--ui-switch-outline-width, 2px) solid
       color-mix(
-        in var(--tw-outline-space),
+        in var(--space),
         var(--ui-switch-outline-color, var(--color-main)) calc(var(--tw-outline-opacity) * 100%),
         transparent
       );
