@@ -1,3 +1,5 @@
+import { animationsFinished } from '../common.js'
+
 /**
  * @type {import("./dialog").DefaultOptions}
 */
@@ -19,7 +21,7 @@ export const dialogSelector = selector => document.querySelectorAll(selector)[do
  * @returns Promise<void>
  */
 export const dismissDialog = async (selector, options = defaultOptions) => {
-    await Promise.allSettled(selector.getAnimations().map(animation => animation.finished))
+    await animationsFinished(selector)
     selector.inert = true
     selector.classList.remove(options.openClass)
     selector.dispatchEvent(new CustomEvent('c-dialog:dismiss'))

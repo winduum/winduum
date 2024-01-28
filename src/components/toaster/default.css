@@ -1,0 +1,17 @@
+:root, :host {
+  --c-toaster-p: var(--spacing-xl);
+  --c-toaster-spacing-y: var(--spacing-xs);
+}
+
+.c-toaster {
+  z-index: var(--z-10);
+  padding: var(--c-toaster-p);
+  margin-block: calc(var(--c-toaster-spacing-y) * -1);
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}

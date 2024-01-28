@@ -4,7 +4,7 @@
   transform:
     translate(var(--tw-translate-x), var(--tw-translate-y))
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  transition-property: var(--transition), visibility;
+  transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
   will-change: transform;

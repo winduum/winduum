@@ -1,0 +1,26 @@
+.c-toast {
+  width: var(--c-toast-width, 20rem);
+  height: var(--c-toast-height, auto);
+  transition: all var(--c-toast-duration, 300ms) var(--ease-in-out);
+  margin-block: var(--c-toaster-spacing-y);
+  position: relative;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+
+  .flex-col-reverse & {
+    justify-content: flex-end;
+  }
+
+  &:not(.in:nth-last-child(-n+3)) {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &.out {
+    height: 0;
+    opacity: 0;
+    margin-block: 0;
+    padding-block: 0;
+  }
+}
