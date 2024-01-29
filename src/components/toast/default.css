@@ -2,25 +2,29 @@
   width: var(--c-toast-width, 20rem);
   height: var(--c-toast-height, auto);
   transition: all var(--c-toast-duration, 300ms) var(--ease-in-out);
-  margin-block: var(--c-toaster-spacing-y);
   position: relative;
   pointer-events: auto;
   display: flex;
   flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
 
   .flex-col-reverse & {
     justify-content: flex-end;
   }
 
-  &:not(.in:nth-last-child(-n+3)) {
-    visibility: hidden;
-    opacity: 0;
+  &.in:nth-last-child(-n+3) {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.in {
+    margin-block: var(--c-toaster-spacing-y);
   }
 
   &.out {
     height: 0;
     opacity: 0;
     margin-block: 0;
-    padding-block: 0;
   }
 }

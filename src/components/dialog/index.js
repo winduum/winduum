@@ -1,4 +1,4 @@
-import { animationsFinished } from '../common.js'
+import { animationsFinished } from '../../common.js'
 
 /**
  * @type {import("./types/index").DefaultOptions}
