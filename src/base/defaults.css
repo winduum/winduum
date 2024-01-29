@@ -31,7 +31,7 @@
 }
 
 :where(hr) {
-  --tw-border-opacity: 1;
+  --tw-border-opacity: 0.15;
 
   border-block-start: 1px solid color-mix(in var(--space), currentColor calc(var(--tw-border-opacity) * 100%), transparent);
   border-radius: var(--rounded);
