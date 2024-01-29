@@ -8,4 +8,4 @@ export const nextRepaint = () => {
     })
 }
 
-export const animationsFinished = element => Promise.all(element.getAnimations().map(animation => animation.finished))
+export const animationsFinished = async element => Promise.all(element.getAnimations().map(animation => animation.finished))
