@@ -1,5 +1,5 @@
 <script setup>
-    import { showRipple } from '/src/utilities/ripple.js'
+    import { showRipple } from '/src/utilities/ripple'
 
     defineProps({
         variant: String,

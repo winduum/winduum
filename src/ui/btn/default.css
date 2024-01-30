@@ -9,7 +9,7 @@
   border-radius: var(--ui-btn-border-radius, var(--rounded));
   font-size: var(--ui-btn-font-size, var(--text-sm));
   font-weight: var(--ui-btn-font-weight, var(--font-medium));
-  letter-spacing: var(--ui-btn-letter-spacing, 0);
+  letter-spacing: var(--ui-btn-letter-spacing);
   background-color: color-mix(in var(--space), var(--ui-btn-bg, var(--color-accent)) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
   color: color-mix(in var(--space), var(--ui-btn-color, var(--color-accent-foreground)) calc(var(--tw-text-opacity) * 100%), transparent);
   gap: var(--ui-btn-gap, var(--spacing-sm));
