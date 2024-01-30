@@ -6,9 +6,9 @@
     linear-gradient(
       to right,
       var(--ui-range-track-bg) 0%,
-      var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
-      transparent var(--ui-range-track-start, 0%),
-      transparent var(--ui-range-track-end, 100%)
+      var(--ui-range-track-bg) var(--ui-range-track-start),
+      transparent var(--ui-range-track-start),
+      transparent var(--ui-range-track-end)
     );
 
   min-block-size: var(--ui-range-thumb-size);
@@ -36,7 +36,7 @@
     }
 
     &::-webkit-slider-thumb {
-      --tw-outline-opacity: var(--ui-range-thumb-outline-opacity, 0);
+      --tw-outline-opacity: var(--ui-range-thumb-outline-opacity);
 
       width: var(--ui-range-thumb-size);
       height: var(--ui-range-thumb-size);
@@ -63,7 +63,7 @@
     }
 
     &::-moz-range-thumb {
-      --tw-outline-opacity: var(--ui-range-thumb-outline-opacity, 0);
+      --tw-outline-opacity: var(--ui-range-thumb-outline-opacity);
 
       width: var(--ui-range-thumb-size);
       height: var(--ui-range-thumb-size);

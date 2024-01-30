@@ -1,8 +1,8 @@
 .ui-title {
-  font-family: var(--ui-title-font-family, var(--font-secondary));
-  font-weight: var(--ui-title-font-weight, var(--font-semibold));
-  font-size: var(--ui-title-font-size, var(--text-sm));
-  line-height: var(--ui-title-line-height, calc(1em + 0.15lh));
-  letter-spacing: var(--ui-title-letter-spacing, 0);
+  font-family: var(--ui-title-font-family);
+  font-weight: var(--ui-title-font-weight);
+  font-size: var(--ui-title-font-size);
+  line-height: var(--ui-title-line-height);
+  letter-spacing: var(--ui-title-letter-spacing);
   text-wrap: balance;
 }

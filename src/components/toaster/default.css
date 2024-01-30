@@ -1,8 +1,3 @@
-:root, :host {
-  --c-toaster-p: var(--spacing-xl);
-  --c-toaster-spacing-y: var(--spacing-xs);
-}
-
 .c-toaster {
   z-index: var(--z-10);
   padding: var(--c-toaster-p);

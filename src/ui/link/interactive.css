@@ -1,8 +1,9 @@
 .ui-link {
   --tw-text-opacity: 1;
+  --tw-text-mix: transparent;
 
   &:where([href], button, [role="button"]) {
-    color: color-mix(in var(--space), currentColor calc(var(--tw-text-opacity) * 100%), transparent);
+    color: color-mix(in var(--space), currentColor calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
     transition: all var(--duration) var(--ease-in-out);
 
     &:not(:disabled) {

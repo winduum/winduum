@@ -1,8 +1,8 @@
 .ui-link {
-  font-family: var(--ui-link-font-family, inherit);
-  font-weight: var(--ui-link-font-weight, inherit);
-  font-size: var(--ui-link-font-size, inherit);
-  line-height: var(--ui-link-line-height, calc(1em + var(--ui-link-line-height-ratio, 0.15lh)));
-  letter-spacing: var(--ui-link-letter-spacing, inherit);
+  font-family: var(--ui-link-font-family);
+  font-weight: var(--ui-link-font-weight);
+  font-size: var(--ui-link-font-size);
+  line-height: var(--ui-link-line-height, calc(1em + 0.15lh));
+  letter-spacing: var(--ui-link-letter-spacing);
   text-wrap: balance;
 }

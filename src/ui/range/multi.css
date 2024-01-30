@@ -5,10 +5,10 @@
         linear-gradient(
           to right,
           transparent 0%,
-          transparent var(--ui-range-track-start, 0%),
-          var(--ui-range-track-bg) var(--ui-range-track-start, 0%),
-          var(--ui-range-track-bg) var(--ui-range-track-end, 100%),
-          transparent var(--ui-range-track-end, 100%),
+          transparent var(--ui-range-track-start),
+          var(--ui-range-track-bg) var(--ui-range-track-start),
+          var(--ui-range-track-bg) var(--ui-range-track-end),
+          transparent var(--ui-range-track-end),
           transparent 100%
         );
 

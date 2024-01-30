@@ -1,9 +1,9 @@
 .c-dialog {
-  --tw-bg-opacity: 0.8;
+  --tw-bg-opacity: var(--c-dialog-bg-opacity);
 
   z-index: var(--z-30);
   padding: var(--c-dialog-py) var(--c-dialog-px);
-  background-color: color-mix(in var(--space), var(--c-dialog-bg, var(--color-dark)) var(--c-dialog-bg-opacity, calc(var(--tw-bg-opacity) * 100%)), transparent);
+  background-color: color-mix(in var(--space), var(--c-dialog-bg) calc(var(--tw-bg-opacity) * 100%), transparent);
   transition: var(--transition-background);
   display: flex;
   position: fixed;
@@ -23,7 +23,7 @@
 }
 
 html:has(.c-dialog.visible) {
-  padding-inline-end: var(--c-dialog-scrollbar-width, 0);
+  padding-inline-end: var(--c-dialog-scrollbar-width);
   scrollbar-width: none;
 
   &::-webkit-scrollbar {

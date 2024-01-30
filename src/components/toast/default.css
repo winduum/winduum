@@ -1,7 +1,7 @@
 .c-toast {
-  width: var(--c-toast-width, 20rem);
-  height: var(--c-toast-height, auto);
-  transition: all var(--c-toast-duration, 300ms) var(--ease-in-out);
+  width: min(100%, var(--c-toast-width));
+  height: var(--c-toast-height);
+  transition: all var(--c-toast-duration) var(--ease-in-out);
   position: relative;
   pointer-events: auto;
   display: flex;

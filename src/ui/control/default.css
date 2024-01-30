@@ -4,34 +4,32 @@
   --tw-bg-opacity: 1;
   --tw-bg-mix: transparent;
   --tw-outline-opacity: 0;
+  --tw-outline-mix: transparent;
 
   display: grid;
   block-size: var(--ui-control-height);
-  font-family: var(--ui-contro-font-family, var(--font-primary));
-  font-weight: var(--ui-control-font-weight, var(--font-medium));
-  font-size: var(--ui-control-font-size, var(--text-sm));
-  letter-spacing: var(--ui-control-letter-spacing, inherit);
-  background-color: color-mix(in var(--space), var(--ui-control-bg, transparent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
-  color: var(--ui-control-color, currentColor);
-  border-radius: var(--ui-control-border-radius, var(--rounded));
+  font-family: var(--ui-contro-font-family);
+  font-weight: var(--ui-control-font-weight);
+  font-size: var(--ui-control-font-size);
+  letter-spacing: var(--ui-control-letter-spacing);
+  background-color: color-mix(in var(--space), var(--ui-control-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+  color: var(--ui-control-color);
+  border-radius: var(--ui-control-border-radius);
   border:
     var(--ui-control-border-width) solid
     color-mix(
       in var(--space),
-      var(--ui-control-border-color, currentColor) calc(var(--tw-border-opacity) * 100%),
+      var(--ui-control-border-color) calc(var(--tw-border-opacity) * 100%),
       var(--tw-border-mix)
     );
   outline:
-    var(--ui-control-outline-width, 3px) solid
+    var(--ui-control-outline-width) solid
     color-mix(
       in var(--space),
       var(--color-accent) calc(var(--tw-outline-opacity) * 100%),
-      transparent
+      var(--tw-outline-mix)
     );
-  outline-offset: var(--ui-control-outline-offset, 0);
-  transition-property: var(--transition);
-  transition-timing-function: var(--ease-in-out);
-  transition-duration: var(--duration);
+  outline-offset: var(--ui-control-outline-offset);
   grid-template:
     [c-control-start] calc(var(--ui-control-py) - var(--ui-control-border-width))
     [c-control-p] 1fr
@@ -65,34 +63,13 @@
 
   & > :where(input, textarea) {
     &::placeholder {
-      color: var(--ui-control-placeholder-color, currentColor);
-      opacity: var(--ui-control-placeholder-opacity, 0.5);
+      color: var(--ui-control-placeholder-color);
+      opacity: var(--ui-control-placeholder-opacity);
     }
   }
 
   & > :where(textarea) {
     min-block-size: var(--ui-control-height-textarea);
     resize: vertical;
-  }
-
-  &:focus-within {
-    --ui-control-border-color: var(--color-accent);
-    --ui-control-outline-offset: var(--ui-control-focus-outline-offset, 0);
-    --tw-border-opacity: 1;
-    --tw-outline-opacity: 0.2;
-  }
-
-  &.disabled, &:has(:disabled) {
-    --ui-control-bg: currentColor;
-    --tw-bg-opacity: var(--ui-control-disabled-opacity, 0.05);
-  }
-
-  &.invalid, .validated &:has(:invalid) {
-    --ui-control-border-color: var(--color-error);
-    --ui-control-color: var(--color-error);
-    --ui-control-bg: var(--color-error);
-    --color-accent: var(--color-error);
-    --tw-border-opacity: 1;
-    --tw-bg-opacity: var(--ui-control-invalid-bg-opacity, 0.1);
   }
 }

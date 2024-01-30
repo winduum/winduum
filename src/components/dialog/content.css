@@ -1,8 +1,8 @@
 .c-dialog-content {
   background-color: var(--color-body-primary);
   border-radius: var(--rounded-3xl);
-  padding: var(--c-dialog-py) var(--c-dialog-px);
-  inline-size: min(100%, var(--c-dialog-width, 35rem));
+  padding: var(--c-dialog-content-py) var(--c-dialog-content-px);
+  inline-size: min(100%, var(--c-dialog-content-width));
   margin: auto;
   animation: var(--duration) ease 0s backwards 1 fade-in-down;
 

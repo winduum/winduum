@@ -1,0 +1,39 @@
+.ui-switch {
+  & :where(input) {
+    transition-property: var(--transition);
+    transition-timing-function: var(--ease-in-out);
+    transition-duration: var(--duration);
+
+    &:where(:required) {
+      & + *::after {
+        color: var(--color-error);
+        content: " *";
+      }
+    }
+
+    &:enabled:focus {
+      --ui-switch-outline-offset: var(--ui-switch-focus-outline-offset);
+      --tw-outline-opacity: 0.4;
+    }
+
+    &:disabled {
+      opacity: var(--ui-switch-disabled-opacity);
+      cursor: not-allowed;
+    }
+
+    &:checked {
+      --ui-switch-outline-color: var(--color-accent);
+      --ui-switch-bg: var(--color-accent);
+
+      &::before {
+        margin-inline-start: calc(100% - var(--ui-check-icon-size));
+      }
+    }
+
+    &:indeterminate {
+      &::before {
+        margin-inline-start: calc(50% - var(--ui-check-icon-size) / 2);
+      }
+    }
+  }
+}

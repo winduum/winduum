@@ -1,8 +1,8 @@
 .ui-label {
-  font-family: var(--ui-label-font-family, inherit);
-  font-weight: var(--ui-label-font-weight, inherit);
-  font-size: var(--ui-label-font-size, var(--text-sm));
-  line-height: var(--ui-label-line-height, calc(1em + var(--ui-label-line-height-ratio, 0.15lh)));
-  letter-spacing: var(--ui-label-letter-spacing, inherit);
+  font-family: var(--ui-label-font-family);
+  font-weight: var(--ui-label-font-weight);
+  font-size: var(--ui-label-font-size);
+  line-height: var(--ui-label-line-height);
+  letter-spacing: var(--ui-label-letter-spacing);
   text-wrap: balance;
 }

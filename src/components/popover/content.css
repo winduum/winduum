@@ -8,9 +8,9 @@
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
   will-change: transform;
-  background-color: var(--ui-popover-bg, var(--color-body-primary));
-  border-radius: var(--ui-popover-border-radius, var(--rounded));
-  padding: var(--c-popover-py, var(--spacing-sm)) var(--c-popover-px, var(--spacing-sm));
+  background-color: var(--c-popover-content-bg);
+  border-radius: var(--c-popover-content-border-radius);
+  padding: var(--c-popover-content-py) var(--c-popover-content-px);
   z-index: var(--z-10);
   width: max-content;
   position: absolute;
@@ -54,8 +54,8 @@
   }
 
   :not(:focus, :focus-within, .hover:hover) > & {
-    --tw-scale-x: var(--c-popover-scale-x, 0.75);
-    --tw-scale-y: var(--c-popover-scale-y, 0.75);
+    --tw-scale-x: var(--c-popover-content-scale-x);
+    --tw-scale-y: var(--c-popover-content-scale-y);
     --tw-opacity: 0;
     --tw-visibility: hidden;
   }

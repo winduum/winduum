@@ -1,10 +1,11 @@
 .ui-progress {
   --tw-bg-opacity: 0.1;
+  --tw-bg-mix: var(--color-body);
 
   inline-size: 100%;
-  block-size: var(--ui-progress-height, 1rem);
-  border-radius: var(--ui-progress-border-radius, var(--rounded-full));
-  background-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--color-body));
+  block-size: var(--ui-progress-height);
+  border-radius: var(--ui-progress-border-radius);
+  background-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
   overflow: clip;
 
   &::-webkit-progress-bar {

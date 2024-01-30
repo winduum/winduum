@@ -1,0 +1,5 @@
+.ui-switch {
+  &.invalid, .validated & :where(input):invalid {
+    --ui-switch-bg: var(--color-error);
+  }
+}
