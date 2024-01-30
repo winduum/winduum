@@ -1,7 +1,4 @@
 .ui-btn:is(.loading) {
-  --ui-btn-loading-width: 1rem;
-  --ui-btn-loading-border-width: 2px;
-
   pointer-events: none;
   color: transparent;
 

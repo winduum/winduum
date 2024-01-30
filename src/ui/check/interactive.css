@@ -1,0 +1,45 @@
+.ui-check {
+  & :where(input) {
+    transition-property: var(--transition);
+    transition-timing-function: var(--ease-in-out);
+    transition-duration: var(--duration);
+
+    &:enabled {
+      &:is(:hover, :focus-visible) {
+        --ui-check-border-color: var(--ui-check-checked-bg);
+        --ui-check-bg: var(--ui-check-checked-bg);
+        --tw-border-opacity: 0.75;
+        --tw-bg-opacity: 0.1;
+      }
+
+      &:focus {
+        --ui-check-border-color: var(--ui-check-checked-bg);
+        --ui-check-outline-offset: var(--ui-check-focus-outline-offset);
+        --tw-border-opacity: 0.75;
+        --tw-outline-opacity: 0.2;
+      }
+    }
+
+    &:disabled {
+      --tw-bg-opacity: 0.15;
+
+      cursor: not-allowed;
+      opacity: var(--ui-check-disabled-opacity);
+    }
+
+    &:where([type="checkbox"]):indeterminate {
+      --ui-check-icon: var(--mask-indeterminate);
+    }
+
+    &:is(:checked, [type="checkbox"]:indeterminate) {
+      --ui-check-bg: var(--ui-check-checked-bg);
+      --tw-bg-opacity: 1;
+      --tw-border-opacity: 0;
+
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}

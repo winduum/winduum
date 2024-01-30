@@ -1,11 +1,11 @@
 .ui-check {
   --ui-check-checked-bg: var(--color-accent);
 
-  font-weight: var(--ui-check-font-weight, var(--font-normal));
-  font-size: var(--ui-check-font-size, var(--text-sm));
-  line-height: var(--ui-check-line-height, calc(1em + 0.25lh));
-  letter-spacing: var(--ui-check-letter-spacing, inherit);
-  gap: var(--ui-check-gap, var(--spacing-md));
+  font-weight: var(--ui-check-font-weight);
+  font-size: var(--ui-check-font-size);
+  line-height: var(--ui-check-line-height);
+  letter-spacing: var(--ui-check-letter-spacing);
+  gap: var(--ui-check-gap);
   display: inline-flex;
   text-wrap: balance;
 
@@ -20,35 +20,32 @@
   }
 
   & :where(input) {
-    --color-accent: currentColor;
     --tw-border-opacity: 0.2;
     --tw-border-mix: transparent;
     --tw-outline-opacity: 0;
+    --tw-outline-mix: transparent;
     --tw-bg-opacity: 0;
     --tw-bg-mix: transparent;
 
     width: var(--ui-check-size);
     height: var(--ui-check-size);
-    border-radius: var(--ui-check-border-radius, var(--rounded-md));
-    background-color: color-mix(in var(--space), var(--ui-check-bg, var(--color-accent)) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+    border-radius: var(--ui-check-border-radius);
+    background-color: color-mix(in var(--space), var(--ui-check-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
     border:
-      var(--ui-check-border-width, 1px) solid
+      var(--ui-check-border-width) solid
       color-mix(
         in var(--space),
-        var(--ui-check-border-color, var(--color-accent)) calc(var(--tw-border-opacity) * 100%),
-        var(--tw-border-mix, transparent)
+        var(--ui-check-border-color) calc(var(--tw-border-opacity) * 100%),
+        var(--tw-border-mix)
       );
     outline:
-      var(--ui-check-outline-width, 3px) solid
+      var(--ui-check-outline-width) solid
       color-mix(
         in var(--space),
         var(--ui-check-checked-bg) calc(var(--tw-outline-opacity) * 100%),
-        transparent
+        var(--tw-outline-mix)
       );
-    outline-offset: var(--ui-check-outline-offset, 0);
-    transition-property: var(--transition);
-    transition-timing-function: var(--ease-in-out);
-    transition-duration: var(--duration);
+    outline-offset: var(--ui-check-outline-offset);
     display: flex;
     flex-shrink: 0;
 
@@ -72,50 +69,5 @@
         content: " *";
       }
     }
-
-    &:enabled {
-      &:is(:hover, :focus-visible) {
-        --ui-check-border-color: var(--ui-check-checked-bg);
-        --color-accent: var(--ui-check-checked-bg);
-        --tw-border-opacity: 0.75;
-        --tw-bg-opacity: 0.1;
-      }
-
-      &:focus {
-        --ui-check-border-color: var(--ui-check-checked-bg);
-        --ui-check-outline-offset: var(--ui-check-focus-outline-offset, 0);
-        --tw-border-opacity: 0.75;
-        --tw-outline-opacity: 0.2;
-      }
-    }
-
-    &:disabled {
-      --tw-bg-opacity: 0.15;
-
-      cursor: not-allowed;
-      opacity: var(--ui-check-disabled-opacity, 0.5);
-    }
-
-    &:where([type="checkbox"]):indeterminate {
-      --ui-check-icon: var(--mask-indeterminate);
-    }
-
-    &:is(:checked, [type="checkbox"]:indeterminate) {
-      --ui-check-bg: var(--ui-check-checked-bg);
-      --tw-bg-opacity: 1;
-      --tw-border-opacity: 0;
-
-      &::before {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-  }
-
-  &.invalid, .validated & :where(input):invalid {
-    --ui-check-border-color: var(--color-error);
-    --ui-check-checked-bg: var(--color-error);
-    --color-accent-foreground: var(--color-error);
-    --tw-border-opacity: 1;
   }
 }
