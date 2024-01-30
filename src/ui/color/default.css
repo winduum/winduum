@@ -24,7 +24,7 @@
         var(--ui-color-outline-color) calc(var(--tw-outline-opacity) * 100%),
         var(--tw-outline-mix, transparent)
       );
-    outline-offset: var(--ui-check-outline-offset, 0);
+    outline-offset: var(--ui-check-outline-offset);
     display: inline-grid;
 
     &::before, &::after {
