@@ -7,6 +7,7 @@
   transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
+  outline: var(--ui-btn-outline-width) solid transparent;
   outline-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-outline-opacity) * 100%), var(--tw-outline-mix));
   outline-offset: var(--ui-btn-outline-offset);
 
