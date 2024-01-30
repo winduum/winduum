@@ -1,9 +1,10 @@
-## 0.7.0 (2024-01-29)
+## 0.7.0 (2024-01-30)
 * feat(bc): removed `--color-current` css property
 * feat(bc): minor component refactor with removal `--color-current`, some css properties were removed
 * feat: added new component `c-toaster`, `c-toast` and `c-toast-content`
 * feat: added new component `c-popover` and `c-popover-content`
 * feat: added new component `c-tooltip`
+* feat: added new ui component `ui-color`
 * feat: added new utility `swap`
 * feat: added new utility `divider`
 * feat: added types to tailwindcss plugin and minor refactor
