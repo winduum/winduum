@@ -2,6 +2,12 @@
   --ui-control-s: calc(var(--ui-control-icon-count-s, 1) * (var(--ui-control-icon-size) + var(--ui-control-icon-gap)) - var(--ui-control-icon-gap));
   --ui-control-e: calc(var(--ui-control-icon-count-e, 1) * (var(--ui-control-icon-size) + var(--ui-control-icon-gap)) - var(--ui-control-icon-gap));
 
+  &:has(textarea) {
+    :where(.me-auto), :where(.ms-auto) {
+      align-self: start;
+    }
+  }
+
   &:has(.me-auto) {
     --ui-control-ps: calc(var(--ui-control-s) + var(--ui-control-px));
   }
@@ -18,13 +24,7 @@
     --ui-control-icon-count-e: 2;
   }
 
-  &:has(textarea) {
-    :where(.ms-auto), :where(.me-auto) {
-      align-self: start;
-    }
-  }
-
-  :where(.ms-auto), :where(.me-auto) {
+  :where(.me-auto), :where(.ms-auto) {
     gap: var(--ui-control-icon-gap);
     display: flex;
     align-items: center;

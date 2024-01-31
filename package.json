@@ -55,8 +55,7 @@
     "./base/*": "./src/base/*",
     "./components/*": "./src/components/*",
     "./libraries/*": "./src/libraries/*",
-    "./ui/*": "./src/ui/*",
-    "./components/dialog": "./src/components/dialog/index.js"
+    "./ui/*": "./src/ui/*"
   },
   "engines": {
     "node": ">=18.0.0",
