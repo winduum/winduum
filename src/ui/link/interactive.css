@@ -9,7 +9,7 @@
     &:not(:disabled) {
       &:hover {
         @media (hover: hover) and (pointer: fine) {
-          --tw-text-opacity: 0.35;
+          --tw-text-opacity: 0.75;
         }
       }
 

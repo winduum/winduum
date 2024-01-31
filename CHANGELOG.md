@@ -1,3 +1,6 @@
+## 0.7.1 (2024-01-31)
+* fix: ui-check and ui-link typos
+
 ## 0.7.0 (2024-01-31)
 * feat(bc): removed `--color-current` css property, `currentColor` is now used
 * feat(bc): minor component refactor with removal `--color-current`, some css properties were removed

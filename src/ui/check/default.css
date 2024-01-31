@@ -11,7 +11,7 @@
 
   &:has([type="radio"]) {
     --ui-check-icon: var(--mask-radio);
-    --ui-check-radius: 50%;
+    --ui-check-border-radius: 50%;
   }
 
   :where(a) {
