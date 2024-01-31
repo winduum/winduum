@@ -1,6 +1,8 @@
 ## 0.7.0 (2024-01-31)
-* feat(bc): removed `--color-current` css property
+* feat(bc): removed `--color-current` css property, `currentColor` is now used
 * feat(bc): minor component refactor with removal `--color-current`, some css properties were removed
+* feat(bc): `ui-control` elements `start` and `end` were renamed in favour of tw classes `me-auto` and `ms-auto` (now it's final)
+* feat(bc): removed `-rgb` component variants, postcss plugin will be used in the future
 * feat: added new component `c-toaster`, `c-toast` and `c-toast-content`
 * feat: added new component `c-popover` and `c-popover-content`
 * feat: added new component `c-tooltip`
