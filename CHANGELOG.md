@@ -10,6 +10,7 @@
 * feat: added new utility `swap`
 * feat: added new utility `divider`
 * feat: added types to tailwindcss plugin and minor refactor
+* feat: nesting and css refactor
 
 ## 0.6.0 (2024-01-17)
 _This should be last version with such major breaking changes and is much closer to **1.0**_
