@@ -34,6 +34,10 @@
     font-weight: var(--ui-text-content-bold);
   }
 
+  & :where(em) {
+    font-style: italic;
+  }
+
   & :where(img) {
     display: block;
     height: auto;
