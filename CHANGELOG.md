@@ -1,4 +1,4 @@
-## 0.7.0 (2024-01-30)
+## 0.7.0 (2024-01-31)
 * feat(bc): removed `--color-current` css property
 * feat(bc): minor component refactor with removal `--color-current`, some css properties were removed
 * feat: added new component `c-toaster`, `c-toast` and `c-toast-content`
