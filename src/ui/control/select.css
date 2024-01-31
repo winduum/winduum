@@ -5,10 +5,6 @@
     --ui-control-icon-count-e: 2;
   }
 
-  & :where(.end) {
-    margin-inline-end: var(--ui-control-select-icon-size);
-  }
-
   &::after {
     width: var(--ui-control-select-icon-size);
     height: var(--ui-control-select-icon-size);
@@ -19,5 +15,9 @@
     pointer-events: none;
     align-self: center;
     content: "";
+  }
+
+  :where(.end) {
+    margin-inline-end: var(--ui-control-select-icon-size);
   }
 }

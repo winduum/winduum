@@ -19,7 +19,7 @@
   outline-offset: var(--ui-notice-outline-offset);
   text-wrap: balance;
 
-  & :where(hr) {
+  :where(hr) {
     --tw-border-opacity: 0.2;
   }
 }

@@ -10,7 +10,7 @@
     opacity: 0;
   }
 
-  & > [aria-hidden="false"],
+  > [aria-hidden="false"],
   input:not(:checked, :indeterminate) + :where(*),
   input:indeterminate ~ :where(*:nth-last-child(2)),
   input:checked ~ :where(*:last-child) {

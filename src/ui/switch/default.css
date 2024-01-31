@@ -11,12 +11,12 @@
     --ui-switch-bg: var(--color-body-tertiary);
   }
 
-  & :where(a) {
+  :where(a) {
     color: var(--color-accent);
     text-decoration: underline;
   }
 
-  & :where(input) {
+  :where(input) {
     --tw-outline-opacity: 0;
     --tw-outline-mix: transparent;
 

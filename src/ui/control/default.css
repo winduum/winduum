@@ -42,12 +42,12 @@
     height: auto;
   }
 
-  & > :where(*) {
+  > :where(*) {
     grid-area: c-control-p;
     align-self: center;
   }
 
-  & > :where(input, textarea, select) {
+  > :where(input, textarea, select) {
     padding-block: var(--ui-control-py);
     padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps, 0rem)) calc(var(--ui-control-px) + var(--ui-control-pe, 0rem));
     grid-area: c-control;
@@ -61,14 +61,14 @@
     }
   }
 
-  & > :where(input, textarea) {
+  > :where(input, textarea) {
     &::placeholder {
       color: var(--ui-control-placeholder-color);
       opacity: var(--ui-control-placeholder-opacity);
     }
   }
 
-  & > :where(textarea) {
+  > :where(textarea) {
     min-block-size: var(--ui-control-height-textarea);
     resize: vertical;
   }

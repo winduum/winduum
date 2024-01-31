@@ -2,7 +2,7 @@
   pointer-events: none;
   color: transparent;
 
-  & > * {
+  > * {
     opacity: 0;
   }
 

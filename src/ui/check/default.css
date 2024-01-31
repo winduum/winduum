@@ -14,12 +14,12 @@
     --ui-check-radius: 50%;
   }
 
-  & :where(a) {
+  :where(a) {
     color: var(--color-accent);
     text-decoration: underline;
   }
 
-  & :where(input) {
+  :where(input) {
     --tw-border-opacity: 0.2;
     --tw-border-mix: transparent;
     --tw-outline-opacity: 0;
@@ -64,7 +64,7 @@
     }
 
     &:where(:required) {
-      & + *::after {
+      + *::after {
         color: var(--color-error);
         content: " *";
       }

@@ -4,7 +4,7 @@
   flex-direction: column;
 
   .validated &:has(:invalid) {
-    & :where(.ui-info[hidden]) {
+    :where(.ui-info[hidden]) {
       display: flex;
     }
   }

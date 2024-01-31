@@ -11,7 +11,7 @@
     border-radius: inherit;
   }
 
-  & > :where(img, video, iframe, object, svg) {
+  > :where(img, video, iframe, object, svg) {
     border-radius: inherit;
     min-width: 100%;
     height: auto;

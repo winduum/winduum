@@ -18,21 +18,23 @@
     --ui-control-icon-count-e: 2;
   }
 
-  & :where(.start) {
+  &:has(textarea) {
+    :where(.start), :where(.end) {
+      align-self: start;
+    }
+  }
+
+  :where(.start) {
     margin-inline-end: auto;
   }
 
-  & :where(.end) {
+  :where(.end) {
     margin-inline-start: auto;
   }
 
-  & :where(.start, .end) {
+  :where(.start), :where(.end) {
     gap: var(--ui-control-icon-gap);
     display: flex;
     align-items: center;
-  }
-
-  &:has(textarea) :where(.start, .end) {
-    align-self: start;
   }
 }

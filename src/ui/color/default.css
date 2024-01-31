@@ -1,7 +1,7 @@
 .ui-color {
   display: inline-flex;
 
-  & :where(input) {
+  :where(input) {
     --tw-border-opacity: 0.1;
     --tw-border-mix: transparent;
     --tw-outline-opacity: 0;
