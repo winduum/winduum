@@ -1,0 +1,18 @@
+.c-field {
+  gap: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+
+  .validated &:has(:invalid) {
+    :where(.ui-info[hidden]) {
+      display: flex;
+    }
+  }
+
+  &:has([required]) :where(.ui-label) {
+    &::after {
+      color: var(--color-error);
+      content: " *";
+    }
+  }
+}

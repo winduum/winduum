@@ -1,23 +1,23 @@
-.ui-control:has(select) {
+.ui-control:has(select:not([multiple])) {
   --ui-control-pe: calc(var(--ui-control-select-icon-size) + var(--ui-control-select-icon-me));
 
   &:has(.end) {
     --ui-control-icon-count-e: 2;
   }
 
-  & :where(.end) {
-    margin-inline-end: var(--ui-control-select-icon-size);
-  }
-
   &::after {
     width: var(--ui-control-select-icon-size);
     height: var(--ui-control-select-icon-size);
-    margin-inline: auto var(--ui-control-select-icon-me);
     mask: var(--mask-angle-down);
+    margin-inline: auto var(--ui-control-select-icon-me);
+    grid-area: c-control-p;
     background-color: currentColor;
     pointer-events: none;
-    grid-area: c-control-p;
     align-self: center;
     content: "";
+  }
+
+  :where(.end) {
+    margin-inline-end: var(--ui-control-select-icon-size);
   }
 }

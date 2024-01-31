@@ -38,8 +38,4 @@
       opacity: var(--c-rating-opacity);
     }
   }
-
-  &.invalid, .validated & :where(input):invalid {
-    --color-accent: var(--color-error);
-  }
 }

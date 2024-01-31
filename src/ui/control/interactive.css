@@ -1,0 +1,17 @@
+.ui-control {
+  transition-property: var(--transition);
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: var(--duration);
+
+  &:focus-within {
+    --ui-control-border-color: var(--color-accent);
+    --ui-control-outline-offset: var(--ui-control-focus-outline-offset);
+    --tw-border-opacity: 1;
+    --tw-outline-opacity: 0.2;
+  }
+
+  &.disabled, &:has(:disabled) {
+    --ui-control-bg: currentColor;
+    --tw-bg-opacity: var(--ui-control-disabled-opacity);
+  }
+}

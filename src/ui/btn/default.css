@@ -1,32 +1,28 @@
 .ui-btn {
   --tw-bg-opacity: 1;
   --tw-text-opacity: 1;
-  --color-current: var(--color-accent-foreground);
-  --ui-btn-bg: color-mix(in var(--space), var(--color-accent) var(--ui-btn-bg-opacity), var(--ui-btn-bg-mix, transparent));
-  --ui-btn-bg-opacity: calc(var(--tw-bg-opacity) * 100%);
-  --ui-btn-color: color-mix(in var(--space), var(--color-current) var(--ui-btn-color-opacity), transparent);
-  --ui-btn-color-opacity: calc(var(--tw-text-opacity) * 100%);
+  --tw-bg-mix: transparent;
+  --tw-text-mix: transparent;
 
-  width: var(--ui-btn-width, auto);
-  height: var(--ui-btn-height);
+  inline-size: var(--ui-btn-width);
+  block-size: var(--ui-btn-height);
   padding: var(--ui-btn-py) var(--ui-btn-px);
-  border-radius: var(--ui-btn-border-radius, var(--rounded));
-  font-size: var(--ui-btn-font-size, var(--text-sm));
-  font-weight: var(--ui-btn-font-weight, var(--font-medium));
-  letter-spacing: var(--ui-btn-letter-spacing, 0);
-  background-color: var(--ui-btn-bg);
-  color: var(--ui-btn-color);
-  gap: var(--ui-btn-gap, var(--spacing-sm));
-  outline: var(--ui-btn-outline-width, 2px) solid transparent;
-  outline-offset: 0;
+  border-radius: var(--ui-btn-border-radius);
+  font-family: var(--ui-btn-font-family);
+  font-size: var(--ui-btn-font-size);
+  font-weight: var(--ui-btn-font-weight);
+  letter-spacing: var(--ui-btn-letter-spacing);
+  background-color: color-mix(in var(--space), var(--ui-btn-bg, var(--color-accent)) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+  color: color-mix(in var(--space), var(--ui-btn-color, var(--color-accent-foreground)) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
+  gap: var(--ui-btn-gap);
   user-select: none;
-  overflow: hidden;
+  overflow: clip;
   display: inline-flex;
   text-align: center;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
   position: relative;
+  line-height: 1;
   flex-shrink: 0;
   z-index: 0;
 
@@ -36,6 +32,14 @@
 
   &:where(.accent-body) {
     --ui-btn-hover-bg-mix: var(--color-body-foreground);
+  }
+
+  &:where(.accent-light) {
+    --ui-btn-hover-bg-mix: var(--color-light-foreground);
+  }
+
+  &:where(.accent-dark) {
+    --ui-btn-hover-bg-mix: var(--color-dark-foreground);
   }
 
   &:where(input)::after {

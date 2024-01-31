@@ -1,12 +1,11 @@
 .ui-range:where(.vertical) {
+  min-inline-size: var(--ui-range-thumb-size);
   container-type: size;
-  min-width: var(--ui-range-thumb-size);
 
   :where(input) {
     transform: rotate(-90deg);
     width: 100cqh;
-    height: 100cqw;
-    transform-origin: 0 0;
-    top: 100%;
+    inset-block-start: 50%;
+    inset-inline-start: calc(50% * -1 + 50cqw);
   }
 }

@@ -1,7 +1,7 @@
 .ui-group:where(.vertical) {
   flex-direction: column;
 
-  & > :where(*) {
+  > :where(*) {
     border-radius: inherit;
 
     &:where(:not(:first-child)) {

@@ -1,13 +1,14 @@
 .ui-badge {
   &:where(.bordered) {
+    --ui-badge-border-width: 1px;
     --tw-border-opacity: 1;
 
-    border: var(--ui-badge-border-width, 1px) solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
-    padding-inline: calc(var(--ui-badge-px) - var(--ui-badge-border-width, 1px));
+    border: var(--ui-badge-border-width) solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
+    padding-inline: calc(var(--ui-badge-px) - var(--ui-badge-border-width));
   }
 
   &:is(.bordered) {
-    --color-current: var(--color-accent);
-    --ui-badge-bg-opacity: 0%;
+    --color-accent-foreground: var(--color-accent);
+    --tw-bg-opacity: 0;
   }
 }

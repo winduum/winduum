@@ -1,3 +1,0 @@
-.ui-btn:where(.bordered) {
-  border: var(--ui-btn-border-width, 1px) solid rgb(var(--color-accent-rgb) / var(--ui-btn-border-opacity, calc(var(--tw-border-opacity) * 100%)));
-}

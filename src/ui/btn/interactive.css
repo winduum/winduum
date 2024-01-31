@@ -1,32 +1,42 @@
 .ui-btn {
+  --ui-btn-hover-color: var(--color-accent-foreground);
+  --ui-btn-active-color: var(--color-accent-foreground);
+  --tw-outline-opacity: 0;
+  --tw-outline-mix: transparent;
+
   transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
+  outline: var(--ui-btn-outline-width) solid transparent;
+  outline-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-outline-opacity) * 100%), var(--tw-outline-mix));
+  outline-offset: var(--ui-btn-outline-offset);
 
   &:is([href], button, [role="button"], input) {
+    cursor: var(--cursor, pointer);
+
     &:disabled {
-      opacity: var(--ui-btn-disabled-opacity, 0.7);
+      opacity: var(--ui-btn-disabled-opacity);
       cursor: not-allowed;
     }
 
     &:not(:disabled) {
       &:hover {
         @media (hover: hover) and (pointer: fine) {
-          --ui-btn-color: var(--ui-btn-hover-color, var(--color-current));
-          --ui-btn-bg-mix: var(--ui-btn-hover-bg-mix, black);
-          --ui-btn-bg-opacity: var(--ui-btn-hover-bg-opacity, 80%);
+          --ui-btn-color: var(--ui-btn-hover-color);
+          --tw-bg-mix: var(--ui-btn-hover-bg-mix);
+          --tw-bg-opacity: var(--ui-btn-hover-bg-opacity);
         }
       }
 
       &:focus {
-        outline-color: color-mix(in var(--space), var(--color-accent) var(--ui-btn-focus-outline-opacity, 50%), var(--ui-btn-focus-outline-mix, transparent));
-        outline-offset: var(--ui-btn-focus-outline-offset, 2px);
+        --ui-btn-outline-offset: var(--ui-btn-focus-outline-offset);
+        --tw-outline-opacity: var(--ui-btn-focus-outline-opacity);
       }
 
       &:is(:active, :checked, .active) {
-        --ui-btn-color: var(--ui-btn-active-color, var(--color-current));
-        --ui-btn-bg-mix: var(--ui-btn-active-bg-mix, black);
-        --ui-btn-bg-opacity: var(--ui-btn-active-bg-opacity, 90%);
+        --ui-btn-color: var(--ui-btn-active-color);
+        --tw-bg-mix: var(--ui-btn-active-bg-mix);
+        --tw-bg-opacity: var(--ui-btn-active-bg-opacity);
       }
     }
   }

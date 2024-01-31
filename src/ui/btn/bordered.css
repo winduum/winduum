@@ -1,18 +1,19 @@
 .ui-btn {
   &:where(.bordered) {
+    --ui-btn-border-width: 1px;
     --tw-border-opacity: 0.3;
 
-    border: var(--ui-btn-border-width, 1px) solid color-mix(in var(--space), var(--color-accent) var(--ui-btn-border-opacity, calc(var(--tw-border-opacity) * 100%)), transparent);
-    padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width, 1px));
+    border: var(--ui-btn-border-width) solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
+    padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
   }
 
   &:is(.bordered) {
-    --color-current: var(--color-accent);
     --ui-btn-hover-bg-mix: transparent;
-    --ui-btn-hover-bg-opacity: 10%;
+    --ui-btn-hover-bg-opacity: 0.1;
     --ui-btn-active-bg-mix: transparent;
-    --ui-btn-active-bg-opacity: 20%;
+    --ui-btn-active-bg-opacity: 0.2;
     --ui-btn-focus-outline-offset: -2px;
-    --ui-btn-bg-opacity: 0%;
+    --color-accent-foreground: var(--color-accent);
+    --tw-bg-opacity: 0;
   }
 }

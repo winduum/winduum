@@ -1,19 +1,35 @@
 .ui-control {
+  --tw-border-opacity: 0.15;
+  --tw-border-mix: transparent;
+  --tw-bg-opacity: 1;
+  --tw-bg-mix: transparent;
+  --tw-outline-opacity: 0;
+  --tw-outline-mix: transparent;
+
   display: grid;
-  height: var(--ui-control-height);
-  font-family: var(--ui-contro-font-family, var(--font-primary));
-  font-weight: var(--ui-control-font-weight, var(--font-medium));
-  font-size: var(--ui-control-font-size, var(--text-sm));
-  letter-spacing: var(--ui-control-letter-spacing, inherit);
-  background-color: var(--ui-control-bg, transparent);
-  color: var(--ui-control-color, currentColor);
-  border-radius: var(--ui-control-border-radius, var(--rounded));
-  border: var(--ui-control-border-width) solid color-mix(in var(--space), var(--ui-control-border-color, var(--color-current)) var(--ui-control-border-opacity, 15%), var(--ui-control-border-mix, transparent));
-  outline: var(--ui-control-outline-width, 3px) solid transparent;
-  outline-offset: 0;
-  transition-property: var(--transition);
-  transition-timing-function: var(--ease-in-out);
-  transition-duration: var(--duration);
+  block-size: var(--ui-control-height);
+  font-family: var(--ui-contro-font-family);
+  font-weight: var(--ui-control-font-weight);
+  font-size: var(--ui-control-font-size);
+  letter-spacing: var(--ui-control-letter-spacing);
+  background-color: color-mix(in var(--space), var(--ui-control-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+  color: var(--ui-control-color);
+  border-radius: var(--ui-control-border-radius);
+  border:
+    var(--ui-control-border-width) solid
+    color-mix(
+      in var(--space),
+      var(--ui-control-border-color) calc(var(--tw-border-opacity) * 100%),
+      var(--tw-border-mix)
+    );
+  outline:
+    var(--ui-control-outline-width) solid
+    color-mix(
+      in var(--space),
+      var(--color-accent) calc(var(--tw-outline-opacity) * 100%),
+      var(--tw-outline-mix)
+    );
+  outline-offset: var(--ui-control-outline-offset);
   grid-template:
     [c-control-start] calc(var(--ui-control-py) - var(--ui-control-border-width))
     [c-control-p] 1fr
@@ -26,52 +42,34 @@
     height: auto;
   }
 
-  & > :where(*) {
+  > :where(*) {
     grid-area: c-control-p;
     align-self: center;
   }
 
-  & > :where(input, textarea, select) {
+  > :where(input, textarea, select) {
     padding-block: var(--ui-control-py);
     padding-inline: calc(var(--ui-control-px) + var(--ui-control-ps, 0rem)) calc(var(--ui-control-px) + var(--ui-control-pe, 0rem));
+    grid-area: c-control;
     text-overflow: ellipsis;
     overflow: clip;
-    grid-area: c-control;
     align-self: stretch;
     align-items: center;
 
     &:disabled {
       cursor: not-allowed;
-      background-color: color-mix(in var(--space), var(--color-current) var(--ui-control-disabled-opacity, 5%), var(--ui-control-bg, transparent));
     }
   }
 
-  & > :where(input, textarea) {
+  > :where(input, textarea) {
     &::placeholder {
-      color: var(--ui-control-placeholder-color, currentColor);
-      opacity: var(--ui-control-placeholder-opacity, 0.5);
+      color: var(--ui-control-placeholder-color);
+      opacity: var(--ui-control-placeholder-opacity);
     }
   }
 
-  & > :where(textarea) {
-    min-height: var(--ui-control-height-textarea);
+  > :where(textarea) {
+    min-block-size: var(--ui-control-height-textarea);
     resize: vertical;
-  }
-
-  &:focus-within {
-    --ui-control-border-opacity: 100%;
-    --ui-control-border-color: var(--color-accent);
-
-    outline-color: color-mix(in var(--space), var(--color-accent) var(--ui-control-outline-opacity, 20%), transparent);
-    outline-offset: var(--ui-control-outline-offset, 0);
-  }
-
-  &.invalid, .validated &:has(:invalid) {
-    --ui-control-border-opacity: 100%;
-    --ui-control-border-color: var(--color-error);
-    --ui-control-color: var(--color-error);
-    --color-accent: var(--color-error);
-
-    background-color: color-mix(in var(--space), var(--color-error) var(--ui-control-invalid-bg-opacity, 10%), var(--ui-control-bg));
   }
 }

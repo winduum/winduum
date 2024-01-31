@@ -1,0 +1,66 @@
+.c-compare {
+  --c-compare-position: 50%;
+  --c-compare-clip-path: polygon(0% 0, var(--c-compare-position) 0%, var(--c-compare-position) 100%, 0 100%);
+
+  display: grid;
+  overflow: hidden;
+  border-radius: inherit;
+
+  > *, &::before {
+    position: relative;
+    pointer-events: none;
+    grid-area: 1/1;
+    z-index: 1;
+  }
+
+  &::before {
+    background-color: var(--color-accent);
+    inset-inline-start: var(--c-compare-position);
+    inline-size: 1px;
+    content: "";
+  }
+
+  > :where(input) {
+    pointer-events: auto;
+    cursor: grab;
+    opacity: 0;
+
+    &:is(:focus-visible, :active) {
+      ~ .ui-btn {
+        --tw-bg-mix: var(--ui-btn-hover-bg-mix, var(--color-dark));
+        --tw-bg-opacity: 0.8;
+      }
+    }
+
+    &:focus-visible ~ .ui-btn {
+      --ui-btn-outline-offset: 2px;
+      --tw-outline-opacity: 0.5;
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  > :where(.ui-btn) {
+    inset-inline-start: var(--c-compare-position);
+    margin-inline-start: calc(var(--ui-btn-width) / 2 * -1);
+    margin-block: auto;
+  }
+
+  > :where(.ui-image) {
+    display: grid;
+    z-index: 0;
+
+    > :where(*):not(:only-child) {
+      object-fit: cover;
+      object-position: left;
+      grid-area: 1/1;
+
+      &:first-child {
+        clip-path: var(--c-compare-clip-path);
+        position: relative;
+      }
+    }
+  }
+}

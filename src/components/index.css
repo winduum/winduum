@@ -1,4 +1,8 @@
-@import "card.css";
-@import "dialog.css";
-@import "field.css";
-@import "compare.css";
+@import "card/index.css";
+@import "dialog/index.css";
+@import "field/index.css";
+@import "compare/index.css";
+@import "popover/index.css";
+@import "tooltip/index.css";
+@import "toaster/index.css";
+@import "toast/index.css";

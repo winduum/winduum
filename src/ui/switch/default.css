@@ -1,80 +1,50 @@
 .ui-switch {
+  display: inline-flex;
+  font-weight: var(--ui-switch-font-weight);
+  font-size: var(--ui-switch-font-size);
+  line-height: var(--ui-switch-line-height);
+  letter-spacing: var(--ui-switch-letter-spacing);
+  gap: var(--ui-switch-gap);
+  text-wrap: balance;
+
   :where(.dark) & {
     --ui-switch-bg: var(--color-body-tertiary);
   }
 
-  display: inline-flex;
-  gap: var(--ui-switch-gap, 0.75rem);
-  font-weight: var(--ui-switch-font-weight, var(--font-normal));
-  font-size: var(--ui-switch-font-size, var(--text-sm));
-  line-height: var(--ui-switch-line-height, calc(1em + var(--ui-switch-line-height-ratio, 0.25lh)));
-  letter-spacing: var(--ui-switch-letter-spacing, inherit);
-  text-wrap: balance;
-
-  & :where(a) {
+  :where(a) {
     color: var(--color-accent);
     text-decoration: underline;
   }
 
-  & :where(input) {
+  :where(input) {
+    --tw-outline-opacity: 0;
+    --tw-outline-mix: transparent;
+
     display: flex;
-    width: var(--ui-switch-width);
-    height: var(--ui-switch-height);
-    background-color: var(--ui-switch-bg, var(--color-dark));
-    border-radius: var(--ui-switch-radius, var(--rounded-full));
-    outline: var(--ui-switch-outline-width, 3px) solid transparent;
-    outline-offset: 0;
-    transition-property: var(--transition);
-    transition-timing-function: var(--ease-in-out);
-    transition-duration: var(--duration);
-    flex-shrink: 0;
-    position: relative;
+    inline-size: var(--ui-switch-width);
+    block-size: var(--ui-switch-height);
     padding: calc((var(--ui-switch-height) - var(--ui-check-icon-size)) / 2);
+    border-radius: var(--ui-switch-border-radius);
+    background-color: var(--ui-switch-bg);
+    outline:
+      var(--ui-switch-outline-width) solid
+      color-mix(
+        in var(--space),
+        var(--ui-switch-outline-color) calc(var(--tw-outline-opacity) * 100%),
+        var(--tw-outline-mix)
+      );
+    outline-offset: var(--ui-switch-outline-offset);
+    position: relative;
+    flex-shrink: 0;
 
     &::before {
-      content: "";
-      width: var(--ui-check-icon-size);
-      height: var(--ui-check-icon-size);
+      width: var(--ui-switch-icon-size);
+      height: var(--ui-switch-icon-size);
       background-color: var(--color-light);
+      transition: var(--transition-all);
       border-radius: inherit;
       margin-block: auto;
-      transition: var(--transition-all);
+      content: "";
     }
-
-    &:where(:required) {
-      & + *::after {
-        color: var(--color-error);
-        content: " *";
-      }
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      opacity: var(--ui-switch-disabled-opacity, 0.5);
-    }
-
-    &:focus {
-      outline-color: color-mix(in var(--space), var(--color-current) var(--ui-switch-outline-opacity, 20%), transparent);
-      outline-offset: var(--ui-switch-outline-offset, 0);
-    }
-
-    &:checked {
-      --color-current: var(--color-accent);
-      --ui-switch-bg: var(--color-accent);
-
-      &::before {
-        margin-left: calc(100% - var(--ui-check-icon-size));
-      }
-    }
-
-    &:indeterminate {
-      &::before {
-        margin-left: calc(50% - var(--ui-check-icon-size) / 2);
-      }
-    }
-  }
-
-  &.invalid, .validated & :where(input):invalid {
-    --ui-switch-bg: var(--color-error);
   }
 }

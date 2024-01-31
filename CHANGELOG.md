@@ -1,3 +1,17 @@
+## 0.7.0 (2024-01-31)
+* feat(bc): removed `--color-current` css property, `currentColor` is now used
+* feat(bc): minor component refactor with removal `--color-current`, some css properties were removed
+* feat(bc): `ui-control` elements `start` and `end` were renamed in favour of tw classes `me-auto` and `ms-auto` (now it's final)
+* feat(bc): removed `-rgb` component variants, postcss plugin will be used in the future
+* feat: added new component `c-toaster`, `c-toast` and `c-toast-content`
+* feat: added new component `c-popover` and `c-popover-content`
+* feat: added new component `c-tooltip`
+* feat: added new ui component `ui-color`
+* feat: added new utility `swap`
+* feat: added new utility `divider`
+* feat: added types to tailwindcss plugin and minor refactor
+* feat: nesting and css refactor
+
 ## 0.6.0 (2024-01-17)
 _This should be last version with such major breaking changes and is much closer to **1.0**_
 * feat(bc): `lib-dialog` was renamed to `c-dialog`, `c-dialog` was renamed to `c-dialog-content`

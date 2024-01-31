@@ -1,5 +1,7 @@
 :root, :host {
+  --ui-badge-font-size: var(--text-xs);
   --ui-badge-height: 1.5rem;
   --ui-badge-py: 0;
   --ui-badge-px: 0.5rem;
+  --ui-badge-gap: var(--spacing-xs);
 }

@@ -1,12 +1,7 @@
-.ui-btn {
-  &:where(.raised) {
-    border: var(--ui-btn-border-width) solid color-mix(in var(--space), var(--color-accent) var(--ui-btn-border-opacity), var(--color-current));
-    padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
-  }
+.ui-btn:where(.raised) {
+  --ui-btn-border-width: 2px;
+  --tw-border-opacity: 0.85;
 
-  &:is(.raised) {
-    --tw-border-opacity: 0.85;
-    --ui-btn-border-width: 2px;
-    --ui-btn-border-opacity: calc(var(--tw-border-opacity) * 100%);
-  }
+  border: var(--ui-btn-border-width) solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), var(--color-accent-foreground));
+  padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
 }
