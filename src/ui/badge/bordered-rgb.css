@@ -1,3 +1,0 @@
-.ui-badge:where(.bordered) {
-  border-color: rgb(var(--color-accent-rgb) / calc(var(--tw-border-opacity) * 100%));
-}
