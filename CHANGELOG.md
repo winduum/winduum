@@ -1,3 +1,7 @@
+## 0.7.2 (2024-02-01)
+* feat: added javascript options for `c-details`
+* feat: added rounded corners for `ui-progress`
+
 ## 0.7.1 (2024-01-31)
 * fix: ui-check and ui-link typos
 

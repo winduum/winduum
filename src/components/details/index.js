@@ -1,11 +1,25 @@
 /**
+ * @type {import("./types/index").DefaultDetailsOptions}
+ */
+export const defaultOptions = {
+    selector: 'details',
+    summarySelector: 'summary'
+}
+
+/**
  * @param {HTMLInputElement | HTMLElement} element
+ * @param {import("./types/index").DefaultDetailsOptions} options
  * @returns Promise<void>
  */
-export const showDetails = async (element) => {
-    const details = element.closest('details')
+export const showDetails = async (element, options = {}) => {
+    options = {
+        ...defaultOptions,
+        ...options
+    }
+
+    const details = element.closest(options.selector)
     const { down } = await import('slide-element')
-    const content = element.closest('summary').nextElementSibling
+    const content = element.closest(options.summarySelector).nextElementSibling
 
     details._isHiding = false
     details.open = true
@@ -17,12 +31,18 @@ export const showDetails = async (element) => {
 
 /**
  * @param {HTMLInputElement | HTMLElement} element
+ * @param {import("./types/index").DefaultDetailsOptions} options
  * @returns Promise<void>
  */
-export const closeDetails = async (element) => {
-    const details = element.closest('details')
+export const closeDetails = async (element, options = {}) => {
+    options = {
+        ...defaultOptions,
+        ...options
+    }
+
+    const details = element.closest(options.selector)
     const { up } = await import('slide-element')
-    const content = element.closest('summary').nextElementSibling
+    const content = element.closest(options.summarySelector).nextElementSibling
 
     details._isHiding = true
 
@@ -36,17 +56,23 @@ export const closeDetails = async (element) => {
 
 /**
  * @param {HTMLInputElement | HTMLElement} element
+ * @param {import("./types/index").DefaultDetailsOptions} options
  * @returns Promise<void>
  */
-export const toggleDetails = async (element) => {
-    const details = element.closest('details')
+export const toggleDetails = async (element, options = {}) => {
+    options = {
+        ...defaultOptions,
+        ...options
+    }
+
+    const details = element.closest(options.selector)
 
     if (details._isHiding && !element.checked) return
 
     if (element.checked ?? !details.open) {
-        await showDetails(element)
+        await showDetails(element, options)
     } else {
-        await closeDetails(element)
+        await closeDetails(element, options)
     }
 }
 

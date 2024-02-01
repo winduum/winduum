@@ -6,26 +6,36 @@
   block-size: var(--ui-progress-height);
   border-radius: var(--ui-progress-border-radius);
   background-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+  position: relative;
   overflow: clip;
+
+  &::-moz-progress-bar {
+    background-color: var(--color-accent);
+    border-radius: inherit;
+  }
+
+  &::-webkit-progress-inner-element {
+    border-radius: inherit;
+  }
 
   &::-webkit-progress-bar {
     background-color: transparent;
+    border-radius: inherit;
   }
 
   &::-webkit-progress-value {
     background-color: var(--color-accent);
-  }
-
-  &::-moz-progress-bar {
-    background-color: var(--color-accent);
+    border-radius: inherit;
   }
 
   &:indeterminate {
-    animation: 1.5s linear 0s forwards infinite move-indeterminate;
-    background-image: linear-gradient(to right, var(--color-accent) 30%, transparent 30%);
+    --duration: 1s;
+
+    animation: var(--duration) var(--ease-linear) infinite move-indeterminate;
+    background-image: linear-gradient(to right, var(--color-accent) 33.33%, transparent 0%);
     background-position: top left;
     background-repeat: no-repeat;
-    background-size: 150% 150%;
+    background-size: 150%;
 
     &::-moz-progress-bar {
       background-color: transparent;
