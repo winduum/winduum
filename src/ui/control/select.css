@@ -1,7 +1,7 @@
 .ui-control:has(select:not([multiple])) {
   --ui-control-pe: calc(var(--ui-control-select-icon-size) + var(--ui-control-select-icon-me));
 
-  &:has(.end) {
+  &:has(.ms-auto) {
     --ui-control-icon-count-e: 2;
   }
 
@@ -17,7 +17,7 @@
     content: "";
   }
 
-  :where(.end) {
+  :where(.ms-auto) {
     margin-inline-end: var(--ui-control-select-icon-size);
   }
 }
