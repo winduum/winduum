@@ -1,3 +1,5 @@
+import { Plugin } from "tailwindcss/types/config";
+
 export interface PluginOptions {
     colors?: string[]
     fontFamily?: string[],
@@ -17,3 +19,7 @@ export interface PluginOptions {
         colorMix?: boolean
     }
 }
+
+export const defaultConfig: PluginOptions
+
+export default function createPlugin(userConfig: PluginOptions): Plugin

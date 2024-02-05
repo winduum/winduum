@@ -202,7 +202,7 @@ const tailwindAnimations = (values) => {
 };
 
 /**
- * @type {import('./tailwind').PluginOptions} options.
+ * @type {import('./').PluginOptions} options.
  */
 const defaultConfig = {
     colors: [
@@ -243,7 +243,7 @@ const defaultConfig = {
 };
 
 /**
- * @param {import('./tailwind').PluginOptions} userConfig
+ * @param {import('./').PluginOptions} userConfig
  */
 const createPlugin = (userConfig = {}) => {
     const settings = {

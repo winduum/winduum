@@ -1,6 +1,6 @@
 /**
  * @param {Event | SubmitEvent} event
- * @param {import("./types/index").ValidateFormOptions} options
+ * @param {import("./").ValidateFormOptions} options
  * @returns void
  */
 export const validateForm = (event, options = {}) => {
@@ -28,7 +28,7 @@ export const validateForm = (event, options = {}) => {
 
 /**
  * @param {HTMLElement} element
- * @param {import("./types/index").ValidateFieldOptions} options
+ * @param {import("./").ValidateFieldOptions} options
  * @returns void
  */
 export const validateField = (element, options = {}) => {
@@ -97,4 +97,9 @@ export const validateField = (element, options = {}) => {
             }
         }
     }
+}
+
+export default {
+    validateForm,
+    validateField
 }

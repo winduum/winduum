@@ -1,29 +1,25 @@
 /**
  * Shows a ripple effect.
  * @param {MouseEvent<HTMLElement>} event - The dialog element to dismiss.
- * @param {HTMLElement} selector - The options for closing the dialog.
+ * @param {HTMLElement} element - The options for closing the dialog.
  * @returns void
  */
-export const showRipple = ({ currentTarget, offsetX, offsetY }, selector = currentTarget.querySelector('.ripple')) => {
-    if (!selector) {
+export const showRipple = ({ currentTarget, offsetX, offsetY }, element = currentTarget.querySelector('.ripple')) => {
+    if (!element) {
         currentTarget.insertAdjacentHTML('beforeend', "<div class='ripple'></div>")
-        selector = currentTarget.querySelector('.ripple')
+        element = currentTarget.querySelector('.ripple')
     }
 
-    selector.classList.remove('animation-ripple')
+    element.classList.remove('animation-ripple')
 
-    if (selector.clientWidth === 0 && selector.clientHeight === 0) {
+    if (element.clientWidth === 0 && element.clientHeight === 0) {
         const d = Math.max(currentTarget.offsetWidth, currentTarget.offsetHeight)
 
-        selector.style.width = d + 'px'
-        selector.style.height = d + 'px'
+        element.style.width = d + 'px'
+        element.style.height = d + 'px'
     }
 
-    selector.style.top = offsetY - (selector.clientHeight / 2) + 'px'
-    selector.style.left = offsetX - (selector.clientWidth / 2) + 'px'
-    selector.classList.add('animation-ripple')
-}
-
-export default {
-    showRipple
+    element.style.top = offsetY - (element.clientHeight / 2) + 'px'
+    element.style.left = offsetX - (element.clientWidth / 2) + 'px'
+    element.classList.add('animation-ripple')
 }

@@ -2,7 +2,7 @@ import { animationsFinished, nextRepaint } from '../../common.js'
 
 /**
  * @param {HTMLElement} element
- * @param {import('./types/index').CloseToastOptions} options
+ * @param {import('./index').CloseToastOptions} options
  * @returns Promise<void>
  */
 export const closeToast = async (element, options = {}) => {
@@ -14,7 +14,7 @@ export const closeToast = async (element, options = {}) => {
 
     const toaster = element.parentElement
 
-    element.style.setProperty(options.toastHeightProperty, `${element.offsetHeight}px`)
+    element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
 
     await nextRepaint()
 
@@ -29,7 +29,7 @@ export const closeToast = async (element, options = {}) => {
 
 /**
  * @param {HTMLElement} element
- * @param {import('./types/index').ShowToastOptions} options
+ * @param {import('./').ShowToastOptions} options
  * @returns Promise<void>
  */
 export const showToast = async (element, options = {}) => {
@@ -56,7 +56,7 @@ export const showToast = async (element, options = {}) => {
 
 /**
  * @param {HTMLElement} element
- * @param {import('./types/index').InsertToasterOptions} options
+ * @param {import('./').InsertToasterOptions} options
  * @returns Promise<void>
  */
 export const insertToaster = async (element, options = {}) => {
@@ -72,7 +72,7 @@ export const insertToaster = async (element, options = {}) => {
 
 /**
  * @param {HTMLElement} element
- * @param {import('./types/index').InsertToastOptions} options
+ * @param {import('./').InsertToastOptions} options
  * @returns Promise<void>
  */
 export const insertToast = async (element, options = {}) => {
@@ -104,19 +104,11 @@ export const insertToast = async (element, options = {}) => {
 
 /**
  * @param {HTMLElement} element
- * @param {import('./types/index').CloseToastOptions} options
+ * @param {import('./').CloseToastOptions} options
  * @returns Promise<void>
  */
 export const closeToaster = (element, options = {}) => {
     [...element.children].forEach(toast =>
         closeToast(toast, options)
     )
-}
-
-export default {
-    closeToast,
-    showToast,
-    insertToast,
-    insertToaster,
-    closeToaster
 }

@@ -1,5 +1,5 @@
 /**
- * @type {import("./types/index").DefaultDetailsOptions}
+ * @type {import("./").DefaultOptions}
  */
 export const defaultOptions = {
     selector: 'details',
@@ -8,7 +8,7 @@ export const defaultOptions = {
 
 /**
  * @param {HTMLInputElement | HTMLElement} element
- * @param {import("./types/index").DefaultDetailsOptions} options
+ * @param {import("./").DefaultOptions} options
  * @returns Promise<void>
  */
 export const showDetails = async (element, options = {}) => {
@@ -31,7 +31,7 @@ export const showDetails = async (element, options = {}) => {
 
 /**
  * @param {HTMLInputElement | HTMLElement} element
- * @param {import("./types/index").DefaultDetailsOptions} options
+ * @param {import("./").DefaultOptions} options
  * @returns Promise<void>
  */
 export const closeDetails = async (element, options = {}) => {
@@ -56,7 +56,7 @@ export const closeDetails = async (element, options = {}) => {
 
 /**
  * @param {HTMLInputElement | HTMLElement} element
- * @param {import("./types/index").DefaultDetailsOptions} options
+ * @param {import("./").DefaultOptions} options
  * @returns Promise<void>
  */
 export const toggleDetails = async (element, options = {}) => {
@@ -74,10 +74,4 @@ export const toggleDetails = async (element, options = {}) => {
     } else {
         await closeDetails(element, options)
     }
-}
-
-export default {
-    showDetails,
-    closeDetails,
-    toggleDetails
 }

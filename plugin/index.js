@@ -7,7 +7,7 @@ import { accentColor, textColor } from './utilities/color.js'
 import { tailwindAnimations, tailwindColors, tailwindPropertyUtilities, tailwindVariables, tailwindVariablesFont } from './utilities/common.js'
 
 /**
- * @type {import('./tailwind').PluginOptions} options.
+ * @type {import('./').PluginOptions} options.
  */
 export const defaultConfig = {
     colors: [
@@ -48,7 +48,7 @@ export const defaultConfig = {
 }
 
 /**
- * @param {import('./tailwind').PluginOptions} userConfig
+ * @param {import('./').PluginOptions} userConfig
  */
 export const createPlugin = (userConfig = {}) => {
     const settings = {

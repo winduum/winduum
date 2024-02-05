@@ -28,8 +28,8 @@ export default {
         rollupOptions: {
             input: FastGlob.sync(['./src/*.css']).map(entry => resolve(process.cwd(), entry)),
             output: {
-                assetFileNames: `[name].[ext]`,
-                chunkFileNames: `[name].js`,
+                assetFileNames: '[name].[ext]',
+                chunkFileNames: '[name].js'
             }
         }
     }
