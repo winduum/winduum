@@ -1,5 +1,5 @@
 /**
- * @param {Event} event
+ * @param {Event & { currentTarget: HTMLElement | Element }} event
  * @param {import("./").SetPositionOptions} options
  * @returns void
  */
@@ -10,7 +10,7 @@ export const setPosition = ({ currentTarget }, options = {}) => {
         ...options
     }
 
-    currentTarget.closest(selector).style.setProperty(positionProperty, `${currentTarget.value}%`)
+    currentTarget?.closest(selector)?.style.setProperty(positionProperty, `${currentTarget.value}%`)
 }
 
 /**

@@ -7,7 +7,7 @@ export interface ValidateFormOptions {
 export interface ValidateFieldOptions {
     validate?: boolean
     selector?: string
-    ignoreMatch?: string
+    ignoreMatch?: RegExp
     validitySelector?: string
     infoParentSelector?: string
     infoSelector?: string
@@ -16,7 +16,7 @@ export interface ValidateFieldOptions {
     endSelector?: string
     endContent?: string
     validClass?: string
-    validIcon?: string
+    validIcon?: string | null
     invalidClass?: string
     invalidIcon?: string
     activeClass?: string
