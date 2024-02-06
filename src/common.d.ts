@@ -1,2 +1,2 @@
-export function nextRepaint(): any;
-export function animationsFinished(element: any): Promise<any>;
+export function nextRepaint(): Promise<void>;
+export function animationsFinished(element: HTMLElement): Promise<any>;
