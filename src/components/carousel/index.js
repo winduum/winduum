@@ -170,9 +170,9 @@ export const autoplayCarousel = (element, options = {}) => {
         if (paused) return
 
         if (element.scrollLeft < element.scrollWidth - element.clientWidth) {
-            scrollNext(element)
+            scrollNext(element, options.activeClass, options.scrollOptions)
         } else {
-            scrollTo(element, 0)
+            scrollTo(element, 0, options.scrollOptions)
         }
     }, options.delay)
 }
@@ -185,21 +185,39 @@ export const autoplayCarousel = (element, options = {}) => {
 export const dragCarousel = (element, options = {}) => {
     options = {
         activeClass: 'grabbing',
+        visibleSelector: '.visible',
+        scrollOptions: {
+            inline: 'start',
+            behavior: 'smooth'
+        },
         ...options
+    }
+
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        return
     }
 
     let isDown
     let startX
     let scrollLeft
+    let timeout
 
-    const grabbing = () => {
+    const endGrabbing = () => {
         isDown = false
         element.classList.remove(options.activeClass)
+        element.querySelector(options.visibleSelector).scrollIntoView(options.scrollOptions)
+
+        clearTimeout(timeout)
+
+        timeout = setTimeout(() => {
+            element.classList.remove(options.activeClass)
+            element.style.scrollSnapType = ''
+        }, 300)
     }
 
-    element.addEventListener('mouseleave', grabbing)
+    element.addEventListener('mouseleave', endGrabbing)
 
-    element.addEventListener('mouseup', grabbing)
+    element.addEventListener('mouseup', endGrabbing)
 
     element.addEventListener('mousedown', ({ pageX }) => {
         isDown = true
@@ -212,11 +230,10 @@ export const dragCarousel = (element, options = {}) => {
         e.preventDefault()
 
         const x = e.pageX - element.offsetLeft
-        const walk = (x - startX) * 1.25
 
         element.classList.add(options.activeClass)
-        element.scrollLeft = scrollLeft - walk
-
+        element.style.scrollSnapType = 'unset'
+        element.scroll({ left: scrollLeft - ((x - startX) * 1.25), behavior: 'instant' })
         element.ondragstart = e => e.preventDefault()
     })
 }

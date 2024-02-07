@@ -1,5 +1,3 @@
-export const Behavior: 'smooth' | 'instant' | 'auto'
-
 export interface ObserveCarouselOptions {
     activeClass?: string
     observerOptions?: {
@@ -25,11 +23,14 @@ export interface ScrollCarouselOptions {
 export interface AutoplayCarouselOptions {
     delay?: number
     elements?: HTMLElement[] | Element[]
-    behavior?: typeof Behavior
+    activeClass?: string
+    scrollOptions?: ScrollIntoViewOptions
 }
 
 export interface DragCarouselOptions {
-    activeClass?: string,
+    activeClass?: string
+    visibleSelector?: string
+    scrollOptions?: ScrollIntoViewOptions
 }
 
 export interface InitCarouselOptions {

@@ -9,7 +9,7 @@
     display: none;
   }
 
-  &:not(.fade, .grabbing) {
+  &:not(.fade) {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
   }
