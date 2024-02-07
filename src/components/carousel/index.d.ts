@@ -1,35 +1,40 @@
 export const Behavior: 'smooth' | 'instant' | 'auto'
 
-export interface ScrollCarouselOptions {
+export interface ObserveCarouselOptions {
     activeClass?: string
-}
-
-export interface SetScrollCarouselOptions {
-    scroll?: ScrollCarouselOptions
-    pagination?: PaginationCarouselOptions
-    progressElement?: HTMLProgressElement
-    counterMinElement?: HTMLElement
+    observerOptions?: {
+        rootMargin?: string
+        threshold?: number | number[]
+    }
 }
 
 export interface PaginationCarouselOptions {
-    paginationElement?: HTMLElement
-    paginationItemClass?: string
-    paginationActiveClass?: string
+    element?: HTMLElement | Element
+    itemContent?: string
+    activeClass?: string
+}
+
+export interface ScrollCarouselOptions {
+    observe?: ObserveCarouselOptions
+    pagination?: PaginationCarouselOptions
+    progressElement?: HTMLProgressElement | Element
+    counterMinElement?: HTMLElement | Element
+    counterMaxElement?: HTMLElement | Element
 }
 
 export interface AutoplayCarouselOptions {
-    autoplay?: number
-    pauseElements?: HTMLElement[]
+    delay?: number
+    elements?: HTMLElement[] | Element[]
     behavior?: typeof Behavior
 }
 
 export interface DragCarouselOptions {
-    dragActiveClass?: string,
+    activeClass?: string,
 }
 
 export interface InitCarouselOptions {
     fade?: boolean
     autoplay?: AutoplayCarouselOptions
     pagination?: PaginationCarouselOptions
-    setScroll?: SetScrollCarouselOptions
+    scroll?: ScrollCarouselOptions
 }

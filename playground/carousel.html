@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+</head>
+<body class="p-4xl flex flex-col items-start gap-4">
+    <div class="c-carousel w-full" data-controller="c-carousel">
+        <div class="c-carousel-content gap-4" data-c-carousel-target="content">
+            <div class="ui-image w-[32rem] h-auto rounded-md overflow-hidden aspect-[8/5]">
+                <img src="https://via.placeholder.com/1200x750" alt="" loading="lazy">
+            </div>
+            <div class="ui-image w-[32rem] h-auto rounded-md overflow-hidden aspect-[8/5]">
+                <img src="https://via.placeholder.com/1200x750" alt="" loading="lazy">
+            </div>
+            <div class="ui-image w-[32rem] h-auto rounded-md overflow-hidden aspect-[8/5]">
+                <img src="https://via.placeholder.com/1200x750" alt="" loading="lazy">
+            </div>
+            <div class="ui-image w-[32rem] h-auto rounded-md overflow-hidden aspect-[8/5]">
+                <img src="https://via.placeholder.com/1200x750" alt="" loading="lazy">
+            </div>
+        </div>
+        <div class="dots flex gap-1.5 h-4 py-4" data-c-carousel-target="pagination"></div>
+        <progress class="ui-progress sm" value="50" max="100" data-c-carousel-target="progress"></progress>
+        <div class="flex">
+            <div data-c-carousel-target="counterMin"></div>/
+            <div data-c-carousel-target="counterMax"></div>
+        </div>
+        <button class="ui-btn square" data-action="click->c-carousel#prev">Prev</button>
+        <button class="ui-btn square" data-action="click->c-carousel#next">Next</button>
+    </div>
+
+    <script type="module">
+        import { initCarousel, scrollPrev, scrollNext } from "/src/components/carousel/index.js";
+
+        const contentElement = document.querySelector('[data-c-carousel-target="content"]')
+        const paginationElement = document.querySelector('[data-c-carousel-target="pagination"]')
+        const progressElement = document.querySelector('[data-c-carousel-target="progress"]')
+        const counterMinElement = document.querySelector('[data-c-carousel-target="counterMin"]')
+        const counterMaxElement = document.querySelector('[data-c-carousel-target="counterMax"]')
+        const prevElement = document.querySelector('[data-action="click->c-carousel#prev"]')
+        const nextElement = document.querySelector('[data-action="click->c-carousel#next"]')
+
+        const pagination = {
+            element: paginationElement,
+            activeClass: 'bg-error',
+            itemContent: '<div class="dot"></div>'
+        }
+
+        initCarousel(contentElement, {
+            scroll: {
+                counterMinElement,
+                counterMaxElement,
+                progressElement,
+                pagination
+            },
+            pagination
+        })
+
+        prevElement.addEventListener('click', () => scrollPrev(contentElement))
+        nextElement.addEventListener('click', () => scrollNext(contentElement))
+    </script>
+
+    <svg class="hidden">
+        <symbol id="icon-exclamation-circle" class="ms-auto text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </symbol>
+    </svg>
+</body>
+</html>

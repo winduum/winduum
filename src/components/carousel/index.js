@@ -1,159 +1,167 @@
 /**
- * @param {HTMLElement} element
- * @param {import("./").Behavior} behavior
- * @param {number} multiplier
+ * @param {HTMLElement | Element} element
+ * @param {string} activeSelector
+ * @param {ScrollIntoViewOptions} scrollOptions
  * @returns void
  */
-export const scrollNext = (element, behavior = 'smooth', multiplier = 1) => {
-    element.scroll({ left: element.scrollLeft - element.children[0].clientWidth * multiplier, behavior })
+export const scrollPrev = (element, activeSelector = '.visible', scrollOptions = {}) => {
+    (element.querySelector(activeSelector)?.previousElementSibling ?? element.querySelector(activeSelector))
+        ?.scrollIntoView({
+            inline: 'start',
+            ...scrollOptions
+        })
 }
 
 /**
- * @param {HTMLElement} element
- * @param {import("./").Behavior} behavior
- * @param {number} multiplier
+ * @param {HTMLElement | Element} element
+ * @param {string} activeSelector
+ * @param {ScrollIntoViewOptions} scrollOptions
  * @returns void
  */
-export const scrollPrev = (element, behavior = 'smooth', multiplier = 1) => {
-    element.scroll({ left: element.scrollLeft + element.children[0].clientWidth * multiplier, behavior })
+export const scrollNext = (element, activeSelector = '.visible', scrollOptions = {}) => {
+    (element.querySelector(activeSelector)?.nextElementSibling ?? element.querySelector(activeSelector))
+        ?.scrollIntoView({
+            inline: 'start',
+            ...scrollOptions
+        })
 }
 
 /**
- * @param {HTMLElement} element
+ * @param {HTMLElement | Element} element
  * @param {number} selected
- * @param {import("./").Behavior} behavior
+ * @param {ScrollIntoViewOptions} scrollOptions
  * @returns void
  */
-export const scrollTo = (element, selected = 0, behavior = 'smooth') => {
-    const position = element.scrollLeft / element.children[0].clientWidth
+export const scrollTo = (element, selected = 0, scrollOptions = {}) => {
+    element.children[selected]?.scrollIntoView({
+        inline: 'start',
+        ...scrollOptions
+    })
+}
 
-    if (position - selected <= 0) {
-        scrollPrev(element, behavior, selected - 1 - position)
-    } else {
-        scrollNext(element, behavior, position - selected + 1)
+/**
+ * @param {HTMLElement | Element} element
+ * @param {number} scrollWidth
+ * @param {boolean} mathFloor
+ * @returns number
+ */
+export const getItemCount = (element, scrollWidth = element.scrollWidth - element.clientWidth, mathFloor = false) => {
+    const gap = parseInt(getComputedStyle(element).rowGap)
+    const mathRound = (value, floor) => floor ? Math.floor(value) : Math.ceil(value)
+
+    return [...element.children].reduce((count, children) => {
+        if (mathRound(scrollWidth / (children.offsetWidth + gap), mathFloor) > count) {
+            return count + 1
+        } else {
+            return count
+        }
+    }, 0) + 1
+}
+
+/**
+ * @param {HTMLElement | Element} element
+ * @param {import("./").ObserveCarouselOptions} options
+ * @returns void
+ */
+export const observeCarousel = (element, options = {}) => {
+    options = {
+        activeClass: 'visible',
+        observerOptions: {},
+        ...options
     }
+
+    element._observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.isIntersecting
+                ? entry.target.classList.add(options.activeClass)
+                : entry.target.classList.remove(options.activeClass)
+        })
+    }, {
+        root: element,
+        threshold: 0.75,
+        ...options.observerOptions
+    })
+
+    ;[...element.children].forEach(children => element._observer.observe(children))
 }
 
 /**
- * @param {HTMLElement} element
- * @returns number
- */
-export const getItemCount = element => {
-    return element.clientWidth > element.children[0].clientWidth
-        ? [...element.children].reduce((item, children) =>
-            (element.scrollWidth - element.clientWidth > item.itemsWidth + children.clientWidth / 2)
-                ? { itemsWidth: item.itemsWidth + children.clientWidth, count: item.count + 1 }
-                : item, { itemsWidth: 0, count: 0 }).count + 1
-        : Math.ceil((element.scrollWidth) / element.children[0].clientWidth)
-}
-
-/**
- * @param {HTMLElement} element
- * @returns number
- */
-export const getProgressValue = element => {
-    return Number(((element.scrollLeft + element.clientWidth) / element.scrollWidth * 100).toFixed(2))
-}
-
-/**
- * @param {HTMLElement} element
+ * @param {HTMLElement | Element} element
  * @param {import("./").ScrollCarouselOptions} options
  * @returns void
  */
 export const scrollCarousel = (element, options = {}) => {
-    options = {
+    options.pagination = {
         activeClass: 'active',
-        ...options
+        ...options.pagination
     }
 
-    function isElementInViewport (element, carouselElement) {
-        const rect = element.getBoundingClientRect()
-        const carouselRect = carouselElement.getBoundingClientRect()
+    const activeItem = getItemCount(element, element.scrollLeft, element.scrollLeft < element._lastScrollLeft)
+    const activeItemMax = getItemCount(element)
 
-        return (
-            rect.left >= carouselRect.left &&
-            rect.right <= carouselRect.right
-        )
-    }
+    if (options?.pagination?.element) {
+        ;[...options.pagination.element.children].forEach(children => children.classList.remove(options.pagination.activeClass))
 
-    for (const children of [...element.children]) {
-        if (isElementInViewport(children, element)) {
-            children.classList.add(options.activeClass)
-        } else {
-            children.classList.remove(options.activeClass)
-        }
-    }
-}
-
-/**
- * @param {HTMLElement} element
- * @param {import("./").SetScrollCarouselOptions} options
- * @returns void
- */
-export const setScrollCarousel = (element, options = {}) => {
-    const activeItem = Number((element.scrollLeft / element.children[0].clientWidth).toFixed(0))
-
-    scrollCarousel(element, options.scroll)
-
-    if (options?.pagination?.paginationElement) {
-        [...options.pagination.paginationElement.children].forEach(children => children.classList.remove(options.pagination.paginationActiveClass))
-
-        options.paginationElement.children[activeItem].classList.add(options.pagination.paginationActiveClass)
+        options.pagination.element.children[activeItem - 1]?.classList.add(options.pagination.activeClass)
     }
 
     if (options.progressElement) {
-        options.progressElement.value = getProgressValue(element)
+        options.progressElement.value = activeItem / activeItemMax * 100
     }
 
     if (options.counterMinElement) {
-        options.counterMinElement.innerHTML = `${activeItem + 1}`
+        options.counterMinElement.innerHTML = `${activeItem}`
     }
+
+    if (options.counterMaxElement) {
+        options.counterMaxElement.innerHTML = `${activeItemMax}`
+    }
+
+    element._lastScrollLeft = element.scrollLeft <= 0 ? 0 : element.scrollLeft
 }
 
 /**
- * @param {HTMLElement} element
+ * @param {HTMLElement | Element} element
  * @param {import("./").PaginationCarouselOptions} options
  * @returns void
  */
 export const paginationCarousel = (element, options = {}) => {
     options = {
-        paginationItemClass: '',
-        paginationActiveClass: 'active',
+        itemContent: '<div aria-hidden="true"></div>',
+        activeClass: 'active',
         ...options
     }
 
-    if (!options.paginationElement) return
+    if (!options.element) return
 
-    const itemsCount = getItemCount(element)
+    options.element.insertAdjacentHTML('beforeend', [...Array(getItemCount(element))].map(
+        () => options.itemContent
+    ).join(''))
 
-    options.paginationElement.insertAdjacentHTML('beforeend', [...Array(itemsCount)].map((_, i) => `
-        <div class="${options.paginationItemClass} ${i === 0 ? options.paginationActiveClass : ''}"></div>
-    `).join(''))
-
-    ;[...options.paginationElement.children].forEach(children => {
+    ;[...options.element.children].forEach((children, i) => {
+        (i === 0) && children.classList.add(options.activeClass)
         children.addEventListener('click', ({ currentTarget }) => {
-            scrollTo(element, [...options.paginationElement.children].indexOf(currentTarget) + 1)
+            scrollTo(element, [...options.element.children].indexOf(currentTarget))
         })
     })
 }
 
 /**
- * @param {HTMLElement} element
+ * @param {HTMLElement | Element} element
  * @param {import("./").AutoplayCarouselOptions} options
  * @returns void
  */
 export const autoplayCarousel = (element, options = {}) => {
     options = {
-        behavior: 'smooth',
-        pauseElements: [],
+        elements: [],
         ...options
     }
 
-    if (!options.autoplay) return
+    if (!options.delay) return
 
     let paused
 
-    options.pauseElements.forEach(element => {
+    options.elements.forEach(element => {
         element?.addEventListener('mouseenter', () => (paused = true))
         element?.addEventListener('mouseleave', () => (paused = false))
     })
@@ -161,22 +169,22 @@ export const autoplayCarousel = (element, options = {}) => {
     setInterval(() => {
         if (paused) return
 
-        if (element.scrollLeft < element.children[0].clientWidth * (element.children.length - 1)) {
-            scrollNext(element, options.behavior)
+        if (element.scrollLeft < element.scrollWidth - element.clientWidth) {
+            scrollNext(element)
         } else {
-            scrollTo(element, 0, options.behavior)
+            scrollTo(element, 0)
         }
-    }, options.autoplay)
+    }, options.delay)
 }
 
 /**
- * @param {HTMLElement} element
+ * @param {HTMLElement | Element} element
  * @param {import("./").DragCarouselOptions} options
  * @returns void
  */
 export const dragCarousel = (element, options = {}) => {
     options = {
-        dragActiveClass: 'grabbing',
+        activeClass: 'grabbing',
         ...options
     }
 
@@ -185,12 +193,8 @@ export const dragCarousel = (element, options = {}) => {
     let scrollLeft
 
     const grabbing = () => {
-        if (isDown) {
-            element.scrollLeft = element.scrollLeft - 1
-        }
-
         isDown = false
-        element.classList.remove(options.dragActiveClass)
+        element.classList.remove(options.activeClass)
     }
 
     element.addEventListener('mouseleave', grabbing)
@@ -210,7 +214,7 @@ export const dragCarousel = (element, options = {}) => {
         const x = e.pageX - element.offsetLeft
         const walk = (x - startX) * 1.25
 
-        element.classList.add(options.dragActiveClass)
+        element.classList.add(options.activeClass)
         element.scrollLeft = scrollLeft - walk
 
         element.ondragstart = e => e.preventDefault()
@@ -218,7 +222,7 @@ export const dragCarousel = (element, options = {}) => {
 }
 
 /**
- * @param {HTMLElement} element
+ * @param {HTMLElement | Element} element
  * @param {import("./").InitCarouselOptions} options
  * @returns void
  */
@@ -227,11 +231,13 @@ export const initCarousel = (element, options = {}) => {
         dragCarousel(element)
     }
 
+    observeCarousel(element)
+
     paginationCarousel(element, options.pagination)
 
     autoplayCarousel(element, options.autoplay)
 
-    setScrollCarousel(element, options.setScroll)
+    scrollCarousel(element, options.scroll)
 
-    element.addEventListener('scroll', () => setScrollCarousel(element, options), { passive: true })
+    element.addEventListener('scroll', () => scrollCarousel(element, options.scroll), { passive: true })
 }

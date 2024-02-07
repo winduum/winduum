@@ -26,6 +26,7 @@
   &::-webkit-progress-value {
     background-color: var(--color-accent);
     border-radius: inherit;
+    transition: var(--transition-all);
   }
 
   &:indeterminate {
