@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "0.8.0-next.5",
+  "version": "0.8.0-next.6",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",
@@ -59,6 +59,10 @@
     "./src/*": "./src/*",
     "./dist/*": "./dist/*",
     "./plugin/*": "./plugin/*",
+    "./src/components/carousel": {
+      "default": "./src/components/carousel/index.js",
+      "types": "./src/components/carousel/index.d.ts"
+    },
     "./src/components/compare": {
       "default": "./src/components/compare/index.js",
       "types": "./src/components/compare/index.d.ts"

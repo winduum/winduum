@@ -1,11 +1,11 @@
 /**
  * @param {HTMLElement | Element} element
- * @param {string} activeSelector
+ * @param {string} visibleSelector
  * @param {ScrollIntoViewOptions} scrollOptions
  * @returns void
  */
-export const scrollPrev = (element, activeSelector = '.visible', scrollOptions = {}) => {
-    (element.querySelector(activeSelector)?.previousElementSibling ?? element.querySelector(activeSelector))
+export const scrollPrev = (element, visibleSelector = '.visible', scrollOptions = {}) => {
+    (element.querySelector(visibleSelector)?.previousElementSibling ?? element.querySelector(visibleSelector))
         ?.scrollIntoView({
             inline: 'start',
             ...scrollOptions
@@ -14,12 +14,12 @@ export const scrollPrev = (element, activeSelector = '.visible', scrollOptions =
 
 /**
  * @param {HTMLElement | Element} element
- * @param {string} activeSelector
+ * @param {string} visibleSelector
  * @param {ScrollIntoViewOptions} scrollOptions
  * @returns void
  */
-export const scrollNext = (element, activeSelector = '.visible', scrollOptions = {}) => {
-    (element.querySelector(activeSelector)?.nextElementSibling ?? element.querySelector(activeSelector))
+export const scrollNext = (element, visibleSelector = '.visible', scrollOptions = {}) => {
+    (element.querySelector(visibleSelector)?.nextElementSibling ?? element.querySelector(visibleSelector))
         ?.scrollIntoView({
             inline: 'start',
             ...scrollOptions
