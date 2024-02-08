@@ -1,42 +1,36 @@
 /**
  * @param {HTMLElement | Element} element
  * @param {string} visibleSelector
- * @param {ScrollIntoViewOptions} scrollOptions
  * @returns void
  */
-export const scrollPrev = (element, visibleSelector = '.visible', scrollOptions = {}) => {
-    (element.querySelector(visibleSelector)?.previousElementSibling ?? element.querySelector(visibleSelector))
-        ?.scrollIntoView({
-            inline: 'start',
-            ...scrollOptions
-        })
+export const scrollPrev = (element, visibleSelector = '.visible') => {
+    // const offsetElement = (element.querySelector(visibleSelector)?.previousElementSibling ?? element.querySelector(visibleSelector))
+    //
+    // element.scroll({ left: offsetElement.offsetLeft - parseInt(getComputedStyle(element).rowGap) * 2 })
+
+    scrollTo(element, element._activeIndex - 1)
 }
 
 /**
  * @param {HTMLElement | Element} element
  * @param {string} visibleSelector
- * @param {ScrollIntoViewOptions} scrollOptions
  * @returns void
  */
-export const scrollNext = (element, visibleSelector = '.visible', scrollOptions = {}) => {
-    (element.querySelector(visibleSelector)?.nextElementSibling ?? element.querySelector(visibleSelector))
-        ?.scrollIntoView({
-            inline: 'start',
-            ...scrollOptions
-        })
+export const scrollNext = (element, visibleSelector = '.visible') => {
+    // const offsetElement = (element.querySelector(visibleSelector)?.nextElementSibling ?? element.querySelector(visibleSelector))
+    //
+    // element.scroll({ left: offsetElement.offsetLeft - parseInt(getComputedStyle(element).rowGap) * 2 })
+
+    scrollTo(element, element._activeIndex + 1)
 }
 
 /**
  * @param {HTMLElement | Element} element
  * @param {number} selected
- * @param {ScrollIntoViewOptions} scrollOptions
  * @returns void
  */
-export const scrollTo = (element, selected = 0, scrollOptions = {}) => {
-    element.children[selected]?.scrollIntoView({
-        inline: 'start',
-        ...scrollOptions
-    })
+export const scrollTo = (element, selected = 0) => {
+    element.scroll({ left: element.children[selected].offsetLeft - parseInt(getComputedStyle(element).rowGap) * 2 })
 }
 
 /**
@@ -72,10 +66,14 @@ export const observeCarousel = (element, options = {}) => {
 
     element._observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            entry.isIntersecting
-                ? entry.target.classList.add(options.activeClass)
-                : entry.target.classList.remove(options.activeClass)
+            entry.target.classList.toggle(options.activeClass, entry.isIntersecting)
         })
+
+        const activeElement = [...element.children].find(children => children.classList.contains(options.activeClass))
+
+        if (activeElement) {
+            element._activeIndex = [...element.children].indexOf(activeElement)
+        }
     }, {
         root: element,
         threshold: 0.75,
