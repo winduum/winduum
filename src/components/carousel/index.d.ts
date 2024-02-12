@@ -29,13 +29,6 @@ export interface DragCarouselOptions {
     activeClass?: string
 }
 
-export interface InitCarouselOptions {
-    fade?: boolean
-    autoplay?: AutoplayCarouselOptions
-    pagination?: PaginationCarouselOptions
-    scroll?: ScrollCarouselOptions
-}
-
 export function scrollPrev(element: HTMLElement | Element): void
 export function scrollNext(element: HTMLElement | Element): void
 export function scrollTo(element: HTMLElement | Element, selected?: number): void
@@ -45,4 +38,3 @@ export function scrollCarousel(element: HTMLElement | Element, options?: ScrollC
 export function paginationCarousel(element: HTMLElement | Element, options?: PaginationCarouselOptions): void
 export function autoplayCarousel(element: HTMLElement | Element, options?: AutoplayCarouselOptions): void
 export function dragCarousel(element: HTMLElement | Element, options?: DragCarouselOptions): void
-export function initCarousel(element: HTMLElement | Element, options?: InitCarouselOptions): void

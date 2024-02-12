@@ -5,6 +5,7 @@
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: none;
+  position: relative;
 
   &::-webkit-scrollbar {
     display: none;

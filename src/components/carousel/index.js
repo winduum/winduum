@@ -1,10 +1,10 @@
 /**
  * @param {HTMLElement | Element} element
- * @param {number} selected
+ * @param {number} index
  * @returns void
  */
-export const scrollTo = (element, selected = 0) => {
-    element.scroll({ left: element.children[selected].offsetLeft - parseInt(getComputedStyle(element).rowGap) * 2 })
+export const scrollTo = (element, index = 0) => {
+    element.scroll({ left: element?.children[index]?.offsetLeft })
 }
 
 /**
@@ -34,7 +34,7 @@ export const getItemCount = (element, scrollWidth = element.scrollWidth - elemen
     const mathRound = (value, floor) => floor ? Math.floor(value) : Math.ceil(value)
 
     return [...element.children].reduce((count, children) => {
-        if (mathRound(scrollWidth / (children.offsetWidth + gap), mathFloor) > count) {
+        if (mathRound(scrollWidth / (children.offsetWidth + (isNaN(gap) ? 0 : gap)), mathFloor) > count) {
             return count + 1
         } else {
             return count
@@ -66,7 +66,7 @@ export const observeCarousel = (element, options = {}) => {
         }
     }, {
         root: element,
-        threshold: 0.75,
+        threshold: 0.5,
         ...options.observerOptions
     })
 
@@ -141,11 +141,10 @@ export const paginationCarousel = (element, options = {}) => {
  */
 export const autoplayCarousel = (element, options = {}) => {
     options = {
+        delay: 4000,
         pauseElements: [],
         ...options
     }
-
-    if (!options.delay) return
 
     let paused
 
@@ -188,6 +187,7 @@ export const dragCarousel = (element, options = {}) => {
     const endGrabbing = () => {
         isDown = false
         element.classList.remove(options.activeClass)
+
         scrollTo(element, element._activeIndex)
 
         clearTimeout(timeout)
@@ -218,25 +218,4 @@ export const dragCarousel = (element, options = {}) => {
         element.scroll({ left: scrollLeft - ((x - startX) * 1.25), behavior: 'instant' })
         element.ondragstart = e => e.preventDefault()
     })
-}
-
-/**
- * @param {HTMLElement | Element} element
- * @param {import("./").InitCarouselOptions} options
- * @returns void
- */
-export const initCarousel = (element, options = {}) => {
-    if (!options.fade) {
-        dragCarousel(element)
-    }
-
-    observeCarousel(element)
-
-    paginationCarousel(element, options.pagination)
-
-    autoplayCarousel(element, options.autoplay)
-
-    scrollCarousel(element, options.scroll)
-
-    element.addEventListener('scroll', () => scrollCarousel(element, options.scroll), { passive: true })
 }

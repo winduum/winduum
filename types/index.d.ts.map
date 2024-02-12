@@ -9,7 +9,6 @@
 		"ScrollCarouselOptions",
 		"AutoplayCarouselOptions",
 		"DragCarouselOptions",
-		"InitCarouselOptions",
 		"scrollPrev",
 		"scrollNext",
 		"scrollTo",
@@ -19,7 +18,6 @@
 		"paginationCarousel",
 		"autoplayCarousel",
 		"dragCarousel",
-		"initCarousel",
 		"SetPositionOptions",
 		"setPosition",
 		"setKeyboardStep",
@@ -84,5 +82,5 @@
 		null,
 		null
 	],
-	"mappings": ";;kBAEiBA,aAAaA;;;;;;;;;;;;;;;;;;;;cAoBjBC,aAAaA;;;;;;kBCtBTC,sBAAsBA;;;;;;;;kBAQtBC,yBAAyBA;;;;;;kBAMzBC,qBAAqBA;;;;;;;;kBAQrBC,uBAAuBA;;;;;;;kBAOvBC,mBAAmBA;;;;;;kBAMnBC,mBAAmBA;;;;;;;iBAOpBC,UAAUA;iBACVC,UAAUA;iBACVC,QAAQA;iBACRC,YAAYA;iBACZC,eAAeA;iBACfC,cAAcA;iBACdC,kBAAkBA;iBAClBC,gBAAgBA;iBAChBC,YAAYA;iBACZC,YAAYA;;;;kBCnDXC,kBAAkBA;;;;;iBAKnBC,WAAWA;iBACXC,eAAeA;iBACfC,YAAYA;;;;kBCPXC,cAAcA;;;;;cAKlBC,cAAcA;iBACXC,WAAWA;iBACXC,YAAYA;iBACZC,aAAaA;;;;kBCRZC,aAAaA;;;;kBAIbL,cAAcA;;;;;;;kBAOdM,mBAAmBA;;;;;;;kBAOnBC,kBAAkBA;;;;;cAKtBN,cAAcA;iBACXO,cAAcA;iBACdC,aAAaA;iBACbC,UAAUA;iBACVC,WAAWA;iBACXC,YAAYA;iBACZC,WAAWA;;;;kBC7BVC,mBAAmBA;;;;;;kBAMnBC,oBAAoBA;;;;;;;;;;;;;;;;;;iBAkBrBC,YAAYA;iBACZC,aAAaA;;;;kBCzBZC,gBAAgBA;;;;;;;kBAOhBC,iBAAiBA;;;;;kBAKjBC,oBAAoBA;;;;kBAIpBC,kBAAkBA;;;;;;;;;iBASnBC,UAAUA;iBACVC,SAASA;iBACTC,aAAaA;iBACbC,WAAWA;iBACXC,YAAYA;;;;kBC7BXC,uBAAuBA;;;;;;kBAMvBC,eAAeA;;;;;kBAKfC,gBAAgBA;;;;;iBAKjBC,gBAAgBA;iBAChBC,QAAQA;iBACRC,cAAcA;;;;iBClBdC,UAAUA;;;;iBCAVC,UAAUA"
+	"mappings": ";;kBAEiBA,aAAaA;;;;;;;;;;;;;;;;;;;;cAoBjBC,aAAaA;;;;;;kBCtBTC,sBAAsBA;;;;;;;;kBAQtBC,yBAAyBA;;;;;;kBAMzBC,qBAAqBA;;;;;;;;kBAQrBC,uBAAuBA;;;;;kBAKvBC,mBAAmBA;;;;iBAIpBC,UAAUA;iBACVC,UAAUA;iBACVC,QAAQA;iBACRC,YAAYA;iBACZC,eAAeA;iBACfC,cAAcA;iBACdC,kBAAkBA;iBAClBC,gBAAgBA;iBAChBC,YAAYA;;;;kBCvCXC,kBAAkBA;;;;;iBAKnBC,WAAWA;iBACXC,eAAeA;iBACfC,YAAYA;;;;kBCPXC,cAAcA;;;;;cAKlBC,cAAcA;iBACXC,WAAWA;iBACXC,YAAYA;iBACZC,aAAaA;;;;kBCRZC,aAAaA;;;;kBAIbL,cAAcA;;;;;;;kBAOdM,mBAAmBA;;;;;;;kBAOnBC,kBAAkBA;;;;;cAKtBN,cAAcA;iBACXO,cAAcA;iBACdC,aAAaA;iBACbC,UAAUA;iBACVC,WAAWA;iBACXC,YAAYA;iBACZC,WAAWA;;;;kBC7BVC,mBAAmBA;;;;;;kBAMnBC,oBAAoBA;;;;;;;;;;;;;;;;;;iBAkBrBC,YAAYA;iBACZC,aAAaA;;;;kBCzBZC,gBAAgBA;;;;;;;kBAOhBC,iBAAiBA;;;;;kBAKjBC,oBAAoBA;;;;kBAIpBC,kBAAkBA;;;;;;;;;iBASnBC,UAAUA;iBACVC,SAASA;iBACTC,aAAaA;iBACbC,WAAWA;iBACXC,YAAYA;;;;kBC7BXC,uBAAuBA;;;;;;kBAMvBC,eAAeA;;;;;kBAKfC,gBAAgBA;;;;;iBAKjBC,gBAAgBA;iBAChBC,QAAQA;iBACRC,cAAcA;;;;iBClBdC,UAAUA;;;;iBCAVC,UAAUA"
 }
