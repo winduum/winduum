@@ -1,0 +1,9 @@
+.c-drawer-content {
+  --c-drawer-content-width: calc(100vw - 4rem);
+
+  width: var(--c-drawer-content-width);
+  height: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: end;
+  background-color: var(--color-body-primary);
+}

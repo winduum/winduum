@@ -34,7 +34,7 @@
     </div>
 
     <script type="module">
-        import { initCarousel, scrollPrev, scrollNext } from "/src/components/carousel/index.js";
+        import { scrollPrev, scrollNext, dragCarousel, paginationCarousel, observeCarousel, scrollCarousel } from "/src/components/carousel/index.js";
 
         const contentElement = document.querySelector('[data-c-carousel-target="content"]')
         const paginationElement = document.querySelector('[data-c-carousel-target="pagination"]')
@@ -50,15 +50,22 @@
             itemContent: '<div class="dot"></div>'
         }
 
-        initCarousel(contentElement, {
-            scroll: {
-                counterMinElement,
-                counterMaxElement,
-                progressElement,
-                pagination
-            },
+        const scrollOptions = {
+            counterMinElement,
+            counterMaxElement,
+            progressElement,
             pagination
-        })
+        }
+
+        dragCarousel(contentElement)
+
+        observeCarousel(contentElement)
+
+        paginationCarousel(contentElement, pagination)
+
+        scrollCarousel(contentElement, scrollOptions)
+
+        contentElement.addEventListener('scroll', () => scrollCarousel(contentElement, scrollOptions), { passive: true })
 
         prevElement.addEventListener('click', () => scrollPrev(contentElement))
         nextElement.addEventListener('click', () => scrollNext(contentElement))

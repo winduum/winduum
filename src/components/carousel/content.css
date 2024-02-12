@@ -6,14 +6,11 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: none;
   position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
 
   &::-webkit-scrollbar {
     display: none;
-  }
-
-  &:not(.fade, .grabbing) {
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
   }
 
   & > :where(*) {
