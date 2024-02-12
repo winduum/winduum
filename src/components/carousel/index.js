@@ -1,36 +1,26 @@
 /**
  * @param {HTMLElement | Element} element
- * @param {string} visibleSelector
- * @returns void
- */
-export const scrollPrev = (element, visibleSelector = '.visible') => {
-    // const offsetElement = (element.querySelector(visibleSelector)?.previousElementSibling ?? element.querySelector(visibleSelector))
-    //
-    // element.scroll({ left: offsetElement.offsetLeft - parseInt(getComputedStyle(element).rowGap) * 2 })
-
-    scrollTo(element, element._activeIndex - 1)
-}
-
-/**
- * @param {HTMLElement | Element} element
- * @param {string} visibleSelector
- * @returns void
- */
-export const scrollNext = (element, visibleSelector = '.visible') => {
-    // const offsetElement = (element.querySelector(visibleSelector)?.nextElementSibling ?? element.querySelector(visibleSelector))
-    //
-    // element.scroll({ left: offsetElement.offsetLeft - parseInt(getComputedStyle(element).rowGap) * 2 })
-
-    scrollTo(element, element._activeIndex + 1)
-}
-
-/**
- * @param {HTMLElement | Element} element
  * @param {number} selected
  * @returns void
  */
 export const scrollTo = (element, selected = 0) => {
     element.scroll({ left: element.children[selected].offsetLeft - parseInt(getComputedStyle(element).rowGap) * 2 })
+}
+
+/**
+ * @param {HTMLElement | Element & { _activeIndex: number }} element
+ * @returns void
+ */
+export const scrollPrev = (element) => {
+    scrollTo(element, element._activeIndex - 1)
+}
+
+/**
+ * @param {HTMLElement | Element & { _activeIndex: number }} element
+ * @returns void
+ */
+export const scrollNext = (element) => {
+    scrollTo(element, element._activeIndex + 1)
 }
 
 /**
@@ -59,17 +49,17 @@ export const getItemCount = (element, scrollWidth = element.scrollWidth - elemen
  */
 export const observeCarousel = (element, options = {}) => {
     options = {
-        activeClass: 'visible',
+        visibleClass: 'visible',
         observerOptions: {},
         ...options
     }
 
     element._observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            entry.target.classList.toggle(options.activeClass, entry.isIntersecting)
+            entry.target.classList.toggle(options.visibleClass, entry.isIntersecting)
         })
 
-        const activeElement = [...element.children].find(children => children.classList.contains(options.activeClass))
+        const activeElement = [...element.children].find(children => children.classList.contains(options.visibleClass))
 
         if (activeElement) {
             element._activeIndex = [...element.children].indexOf(activeElement)
@@ -151,7 +141,7 @@ export const paginationCarousel = (element, options = {}) => {
  */
 export const autoplayCarousel = (element, options = {}) => {
     options = {
-        elements: [],
+        pauseElements: [],
         ...options
     }
 
@@ -159,7 +149,7 @@ export const autoplayCarousel = (element, options = {}) => {
 
     let paused
 
-    options.elements.forEach(element => {
+    options.pauseElements.forEach(element => {
         element?.addEventListener('mouseenter', () => (paused = true))
         element?.addEventListener('mouseleave', () => (paused = false))
     })
@@ -168,26 +158,21 @@ export const autoplayCarousel = (element, options = {}) => {
         if (paused) return
 
         if (element.scrollLeft < element.scrollWidth - element.clientWidth) {
-            scrollNext(element, options.activeClass, options.scrollOptions)
+            scrollNext(element)
         } else {
-            scrollTo(element, 0, options.scrollOptions)
+            scrollTo(element, 0)
         }
     }, options.delay)
 }
 
 /**
- * @param {HTMLElement | Element} element
+ * @param {HTMLElement | Element & { _activeIndex: number }} element
  * @param {import("./").DragCarouselOptions} options
  * @returns void
  */
 export const dragCarousel = (element, options = {}) => {
     options = {
         activeClass: 'grabbing',
-        visibleSelector: '.visible',
-        scrollOptions: {
-            inline: 'start',
-            behavior: 'smooth'
-        },
         ...options
     }
 
@@ -203,12 +188,11 @@ export const dragCarousel = (element, options = {}) => {
     const endGrabbing = () => {
         isDown = false
         element.classList.remove(options.activeClass)
-        element.querySelector(options.visibleSelector).scrollIntoView(options.scrollOptions)
+        scrollTo(element, element._activeIndex)
 
         clearTimeout(timeout)
 
         timeout = setTimeout(() => {
-            element.classList.remove(options.activeClass)
             element.style.scrollSnapType = ''
         }, 300)
     }

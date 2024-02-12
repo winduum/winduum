@@ -4,12 +4,13 @@
   user-select: none;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: none;
 
   &::-webkit-scrollbar {
     display: none;
   }
 
-  &:not(.fade) {
+  &:not(.fade, .grabbing) {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
   }

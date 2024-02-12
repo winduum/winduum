@@ -1,5 +1,5 @@
 export interface ObserveCarouselOptions {
-    activeClass?: string
+    visibleClass?: string
     observerOptions?: {
         rootMargin?: string
         threshold?: number | number[]
@@ -22,15 +22,11 @@ export interface ScrollCarouselOptions {
 
 export interface AutoplayCarouselOptions {
     delay?: number
-    elements?: HTMLElement[] | Element[]
-    activeClass?: string
-    scrollOptions?: ScrollIntoViewOptions
+    pauseElements?: HTMLElement[] | Element[]
 }
 
 export interface DragCarouselOptions {
     activeClass?: string
-    visibleSelector?: string
-    scrollOptions?: ScrollIntoViewOptions
 }
 
 export interface InitCarouselOptions {
@@ -40,9 +36,9 @@ export interface InitCarouselOptions {
     scroll?: ScrollCarouselOptions
 }
 
-export function scrollPrev(element: HTMLElement | Element, visibleSelector?: string, scrollOptions?: ScrollIntoViewOptions): void
-export function scrollNext(element: HTMLElement | Element, visibleSelector?: string, scrollOptions?: ScrollIntoViewOptions): void
-export function scrollTo(element: HTMLElement | Element, selected?: number, scrollOptions?: ScrollIntoViewOptions): void
+export function scrollPrev(element: HTMLElement | Element): void
+export function scrollNext(element: HTMLElement | Element): void
+export function scrollTo(element: HTMLElement | Element, selected?: number): void
 export function getItemCount(element: HTMLElement | Element, scrollWidth?: number, mathFloor?: boolean): number
 export function observeCarousel(element: HTMLElement | Element, options?: ObserveCarouselOptions): void
 export function scrollCarousel(element: HTMLElement | Element, options?: ScrollCarouselOptions): void
