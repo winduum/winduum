@@ -1,5 +1,4 @@
 .c-drawer {
-  --c-drawer-bg-opacity: 0.75;
   --tw-bg-opacity: 0;
 
   z-index: var(--z-30);

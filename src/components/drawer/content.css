@@ -1,7 +1,4 @@
 .c-drawer-content {
-  --c-drawer-content-width: calc(100vw - 4rem);
-  --c-drawer-content-height: 100%;
-
   width: var(--c-drawer-content-width);
   height: var(--c-drawer-content-height);
   flex-shrink: 0;
