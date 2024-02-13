@@ -11,6 +11,7 @@
     <div class="c-drawer invisible" id="drawerLeft" inert>
         <nav class="c-drawer-content">
             Left
+            <button class="ui-btn muted square" id="drawerClose">x</button>
         </nav>
     </div>
 
@@ -38,15 +39,21 @@
     <button class="ui-btn" id="openDrawerTop">Open top drawer</button>
 
     <script type="module">
-        import { showDrawer, scrollDrawer } from "/src/components/drawer/index.js";
+        import { showDrawer, closeDrawer, scrollDrawer } from "/src/components/drawer/index.js";
 
         drawerLeft?.scroll({ left: drawerLeft?.scrollWidth , behavior: 'instant' });
         drawerLeft?.classList.remove('invisible')
 
         drawerLeft?.addEventListener('scroll', ({ target }) => scrollDrawer(target))
 
+        drawerLeft?.addEventListener('c-drawer:open', () => drawerLeft.focus())
+
         openDrawerLeft?.addEventListener('click', () => {
             showDrawer(drawerLeft)
+        })
+
+        drawerClose?.addEventListener('click', () => {
+            closeDrawer(drawerLeft)
         })
 
 
