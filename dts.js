@@ -9,6 +9,7 @@ await createBundle({
         'winduum/src/components/compare': 'src/components/compare/index.js',
         'winduum/src/components/details': 'src/components/details/index.js',
         'winduum/src/components/dialog': 'src/components/dialog/index.js',
+        'winduum/src/components/drawer': 'src/components/drawer/index.js',
         'winduum/src/components/form': 'src/components/form/index.js',
         'winduum/src/components/toaster': 'src/components/toaster/index.js',
         'winduum/src/ui/range': 'src/ui/range/index.js',

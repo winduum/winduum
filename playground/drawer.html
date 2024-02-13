@@ -8,24 +8,96 @@
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
 <body class="p-4xl flex flex-col items-start gap-4">
-    <div class="c-drawer invisible" id="drawer" inert>
+    <div class="c-drawer invisible" id="drawerLeft" inert>
         <nav class="c-drawer-content">
-            Test
+            Left
         </nav>
     </div>
 
-    <button class="ui-btn" id="openDrawer">Open drawer</button>
+    <div class="c-drawer invisible after:-order-last" id="drawerRight" inert>
+        <nav class="c-drawer-content">
+            Right
+        </nav>
+    </div>
+
+    <div class="c-drawer flex-col after:-order-last" id="drawerBottom" inert>
+        <nav class="c-drawer-content" style="--c-drawer-content-width: 100%;--c-drawer-content-height: calc(100vh - 4rem);">
+            Bottom
+        </nav>
+    </div>
+
+    <div class="c-drawer flex-col" id="drawerTop" inert>
+        <nav class="c-drawer-content" style="--c-drawer-content-width: 100%;--c-drawer-content-height: calc(100vh - 4rem);">
+            Top
+        </nav>
+    </div>
+
+    <button class="ui-btn" id="openDrawerLeft">Open left drawer</button>
+    <button class="ui-btn" id="openDrawerRight">Open right drawer</button>
+    <button class="ui-btn" id="openDrawerBottom">Open bottom drawer</button>
+    <button class="ui-btn" id="openDrawerTop">Open top drawer</button>
 
     <script type="module">
         import { showDrawer, scrollDrawer } from "/src/components/drawer/index.js";
 
-        drawer.scroll({ left: drawer.scrollWidth , behavior: 'instant' });
-        drawer.classList.remove('invisible')
+        drawerLeft?.scroll({ left: drawerLeft?.scrollWidth , behavior: 'instant' });
+        drawerLeft?.classList.remove('invisible')
 
-        drawer.addEventListener('scroll', ({ target }) => scrollDrawer(target))
+        drawerLeft?.addEventListener('scroll', ({ target }) => scrollDrawer(target))
 
-        openDrawer.addEventListener('click', () => {
-            showDrawer(drawer)
+        openDrawerLeft?.addEventListener('click', () => {
+            showDrawer(drawerLeft)
+        })
+
+
+
+        drawerRight?.scroll({ left: 0 , behavior: 'instant' });
+        drawerRight?.classList.remove('invisible')
+
+        drawerRight?.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
+            opacityRatio: 0,
+            scrollOpen: target.scrollWidth - target.clientWidth,
+            scrollClose: 0
+        }))
+
+        openDrawerRight?.addEventListener('click', () => {
+            showDrawer(drawerRight, drawerRight.scrollWidth)
+        })
+
+
+
+
+        drawerBottom?.scroll({ top: 0 , behavior: 'instant' });
+        drawerBottom?.classList.remove('invisible')
+
+        drawerBottom.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
+            opacityRatio: 0,
+            scrollOpen: target.scrollHeight - target.clientHeight,
+            scrollClose: 0,
+            scrollDirection: target.scrollTop,
+            snapClass: 'snap-y snap-mandatory',
+            scrollSize: target.scrollHeight - target.clientHeight
+        }))
+
+        openDrawerBottom?.addEventListener('click', () => {
+            showDrawer(drawerBottom, drawerBottom.scrollHeight, 'top')
+        })
+
+
+
+        drawerTop?.scroll({ top: drawerTop?.scrollHeight , behavior: 'instant' });
+        drawerTop?.classList.remove('invisible')
+
+        drawerTop?.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
+            snapClass: 'snap-y snap-mandatory',
+            scrollSize: target.scrollHeight - target.clientHeight,
+            scrollDirection: target.scrollTop,
+            scrollOpen: 0,
+            scrollClose: target.scrollHeight - target.clientHeight
+        }))
+
+        openDrawerTop?.addEventListener('click', () => {
+            showDrawer(drawerTop, 0, 'top')
         })
     </script>
 

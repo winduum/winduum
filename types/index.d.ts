@@ -124,6 +124,22 @@ declare module 'winduum/src/components/dialog' {
 	export function fetchDialog({ url, insert }: FetchDialogOptions): Promise<void>
 }
 
+declare module 'winduum/src/components/drawer' {
+	export interface ScrollDrawerOptions {
+		snapClass?: string
+		opacityProperty?: string
+		opacityRatio?: number
+		scrollOpen?: number
+		scrollClose?: number
+		scrollSize?: number
+		scrollDirection?:number
+	}
+
+	export function showDrawer(element: HTMLElement | Element, distance: number, direction: 'left' | 'top'): void
+	export function closeDrawer(element: HTMLElement | Element, distance: number, direction: 'left' | 'top'): void
+	export function scrollDrawer(element: HTMLElement | Element, options: ScrollDrawerOptions): void
+}
+
 declare module 'winduum/src/components/form' {
 	export interface ValidateFormOptions {
 		validateSelectors?: string

@@ -6,7 +6,7 @@
   position: fixed;
   inset: 0;
   display: flex;
-  overflow: scroll hidden;
+  overflow: auto hidden;
   background-color: color-mix(in srgb, var(--color-dark) calc(var(--tw-bg-opacity) * var(--c-drawer-bg-opacity) * 100%), transparent);
   scrollbar-width: none;
   scroll-behavior: smooth;
@@ -25,5 +25,13 @@
 
   &[inert] {
     pointer-events: none;
+  }
+
+  &.flex-col {
+    overflow: hidden auto;
+
+    &::after {
+      min-height: 100dvh;
+    }
   }
 }
