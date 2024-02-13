@@ -1,0 +1,36 @@
+.c-drawer {
+  --tw-bg-opacity: 0;
+
+  z-index: var(--z-30);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  overflow: auto hidden;
+  background-color: color-mix(in srgb, var(--color-dark) calc(var(--tw-bg-opacity) * var(--c-drawer-bg-opacity) * 100%), transparent);
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    min-width: 100vw;
+    scroll-snap-align: end;
+  }
+
+  &[inert] {
+    pointer-events: none;
+  }
+
+  &.flex-col {
+    overflow: hidden auto;
+
+    &::after {
+      min-height: 100dvh;
+    }
+  }
+}

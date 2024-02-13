@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <style>
+      .c-carousel {
+        max-width: 24rem
+      }
+
+      .aspect-square {
+        aspect-ratio: 1/1;
+      }
+    </style>
+</head>
+<body class="p-4xl flex flex-col items-start gap-4">
+    <div class="c-carousel flex gap-4 items-center w-full">
+        <button class="ui-btn circle muted" data-action="click->c-carousel#prev" aria-label="Prev">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+        </button>
+        <div class="c-carousel-content gap-2 w-full" data-c-carousel-target="content">
+            <div class="ui-image w-full rounded-md aspect-square">
+                <img src="https://via.placeholder.com/512" alt="" loading="lazy">
+            </div>
+            <div class="ui-image w-full rounded-md aspect-square">
+                <img src="https://via.placeholder.com/512" alt="" loading="lazy">
+            </div>
+        </div>
+        <button class="ui-btn circle muted" data-action="click->c-carousel#next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+        </button>
+    </div>
+
+    <script type="module">
+        import { observeCarousel, scrollPrev, scrollNext } from "/src/components/carousel/index.js";
+
+        const contentElement = document.querySelector('[data-c-carousel-target="content"]')
+        const prevElement = document.querySelector('[data-action="click->c-carousel#prev"]')
+        const nextElement = document.querySelector('[data-action="click->c-carousel#next"]')
+
+        observeCarousel(contentElement)
+
+        prevElement.addEventListener('click', () => scrollPrev(contentElement))
+        nextElement.addEventListener('click', () => scrollNext(contentElement))
+    </script>
+
+    <svg class="hidden">
+        <symbol id="icon-exclamation-circle" class="ms-auto text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </symbol>
+    </svg>
+</body>
+</html>

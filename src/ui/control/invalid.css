@@ -1,5 +1,5 @@
 .ui-control {
-  &.invalid, .validated &:has(:invalid) {
+  &.invalid, &:has(:user-invalid), .validated &:has(:invalid) {
     --ui-control-border-color: var(--color-error);
     --ui-control-color: var(--color-error);
     --ui-control-bg: var(--color-error);

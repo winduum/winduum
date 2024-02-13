@@ -10,7 +10,3 @@ export const toggleSwap = (element) => {
     ariaVisible.ariaHidden = 'true'
     ariaHidden.ariaHidden = 'false'
 }
-
-export default {
-    toggleSwap
-}

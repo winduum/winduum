@@ -1,6 +1,8 @@
 @import "card/index.css";
 @import "dialog/index.css";
+@import "drawer/index.css";
 @import "field/index.css";
+@import "carousel/index.css";
 @import "compare/index.css";
 @import "popover/index.css";
 @import "tooltip/index.css";

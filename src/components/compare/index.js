@@ -1,6 +1,6 @@
 /**
- * @param {import("./types/index").Position} event
- * @param {import("./types/index").PositionOptions} options
+ * @param {Event & { currentTarget: HTMLElement | Element }} event
+ * @param {import("./").SetPositionOptions} options
  * @returns void
  */
 export const setPosition = ({ currentTarget }, options = {}) => {
@@ -10,31 +10,25 @@ export const setPosition = ({ currentTarget }, options = {}) => {
         ...options
     }
 
-    currentTarget.closest(selector).style.setProperty(positionProperty, `${currentTarget.value}%`)
+    currentTarget?.closest(selector)?.style.setProperty(positionProperty, `${currentTarget.value}%`)
 }
 
 /**
- * @param {import("./types/index").KeyboardStep} event
- * @param {Number} step
+ * @param {KeyboardEvent & { currentTarget: HTMLInputElement | EventTarget }} event
+ * @param {string} step
  * @returns void
  */
-export const setKeyboardStep = ({ key, currentTarget }, step = 10) => {
+export const setKeyboardStep = ({ key, currentTarget }, step = '10') => {
     if (key?.toLowerCase() !== 'arrowright' && key?.toLowerCase() !== 'arrowleft') return
 
     currentTarget.step = step
 }
 
 /**
- * @param {import("./types/index").MouseStep} event
- * @param {Number} step
+ * @param {MouseEvent & { currentTarget: HTMLInputElement | EventTarget }} event
+ * @param {string} step
  * @returns void
  */
-export const setMouseStep = ({ currentTarget }, step = 0.1) => {
+export const setMouseStep = ({ currentTarget }, step = '0.1') => {
     currentTarget.step = step
-}
-
-export default {
-    setPosition,
-    setKeyboardStep,
-    setMouseStep
 }

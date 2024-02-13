@@ -1,6 +1,7 @@
 .ui-progress {
   --tw-bg-opacity: 0.1;
   --tw-bg-mix: var(--color-body);
+  --duration: 0.3s;
 
   inline-size: 100%;
   block-size: var(--ui-progress-height);
@@ -12,10 +13,7 @@
   &::-moz-progress-bar {
     background-color: var(--color-accent);
     border-radius: inherit;
-  }
-
-  &::-webkit-progress-inner-element {
-    border-radius: inherit;
+    transition: all var(--duration) var(--ease-in-out);
   }
 
   &::-webkit-progress-bar {
@@ -23,9 +21,14 @@
     border-radius: inherit;
   }
 
+  &::-webkit-progress-inner-element {
+    border-radius: inherit;
+  }
+
   &::-webkit-progress-value {
     background-color: var(--color-accent);
     border-radius: inherit;
+    transition: all var(--duration) var(--ease-in-out);
   }
 
   &:indeterminate {

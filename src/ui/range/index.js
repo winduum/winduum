@@ -1,66 +1,59 @@
 /**
- * @type {import("./types/index").DefaultOptions}
- */
-export const defaultOptions = {
-    selector: '.ui-range',
-    track: 'start'
-}
-
-/**
- * @param {import("./types/index").TrackOptions} options
+ * @param {import("./").SetTrackPropertyOptions} options
  * @param {'start' | 'end'} track
  * @returns void
  */
-export const setTrackProperty = ({ element, value, max }, track = defaultOptions.track) => {
+export const setTrackProperty = ({ element, value, max }, track = 'start') => {
     element.style.setProperty('--ui-range-track-' + track, `${(value / max * 100).toString()}%`)
 }
 
 /**
- * @param {HTMLInputElement} target
- * @param {import("./types/index").DefaultOptions} options
+ * @param {HTMLInputElement} element
+ * @param {import("./").SetValueOptions} options
  * @returns void
  */
-export const setValue = (target, options = {}) => {
+export const setValue = (element, options = {}) => {
     const { selector, track } = {
-        ...defaultOptions,
+        selector: '.ui-range',
+        track: 'start',
         ...options
     }
 
-    const element = target.closest(selector)
+    const parentElement = element.closest(selector)
 
-    if (!element._trackValues) {
-        element._trackValues = {
+    if (!parentElement._trackValues) {
+        parentElement._trackValues = {
             start: 0,
             end: Infinity
         }
     }
 
-    if (Object.keys(element._trackValues).length > 1) {
+    if (Object.keys(parentElement._trackValues).length > 1) {
         if (
-            (track === 'start' && target.value < element._trackValues.end) ||
-            (track === 'end' && element._trackValues.start < target.value)
+            (track === 'start' && element.value < parentElement._trackValues.end) ||
+            (track === 'end' && parentElement._trackValues.start < element.value)
         ) {
-            element._trackValues[track] = Number(target.value)
+            parentElement._trackValues[track] = Number(element.value)
         }
 
-        target.value = element._trackValues[track]
+        element.value = parentElement._trackValues[track]
     }
 
     setTrackProperty({
-        element,
-        value: target.value,
-        max: target.max || 100
+        element: parentElement,
+        value: element.value,
+        max: Number(element.max) || 100
     }, track)
 }
 
 /**
- * @param {HTMLInputElement} target
- * @param {import("./types/index").OutputOptions} options
+ * @param {HTMLInputElement} element
+ * @param {HTMLOutputElement | Element} outputElement
+ * @param {import("./").SetOutputOptions} options
  * @returns void
  */
-export const setOutputValue = (target, options = {}) => {
-    const { element, lang, formatOptions } = {
-        element: null,
+export const setOutputValue = (element, outputElement, options = {}) => {
+    options = {
         lang: document.documentElement.lang,
         formatOptions: {
             style: 'decimal',
@@ -70,12 +63,5 @@ export const setOutputValue = (target, options = {}) => {
         ...options
     }
 
-    element.innerHTML = Number(target.value).toLocaleString(lang, formatOptions)
-}
-
-export default {
-    defaultOptions,
-    setTrackProperty,
-    setValue,
-    setOutputValue
+    outputElement.innerHTML = Number(element.value).toLocaleString(options.lang, options.formatOptions)
 }
