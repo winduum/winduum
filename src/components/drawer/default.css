@@ -1,19 +1,17 @@
 .c-drawer {
+  --c-drawer-bg-opacity: 0.75;
   --tw-bg-opacity: 0;
 
   z-index: var(--z-30);
-  width: 100%;
-  height: 100%;
   position: fixed;
   inset: 0;
   display: flex;
-  flex-direction: row;
-  overflow: auto hidden;
-  user-select: none;
+  overflow: scroll hidden;
+  background-color: color-mix(in srgb, var(--color-dark) calc(var(--tw-bg-opacity) * var(--c-drawer-bg-opacity) * 100%), transparent);
+  scrollbar-width: none;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  background-color: color-mix(in srgb, var(--color-dark) calc(var(--tw-bg-opacity) * 50%), transparent);
-  overflow-anchor: auto;
-  pointer-events: none;
+
 
   &::-webkit-scrollbar {
     display: none;
@@ -21,12 +19,11 @@
 
   &::after {
     content: "";
-    display: block;
     min-width: 100vw;
     scroll-snap-align: end;
   }
 
-  &:not(.active) {
-    scroll-behavior: smooth;
+  &[inert] {
+    pointer-events: none;
   }
 }

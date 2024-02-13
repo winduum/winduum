@@ -8,18 +8,21 @@
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
 <body class="p-4xl flex flex-col items-start gap-4">
-    <nav class="c-drawer snap-x snap-mandatory" id="drawer">
-        <div class="c-drawer-content">
+    <div class="c-drawer invisible" id="drawer" inert>
+        <nav class="c-drawer-content">
             Test
-        </div>
-    </nav>
+        </nav>
+    </div>
 
     <button class="ui-btn" id="openDrawer">Open drawer</button>
 
     <script type="module">
-        import { showDrawer } from "/src/components/drawer/index.js";
+        import { showDrawer, scrollDrawer } from "/src/components/drawer/index.js";
 
         drawer.scroll({ left: drawer.scrollWidth , behavior: 'instant' });
+        drawer.classList.remove('invisible')
+
+        drawer.addEventListener('scroll', ({ target }) => scrollDrawer(target))
 
         openDrawer.addEventListener('click', () => {
             showDrawer(drawer)

@@ -1,31 +1,32 @@
 export const showDrawer = (element) => {
-    element.classList.add('active')
     element.scroll({ left: 0 })
 }
 
 export const closeDrawer = (element) => {
-    element.classList.remove('has-snap')
     element.scroll({ left: element.scrollWidth })
 }
 
-export const scrollDrawer = ({ target }) => {
-    if (target.scrollLeft < parseFloat(getComputedStyle(target).width)) {
-        const opacity = target.scrollLeft / (target.children[0].clientWidth + parseFloat(getComputedStyle(target.children[0]).marginLeft))
-
-        target.style.setProperty('--c-drawer-opacity', opacity > 1 ? 1 : `${opacity}`)
+export const scrollDrawer = (element, options = {}) => {
+    options = {
+        snapClass: 'snap-x snap-mandatory',
+        opacityProperty: '--tw-bg-opacity',
+        ...options
     }
 
-    if (target.scrollWidth - target.scrollLeft === parseFloat(getComputedStyle(target).width)) {
-        target.classList.add('has-snap')
+    const scrollRatio = Math.abs((element.scrollLeft / (element.scrollWidth - element.clientWidth)) - 1)
+
+    if (element.scrollLeft < element.clientWidth) {
+        element.style.setProperty(options.opacityProperty, Math.min(scrollRatio, 1))
     }
 
-    if (target.scrollWidth < scrollDrawer.last && !target.classList.contains('snap-x') && target.classList.contains('has-snap')) {
-        target.classList.add('snap-x')
+    if (element.scrollLeft === 0) {
+        element.classList.add(...options.snapClass.split(/\s/))
     }
 
-    if ((target.scrollLeft < scrollDrawer.last && target.scrollLeft <= 0)) {
-        target.classList.remove('has-snap', 'snap-y', 'active')
+    if ((element.scrollLeft >= (element.scrollWidth - element.clientWidth))) {
+        element.classList.remove(...options.snapClass.split(/\s/))
+        element.inert = true
+    } else {
+        element.inert = false
     }
-
-    scrollDrawer.last = target.scrollLeft <= 0 ? 0 : target.scrollLeft
 }
