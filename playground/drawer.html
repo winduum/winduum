@@ -11,26 +11,26 @@
     <div class="c-drawer invisible" id="drawerLeft" inert>
         <nav class="c-drawer-content">
             Left
-            <button class="ui-btn muted square" id="drawerClose">x</button>
         </nav>
     </div>
 
-    <div class="c-drawer invisible after:-order-last" id="drawerRight" inert>
-        <nav class="c-drawer-content">
+    <dialog class="c-drawer invisible after:-order-last backdrop:hidden" id="drawerRight" inert>
+        <div class="c-drawer-content">
             Right
-        </nav>
-    </div>
+            <button class="ui-btn muted square" id="drawerClose" autofocus>x</button>
+        </div>
+    </dialog>
 
     <div class="c-drawer flex-col after:-order-last" id="drawerBottom" inert>
-        <nav class="c-drawer-content" style="--c-drawer-content-width: 100%;--c-drawer-content-height: calc(100vh - 4rem);">
+        <div class="c-drawer-content" style="--c-drawer-content-width: 100%;--c-drawer-content-height: calc(100vh - 4rem);">
             Bottom
-        </nav>
+        </div>
     </div>
 
     <div class="c-drawer flex-col" id="drawerTop" inert>
-        <nav class="c-drawer-content" style="--c-drawer-content-width: 100%;--c-drawer-content-height: calc(100vh - 4rem);">
+        <div class="c-drawer-content" style="--c-drawer-content-width: 100%;--c-drawer-content-height: calc(100vh - 4rem);">
             Top
-        </nav>
+        </div>
     </div>
 
     <button class="ui-btn" id="openDrawerLeft">Open left drawer</button>
@@ -52,10 +52,6 @@
             showDrawer(drawerLeft)
         })
 
-        drawerClose?.addEventListener('click', () => {
-            closeDrawer(drawerLeft)
-        })
-
 
 
         drawerRight?.scroll({ left: 0 , behavior: 'instant' });
@@ -68,10 +64,16 @@
         }))
 
         openDrawerRight?.addEventListener('click', () => {
+            drawerRight.showModal()
             showDrawer(drawerRight, drawerRight.scrollWidth)
         })
 
+        drawerRight?.addEventListener('c-drawer:close', () => drawerRight.close())
+        drawerRight?.addEventListener('close', () => closeDrawer(drawerRight, 0))
 
+        drawerClose?.addEventListener('click', () => {
+            closeDrawer(drawerRight, 0)
+        })
 
 
         drawerBottom?.scroll({ top: 0 , behavior: 'instant' });

@@ -46,7 +46,7 @@ export const scrollDrawer = (element, options = {}) => {
         element.dispatchEvent(new CustomEvent('c-drawer:open'))
     }
 
-    if ((options.scrollDirection === options.scrollClose)) {
+    if ((options.scrollDirection === options.scrollClose) && !element.inert) {
         element.classList.remove(...options.snapClass.split(/\s/))
         element.inert = true
         element.dispatchEvent(new CustomEvent('c-drawer:close'))
