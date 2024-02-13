@@ -1,6 +1,6 @@
 /**
  * Shows a ripple effect.
- * @param {MouseEvent<HTMLElement>} event - The dialog element to dismiss.
+ * @param {MouseEvent} event - The dialog element to dismiss.
  * @param {HTMLElement} element - The options for closing the dialog.
  * @returns void
  */

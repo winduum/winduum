@@ -1,1 +1,1 @@
-export function showRipple(event: MouseEvent, element: HTMLElement): void
+export function showRipple(event: MouseEvent, element?: HTMLElement): void
