@@ -225,7 +225,7 @@ declare module 'winduum/src/ui/range' {
 }
 
 declare module 'winduum/src/utilities/ripple' {
-	export function showRipple(event: MouseEvent, element: HTMLElement): void
+	export function showRipple(event: MouseEvent, element?: HTMLElement): void
 }
 
 declare module 'winduum/src/utilities/swap' {

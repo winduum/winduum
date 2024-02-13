@@ -1,3 +1,12 @@
+## 0.8.0 (2024-02-13)
+* feat: added new component `c-form`
+* feat: added new component `c-carousel`
+* feat: added new component `c-drawer`
+* feat: improved types and typescript support
+* feat: added `:user-invalid` for `ui-control`
+* feat: added transition for `ui-progress` bar
+* fix: `ui-control` select icon
+
 ## 0.7.2 (2024-02-01)
 * feat: added javascript options for `c-details`
 * feat: added rounded corners for `ui-progress`
