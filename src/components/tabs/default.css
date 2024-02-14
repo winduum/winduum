@@ -1,0 +1,8 @@
+.c-tabs {
+  background-color: var(--color-body-secondary);
+  display: flex;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs);
+  border-radius: var(--rounded);
+  width: max-content;
+}
