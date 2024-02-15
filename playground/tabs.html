@@ -8,51 +8,83 @@
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
 <body class="p-md grid-cols-container">
-    <nav class="w-full flex-col gap-4" aria-label="breadcrumb">
-        <ul class="c-tabs accent-main">
-            <li>
-                <button class="ui-btn wide">
-                    All
-                </button>
-            </li>
-            <li>
-                <button class="ui-btn ghosted">
-                    Photos
-                </button>
-            </li>
-            <li>
-                <button class="ui-btn ghosted">
-                    Music
-                </button>
-            </li>
-            <li>
-                <button class="ui-btn ghosted">
-                    Documents
-                </button>
-            </li>
-        </ul>
-        <ul class="c-tabs gap-0 p-0 bg-transparent">
-            <li>
-                <button class="p-2 border-b-2 border-b-main border-opacity-100">
-                    All
-                </button>
-            </li>
-            <li>
-                <button class="p-2 border-b-2 border-b-main border-opacity-25">
-                    Photos
-                </button>
-            </li>
-            <li>
-                <button class="p-2 border-b-2 border-b-main border-opacity-25">
-                    Music
-                </button>
-            </li>
-            <li>
-                <button class="p-2 border-b-2 border-b-main border-opacity-25">
-                    Documents
-                </button>
-            </li>
-        </ul>
-    </nav>
+    <div class="w-full flex-col gap-4">
+        <nav class="c-tabs accent-main">
+            <button class="ui-btn wide" data-action="toggleTab" role="tab" aria-controls="tab-all" id="all" aria-selected="true">
+                All
+            </button>
+            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-photos" id="photos">
+                Photos
+            </button>
+            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-music" id="music">
+                Music
+            </button>
+            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-documents" id="documents">
+                Documents
+            </button>
+        </nav>
+
+        <div>
+            <div class="aria-hidden:hidden" role="tabpanel" aria-hidden="false" id="tab-all" aria-labelledby="all">
+                All
+            </div>
+            <div class="aria-hidden:hidden" role="tabpanel" aria-hidden="true" id="tab-photos" aria-labelledby="photos">
+                Photos
+            </div>
+            <div class="aria-hidden:hidden" role="tabpanel" aria-hidden="true" id="tab-music" aria-labelledby="music">
+                Music
+            </div>
+            <div class="aria-hidden:hidden" role="tabpanel" aria-hidden="true" id="tab-documents" aria-labelledby="documents">
+                Documents
+            </div>
+        </div>
+
+        <script type="module">
+            import { toggleTab } from "/src/components/tabs/index.js"
+            import { setElementClassList, setElementsClassList } from "/src/common.js";
+
+            const tabElements = document.querySelectorAll('[data-action="toggleTab"]')
+            const tabPanelElements = document.querySelectorAll('[role="tabpanel"]')
+
+            tabElements.forEach(element => {
+                element.addEventListener('click', () => {
+                    setElementsClassList(tabElements, ['ghosted'])
+                    setElementClassList(element, ['ghosted'], true)
+
+                    toggleTab(element, {
+                        tabElements,
+                        tabPanelElements
+                    })
+                })
+            })
+        </script>
+
+        <nav class="c-tabs gap-0 p-0 bg-transparent">
+            <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-all2" aria-selected="true">
+                All
+            </button>
+            <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-photos2">
+                Photos
+            </button>
+            <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-music2">
+                Music
+            </button>
+            <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-documents2">
+                Documents
+            </button>
+        </nav>
+
+        <script type="module">
+            import { toggleTab } from "/src/components/tabs/index.js"
+
+            const tabElements = document.querySelectorAll('[data-action="toggleTab2"]')
+
+            tabElements.forEach(element => element.addEventListener('click', () => {
+                toggleTab(element, {
+                    tabElements
+                })
+            }))
+        </script>
+    </div>
 </body>
 </html>
