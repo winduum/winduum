@@ -1,3 +1,6 @@
+## 0.9.1 (2024-02-16)
+* fix: `--ui-switch-icon-size` typo
+
 ## 0.9.0 (2024-02-16)
 * feat: added new component `c-table`
 * feat: added new component `c-tabs`

@@ -26,13 +26,13 @@
       --ui-switch-bg: var(--color-accent);
 
       &::before {
-        margin-inline-start: calc(100% - var(--ui-check-icon-size));
+        margin-inline-start: calc(100% - var(--ui-switch-icon-size));
       }
     }
 
     &:indeterminate {
       &::before {
-        margin-inline-start: calc(50% - var(--ui-check-icon-size) / 2);
+        margin-inline-start: calc(50% - var(--ui-switch-icon-size) / 2);
       }
     }
   }

@@ -23,7 +23,7 @@
     display: flex;
     inline-size: var(--ui-switch-width);
     block-size: var(--ui-switch-height);
-    padding: calc((var(--ui-switch-height) - var(--ui-check-icon-size)) / 2);
+    padding: calc((var(--ui-switch-height) - var(--ui-switch-icon-size)) / 2);
     border-radius: var(--ui-switch-border-radius);
     background-color: var(--ui-switch-bg);
     outline:
