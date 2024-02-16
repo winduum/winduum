@@ -14,7 +14,7 @@ export default {
     ],
     css: {
         postcss: {
-            plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer, postcssHasPseudo]
+            plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer]
         }
     },
     resolve: {

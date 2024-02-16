@@ -1,10 +1,14 @@
+@import "breadcrumb/index.css";
 @import "card/index.css";
 @import "dialog/index.css";
 @import "drawer/index.css";
 @import "field/index.css";
 @import "carousel/index.css";
 @import "compare/index.css";
+@import "pagination/index.css";
 @import "popover/index.css";
+@import "table/index.css";
+@import "tabs/index.css";
 @import "tooltip/index.css";
 @import "toaster/index.css";
 @import "toast/index.css";

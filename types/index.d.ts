@@ -169,6 +169,15 @@ declare module 'winduum/src/components/form' {
 	export function validateField(element: HTMLElement | SubmitEvent, options?: ValidateFieldOptions): void
 }
 
+declare module 'winduum/src/components/tabs' {
+	interface ToggleTabOptions {
+		tabElements?: NodeListOf<Element>
+		tabPanelElements?: NodeListOf<Element>
+	}
+
+	export function toggleTab(element: HTMLElement | Element, options?: ToggleTabOptions): void
+}
+
 declare module 'winduum/src/components/toaster' {
 	export interface ShowToastOptions {
 		visibleClass?: string

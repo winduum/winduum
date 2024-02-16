@@ -1,22 +1,20 @@
 .ui-link {
-  --tw-text-opacity: 1;
-  --tw-text-mix: transparent;
+  &:where([href], button:not(:disabled), [role="button"]) {
+    --tw-text-opacity: 1;
+    --tw-text-mix: transparent;
 
-  &:where([href], button, [role="button"]) {
     color: color-mix(in var(--space), currentColor calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
     transition: all var(--duration) var(--ease-in-out);
 
-    &:not(:disabled) {
-      &:hover {
-        @media (hover: hover) and (pointer: fine) {
-          --tw-text-opacity: 0.75;
-        }
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        --tw-text-opacity: 0.75;
       }
+    }
 
-      &:focus-visible {
-        outline: 2px dotted currentColor;
-        outline-offset: 2px;
-      }
+    &:focus-visible {
+      outline: 2px dotted currentColor;
+      outline-offset: 2px;
     }
   }
 }

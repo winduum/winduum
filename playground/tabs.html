@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+</head>
+<body class="p-md grid-cols-container">
+    <div class="w-full flex-col gap-4">
+        <nav class="c-tabs accent-main">
+            <button class="ui-btn wide" data-action="toggleTab" role="tab" aria-controls="tab-all" id="all" aria-selected="true">
+                All
+            </button>
+            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-photos" id="photos">
+                Photos
+            </button>
+            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-music" id="music">
+                Music
+            </button>
+            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-documents" id="documents">
+                Documents
+            </button>
+        </nav>
+
+        <div>
+            <div class="aria-hidden:hidden" role="tabpanel" aria-hidden="false" id="tab-all" aria-labelledby="all">
+                All
+            </div>
+            <div class="aria-hidden:hidden" role="tabpanel" aria-hidden="true" id="tab-photos" aria-labelledby="photos">
+                Photos
+            </div>
+            <div class="aria-hidden:hidden" role="tabpanel" aria-hidden="true" id="tab-music" aria-labelledby="music">
+                Music
+            </div>
+            <div class="aria-hidden:hidden" role="tabpanel" aria-hidden="true" id="tab-documents" aria-labelledby="documents">
+                Documents
+            </div>
+        </div>
+
+        <script type="module">
+            import { toggleTab } from "/src/components/tabs/index.js"
+
+            const tabElements = document.querySelectorAll('[data-action="toggleTab"]')
+            const tabPanelElements = document.querySelectorAll('[role="tabpanel"]')
+
+            tabElements.forEach(element => {
+                element.addEventListener('click', () => {
+                    tabElements.forEach(target => target.classList.add('ghosted'))
+                    element.classList.remove('ghosted')
+
+                    toggleTab(element, {
+                        tabElements,
+                        tabPanelElements
+                    })
+                })
+            })
+        </script>
+
+        <nav class="c-tabs gap-0 p-0 bg-transparent">
+            <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-all2" aria-selected="true">
+                All
+            </button>
+            <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-photos2">
+                Photos
+            </button>
+            <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-music2">
+                Music
+            </button>
+            <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-documents2">
+                Documents
+            </button>
+        </nav>
+
+        <script type="module">
+            import { toggleTab } from "/src/components/tabs/index.js"
+
+            const tabElements = document.querySelectorAll('[data-action="toggleTab2"]')
+
+            tabElements.forEach(element => element.addEventListener('click', () => {
+                toggleTab(element, {
+                    tabElements
+                })
+            }))
+        </script>
+    </div>
+</body>
+</html>

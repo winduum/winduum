@@ -1,0 +1,20 @@
+.c-breadcrumb {
+  > :where(ul, ol) {
+    &, > li {
+      display: flex;
+      align-items: center;
+    }
+
+    > li {
+      &:not(:last-child)::after {
+        content: "";
+        mask: var(--c-breadcrumb-marker);
+        background-color: currentColor;
+        margin-inline: var(--c-breadcrumb-gap);
+        width: var(--c-breadcrumb-marker-size);
+        height: var(--c-breadcrumb-marker-size);
+        flex-shrink: 0;
+      }
+    }
+  }
+}
