@@ -41,15 +41,14 @@
 
         <script type="module">
             import { toggleTab } from "/src/components/tabs/index.js"
-            import { setElementClassList, setElementsClassList } from "/src/common.js";
 
             const tabElements = document.querySelectorAll('[data-action="toggleTab"]')
             const tabPanelElements = document.querySelectorAll('[role="tabpanel"]')
 
             tabElements.forEach(element => {
                 element.addEventListener('click', () => {
-                    setElementsClassList(tabElements, ['ghosted'])
-                    setElementClassList(element, ['ghosted'], true)
+                    tabElements.forEach(target => target.classList.add('ghosted'))
+                    element.classList.remove('ghosted')
 
                     toggleTab(element, {
                         tabElements,

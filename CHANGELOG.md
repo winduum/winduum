@@ -1,3 +1,10 @@
+## 0.9.0 (2024-02-16)
+* feat: added new component `c-table`
+* feat: added new component `c-tabs`
+* feat: added new component `c-breadcrumb`
+* feat: added new component `c-pagination`
+* feat: added table revert to css reset
+
 ## 0.8.0 (2024-02-13)
 * feat: added new component `c-form`
 * feat: added new component `c-carousel`
