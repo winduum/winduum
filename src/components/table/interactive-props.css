@@ -1,0 +1,5 @@
+:root, :host {
+  --c-table-outline-bg-opacity: 0.05;
+  --c-table-outline-width: 1px;
+  --c-table-outline-color: var(--color-accent);
+}

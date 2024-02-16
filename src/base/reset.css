@@ -49,6 +49,13 @@
   display: revert;
 }
 
+/* Revert table vertical-align */
+:where(tr, th, td),
+:where(thead, tbody, tfoot) {
+  vertical-align: revert;
+  background-color: inherit;
+}
+
 /* Reset block */
 :where(img),
 :where(svg),
