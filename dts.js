@@ -11,6 +11,7 @@ await createBundle({
         'winduum/src/components/dialog': 'src/components/dialog/index.js',
         'winduum/src/components/drawer': 'src/components/drawer/index.js',
         'winduum/src/components/form': 'src/components/form/index.js',
+        'winduum/src/components/tabs': 'src/components/tabs/index.js',
         'winduum/src/components/toaster': 'src/components/toaster/index.js',
         'winduum/src/ui/range': 'src/ui/range/index.js',
         'winduum/src/utilities/ripple': 'src/utilities/ripple/index.js',
