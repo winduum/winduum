@@ -1,0 +1,13 @@
+.ui-image:where(.avatar) {
+  container-type: inline-size;
+
+  :where(img) {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+    font-weight: var(--font-medium);
+    font-size: 50cqw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
