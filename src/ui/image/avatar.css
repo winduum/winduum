@@ -8,6 +8,6 @@
 
   :where(span) {
     font-weight: var(--font-medium);
-    font-size: 50cqw;
+    font-size: 50cqi;
   }
 }

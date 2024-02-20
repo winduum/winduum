@@ -1,3 +1,6 @@
+## 0.9.3 (2024-02-20)
+* feat: changed `ui-image` avatar cqw to cqi
+
 ## 0.9.2 (2024-02-20)
 * feat: added `ui-image` avatar variant
 
