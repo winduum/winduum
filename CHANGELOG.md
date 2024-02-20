@@ -1,3 +1,6 @@
+## 0.9.2 (2024-02-20)
+* feat: added `ui-image` avatar variant
+
 ## 0.9.1 (2024-02-16)
 * fix: `--ui-switch-icon-size` typo
 
