@@ -1,3 +1,6 @@
+## 0.9.4 (2024-02-21)
+* feat: minor fixes for `c-carousel`
+
 ## 0.9.3 (2024-02-20)
 * feat: changed `ui-image` avatar cqw to cqi
 

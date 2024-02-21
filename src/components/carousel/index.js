@@ -4,7 +4,9 @@
  * @returns void
  */
 export const scrollTo = (element, index = 0) => {
-    element.scroll({ left: element?.children[index]?.offsetLeft })
+    const scrollPaddingLeft = parseInt(getComputedStyle(element).scrollPaddingLeft)
+
+    element.scroll({ left: element?.children[index]?.offsetLeft - (isNaN(scrollPaddingLeft) ? 0 : scrollPaddingLeft) })
 }
 
 /**
@@ -66,7 +68,7 @@ export const observeCarousel = (element, options = {}) => {
         }
     }, {
         root: element,
-        threshold: 0.5,
+        threshold: 0.75,
         ...options.observerOptions
     })
 

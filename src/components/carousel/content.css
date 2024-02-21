@@ -16,6 +16,10 @@
   & > :where(*) {
     flex: 0 0 auto;
     scroll-snap-align: start;
+
+    &:last-child {
+      scroll-snap-align: end;
+    }
   }
 
   &:is(.grabbing) {
