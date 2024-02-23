@@ -18,13 +18,15 @@
   }
 
   &:is(.gradient-bordered) {
-    --ui-btn-border-width: 2px;
+    --ui-btn-hover-color: currentColor;
     --ui-btn-hover-bg-mix: transparent;
     --ui-btn-hover-bg-opacity: 0.1;
+    --ui-btn-active-color: currentColor;
     --ui-btn-active-bg-mix: transparent;
     --ui-btn-active-bg-opacity: 0.2;
     --ui-btn-focus-outline-offset: 0;
-    --color-accent-foreground: var(--color-main);
+    --ui-btn-border-width: 2px;
+    --ui-btn-color: currentColor;
     --tw-bg-opacity: 0;
 
     &:is(.hover-fill) {

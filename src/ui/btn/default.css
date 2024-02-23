@@ -26,22 +26,6 @@
   flex-shrink: 0;
   z-index: 0;
 
-  &:where(.accent-main) {
-    --ui-btn-hover-bg-mix: var(--color-main-foreground);
-  }
-
-  &:where(.accent-body) {
-    --ui-btn-hover-bg-mix: var(--color-body-foreground);
-  }
-
-  &:where(.accent-light) {
-    --ui-btn-hover-bg-mix: var(--color-light-foreground);
-  }
-
-  &:where(.accent-dark) {
-    --ui-btn-hover-bg-mix: var(--color-dark-foreground);
-  }
-
   &:where(input)::after {
     content: attr(aria-label);
   }

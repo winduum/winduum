@@ -32,8 +32,8 @@
       --tw-bg-opacity: var(--c-table-outline-bg-opacity);
       --tw-bg-mix: transparent;
 
-      background-color: color-mix(in var(--space), var(--c-table-outline-color) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
-      outline-color: var(--c-table-outline-color);
+      background-color: color-mix(in var(--space), var(--c-table-outline-color, var(--color-accent)) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+      outline-color: var(--c-table-outline-color, var(--color-accent));
     }
   }
 }

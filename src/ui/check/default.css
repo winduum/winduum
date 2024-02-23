@@ -52,7 +52,7 @@
     &::before {
       width: var(--ui-check-icon-size);
       height: var(--ui-check-icon-size);
-      color: var(--color-accent-foreground);
+      color: var(--ui-check-color, var(--color-accent-foreground));
       mask: var(--ui-check-icon, var(--mask-check));
       transition: inherit;
       content: "";

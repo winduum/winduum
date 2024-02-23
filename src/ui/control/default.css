@@ -26,7 +26,7 @@
     var(--ui-control-outline-width) solid
     color-mix(
       in var(--space),
-      var(--color-accent) calc(var(--tw-outline-opacity) * 100%),
+      var(--ui-control-outline-color, var(--color-accent)) calc(var(--tw-outline-opacity) * 100%),
       var(--tw-outline-mix)
     );
   outline-offset: var(--ui-control-outline-offset);

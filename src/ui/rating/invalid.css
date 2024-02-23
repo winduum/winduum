@@ -1,5 +1,5 @@
 .ui-rating {
   &.invalid, .validated & :where(input):invalid {
-    --color-accent: var(--color-error);
+    --ui-rating-color: var(--color-error);
   }
 }

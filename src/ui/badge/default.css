@@ -12,8 +12,8 @@
   font-weight: var(--ui-badge-font-weight);
   font-size: var(--ui-badge-font-size);
   letter-spacing: var(--ui-badge-letter-spacing);
-  background-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
-  color: color-mix(in var(--space), var(--color-accent-foreground) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
+  background-color: color-mix(in var(--space), var(--ui-badge-bg, var(--color-accent)) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+  color: color-mix(in var(--space), var(--ui-badge-color, var(--color-accent-foreground)) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
   gap: var(--ui-badge-gap);
   display: inline-flex;
   text-align: center;

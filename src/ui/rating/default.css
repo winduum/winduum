@@ -5,7 +5,7 @@
   :where(input) {
     display: grid;
     box-sizing: content-box;
-    color: var(--color-accent);
+    color: var(--ui-rating-color, var(--color-accent));
     transition: var(--transition-opacity);
     width: 1.25rem;
     height: 1.25rem;
