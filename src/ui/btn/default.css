@@ -19,12 +19,12 @@
   background-color: color-mix(in var(--space), var(--ui-btn-accent-color) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
   color: color-mix(in var(--space), var(--ui-btn-accent-color-foreground) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
   outline:
-      var(--ui-btn-outline-width) solid
-      color-mix(
-          in var(--space),
-          var(--ui-btn-accent-color) calc(var(--tw-outline-opacity) * 100%),
-          var(--tw-outline-mix)
-      );
+    var(--ui-btn-outline-width) solid
+    color-mix(
+      in var(--space),
+      var(--ui-btn-accent-color) calc(var(--tw-outline-opacity) * 100%),
+      var(--tw-outline-mix)
+    );
   outline-offset: var(--ui-btn-outline-offset);
   gap: var(--ui-btn-gap);
   user-select: none;
