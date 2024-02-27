@@ -6,8 +6,8 @@
   padding: var(--c-toast-content-py) var(--c-toast-content-px);
   gap: var(--c-toast-content-gap);
   background-color: var(--c-toast-content-bg);
-  color: var(--c-toast-content-color, var(--color-accent));
-  border: 1px solid color-mix(in var(--space), var(--c-toast-border-color, var(--color-accent)) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
+  color: var(--color-accent);
+  border: 1px solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
   align-items: center;
   display: flex;

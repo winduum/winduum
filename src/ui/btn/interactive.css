@@ -1,18 +1,7 @@
 .ui-btn {
-  --tw-outline-opacity: 0;
-  --tw-outline-mix: transparent;
-
   transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
-  outline:
-      var(--ui-btn-outline-width) solid
-      color-mix(
-          in var(--space),
-          var(--ui-btn-accent-color) calc(var(--tw-outline-opacity) * 100%),
-          var(--tw-outline-mix)
-      );
-  outline-offset: var(--ui-btn-outline-offset);
 
   &:where(.accent-main) {
     --ui-btn-hover-bg-mix: var(--color-main-foreground);

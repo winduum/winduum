@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   align-self: stretch;
-  accent-color: var(--color-accent);
 
   &:where(:not(:empty)) {
     gap: var(--spacing-md);
