@@ -1,10 +1,3 @@
-<script setup>
-    // to add support for :has selector for unsupported browsers
-    if (typeof CSS !== 'undefined') {
-        !CSS.supports('selector(:has(*))') && (async() => (await import('css-has-pseudo/browser')).default(document))()
-    }
-</script>
-
 <template>
     <main class="p-sm">
         <NuxtPage />
@@ -13,5 +6,7 @@
 
 <style>
     @import "winduum/src/base/index.css";
-    @import "winduum/src/tailwind.css";
+    @import "winduum/src/ui/btn/index.css" layer(components);
+    @import "winduum/src/utilities/index.css" layer(components);
+    @import "winduum/src/base/tailwind.css";
 </style>

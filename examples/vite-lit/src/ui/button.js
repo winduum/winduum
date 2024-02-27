@@ -34,6 +34,7 @@ export class UiButton extends LitElement {
               }
               
             `, unsafeCSS(
+                // needs to be rewritten as vitePlugin
                 UiBtnCss.replaceAll('.ui-btn', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
             )
         ]

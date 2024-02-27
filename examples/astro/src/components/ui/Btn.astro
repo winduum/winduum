@@ -1,0 +1,15 @@
+---
+const { class: className, ...attrs } = Astro.props;
+---
+
+<button class={`ui-btn ${className}`} {...attrs}>
+    <slot />
+</button>
+
+<script>
+    import { showRipple } from 'winduum/src/utilities/ripple'
+
+    document.querySelectorAll('.ui-btn').forEach(element => {
+        element.addEventListener('click', showRipple)
+    })
+</script>

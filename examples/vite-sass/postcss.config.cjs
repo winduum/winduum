@@ -4,8 +4,7 @@ module.exports = {
     require('tailwindcss/nesting')(require('postcss-nesting')),
     require('postcss-custom-media'),
     require('tailwindcss'),
-    require('autoprefixer'),
-    require('css-has-pseudo')
+    require('autoprefixer')
   ]
 }
 

@@ -13,6 +13,7 @@ export class UiBadge extends LitElement {
                 box-sizing: border-box;
               }
             `, unsafeCSS(
+                // needs to be rewritten as vitePlugin
                 UiBadgeCss.replaceAll('.ui-badge', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
             )
         ]

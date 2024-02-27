@@ -1,19 +1,19 @@
 <script setup>
-import { ref } from 'vue'
-import UiBtn from '../ui/Btn.vue'
+    import { ref } from 'vue'
+    import UiBtn from '../ui/Btn.vue'
 
-defineProps({
-  msg: String,
-})
+    defineProps({
+      msg: String,
+    })
 
-const count = ref(0)
+    const count = ref(0)
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
 
   <div class="card p-xl space-y-8">
-    <UiBtn @click="count++" variant="outline" size="lg">count is {{ count }}</UiBtn>
+    <UiBtn @click="count++" variant="bordered">count is {{ count }}</UiBtn>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
@@ -35,7 +35,7 @@ const count = ref(0)
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
+    .read-the-docs {
+      color: #888;
+    }
 </style>

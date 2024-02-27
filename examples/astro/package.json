@@ -10,17 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.1.1",
+    "astro": "^4.4.5",
     "winduum": "latest"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "css-has-pseudo": "^6.0.1",
-    "postcss": "^8.4.33",
-    "postcss-custom-media": "^10.0.2",
-    "postcss-import": "^16.0.0",
-    "postcss-nesting": "^12.0.2",
-    "stylelint-config-standard": "^36.0.0",
+    "autoprefixer": "^10.4.17",
+    "css-has-pseudo": "^6.0.2",
+    "postcss": "^8.4.35",
+    "postcss-custom-media": "^10.0.3",
+    "postcss-import": "^16.0.1",
+    "postcss-nesting": "^12.0.4",
     "tailwindcss": "^3.4.1"
   }
 }
