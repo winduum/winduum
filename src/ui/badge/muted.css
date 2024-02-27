@@ -1,4 +1,4 @@
 .ui-badge:is(.muted) {
-  --ui-badge-color: var(--color-accent);
+  --ui-badge-accent-color-foreground: var(--color-accent);
   --tw-bg-opacity: 0.1;
 }

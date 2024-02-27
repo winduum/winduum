@@ -5,32 +5,20 @@
       position: absolute;
       background-color: color-mix(in var(--space), var(--color-body) calc(100% - var(--tw-bg-opacity) * 100%), transparent);
       inset: var(--ui-btn-border-width);
-      border-radius: calc(var(--ui-btn-border-radius, var(--rounded)) / 1.25);
+      border-radius: calc(var(--ui-btn-border-radius) / 1.25);
       z-index: -1;
       transition: var(--transition-background);
-    }
-
-    &:where(.hover-fill) {
-      &::before {
-        background-color: color-mix(in var(--space), var(--color-body) calc(var(--tw-bg-opacity) * 100%), transparent);
-      }
     }
   }
 
   &:is(.gradient-bordered) {
-    --ui-btn-hover-color: currentColor;
     --ui-btn-hover-bg-mix: transparent;
     --ui-btn-hover-bg-opacity: 0.1;
-    --ui-btn-active-color: currentColor;
     --ui-btn-active-bg-mix: transparent;
     --ui-btn-active-bg-opacity: 0.2;
     --ui-btn-focus-outline-offset: 0;
     --ui-btn-border-width: 2px;
-    --ui-btn-color: currentColor;
+    --ui-btn-accent-color-foreground: currentColor;
     --tw-bg-opacity: 0;
-
-    &:is(.hover-fill) {
-      --tw-bg-opacity: 1;
-    }
   }
 }

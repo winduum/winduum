@@ -4,7 +4,7 @@
   transition-duration: var(--duration);
 
   &:focus-within {
-    --ui-control-border-color: var(--color-accent);
+    --ui-control-border-color: var(--ui-control-accent-color);
     --ui-control-outline-offset: var(--ui-control-focus-outline-offset);
     --tw-border-opacity: 1;
     --tw-outline-opacity: 0.2;

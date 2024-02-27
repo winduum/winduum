@@ -2,6 +2,7 @@
   --ui-notice-py: 1.25rem;
   --ui-notice-px: 1.5rem;
   --ui-notice-font-size: var(--text-sm);
+  --ui-notice-border-radius: var(--rounded);
   --ui-notice-outline-width: 1px;
   --ui-notice-outline-offset: calc(var(--ui-notice-outline-width, 1px) * -1);
 }

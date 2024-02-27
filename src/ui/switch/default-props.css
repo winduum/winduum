@@ -7,7 +7,11 @@
   --ui-switch-line-height: calc(1em + 0.25lh);
   --ui-switch-gap: 0.75rem;
   --ui-switch-border-radius: var(--rounded-full);
-  --ui-switch-bg: var(--color-main);
+  --ui-switch-bg: currentColor;
   --ui-switch-outline-width: 2px;
-  --ui-switch-outline-color: var(--color-main);
+  --ui-switch-outline-color: currentColor;
+
+  &.dark {
+    --ui-switch-bg: var(--color-body-tertiary);
+  }
 }

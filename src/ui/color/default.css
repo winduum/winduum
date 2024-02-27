@@ -5,6 +5,7 @@
     --tw-border-opacity: 0.1;
     --tw-border-mix: transparent;
     --tw-outline-opacity: 0;
+    --tw-outline-mix: transparent;
 
     width: var(--ui-color-size);
     height: var(--ui-color-size);
@@ -15,14 +16,14 @@
       color-mix(
         in var(--space),
         var(--ui-color-border-color) calc(var(--tw-border-opacity) * 100%),
-        var(--tw-border-mix, transparent)
+        var(--tw-border-mix)
       );
     outline:
       var(--ui-color-outline-width) solid
       color-mix(
         in var(--space),
         var(--ui-color-outline-color) calc(var(--tw-outline-opacity) * 100%),
-        var(--tw-outline-mix, transparent)
+        var(--tw-outline-mix)
       );
     outline-offset: var(--ui-check-outline-offset);
     display: inline-grid;

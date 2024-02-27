@@ -1,0 +1,4 @@
+:root, :host {
+  --ui-link-font-size: var(--text-sm);
+  --ui-link-line-height: calc(1em + 0.15lh);
+}
