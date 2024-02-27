@@ -1,9 +1,9 @@
-import Btn from "@/ui/Btn";
+import UiBtn from '@/ui/Btn'
 
-export default function Page() {
-  return (
-    <div className="p-sm">
-        <Btn>Winduum Button</Btn>
-    </div>
-  );
+export default function Page () {
+    return (
+        <div className="p-sm">
+            <UiBtn>Winduum Button</UiBtn>
+        </div>
+    )
 }
