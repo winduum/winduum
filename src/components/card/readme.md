@@ -1,4 +1,4 @@
-# [Toaster](https://winduum.dev/docs/components/toaster.html)
+# [Card](https://winduum.dev/docs/components/card.html)
 
 ## Installation
 ```shell
@@ -8,28 +8,23 @@ Learn more how to set up Winduum [here](https://winduum.dev/docs/).
 Include CSS either globally or to your component _([you can't use TailwindCSS layers in per-component CSS](https://tailwindcss.com/docs/adding-custom-styles#layers-and-per-component-css))_
 
 ```css
-@import "winduum/src/components/toaster/index.css" layer(components);
+@import "winduum/src/components/card/index.css" layer(components);
 ```
 
 or modular (you can use your own props or CSS)
 
 ```css
-@import "winduum/src/components/toaster/default-props.css" layer(components);
-@import "winduum/src/components/toaster/default.css" layer(components);
+@import "winduum/src/components/card/default.css" layer(components);
+@import "winduum/src/components/card/default-props.css" layer(components);
 ```
-
 
 ### Local imports
 By default, imports are directly from `npm` so you can leverage updates.
 You can also copy and paste the code from this directory to your project and remap the imports to local.
 
 ```css
-@import "@/components/toaster/assets/index.css" layer(components);
-```
-
-```js
-import { showToast } from '@/components/toaster/assets/index.js'
+@import "@/components/card/assets/index.css" layer(components);
 ```
 
 ### Docs
-Visit [docs](https://winduum.dev/docs/components/toaster.html) to learn more about Javascript API and see usage examples.
+Visit [docs](https://winduum.dev/docs/components/card.html) to learn more about usage examples.

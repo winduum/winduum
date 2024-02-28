@@ -4,7 +4,7 @@
 ```shell
 npm i winduum
 ```
-
+Learn more how to set up Winduum [here](https://winduum.dev/docs/).
 Include CSS either globally or to your component _([you can't use TailwindCSS layers in per-component CSS](https://tailwindcss.com/docs/adding-custom-styles#layers-and-per-component-css))_
 
 ```css
@@ -44,5 +44,8 @@ You can also copy and paste the code from this directory to your project and rem
 ```
 
 ### Docs
-
 Visit [docs](https://winduum.dev/docs/ui/button.html) to learn more about usage examples.
+
+### Frameworks
+* [winduum/winduum-vue](https://github.com/winduum/winduum-vue/blob/main/src/ui/btn)
+* [winduum/winduum-react](https://github.com/winduum/winduum-react/blob/main/src/ui/btn)

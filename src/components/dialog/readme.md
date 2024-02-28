@@ -4,7 +4,7 @@
 ```shell
 npm i winduum
 ```
-
+Learn more how to set up Winduum [here](https://winduum.dev/docs/).
 Include CSS either globally or to your component _([you can't use TailwindCSS layers in per-component CSS](https://tailwindcss.com/docs/adding-custom-styles#layers-and-per-component-css))_
 
 ```css
