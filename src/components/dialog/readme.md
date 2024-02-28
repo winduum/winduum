@@ -37,5 +37,5 @@ import { showDialog } from '@/components/dialog/assets/index.js'
 Visit [docs](https://winduum.dev/docs/components/dialog.html) to learn more about Javascript API and see usage examples.
 
 ### Frameworks
-* [winduum/winduum-vue](https://github.com/winduum/winduum-vue/blob/main/src/components/popover)
-* [winduum/winduum-react](https://github.com/winduum/winduum-react/blob/main/src/components/popover)
+* [winduum/winduum-vue](https://github.com/winduum/winduum-vue/blob/main/src/components/dialog)
+* [winduum/winduum-react](https://github.com/winduum/winduum-react/blob/main/src/components/dialog)
