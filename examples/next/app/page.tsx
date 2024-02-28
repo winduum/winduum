@@ -1,4 +1,4 @@
-import UiBtn from '@/ui/Btn'
+import UiBtn from '@/app/components/ui/Btn'
 
 export default function Page () {
     return (

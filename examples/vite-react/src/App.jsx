@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
-import UiBtn from './ui/Btn.jsx'
+import UiBtn from './components/ui/Btn.jsx'
 
 function App () {
     const [count, setCount] = useState(0)

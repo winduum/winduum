@@ -1,6 +1,6 @@
 <script setup>
     import { ref } from 'vue'
-    import UiBtn from '../ui/Btn.vue'
+    import UiBtn from './ui/Btn.vue'
 
     defineProps({
       msg: String,

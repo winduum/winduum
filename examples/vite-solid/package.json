@@ -1,20 +1,20 @@
 {
-  "name": "vite-qwik",
+  "name": "vite-solid-starter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "serve dist"
-  },
-  "devDependencies": {
-    "winduum": "latest",
-    "serve": "latest",
-    "vite": "latest"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@builder.io/qwik": "latest",
+    "solid-js": "latest",
+    "winduum": "latest"
+  },
+  "devDependencies": {
+    "vite": "latest",
+    "vite-plugin-solid": "latest",
     "tailwindcss": "^3",
     "autoprefixer": "^10",
     "postcss": "^8",
