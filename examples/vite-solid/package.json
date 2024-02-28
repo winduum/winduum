@@ -1,0 +1,25 @@
+{
+  "name": "vite-solid-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "solid-js": "latest",
+    "winduum": "latest"
+  },
+  "devDependencies": {
+    "vite": "latest",
+    "vite-plugin-solid": "latest",
+    "tailwindcss": "^3",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "postcss-import": "^16",
+    "postcss-nesting": "^12",
+    "postcss-custom-media": "^10"
+  }
+}

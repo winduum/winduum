@@ -4,6 +4,6 @@
   --ui-btn-active-bg-mix: transparent;
   --ui-btn-active-bg-opacity: 0.2;
   --ui-btn-focus-outline-offset: -2px;
-  --color-accent-foreground: var(--color-accent);
-  --tw-bg-opacity: 0%;
+  --ui-btn-accent-color-foreground: var(--color-accent);
+  --tw-bg-opacity: 0;
 }

@@ -1,5 +1,6 @@
 .ui-check {
-  --ui-check-checked-bg: var(--color-accent);
+  --ui-check-accent-color: var(--color-accent);
+  --ui-check-accent-color-foreground: var(--color-accent-foreground);
 
   font-weight: var(--ui-check-font-weight);
   font-size: var(--ui-check-font-size);
@@ -15,7 +16,7 @@
   }
 
   :where(a) {
-    color: var(--color-accent);
+    color: var(--ui-check-accent-color);
     text-decoration: underline;
   }
 
@@ -42,7 +43,7 @@
       var(--ui-check-outline-width) solid
       color-mix(
         in var(--space),
-        var(--ui-check-checked-bg) calc(var(--tw-outline-opacity) * 100%),
+        var(--ui-check-accent-color) calc(var(--tw-outline-opacity) * 100%),
         var(--tw-outline-mix)
       );
     outline-offset: var(--ui-check-outline-offset);
@@ -52,8 +53,8 @@
     &::before {
       width: var(--ui-check-icon-size);
       height: var(--ui-check-icon-size);
-      color: var(--color-accent-foreground);
-      mask: var(--ui-check-icon, var(--mask-check));
+      color: var(--ui-check-accent-color-foreground);
+      mask: var(--ui-check-icon);
       transition: inherit;
       content: "";
       background-color: currentColor;

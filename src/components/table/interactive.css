@@ -1,4 +1,6 @@
 .c-table {
+  --c-table-outline-accent-color: var(--color-accent);
+
   :where(tbody:first-child, tfoot:first-child) {
     :where(tr:first-child) {
       &, :where(th,td):where(:first-child) {
@@ -32,8 +34,8 @@
       --tw-bg-opacity: var(--c-table-outline-bg-opacity);
       --tw-bg-mix: transparent;
 
-      background-color: color-mix(in var(--space), var(--c-table-outline-color) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
-      outline-color: var(--c-table-outline-color);
+      background-color: color-mix(in var(--space), var(--c-table-outline-accent-color) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+      outline-color: var(--c-table-outline-accent-color);
     }
   }
 }

@@ -1,0 +1,6 @@
+.ui-btn:is(.fill) {
+  --ui-btn-hover-bg-mix: var(--color-dark);
+  --ui-btn-hover-bg-opacity: 1;
+  --ui-btn-active-bg-mix: var(--color-dark);
+  --ui-btn-active-bg-opacity: 0.9;
+}

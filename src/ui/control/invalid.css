@@ -1,10 +1,10 @@
 .ui-control {
   &.invalid, &:has(:user-invalid), .validated &:has(:invalid) {
     --ui-control-border-color: var(--color-error);
+    --ui-control-accent-color: var(--color-error);
     --ui-control-color: var(--color-error);
     --ui-control-bg: var(--color-error);
-    --color-accent: var(--color-error);
-    --tw-border-opacity: 1;
     --tw-bg-opacity: var(--ui-control-invalid-bg-opacity, 0.1);
+    --tw-border-opacity: 1;
   }
 }

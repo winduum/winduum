@@ -1,3 +1,10 @@
+## 0.10.0 (2024-02-28)
+* feat(bc): CSS properties changes across components, mainly fixes for CSS layers
+* feat(bc): `hover-fill` variant of `ui-btn` renamed to `fill`
+* feat: examples updated, added solidjs example
+* feat: added readme for components
+* fix: missing `interactive-props.css` in `index.css` for `ui-control`
+
 ## 0.9.4 (2024-02-21)
 * feat: minor fixes for `c-carousel`
 

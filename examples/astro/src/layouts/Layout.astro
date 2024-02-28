@@ -6,13 +6,6 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<script>
-    // to add support for :has selector for unsupported browsers
-    if (typeof CSS !== 'undefined') {
-        !CSS.supports('selector(:has(*))') && (async() => (await import('css-has-pseudo/browser')).default(document))()
-    }
-</script>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -28,20 +21,24 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-    @import "winduum/src/base/index.css";
-    @import "winduum/src/tailwind.css";
+    @import "winduum/src/base/index.css" layer(base);
+	@import "winduum/src/utilities/index.css" layer(components);
+	@import "winduum/src/ui/btn/index.css" layer(components);
+	@import "winduum/src/components/dialog/index.css" layer(components);
+	@import "winduum/src/base/tailwind.css";
 
-    :root {
-        --accent: 124, 58, 237;
-        --color-accent: 124 58 237 !important;
-        --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-    }
-    html {
-        font-family: system-ui, sans-serif;
-        background-color: #F6F6F6;
-    }
-    code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-            Bitstream Vera Sans Mono, Courier New, monospace;
-    }
+	@layer base {
+		:root {
+			--color-accent: rgb(124, 58, 237);
+			--accent-gradient: linear-gradient(45deg, var(--color-accent), #da62c4 30%, white 60%);
+		}
+		html {
+			font-family: system-ui, sans-serif;
+			background-color: #F6F6F6;
+		}
+		code {
+			font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+		}
+	}
 </style>

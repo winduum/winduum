@@ -6,7 +6,7 @@
 
   padding: var(--ui-notice-py) var(--ui-notice-px);
   font-size: var(--ui-notice-font-size);
-  border-radius: var(--rounded);
+  border-radius: var(--ui-notice-border-radius);
   background-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
   color: var(--color-accent);
   outline:

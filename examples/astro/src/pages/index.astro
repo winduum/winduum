@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import UiBtn from '../components/Ui/Btn.astro';
+import UiBtn from '../components/ui/Btn.astro';
+import Dialog from '../components/dialog/Dialog.astro';
+import DialogContent from '../components/dialog/DialogContent.astro';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -11,7 +13,18 @@ import UiBtn from '../components/Ui/Btn.astro';
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
-		<UiBtn class="bordered">Hello world</UiBtn>
+		<UiBtn class="mb-4" id="showDialog">Hello world</UiBtn>
+		<Dialog>
+			<DialogContent>
+				<div class="ui-heading">Example dialog</div>
+				<br>
+				<div class="ui-text">
+					<p>You can close this dialog with Esc, clicking outside, or by form submit</p>
+				</div>
+				<br>
+				<button class="ui-btn">Close dialog</button>
+			</DialogContent>
+		</Dialog>
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
@@ -36,6 +49,14 @@ import UiBtn from '../components/Ui/Btn.astro';
 		</ul>
 	</main>
 </Layout>
+
+<script>
+	import { showDialog } from 'winduum/src/components/dialog'
+
+	document.querySelector('#showDialog').addEventListener('click', () => {
+		showDialog(document.querySelector('dialog'))
+	})
+</script>
 
 <style>
 	main {

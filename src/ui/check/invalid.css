@@ -1,8 +1,7 @@
 .ui-check {
   &.invalid, .validated & :where(input):invalid {
     --ui-check-border-color: var(--color-error);
-    --ui-check-checked-bg: var(--color-error);
-    --color-accent-foreground: var(--color-error);
+    --ui-check-accent-color: var(--color-error);
     --tw-border-opacity: 1;
   }
 }

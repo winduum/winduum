@@ -22,4 +22,4 @@ export interface PluginOptions {
 
 export const defaultConfig: PluginOptions
 
-export default function createPlugin(userConfig: PluginOptions): Plugin
+export default function createPlugin(userConfig?: PluginOptions): Plugin

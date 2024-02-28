@@ -51,7 +51,7 @@
           transparent
         );
       margin-block-start: calc((var(--ui-range-thumb-size) - var(--ui-range-track-height)) / 2 * -1);
-      transition: outline-color var(--duration) linear;
+      transition: outline-color var(--duration), outline-offset var(--duration);
       cursor: var(--ui-range-thumb-cursor, grab);
       appearance: none;
       pointer-events: auto;

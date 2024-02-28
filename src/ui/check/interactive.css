@@ -6,14 +6,14 @@
 
     &:enabled {
       &:is(:hover, :focus-visible) {
-        --ui-check-border-color: var(--ui-check-checked-bg);
-        --ui-check-bg: var(--ui-check-checked-bg);
+        --ui-check-border-color: var(--ui-check-accent-color);
+        --ui-check-bg: var(--ui-check-accent-color);
         --tw-border-opacity: 0.75;
         --tw-bg-opacity: 0.1;
       }
 
       &:focus {
-        --ui-check-border-color: var(--ui-check-checked-bg);
+        --ui-check-border-color: var(--ui-check-accent-color);
         --ui-check-outline-offset: var(--ui-check-focus-outline-offset);
         --tw-border-opacity: 0.75;
         --tw-outline-opacity: 0.2;
@@ -32,7 +32,7 @@
     }
 
     &:is(:checked, [type="checkbox"]:indeterminate) {
-      --ui-check-bg: var(--ui-check-checked-bg);
+      --ui-check-bg: var(--ui-check-accent-color);
       --tw-bg-opacity: 1;
       --tw-border-opacity: 0;
 

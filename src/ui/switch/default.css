@@ -1,15 +1,11 @@
 .ui-switch {
-  display: inline-flex;
   font-weight: var(--ui-switch-font-weight);
   font-size: var(--ui-switch-font-size);
   line-height: var(--ui-switch-line-height);
   letter-spacing: var(--ui-switch-letter-spacing);
   gap: var(--ui-switch-gap);
+  display: inline-flex;
   text-wrap: balance;
-
-  :where(.dark) & {
-    --ui-switch-bg: var(--color-body-tertiary);
-  }
 
   :where(a) {
     color: var(--color-accent);
@@ -20,7 +16,6 @@
     --tw-outline-opacity: 0;
     --tw-outline-mix: transparent;
 
-    display: flex;
     inline-size: var(--ui-switch-width);
     block-size: var(--ui-switch-height);
     padding: calc((var(--ui-switch-height) - var(--ui-switch-icon-size)) / 2);
@@ -34,6 +29,7 @@
         var(--tw-outline-mix)
       );
     outline-offset: var(--ui-switch-outline-offset);
+    display: flex;
     position: relative;
     flex-shrink: 0;
 

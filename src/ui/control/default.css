@@ -1,14 +1,15 @@
 .ui-control {
-  --tw-border-opacity: 0.15;
-  --tw-border-mix: transparent;
+  --ui-control-accent-color: var(--color-accent);
   --tw-bg-opacity: 1;
   --tw-bg-mix: transparent;
+  --tw-border-opacity: 0.15;
+  --tw-border-mix: transparent;
   --tw-outline-opacity: 0;
   --tw-outline-mix: transparent;
 
   display: grid;
   block-size: var(--ui-control-height);
-  font-family: var(--ui-contro-font-family);
+  font-family: var(--ui-control-font-family);
   font-weight: var(--ui-control-font-weight);
   font-size: var(--ui-control-font-size);
   letter-spacing: var(--ui-control-letter-spacing);
@@ -26,7 +27,7 @@
     var(--ui-control-outline-width) solid
     color-mix(
       in var(--space),
-      var(--color-accent) calc(var(--tw-outline-opacity) * 100%),
+      var(--ui-control-accent-color) calc(var(--tw-outline-opacity) * 100%),
       var(--tw-outline-mix)
     );
   outline-offset: var(--ui-control-outline-offset);
