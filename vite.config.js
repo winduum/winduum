@@ -5,7 +5,6 @@ import autoprefixer from 'autoprefixer'
 import postcssImport from 'postcss-import'
 import postcssNesting from 'postcss-nesting'
 import postcssCustomMedia from 'postcss-custom-media'
-import postcssHasPseudo from 'css-has-pseudo'
 import vue from '@vitejs/plugin-vue'
 
 export default {
