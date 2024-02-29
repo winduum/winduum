@@ -10,20 +10,19 @@
 
 # 🎨 [Winduum](https://winduum.dev)
 
-> Still in early development.
-
 Modern, modular, small modest CSS component framework build on top of **TailwindCSS**
 
-- 💡 Modern
-- 📦 Modular
-- 📏 Lightweight
-- ✨️ Progressive
+- 💡 Modern and progressive
+- 📦 Modular and customizable
+- ✨️ Accessible web standards
+- 🧩 Framework agnostic
+- 🎨 Extends TailwindCSS
+- 🚀 Small and fast
 
-It's a mix of words **Tailwind** _(Popular CSS utility framework)_ and **Tuum** _(Estonian word for "core")_.<br>
+Winduum is a mix of words **Tailwind** _(Popular CSS utility framework)_ and **Tuum** _(Estonian word for "core")_.<br>
 
-Essentially provides ways to leverage use of **CSS properties** as much possible and do more in CSS. Because we ❤️ CSS and this is a small modest CSS framework.
+It essentially provides ways to leverage use of CSS properties as much possible and do more in CSS. Because we ❤️ CSS and this is a small modest CSS component framework.
 
-Its approach to **TailwindCSS** is little different. It encourages to write components in CSS or other (pre/post)-processors.
-And to use utility classes to enhance the components.
+Its approach to TailwindCSS is a little different. It encourages to write components in CSS or other (pre/post)-processors and to use utility classes to enhance the components.
 
-As a CSS framework it provides basic web standardized and accessible components. You can extend them with your own components or only use [TailwindCSS plugin](https://winduum.dev/docs/config) with its benefits and make your own complex UX/UI project written mostly in CSS/SASS/LESS.
+As a CSS framework it provides beautifully styled accessible components. Which you can extend with your own components.
