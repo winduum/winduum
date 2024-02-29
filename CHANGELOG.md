@@ -1,3 +1,6 @@
+## 1.0.0 (2024-02-29)
+* feat: stable 1.0 release
+
 ## 0.10.0 (2024-02-28)
 * feat(bc): CSS properties changes across components, mainly fixes for CSS layers
 * feat(bc): `hover-fill` variant of `ui-btn` renamed to `fill`
