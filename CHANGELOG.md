@@ -1,3 +1,6 @@
+## 1.0.1 (2024-03-01)
+* fix: disabled state for `ui-control`
+
 ## 1.0.0 (2024-02-29)
 * feat: stable 1.0 release
 

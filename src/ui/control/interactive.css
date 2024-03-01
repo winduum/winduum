@@ -10,7 +10,7 @@
     --tw-outline-opacity: 0.2;
   }
 
-  &.disabled, &:has(:disabled) {
+  &.disabled, &:has(:where(input, textarea, select):disabled) {
     --ui-control-bg: currentColor;
     --tw-bg-opacity: var(--ui-control-disabled-opacity);
   }
