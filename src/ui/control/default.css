@@ -56,6 +56,7 @@
     overflow: clip;
     align-self: stretch;
     align-items: center;
+    border-radius: inherit;
 
     &:disabled {
       cursor: not-allowed;
