@@ -1,3 +1,15 @@
+## 1.1.0 (2024-05-02)
+* feat: replaced dialog animations with transitions
+* feat: removed keyframe animations fade-in, fade-out, fade-in-down, fade-out-up, skeleton-wave
+* feat: removed most of --*-accent-color properties in favour of individual style properties
+* feat: added ui-link interactive-props.css
+* feat: `utilities/container.css` moved to `container/index.css`, props are now separated
+* feat: `utilities/skeleton.css` moved to `skeleton/index.css`, added skeleton props
+* feat: `utilities/ripple.css` moved to `ripple/index.css`
+* feat: `utilities/underline.css` class `decoration-transparent` was changed to `underline-transparent`
+* feat: added `--c-toast-bg` and `--c-toast-color` props for `c-toast`
+* feat: changed default line-height calculation from lh to rem units
+
 ## 1.0.1 (2024-03-01)
 * fix: disabled state for `ui-control`
 

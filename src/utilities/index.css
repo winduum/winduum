@@ -1,7 +1,7 @@
 @import "common.css";
-@import "container.css";
+@import "container/index.css";
 @import "divider.css";
-@import "ripple.css";
-@import "skeleton.css";
+@import "ripple/index.css";
+@import "skeleton/index.css";
 @import "swap/index.css";
 @import "underline.css";

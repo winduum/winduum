@@ -18,7 +18,7 @@
     --ui-btn-active-bg-opacity: 0.2;
     --ui-btn-focus-outline-offset: 0;
     --ui-btn-border-width: 2px;
-    --ui-btn-accent-color-foreground: currentColor;
+    --ui-btn-color: currentColor;
     --tw-bg-opacity: 0;
   }
 }

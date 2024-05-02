@@ -4,7 +4,7 @@
  * @returns void
  */
 export const setTrackProperty = ({ element, value, max }, track = 'start') => {
-    element.style.setProperty('--ui-range-track-' + track, `${(value / max * 100).toString()}%`)
+    element.style.setProperty('--ui-range-track-' + track, `${((value) / max * 100).toString()}%`)
 }
 
 /**

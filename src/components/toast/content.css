@@ -1,4 +1,6 @@
 .c-toast-content {
+  --c-toast-bg: var(--color-accent);
+  --c-toast-color: var(--color-accent);
   --tw-border-mix: var(--color-body-primary);
   --tw-border-opacity: 0.15;
 
@@ -6,8 +8,8 @@
   padding: var(--c-toast-content-py) var(--c-toast-content-px);
   gap: var(--c-toast-content-gap);
   background-color: var(--c-toast-content-bg);
-  color: var(--color-accent);
-  border: 1px solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
+  color: var(--c-toast-color);
+  border: 1px solid color-mix(in var(--space), var(--c-toast-bg) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
   align-items: center;
   display: flex;
@@ -15,6 +17,6 @@
 
   .ui-text {
     --ui-text-font-size: var(--text-sm);
-    --ui-text-line-height: calc(1em + 0.25lh);
+    --ui-text-line-height: calc(1em + 0.375rem);
   }
 }

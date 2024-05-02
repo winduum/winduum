@@ -1,0 +1,5 @@
+:root, :host {
+  --ui-link-hover-color: currentColor;
+  --ui-link-hover-color-opacity: 0.75;
+  --ui-link-hover-color-mix: transparent;
+}

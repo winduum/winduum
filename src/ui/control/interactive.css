@@ -1,13 +1,15 @@
 .ui-control {
+  --ui-control-focus-border-color: var(--color-accent);
+
   transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
 
   &:focus-within {
-    --ui-control-border-color: var(--ui-control-accent-color);
+    --ui-control-border-color: var(--ui-control-focus-border-color);
     --ui-control-outline-offset: var(--ui-control-focus-outline-offset);
-    --tw-border-opacity: 1;
-    --tw-outline-opacity: 0.2;
+    --tw-border-opacity: var(--ui-control-focus-border-opacity, 1);
+    --tw-outline-opacity: var(--ui-control-focus-outline-opacity, 0.2);
   }
 
   &.disabled, &:has(:where(input, textarea, select):disabled) {

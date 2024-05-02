@@ -1,5 +1,5 @@
 .ui-control {
-  --ui-control-accent-color: var(--color-accent);
+  --ui-control-outline-color: var(--color-accent);
   --tw-bg-opacity: 1;
   --tw-bg-mix: transparent;
   --tw-border-opacity: 0.15;
@@ -27,7 +27,7 @@
     var(--ui-control-outline-width) solid
     color-mix(
       in var(--space),
-      var(--ui-control-accent-color) calc(var(--tw-outline-opacity) * 100%),
+      var(--ui-control-outline-color) calc(var(--tw-outline-opacity) * 100%),
       var(--tw-outline-mix)
     );
   outline-offset: var(--ui-control-outline-offset);

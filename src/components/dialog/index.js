@@ -1,4 +1,4 @@
-import { animationsFinished } from '../../common.js'
+import { animationsFinished, nextRepaint } from '../../common.js'
 
 /**
  * @type {import("./").DefaultOptions}
@@ -68,6 +68,8 @@ export const showDialog = async (element, options = {}) => {
 
     element.inert = false
     element.classList.add(options.openClass)
+
+    await nextRepaint()
 
     window.HTMLDialogElement
         ? element.showModal()

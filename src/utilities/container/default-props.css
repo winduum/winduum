@@ -1,0 +1,8 @@
+:root, :host {
+  --container: min(100% - (var(--container-padding) * 2), var(--container-width));
+  --container-lg: min(100% - (var(--container-padding) * 2), var(--container-lg-width));
+  --container-width: 80rem;
+  --container-lg-width: 90rem;
+  --container-padding: 5vw;
+  --container-padding-calc: max(calc(50vw - (var(--container-width) / 2)), var(--container-padding));
+}

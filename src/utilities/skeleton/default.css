@@ -1,0 +1,7 @@
+.skeleton {
+  background: linear-gradient(to right, var(--skeleton-from), var(--skeleton-to), var(--skeleton-to), var(--skeleton-from));
+  opacity: var(--skeleton-opacity);
+  transition: var(--transition-opacity);
+  animation: move-indeterminate 1.5s linear infinite;
+  background-size: 400% 100%;
+}
