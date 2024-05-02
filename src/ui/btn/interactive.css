@@ -30,6 +30,8 @@
     &:not(:disabled) {
       &:hover {
         @media (hover: hover) and (pointer: fine) {
+          --ui-btn-bg: var(--ui-btn-hover-bg, var(--color-accent));
+          --ui-btn-border-color: var(--ui-btn-hover-border-color, var(--color-accent));
           --tw-bg-mix: var(--ui-btn-hover-bg-mix);
           --tw-bg-opacity: var(--ui-btn-hover-bg-opacity);
         }
@@ -41,6 +43,8 @@
       }
 
       &:is(:active, :checked, .active) {
+        --ui-btn-bg: var(--ui-btn-active-bg, var(--color-accent));
+        --ui-btn-border-color: var(--ui-btn-active-border-color, var(--color-accent));
         --tw-bg-mix: var(--ui-btn-active-bg-mix);
         --tw-bg-opacity: var(--ui-btn-active-bg-opacity);
       }

@@ -1,3 +1,6 @@
+## 1.1.1 (2024-05-02)
+* feat: added more css properties for `ui-btn` hover and focus
+
 ## 1.1.0 (2024-05-02)
 * feat: replaced dialog animations with transitions
 * feat(bc): removed keyframe animations fade-in, fade-out, fade-in-down, fade-out-up, skeleton-wave
