@@ -1,9 +1,9 @@
 .c-popover-content {
-  opacity: var(--tw-opacity);
   visibility: var(--tw-visibility);
+  opacity: var(--tw-opacity);
   transform:
-    translate(var(--tw-translate-x), var(--tw-translate-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      translate(var(--tw-translate-x), var(--tw-translate-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   transition-property: var(--transition);
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--duration);
@@ -14,12 +14,31 @@
   z-index: var(--z-10);
   width: max-content;
   position: absolute;
-  transform-origin: top;
+
+  &, &:where(.bottom) {
+    transform-origin: top;
+  }
+
+  &:where(.bottom-start) {
+    transform-origin: top left;
+  }
+
+  &:where(.bottom-end) {
+    transform-origin: top right;
+  }
 
   &:where(.right) {
     inset-block-start: 0;
     inset-inline-start: 100%;
     transform-origin: left;
+  }
+
+  &:where(.right-start) {
+    transform-origin: left top;
+  }
+
+  &:where(.right-end) {
+    transform-origin: left bottom;
   }
 
   &:where(.left) {
@@ -28,23 +47,33 @@
     transform-origin: right;
   }
 
+  &:where(.left-start) {
+    transform-origin: right top;
+  }
+
+  &:where(.left-end) {
+    transform-origin: right bottom;
+  }
+
   &:where(.top) {
     inset-block-end: 100%;
     transform-origin: bottom;
   }
 
-  &:where(.block-end) {
-    inset-block: auto 0;
+  &:where(.top-start) {
+    transform-origin: bottom left;
+  }
+
+  &:where(.top-end) {
+    transform-origin: bottom right;
   }
 
   &:where(.end) {
     inset-inline-end: 0;
   }
 
-  &:where(.block-center) {
-    --tw-translate-y: -50%;
-
-    inset-block-start: 50%;
+  &:where(.block-end) {
+    inset-block: auto 0;
   }
 
   &:where(.center) {
@@ -53,10 +82,23 @@
     inset-inline-start: 50%;
   }
 
-  :not(:focus, :focus-within, .hover:hover) > & {
+  &:where(.block-center) {
+    --tw-translate-y: -50%;
+
+    inset-block-start: 50%;
+  }
+
+  &[popover]:not(.in) {
+    --tw-scale-x: var(--c-popover-content-scale-x);
+    --tw-scale-y: var(--c-popover-content-scale-y);
+    --tw-opacity: 0;
+  }
+
+  .focus:not(:focus, :focus-within) > &, .hover:not(:hover) > & {
     --tw-scale-x: var(--c-popover-content-scale-x);
     --tw-scale-y: var(--c-popover-content-scale-y);
     --tw-opacity: 0;
     --tw-visibility: hidden;
   }
 }
+

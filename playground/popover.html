@@ -9,15 +9,15 @@
 </head>
 <body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid-cols-container">
 <div class="w-full flex-col gap-4">
-    <div class="c-popover w-max">
-        <div class="c-tooltip bottom" aria-label="I am tooltip">
+    <div class="c-popover focus w-max">
+        <div class="c-tooltip focus bottom" aria-label="I am tooltip">
             <div role="button" class="ui-btn" tabindex="0">Popover</div>
         </div>
-        <div class="c-popover-content center shadow mt-2.5 p-2 w-32 flex-col">
+        <div class="c-popover-content shadow mt-2.5 p-2 w-32 flex-col">
             <div class="c-tooltip right" aria-label="I am tooltip">
                 <button class="ui-btn ghosted accent-main justify-start w-full">Item 1</button>
             </div>
-            <div class="c-popover">
+            <div class="c-popover hover">
                 <button class="ui-btn ghosted accent-main justify-start w-full">Item 2</button>
                 <div class="c-popover-content right shadow ml-4 p-2 w-32 flex-col">
                     <div class="c-tooltip right" aria-label="I am tooltip">
@@ -28,9 +28,44 @@
             </div>
         </div>
     </div>
-    <div class="c-tooltip bottom w-max" aria-label="I am tooltip">
+    <div class="c-tooltip focus bottom w-max" aria-label="I am tooltip">
         <div role="button" class="ui-btn" tabindex="0">Popover</div>
     </div>
+    <div class="c-popover mt-12">
+        <button class="ui-btn" data-action="popover#toggle" popovertarget="popover">Popover</button>
+        <div class="c-popover-content shadow h-48" id="popover">
+            <input type="text" autofocus>
+        </div>
+    </div>
 </div>
+<script type="module">
+    import { togglePopover, closePopover } from '/src/components/popover/index.js'
+
+    const popoverActionElement = document.querySelector('[data-action="popover#toggle"]')
+
+    popoverActionElement.addEventListener('click', async (e) => {
+        e.preventDefault()
+        const currentTarget = e.currentTarget
+        await togglePopover(currentTarget, {
+            computePosition: {
+                placement: 'right-end'
+            }
+        })
+    })
+
+    // close on esc
+    window.addEventListener('keydown', ({ key }) => {
+        if (key === 'Escape') {
+            closePopover(popoverActionElement)
+        }
+    })
+
+    // outside dismiss
+    window.addEventListener('click', ({ target }) => {
+        if (!window.popover?.contains(target) && !popoverActionElement.isEqualNode(target) && popoverActionElement.ariaExpanded === 'true') {
+            closePopover(popoverActionElement)
+        }
+    })
+</script>
 </body>
 </html>
