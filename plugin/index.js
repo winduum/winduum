@@ -15,7 +15,7 @@ export const defaultConfig = {
         'warning', 'error', 'info', 'success', 'light', 'dark',
         'main', 'main-primary', 'main-secondary', 'main-tertiary',
         'body', 'body-primary', 'body-secondary', 'body-tertiary',
-        'primary-foreground', 'accent-foreground', 'current-foreground',
+        'primary-foreground', 'accent-foreground',
         'warning-foreground', 'error-foreground', 'info-foreground', 'success-foreground', 'light-foreground', 'dark-foreground',
         'main-foreground', 'main-primary-foreground', 'main-secondary-foreground', 'main-tertiary-foreground',
         'body-foreground', 'body-primary-foreground', 'body-secondary-foreground', 'body-tertiary-foreground'
