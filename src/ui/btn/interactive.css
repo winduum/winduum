@@ -19,7 +19,7 @@
     --ui-btn-hover-bg-mix: var(--color-dark-foreground);
   }
 
-  &:is([href], button, [role="button"], input) {
+  &:is(:any-link, button, [role="button"], input) {
     cursor: var(--cursor, pointer);
 
     &:disabled {
@@ -42,7 +42,7 @@
         --tw-outline-opacity: var(--ui-btn-focus-outline-opacity);
       }
 
-      &:is(:active, :checked, .active) {
+      &:active, &:checked, &.active {
         --ui-btn-bg: var(--ui-btn-active-bg, var(--color-accent));
         --ui-btn-border-color: var(--ui-btn-active-border-color, var(--color-accent));
         --tw-bg-mix: var(--ui-btn-active-bg-mix);

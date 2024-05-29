@@ -13,6 +13,10 @@
   background-color: var(--color-primary);
 }
 
+:where([tabindex]) {
+  outline: 0;
+}
+
 :where(button:enabled),
 :where([type="checkbox"]:enabled),
 :where([type="radio"]:enabled),

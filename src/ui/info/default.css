@@ -4,5 +4,5 @@
   font-size: var(--ui-info-font-size);
   line-height: var(--ui-info-line-height);
   letter-spacing: var(--ui-info-letter-spacing);
-  text-wrap: balance;
+  text-wrap: pretty;
 }
