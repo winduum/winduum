@@ -32,14 +32,14 @@
         <div role="button" class="ui-btn" tabindex="0">Popover</div>
     </div>
     <div class="c-popover mt-12">
-        <div role="button" class="ui-btn" popovertargetaction="toggle" popovertarget="popover">Popover</div>
+        <button class="ui-btn" popovertargetaction="toggle" popovertarget="popover">Popover</button>
         <div class="c-popover-content shadow h-48" id="popover" popover="manual">
             <input type="text" autofocus>
         </div>
     </div>
 </div>
 <script type="module">
-    import { togglePopover, closePopover } from '/src/components/popover/index.js'
+    import { togglePopover, hidePopover } from '/src/components/popover/index.js'
 
     const popoverActionElement = document?.querySelector('[popovertargetaction="toggle"]')
 
@@ -47,23 +47,21 @@
         e.preventDefault()
         const currentTarget = e.currentTarget
         await togglePopover(currentTarget, {
-            computePosition: {
-                placement: 'right-end'
-            }
+            placement: 'right-end',
         })
     })
 
     // close on esc
     window.addEventListener('keydown', ({ key }) => {
         if (key === 'Escape') {
-            closePopover(popoverActionElement)
+            hidePopover(popoverActionElement)
         }
     })
 
     // outside dismiss
     window.addEventListener('click', ({ target }) => {
         if (!window.popover?.contains(target) && !popoverActionElement?.isEqualNode(target) && popoverActionElement?.ariaExpanded === 'true') {
-            closePopover(popoverActionElement)
+            hidePopover(popoverActionElement)
         }
     })
 </script>

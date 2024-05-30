@@ -1,26 +1,36 @@
 import { animationsFinished } from '../../common.js'
 
-export const computePopover = async (element, popover, options) => {
+/**
+ * @param {HTMLElement | Element} element
+ * @param {HTMLElement | Element} popoverElement
+ * @param {import("./").ShowPopoverOptions} options
+ * @returns Promise<void>
+ */
+export const computePopover = async (element, popoverElement, options) => {
     const { computePosition, flip, shift, offset } = await import('@floating-ui/dom')
 
-    popover.classList.remove(popover._placement)
+    popoverElement.classList.remove(popoverElement._placement)
 
-    popover.style.minWidth = `${element.offsetWidth / 16}rem`
+    popoverElement.style.minWidth = `${element.offsetWidth / 16}rem`
 
-    await computePosition(element, popover, {
+    await computePosition(element, popoverElement, {
         placement: options?.placement,
-        middleware: options?.middleware ?? [offset(12 ?? options?.offset), flip(), shift({ padding: 8, ...options?.shift })]
+        middleware: options?.middleware ?? [offset(12 ?? options?.offset), flip(options?.flip), shift({ padding: 8, ...options?.shift })]
     }).then(({ x, y, placement }) => {
-        Object.assign(popover.style, {
+        Object.assign(popoverElement.style, {
             inset: `${y}px auto auto ${x}px`
         })
 
-        popover._placement = placement
-        popover.classList.add(popover._placement, options?.visibleClass ?? 'in')
+        popoverElement._placement = placement
+        popoverElement.classList.add(popoverElement._placement, options?.visibleClass ?? 'in')
     })
 }
 
-export const closePopover = async (element) => {
+/**
+ * @param {HTMLElement | Element} element - The HTML content to insert into the dialog.
+ * @returns Promise<void>
+ */
+export const hidePopover = async (element) => {
     const popoverElement = document.getElementById(element.getAttribute('popovertarget'))
 
     popoverElement.classList.remove('in')
@@ -28,9 +38,14 @@ export const closePopover = async (element) => {
     popoverElement._cleanup && popoverElement._cleanup()
     popoverElement.hidePopover && popoverElement.hidePopover()
 
-    element.ariaExpanded = false
+    element.ariaExpanded = 'false'
 }
 
+/**
+ * @param {HTMLElement | Element} element
+ * @param {import("./").ShowPopoverOptions} options
+ * @returns Promise<void>
+ */
 export const showPopover = async (element, options) => {
     options = {
         visibleClass: 'in',
@@ -42,7 +57,7 @@ export const showPopover = async (element, options) => {
 
     const popoverElement = document.getElementById(element.getAttribute('popovertarget'))
 
-    element.ariaExpanded = true
+    element.ariaExpanded = 'true'
 
     if (!element.ariaHasPopup) (element.ariaHasPopup = 'dialog')
     if (!popoverElement.role) (popoverElement.role = element.ariaHasPopup)
@@ -61,10 +76,15 @@ export const showPopover = async (element, options) => {
     )
 }
 
+/**
+ * @param {HTMLElement | Element} element
+ * @param {import("./").ShowPopoverOptions} options
+ * @returns Promise<void>
+ */
 export const togglePopover = async (element, options) => {
     if (element.ariaExpanded !== 'true') {
         await showPopover(element, options)
     } else {
-        await closePopover(element)
+        await hidePopover(element)
     }
 }

@@ -22,7 +22,7 @@ declare module 'winduum' {
 
 	export const defaultConfig: PluginOptions
 
-	export default function createPlugin(userConfig: PluginOptions): Plugin
+	export default function createPlugin(userConfig?: PluginOptions): Plugin
 }
 
 declare module 'winduum/src/components/carousel' {
@@ -92,10 +92,6 @@ declare module 'winduum/src/components/details' {
 }
 
 declare module 'winduum/src/components/dialog' {
-	export interface DialogElement extends HTMLDialogElement {
-		_dialogHasEvents: boolean
-	}
-
 	export interface DefaultOptions {
 		remove?: boolean | null
 		closable?: boolean | null
@@ -118,7 +114,7 @@ declare module 'winduum/src/components/dialog' {
 	export const defaultOptions: DefaultOptions
 	export function dialogSelector(selector: string): HTMLDialogElement
 	export function dismissDialog(element: HTMLDialogElement, options?: DefaultOptions): Promise<void>
-	export function showDialog(element: DialogElement, options?: DefaultOptions): Promise<void>
+	export function showDialog(element: HTMLDialogElement, options?: DefaultOptions): Promise<void>
 	export function closeDialog(element: HTMLDialogElement, options?: DefaultOptions): Promise<void>
 	export function insertDialog(content: string, options?: InsertDialogOptions): Promise<void>
 	export function fetchDialog({ url, insert }: FetchDialogOptions): Promise<void>
@@ -209,6 +205,23 @@ declare module 'winduum/src/components/toaster' {
 	export function insertToaster(element: HTMLElement, options?: InsertToasterOptions): Promise<void>
 	export function insertToast(element: HTMLElement, options?: InsertToastOptions): Promise<void>
 	export function closeToaster(element: HTMLElement, options?: CloseToastOptions): Promise<void>
+}
+
+declare module 'winduum/src/components/popover' {
+	import type { FlipOptions, Middleware, OffsetOptions, Placement, ShiftOptions } from '@floating-ui/dom';
+	export interface ShowPopoverOptions {
+		visibleClass?: string
+		compute?: boolean
+		placement?: Placement
+		middleware?: Array<Middleware | null | undefined | false>
+		offset?: OffsetOptions
+		flip?: FlipOptions
+		shift?: ShiftOptions
+	}
+
+	export function showPopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
+	export function hidePopover(element: HTMLElement | Element): Promise<void>
+	export function togglePopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
 }
 
 declare module 'winduum/src/ui/range' {

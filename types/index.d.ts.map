@@ -27,7 +27,6 @@
 		"showDetails",
 		"closeDetails",
 		"toggleDetails",
-		"DialogElement",
 		"InsertDialogOptions",
 		"FetchDialogOptions",
 		"dialogSelector",
@@ -54,6 +53,10 @@
 		"insertToaster",
 		"insertToast",
 		"closeToaster",
+		"ShowPopoverOptions",
+		"showPopover",
+		"hidePopover",
+		"togglePopover",
 		"SetTrackPropertyOptions",
 		"SetValueOptions",
 		"SetOutputOptions",
@@ -73,6 +76,7 @@
 		"../src/components/form/index.d.ts",
 		"../src/components/tabs/index.d.ts",
 		"../src/components/toaster/index.d.ts",
+		"../src/components/popover/index.d.ts",
 		"../src/ui/range/index.d.ts",
 		"../src/utilities/ripple/index.d.ts",
 		"../src/utilities/swap/index.d.ts"
@@ -89,7 +93,8 @@
 		null,
 		null,
 		null,
+		null,
 		null
 	],
-	"mappings": ";;kBAEiBA,aAAaA;;;;;;;;;;;;;;;;;;;;cAoBjBC,aAAaA;;;;;;kBCtBTC,sBAAsBA;;;;;;;;kBAQtBC,yBAAyBA;;;;;;kBAMzBC,qBAAqBA;;;;;;;;kBAQrBC,uBAAuBA;;;;;kBAKvBC,mBAAmBA;;;;iBAIpBC,UAAUA;iBACVC,UAAUA;iBACVC,QAAQA;iBACRC,YAAYA;iBACZC,eAAeA;iBACfC,cAAcA;iBACdC,kBAAkBA;iBAClBC,gBAAgBA;iBAChBC,YAAYA;;;;kBCvCXC,kBAAkBA;;;;;iBAKnBC,WAAWA;iBACXC,eAAeA;iBACfC,YAAYA;;;;kBCPXC,cAAcA;;;;;cAKlBC,cAAcA;iBACXC,WAAWA;iBACXC,YAAYA;iBACZC,aAAaA;;;;kBCRZC,aAAaA;;;;kBAIbL,cAAcA;;;;;;;kBAOdM,mBAAmBA;;;;;;;kBAOnBC,kBAAkBA;;;;;cAKtBN,cAAcA;iBACXO,cAAcA;iBACdC,aAAaA;iBACbC,UAAUA;iBACVC,WAAWA;iBACXC,YAAYA;iBACZC,WAAWA;;;;kBC7BVC,mBAAmBA;;;;;;;;;;iBAUpBC,UAAUA;iBACVC,WAAWA;iBACXC,YAAYA;;;;kBCZXC,mBAAmBA;;;;;;kBAMnBC,oBAAoBA;;;;;;;;;;;;;;;;;;iBAkBrBC,YAAYA;iBACZC,aAAaA;;;;;;;;;iBCpBbC,SAASA;;;;kBCLRC,gBAAgBA;;;;;;;kBAOhBC,iBAAiBA;;;;;kBAKjBC,oBAAoBA;;;;kBAIpBC,kBAAkBA;;;;;;;;;iBASnBC,UAAUA;iBACVC,SAASA;iBACTC,aAAaA;iBACbC,WAAWA;iBACXC,YAAYA;;;;kBC7BXC,uBAAuBA;;;;;;kBAMvBC,eAAeA;;;;;kBAKfC,gBAAgBA;;;;;iBAKjBC,gBAAgBA;iBAChBC,QAAQA;iBACRC,cAAcA;;;;iBClBdC,UAAUA;;;;iBCAVC,UAAUA"
+	"mappings": ";;kBAEiBA,aAAaA;;;;;;;;;;;;;;;;;;;;cAoBjBC,aAAaA;;;;;;kBCtBTC,sBAAsBA;;;;;;;;kBAQtBC,yBAAyBA;;;;;;kBAMzBC,qBAAqBA;;;;;;;;kBAQrBC,uBAAuBA;;;;;kBAKvBC,mBAAmBA;;;;iBAIpBC,UAAUA;iBACVC,UAAUA;iBACVC,QAAQA;iBACRC,YAAYA;iBACZC,eAAeA;iBACfC,cAAcA;iBACdC,kBAAkBA;iBAClBC,gBAAgBA;iBAChBC,YAAYA;;;;kBCvCXC,kBAAkBA;;;;;iBAKnBC,WAAWA;iBACXC,eAAeA;iBACfC,YAAYA;;;;kBCPXC,cAAcA;;;;;cAKlBC,cAAcA;iBACXC,WAAWA;iBACXC,YAAYA;iBACZC,aAAaA;;;;kBCRZJ,cAAcA;;;;;;;kBAOdK,mBAAmBA;;;;;;;kBAOnBC,kBAAkBA;;;;;cAKtBL,cAAcA;iBACXM,cAAcA;iBACdC,aAAaA;iBACbC,UAAUA;iBACVC,WAAWA;iBACXC,YAAYA;iBACZC,WAAWA;;;;kBCzBVC,mBAAmBA;;;;;;;;;;iBAUpBC,UAAUA;iBACVC,WAAWA;iBACXC,YAAYA;;;;kBCZXC,mBAAmBA;;;;;;kBAMnBC,oBAAoBA;;;;;;;;;;;;;;;;;;iBAkBrBC,YAAYA;iBACZC,aAAaA;;;;;;;;;iBCpBbC,SAASA;;;;kBCLRC,gBAAgBA;;;;;;;kBAOhBC,iBAAiBA;;;;;kBAKjBC,oBAAoBA;;;;kBAIpBC,kBAAkBA;;;;;;;;;iBASnBC,UAAUA;iBACVC,SAASA;iBACTC,aAAaA;iBACbC,WAAWA;iBACXC,YAAYA;;;;;kBC3BXC,kBAAkBA;;;;;;;;;;iBAUnBC,WAAWA;iBACXC,WAAWA;iBACXC,aAAaA;;;;kBCdZC,uBAAuBA;;;;;;kBAMvBC,eAAeA;;;;;kBAKfC,gBAAgBA;;;;;iBAKjBC,gBAAgBA;iBAChBC,QAAQA;iBACRC,cAAcA;;;;iBClBdC,UAAUA;;;;iBCAVC,UAAUA"
 }
