@@ -34,20 +34,19 @@ export const closePopover = async (element) => {
 export const showPopover = async (element, options) => {
     const { autoUpdate } = await import('@floating-ui/dom')
 
-    const popoverElement = window[element.getAttribute('popovertarget')]
+    const popoverElement = document.getElementById(this.element.getAttribute('popovertarget'))
 
     element.ariaExpanded = true
 
     if (!element.ariaHasPopup) (element.ariaHasPopup = 'dialog')
     if (!popoverElement.role) (popoverElement.role = element.ariaHasPopup)
-    if (!popoverElement.popover) (popoverElement.popover = 'manual')
 
     popoverElement.showPopover && popoverElement.showPopover()
 
     popoverElement._cleanup = autoUpdate(
         element,
         popoverElement,
-        async () => await computePopover(element, popoverElement, options?.computePosition)
+        async () => await computePopover(element, popoverElement, options)
     )
 }
 
