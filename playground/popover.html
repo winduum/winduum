@@ -32,8 +32,8 @@
         <div role="button" class="ui-btn" tabindex="0">Popover</div>
     </div>
     <div class="c-popover mt-12">
-        <button class="ui-btn" data-action="popover#toggle" popovertarget="popover">Popover</button>
-        <div class="c-popover-content shadow h-48" id="popover">
+        <div role="button" class="ui-btn" popovertargetaction="toggle" popovertarget="popover">Popover</div>
+        <div class="c-popover-content shadow h-48" id="popover" popover="manual">
             <input type="text" autofocus>
         </div>
     </div>
@@ -41,9 +41,9 @@
 <script type="module">
     import { togglePopover, closePopover } from '/src/components/popover/index.js'
 
-    const popoverActionElement = document.querySelector('[data-action="popover#toggle"]')
+    const popoverActionElement = document?.querySelector('[popovertargetaction="toggle"]')
 
-    popoverActionElement.addEventListener('click', async (e) => {
+    popoverActionElement?.addEventListener('click', async (e) => {
         e.preventDefault()
         const currentTarget = e.currentTarget
         await togglePopover(currentTarget, {
@@ -62,7 +62,7 @@
 
     // outside dismiss
     window.addEventListener('click', ({ target }) => {
-        if (!window.popover?.contains(target) && !popoverActionElement.isEqualNode(target) && popoverActionElement.ariaExpanded === 'true') {
+        if (!window.popover?.contains(target) && !popoverActionElement?.isEqualNode(target) && popoverActionElement?.ariaExpanded === 'true') {
             closePopover(popoverActionElement)
         }
     })

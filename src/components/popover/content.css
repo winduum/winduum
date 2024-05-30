@@ -1,6 +1,4 @@
 .c-popover-content {
-  visibility: var(--tw-visibility);
-  opacity: var(--tw-opacity);
   transform:
       translate(var(--tw-translate-x), var(--tw-translate-y))
       scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -15,7 +13,7 @@
   width: max-content;
   position: absolute;
 
-  &, &:where(.bottom) {
+  &:where(.bottom), & {
     transform-origin: top;
   }
 
@@ -91,14 +89,19 @@
   &[popover]:not(.in) {
     --tw-scale-x: var(--c-popover-content-scale-x);
     --tw-scale-y: var(--c-popover-content-scale-y);
-    --tw-opacity: 0;
+
+    opacity: 0;
+    pointer-events: none;
   }
 
-  .focus:not(:focus, :focus-within) > &, .hover:not(:hover) > & {
-    --tw-scale-x: var(--c-popover-content-scale-x);
-    --tw-scale-y: var(--c-popover-content-scale-y);
-    --tw-opacity: 0;
-    --tw-visibility: hidden;
+  &:not([popover]) {
+    .focus:not(:focus, :focus-within) > &, .hover:not(:hover) > & {
+      --tw-scale-x: var(--c-popover-content-scale-x);
+      --tw-scale-y: var(--c-popover-content-scale-y);
+
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 }
 
