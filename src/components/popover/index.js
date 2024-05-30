@@ -25,13 +25,19 @@ export const closePopover = async (element) => {
 
     popoverElement.classList.remove('in')
     await animationsFinished(popoverElement)
-    popoverElement._cleanup()
+    popoverElement._cleanup && popoverElement._cleanup()
     popoverElement.hidePopover && popoverElement.hidePopover()
 
     element.ariaExpanded = false
 }
 
 export const showPopover = async (element, options) => {
+    options = {
+        visibleClass: 'in',
+        compute: true,
+        ...options
+    }
+
     const { autoUpdate } = await import('@floating-ui/dom')
 
     const popoverElement = document.getElementById(element.getAttribute('popovertarget'))
@@ -42,6 +48,11 @@ export const showPopover = async (element, options) => {
     if (!popoverElement.role) (popoverElement.role = element.ariaHasPopup)
 
     popoverElement.showPopover && popoverElement.showPopover()
+
+    if (!options.compute) {
+        popoverElement.classList.add(options.visibleClass)
+        return
+    }
 
     popoverElement._cleanup = autoUpdate(
         element,
