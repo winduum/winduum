@@ -21,7 +21,7 @@ export const computePopover = async (element, popover, options) => {
 }
 
 export const closePopover = async (element) => {
-    const popoverElement = window[element.getAttribute('popovertarget')]
+    const popoverElement = document.getElementById(element.getAttribute('popovertarget'))
 
     popoverElement.classList.remove('in')
     await animationsFinished(popoverElement)
@@ -34,7 +34,7 @@ export const closePopover = async (element) => {
 export const showPopover = async (element, options) => {
     const { autoUpdate } = await import('@floating-ui/dom')
 
-    const popoverElement = document.getElementById(this.element.getAttribute('popovertarget'))
+    const popoverElement = document.getElementById(element.getAttribute('popovertarget'))
 
     element.ariaExpanded = true
 
