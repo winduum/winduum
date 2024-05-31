@@ -17,7 +17,7 @@
       var(--tw-outline-mix)
     );
   outline-offset: var(--ui-notice-outline-offset);
-  text-wrap: balance;
+  text-wrap: pretty;
 
   :where(hr) {
     --tw-border-opacity: 0.2;

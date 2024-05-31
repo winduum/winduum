@@ -8,7 +8,7 @@
   letter-spacing: var(--ui-check-letter-spacing);
   gap: var(--ui-check-gap);
   display: inline-flex;
-  text-wrap: balance;
+  text-wrap: pretty;
 
   &:has([type="radio"]) {
     --ui-check-icon: var(--mask-radio);

@@ -1,7 +1,7 @@
 .ui-link {
   --tw-text-opacity: var(--ui-link-hover-color-opacity);
 
-  &:where([href], button:enabled, [role="button"]) {
+  &:where(:any-link, button:enabled, [role="button"]) {
     transition: all var(--duration) var(--ease-in-out);
 
     &:hover {

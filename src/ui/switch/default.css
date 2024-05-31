@@ -5,7 +5,7 @@
   letter-spacing: var(--ui-switch-letter-spacing);
   gap: var(--ui-switch-gap);
   display: inline-flex;
-  text-wrap: balance;
+  text-wrap: pretty;
 
   :where(a) {
     color: var(--color-accent);

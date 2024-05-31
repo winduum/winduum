@@ -181,3 +181,9 @@ Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
 ::-webkit-details-marker {
   display: none;
 }
+
+/* Fix popover default colors */
+:where([popover]) {
+  background-color: inherit;
+  color: inherit;
+}
