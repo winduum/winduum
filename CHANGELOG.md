@@ -5,6 +5,7 @@
 * feat: added more customization fro `ui-control` invalid variant
 * feat: added center align for `dot` utility class
 * feat: added text-current` opacity variants with color-mix
+* feat(bc): `c-popover` now has to have `focus` token class to work on focus, similar as hover
 `
 ## 1.1.1 (2024-05-02)
 * feat: added more css properties for `ui-btn` hover and focus
