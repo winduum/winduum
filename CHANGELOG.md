@@ -1,3 +1,11 @@
+# 1.2.0 (2024-05-31)
+* feat: added Popover API for `c-popover`
+* feat: replaced `[href]` with `:any-link`
+* feat: changed most of the `text-wrap` from `balance` to `pretty`
+* feat: added more customization fro `ui-control` invalid variant
+* feat: added center align for `dot` utility class
+* feat: added text-current` opacity variants with color-mix
+`
 ## 1.1.1 (2024-05-02)
 * feat: added more css properties for `ui-btn` hover and focus
 
