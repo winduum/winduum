@@ -28,7 +28,9 @@ var DotUtility = {
         height: '0.625rem',
         borderRadius: 'var(--rounded-full)',
         backgroundColor: 'color-mix(in srgb, var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent)',
-        flexShrink: '0'
+        flexShrink: '0',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 };
 
@@ -124,20 +126,24 @@ const textColor = ({ value, corePlugins }, settings) => {
  * @param {[]} colors
  * @param {boolean} colorMix
  * @param {boolean} rgb
- * @returns {[]}
+ * @returns {Object}
  */
 const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
+    const result = {
+        current: 'color-mix(in var(--space), currentcolor calc(<alpha-value> * 100%), transparent)'
+    };
+
     colors.forEach(name => {
         if (rgb) {
-            colors[name + '-rgb'] = `rgb(var(--color-${name}-rgb) / <alpha-value>)`;
+            result[name + '-rgb'] = `rgb(var(--color-${name}-rgb) / <alpha-value>)`;
         }
 
-        colors[name] = colorMix
+        result[name] = colorMix
             ? `color-mix(in var(--space), var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
             : `rgb(var(--color-${name}) / <alpha-value>)`;
     });
 
-    return colors
+    return result
 };
 
 /**
@@ -210,7 +216,7 @@ const defaultConfig = {
         'warning', 'error', 'info', 'success', 'light', 'dark',
         'main', 'main-primary', 'main-secondary', 'main-tertiary',
         'body', 'body-primary', 'body-secondary', 'body-tertiary',
-        'primary-foreground', 'accent-foreground', 'current-foreground',
+        'primary-foreground', 'accent-foreground',
         'warning-foreground', 'error-foreground', 'info-foreground', 'success-foreground', 'light-foreground', 'dark-foreground',
         'main-foreground', 'main-primary-foreground', 'main-secondary-foreground', 'main-tertiary-foreground',
         'body-foreground', 'body-primary-foreground', 'body-secondary-foreground', 'body-tertiary-foreground'
@@ -222,7 +228,7 @@ const defaultConfig = {
     fontSize: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
     spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
-    animations: ['fade-in', 'fade-out', 'fade-in-down', 'fade-out-up', 'ripple', 'spin', 'move-indeterminate'],
+    animations: ['ripple', 'spin', 'move-indeterminate'],
     mask: ['check', 'radio', 'angle-up', 'angle-down'],
     screens: {
         xs: '22.5em',
