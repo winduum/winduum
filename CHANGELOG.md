@@ -1,7 +1,7 @@
-# 1.2.1 (2024-06-03)
+## 1.2.1 (2024-06-03)
 * fix: tw plugin build
 
-# 1.2.0 (2024-05-31)
+## 1.2.0 (2024-05-31)
 * feat: added Popover API for `c-popover`
 * feat: replaced `[href]` with `:any-link`
 * feat: changed most of the `text-wrap` from `balance` to `pretty`
