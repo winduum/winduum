@@ -12,7 +12,7 @@
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 
-  &, &::backdrop {
+  &::backdrop {
     visibility: hidden;
   }
 
@@ -22,7 +22,7 @@
   }
 }
 
-html:has(.c-dialog.visible) {
+html:has(.c-dialog:not([inert])) {
   padding-inline-end: var(--c-dialog-scrollbar-width);
   scrollbar-width: none;
 
