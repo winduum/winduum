@@ -4,7 +4,7 @@ import { animationsFinished, nextRepaint } from '../../common.js'
  * @type {import("./").DefaultOptions}
 */
 export const defaultOptions = {
-    openClass: 'visible',
+    openClass: 'in',
     scrollbarWidthProperty: '--c-dialog-scrollbar-width',
     remove: false
 }
@@ -67,13 +67,16 @@ export const showDialog = async (element, options = {}) => {
     }
 
     element.inert = false
-    element.classList.add(options.openClass)
 
     await nextRepaint()
 
     window.HTMLDialogElement
         ? element.showModal()
         : element.setAttribute('open', '')
+
+    await animationsFinished(element)
+
+    element.classList.add(options.openClass)
 }
 
 /**
@@ -114,6 +117,7 @@ export const insertDialog = async (content, options = {}) => {
 
     const dialog = new DOMParser().parseFromString(content, 'text/html').body.firstElementChild
     dialog.classList.add(options.class)
+    dialog.inert = true
 
     if (!dialogSelector(options.selector) || options.append) {
         document.body.insertAdjacentHTML('beforeend', dialog.outerHTML)
