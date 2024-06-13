@@ -16,7 +16,7 @@
 
     Curabitur interdum elit est, elementum cursus erat pellentesque eu. Phasellus bibendum nisi sed volutpat faucibus. Vivamus tincidunt pharetra bibendum. Nullam pellentesque nec elit a sollicitudin. Quisque in orci felis. Etiam nec mollis ipsum, ut tempus tortor. Nullam faucibus fermentum enim, in scelerisque erat sagittis viverra. Donec a ullamcorper diam. Nam tincidunt eros arcu, quis gravida justo lacinia vel. Suspendisse at nulla consectetur, luctus tortor sollicitudin, semper turpis. Nam tincidunt porta lectus nec malesuada. Phasellus condimentum tortor id aliquam viverra. Nulla vestibulum dolor ac facilisis aliquet.
 
-    <dialog class="c-dialog" id="customDialog" inert>
+    <dialog class="c-dialog" id="customDialog">
         <div class="c-dialog-content">
             <input autofocus>
             <button class="ui-btn" id="dialogHideInline">Close dialog</button>
@@ -30,7 +30,7 @@
         document.querySelector('#dialogShow').addEventListener('click', async event => {
             showRipple(event)
             await insertDialog(`
-                <dialog class="c-dialog" inert>
+                <dialog class="c-dialog">
                     <div class="c-dialog-content">
                         <input autofocus>
                         <button class="ui-btn" id="dialogHide">Close dialog</button>
@@ -55,7 +55,7 @@
 
             if (target.id === 'dialogInDialog') {
                 await insertDialog(`
-                   <dialog class="c-dialog" inert>
+                   <dialog class="c-dialog">
                        <div class="c-dialog-content">
                             <input autofocus value="asd">
                             <button class="ui-btn" id="dialogHideNext">Close dialog</button>
