@@ -5,6 +5,7 @@ import { animationsFinished } from '../../common.js'
 */
 export const defaultOptions = {
     openClass: 'open',
+    overflowClass: 'overflow-auto',
     scrollbarWidthProperty: '--scrollbar-width',
     remove: false
 }
@@ -43,8 +44,10 @@ export const showDialog = async (element, options = {}) => {
         ? element.showModal()
         : element.setAttribute('open', '')
 
+    element.scroll(0, 0)
     element.classList.add(options.openClass)
     await animationsFinished(element.lastElementChild)
+    element.classList.add(options.overflowClass)
     element.dispatchEvent(new CustomEvent('c-dialog:show'))
 }
 
@@ -60,7 +63,7 @@ export const closeDialog = async (element, options = {}) => {
         ...options
     }
 
-    element.classList.remove(options.openClass)
+    element.classList.remove(options.overflowClass, options.openClass)
 
     await animationsFinished(element.lastElementChild)
 

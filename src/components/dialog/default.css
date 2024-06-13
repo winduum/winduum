@@ -8,7 +8,7 @@
   display: flex;
   position: fixed;
   inset: 0;
-  overflow: auto;
+  overflow: hidden;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 
