@@ -12,7 +12,7 @@
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 
-  &:not([open]) {
+  &::backdrop, &:not([open]) {
     display: none;
   }
 
