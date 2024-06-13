@@ -12,18 +12,17 @@
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 
-  &, &::backdrop {
-    visibility: hidden;
+  &:not([open]) {
+    display: none;
   }
 
-  &:not([open]) {
+  &:not(.open) {
     background-color: transparent;
-    pointer-events: none;
   }
 }
 
-html:has(.c-dialog.visible) {
-  padding-inline-end: var(--c-dialog-scrollbar-width);
+html:has(.c-dialog[open]) {
+  padding-inline-end: var(--scrollbar-width);
   scrollbar-width: none;
 
   &::-webkit-scrollbar {

@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
 <body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4 min-h-[200vh]">
-    <button class="ui-btn" id="dialogShow">Open dialog</button>
-    <button class="ui-btn" id="dialogShowInline">Open dialog</button>
+    <button class="ui-btn" id="dialogFetch">Open dialog</button>
+    <button class="ui-btn" invokeaction="show" invoketarget="customDialog">Open dialog</button>
     <input autofocus>
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula et enim nec feugiat. Praesent at bibendum libero, quis congue quam. Proin eu eros dapibus dolor semper lacinia. Nunc leo diam, lacinia in mattis eget, malesuada quis tortor. Nullam interdum tincidunt interdum. Fusce eget sagittis metus. Integer eu quam et orci tempor porttitor.
@@ -24,10 +24,10 @@
         </div>
     </dialog>
     <script type="module">
-        import { showDialog, closeDialog, insertDialog } from '/src/components/dialog'
+        import { showDialog, closeDialog } from '/src/components/dialog'
         import { showRipple } from '/src/utilities/ripple'
 
-        document.querySelector('#dialogShow').addEventListener('click', async event => {
+        document.querySelector('#dialogFetch')?.addEventListener('click', async event => {
             showRipple(event)
             await insertDialog(`
                 <dialog class="c-dialog">
@@ -40,8 +40,8 @@
             `)
         })
 
-        document.querySelector('#dialogShowInline').addEventListener('click', async () => {
-            await showDialog(document.querySelector('#customDialog'))
+        document.querySelector('[invokeaction="show"]').addEventListener('click', async ({ currentTarget }) => {
+            await showDialog(document.getElementById(currentTarget.getAttribute('invoketarget')))
         })
 
         document.addEventListener('click', async ({ target }) => {

@@ -20,3 +20,15 @@
     background-position: -200% 0;
   }
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1
+  }
+}
