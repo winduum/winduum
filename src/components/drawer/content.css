@@ -1,6 +1,6 @@
-.c-drawer-content {
-  width: var(--c-drawer-content-width);
-  height: var(--c-drawer-content-height);
+.drawer-content {
+  width: var(--drawer-content-width);
+  height: var(--drawer-content-height);
   flex-shrink: 0;
   scroll-snap-align: end;
   background-color: var(--color-body-primary);

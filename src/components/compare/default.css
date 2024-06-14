@@ -1,6 +1,6 @@
-.c-compare {
-  --c-compare-position: 50%;
-  --c-compare-clip-path: polygon(0% 0, var(--c-compare-position) 0%, var(--c-compare-position) 100%, 0 100%);
+.compare {
+  --compare-position: 50%;
+  --compare-clip-path: polygon(0% 0, var(--compare-position) 0%, var(--compare-position) 100%, 0 100%);
 
   display: grid;
   overflow: hidden;
@@ -15,7 +15,7 @@
 
   &::before {
     background-color: var(--color-accent);
-    inset-inline-start: var(--c-compare-position);
+    inset-inline-start: var(--compare-position);
     inline-size: 1px;
     content: "";
   }
@@ -43,7 +43,7 @@
   }
 
   > :where(.button) {
-    inset-inline-start: var(--c-compare-position);
+    inset-inline-start: var(--compare-position);
     margin-inline-start: calc(var(--button-width) / 2 * -1);
     margin-block: auto;
   }
@@ -58,7 +58,7 @@
       grid-area: 1/1;
 
       &:first-child {
-        clip-path: var(--c-compare-clip-path);
+        clip-path: var(--compare-clip-path);
         position: relative;
       }
     }

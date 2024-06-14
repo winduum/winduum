@@ -1,7 +1,7 @@
-.c-toast {
-  width: min(100%, var(--c-toast-width));
-  height: var(--c-toast-height);
-  transition: all var(--c-toast-duration) var(--transition-timing-function-in-out);
+.toast {
+  width: min(100%, var(--toast-width));
+  height: var(--toast-height);
+  transition: all var(--toast-duration) var(--transition-timing-function-in-out);
   position: relative;
   pointer-events: auto;
   display: flex;
@@ -14,7 +14,7 @@
   }
 
   &.in {
-    margin-block: var(--c-toaster-spacing-y);
+    margin-block: var(--toaster-spacing-y);
   }
 
   &.in:where(:nth-last-child(-n+3)) {

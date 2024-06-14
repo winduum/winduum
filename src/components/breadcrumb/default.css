@@ -1,4 +1,4 @@
-.c-breadcrumb {
+.breadcrumb {
   > :where(ul, ol) {
     &, > li {
       display: flex;
@@ -8,11 +8,11 @@
     > li {
       &:not(:last-child)::after {
         content: "";
-        mask: var(--c-breadcrumb-marker);
+        mask: var(--breadcrumb-marker);
         background-color: currentColor;
-        margin-inline: var(--c-breadcrumb-gap);
-        width: var(--c-breadcrumb-marker-size);
-        height: var(--c-breadcrumb-marker-size);
+        margin-inline: var(--breadcrumb-gap);
+        width: var(--breadcrumb-marker-size);
+        height: var(--breadcrumb-marker-size);
         flex-shrink: 0;
       }
     }

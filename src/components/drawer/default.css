@@ -1,4 +1,4 @@
-.c-drawer {
+.drawer {
   --tw-bg-opacity: 0;
 
   z-index: var(--z-index-30);
@@ -6,7 +6,7 @@
   inset: 0;
   display: flex;
   overflow: auto hidden;
-  background-color: color-mix(in sRGB, var(--color-dark) calc(var(--tw-bg-opacity) * var(--c-drawer-bg-opacity) * 100%), transparent);
+  background-color: color-mix(in sRGB, var(--color-dark) calc(var(--tw-bg-opacity) * var(--drawer-bg-opacity) * 100%), transparent);
   scrollbar-width: none;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;

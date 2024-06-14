@@ -1,5 +1,5 @@
 :root, :host {
-  --c-dialog-content-py: 2rem;
-  --c-dialog-content-px: 1.5rem;
-  --c-dialog-content-width: 35rem;
+  --dialog-content-py: 2rem;
+  --dialog-content-px: 1.5rem;
+  --dialog-content-width: 35rem;
 }

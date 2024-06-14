@@ -1,4 +1,4 @@
-.c-tooltip {
+.tooltip {
   position: relative;
   display: inline-block;
 
@@ -15,11 +15,11 @@
     transition-timing-function: var(--transition-timing-function-in-out);
     transition-duration: var(--default-transition-duration);
     will-change: transform;
-    background-color: var(--c-tooltip-bg);
-    color: var(--c-tooltip-color);
-    border-radius: var(--c-tooltip-border-radius);
-    font-size: var(--c-tooltip-font-size);
-    padding: var(--c-tooltip-py) var(--c-tooltip-px);
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-color);
+    border-radius: var(--tooltip-border-radius);
+    font-size: var(--tooltip-font-size);
+    padding: var(--tooltip-py) var(--tooltip-px);
     z-index: var(--z-index-20);
     width: max-content;
     position: absolute;
@@ -30,7 +30,7 @@
     &::before {
       --tw-translate-x: -50%;
 
-      margin-block: var(--c-tooltip-margin-block);
+      margin-block: var(--tooltip-margin-block);
       inset-inline-start: 50%;
     }
   }
@@ -39,7 +39,7 @@
     &::before {
       --tw-translate-y: -50%;
 
-      margin-inline: var(--c-tooltip-margin-inline);
+      margin-inline: var(--tooltip-margin-inline);
       inset-block-start: 50%;
     }
   }
@@ -73,8 +73,8 @@
   }
 
   &:not(:hover, :focus)::before {
-    --tw-scale-x: var(--c-tooltip-scale-x);
-    --tw-scale-y: var(--c-tooltip-scale-y);
+    --tw-scale-x: var(--tooltip-scale-x);
+    --tw-scale-y: var(--tooltip-scale-y);
     --tw-opacity: 0;
     --tw-visibility: hidden;
   }

@@ -10,7 +10,7 @@
     height: var(--control-select-icon-size);
     mask: var(--mask-angle-down);
     margin-inline: auto var(--control-select-icon-me);
-    grid-area: c-control-p;
+    grid-area: control-p;
     background-color: currentColor;
     pointer-events: none;
     align-self: center;

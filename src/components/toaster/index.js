@@ -8,7 +8,7 @@ import { animationsFinished, nextRepaint } from '../../common.js'
 export const closeToast = async (element, options = {}) => {
     options = {
         hiddenClass: 'out',
-        heightProperty: '--c-toast-height',
+        heightProperty: '--toast-height',
         ...options
     }
 
@@ -36,7 +36,7 @@ export const showToast = async (element, options = {}) => {
     options = {
         visibleClass: 'in',
         autoHide: null,
-        heightProperty: '--c-toast-height',
+        heightProperty: '--toast-height',
         close: {},
         ...options
     }
@@ -65,8 +65,8 @@ export const insertToaster = async (element, options = {}) => {
         ...options
     }
 
-    if (!document.querySelector('.c-toaster')) {
-        element.insertAdjacentHTML('beforeend', `<ol class="c-toaster ${options.classes}"></ol>`)
+    if (!document.querySelector('.toaster')) {
+        element.insertAdjacentHTML('beforeend', `<ol class="toaster ${options.classes}"></ol>`)
     }
 }
 
@@ -87,8 +87,8 @@ export const insertToast = async (element, options = {}) => {
     }
 
     element.insertAdjacentHTML('beforeend', `
-        <li class="c-toast ${options.classes}" role="status" aria-live="assertive" aria-atomic="true">
-            <div class="c-toast-content">
+        <li class="toast ${options.classes}" role="status" aria-live="assertive" aria-atomic="true">
+            <div class="toast-content">
                ${options.start}
                 <div class="flex-col">
                     <div class="ui-title">${options.title}</div>           

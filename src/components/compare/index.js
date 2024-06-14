@@ -5,8 +5,8 @@
  */
 export const setPosition = ({ currentTarget }, options = {}) => {
     const { selector, positionProperty } = {
-        selector: '.c-compare',
-        positionProperty: '--c-compare-position',
+        selector: '.compare',
+        positionProperty: '--compare-position',
         ...options
     }
 

@@ -1,4 +1,4 @@
-.c-tabs {
+.tabs {
   background-color: var(--color-body-secondary);
   display: flex;
   gap: var(--spacing-xs);

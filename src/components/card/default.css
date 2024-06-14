@@ -1,9 +1,9 @@
-.c-card {
-  --c-card-p: var(--c-card-py) var(--c-card-px);
+.card {
+  --card-p: var(--card-py) var(--card-px);
 
   background-color: var(--color-body-primary);
   border-radius: var(--radius-2xl);
-  padding: var(--c-card-p);
+  padding: var(--card-p);
   display: flex;
   flex-direction: column;
 }

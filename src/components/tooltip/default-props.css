@@ -1,12 +1,12 @@
 :root, :host {
-  --c-tooltip-bg: var(--color-main);
-  --c-tooltip-color: var(--color-main-foreground);
-  --c-tooltip-border-radius: var(--radius-md);
-  --c-tooltip-font-size: var(--font-size-sm);
-  --c-tooltip-py: var(--spacing-xs);
-  --c-tooltip-px: var(--spacing-sm);
-  --c-tooltip-margin-block: var(--spacing-xs);
-  --c-tooltip-margin-inline: var(--spacing-xs);
-  --c-tooltip-scale-x: 0.75;
-  --c-tooltip-scale-y: 0.75;
+  --tooltip-bg: var(--color-main);
+  --tooltip-color: var(--color-main-foreground);
+  --tooltip-border-radius: var(--radius-md);
+  --tooltip-font-size: var(--font-size-sm);
+  --tooltip-py: var(--spacing-xs);
+  --tooltip-px: var(--spacing-sm);
+  --tooltip-margin-block: var(--spacing-xs);
+  --tooltip-margin-inline: var(--spacing-xs);
+  --tooltip-scale-x: 0.75;
+  --tooltip-scale-y: 0.75;
 }

@@ -17,14 +17,14 @@
         import { insertToaster, insertToast, closeToast, closeToaster } from '/src/components/toaster'
 
         window.closeToaster.addEventListener(`click`, async () => {
-            await closeToaster(document.querySelector('.c-toaster'))
+            await closeToaster(document.querySelector('.toaster'))
         })
 
         window.insertToast.addEventListener('click', () => {
             insertToaster(document.body, {
                 classes: 'items-end'
             })
-            insertToast(document.querySelector('.c-toaster'), {
+            insertToast(document.querySelector('.toaster'), {
                 title: 'Hello toast',
                 text: 'Amazing toast',
                 end: `<button class="button muted ml-auto" data-action="closeToast">Close</button>`
@@ -33,7 +33,7 @@
             const closeToastButton = document.querySelectorAll('[data-action="closeToast"]')[document.querySelectorAll('[data-action="closeToast"]').length - 1]
 
             closeToastButton.addEventListener('click', ({ currentTarget }) => {
-                closeToast(currentTarget.closest('.c-toast'))
+                closeToast(currentTarget.closest('.toast'))
             })
         })
 

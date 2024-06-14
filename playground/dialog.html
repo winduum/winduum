@@ -16,8 +16,8 @@
 
     Curabitur interdum elit est, elementum cursus erat pellentesque eu. Phasellus bibendum nisi sed volutpat faucibus. Vivamus tincidunt pharetra bibendum. Nullam pellentesque nec elit a sollicitudin. Quisque in orci felis. Etiam nec mollis ipsum, ut tempus tortor. Nullam faucibus fermentum enim, in scelerisque erat sagittis viverra. Donec a ullamcorper diam. Nam tincidunt eros arcu, quis gravida justo lacinia vel. Suspendisse at nulla consectetur, luctus tortor sollicitudin, semper turpis. Nam tincidunt porta lectus nec malesuada. Phasellus condimentum tortor id aliquam viverra. Nulla vestibulum dolor ac facilisis aliquet.
 
-    <dialog class="c-dialog" id="customDialog">
-        <div class="c-dialog-content">
+    <dialog class="dialog" id="customDialog">
+        <div class="dialog-content">
             <input autofocus>
             <button class="button" id="dialogHideInline">Close dialog</button>
             <button class="button" id="dialogInDialog">Open dialog In</button>
@@ -30,8 +30,8 @@
         document.querySelector('#dialogFetch')?.addEventListener('click', async event => {
             showRipple(event)
             await insertDialog(`
-                <dialog class="c-dialog">
-                    <div class="c-dialog-content">
+                <dialog class="dialog">
+                    <div class="dialog-content">
                         <input autofocus>
                         <button class="button" id="dialogHide">Close dialog</button>
                         <button class="button" id="dialogInDialog">Open dialog In</button>
@@ -55,8 +55,8 @@
 
             if (target.id === 'dialogInDialog') {
                 await insertDialog(`
-                   <dialog class="c-dialog">
-                       <div class="c-dialog-content">
+                   <dialog class="dialog">
+                       <div class="dialog-content">
                             <input autofocus value="asd">
                             <button class="button" id="dialogHideNext">Close dialog</button>
                         </div>

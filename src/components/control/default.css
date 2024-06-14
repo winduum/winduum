@@ -32,26 +32,26 @@
     );
   outline-offset: var(--control-outline-offset);
   grid-template:
-    [c-control-start] calc(var(--control-py) - var(--control-border-width))
-    [c-control-p] 1fr
-    calc(var(--control-py) - var(--control-border-width)) [c-control-end] /
-    [c-control-start] var(--control-px)
-    [c-control-p] 1fr
-    var(--control-px) [c-control-end];
+    [control-start] calc(var(--control-py) - var(--control-border-width))
+    [control-p] 1fr
+    calc(var(--control-py) - var(--control-border-width)) [control-end] /
+    [control-start] var(--control-px)
+    [control-p] 1fr
+    var(--control-px) [control-end];
 
   &:has(textarea) {
     height: auto;
   }
 
   > :where(*) {
-    grid-area: c-control-p;
+    grid-area: control-p;
     align-self: center;
   }
 
   > :where(input, textarea, select) {
     padding-block: var(--control-py);
     padding-inline: calc(var(--control-px) + var(--control-ps, 0rem)) calc(var(--control-px) + var(--control-pe, 0rem));
-    grid-area: c-control;
+    grid-area: control;
     text-overflow: ellipsis;
     overflow: clip;
     align-self: stretch;

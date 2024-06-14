@@ -1,4 +1,4 @@
-.c-field {
+.field {
   gap: var(--spacing-sm);
   display: flex;
   flex-direction: column;

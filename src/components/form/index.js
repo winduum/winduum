@@ -37,7 +37,7 @@ export const validateField = (element, options = {}) => {
         selector: 'input:not([type="hidden"]), textarea, select',
         ignoreMatch: /(data-novalidate|readonly)/,
         validitySelector: '.validity',
-        infoParentSelector: '.c-field',
+        infoParentSelector: '.field',
         infoSelector: '.info',
         infoContent: '<div class="ui-info text-error validity"></div>',
         endParentSelector: '.control',
