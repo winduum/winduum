@@ -1,0 +1,8 @@
+.heading {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  font-size: var(--heading-font-size);
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+  text-wrap: balance;
+}

@@ -1,0 +1,19 @@
+.group:where(.vertical) {
+  flex-direction: column;
+
+  > :where(*) {
+    border-radius: inherit;
+
+    &:where(:not(:first-child)) {
+      margin-block-start: calc(var(--control-border-width) * -1);
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
+      margin-inline-start: 0;
+    }
+
+    &:where(:not(:last-child)) {
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+.badge:is(.muted) {
+  --badge-color: var(--color-accent);
+  --tw-bg-opacity: 0.1;
+}

@@ -1,0 +1,50 @@
+.check {
+  --check-hover-border-color: var(--color-accent);
+  --check-hover-bg: var(--color-accent);
+  --check-checked-bg: var(--color-accent);
+  --check-focus-border-color: var(--color-accent);
+
+  :where(input) {
+    transition-property: var(--default-transition-property);
+    transition-timing-function: var(--transition-timing-function-in-out);
+    transition-duration: var(--default-transition-duration);
+
+    &:enabled {
+      &:is(:hover, :focus-visible) {
+        --check-border-color: var(--check-hover-border-color);
+        --check-bg: var(--check-hover-bg);
+        --tw-border-opacity: var(--check-hover-border-opacity, 0.75);
+        --tw-bg-opacity: var(--check-hover-bg-opacity, 0.1);
+      }
+
+      &:focus {
+        --check-border-color: var(--check-focus-border-color);
+        --check-outline-offset: var(--check-focus-outline-offset);
+        --tw-border-opacity: var(--check-focus-border-opacity, 0.75);
+        --tw-outline-opacity: var(--check-focus-outline-opacity, 0.2);
+      }
+    }
+
+    &:disabled {
+      --tw-bg-opacity: var(--check-disabled-bg-opacity, 0.15);
+
+      cursor: not-allowed;
+      opacity: var(--check-disabled-opacity);
+    }
+
+    &:where([type="checkbox"]):indeterminate {
+      --check-icon: var(--mask-indeterminate);
+    }
+
+    &:is(:checked, [type="checkbox"]:indeterminate) {
+      --check-bg: var(--check-checked-bg);
+      --tw-bg-opacity: 1;
+      --tw-border-opacity: 0;
+
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}

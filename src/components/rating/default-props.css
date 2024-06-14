@@ -1,0 +1,5 @@
+:root, :host {
+  --rating-color: var(--color-accent);
+  --c-rating-gap: 0.25rem;
+  --c-rating-opacity: 0.2;
+}

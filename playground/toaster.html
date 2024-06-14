@@ -9,9 +9,9 @@
 </head>
 <body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid grid-cols-container">
     <div class="w-full flex flex-col gap-4 items-start">
-        <button class="ui-btn" id="insertToast">Show toast</button>
-        <button class="ui-btn" id="closeToaster">Close toaster</button>
-        <button class="ui-btn muted accent-main" id="action-btn-dark">dark</button>
+        <button class="button" id="insertToast">Show toast</button>
+        <button class="button" id="closeToaster">Close toaster</button>
+        <button class="button muted accent-main" id="action-btn-dark">dark</button>
     </div>
     <script type="module">
         import { insertToaster, insertToast, closeToast, closeToaster } from '/src/components/toaster'
@@ -27,7 +27,7 @@
             insertToast(document.querySelector('.c-toaster'), {
                 title: 'Hello toast',
                 text: 'Amazing toast',
-                end: `<button class="ui-btn muted ml-auto" data-action="closeToast">Close</button>`
+                end: `<button class="button muted ml-auto" data-action="closeToast">Close</button>`
             })
 
             const closeToastButton = document.querySelectorAll('[data-action="closeToast"]')[document.querySelectorAll('[data-action="closeToast"]').length - 1]

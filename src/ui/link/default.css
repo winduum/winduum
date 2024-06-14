@@ -1,8 +1,0 @@
-.ui-link {
-  font-family: var(--ui-link-font-family);
-  font-weight: var(--ui-link-font-weight);
-  font-size: var(--ui-link-font-size);
-  line-height: var(--ui-link-line-height);
-  letter-spacing: var(--ui-link-letter-spacing);
-  text-wrap: pretty;
-}

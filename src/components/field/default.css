@@ -4,12 +4,12 @@
   flex-direction: column;
 
   .validated &:has(:invalid) {
-    :where(.ui-info[hidden]) {
+    :where(.info[hidden]) {
       display: flex;
     }
   }
 
-  &:has([required]) :where(.ui-label) {
+  &:has([required]) :where(.label) {
     &::after {
       color: var(--color-error);
       content: " *";

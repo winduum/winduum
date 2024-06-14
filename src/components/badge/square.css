@@ -1,0 +1,4 @@
+.badge:is(.square) {
+  --badge-px: var(--badge-py);
+  --badge-width: var(--badge-height);
+}

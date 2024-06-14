@@ -1,0 +1,17 @@
+:root, :host {
+  --switch-width: 3rem;
+  --switch-height: 1.5rem;
+  --switch-icon-size: 1.125rem;
+  --switch-font-weight: var(--font-weight-normal);
+  --switch-font-size: var(--font-size-sm);
+  --switch-line-height: calc(1em + 0.25rem);
+  --switch-gap: 0.75rem;
+  --switch-border-radius: var(--radius-full);
+  --switch-bg: currentColor;
+  --switch-outline-width: 2px;
+  --switch-outline-color: currentColor;
+
+  &.dark {
+    --switch-bg: var(--color-body-tertiary);
+  }
+}

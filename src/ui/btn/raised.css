@@ -1,7 +1,0 @@
-.ui-btn:where(.raised) {
-  --ui-btn-border-width: 2px;
-  --tw-border-opacity: 0.85;
-
-  border: var(--ui-btn-border-width) solid color-mix(in var(--default-color-space), var(--ui-btn-bg) calc(var(--tw-border-opacity) * 100%), var(--ui-btn-color));
-  padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
-}

@@ -1,0 +1,16 @@
+:root, :host {
+  --control-height: 3rem;
+  --control-height-textarea: 8rem;
+  --control-px: 0.75rem;
+  --control-py: 0.75rem;
+  --control-border-width: 1px;
+  --control-font-weight: var(--font-weight-medium);
+  --control-font-size: var(--font-size-sm);
+  --control-bg: transparent;
+  --control-color: currentColor;
+  --control-border-radius: var(--radius);
+  --control-border-color: currentColor;
+  --control-outline-width: 3px;
+  --control-placeholder-color: currentColor;
+  --control-placeholder-opacity: 0.5;
+}

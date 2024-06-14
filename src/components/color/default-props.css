@@ -1,0 +1,11 @@
+:root, :host {
+  --color-primary: currentColor;
+  --color-secondary: transparent;
+  --color-size: 1.75rem;
+  --color-p: var(--spacing-xs);
+  --color-border-width: 2px;
+  --color-border-color: currentColor;
+  --color-border-radius: var(--radius-full);
+  --color-outline-width: 3px;
+  --color-outline-color: var(--color-border-color);
+}

@@ -1,0 +1,13 @@
+.image:where(.avatar) {
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  color: var(--color-accent-foreground);
+  container-type: inline-size;
+  justify-content: center;
+  align-items: center;
+
+  :where(span) {
+    font-weight: var(--font-weight-medium);
+    font-size: 50cqi;
+  }
+}

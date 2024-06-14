@@ -1,5 +1,0 @@
-.ui-btn:is(.square) {
-  --ui-btn-py: 0;
-  --ui-btn-px: 0;
-  --ui-btn-width: var(--ui-btn-height);
-}

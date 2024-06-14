@@ -1,3 +1,23 @@
+@import "badge/index.css";
+@import "button/index.css";
+@import "check/index.css";
+/*
+@import "color/index.css";
+ */
+@import "control/index.css";
+@import "group/index.css";
+@import "heading/index.css";
+@import "image/index.css";
+@import "info/index.css";
+@import "label/index.css";
+@import "link/index.css";
+@import "notice/index.css";
+@import "progress/index.css";
+@import "range/index.css";
+@import "rating/index.css";
+@import "switch/index.css";
+@import "text/index.css";
+@import "title/index.css";
 @import "breadcrumb/index.css";
 @import "card/index.css";
 @import "dialog/index.css";

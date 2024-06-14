@@ -1,0 +1,101 @@
+.range {
+  --range-thumb-bg: var(--color-accent);
+  --range-thumb-border-color: var(--range-thumb-bg);
+  --range-track-bg: var(--color-accent);
+  --range-track:
+    linear-gradient(
+      to right,
+      var(--range-track-bg) 0%,
+      var(--range-track-bg) var(--range-track-start),
+      transparent var(--range-track-start),
+      transparent var(--range-track-end)
+    );
+
+  min-block-size: var(--range-thumb-size);
+  display: grid;
+
+  :where(input) {
+    --tw-bg-opacity: 0.1;
+    --tw-bg-mix: var(--color-body);
+
+    block-size: var(--range-track-height);
+    background-color: color-mix(in var(--default-color-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+    position: relative;
+    grid-area: 1/1;
+
+    &::-webkit-slider-runnable-track {
+      block-size: var(--range-track-height);
+      border-radius: var(--radius-full);
+      background: var(--range-track);
+    }
+
+    &::-moz-range-track {
+      block-size: var(--range-track-height);
+      border-radius: var(--radius-full);
+      background: var(--range-track);
+    }
+
+    &::-webkit-slider-thumb {
+      --tw-outline-opacity: var(--range-thumb-outline-opacity);
+
+      width: var(--range-thumb-size);
+      height: var(--range-thumb-size);
+      background-color: var(--range-thumb-bg);
+      border-radius: var(--radius-full);
+      border: var(--range-thumb-border-width) solid var(--range-thumb-border-color);
+      outline:
+        var(--range-thumb-outline-width) solid
+        color-mix(
+          in var(--default-color-space),
+          var(--range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),
+          transparent
+        );
+      margin-block-start: calc((var(--range-thumb-size) - var(--range-track-height)) / 2 * -1);
+      transition: outline-color var(--default-transition-duration), outline-offset var(--default-transition-duration);
+      cursor: var(--range-thumb-cursor, grab);
+      appearance: none;
+      pointer-events: auto;
+
+      &:active {
+        --range-thumb-cursor: grabbing;
+        --tw-outline-opacity: var(--range-thumb-focus-outline-opacity);
+      }
+    }
+
+    &::-moz-range-thumb {
+      --tw-outline-opacity: var(--range-thumb-outline-opacity);
+
+      width: var(--range-thumb-size);
+      height: var(--range-thumb-size);
+      background-color: var(--range-thumb-bg);
+      border-radius: var(--radius-full);
+      border: var(--range-thumb-border-width) solid var(--range-thumb-border-color);
+      outline:
+        var(--range-thumb-outline-width) solid
+        color-mix(
+          in var(--default-color-space),
+          var(--range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),
+          transparent
+        );
+      transition: outline-color var(--default-transition-duration), outline-offset var(--default-transition-duration);
+      cursor: var(--range-thumb-cursor, grab);
+      appearance: none;
+      pointer-events: auto;
+
+      &:active {
+        --range-thumb-cursor: grabbing;
+        --tw-outline-opacity: var(--range-thumb-focus-outline-opacity);
+      }
+    }
+
+    &:focus-visible {
+      &::-webkit-slider-thumb {
+        --tw-outline-opacity: var(--range-thumb-focus-outline-opacity);
+      }
+
+      &::-moz-range-thumb {
+        --tw-outline-opacity: var(--range-thumb-focus-outline-opacity);
+      }
+    }
+  }
+}

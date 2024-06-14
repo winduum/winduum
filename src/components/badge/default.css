@@ -1,0 +1,26 @@
+.badge {
+  --badge-bg: var(--color-accent);
+  --badge-color: var(--color-accent-foreground);
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  --tw-bg-mix: transparent;
+  --tw-text-mix: transparent;
+
+  width: var(--badge-width);
+  height: var(--badge-height);
+  padding: var(--badge-py) var(--badge-px);
+  border-radius: var(--badge-border-radius);
+  font-family: var(--badge-font-family);
+  font-weight: var(--badge-font-weight);
+  font-size: var(--badge-font-size);
+  letter-spacing: var(--badge-letter-spacing);
+  background-color: color-mix(in var(--default-color-space), var(--badge-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+  color: color-mix(in var(--default-color-space), var(--badge-color) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
+  gap: var(--badge-gap);
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}

@@ -1,0 +1,5 @@
+.button:is(.square) {
+  --button-padding-block: 0;
+  --button-padding-inline: 0;
+  --button-width: var(--button-height);
+}

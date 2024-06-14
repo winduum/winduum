@@ -1,0 +1,5 @@
+.badge:is(.circle) {
+  --badge-px: var(--badge-py);
+  --badge-width: var(--badge-height);
+  --badge-border-radius: var(--radius-full);
+}

@@ -1,0 +1,193 @@
+.text {
+  font-family: var(--text-font-family);
+  font-weight: var(--text-font-weight);
+  font-size: var(--text-font-size);
+  line-height: var(--text-line-height);
+  letter-spacing: var(--text-letter-spacing);
+  text-wrap: pretty;
+
+  > :is(*:first-child) {
+    margin-block-start: 0;
+  }
+
+  > :is(*:last-child) {
+    margin-block-end: 0;
+  }
+
+  :where(a) {
+    transition: var(--transition-color);
+    color: var(--color-accent);
+    text-decoration: underline;
+
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        color: color-mix(in var(--default-color-space), var(--color-accent) 75%, transparent);
+      }
+    }
+
+    &:focus-visible {
+      color: color-mix(in var(--default-color-space), var(--color-accent) 75%, transparent);
+    }
+  }
+
+  :where(b, strong) {
+    font-weight: var(--text-content-bold);
+  }
+
+  :where(em) {
+    font-style: italic;
+  }
+
+  :where(img) {
+    display: block;
+    height: auto;
+  }
+
+  :where(p) {
+    margin-block: var(--text-content-my);
+
+    &:empty {
+      line-height: 0;
+      margin: 0;
+
+      &::after {
+        content: "\00a0";
+      }
+    }
+  }
+
+  :where(hr) {
+    --tw-border-opacity: 0.1;
+
+    margin-block: var(--text-hr-my);
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--text-heading-font-family);
+    font-weight: var(--text-heading-font-weight, var(--text-content-bold));
+    font-size: var(--text-heading-font-size);
+    line-height: var(--text-heading-line-height);
+    letter-spacing: var(--text-heading-letter-spacing);
+    margin-block: var(--text-heading-my);
+    color: var(--text-heading-color);
+    text-wrap: balance;
+  }
+
+  :where(h1) {
+    --text-heading-font-size: var(--font-size-4xl);
+  }
+
+  :where(h2) {
+    --text-heading-font-size: var(--font-size-3xl);
+  }
+
+  :where(h3) {
+    --text-heading-font-size: var(--font-size-2xl);
+  }
+
+  :where(h4) {
+    --text-heading-font-size: var(--font-size-xl);
+  }
+
+  :where(h5) {
+    --text-heading-font-size: var(--font-size-lg);
+  }
+
+  :where(table) {
+    border: 0;
+    min-width: 100%;
+
+    :where(td, th) {
+      padding: 1em 1.25em;
+      text-align: left;
+    }
+
+    :where(thead) {
+      font-weight: var(--text-content-bold);
+      border-block-end: 1px solid color-mix(in var(--default-color-space), currentColor 10%, transparent);
+    }
+
+    :where(tbody tr) {
+      &:nth-of-type(even) {
+        background-color: color-mix(in var(--default-color-space), currentColor 5%, transparent);
+      }
+    }
+  }
+
+  :where(ol, ul) {
+    margin-inline-start: 0.75em;
+    padding-inline-start: 1em;
+    margin-block: var(--text-content-my);
+
+    :where(li) {
+      margin-block: 0.5em;
+      padding-inline-start: 1ch;
+    }
+  }
+
+  :where(ol) {
+    &:not([type]) {
+      list-style: decimal;
+    }
+
+    & :where(li) {
+      &::marker {
+        color: var(--color-accent);
+        font-weight: var(--text-content-bold);
+      }
+    }
+  }
+
+  :where(ul) {
+    :where(li) {
+      position: relative;
+      list-style-type: "";
+
+      &::before {
+        width: var(--text-content-marker-size);
+        height: var(--text-content-marker-size);
+        position: absolute;
+        left: -0.75em;
+        top: 0.5lh;
+        border: 1px solid var(--color-accent);
+        background-color: var(--text-content-marker-bg, var(--color-accent));
+        margin-inline-start: calc((var(--text-content-marker-size) / 2) * -1);
+        margin-block-start: calc(var(--text-content-marker-size) / 2 * -1);
+        border-radius: var(--text-content-marker-radius, 50%);
+        mask: var(--text-content-marker-mask);
+        will-change: transform;
+        content: "";
+      }
+    }
+
+    &[style*="square"] {
+      --text-content-marker-radius: 0;
+    }
+
+    &[style*="circle"] {
+      --text-content-marker-bg: transparent;
+    }
+  }
+
+  :where(blockquote) {
+    border-left: 0.375em solid var(--color-accent);
+    padding: 0.5em 1.25em;
+    margin-block: var(--text-content-my);
+    font-size: inherit;
+  }
+
+  :where(code) {
+    font-size: 87.5%;
+  }
+
+  :where(figure) {
+    margin-block: var(--text-content-my);
+  }
+
+  :where(figcaption) {
+    font-size: 87.5%;
+    line-height: 1.5;
+    font-weight: var(--font-weight-semibold);
+    margin-block-start: 0.5em;
+  }
+}

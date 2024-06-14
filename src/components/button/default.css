@@ -1,0 +1,63 @@
+.button {
+  --button-background-color: var(--color-accent);
+  --button-border-color: var(--color-accent);
+  --button-color: var(--color-accent-foreground);
+
+  inline-size: var(--button-width);
+  block-size: var(--button-height);
+  padding: var(--button-padding-block) var(--button-padding-inline);
+  padding-inline: calc(var(--button-padding-inline) - var(--button-border-width));
+  border-radius: var(--button-border-radius);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  background-color:
+    color-mix(
+      in var(--button-background-color-space, srgb),
+      var(--button-background-color) var(--button-background-color-opacity, 100%),
+      var(--button-background-color-mix, transparent)
+    );
+  color:
+    color-mix(
+      in var(--button-color-space, srgb),
+      var(--button-color) var(--button-color-opacity, 100%),
+      var(--button-color-mix, transparent)
+    );
+  border:
+    var(--button-border-width)
+    solid
+    color-mix(
+      in var(--button-border-color-space, srgb),
+      var(--button-border-color) var(--button-border-color-opacity, 100%),
+      var(--button-border-color-mix, transparent)
+    );
+  outline:
+    var(--button-outline-width)
+    solid
+    color-mix(
+      in var(--button-outline-color-space, srgb),
+      var(--button-outline-color, transparent) var(--button-outline-color-opacity, 100%),
+      var(--button-outline-color-mix, transparent)
+    );
+  outline-offset: var(--button-outline-offset);
+  gap: var(--button-gap);
+  user-select: none;
+  overflow: clip;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  line-height: 1;
+  flex-shrink: 0;
+  z-index: 0;
+
+  :where(*) {
+    pointer-events: none;
+  }
+
+  &:where(input)::after {
+    content: attr(aria-label);
+  }
+}

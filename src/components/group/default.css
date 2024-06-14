@@ -1,0 +1,42 @@
+.group {
+  display: flex;
+  border-radius: var(--radius);
+
+  &:has(.control) {
+    > :where(.button) {
+      min-width: var(--control-height);
+      height: auto;
+    }
+
+    > :is(.button) {
+      --button-border-width: var(--control-border-width);
+    }
+  }
+
+  > :where(*) {
+    border-radius: inherit;
+
+    &:is(.control) {
+      --tw-border-mix: var(--color-body-primary);
+    }
+
+    &:is(.button) {
+      --button-focus-outline-offset: 0;
+    }
+
+    &:focus-within {
+      z-index: 1;
+    }
+
+    &:where(:not(:first-child)) {
+      margin-inline-start: calc(var(--control-border-width) * -1);
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+
+    &:where(:not(:last-child)) {
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+    }
+  }
+}

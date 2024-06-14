@@ -15,8 +15,8 @@
   display: flex;
   height: fit-content;
 
-  .ui-text {
-    --ui-text-font-size: var(--font-size-sm);
-    --ui-text-line-height: calc(1em + 0.375rem);
+  .text {
+    --text-font-size: var(--font-size-sm);
+    --text-line-height: calc(1em + 0.375rem);
   }
 }

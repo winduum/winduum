@@ -1,0 +1,6 @@
+:root, :host {
+  --heading-font-family: var(--font-family-primary);
+  --heading-font-weight: var(--font-weight-semibold);
+  --heading-font-size: var(--font-size-xl);
+  --heading-line-height: calc(1em + 0.375rem);
+}

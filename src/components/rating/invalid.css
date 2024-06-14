@@ -1,0 +1,5 @@
+.rating {
+  &.invalid, .validated & :where(input):invalid {
+    --rating-color: var(--color-error);
+  }
+}

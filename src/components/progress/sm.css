@@ -1,0 +1,3 @@
+.progress:is(.sm) {
+  --progress-height: 0.5rem;
+}

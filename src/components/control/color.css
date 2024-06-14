@@ -1,0 +1,24 @@
+.control {
+  > :where(input) {
+    &::-webkit-color-swatch-wrapper {
+      width: var(--control-color-swatch-width);
+      height: var(--control-color-swatch-height);
+      padding: 0;
+    }
+
+    &::-moz-color-swatch {
+      width: var(--control-color-swatch-width);
+      height: var(--control-color-swatch-height);
+      border-radius: var(--control-color-swatch-border-radius);
+      margin: 0;
+    }
+
+    &::-webkit-color-swatch {
+      border-radius: var(--control-color-swatch-border-radius);
+    }
+
+    &[type="color"] ~ label {
+      margin-inline-start: calc(var(--control-px) + var(--control-color-swatch-width));
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.control:has(select:not([multiple])) {
+  --control-pe: calc(var(--control-select-icon-size) + var(--control-select-icon-me));
+
+  &:has(.ms-auto) {
+    --control-icon-count-e: 2;
+  }
+
+  &::after {
+    width: var(--control-select-icon-size);
+    height: var(--control-select-icon-size);
+    mask: var(--mask-angle-down);
+    margin-inline: auto var(--control-select-icon-me);
+    grid-area: c-control-p;
+    background-color: currentColor;
+    pointer-events: none;
+    align-self: center;
+    content: "";
+  }
+
+  :where(.ms-auto) {
+    margin-inline-end: var(--control-select-icon-size);
+  }
+}

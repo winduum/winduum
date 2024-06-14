@@ -1,0 +1,3 @@
+.title:is(.sm) {
+  --title-font-size: var(--font-size-xs);
+}

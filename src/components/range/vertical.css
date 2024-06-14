@@ -1,0 +1,11 @@
+.range:where(.vertical) {
+  min-inline-size: var(--range-thumb-size);
+  container-type: size;
+
+  :where(input) {
+    transform: rotate(-90deg);
+    width: 100cqh;
+    inset-block-start: 50%;
+    inset-inline-start: calc(50% * -1 + 50cqw);
+  }
+}

@@ -1,8 +1,0 @@
-.ui-heading {
-  font-family: var(--ui-heading-font-family);
-  font-weight: var(--ui-heading-font-weight);
-  font-size: var(--ui-heading-font-size);
-  line-height: var(--ui-heading-line-height);
-  letter-spacing: var(--ui-heading-letter-spacing);
-  text-wrap: balance;
-}

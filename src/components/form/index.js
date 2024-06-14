@@ -5,7 +5,7 @@
  */
 export const validateForm = (event, options = {}) => {
     options = {
-        validateSelectors: '.ui-control, .ui-check, .ui-switch, .ui-rating, .ui-color',
+        validateSelectors: '.control, .check, .switch, .rating, .color',
         validateOptions: {},
         submitterLoadingClass: 'loading',
         ...options
@@ -38,9 +38,9 @@ export const validateField = (element, options = {}) => {
         ignoreMatch: /(data-novalidate|readonly)/,
         validitySelector: '.validity',
         infoParentSelector: '.c-field',
-        infoSelector: '.ui-info',
+        infoSelector: '.info',
         infoContent: '<div class="ui-info text-error validity"></div>',
-        endParentSelector: '.ui-control',
+        endParentSelector: '.control',
         endSelector: '.ms-auto',
         endContent: '<div class="ms-auto"></div>',
         validClass: 'valid',

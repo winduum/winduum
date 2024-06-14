@@ -1,0 +1,8 @@
+.info {
+  font-family: var(--info-font-family);
+  font-weight: var(--info-font-weight);
+  font-size: var(--info-font-size);
+  line-height: var(--info-line-height);
+  letter-spacing: var(--info-letter-spacing);
+  text-wrap: pretty;
+}

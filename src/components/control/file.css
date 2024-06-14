@@ -1,0 +1,25 @@
+.control:where(:has([type="file"])) {
+  overflow: clip;
+
+  > :where([type="file"]) {
+    --color-accent: currentColor;
+    --tw-bg-opacity: 0.15;
+
+    &::file-selector-button {
+      all: unset;
+      background-color: color-mix(in var(--default-color-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent);
+      block-size: calc(var(--control-height) - var(--control-border-width) * 2);
+      padding-inline: var(--control-px);
+      margin-inline: calc(var(--control-px) * -1) var(--control-px);
+      margin-block-start: calc(var(--control-py) * -1);
+      border-start-end-radius: var(--control-border-radius, var(--rounded));
+      border-end-end-radius: var(--control-border-radius, var(--rounded));
+      transition: var(--transition-background);
+      cursor: pointer;
+    }
+
+    &:is(:hover, :focus) {
+      --tw-bg-opacity: 0.2;
+    }
+  }
+}

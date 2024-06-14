@@ -26,14 +26,14 @@
     opacity: 0;
 
     &:is(:focus-visible, :active) {
-      ~ .ui-btn {
-        --tw-bg-mix: var(--ui-btn-hover-bg-mix, var(--color-dark));
+      ~ .button {
+        --tw-bg-mix: var(--button-hover-bg-mix, var(--color-dark));
         --tw-bg-opacity: 0.8;
       }
     }
 
-    &:focus-visible ~ .ui-btn {
-      --ui-btn-outline-offset: 2px;
+    &:focus-visible ~ .button {
+      --button-outline-offset: 2px;
       --tw-outline-opacity: 0.5;
     }
 
@@ -42,13 +42,13 @@
     }
   }
 
-  > :where(.ui-btn) {
+  > :where(.button) {
     inset-inline-start: var(--c-compare-position);
-    margin-inline-start: calc(var(--ui-btn-width) / 2 * -1);
+    margin-inline-start: calc(var(--button-width) / 2 * -1);
     margin-block: auto;
   }
 
-  > :where(.ui-image) {
+  > :where(.image) {
     display: grid;
     z-index: 0;
 

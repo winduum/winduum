@@ -1,0 +1,12 @@
+.control:has(select[multiple]) {
+  --control-height: auto;
+
+  select {
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

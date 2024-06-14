@@ -1,0 +1,3 @@
+.progress:is(.lg) {
+  --progress-height: 1.5rem;
+}

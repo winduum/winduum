@@ -1,3 +1,0 @@
-.ui-btn:where(.wide) {
-  padding-inline: calc(var(--ui-btn-px) * 1.5);
-}

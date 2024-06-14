@@ -1,0 +1,4 @@
+.badge:is(.sm) {
+  --badge-height: 1.25rem;
+  --badge-font-size: 0.625rem;
+}

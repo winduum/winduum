@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
 <body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex flex-col items-start gap-4 min-h-[200vh]">
-    <button class="ui-btn" id="dialogFetch">Open dialog</button>
-    <button class="ui-btn" invokeaction="show" invoketarget="customDialog">Open dialog</button>
+    <button class="button" id="dialogFetch">Open dialog</button>
+    <button class="button" invokeaction="show" invoketarget="customDialog">Open dialog</button>
     <input autofocus>
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula et enim nec feugiat. Praesent at bibendum libero, quis congue quam. Proin eu eros dapibus dolor semper lacinia. Nunc leo diam, lacinia in mattis eget, malesuada quis tortor. Nullam interdum tincidunt interdum. Fusce eget sagittis metus. Integer eu quam et orci tempor porttitor.
@@ -19,8 +19,8 @@
     <dialog class="c-dialog" id="customDialog">
         <div class="c-dialog-content">
             <input autofocus>
-            <button class="ui-btn" id="dialogHideInline">Close dialog</button>
-            <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
+            <button class="button" id="dialogHideInline">Close dialog</button>
+            <button class="button" id="dialogInDialog">Open dialog In</button>
         </div>
     </dialog>
     <script type="module">
@@ -33,8 +33,8 @@
                 <dialog class="c-dialog">
                     <div class="c-dialog-content">
                         <input autofocus>
-                        <button class="ui-btn" id="dialogHide">Close dialog</button>
-                        <button class="ui-btn" id="dialogInDialog">Open dialog In</button>
+                        <button class="button" id="dialogHide">Close dialog</button>
+                        <button class="button" id="dialogInDialog">Open dialog In</button>
                     </div>
                 </dialog>
             `)
@@ -58,7 +58,7 @@
                    <dialog class="c-dialog">
                        <div class="c-dialog-content">
                             <input autofocus value="asd">
-                            <button class="ui-btn" id="dialogHideNext">Close dialog</button>
+                            <button class="button" id="dialogHideNext">Close dialog</button>
                         </div>
                    </dialog>
                 `, { append: false })

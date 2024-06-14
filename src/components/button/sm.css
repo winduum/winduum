@@ -1,0 +1,4 @@
+.button:is(.sm) {
+  --button-height: 2rem;
+  --button-padding-inline: 1rem;
+}

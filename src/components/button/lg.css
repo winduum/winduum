@@ -1,0 +1,4 @@
+.button:is(.lg) {
+  --button-height: 3rem;
+  --button-padding-inline: 1.75rem;
+}

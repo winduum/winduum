@@ -1,0 +1,8 @@
+.check {
+  &.invalid, .validated & :where(input):invalid {
+    --check-border-color: var(--color-error);
+    --check-outline-color: var(--color-error);
+    --check-bg: var(--color-error);
+    --tw-border-opacity: 1;
+  }
+}
