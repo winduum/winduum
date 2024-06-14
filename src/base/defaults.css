@@ -9,7 +9,7 @@
 }
 
 ::selection {
-  color: var(--color-light);
+  color: var(--color-primary-foreground);
   background-color: var(--color-primary);
 }
 
