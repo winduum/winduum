@@ -1,5 +1,5 @@
 .ui-image:where(.avatar) {
-  border-radius: var(--rounded-full);
+  border-radius: var(--radius-full);
   background-color: var(--color-accent);
   color: var(--color-accent-foreground);
   container-type: inline-size;

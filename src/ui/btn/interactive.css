@@ -20,7 +20,7 @@
   }
 
   &:is(:any-link, button, [role="button"], input) {
-    cursor: var(--cursor, pointer);
+    cursor: var(--cursor-pointer, pointer);
 
     &:disabled {
       opacity: var(--ui-btn-disabled-opacity);

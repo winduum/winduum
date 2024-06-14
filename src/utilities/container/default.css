@@ -1,13 +1,12 @@
 .grid-cols-container {
-  display: grid;
   grid-template-columns:
     [container-full-start] minmax(var(--container-padding), 1fr)
     [container-lg-start] minmax(0, calc((var(--container-lg-width) - var(--container-width)) / 2))
     [container-start] min(100% - (var(--container-padding) * 2), var(--container-width)) [container-end]
     minmax(0, calc((var(--container-lg-width) - var(--container-width)) / 2)) [container-lg-end]
     minmax(var(--container-padding), 1fr) [container-full-end];
-}
 
-:where(.grid-cols-container > *) {
-  grid-column: container;
+  & > :where(*) {
+    grid-column: container;
+  }
 }

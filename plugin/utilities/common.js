@@ -6,7 +6,7 @@
  */
 export const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
     const result = {
-        current: 'color-mix(in var(--space), currentcolor calc(<alpha-value> * 100%), transparent)'
+        current: 'color-mix(in var(--default-color-space), currentcolor calc(<alpha-value> * 100%), transparent)'
     }
 
     colors.forEach(name => {
@@ -15,7 +15,7 @@ export const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
         }
 
         result[name] = colorMix
-            ? `color-mix(in var(--space), var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
+            ? `color-mix(in var(--default-color-space), var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
             : `rgb(var(--color-${name}) / <alpha-value>)`
     })
 
@@ -43,8 +43,8 @@ export const tailwindVariables = (type, variables = [], values = {}) => {
  * @returns {Object}
  */
 export const tailwindVariablesFont = (type, variables = [], values = {}) => {
-    variables.forEach(name => {
-        values[name] = [`var(--${type}-${name})`, `calc(var(--${type}-${name}) + 0.5rem)`]
+    variables.forEach(({ value, initial }) => {
+        values[value] = [`var(--${type}-${value}, ${initial})`, `calc(var(--${type}-${value}) + 0.5rem)`]
     })
 
     return values

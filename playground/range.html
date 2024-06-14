@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/src/main.css">
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
-<body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid-cols-container">
-    <div class="w-full flex-col gap-4">
+<body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid grid-cols-container">
+    <div class="w-full flex flex-col gap-4">
         <div>
             <div class="flex-between items-center">
                 <output class="flex-center gap-1 before:content-[attr(data-unit)]" data-unit="$" id="from" aria-label="Price from">0</output>
@@ -19,7 +19,7 @@
                 <input type="range" value="10000" step="100" max="10000" min="0" id="range-to" aria-labelledby="to">
             </div>
         </div>
-        <div class="flex-col items-center">
+        <div class="flex flex-col items-center">
             <output class="flex-center gap-1 before:content-[attr(data-unit)]" data-unit="$" id="single" aria-label="Price">10 000</output>
             <div class="ui-range vertical mt-2.5 h-48">
                 <input type="range" value="0" step="10" max="100" min="0" id="range-single">

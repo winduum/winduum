@@ -1,5 +1,5 @@
 .underline {
-  text-underline-offset: var(--tw-underline-offset, 0.125em);
+  text-underline-offset: var(--default-underline-offset, 0.125em);
 }
 
 .underline-transparent {
@@ -7,7 +7,7 @@
     transition: all var(--default-transition-duration) var(--transition-timing-function-in-out);
 
     &:not(:hover, :focus-visible) {
-      text-underline-offset: var(--tw-underline-transparent-offset, -0.25em);
+      text-underline-offset: var(--default-underline-transparent-offset, -0.25em);
       text-decoration-color: transparent;
     }
   }

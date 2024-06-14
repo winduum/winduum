@@ -2,5 +2,5 @@
   --ui-btn-py: 0;
   --ui-btn-px: 0;
   --ui-btn-width: var(--ui-btn-height);
-  --ui-btn-border-radius: var(--rounded-full);
+  --ui-btn-border-radius: var(--radius-full);
 }

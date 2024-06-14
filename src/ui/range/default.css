@@ -25,13 +25,13 @@
 
     &::-webkit-slider-runnable-track {
       block-size: var(--ui-range-track-height);
-      border-radius: var(--rounded-full);
+      border-radius: var(--radius-full);
       background: var(--ui-range-track);
     }
 
     &::-moz-range-track {
       block-size: var(--ui-range-track-height);
-      border-radius: var(--rounded-full);
+      border-radius: var(--radius-full);
       background: var(--ui-range-track);
     }
 
@@ -41,7 +41,7 @@
       width: var(--ui-range-thumb-size);
       height: var(--ui-range-thumb-size);
       background-color: var(--ui-range-thumb-bg);
-      border-radius: var(--rounded-full);
+      border-radius: var(--radius-full);
       border: var(--ui-range-thumb-border-width) solid var(--ui-range-thumb-border-color);
       outline:
         var(--ui-range-thumb-outline-width) solid
@@ -68,7 +68,7 @@
       width: var(--ui-range-thumb-size);
       height: var(--ui-range-thumb-size);
       background-color: var(--ui-range-thumb-bg);
-      border-radius: var(--rounded-full);
+      border-radius: var(--radius-full);
       border: var(--ui-range-thumb-border-width) solid var(--ui-range-thumb-border-color);
       outline:
         var(--ui-range-thumb-outline-width) solid

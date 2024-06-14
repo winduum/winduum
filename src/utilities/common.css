@@ -1,10 +1,6 @@
-.animate {
+.animation {
   animation-duration: var(--default-transition-duration);
   animation-fill-mode: both;
-}
-
-.flex-col {
-  display: flex;
 }
 
 [hidden] {

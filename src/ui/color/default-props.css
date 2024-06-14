@@ -5,7 +5,7 @@
   --ui-color-p: var(--spacing-xs);
   --ui-color-border-width: 2px;
   --ui-color-border-color: currentColor;
-  --ui-color-border-radius: var(--rounded-full);
+  --ui-color-border-radius: var(--radius-full);
   --ui-color-outline-width: 3px;
   --ui-color-outline-color: var(--ui-color-border-color);
 }
