@@ -1,9 +1,9 @@
 .c-dialog {
   --tw-bg-opacity: var(--c-dialog-bg-opacity);
 
-  z-index: var(--z-30);
+  z-index: var(--z-index-30);
   padding: var(--c-dialog-py) var(--c-dialog-px);
-  background-color: color-mix(in var(--space), var(--c-dialog-bg) calc(var(--tw-bg-opacity) * 100%), transparent);
+  background-color: color-mix(in var(--default-color-space), var(--c-dialog-bg) calc(var(--tw-bg-opacity) * 100%), transparent);
   transition: var(--transition-background);
   display: flex;
   position: fixed;

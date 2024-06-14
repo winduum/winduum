@@ -1,5 +1,5 @@
 .c-toaster {
-  z-index: var(--z-50);
+  z-index: var(--z-index-50);
   padding: var(--c-toaster-p);
   margin-block: calc(var(--c-toaster-spacing-y) * -1);
   position: fixed;

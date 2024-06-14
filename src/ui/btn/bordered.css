@@ -5,7 +5,7 @@
     --tw-border-opacity: 0.3;
     --tw-border-mix: transparent;
 
-    border: var(--ui-btn-border-width) solid color-mix(in var(--space), var(--ui-btn-border-color) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
+    border: var(--ui-btn-border-width) solid color-mix(in var(--default-color-space), var(--ui-btn-border-color) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
     padding-inline: calc(var(--ui-btn-px) - var(--ui-btn-border-width));
   }
 

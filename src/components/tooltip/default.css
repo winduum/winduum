@@ -11,16 +11,16 @@
     transform:
       translate(var(--tw-translate-x), var(--tw-translate-y))
       scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-    transition-property: var(--transition);
-    transition-timing-function: var(--ease-in-out);
-    transition-duration: var(--duration);
+    transition-property: var(--default-transition-property);
+    transition-timing-function: var(--transition-timing-function-in-out);
+    transition-duration: var(--default-transition-duration);
     will-change: transform;
     background-color: var(--c-tooltip-bg);
     color: var(--c-tooltip-color);
     border-radius: var(--c-tooltip-border-radius);
     font-size: var(--c-tooltip-font-size);
     padding: var(--c-tooltip-py) var(--c-tooltip-px);
-    z-index: var(--z-20);
+    z-index: var(--z-index-20);
     width: max-content;
     position: absolute;
     pointer-events: none;

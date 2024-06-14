@@ -17,12 +17,12 @@
   font-size: var(--ui-btn-font-size);
   font-weight: var(--ui-btn-font-weight);
   letter-spacing: var(--ui-btn-letter-spacing);
-  background-color: color-mix(in var(--space), var(--ui-btn-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
-  color: color-mix(in var(--space), var(--ui-btn-color) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
+  background-color: color-mix(in var(--default-color-space), var(--ui-btn-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+  color: color-mix(in var(--default-color-space), var(--ui-btn-color) calc(var(--tw-text-opacity) * 100%), var(--tw-text-mix));
   outline:
     var(--ui-btn-outline-width) solid
     color-mix(
-      in var(--space),
+      in var(--default-color-space),
       var(--ui-btn-outline-color) calc(var(--tw-outline-opacity) * 100%),
       var(--tw-outline-mix)
     );

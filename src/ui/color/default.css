@@ -14,14 +14,14 @@
     border:
       var(--ui-color-border-width) solid
       color-mix(
-        in var(--space),
+        in var(--default-color-space),
         var(--ui-color-border-color) calc(var(--tw-border-opacity) * 100%),
         var(--tw-border-mix)
       );
     outline:
       var(--ui-color-outline-width) solid
       color-mix(
-        in var(--space),
+        in var(--default-color-space),
         var(--ui-color-outline-color) calc(var(--tw-outline-opacity) * 100%),
         var(--tw-outline-mix)
       );

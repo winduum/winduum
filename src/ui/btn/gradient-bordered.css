@@ -3,7 +3,7 @@
     &::before {
       content: "";
       position: absolute;
-      background-color: color-mix(in var(--space), var(--color-body) calc(100% - var(--tw-bg-opacity) * 100%), transparent);
+      background-color: color-mix(in var(--default-color-space), var(--color-body) calc(100% - var(--tw-bg-opacity) * 100%), transparent);
       inset: var(--ui-btn-border-width);
       border-radius: calc(var(--ui-btn-border-radius) / 1.25);
       z-index: -1;

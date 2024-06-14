@@ -9,14 +9,14 @@
   gap: var(--c-toast-content-gap);
   background-color: var(--c-toast-content-bg);
   color: var(--c-toast-color);
-  border: 1px solid color-mix(in var(--space), var(--c-toast-bg) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
+  border: 1px solid color-mix(in var(--default-color-space), var(--c-toast-bg) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
   align-items: center;
   display: flex;
   height: fit-content;
 
   .ui-text {
-    --ui-text-font-size: var(--text-sm);
+    --ui-text-font-size: var(--font-size-sm);
     --ui-text-line-height: calc(1em + 0.375rem);
   }
 }

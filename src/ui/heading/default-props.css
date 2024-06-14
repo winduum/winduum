@@ -1,6 +1,6 @@
 :root, :host {
-  --ui-heading-font-family: var(--font-primary);
-  --ui-heading-font-weight: var(--font-semibold);
-  --ui-heading-font-size: var(--text-xl);
+  --ui-heading-font-family: var(--font-family-primary);
+  --ui-heading-font-weight: var(--font-weight-semibold);
+  --ui-heading-font-size: var(--font-size-xl);
   --ui-heading-line-height: calc(1em + 0.375rem);
 }

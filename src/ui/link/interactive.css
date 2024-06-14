@@ -2,10 +2,10 @@
   --tw-text-opacity: var(--ui-link-hover-color-opacity);
 
   &:where(:any-link, button:enabled, [role="button"]) {
-    transition: all var(--duration) var(--ease-in-out);
+    transition: all var(--default-transition-duration) var(--transition-timing-function-in-out);
 
     &:hover {
-      color: color-mix(in var(--space), var(--ui-link-hover-color) calc(var(--tw-text-opacity) * 100%), var(--ui-link-hover-color-mix));
+      color: color-mix(in var(--default-color-space), var(--ui-link-hover-color) calc(var(--tw-text-opacity) * 100%), var(--ui-link-hover-color-mix));
     }
 
     &:focus-visible {

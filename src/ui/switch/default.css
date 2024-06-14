@@ -24,7 +24,7 @@
     outline:
       var(--ui-switch-outline-width) solid
       color-mix(
-        in var(--space),
+        in var(--default-color-space),
         var(--ui-switch-outline-color) calc(var(--tw-outline-opacity) * 100%),
         var(--tw-outline-mix)
       );

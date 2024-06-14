@@ -1,5 +1,5 @@
 :root, :host {
-  --ui-title-font-weight: var(--font-semibold);
-  --ui-title-font-size: var(--text-sm);
+  --ui-title-font-weight: var(--font-weight-semibold);
+  --ui-title-font-size: var(--font-size-sm);
   --ui-title-line-height: calc(1em + 0.25rem);
 }

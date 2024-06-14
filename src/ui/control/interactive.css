@@ -1,9 +1,9 @@
 .ui-control {
   --ui-control-focus-border-color: var(--color-accent);
 
-  transition-property: var(--transition);
-  transition-timing-function: var(--ease-in-out);
-  transition-duration: var(--duration);
+  transition-property: var(--default-transition-property);
+  transition-timing-function: var(--transition-timing-function-in-out);
+  transition-duration: var(--default-transition-duration);
 
   &:focus-within {
     --ui-control-border-color: var(--ui-control-focus-border-color);

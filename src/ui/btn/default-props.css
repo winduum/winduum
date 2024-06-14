@@ -1,7 +1,7 @@
 :root, :host {
-  --ui-btn-border-radius: var(--rounded);
-  --ui-btn-font-size: var(--text-sm);
-  --ui-btn-font-weight: var(--font-medium);
+  --ui-btn-border-radius: var(--radius);
+  --ui-btn-font-size: var(--font-size-sm);
+  --ui-btn-font-weight: var(--font-weight-medium);
   --ui-btn-gap: var(--spacing-sm);
   --ui-btn-outline-width: 2px;
   --ui-btn-height: 2.25rem;

@@ -1,6 +1,6 @@
 .c-dialog-content {
   background-color: var(--color-body-primary);
-  border-radius: var(--rounded-3xl);
+  border-radius: var(--radius-3xl);
   padding: var(--c-dialog-content-py) var(--c-dialog-content-px);
   inline-size: min(100%, var(--c-dialog-content-width));
   transition: var(--transition-transform), var(--transition-opacity);

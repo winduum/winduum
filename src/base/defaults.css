@@ -22,7 +22,7 @@
 :where([type="radio"]:enabled),
 :where(summary:not([aria-disabled="true"])),
 :where([role="button"]:not([aria-disabled="true"])) {
-  cursor: var(--cursor, pointer);
+  cursor: var(--cursor-pointer, pointer);
   user-select: none;
 }
 
@@ -35,31 +35,29 @@
 }
 
 :where(hr) {
-  --tw-border-opacity: 0.15;
-
-  border-block-start: 1px solid color-mix(in var(--space), currentColor calc(var(--tw-border-opacity) * 100%), transparent);
-  border-radius: var(--rounded);
+  background-color: color-mix(in var(--default-color-space), currentColor 100%, transparent);
+  block-size: 1px;
   width: 100%;
 }
 
 :where(code) {
   padding: var(--spacing-xs) var(--spacing-sm);
   background: var(--color-body-secondary);
-  border-radius: var(--rounded-sm);
+  border-radius: var(--radius-sm);
   color: var(--color-accent);
 }
 
 :where(kbd) {
   padding: var(--spacing-xs) var(--spacing-sm);
   background: var(--color-body-secondary);
-  border-radius: var(--rounded-sm);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--color-body-tertiary);
 }
 
 :where(html) {
-  color-scheme: var(--scheme);
-  font-family: var(--font-primary);
-  font-weight: var(--font-normal);
+  color-scheme: var(--default-color-scheme);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-normal);
   block-size: 100%;
   line-height: 1.5;
   text-size-adjust: 100%;

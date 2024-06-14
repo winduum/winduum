@@ -19,7 +19,7 @@
     --tw-bg-mix: var(--color-body);
 
     block-size: var(--ui-range-track-height);
-    background-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+    background-color: color-mix(in var(--default-color-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
     position: relative;
     grid-area: 1/1;
 
@@ -46,12 +46,12 @@
       outline:
         var(--ui-range-thumb-outline-width) solid
         color-mix(
-          in var(--space),
+          in var(--default-color-space),
           var(--ui-range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),
           transparent
         );
       margin-block-start: calc((var(--ui-range-thumb-size) - var(--ui-range-track-height)) / 2 * -1);
-      transition: outline-color var(--duration), outline-offset var(--duration);
+      transition: outline-color var(--default-transition-duration), outline-offset var(--default-transition-duration);
       cursor: var(--ui-range-thumb-cursor, grab);
       appearance: none;
       pointer-events: auto;
@@ -73,11 +73,11 @@
       outline:
         var(--ui-range-thumb-outline-width) solid
         color-mix(
-          in var(--space),
+          in var(--default-color-space),
           var(--ui-range-thumb-bg) calc(var(--tw-outline-opacity) * 100%),
           transparent
         );
-      transition: outline-color var(--duration), outline-offset var(--duration);
+      transition: outline-color var(--default-transition-duration), outline-offset var(--default-transition-duration);
       cursor: var(--ui-range-thumb-cursor, grab);
       appearance: none;
       pointer-events: auto;

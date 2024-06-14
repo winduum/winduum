@@ -2,7 +2,7 @@
   --c-card-p: var(--c-card-py) var(--c-card-px);
 
   background-color: var(--color-body-primary);
-  border-radius: var(--rounded-2xl);
+  border-radius: var(--radius-2xl);
   padding: var(--c-card-p);
   display: flex;
   flex-direction: column;

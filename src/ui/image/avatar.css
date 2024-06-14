@@ -7,7 +7,7 @@
   align-items: center;
 
   :where(span) {
-    font-weight: var(--font-medium);
+    font-weight: var(--font-weight-medium);
     font-size: 50cqi;
   }
 }

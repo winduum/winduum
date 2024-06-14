@@ -3,9 +3,9 @@
   --ui-check-icon-size: 1.125rem;
   --ui-check-icon: var(--mask-check);
   --ui-check-gap: var(--spacing-md);
-  --ui-check-font-size: var(--text-sm);
+  --ui-check-font-size: var(--font-size-sm);
   --ui-check-line-height: calc(1em + 0.25rem);
-  --ui-check-border-radius: var(--rounded-md);
+  --ui-check-border-radius: var(--radius-md);
   --ui-check-border-width: 1px;
   --ui-check-bg: currentColor;
   --ui-check-border-color: currentColor;

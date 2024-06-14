@@ -1,8 +1,8 @@
 :root, :host {
   --c-tooltip-bg: var(--color-main);
   --c-tooltip-color: var(--color-main-foreground);
-  --c-tooltip-border-radius: var(--rounded-md);
-  --c-tooltip-font-size: var(--text-sm);
+  --c-tooltip-border-radius: var(--radius-md);
+  --c-tooltip-font-size: var(--font-size-sm);
   --c-tooltip-py: var(--spacing-xs);
   --c-tooltip-px: var(--spacing-sm);
   --c-tooltip-margin-block: var(--spacing-xs);

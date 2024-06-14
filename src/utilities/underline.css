@@ -4,7 +4,7 @@
 
 .underline-transparent {
   &:where(:any-link, button:enabled, [role="button"]) {
-    transition: all var(--duration) var(--ease-in-out);
+    transition: all var(--default-transition-duration) var(--transition-timing-function-in-out);
 
     &:not(:hover, :focus-visible) {
       text-underline-offset: var(--tw-underline-transparent-offset, -0.25em);

@@ -21,12 +21,12 @@
 
     &:hover {
       @media (hover: hover) and (pointer: fine) {
-        color: color-mix(in var(--space), var(--color-accent) 75%, transparent);
+        color: color-mix(in var(--default-color-space), var(--color-accent) 75%, transparent);
       }
     }
 
     &:focus-visible {
-      color: color-mix(in var(--space), var(--color-accent) 75%, transparent);
+      color: color-mix(in var(--default-color-space), var(--color-accent) 75%, transparent);
     }
   }
 
@@ -74,23 +74,23 @@
   }
 
   :where(h1) {
-    --ui-text-heading-font-size: var(--text-4xl);
+    --ui-text-heading-font-size: var(--font-size-4xl);
   }
 
   :where(h2) {
-    --ui-text-heading-font-size: var(--text-3xl);
+    --ui-text-heading-font-size: var(--font-size-3xl);
   }
 
   :where(h3) {
-    --ui-text-heading-font-size: var(--text-2xl);
+    --ui-text-heading-font-size: var(--font-size-2xl);
   }
 
   :where(h4) {
-    --ui-text-heading-font-size: var(--text-xl);
+    --ui-text-heading-font-size: var(--font-size-xl);
   }
 
   :where(h5) {
-    --ui-text-heading-font-size: var(--text-lg);
+    --ui-text-heading-font-size: var(--font-size-lg);
   }
 
   :where(table) {
@@ -104,12 +104,12 @@
 
     :where(thead) {
       font-weight: var(--ui-text-content-bold);
-      border-block-end: 1px solid color-mix(in var(--space), currentColor 10%, transparent);
+      border-block-end: 1px solid color-mix(in var(--default-color-space), currentColor 10%, transparent);
     }
 
     :where(tbody tr) {
       &:nth-of-type(even) {
-        background-color: color-mix(in var(--space), currentColor 5%, transparent);
+        background-color: color-mix(in var(--default-color-space), currentColor 5%, transparent);
       }
     }
   }
@@ -187,7 +187,7 @@
   :where(figcaption) {
     font-size: 87.5%;
     line-height: 1.5;
-    font-weight: var(--font-semibold);
+    font-weight: var(--font-weight-semibold);
     margin-block-start: 0.5em;
   }
 }

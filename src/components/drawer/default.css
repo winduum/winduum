@@ -1,7 +1,7 @@
 .c-drawer {
   --tw-bg-opacity: 0;
 
-  z-index: var(--z-30);
+  z-index: var(--z-index-30);
   position: fixed;
   inset: 0;
   display: flex;

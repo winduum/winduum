@@ -1,19 +1,19 @@
 .ui-progress {
   --tw-bg-opacity: 0.1;
   --tw-bg-mix: var(--color-body);
-  --duration: 0.3s;
+  --default-transition-duration: 0.3s;
 
   inline-size: 100%;
   block-size: var(--ui-progress-height);
   border-radius: var(--ui-progress-border-radius);
-  background-color: color-mix(in var(--space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+  background-color: color-mix(in var(--default-color-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
   position: relative;
   overflow: clip;
 
   &::-moz-progress-bar {
     background-color: var(--color-accent);
     border-radius: inherit;
-    transition: all var(--duration) var(--ease-in-out);
+    transition: all var(--default-transition-duration) var(--transition-timing-function-in-out);
   }
 
   &::-webkit-progress-bar {
@@ -28,13 +28,13 @@
   &::-webkit-progress-value {
     background-color: var(--color-accent);
     border-radius: inherit;
-    transition: all var(--duration) var(--ease-in-out);
+    transition: all var(--default-transition-duration) var(--transition-timing-function-in-out);
   }
 
   &:indeterminate {
-    --duration: 1s;
+    --default-transition-duration: 1s;
 
-    animation: var(--duration) var(--ease-linear) infinite move-indeterminate;
+    animation: var(--default-transition-duration) var(--transition-timing-function-linear) infinite move-indeterminate;
     background-image: linear-gradient(to right, var(--color-accent) 33.33%, transparent 0%);
     background-position: top left;
     background-repeat: no-repeat;

@@ -13,13 +13,13 @@
   &::before, &::after {
     content: "";
     flex-grow: 1;
-    border-block-start: 1px solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
+    border-block-start: 1px solid color-mix(in var(--default-color-space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
   }
 
   &:where(.flex-col) {
     &::before, &::after {
       border-block-start: 0;
-      border-inline-start: 1px solid color-mix(in var(--space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
+      border-inline-start: 1px solid color-mix(in var(--default-color-space), var(--color-accent) calc(var(--tw-border-opacity) * 100%), transparent);
     }
   }
 }

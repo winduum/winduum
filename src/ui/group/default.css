@@ -1,6 +1,6 @@
 .ui-group {
   display: flex;
-  border-radius: var(--rounded);
+  border-radius: var(--radius);
 
   &:has(.ui-control) {
     > :where(.ui-btn) {

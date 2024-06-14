@@ -1,4 +1,4 @@
 :root, :host {
-  --ui-label-font-size: var(--text-sm);
+  --ui-label-font-size: var(--font-size-sm);
   --ui-label-line-height: calc(1em + 0.25rem);
 }

@@ -31,18 +31,18 @@
     width: var(--ui-check-size);
     height: var(--ui-check-size);
     border-radius: var(--ui-check-border-radius);
-    background-color: color-mix(in var(--space), var(--ui-check-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+    background-color: color-mix(in var(--default-color-space), var(--ui-check-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
     border:
       var(--ui-check-border-width) solid
       color-mix(
-        in var(--space),
+        in var(--default-color-space),
         var(--ui-check-border-color) calc(var(--tw-border-opacity) * 100%),
         var(--tw-border-mix)
       );
     outline:
       var(--ui-check-outline-width) solid
       color-mix(
-        in var(--space),
+        in var(--default-color-space),
         var(--ui-check-outline-color) calc(var(--tw-outline-opacity) * 100%),
         var(--tw-outline-mix)
       );
