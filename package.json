@@ -96,9 +96,9 @@
       "default": "./src/components/popover/index.js",
       "types": "./src/components/popover/index.d.ts"
     },
-    "./src/ui/range": {
-      "default": "./src/ui/range/index.js",
-      "types": "./src/ui/range/index.d.ts"
+    "./src/components/range": {
+      "default": "./src/components/range/index.js",
+      "types": "./src/components/range/index.d.ts"
     },
     "./src/utilities/ripple": {
       "default": "./src/utilities/ripple/index.js",
