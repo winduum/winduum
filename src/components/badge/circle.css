@@ -1,5 +1,5 @@
 .badge:is(.circle) {
-  --badge-px: var(--badge-py);
+  --badge-padding-inline: var(--badge-padding-block);
   --badge-width: var(--badge-height);
   --badge-border-radius: var(--radius-full);
 }

@@ -1,16 +1,6 @@
-.badge {
-  &:where(.bordered) {
-    --badge-border-color: var(--color-accent);
-    --badge-border-width: 1px;
-    --tw-border-opacity: 1;
-    --tw-border-mix: transparent;
-
-    border: var(--badge-border-width) solid color-mix(in var(--default-color-space), var(--badge-border-color) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
-    padding-inline: calc(var(--badge-px) - var(--badge-border-width));
-  }
-
-  &:is(.bordered) {
-    --badge-color: var(--color-accent);
-    --tw-bg-opacity: 0;
-  }
+.badge:is(.bordered) {
+  --badge-border-width: 1px;
+  --badge-border-color-opacity: 100%;
+  --badge-background-color-opacity: 0%;
+  --badge-color: var(--color-accent);
 }

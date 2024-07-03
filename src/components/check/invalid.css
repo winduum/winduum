@@ -1,8 +1,9 @@
 .check {
-  &.invalid, .validated & :where(input):invalid {
-    --check-border-color: var(--color-error);
-    --check-outline-color: var(--color-error);
-    --check-bg: var(--color-error);
-    --tw-border-opacity: 1;
+  &.invalid, :user-invalid, .validated & :invalid {
+    --check-border-color: var(--check-invalid-border-color, var(--color-error));
+    --check-outline-color: var(--check-invalid-outline-color, var(--color-error));
+    --check-background-color:  var(--check-invalid-background-color, var(--color-error));
+    --check-background-color-opacity:  var(--check-invalid-background-color-opacity, 15%);
+    --check-border-color-opacity: var(--check-invalid-border-color-opacity, 100%);
   }
 }

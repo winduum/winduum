@@ -14,8 +14,8 @@ Include CSS either globally or to your component _([you can't use TailwindCSS la
 or modular (you can use your own props or CSS)
 
 ```css
+@import "winduum/src/ui/badge/props/default.css" layer(components);
 @import "winduum/src/ui/badge/default.css" layer(components);
-@import "winduum/src/ui/badge/default-props.css" layer(components);
 @import "winduum/src/ui/badge/sm.css" layer(components);
 @import "winduum/src/ui/badge/lg.css" layer(components);
 @import "winduum/src/ui/badge/bordered.css" layer(components);

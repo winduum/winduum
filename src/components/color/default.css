@@ -1,31 +1,20 @@
-.color {
+.check-color {
+  --check-color-outline-color: var(--color-accent);
+
   display: inline-flex;
 
   :where(input) {
-    --tw-border-opacity: 0.1;
-    --tw-border-mix: transparent;
-    --tw-outline-opacity: 0;
-    --tw-outline-mix: transparent;
-
-    width: var(--color-size);
-    height: var(--color-size);
-    padding: var(--color-p);
-    border-radius: var(--color-border-radius);
-    border:
-      var(--color-border-width) solid
-      color-mix(
-        in var(--default-color-space),
-        var(--color-border-color) calc(var(--tw-border-opacity) * 100%),
-        var(--tw-border-mix)
-      );
+    width: var(--check-color-size);
+    height: var(--check-color-size);
+    border-radius: var(--check-color-border-radius);
     outline:
-      var(--color-outline-width) solid
+      var(--check-color-outline-width, 1px) solid
       color-mix(
-        in var(--default-color-space),
-        var(--color-outline-color) calc(var(--tw-outline-opacity) * 100%),
-        var(--tw-outline-mix)
+        in var(--check-color-outline-color-space, srgb),
+        var(--check-color-outline-color) var(--check-color-outline-color-opacity, 0%),
+        var(--check-color-outline-color-mix, transparent)
       );
-    outline-offset: var(--check-outline-offset);
+    outline-offset: var(--check-color-outline-offset);
     display: inline-grid;
 
     &::before, &::after {
@@ -36,12 +25,11 @@
     }
 
     &::before {
-      background-color: var(--color-primary);
-      border-color: inherit;
+      background-color: var(--check-color-primary);
     }
 
     &::after {
-      background-color: var(--color-secondary);
+      background-color: var(--check-color-secondary);
       clip-path: polygon(100% 0, 100% 100%, 0 100%);
     }
   }

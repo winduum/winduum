@@ -7,13 +7,13 @@
 
     > li {
       &:not(:last-child)::after {
-        content: "";
         mask: var(--breadcrumb-marker);
-        background-color: currentColor;
+        background-color: var(--breadcrumb-background-color, currentColor);
         margin-inline: var(--breadcrumb-gap);
         width: var(--breadcrumb-marker-size);
         height: var(--breadcrumb-marker-size);
         flex-shrink: 0;
+        content: "";
       }
     }
   }

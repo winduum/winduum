@@ -1,7 +1,7 @@
 .check {
   --check-hover-border-color: var(--color-accent);
-  --check-hover-bg: var(--color-accent);
-  --check-checked-bg: var(--color-accent);
+  --check-hover-background-color: var(--color-accent);
+  --check-checked-background-color: var(--color-accent);
   --check-focus-border-color: var(--color-accent);
 
   :where(input) {
@@ -9,27 +9,29 @@
     transition-timing-function: var(--transition-timing-function-in-out);
     transition-duration: var(--default-transition-duration);
 
-    &:enabled {
-      &:is(:hover, :focus-visible) {
-        --check-border-color: var(--check-hover-border-color);
-        --check-bg: var(--check-hover-bg);
-        --tw-border-opacity: var(--check-hover-border-opacity, 0.75);
-        --tw-bg-opacity: var(--check-hover-bg-opacity, 0.1);
-      }
+    &:where(:hover, :focus-visible) {
+      --check-background-color: var(--check-hover-background-color);
+      --check-background-color-opacity: var(--check-hover-background-color-opacity, 10%);
+      --check-border-color: var(--check-hover-border-color);
+      --check-border-color-opacity: var(--check-hover-border-color-opacity, 75%);
+    }
 
-      &:focus {
-        --check-border-color: var(--check-focus-border-color);
-        --check-outline-offset: var(--check-focus-outline-offset);
-        --tw-border-opacity: var(--check-focus-border-opacity, 0.75);
-        --tw-outline-opacity: var(--check-focus-outline-opacity, 0.2);
-      }
+    &:focus {
+      --check-border-color: var(--check-focus-border-color);
+      --check-border-color-opacity: var(--check-focus-border-color-opacity, 75%);
+      --check-outline-color-opacity: var(--check-focus-outline-opacity, 20%);
+      --check-outline-offset: var(--check-focus-outline-offset);
     }
 
     &:disabled {
-      --tw-bg-opacity: var(--check-disabled-bg-opacity, 0.15);
+      --check-background-color: var(--check-disabled-background-color, currentColor);
+      --check-background-color-mix: var(--check-disabled-background-color-mix, transparent);
+      --check-background-color-opacity: var(--check-disabled-background-color-opacity, 10%);
+      --check-border-color: var(--check-disabled-border-color, currentColor);
+      --check-border-color-mix: var(--check-disabled-border-color-mix, transparent);
+      --check-border-color-opacity: var(--check-disabled-border-color-opacity, 20%);
 
       cursor: not-allowed;
-      opacity: var(--check-disabled-opacity);
     }
 
     &:where([type="checkbox"]):indeterminate {
@@ -37,9 +39,13 @@
     }
 
     &:is(:checked, [type="checkbox"]:indeterminate) {
-      --check-bg: var(--check-checked-bg);
-      --tw-bg-opacity: 1;
-      --tw-border-opacity: 0;
+      --check-background-color: var(--check-checked-background-color);
+      --check-background-color-opacity: 100%;
+      --check-border-color-opacity: 0%;
+
+      &:disabled {
+        opacity: var(--check-checked-disabled-opacity, 75%);
+      }
 
       &::before {
         opacity: 1;

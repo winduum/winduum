@@ -1,5 +1,4 @@
-@import "default-props.css";
+@import "props/default.css";
 @import "default.css";
-@import "interactive-props.css";
 @import "interactive.css";
 @import "invalid.css";

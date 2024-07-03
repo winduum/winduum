@@ -1,30 +1,36 @@
-.color {
+.check-color {
   :where(input) {
     transition-property: var(--default-transition-property);
     transition-timing-function: var(--transition-timing-function-in-out);
     transition-duration: var(--default-transition-duration);
 
-    &:where(:disabled) {
+    &:disabled {
       cursor: not-allowed;
 
       &::before, &::after {
-        opacity: var(--color-disabled-opacity);
+        opacity: var(--check-color-disabled-opacity, 50%);
       }
     }
 
-    &:where(:enabled) {
-      &:is(:hover) {
-        --tw-border-opacity: 0.3;
+    &:enabled {
+      &:hover {
+        --check-color-outline-color-opacity: var(--check-color-hover-outline-color-opacity);
+        --check-color-outline-offset: var(--check-color-hover-outline-offset);
       }
 
-      &:is(:focus-visible) {
-        --tw-border-opacity: 1;
-        --tw-outline-opacity: 0.2;
+      &:focus-visible {
+        --check-color-outline-color-opacity: var(--check-color-focus-outline-color-opacity, 50%);
+        --check-color-outline-offset: var(--check-color-focus-outline-offset, 3px);
       }
-    }
 
-    &:is(:checked) {
-      --tw-border-opacity: 1;
+      &:checked {
+        --check-color-outline-color-opacity: var(--check-color-checked-outline-color-opacity, 100%);
+        --check-color-outline-offset: var(--check-color-focus-outline-offset, 3px);
+
+        &:focus-visible {
+          outline-style: dashed;
+        }
+      }
     }
   }
 }

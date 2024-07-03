@@ -14,10 +14,10 @@ Include CSS either globally or to your component _([you can't use TailwindCSS la
 or modular (you can use your own props or CSS)
 
 ```css
-@import "winduum/src/button/default.css" layer(components);
 @import "winduum/src/button/props/default.css" layer(components);
-@import "winduum/src/button/interactive.css" layer(components);
 @import "winduum/src/button/props/interactive.css" layer(components);
+@import "winduum/src/button/default.css" layer(components);
+@import "winduum/src/button/interactive.css" layer(components);
 @import "winduum/src/button/sm.css" layer(components);
 @import "winduum/src/button/lg.css" layer(components);
 @import "winduum/src/button/bordered.css" layer(components);

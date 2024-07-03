@@ -1,5 +1,5 @@
 .control:has(select:not([multiple])) {
-  --control-pe: calc(var(--control-select-icon-size) + var(--control-select-icon-me));
+  --control-pe: calc(var(--control-e) + var(--control-px) + var(--control-select-icon-me));
 
   &:has(.ms-auto) {
     --control-icon-count-e: 2;

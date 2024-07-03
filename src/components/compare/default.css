@@ -25,16 +25,15 @@
     cursor: grab;
     opacity: 0;
 
-    &:is(:focus-visible, :active) {
-      ~ .button {
-        --tw-bg-mix: var(--button-hover-bg-mix, var(--color-dark));
-        --tw-bg-opacity: 0.8;
-      }
+    &:active ~ .button {
+      --button-background-color-mix: var(--button-active-background-color-mix, var(--color-dark));
+      --button-background-color-opacity: var(--button-active-background-color-opacity, 80%);
     }
 
     &:focus-visible ~ .button {
-      --button-outline-offset: 2px;
-      --tw-outline-opacity: 0.5;
+      --button-outline-color: var(--button-focus-outline-color, var(--color-accent));
+      --button-outline-offset: var(--button-focus-outline-offset, 2px);
+      --button-outline-color-opacity: var(--button-focus-outline-opacity, 50%);
     }
 
     &:active {

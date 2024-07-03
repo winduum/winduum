@@ -15,36 +15,29 @@
     --check-border-radius: 50%;
   }
 
-  :where(a) {
-    color: var(--color-accent);
-    text-decoration: underline;
-  }
-
   :where(input) {
-    --tw-border-opacity: 0.2;
-    --tw-border-mix: transparent;
-    --tw-outline-opacity: 0;
-    --tw-outline-mix: transparent;
-    --tw-bg-opacity: 0;
-    --tw-bg-mix: transparent;
-
     width: var(--check-size);
     height: var(--check-size);
     border-radius: var(--check-border-radius);
-    background-color: color-mix(in var(--default-color-space), var(--check-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
+    background-color:
+      color-mix(
+          in var(--check-background-color-space, srgb),
+          var(--check-background-color) var(--check-background-color-opacity, 0%),
+          var(--check-background-color-mix, transparent)
+      );
     border:
       var(--check-border-width) solid
       color-mix(
-        in var(--default-color-space),
-        var(--check-border-color) calc(var(--tw-border-opacity) * 100%),
-        var(--tw-border-mix)
+        in var(--check-border-color-space, srgb),
+        var(--check-border-color) var(--check-border-color-opacity, 20%),
+        var(--check-border-color-mix, transparent)
       );
     outline:
       var(--check-outline-width) solid
       color-mix(
-        in var(--default-color-space),
-        var(--check-outline-color) calc(var(--tw-outline-opacity) * 100%),
-        var(--tw-outline-mix)
+        in var(--check-outline-color-space, srgb),
+        var(--check-outline-color) var(--check-outline-color-opacity, 0%),
+        var(--check-outline-color-mix, transparent)
       );
     outline-offset: var(--check-outline-offset);
     display: flex;
@@ -66,7 +59,7 @@
 
     &:where(:required) {
       + *::after {
-        color: var(--color-error);
+        color: var(--check-required-color, var(--color-error));
         content: " *";
       }
     }

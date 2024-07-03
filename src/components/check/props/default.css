@@ -7,7 +7,7 @@
   --check-line-height: calc(1em + 0.25rem);
   --check-border-radius: var(--radius-md);
   --check-border-width: 1px;
-  --check-bg: currentColor;
+  --check-background-color: currentColor;
   --check-border-color: currentColor;
-  --check-outline-width: 3px;
+  --check-outline-width: 2px;
 }
