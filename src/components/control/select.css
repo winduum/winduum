@@ -1,16 +1,16 @@
 .control:has(select:not([multiple])) {
-  --control-pe: calc(var(--control-e) + var(--control-px) + var(--control-select-icon-me));
+  --control-padding-inline-end: calc(var(--control-end) + var(--control-padding-inline) + var(--control-select-icon-margin-inline-end));
 
   &:has(.ms-auto) {
-    --control-icon-count-e: 2;
+    --control-icon-count-end: 2;
   }
 
   &::after {
-    width: var(--control-select-icon-size);
-    height: var(--control-select-icon-size);
+    inline-size: var(--control-select-icon-size);
+    block-size: var(--control-select-icon-size);
     mask: var(--mask-angle-down);
-    margin-inline: auto var(--control-select-icon-me);
-    grid-area: control-p;
+    margin-inline: auto var(--control-select-icon-margin-inline-end);
+    grid-area: control-padding;
     background-color: currentColor;
     pointer-events: none;
     align-self: center;

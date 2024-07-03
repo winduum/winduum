@@ -1,0 +1,7 @@
+:root, :host {
+  --drawer-content-background-color: var(--color-body-primary);
+  --drawer-content-padding-block: 2rem;
+  --drawer-content-padding-inline: 1.5rem;
+  --drawer-content-inline-size: calc(100vw - 4rem);
+  --drawer-content-block-size: 100%;
+}

@@ -1,17 +1,17 @@
 .control:where(:has(:not([type="color"]) ~ label)) {
   > :where(label) {
-    margin-inline: var(--control-ps, 0) var(--control-pe, 0);
+    margin-inline: var(--control-padding-inline-start, 0) var(--control-padding-inline-end, 0);
+    transition: var(--transition-transform), var(--transition-color), var(--transition-opacity);
     pointer-events: none;
     transform-origin: 0 50%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: clip;
     will-change: transform;
-    transition: var(--transition-transform), var(--transition-color), var(--transition-opacity);
   }
 
   > :where(textarea) {
-    padding-block-start: calc(var(--control-py) + var(--control-label-translate-y) * var(--control-label-scale));
+    padding-block-start: calc(var(--control-padding-block) + var(--control-label-translate-y) * var(--control-label-scale));
 
     + :where(label) {
       align-self: start;
@@ -19,7 +19,7 @@
   }
 
   > :where(input, select) {
-    padding-block: calc(var(--control-py) + var(--control-label-translate-y) * var(--control-label-scale)) calc(var(--control-py) - var(--control-label-translate-y) * var(--control-label-scale));
+    padding-block: calc(var(--control-padding-block) + var(--control-label-translate-y) * var(--control-label-scale)) calc(var(--control-padding-block) - var(--control-label-translate-y) * var(--control-label-scale));
 
     &::-webkit-calendar-picker-indicator,
     &::-webkit-search-cancel-button,
@@ -30,7 +30,7 @@
   }
 
   &:where(:has(:required)) :where(label)::after {
-    color: var(--color-error);
+    color: var(--control-required-color, var(--color-error));
     content: " *";
   }
 }

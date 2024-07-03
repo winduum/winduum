@@ -14,9 +14,9 @@ Include CSS either globally or to your component _([you can't use TailwindCSS la
 or modular (you can use your own props or CSS)
 
 ```css
-@import "winduum/src/components/drawer/default-props.css" layer(components);
+@import "winduum/src/components/drawer/props/default.css" layer(components);
+@import "winduum/src/components/drawer/props/content.css" layer(components);
 @import "winduum/src/components/drawer/default.css" layer(components);
-@import "winduum/src/components/drawer/content-props.css" layer(components);
 @import "winduum/src/components/drawer/content.css" layer(components);
 ```
 

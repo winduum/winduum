@@ -1,6 +1,0 @@
-:root, :host {
-  --drawer-content-py: 2rem;
-  --drawer-content-px: 1.5rem;
-  --drawer-content-width: calc(100vw - 4rem);
-  --drawer-content-height: 100%;
-}

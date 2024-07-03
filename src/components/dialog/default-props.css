@@ -1,6 +1,0 @@
-:root, :host {
-  --dialog-py: 2rem;
-  --dialog-px: 1.5rem;
-  --dialog-bg: var(--color-dark);
-  --dialog-bg-opacity: 0.8;
-}

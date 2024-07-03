@@ -26,7 +26,7 @@ export const closeDrawer = (element, distance = element.scrollWidth, direction =
 export const scrollDrawer = (element, options = {}) => {
     options = {
         snapClass: 'snap-x snap-mandatory',
-        opacityProperty: '--tw-bg-opacity',
+        opacityProperty: '--background-color-opacity',
         opacityRatio: 1,
         scrollOpen: 0,
         scrollClose: element.scrollWidth - element.clientWidth,

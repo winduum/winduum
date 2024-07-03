@@ -3,13 +3,13 @@
   align-items: center;
 
   :where(input) {
+    inline-size: var(--rating-inline-size);
+    block-size: var(--rating-block-size);
     color: var(--rating-color);
-    transition: var(--transition-opacity);
     opacity: var(--rating-opacity);
+    transition: var(--transition-opacity);
     display: grid;
     box-sizing: content-box;
-    width: 1.25rem;
-    height: 1.25rem;
 
     &:not(:last-child) {
       border-inline-end-width: var(--rating-gap);
@@ -17,7 +17,7 @@
     }
 
     &::before {
-      mask: var(--mask-star);
+      mask: var(--rating-icon);
       background-color: currentColor;
       content: "";
     }

@@ -1,5 +1,5 @@
 .control:where(:has(:not([type="color"]) ~ label)) {
-  --control-label-focus-opacity: 0.5;
+  --control-label-focus-opacity: 50%;
   --control-placeholder-color: transparent;
 
   > :where(input, textarea, select) {

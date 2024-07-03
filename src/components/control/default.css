@@ -1,56 +1,53 @@
 .control {
-  --control-outline-color: var(--color-accent);
-  --tw-bg-opacity: 1;
-  --tw-bg-mix: transparent;
-  --tw-border-opacity: 0.15;
-  --tw-border-mix: transparent;
-  --tw-outline-opacity: 0;
-  --tw-outline-mix: transparent;
-
   display: grid;
   block-size: var(--control-height);
   font-family: var(--control-font-family);
   font-weight: var(--control-font-weight);
   font-size: var(--control-font-size);
   letter-spacing: var(--control-letter-spacing);
-  background-color: color-mix(in var(--default-color-space), var(--control-bg) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
   color: var(--control-color);
   border-radius: var(--control-border-radius);
+  background-color:
+    color-mix(
+      in var(--control-background-color-space, srgb),
+      var(--control-background-color) var(--control-background-color-opacity, 100%),
+      var(--control-background-color-mix, transparent)
+    );
   border:
     var(--control-border-width) solid
     color-mix(
-      in var(--default-color-space),
-      var(--control-border-color) calc(var(--tw-border-opacity) * 100%),
-      var(--tw-border-mix)
+      in var(--control-border-color-space, srgb),
+      var(--control-border-color) var(--control-border-color-opacity, 15%),
+      var(--control-border-color-mix, transparent)
     );
   outline:
     var(--control-outline-width) solid
     color-mix(
-      in var(--default-color-space),
-      var(--control-outline-color) calc(var(--tw-outline-opacity) * 100%),
-      var(--tw-outline-mix)
+      in var(--control-outline-color-space, srgb),
+      var(--control-outline-color, var(--color-accent)) var(--control-outline-color-opacity, 0%),
+      var(--control-outline-color-mix, transparent)
     );
   outline-offset: var(--control-outline-offset);
   grid-template:
-    [control-start] calc(var(--control-py) - var(--control-border-width))
-    [control-p] 1fr
-    calc(var(--control-py) - var(--control-border-width)) [control-end] /
-    [control-start] var(--control-px)
-    [control-p] 1fr
-    var(--control-px) [control-end];
+    [control-start] calc(var(--control-padding-block) - var(--control-border-width))
+    [control-padding] 1fr
+    calc(var(--control-padding-block) - var(--control-border-width)) [control-end] /
+    [control-start] var(--control-padding-inline)
+    [control-padding] 1fr
+    var(--control-padding-inline) [control-end];
 
   &:has(textarea) {
     height: auto;
   }
 
   > :where(*) {
-    grid-area: control-p;
+    grid-area: control-padding;
     align-self: center;
   }
 
   > :where(input, textarea, select) {
-    padding-block: var(--control-py);
-    padding-inline: calc(var(--control-px) + var(--control-ps, 0rem)) calc(var(--control-px) + var(--control-pe, 0rem));
+    padding-block: var(--control-padding-block);
+    padding-inline: calc(var(--control-padding-inline) + var(--control-padding-inline-start, 0px)) calc(var(--control-padding-inline) + var(--control-padding-inline-end, 0px));
     grid-area: control;
     text-overflow: ellipsis;
     overflow: clip;

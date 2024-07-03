@@ -1,12 +1,15 @@
 .drawer {
-  --tw-bg-opacity: 0;
-
-  z-index: var(--z-index-30);
+  z-index: var(--drawer-z-index, var(--z-index-30));
+  background-color:
+    color-mix(
+      in var(--drawer-background-color-space, srgb),
+      var(--color-dark) calc(var(--background-color-opacity, 0) * var(--drawer-background-color-opacity)),
+      var(--drawer-background-color-mix, transparent)
+    );
   position: fixed;
   inset: 0;
   display: flex;
   overflow: auto hidden;
-  background-color: color-mix(in sRGB, var(--color-dark) calc(var(--tw-bg-opacity) * var(--drawer-bg-opacity) * 100%), transparent);
   scrollbar-width: none;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;

@@ -1,15 +1,15 @@
 .popover-content {
-  transform:
-      translate(var(--tw-translate-x), var(--tw-translate-y))
-      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  background-color: var(--popover-content-background-color);
+  border-radius: var(--popover-content-border-radius);
+  padding: var(--popover-content-padding-block) var(--popover-content-padding-inline);
+  z-index: var(--popover-content-z-index, var(--z-index-10));
   transition-property: var(--default-transition-property);
   transition-timing-function: var(--transition-timing-function-in-out);
   transition-duration: var(--default-transition-duration);
+  transform:
+      translate(var(--tw-translate-x), var(--tw-translate-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   will-change: transform;
-  background-color: var(--popover-content-bg);
-  border-radius: var(--popover-content-border-radius);
-  padding: var(--popover-content-py) var(--popover-content-px);
-  z-index: var(--z-index-10);
   width: max-content;
   position: absolute;
 

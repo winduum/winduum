@@ -1,19 +1,19 @@
 .control {
-  --control-focus-border-color: var(--color-accent);
-
   transition-property: var(--default-transition-property);
   transition-timing-function: var(--transition-timing-function-in-out);
   transition-duration: var(--default-transition-duration);
 
   &:focus-within {
-    --control-border-color: var(--control-focus-border-color);
+    --control-border-color: var(--control-focus-border-color, var(--color-accent));
+    --control-border-color-opacity: var(--control-focus-border-color-opacity, 100%);
     --control-outline-offset: var(--control-focus-outline-offset);
-    --tw-border-opacity: var(--control-focus-border-opacity, 1);
-    --tw-outline-opacity: var(--control-focus-outline-opacity, 0.2);
+    --control-outline-color-opacity: var(--control-focus-outline-color-opacity, 20%);
   }
 
   &.disabled, &:has(:where(input, textarea, select):disabled) {
-    --control-bg: currentColor;
-    --tw-bg-opacity: var(--control-disabled-opacity);
+    --control-background-color: var(--control-disabled-background-color, currentColor);
+    --control-background-color-opacity: var(--control-disabled-background-color-opacity, 5%);
+    --control-border-color: var(--control-disabled-border-color, currentColor);
+    --control-border-color-opacity: var(--control-disabled-border-color-opacity);
   }
 }

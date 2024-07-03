@@ -6,7 +6,7 @@ import { animationsFinished } from '../../common.js'
 export const defaultOptions = {
     openClass: 'open',
     overflowClass: 'overflow-auto',
-    scrollbarWidthProperty: '--scrollbar-width',
+    scrollbarWidthProperty: '--default-scrollbar-width',
     remove: false
 }
 

@@ -1,8 +1,8 @@
 .dialog-content {
-  background-color: var(--color-body-primary);
-  border-radius: var(--radius-3xl);
-  padding: var(--dialog-content-py) var(--dialog-content-px);
-  inline-size: min(100%, var(--dialog-content-width));
+  background-color: var(--dialog-content-background-color, var(--color-body-primary));
+  border-radius: var(--dialog-content-border-radius, var(--radius-3xl));
+  padding: var(--dialog-content-padding-block) var(--dialog-content-padding-inline);
+  inline-size: min(100%, var(--dialog-content-inline-size));
   transition: var(--transition-transform), var(--transition-opacity);
   margin: auto;
 

@@ -1,10 +1,10 @@
 .control {
   &.invalid, &:has(:user-invalid), .validated &:has(:invalid) {
+    --control-background-color: var(--control-invalid-background-color, var(--color-error));
+    --control-background-color-opacity: var(--control-invalid-background-color-opacity, 10%);
     --control-border-color: var(--control-invalid-border-color, var(--color-error));
+    --control-border-color-opacity: var(--control-invalid-border-color-opacity, 100%);
     --control-outline-color: var(--control-invalid-outline-color, var(--color-error));
     --control-color: var(--control-invalid-color, var(--color-error));
-    --control-bg: var(--control-invalid-bg, var(--color-error));
-    --tw-bg-opacity: var(--control-invalid-bg-opacity, 0.1);
-    --tw-border-opacity: var(--control-invalid-border-opacity, 1);
   }
 }

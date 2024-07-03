@@ -5,7 +5,7 @@
   :where(input) {
     transform: rotate(-90deg);
     width: 100cqh;
-    inset-block-start: 50%;
+    inset-block-start: calc(50% - 50cqw / 2);
     inset-inline-start: calc(50% * -1 + 50cqw);
   }
 }

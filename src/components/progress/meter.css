@@ -12,32 +12,32 @@
   }
 
   &::-webkit-meter-optimum-value {
-    background: var(--color-success);
+    background: var(--progress-meter-success-background, var(--color-success));
     border-radius: inherit;
   }
 
   &::-webkit-meter-suboptimum-value {
-    background: var(--color-warning);
+    background: var(--progress-meter-warning-background, var(--color-warning));
     border-radius: inherit;
   }
 
   &::-webkit-meter-even-less-good-value {
-    background: var(--color-error);
+    background: var(--progress-meter-error-background, var(--color-error));
     border-radius: inherit;
   }
 
   &:-moz-meter-optimum::-moz-meter-bar {
-    background: var(--color-success);
+    background: var(--progress-meter-success-background, var(--color-success));
     border-radius: inherit;
   }
 
   &:-moz-meter-sub-optimum::-moz-meter-bar {
-    background: var(--color-warning);
+    background: var(--progress-meter-warning-background, var(--color-warning));
     border-radius: inherit;
   }
 
   &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-    background: var(--color-error);
+    background: var(--progress-meter-error-background, var(--color-error));
     border-radius: inherit;
   }
 }

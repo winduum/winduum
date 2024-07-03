@@ -17,7 +17,7 @@
     border-radius: inherit;
 
     &:is(.control) {
-      --tw-border-mix: var(--color-body-primary);
+      --control-border-color-mix: var(--color-body-primary);
     }
 
     &:is(.button) {

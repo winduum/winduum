@@ -1,6 +1,6 @@
 :root, :host {
-  --notice-py: 1.25rem;
-  --notice-px: 1.5rem;
+  --notice-padding-block: 1.25rem;
+  --notice-padding-inline: 1.5rem;
   --notice-font-size: var(--font-size-sm);
   --notice-border-radius: var(--radius);
   --notice-outline-width: 1px;

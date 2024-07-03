@@ -1,17 +1,17 @@
 .field {
-  gap: var(--spacing-sm);
+  gap: var(--field-gap, var(--spacing-sm));
   display: flex;
   flex-direction: column;
 
   .validated &:has(:invalid) {
     :where(.info[hidden]) {
-      display: flex;
+      display: revert;
     }
   }
 
   &:has([required]) :where(.label) {
     &::after {
-      color: var(--color-error);
+      color: var(--field-required-color, var(--color-error));
       content: " *";
     }
   }

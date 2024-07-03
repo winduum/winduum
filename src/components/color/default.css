@@ -4,8 +4,8 @@
   display: inline-flex;
 
   :where(input) {
-    width: var(--check-color-size);
-    height: var(--check-color-size);
+    inline-size: var(--check-color-size);
+    block-size: var(--check-color-size);
     border-radius: var(--check-color-border-radius);
     outline:
       var(--check-color-outline-width, 1px) solid

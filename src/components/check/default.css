@@ -16,8 +16,8 @@
   }
 
   :where(input) {
-    width: var(--check-size);
-    height: var(--check-size);
+    inline-size: var(--check-size);
+    block-size: var(--check-size);
     border-radius: var(--check-border-radius);
     background-color:
       color-mix(

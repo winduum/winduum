@@ -23,7 +23,7 @@ By default, imports are directly from `npm` so you can leverage updates.
 You can also copy and paste the code from this directory to your project and remap the imports to local.
 
 ```css
-@import "@/components/ui/tooltip/assets/index.css" layer(components);
+@import "@/components/tooltip/assets/index.css" layer(components);
 ```
 
 ### Docs

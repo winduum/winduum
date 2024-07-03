@@ -1,25 +1,21 @@
 .notice {
-  --tw-bg-opacity: 0.1;
-  --tw-bg-mix: transparent;
-  --tw-outline-opacity: 0.1;
-  --tw-outline-mix: transparent;
-
-  padding: var(--notice-py) var(--notice-px);
+  padding: var(--notice-padding-block) var(--notice-padding-inline);
   font-size: var(--notice-font-size);
   border-radius: var(--notice-border-radius);
-  background-color: color-mix(in var(--default-color-space), var(--color-accent) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
-  color: var(--color-accent);
+  background-color:
+    color-mix(
+      in var(--notice-background-color-space, srgb),
+      var(--notice-background-color, var(--color-accent)) var(--notice-background-color-opacity, 10%),
+      var(--notice-background-color-mix, transparent)
+    );
+  color: var(--notice-color, var(--color-accent));
   outline:
     var(--notice-outline-width) solid
     color-mix(
-      in var(--default-color-space),
-      var(--color-accent) calc(var(--tw-outline-opacity) * 100%),
-      var(--tw-outline-mix)
+      in var(--notice-outline-color-space, srgb),
+      var(--notice-outline-color, var(--color-accent)) var(--notice-outline-color-opacity, 10%),
+      var(--notice-outline-color-mix, transparent)
     );
   outline-offset: var(--notice-outline-offset);
   text-wrap: pretty;
-
-  :where(hr) {
-    --tw-border-opacity: 0.2;
-  }
 }

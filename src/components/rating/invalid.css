@@ -1,5 +1,5 @@
 .rating {
-  &.invalid, .validated & :where(input):invalid {
-    --rating-color: var(--color-error);
+  &.invalid, :user-invalid, .validated & :invalid {
+    --rating-color: var(--rating-invalid-color, var(--color-error));
   }
 }

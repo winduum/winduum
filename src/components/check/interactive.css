@@ -26,10 +26,10 @@
     &:disabled {
       --check-background-color: var(--check-disabled-background-color, currentColor);
       --check-background-color-mix: var(--check-disabled-background-color-mix, transparent);
-      --check-background-color-opacity: var(--check-disabled-background-color-opacity, 10%);
+      --check-background-color-opacity: var(--check-disabled-background-color-opacity, 5%);
       --check-border-color: var(--check-disabled-border-color, currentColor);
       --check-border-color-mix: var(--check-disabled-border-color-mix, transparent);
-      --check-border-color-opacity: var(--check-disabled-border-color-opacity, 20%);
+      --check-border-color-opacity: var(--check-disabled-border-color-opacity, 15%);
 
       cursor: not-allowed;
     }

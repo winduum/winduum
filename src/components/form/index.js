@@ -39,7 +39,7 @@ export const validateField = (element, options = {}) => {
         validitySelector: '.validity',
         infoParentSelector: '.field',
         infoSelector: '.info',
-        infoContent: '<div class="ui-info text-error validity"></div>',
+        infoContent: '<div class="info text-error validity"></div>',
         endParentSelector: '.control',
         endSelector: '.ms-auto',
         endContent: '<div class="ms-auto"></div>',
