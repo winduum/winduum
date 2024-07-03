@@ -82,16 +82,16 @@ export const defaultConfig = {
     animations: ['ripple', 'spin', 'move-indeterminate'],
     mask: ['check', 'radio', 'angle-up', 'angle-down'],
     screens: {
-        xs: '22.5em',
-        sm: '26em',
-        md: '48em',
-        lg: '60em',
-        xl: '76em',
-        '2xl': '82em',
-        '3xl': '88em',
-        '4xl': '100em',
-        xxl: '126em',
-        '2xxl': '158em'
+        xs: '22.5rem',
+        sm: '26rem',
+        md: '46.5rem',
+        lg: '60rem',
+        xl: '76rem',
+        '2xl': '82rem',
+        '3xl': '88rem',
+        '4xl': '100rem',
+        xxl: '126rem',
+        '2xxl': '158rem'
     },
     settings: {
         rgb: false,
