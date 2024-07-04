@@ -1,4 +1,0 @@
-:root, :host {
-  --toast-width: 20rem;
-  --toast-duration: calc(var(--default-transition-duration) * 2);
-}

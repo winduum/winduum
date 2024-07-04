@@ -1,7 +1,7 @@
 :root, :host {
-  --check-color-primary: currentColor;
-  --check-color-secondary: transparent;
-  --check-color-size: 1.5rem;
-  --check-color-border-radius: var(--radius-full);
-  --check-color-outline-width: 1px;
+  --x-color-primary: currentColor;
+  --x-color-secondary: transparent;
+  --x-color-size: 1.5rem;
+  --x-color-border-radius: var(--radius-full);
+  --x-color-outline-width: 1px;
 }

@@ -7,26 +7,22 @@
   display: inline-flex;
   text-wrap: pretty;
 
-  :where(a) {
-    color: var(--color-accent);
-    text-decoration: underline;
-  }
-
   :where(input) {
-    --tw-outline-opacity: 0;
-    --tw-outline-mix: transparent;
-
-    inline-size: var(--switch-width);
-    block-size: var(--switch-height);
-    padding: calc((var(--switch-height) - var(--switch-icon-size)) / 2);
+    inline-size: var(--switch-inline-size);
+    block-size: var(--switch-block-size);
+    padding: calc((var(--switch-block-size) - var(--switch-icon-size)) / 2);
     border-radius: var(--switch-border-radius);
-    background-color: var(--switch-bg);
+    background-color: color-mix(
+      in var(--switch-background-color-space, srgb),
+      var(--switch-background-color) var(--switch-background-color-opacity, 100%),
+      var(--switch-background-color-mix, transparent)
+    );
     outline:
       var(--switch-outline-width) solid
       color-mix(
-        in var(--default-color-space),
-        var(--switch-outline-color) calc(var(--tw-outline-opacity) * 100%),
-        var(--tw-outline-mix)
+        in var(--switch-outline-color-space, srgb),
+        var(--switch-outline-color) var(--switch-outline-color-opacity, 0%),
+        var(--switch-outline-color-mix, transparent)
       );
     outline-offset: var(--switch-outline-offset);
     display: flex;
@@ -34,8 +30,8 @@
     flex-shrink: 0;
 
     &::before {
-      width: var(--switch-icon-size);
-      height: var(--switch-icon-size);
+      inline-size: var(--switch-icon-size);
+      block-size: var(--switch-icon-size);
       background-color: var(--color-light);
       transition: var(--transition-all);
       border-radius: inherit;

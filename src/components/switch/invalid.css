@@ -1,6 +1,6 @@
 .switch {
-  &.invalid :where(input), .validated & :where(input):invalid {
-    --switch-outline-color: var(--color-error);
-    --switch-bg: var(--color-error);
+  &.invalid, :user-invalid, .validated & :invalid {
+    --switch-outline-color: var(--switch-invalid-outline-color, var(--color-error));
+    --switch-background-color: var(--switch-invalid-background-color, var(--color-error));
   }
 }

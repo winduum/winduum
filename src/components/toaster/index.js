@@ -8,7 +8,7 @@ import { animationsFinished, nextRepaint } from '../../common.js'
 export const closeToast = async (element, options = {}) => {
     options = {
         hiddenClass: 'out',
-        heightProperty: '--toast-height',
+        heightProperty: '--toast-block-size',
         ...options
     }
 
@@ -36,7 +36,7 @@ export const showToast = async (element, options = {}) => {
     options = {
         visibleClass: 'in',
         autoHide: null,
-        heightProperty: '--toast-height',
+        heightProperty: '--toast-block-size',
         close: {},
         ...options
     }

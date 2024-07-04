@@ -1,15 +1,16 @@
 .toast-content {
-  --toast-bg: var(--color-accent);
-  --toast-color: var(--color-accent);
-  --tw-border-mix: var(--color-body-primary);
-  --tw-border-opacity: 0.15;
-
   border-radius: var(--toast-content-border-radius);
-  padding: var(--toast-content-py) var(--toast-content-px);
+  padding: var(--toast-content-padding-block) var(--toast-content-padding-inline);
   gap: var(--toast-content-gap);
-  background-color: var(--toast-content-bg);
-  color: var(--toast-color);
-  border: 1px solid color-mix(in var(--default-color-space), var(--toast-bg) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
+  background-color: var(--toast-content-background-color);
+  color: var(--toast-content-color, var(--color-accent));
+  border:
+    var(--toast-content-border-width, 1px) solid
+    color-mix(
+      in var(--toast-content-border-color-space, srgb),
+      var(--toast-content-border-color, var(--color-accent)) var(--toast-content-border-color-opacity, 15%),
+      var(--toast-content-border-color-mix, var(--color-body-primary))
+    );
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
   align-items: center;
   display: flex;

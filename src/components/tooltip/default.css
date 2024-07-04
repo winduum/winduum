@@ -5,23 +5,23 @@
   &::before {
     --tw-content: attr(aria-label);
 
+    background-color: var(--tooltip-background-color);
+    color: var(--tooltip-color);
+    border-radius: var(--tooltip-border-radius);
+    font-size: var(--tooltip-font-size);
+    padding: var(--tooltip-padding-block) var(--tooltip-padding-inline);
+    z-index: var(--tooltip-z-index, var(--z-index-20));
+    transition-property: var(--default-transition-property);
+    transition-timing-function: var(--transition-timing-function-in-out);
+    transition-duration: var(--default-transition-duration);
     content: var(--tw-content);
     opacity: var(--tw-opacity);
     visibility: var(--tw-visibility);
     transform:
       translate(var(--tw-translate-x), var(--tw-translate-y))
       scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-    transition-property: var(--default-transition-property);
-    transition-timing-function: var(--transition-timing-function-in-out);
-    transition-duration: var(--default-transition-duration);
     will-change: transform;
-    background-color: var(--tooltip-bg);
-    color: var(--tooltip-color);
-    border-radius: var(--tooltip-border-radius);
-    font-size: var(--tooltip-font-size);
-    padding: var(--tooltip-py) var(--tooltip-px);
-    z-index: var(--z-index-20);
-    width: max-content;
+    inline-size: max-content;
     position: absolute;
     pointer-events: none;
   }

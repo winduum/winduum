@@ -14,10 +14,9 @@ Include CSS either globally or to your component _([you can't use TailwindCSS la
 or modular (you can use your own props or CSS)
 
 ```css
+@import "winduum/src/components/table/props/default.css";
 @import "winduum/src/components/table/default.css";
-@import "winduum/src/components/table/default-props.css";
 @import "winduum/src/components/table/interactive.css";
-@import "winduum/src/components/table/interactive-props.css";
 ```
 
 ### Local imports

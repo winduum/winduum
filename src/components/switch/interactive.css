@@ -6,24 +6,28 @@
 
     &:where(:required) {
       & + *::after {
-        color: var(--color-error);
+        color: var(--switch-required-color, var(--color-error));
         content: " *";
       }
     }
 
     &:enabled:focus {
       --switch-outline-offset: var(--switch-focus-outline-offset);
-      --tw-outline-opacity: 0.4;
+      --switch-outline-color-opacity: var(--switch-focus-outline-color-opacity, 40%);
     }
 
     &:disabled {
-      opacity: var(--switch-disabled-opacity);
+      --switch-background-color: var(--switch-disabled-background-color, currentColor);
+      --switch-background-color-opacity: var(--switch-disabled-background-color-opacity, 15%);
+      --switch-outline-color: var(--switch-disabled-outline-color, currentColor);
+      --switch-outline-color-opacity: var(--check-disabled-outline-color-opacity, 5%);
+
       cursor: not-allowed;
     }
 
     &:checked {
       --switch-outline-color: var(--color-accent);
-      --switch-bg: var(--color-accent);
+      --switch-background-color: var(--color-accent);
 
       &::before {
         margin-inline-start: calc(100% - var(--switch-icon-size));

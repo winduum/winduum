@@ -1,0 +1,8 @@
+:root, :host {
+  --x-table-border-radius: var(--radius);
+  --x-table-padding-inline: 1rem;
+  --x-table-cell-spacing-x: 0.625rem;
+  --x-table-cell-spacing-y: 0.875rem;
+  --x-table-cell-block-size: auto;
+  --x-table-cell-border-block-width: 1px;
+}

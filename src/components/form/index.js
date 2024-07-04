@@ -5,7 +5,7 @@
  */
 export const validateForm = (event, options = {}) => {
     options = {
-        validateSelectors: '.control, .check, .switch, .rating, .color',
+        validateSelectors: '.control, .check, .switch, .rating, .x-color',
         validateOptions: {},
         submitterLoadingClass: 'loading',
         ...options

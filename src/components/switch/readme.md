@@ -14,7 +14,7 @@ Include CSS either globally or to your component _([you can't use TailwindCSS la
 or modular (you can use your own props or CSS)
 
 ```css
-@import "winduum/src/components/switch/default-props.css" layer(components);
+@import "winduum/src/components/switch/props/default.css" layer(components);
 @import "winduum/src/components/switch/default.css" layer(components);
 @import "winduum/src/components/switch/interactive.css" layer(components);
 @import "winduum/src/components/switch/invalid.css" layer(components);

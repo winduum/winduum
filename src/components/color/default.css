@@ -1,20 +1,20 @@
-.check-color {
-  --check-color-outline-color: var(--color-accent);
+.x-color {
+  --x-color-outline-color: var(--color-accent);
 
   display: inline-flex;
 
   :where(input) {
-    inline-size: var(--check-color-size);
-    block-size: var(--check-color-size);
-    border-radius: var(--check-color-border-radius);
+    inline-size: var(--x-color-size);
+    block-size: var(--x-color-size);
+    border-radius: var(--x-color-border-radius);
     outline:
-      var(--check-color-outline-width, 1px) solid
+      var(--x-color-outline-width, 1px) solid
       color-mix(
-        in var(--check-color-outline-color-space, srgb),
-        var(--check-color-outline-color) var(--check-color-outline-color-opacity, 0%),
-        var(--check-color-outline-color-mix, transparent)
+        in var(--x-color-outline-color-space, srgb),
+        var(--x-color-outline-color) var(--x-color-outline-color-opacity, 0%),
+        var(--x-color-outline-color-mix, transparent)
       );
-    outline-offset: var(--check-color-outline-offset);
+    outline-offset: var(--x-color-outline-offset);
     display: inline-grid;
 
     &::before, &::after {
@@ -25,11 +25,11 @@
     }
 
     &::before {
-      background-color: var(--check-color-primary);
+      background-color: var(--x-color-primary);
     }
 
     &::after {
-      background-color: var(--check-color-secondary);
+      background-color: var(--x-color-secondary);
       clip-path: polygon(100% 0, 100% 100%, 0 100%);
     }
   }

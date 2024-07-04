@@ -1,6 +1,6 @@
 .swap {
-  display: inline-grid;
   cursor: var(--cursor-pointer, pointer);
+  display: inline-grid;
 
   > :where(*) {
     transition-property: var(--default-transition-property);

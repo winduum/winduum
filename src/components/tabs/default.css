@@ -1,8 +1,8 @@
 .tabs {
-  background-color: var(--color-body-secondary);
+  background-color: var(--tabs-background-color, var(--color-body-secondary));
+  gap: var(--tabs-gap, var(--spacing-xs));
+  padding: var(--tabs-padding, var(--spacing-xs));
+  border-radius: var(--tabs-border-radius, var(--radius));
   display: flex;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-xs);
-  border-radius: var(--radius);
-  width: max-content;
+  inline-size: max-content;
 }

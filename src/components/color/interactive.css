@@ -1,4 +1,4 @@
-.check-color {
+.x-color {
   :where(input) {
     transition-property: var(--default-transition-property);
     transition-timing-function: var(--transition-timing-function-in-out);
@@ -8,24 +8,24 @@
       cursor: not-allowed;
 
       &::before, &::after {
-        opacity: var(--check-color-disabled-opacity, 50%);
+        opacity: var(--x-color-disabled-opacity, 50%);
       }
     }
 
     &:enabled {
       &:hover {
-        --check-color-outline-color-opacity: var(--check-color-hover-outline-color-opacity);
-        --check-color-outline-offset: var(--check-color-hover-outline-offset);
+        --x-color-outline-color-opacity: var(--x-color-hover-outline-color-opacity);
+        --x-color-outline-offset: var(--x-color-hover-outline-offset);
       }
 
       &:focus-visible {
-        --check-color-outline-color-opacity: var(--check-color-focus-outline-color-opacity, 50%);
-        --check-color-outline-offset: var(--check-color-focus-outline-offset, 3px);
+        --x-color-outline-color-opacity: var(--x-color-focus-outline-color-opacity, 50%);
+        --x-color-outline-offset: var(--x-color-focus-outline-offset, 3px);
       }
 
       &:checked {
-        --check-color-outline-color-opacity: var(--check-color-checked-outline-color-opacity, 100%);
-        --check-color-outline-offset: var(--check-color-focus-outline-offset, 3px);
+        --x-color-outline-color-opacity: var(--x-color-checked-outline-color-opacity, 100%);
+        --x-color-outline-offset: var(--x-color-focus-outline-offset, 3px);
 
         &:focus-visible {
           outline-style: dashed;
