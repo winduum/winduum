@@ -1,7 +1,7 @@
 :root, :host {
-  --toast-content-border-radius: var(--radius-2xl);
-  --toast-content-padding-block: var(--spacing-md);
-  --toast-content-padding-inline: var(--spacing-lg);
-  --toast-content-gap: var(--spacing-xl);
-  --toast-content-background-color: var(--color-body-primary);
+  --x-toast-content-border-radius: var(--radius-2xl);
+  --x-toast-content-padding-block: var(--spacing-md);
+  --x-toast-content-padding-inline: var(--spacing-lg);
+  --x-toast-content-gap: var(--spacing-xl);
+  --x-toast-content-background-color: var(--color-body-primary);
 }

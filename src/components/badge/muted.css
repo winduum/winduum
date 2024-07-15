@@ -1,4 +1,4 @@
-.badge:is(.muted) {
-  --badge-color: var(--color-accent);
-  --badge-background-color-opacity: 10%;
+.x-badge:is(.muted) {
+  --x-badge-color: var(--color-accent);
+  --x-badge-background-color-opacity: 10%;
 }

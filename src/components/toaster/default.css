@@ -1,7 +1,7 @@
-.toaster {
-  z-index: var(--toaster-z-index, var(--z-index-50));
-  padding: var(--toaster-padding);
-  margin-block: calc(var(--toaster-margin-block) * -1);
+.x-toaster {
+  z-index: var(--x-toaster-z-index, var(--z-index-50));
+  padding: var(--x-toaster-padding);
+  margin-block: calc(var(--x-toaster-margin-block) * -1);
   position: fixed;
   inset: 0;
   pointer-events: none;

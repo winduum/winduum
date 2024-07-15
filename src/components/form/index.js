@@ -5,7 +5,7 @@
  */
 export const validateForm = (event, options = {}) => {
     options = {
-        validateSelectors: '.control, .check, .switch, .rating, .x-color',
+        validateSelectors: '.x-control, .x-check, .x-switch, .x-rating, .x-color',
         validateOptions: {},
         submitterLoadingClass: 'loading',
         ...options
@@ -37,10 +37,10 @@ export const validateField = (element, options = {}) => {
         selector: 'input:not([type="hidden"]), textarea, select',
         ignoreMatch: /(data-novalidate|readonly)/,
         validitySelector: '.validity',
-        infoParentSelector: '.field',
-        infoSelector: '.info',
-        infoContent: '<div class="info text-error validity"></div>',
-        endParentSelector: '.control',
+        infoParentSelector: '.x-field',
+        infoSelector: '.x-info',
+        infoContent: '<div class="x-info text-error validity"></div>',
+        endParentSelector: '.x-control',
         endSelector: '.ms-auto',
         endContent: '<div class="ms-auto"></div>',
         validClass: 'valid',

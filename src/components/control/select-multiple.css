@@ -1,5 +1,5 @@
-.control:has(select[multiple]) {
-  --control-height: auto;
+.x-control:has(select[multiple]) {
+  --x-control-height: auto;
 
   select {
     overflow-y: auto;

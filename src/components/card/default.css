@@ -1,7 +1,7 @@
-.card {
-  background-color: var(--card-background-color);
-  border-radius: var(--card-border-radius);
-  padding: var(--card-padding-block) var(--card-padding-inline);
+.x-card {
+  background-color: var(--x-card-background-color);
+  border-radius: var(--x-card-border-radius);
+  padding: var(--x-card-padding-block) var(--x-card-padding-inline);
   display: flex;
   flex-direction: column;
 }

@@ -1,53 +1,53 @@
-.check {
-  --check-outline-color: var(--color-accent);
-  --check-icon-color: var(--color-accent-foreground);
+.x-check {
+  --x-check-outline-color: var(--color-accent);
+  --x-check-icon-color: var(--color-accent-foreground);
 
-  font-weight: var(--check-font-weight);
-  font-size: var(--check-font-size);
-  line-height: var(--check-line-height);
-  letter-spacing: var(--check-letter-spacing);
-  gap: var(--check-gap);
+  font-weight: var(--x-check-font-weight);
+  font-size: var(--x-check-font-size);
+  line-height: var(--x-check-line-height);
+  letter-spacing: var(--x-check-letter-spacing);
+  gap: var(--x-check-gap);
   display: inline-flex;
   text-wrap: pretty;
 
   &:has([type="radio"]) {
-    --check-icon: var(--mask-radio);
-    --check-border-radius: 50%;
+    --x-check-icon: var(--mask-radio);
+    --x-check-border-radius: 50%;
   }
 
   :where(input) {
-    inline-size: var(--check-size);
-    block-size: var(--check-size);
-    border-radius: var(--check-border-radius);
+    inline-size: var(--x-check-size);
+    block-size: var(--x-check-size);
+    border-radius: var(--x-check-border-radius);
     background-color:
       color-mix(
-          in var(--check-background-color-space, srgb),
-          var(--check-background-color) var(--check-background-color-opacity, 0%),
-          var(--check-background-color-mix, transparent)
+          in var(--x-check-background-color-space, srgb),
+          var(--x-check-background-color) var(--x-check-background-color-opacity, 0%),
+          var(--x-check-background-color-mix, transparent)
       );
     border:
-      var(--check-border-width) solid
+      var(--x-check-border-width) solid
       color-mix(
-        in var(--check-border-color-space, srgb),
-        var(--check-border-color) var(--check-border-color-opacity, 20%),
-        var(--check-border-color-mix, transparent)
+        in var(--x-check-border-color-space, srgb),
+        var(--x-check-border-color) var(--x-check-border-color-opacity, 20%),
+        var(--x-check-border-color-mix, transparent)
       );
     outline:
-      var(--check-outline-width) solid
+      var(--x-check-outline-width) solid
       color-mix(
-        in var(--check-outline-color-space, srgb),
-        var(--check-outline-color) var(--check-outline-color-opacity, 0%),
-        var(--check-outline-color-mix, transparent)
+        in var(--x-check-outline-color-space, srgb),
+        var(--x-check-outline-color) var(--x-check-outline-color-opacity, 0%),
+        var(--x-check-outline-color-mix, transparent)
       );
-    outline-offset: var(--check-outline-offset);
+    outline-offset: var(--x-check-outline-offset);
     display: flex;
     flex-shrink: 0;
 
     &::before {
-      width: var(--check-icon-size);
-      height: var(--check-icon-size);
-      color: var(--check-icon-color);
-      mask: var(--check-icon);
+      width: var(--x-check-icon-size);
+      height: var(--x-check-icon-size);
+      color: var(--x-check-icon-color);
+      mask: var(--x-check-icon);
       transition: inherit;
       content: "";
       background-color: currentColor;
@@ -59,7 +59,7 @@
 
     &:where(:required) {
       + *::after {
-        color: var(--check-required-color, var(--color-error));
+        color: var(--x-check-required-color, var(--color-error));
         content: " *";
       }
     }

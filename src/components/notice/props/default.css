@@ -1,8 +1,8 @@
 :root, :host {
-  --notice-padding-block: 1.25rem;
-  --notice-padding-inline: 1.5rem;
-  --notice-font-size: var(--font-size-sm);
-  --notice-border-radius: var(--radius);
-  --notice-outline-width: 1px;
-  --notice-outline-offset: calc(var(--notice-outline-width, 1px) * -1);
+  --x-notice-padding-block: 1.25rem;
+  --x-notice-padding-inline: 1.5rem;
+  --x-notice-font-size: var(--font-size-sm);
+  --x-notice-border-radius: var(--radius);
+  --x-notice-outline-width: 1px;
+  --x-notice-outline-offset: calc(var(--x-notice-outline-width, 1px) * -1);
 }

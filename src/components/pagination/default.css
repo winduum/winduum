@@ -1,5 +1,5 @@
-.pagination {
-  gap: var(--pagination-gap, var(--spacing-xs));
+.x-pagination {
+  gap: var(--x-pagination-gap, var(--spacing-xs));
   display: flex;
   align-items: center;
 }

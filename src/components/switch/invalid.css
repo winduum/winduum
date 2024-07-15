@@ -1,6 +1,6 @@
-.switch {
+.x-switch {
   &.invalid, :user-invalid, .validated & :invalid {
-    --switch-outline-color: var(--switch-invalid-outline-color, var(--color-error));
-    --switch-background-color: var(--switch-invalid-background-color, var(--color-error));
+    --x-switch-outline-color: var(--x-switch-invalid-outline-color, var(--color-error));
+    --x-switch-background-color: var(--x-switch-invalid-background-color, var(--color-error));
   }
 }

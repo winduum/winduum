@@ -1,4 +1,4 @@
-.switch {
+.x-switch {
   :where(input) {
     transition-property: var(--default-transition-property);
     transition-timing-function: var(--transition-timing-function-in-out);
@@ -6,37 +6,37 @@
 
     &:where(:required) {
       & + *::after {
-        color: var(--switch-required-color, var(--color-error));
+        color: var(--x-switch-required-color, var(--color-error));
         content: " *";
       }
     }
 
     &:enabled:focus {
-      --switch-outline-offset: var(--switch-focus-outline-offset);
-      --switch-outline-color-opacity: var(--switch-focus-outline-color-opacity, 40%);
+      --x-switch-outline-offset: var(--x-switch-focus-outline-offset);
+      --x-switch-outline-color-opacity: var(--x-switch-focus-outline-color-opacity, 40%);
     }
 
     &:disabled {
-      --switch-background-color: var(--switch-disabled-background-color, currentColor);
-      --switch-background-color-opacity: var(--switch-disabled-background-color-opacity, 15%);
-      --switch-outline-color: var(--switch-disabled-outline-color, currentColor);
-      --switch-outline-color-opacity: var(--check-disabled-outline-color-opacity, 5%);
+      --x-switch-background-color: var(--x-switch-disabled-background-color, currentColor);
+      --x-switch-background-color-opacity: var(--x-switch-disabled-background-color-opacity, 15%);
+      --x-switch-outline-color: var(--x-switch-disabled-outline-color, currentColor);
+      --x-switch-outline-color-opacity: var(--x-check-disabled-outline-color-opacity, 5%);
 
       cursor: not-allowed;
     }
 
     &:checked {
-      --switch-outline-color: var(--color-accent);
-      --switch-background-color: var(--color-accent);
+      --x-switch-outline-color: var(--color-accent);
+      --x-switch-background-color: var(--color-accent);
 
       &::before {
-        margin-inline-start: calc(100% - var(--switch-icon-size));
+        margin-inline-start: calc(100% - var(--x-switch-icon-size));
       }
     }
 
     &:indeterminate {
       &::before {
-        margin-inline-start: calc(50% - var(--switch-icon-size) / 2);
+        margin-inline-start: calc(50% - var(--x-switch-icon-size) / 2);
       }
     }
   }

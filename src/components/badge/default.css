@@ -1,38 +1,38 @@
-.badge {
-  --badge-background-color: var(--color-accent);
-  --badge-border-color: var(--color-accent);
-  --badge-color: var(--color-accent-foreground);
+.x-badge {
+  --x-badge-background-color: var(--color-accent);
+  --x-badge-border-color: var(--color-accent);
+  --x-badge-color: var(--color-accent-foreground);
 
-  inline-size: var(--badge-width);
-  block-size: var(--badge-height);
-  padding: var(--badge-padding-block) var(--badge-padding-inline);
-  padding-inline: calc(var(--badge-padding-inline) - var(--badge-border-width));
-  border-radius: var(--badge-border-radius);
-  font-family: var(--badge-font-family);
-  font-weight: var(--badge-font-weight);
-  font-size: var(--badge-font-size);
-  letter-spacing: var(--badge-letter-spacing);
+  inline-size: var(--x-badge-width);
+  block-size: var(--x-badge-height);
+  padding: var(--x-badge-padding-block) var(--x-badge-padding-inline);
+  padding-inline: calc(var(--x-badge-padding-inline) - var(--x-badge-border-width));
+  border-radius: var(--x-badge-border-radius);
+  font-family: var(--x-badge-font-family);
+  font-weight: var(--x-badge-font-weight);
+  font-size: var(--x-badge-font-size);
+  letter-spacing: var(--x-badge-letter-spacing);
   background-color:
-      color-mix(
-          in var(--badge-background-color-space, srgb),
-          var(--badge-background-color) var(--badge-background-color-opacity, 100%),
-          var(--badge-background-color-mix, transparent)
-      );
+    color-mix(
+      in var(--x-badge-background-color-space, srgb),
+      var(--x-badge-background-color) var(--x-badge-background-color-opacity, 100%),
+      var(--x-badge-background-color-mix, transparent)
+    );
   color:
-      color-mix(
-          in var(--badge-color-space, srgb),
-          var(--badge-color) var(--badge-color-opacity, 100%),
-          var(--badge-color-mix, transparent)
-      );
+    color-mix(
+      in var(--x-badge-color-space, srgb),
+      var(--x-badge-color) var(--x-badge-color-opacity, 100%),
+      var(--x-badge-color-mix, transparent)
+    );
   border:
-      var(--badge-border-width)
-      solid
-      color-mix(
-          in var(--badge-border-color-space, srgb),
-          var(--badge-border-color) var(--badge-border-color-opacity, 100%),
-          var(--badge-border-color-mix, transparent)
-      );
-  gap: var(--badge-gap);
+    var(--x-badge-border-width)
+    solid
+    color-mix(
+      in var(--x-badge-border-color-space, srgb),
+      var(--x-badge-border-color) var(--x-badge-border-color-opacity, 100%),
+      var(--x-badge-border-color-mix, transparent)
+    );
+  gap: var(--x-badge-gap);
   display: inline-flex;
   text-align: center;
   align-items: center;

@@ -1,4 +1,4 @@
-.control:where(:has([type="file"])) {
+.x-control:where(:has([type="file"])) {
   overflow: clip;
 
   > :where([type="file"]) {
@@ -6,22 +6,22 @@
       all: unset;
       background-color:
         color-mix(
-          in var(--control-file-background-color-space, srgb),
-          var(--control-file-background-color, currentColor) var(--control-file-background-color-opacity, 15%),
-          var(--control-file-background-color-mix, transparent)
+          in var(--x-control-file-background-color-space, srgb),
+          var(--x-control-file-background-color, currentColor) var(--x-control-file-background-color-opacity, 15%),
+          var(--x-control-file-background-color-mix, transparent)
         );
-      block-size: calc(var(--control-height) - var(--control-border-width) * 2);
-      padding-inline: var(--control-padding-inline);
-      margin-inline: calc(var(--control-padding-inline) * -1) var(--control-padding-inline);
-      margin-block-start: calc(var(--control-padding-block) * -1);
-      border-start-end-radius: var(--control-border-radius);
-      border-end-end-radius: var(--control-border-radius);
+      block-size: calc(var(--x-control-height) - var(--x-control-border-width) * 2);
+      padding-inline: var(--x-control-padding-inline);
+      margin-inline: calc(var(--x-control-padding-inline) * -1) var(--x-control-padding-inline);
+      margin-block-start: calc(var(--x-control-padding-block) * -1);
+      border-start-end-radius: var(--x-control-border-radius);
+      border-end-end-radius: var(--x-control-border-radius);
       transition: var(--transition-background);
       cursor: pointer;
     }
 
     &:is(:hover, :focus) {
-      --control-file-background-color-opacity: 20%;
+      --x-control-file-background-color-opacity: 20%;
     }
   }
 }

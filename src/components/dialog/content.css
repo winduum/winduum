@@ -1,8 +1,8 @@
-.dialog-content {
-  background-color: var(--dialog-content-background-color, var(--color-body-primary));
-  border-radius: var(--dialog-content-border-radius, var(--radius-3xl));
-  padding: var(--dialog-content-padding-block) var(--dialog-content-padding-inline);
-  inline-size: min(100%, var(--dialog-content-inline-size));
+.x-dialog-content {
+  background-color: var(--x-dialog-content-background-color, var(--color-body-primary));
+  border-radius: var(--x-dialog-content-border-radius, var(--radius-3xl));
+  padding: var(--x-dialog-content-padding-block) var(--x-dialog-content-padding-inline);
+  inline-size: min(100%, var(--x-dialog-content-inline-size));
   transition: var(--transition-transform), var(--transition-opacity);
   margin: auto;
 

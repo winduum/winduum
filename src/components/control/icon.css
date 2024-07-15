@@ -1,6 +1,6 @@
-.control {
-  --control-start: calc(var(--control-icon-count-start, 1) * (var(--control-icon-size) + var(--control-icon-gap)) - var(--control-icon-gap));
-  --control-end: calc(var(--control-icon-count-end, 1) * (var(--control-icon-size) + var(--control-icon-gap)) - var(--control-icon-gap));
+.x-control {
+  --x-control-start: calc(var(--x-control-icon-count-start, 1) * (var(--x-control-icon-size) + var(--x-control-icon-gap)) - var(--x-control-icon-gap));
+  --x-control-end: calc(var(--x-control-icon-count-end, 1) * (var(--x-control-icon-size) + var(--x-control-icon-gap)) - var(--x-control-icon-gap));
 
   &:has(textarea) {
     :where(.me-auto), :where(.ms-auto) {
@@ -9,23 +9,23 @@
   }
 
   &:has(.me-auto) {
-    --control-padding-inline-start: calc(var(--control-start) + var(--control-padding-inline));
+    --x-control-padding-inline-start: calc(var(--x-control-start) + var(--x-control-padding-inline));
   }
 
   &:has(.ms-auto) {
-    --control-padding-inline-end: calc(var(--control-end) + var(--control-padding-inline));
+    --x-control-padding-inline-end: calc(var(--x-control-end) + var(--x-control-padding-inline));
   }
 
   &:has(.me-auto > *:nth-child(2)) {
-    --control-icon-count-start: 2;
+    --x-control-icon-count-start: 2;
   }
 
   &:has(.ms-auto > *:nth-child(2)) {
-    --control-icon-count-end: 2;
+    --x-control-icon-count-end: 2;
   }
 
   :where(.me-auto), :where(.ms-auto) {
-    gap: var(--control-icon-gap);
+    gap: var(--x-control-icon-gap);
     display: flex;
     align-items: center;
   }

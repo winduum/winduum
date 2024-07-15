@@ -1,27 +1,27 @@
-.group {
+.x-group {
   display: flex;
   border-radius: var(--radius);
 
-  &:has(.control) {
-    > :where(.button) {
-      min-width: var(--control-height);
+  &:has(.x-control) {
+    > :where(.x-button) {
+      min-width: var(--x-control-height);
       height: auto;
     }
 
-    > :is(.button) {
-      --button-border-width: var(--control-border-width);
+    > :is(.x-button) {
+      --x-button-border-width: var(--x-control-border-width);
     }
   }
 
   > :where(*) {
     border-radius: inherit;
 
-    &:is(.control) {
-      --control-border-color-mix: var(--color-body-primary);
+    &:is(.x-control) {
+      --x-control-border-color-mix: var(--color-body-primary);
     }
 
-    &:is(.button) {
-      --button-focus-outline-offset: 0;
+    &:is(.x-button) {
+      --x-button-focus-outline-offset: 0;
     }
 
     &:focus-within {
@@ -29,7 +29,7 @@
     }
 
     &:where(:not(:first-child)) {
-      margin-inline-start: calc(var(--control-border-width) * -1);
+      margin-inline-start: calc(var(--x-control-border-width) * -1);
       border-start-start-radius: 0;
       border-end-start-radius: 0;
     }

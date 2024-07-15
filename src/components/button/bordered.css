@@ -1,19 +1,19 @@
-.button:is(.bordered) {
-  --button-disabled-background-color-opacity: 0%;
-  --button-disabled-background-color-mix: transparent;
-  --button-disabled-border-color-opacity: 30%;
-  --button-disabled-color: var(--color-accent);
-  --button-active-background-color-opacity: 20%;
-  --button-active-background-color-mix: transparent;
-  --button-active-border-color-opacity: 30%;
-  --button-active-color: var(--color-accent);
-  --button-hover-background-color-opacity: 10%;
-  --button-hover-background-color-mix: transparent;
-  --button-hover-border-color-opacity: 30%;
-  --button-hover-color: var(--color-accent);
-  --button-focus-outline-offset: 0px;
-  --button-border-width: 1px;
-  --button-border-color-opacity: 30%;
-  --button-background-color-opacity: 0%;
-  --button-color: var(--color-accent);
+.x-button:is(.bordered) {
+  --x-button-disabled-background-color-opacity: 0%;
+  --x-button-disabled-background-color-mix: transparent;
+  --x-button-disabled-border-color-opacity: 30%;
+  --x-button-disabled-color: var(--color-accent);
+  --x-button-active-background-color-opacity: 20%;
+  --x-button-active-background-color-mix: transparent;
+  --x-button-active-border-color-opacity: 30%;
+  --x-button-active-color: var(--color-accent);
+  --x-button-hover-background-color-opacity: 10%;
+  --x-button-hover-background-color-mix: transparent;
+  --x-button-hover-border-color-opacity: 30%;
+  --x-button-hover-color: var(--color-accent);
+  --x-button-focus-outline-offset: 0px;
+  --x-button-border-width: 1px;
+  --x-button-border-color-opacity: 30%;
+  --x-button-background-color-opacity: 0%;
+  --x-button-color: var(--color-accent);
 }

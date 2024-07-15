@@ -1,9 +1,9 @@
-.text {
-  font-family: var(--text-font-family);
-  font-weight: var(--text-font-weight);
-  font-size: var(--text-font-size);
-  line-height: var(--text-line-height);
-  letter-spacing: var(--text-letter-spacing);
+.x-text {
+  font-family: var(--x-text-font-family);
+  font-weight: var(--x-text-font-weight);
+  font-size: var(--x-text-font-size);
+  line-height: var(--x-text-line-height);
+  letter-spacing: var(--x-text-letter-spacing);
   text-wrap: pretty;
 
   > :is(*:first-child) {
@@ -15,7 +15,7 @@
   }
 
   :where(b, strong) {
-    font-weight: var(--text-content-bold);
+    font-weight: var(--x-text-content-bold);
   }
 
   :where(em) {
@@ -28,7 +28,7 @@
   }
 
   :where(p) {
-    margin-block: var(--text-p-margin-block, var(--text-content-margin-block));
+    margin-block: var(--x-text-p-margin-block, var(--x-text-content-margin-block));
 
     &:empty {
       line-height: 0;
@@ -41,69 +41,69 @@
   }
 
   :where(hr) {
-    margin-block: var(--text-hr-margin-block);
+    margin-block: var(--x-text-hr-margin-block);
     background-color: color-mix(
-      in var(--text-hr-background-color-space, srgb),
-      var(--text-hr-background-color, currentColor) var(--text-hr-background-color-opacity, 10%),
-      var(--text-hr-background-color-mix, transparent)
+      in var(--x-text-hr-background-color-space, srgb),
+      var(--x-text-hr-background-color, currentColor) var(--x-text-hr-background-color-opacity, 10%),
+      var(--x-text-hr-background-color-mix, transparent)
     );
   }
 
   :where(a) {
-    color: var(--text-link-color, var(--color-accent));
-    text-decoration: var(--text-link-text-decoration, underline);
+    color: var(--x-text-link-color, var(--color-accent));
+    text-decoration: var(--x-text-link-text-decoration, underline);
     transition: var(--transition-color);
 
     &:hover {
       color: color-mix(
-        in var(--text-link-hover-color-space, srgb),
-        var(--text-link-hover-color, var(--color-accent)) var(--text-link-hover-color-opacity, 75%),
-        var(--text-link-hover-color-mix, transparent)
+        in var(--x-text-link-hover-color-space, srgb),
+        var(--x-text-link-hover-color, var(--color-accent)) var(--x-text-link-hover-color-opacity, 75%),
+        var(--x-text-link-hover-color-mix, transparent)
       );
     }
 
     &:focus-visible {
       color: color-mix(
-        in var(--text-link-focus-color-space, srgb),
-        var(--text-link-focus-color, var(--color-accent)) var(--text-link-focus-color-opacity, 75%),
-        var(--text-link-focus-color-mix, transparent)
+        in var(--x-text-link-focus-color-space, srgb),
+        var(--x-text-link-focus-color, var(--color-accent)) var(--x-text-link-focus-color-opacity, 75%),
+        var(--x-text-link-focus-color-mix, transparent)
       );
     }
   }
 
   :where(h1, h2, h3, h4, h5, h6) {
-    font-family: var(--text-heading-font-family);
-    font-weight: var(--text-heading-font-weight, var(--text-content-bold));
-    font-size: var(--text-heading-font-size);
-    line-height: var(--text-heading-line-height);
-    letter-spacing: var(--text-heading-letter-spacing);
-    margin-block: var(--text-heading-margin-block);
-    color: var(--text-heading-color);
+    font-family: var(--x-text-heading-font-family);
+    font-weight: var(--x-text-heading-font-weight, var(--x-text-content-bold));
+    font-size: var(--x-text-heading-font-size);
+    line-height: var(--x-text-heading-line-height);
+    letter-spacing: var(--x-text-heading-letter-spacing);
+    margin-block: var(--x-text-heading-margin-block);
+    color: var(--x-text-heading-color);
     text-wrap: balance;
   }
 
   :where(h1) {
-    --text-heading-font-size: var(--text-heading-1-font-size, var(--font-size-4xl));
+    --x-text-heading-font-size: var(--x-text-heading-1-font-size, var(--font-size-4xl));
   }
 
   :where(h2) {
-    --text-heading-font-size: var(--text-heading-2-font-size, var(--font-size-3xl));
+    --x-text-heading-font-size: var(--x-text-heading-2-font-size, var(--font-size-3xl));
   }
 
   :where(h3) {
-    --text-heading-font-size: var(--text-heading-3-font-size, var(--font-size-2xl));
+    --x-text-heading-font-size: var(--x-text-heading-3-font-size, var(--font-size-2xl));
   }
 
   :where(h4) {
-    --text-heading-font-size: var(--text-heading-4-font-size, var(--font-size-xl));
+    --x-text-heading-font-size: var(--x-text-heading-4-font-size, var(--font-size-xl));
   }
 
   :where(h5) {
-    --text-heading-font-size: var(--text-heading-5-font-size, var(--font-size-lg));
+    --x-text-heading-font-size: var(--x-text-heading-5-font-size, var(--font-size-lg));
   }
 
   :where(h6) {
-    --text-heading-font-size: var(--text-heading-6-font-size);
+    --x-text-heading-font-size: var(--x-text-heading-6-font-size);
   }
 
   :where(table) {
@@ -111,38 +111,38 @@
     min-inline-size: 100%;
 
     :where(td, th) {
-      padding: var(--text-table-cell-padding-block, 1em) var(--text-table-cell-padding-inline, 1.25em);
+      padding: var(--x-text-table-cell-padding-block, 1em) var(--x-text-table-cell-padding-inline, 1.25em);
       text-align: left;
     }
 
     :where(thead) {
-      font-weight: var(--text-table-thead-font-weight, var(--text-content-bold));
+      font-weight: var(--x-text-table-thead-font-weight, var(--x-text-content-bold));
       border-block-end: 1px solid color-mix(
-        in var(--text-table-thead-border-color-space, srgb),
-        var(--text-table-thead-border-color, currentColor) var(--text-table-thead-border-color-opacity, 10%),
-        var(--text-table-thead-border-color-mix, transparent)
+        in var(--x-text-table-thead-border-color-space, srgb),
+        var(--x-text-table-thead-border-color, currentColor) var(--x-text-table-thead-border-color-opacity, 10%),
+        var(--x-text-table-thead-border-color-mix, transparent)
       );
     }
 
     :where(tbody tr) {
       &:nth-of-type(even) {
         background-color: color-mix(
-          in var(--text-table-row-even-background-color-space, srgb),
-          var(--text-table-row-even-background-color, currentColor) var(--text-table-row-even-background-color-opacity, 5%),
-          var(--text-table-row-even-background-color-mix, transparent)
+          in var(--x-text-table-row-even-background-color-space, srgb),
+          var(--x-text-table-row-even-background-color, currentColor) var(--x-text-table-row-even-background-color-opacity, 5%),
+          var(--x-text-table-row-even-background-color-mix, transparent)
         );
       }
     }
   }
 
   :where(ol, ul) {
-    margin-inline-start: var(--text-list-margin-inline-start, 0.75em);
-    padding-inline-start: var(--text-list-padding-inline-start, 1em);
-    margin-block: var(--text-list-margin-block, var(--text-content-margin-block));
+    margin-inline-start: var(--x-text-list-margin-inline-start, 0.75em);
+    padding-inline-start: var(--x-text-list-padding-inline-start, 1em);
+    margin-block: var(--x-text-list-margin-block, var(--x-text-content-margin-block));
 
     :where(li) {
-      margin-block: var(--text-list-item-margin-block, 0.5em);
-      padding-inline-start: var(--text-list-item-padding-inline-start, 1ch);
+      margin-block: var(--x-text-list-item-margin-block, 0.5em);
+      padding-inline-start: var(--x-text-list-item-padding-inline-start, 1ch);
     }
   }
 
@@ -153,8 +153,8 @@
 
     & :where(li) {
       &::marker {
-        color: var(--text-list-marker-color, var(--color-accent));
-        font-weight: var(--text-list-marker-font-weight, var(--text-content-bold));
+        color: var(--x-text-list-marker-color, var(--color-accent));
+        font-weight: var(--x-text-list-marker-font-weight, var(--x-text-content-bold));
       }
     }
   }
@@ -165,18 +165,18 @@
       list-style-type: "";
 
       &::before {
-        width: var(--text-list-marker-size);
-        height: var(--text-list-marker-size);
-        inset-inline-start: var(--text-list-marker-inset-inline-start, -0.75em);
-        inset-block-start: var(--text-list-marker-inset-block-start, 0.5lh);
+        width: var(--x-text-list-marker-size);
+        height: var(--x-text-list-marker-size);
+        inset-inline-start: var(--x-text-list-marker-inset-inline-start, -0.75em);
+        inset-block-start: var(--x-text-list-marker-inset-block-start, 0.5lh);
         border:
-          var(--text-list-marker-border-width, 1px) solid
-          var(--text-list-marker-border-color, var(--color-accent));
-        background-color: var(--text-list-marker-background-color, var(--color-accent));
-        margin-inline-start: calc((var(--text-list-marker-size) / 2) * -1);
-        margin-block-start: calc(var(--text-list-marker-size) / 2 * -1);
-        border-radius: var(--text-list-marker-border-radius, 50%);
-        mask: var(--text-list-marker-mask);
+          var(--x-text-list-marker-border-width, 1px) solid
+          var(--x-text-list-marker-border-color, var(--color-accent));
+        background-color: var(--x-text-list-marker-background-color, var(--color-accent));
+        margin-inline-start: calc((var(--x-text-list-marker-size) / 2) * -1);
+        margin-block-start: calc(var(--x-text-list-marker-size) / 2 * -1);
+        border-radius: var(--x-text-list-marker-border-radius, 50%);
+        mask: var(--x-text-list-marker-mask);
         position: absolute;
         will-change: transform;
         content: "";
@@ -184,35 +184,35 @@
     }
 
     &[style*="square"] {
-      --text-list-marker-border-radius: 0;
+      --x-text-list-marker-border-radius: 0;
     }
 
     &[style*="circle"] {
-      --text-list-marker-background-color: transparent;
+      --x-text-list-marker-background-color: transparent;
     }
   }
 
   :where(blockquote) {
     border-inline-start:
-      var(--text-blockquote-border-inline-start-width, 0.375em) solid
-      var(--text-blockquote-border-inline-start-color, var(--color-accent));
-    margin-block: var(--text-blockquote-margin-block, var(--text-content-margin-block));
-    padding: var(--text-blockquote-padding-block, 0.5em) var(--text-blockquote-padding-inline, 1.25em);
-    font-size: var(--text-blockquote-font-size, inherit);
+      var(--x-text-blockquote-border-inline-start-width, 0.375em) solid
+      var(--x-text-blockquote-border-inline-start-color, var(--color-accent));
+    margin-block: var(--x-text-blockquote-margin-block, var(--x-text-content-margin-block));
+    padding: var(--x-text-blockquote-padding-block, 0.5em) var(--x-text-blockquote-padding-inline, 1.25em);
+    font-size: var(--x-text-blockquote-font-size, inherit);
   }
 
   :where(code) {
-    font-size: var(--text-code-font-size, 87.5%);
+    font-size: var(--x-text-code-font-size, 87.5%);
   }
 
   :where(figure) {
-    margin-block: var(--text-figure-margin-block, var(--text-content-margin-block));
+    margin-block: var(--x-text-figure-margin-block, var(--x-text-content-margin-block));
   }
 
   :where(figcaption) {
-    font-size: var(--text-figcaption-font-size, 87.5%);
-    font-weight: var(--text-figcaption-font-weight, var(--font-weight-semibold));
-    line-height: var(--text-figcaption-line-height, 1.5);
-    margin-block-start: var(--text-figcaption-margin-block-start, 0.5em);
+    font-size: var(--x-text-figcaption-font-size, 87.5%);
+    font-weight: var(--x-text-figcaption-font-weight, var(--font-weight-semibold));
+    line-height: var(--x-text-figcaption-line-height, 1.5);
+    margin-block-start: var(--x-text-figcaption-margin-block-start, 0.5em);
   }
 }

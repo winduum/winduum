@@ -1,5 +1,5 @@
 :root, :host {
-  --control-color-swatch-width: 1.25rem;
-  --control-color-swatch-height: 1.25rem;
-  --control-color-swatch-border-radius: var(--radius-full);
+  --x-control-color-swatch-width: 1.25rem;
+  --x-control-color-swatch-height: 1.25rem;
+  --x-control-color-swatch-border-radius: var(--radius-full);
 }

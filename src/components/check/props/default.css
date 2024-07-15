@@ -1,13 +1,13 @@
 :root, :host {
-  --check-size: 1.25rem;
-  --check-icon-size: 1.125rem;
-  --check-icon: var(--mask-check);
-  --check-gap: var(--spacing-md);
-  --check-font-size: var(--font-size-sm);
-  --check-line-height: calc(1em + 0.25rem);
-  --check-border-radius: var(--radius-md);
-  --check-border-width: 1px;
-  --check-background-color: currentColor;
-  --check-border-color: currentColor;
-  --check-outline-width: 2px;
+  --x-check-size: 1.25rem;
+  --x-check-icon-size: 1.125rem;
+  --x-check-icon: var(--mask-check);
+  --x-check-gap: var(--spacing-md);
+  --x-check-font-size: var(--font-size-sm);
+  --x-check-line-height: calc(1em + 0.25rem);
+  --x-check-border-radius: var(--radius-md);
+  --x-check-border-width: 1px;
+  --x-check-background-color: currentColor;
+  --x-check-border-color: currentColor;
+  --x-check-outline-width: 2px;
 }

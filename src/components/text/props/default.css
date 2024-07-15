@@ -1,9 +1,9 @@
 :root, :host {
-  --text-content-bold: var(--font-weight-semibold);
-  --text-content-margin-block: var(--spacing-xl);
-  --text-list-marker-size: 0.375em;
-  --text-line-height: calc(1em + 0.75rem);
-  --text-hr-margin-block: 3em;
-  --text-heading-line-height: calc(1em + 0.375rem);
-  --text-heading-margin-block: 1.5em 0.5em;
+  --x-text-content-bold: var(--font-weight-semibold);
+  --x-text-content-margin-block: var(--spacing-xl);
+  --x-text-list-marker-size: 0.375em;
+  --x-text-line-height: calc(1em + 0.75rem);
+  --x-text-hr-margin-block: 3em;
+  --x-text-heading-line-height: calc(1em + 0.375rem);
+  --x-text-heading-margin-block: 1.5em 0.5em;
 }

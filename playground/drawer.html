@@ -8,35 +8,35 @@
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
 <body class="p-4xl flex flex flex-col items-start gap-4">
-    <div class="drawer invisible" id="drawerLeft" inert>
-        <nav class="drawer-content">
+    <div class="x-drawer invisible" id="drawerLeft" inert>
+        <nav class="x-drawer-content">
             Left
         </nav>
     </div>
 
-    <dialog class="drawer invisible after:-order-last backdrop:hidden" id="drawerRight" inert>
-        <div class="drawer-content">
+    <dialog class="x-drawer invisible after:-order-last backdrop:hidden" id="drawerRight" inert>
+        <div class="x-drawer-content">
             Right
-            <button class="button muted square" id="drawerClose" autofocus>x</button>
+            <button class="x-button muted square" id="drawerClose" autofocus>x</button>
         </div>
     </dialog>
 
-    <div class="drawer flex flex-col after:-order-last" id="drawerBottom" inert>
-        <div class="drawer-content" style="--drawer-content-width: 100%;--drawer-content-height: calc(100vh - 4rem);">
+    <div class="x-drawer flex flex-col after:-order-last" id="drawerBottom" inert>
+        <div class="x-drawer-content" style="--drawer-content-width: 100%;--drawer-content-height: calc(100vh - 4rem);">
             Bottom
         </div>
     </div>
 
-    <div class="drawer flex flex-col" id="drawerTop" inert>
-        <div class="drawer-content" style="--drawer-content-width: 100%;--drawer-content-height: calc(100vh - 4rem);">
+    <div class="x-drawer flex flex-col" id="drawerTop" inert>
+        <div class="x-drawer-content" style="--drawer-content-width: 100%;--drawer-content-height: calc(100vh - 4rem);">
             Top
         </div>
     </div>
 
-    <button class="button" id="openDrawerLeft">Open left drawer</button>
-    <button class="button" id="openDrawerRight">Open right drawer</button>
-    <button class="button" id="openDrawerBottom">Open bottom drawer</button>
-    <button class="button" id="openDrawerTop">Open top drawer</button>
+    <button class="x-button" id="openDrawerLeft">Open left drawer</button>
+    <button class="x-button" id="openDrawerRight">Open right drawer</button>
+    <button class="x-button" id="openDrawerBottom">Open bottom drawer</button>
+    <button class="x-button" id="openDrawerTop">Open top drawer</button>
 
     <script type="module">
         import { showDrawer, closeDrawer, scrollDrawer } from "/src/components/drawer/index.js";

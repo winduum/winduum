@@ -1,5 +1,5 @@
-.rating {
+.x-rating {
   &.invalid, :user-invalid, .validated & :invalid {
-    --rating-color: var(--rating-invalid-color, var(--color-error));
+    --x-rating-color: var(--x-rating-invalid-color, var(--color-error));
   }
 }

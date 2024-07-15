@@ -1,8 +1,8 @@
 :root, :host {
-  --popover-content-background-color: var(--color-body-primary);
-  --popover-content-border-radius: var(--radius);
-  --popover-content-padding-block: var(--spacing-sm);
-  --popover-content-padding-inline: var(--spacing-sm);
-  --popover-content-scale-y: 0.75;
-  --popover-content-scale-x: 0.75;
+  --x-popover-content-background-color: var(--color-body-primary);
+  --x-popover-content-border-radius: var(--radius);
+  --x-popover-content-padding-block: var(--spacing-sm);
+  --x-popover-content-padding-inline: var(--spacing-sm);
+  --x-popover-content-scale-y: 0.75;
+  --x-popover-content-scale-x: 0.75;
 }

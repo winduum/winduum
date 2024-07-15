@@ -1,8 +1,8 @@
-.check {
-  --check-hover-border-color: var(--color-accent);
-  --check-hover-background-color: var(--color-accent);
-  --check-checked-background-color: var(--color-accent);
-  --check-focus-border-color: var(--color-accent);
+.x-check {
+  --x-check-hover-border-color: var(--color-accent);
+  --x-check-hover-background-color: var(--color-accent);
+  --x-check-checked-background-color: var(--color-accent);
+  --x-check-focus-border-color: var(--color-accent);
 
   :where(input) {
     transition-property: var(--default-transition-property);
@@ -10,41 +10,41 @@
     transition-duration: var(--default-transition-duration);
 
     &:where(:hover, :focus-visible) {
-      --check-background-color: var(--check-hover-background-color);
-      --check-background-color-opacity: var(--check-hover-background-color-opacity, 10%);
-      --check-border-color: var(--check-hover-border-color);
-      --check-border-color-opacity: var(--check-hover-border-color-opacity, 75%);
+      --x-check-background-color: var(--x-check-hover-background-color);
+      --x-check-background-color-opacity: var(--x-check-hover-background-color-opacity, 10%);
+      --x-check-border-color: var(--x-check-hover-border-color);
+      --x-check-border-color-opacity: var(--x-check-hover-border-color-opacity, 75%);
     }
 
     &:focus {
-      --check-border-color: var(--check-focus-border-color);
-      --check-border-color-opacity: var(--check-focus-border-color-opacity, 75%);
-      --check-outline-color-opacity: var(--check-focus-outline-opacity, 20%);
-      --check-outline-offset: var(--check-focus-outline-offset);
+      --x-check-border-color: var(--x-check-focus-border-color);
+      --x-check-border-color-opacity: var(--x-check-focus-border-color-opacity, 75%);
+      --x-check-outline-color-opacity: var(--x-check-focus-outline-opacity, 20%);
+      --x-check-outline-offset: var(--x-check-focus-outline-offset);
     }
 
     &:disabled {
-      --check-background-color: var(--check-disabled-background-color, currentColor);
-      --check-background-color-mix: var(--check-disabled-background-color-mix, transparent);
-      --check-background-color-opacity: var(--check-disabled-background-color-opacity, 5%);
-      --check-border-color: var(--check-disabled-border-color, currentColor);
-      --check-border-color-mix: var(--check-disabled-border-color-mix, transparent);
-      --check-border-color-opacity: var(--check-disabled-border-color-opacity, 15%);
+      --x-check-background-color: var(--x-check-disabled-background-color, currentColor);
+      --x-check-background-color-mix: var(--x-check-disabled-background-color-mix, transparent);
+      --x-check-background-color-opacity: var(--x-check-disabled-background-color-opacity, 5%);
+      --x-check-border-color: var(--x-check-disabled-border-color, currentColor);
+      --x-check-border-color-mix: var(--x-check-disabled-border-color-mix, transparent);
+      --x-check-border-color-opacity: var(--x-check-disabled-border-color-opacity, 15%);
 
       cursor: not-allowed;
     }
 
     &:where([type="checkbox"]):indeterminate {
-      --check-icon: var(--mask-indeterminate);
+      --x-check-icon: var(--mask-indeterminate);
     }
 
     &:is(:checked, [type="checkbox"]:indeterminate) {
-      --check-background-color: var(--check-checked-background-color);
-      --check-background-color-opacity: 100%;
-      --check-border-color-opacity: 0%;
+      --x-check-background-color: var(--x-check-checked-background-color);
+      --x-check-background-color-opacity: 100%;
+      --x-check-border-color-opacity: 0%;
 
       &:disabled {
-        opacity: var(--check-checked-disabled-opacity, 75%);
+        opacity: var(--x-check-checked-disabled-opacity, 75%);
       }
 
       &::before {

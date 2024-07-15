@@ -1,19 +1,19 @@
-.progress {
-  inline-size: var(--progress-inline-size, 100%);
-  block-size: var(--progress-block-size);
-  border-radius: var(--progress-border-radius);
+.x-progress {
+  inline-size: var(--x-progress-inline-size, 100%);
+  block-size: var(--x-progress-block-size);
+  border-radius: var(--x-progress-border-radius);
   background-color:
     color-mix(
-      in var(--progress-background-color-space, srgb),
-      var(--progress-background-color, var(-color-accent)) var(--progress-background-color-opacity, 10%),
-      var(--progress-background-color-mix, var(--color-body))
+      in var(--x-progress-background-color-space, srgb),
+      var(--x-progress-background-color, var(--color-accent)) var(--x-progress-background-color-opacity, 10%),
+      var(--x-progress-background-color-mix, var(--color-body))
     );
   position: relative;
   overflow: clip;
 
   &::-moz-progress-bar {
-    background-color: var(--progress-bar-background-color, var(--color-accent));
-    transition: all var(--progress-transition-duration) var(--transition-timing-function-in-out);
+    background-color: var(--x-progress-bar-background-color, var(--color-accent));
+    transition: all var(--x-progress-transition-duration) var(--transition-timing-function-in-out);
     border-radius: inherit;
   }
 
@@ -27,13 +27,13 @@
   }
 
   &::-webkit-progress-value {
-    background-color: var(--progress-bar-background-color, var(--color-accent));
+    background-color: var(--x-progress-bar-background-color, var(--color-accent));
     transition: all var(--default-transition-duration) var(--transition-timing-function-in-out);
     border-radius: inherit;
   }
 
   &:indeterminate {
-    animation: var(--progress-indeterminate-transition-duration) var(--transition-timing-function-linear) infinite move-indeterminate;
+    animation: var(--x-progress-indeterminate-transition-duration) var(--transition-timing-function-linear) infinite move-indeterminate;
     background-image: linear-gradient(to right, var(--color-accent) 33.33%, transparent 0%);
     background-position: top left;
     background-repeat: no-repeat;

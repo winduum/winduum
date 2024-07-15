@@ -1,54 +1,54 @@
-.control {
+.x-control {
   display: grid;
-  block-size: var(--control-height);
-  font-family: var(--control-font-family);
-  font-weight: var(--control-font-weight);
-  font-size: var(--control-font-size);
-  letter-spacing: var(--control-letter-spacing);
-  color: var(--control-color);
-  border-radius: var(--control-border-radius);
+  block-size: var(--x-control-height);
+  font-family: var(--x-control-font-family);
+  font-weight: var(--x-control-font-weight);
+  font-size: var(--x-control-font-size);
+  letter-spacing: var(--x-control-letter-spacing);
+  color: var(--x-control-color);
+  border-radius: var(--x-control-border-radius);
   background-color:
     color-mix(
-      in var(--control-background-color-space, srgb),
-      var(--control-background-color) var(--control-background-color-opacity, 100%),
-      var(--control-background-color-mix, transparent)
+      in var(--x-control-background-color-space, srgb),
+      var(--x-control-background-color) var(--x-control-background-color-opacity, 100%),
+      var(--x-control-background-color-mix, transparent)
     );
   border:
-    var(--control-border-width) solid
+    var(--x-control-border-width) solid
     color-mix(
-      in var(--control-border-color-space, srgb),
-      var(--control-border-color) var(--control-border-color-opacity, 15%),
-      var(--control-border-color-mix, transparent)
+      in var(--x-control-border-color-space, srgb),
+      var(--x-control-border-color) var(--x-control-border-color-opacity, 15%),
+      var(--x-control-border-color-mix, transparent)
     );
   outline:
-    var(--control-outline-width) solid
+    var(--x-control-outline-width) solid
     color-mix(
-      in var(--control-outline-color-space, srgb),
-      var(--control-outline-color, var(--color-accent)) var(--control-outline-color-opacity, 0%),
-      var(--control-outline-color-mix, transparent)
+      in var(--x-control-outline-color-space, srgb),
+      var(--x-control-outline-color, var(--color-accent)) var(--x-control-outline-color-opacity, 0%),
+      var(--x-control-outline-color-mix, transparent)
     );
-  outline-offset: var(--control-outline-offset);
+  outline-offset: var(--x-control-outline-offset);
   grid-template:
-    [control-start] calc(var(--control-padding-block) - var(--control-border-width))
-    [control-padding] 1fr
-    calc(var(--control-padding-block) - var(--control-border-width)) [control-end] /
-    [control-start] var(--control-padding-inline)
-    [control-padding] 1fr
-    var(--control-padding-inline) [control-end];
+    [x-control-start] calc(var(--x-control-padding-block) - var(--x-control-border-width))
+    [x-control-padding] 1fr
+    calc(var(--x-control-padding-block) - var(--x-control-border-width)) [x-control-end] /
+    [x-control-start] var(--x-control-padding-inline)
+    [x-control-padding] 1fr
+    var(--x-control-padding-inline) [x-control-end];
 
   &:has(textarea) {
     height: auto;
   }
 
   > :where(*) {
-    grid-area: control-padding;
+    grid-area: x-control-padding;
     align-self: center;
   }
 
   > :where(input, textarea, select) {
-    padding-block: var(--control-padding-block);
-    padding-inline: calc(var(--control-padding-inline) + var(--control-padding-inline-start, 0px)) calc(var(--control-padding-inline) + var(--control-padding-inline-end, 0px));
-    grid-area: control;
+    padding-block: var(--x-control-padding-block);
+    padding-inline: calc(var(--x-control-padding-inline) + var(--x-control-padding-inline-start, 0px)) calc(var(--x-control-padding-inline) + var(--x-control-padding-inline-end, 0px));
+    grid-area: x-control;
     text-overflow: ellipsis;
     overflow: clip;
     align-self: stretch;
@@ -62,13 +62,13 @@
 
   > :where(input, textarea) {
     &::placeholder {
-      color: var(--control-placeholder-color);
-      opacity: var(--control-placeholder-opacity);
+      color: var(--x-control-placeholder-color);
+      opacity: var(--x-control-placeholder-opacity);
     }
   }
 
   > :where(textarea) {
-    min-block-size: var(--control-height-textarea);
+    min-block-size: var(--x-control-height-textarea);
     resize: vertical;
   }
 }

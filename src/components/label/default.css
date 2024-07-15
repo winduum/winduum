@@ -1,8 +1,8 @@
-.label {
-  font-family: var(--label-font-family);
-  font-weight: var(--label-font-weight);
-  font-size: var(--label-font-size);
-  line-height: var(--label-line-height);
-  letter-spacing: var(--label-letter-spacing);
+.x-label {
+  font-family: var(--x-label-font-family);
+  font-weight: var(--x-label-font-weight);
+  font-size: var(--x-label-font-size);
+  line-height: var(--x-label-line-height);
+  letter-spacing: var(--x-label-letter-spacing);
   text-wrap: pretty;
 }

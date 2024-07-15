@@ -9,5 +9,5 @@
 </script>
 
 <template>
-    <button class="button" :class="[variant, state, size]" @click="showRipple"><slot></slot><div class="ripple" /></button>
+    <button class="x-button" :class="[variant, state, size]" @click="showRipple"><slot></slot><div class="ripple" /></button>
 </template>

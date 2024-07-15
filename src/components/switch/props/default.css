@@ -1,17 +1,17 @@
 :root, :host {
-  --switch-inline-size: 3rem;
-  --switch-block-size: 1.5rem;
-  --switch-icon-size: 1.125rem;
-  --switch-font-weight: var(--font-weight-normal);
-  --switch-font-size: var(--font-size-sm);
-  --switch-line-height: calc(1em + 0.25rem);
-  --switch-gap: 0.75rem;
-  --switch-border-radius: var(--radius-full);
-  --switch-background-color: currentColor;
-  --switch-outline-width: 2px;
-  --switch-outline-color: currentColor;
+  --x-switch-inline-size: 3rem;
+  --x-switch-block-size: 1.5rem;
+  --x-switch-icon-size: 1.125rem;
+  --x-switch-font-weight: var(--font-weight-normal);
+  --x-switch-font-size: var(--font-size-sm);
+  --x-switch-line-height: calc(1em + 0.25rem);
+  --x-switch-gap: 0.75rem;
+  --x-switch-border-radius: var(--radius-full);
+  --x-switch-background-color: currentColor;
+  --x-switch-outline-width: 2px;
+  --x-switch-outline-color: currentColor;
 
   &.dark {
-    --switch-background-color: var(--color-body-tertiary);
+    --x-switch-background-color: var(--color-body-tertiary);
   }
 }

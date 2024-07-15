@@ -48,7 +48,7 @@ export const showDialog = async (element, options = {}) => {
     element.classList.add(options.openClass)
     await animationsFinished(element.lastElementChild)
     element.classList.add(options.overflowClass)
-    element.dispatchEvent(new CustomEvent('dialog:show'))
+    element.dispatchEvent(new CustomEvent('x-dialog:show'))
 }
 
 /**
@@ -71,6 +71,6 @@ export const closeDialog = async (element, options = {}) => {
         ? element.close()
         : element.removeAttribute('open')
 
-    element.dispatchEvent(new CustomEvent('dialog:close'))
+    element.dispatchEvent(new CustomEvent('x-dialog:close'))
     options.remove && element.remove()
 }

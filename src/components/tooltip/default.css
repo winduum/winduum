@@ -1,16 +1,16 @@
-.tooltip {
+.x-tooltip {
   position: relative;
   display: inline-block;
 
   &::before {
     --tw-content: attr(aria-label);
 
-    background-color: var(--tooltip-background-color);
-    color: var(--tooltip-color);
-    border-radius: var(--tooltip-border-radius);
-    font-size: var(--tooltip-font-size);
-    padding: var(--tooltip-padding-block) var(--tooltip-padding-inline);
-    z-index: var(--tooltip-z-index, var(--z-index-20));
+    background-color: var(--x-tooltip-background-color);
+    color: var(--x-tooltip-color);
+    border-radius: var(--x-tooltip-border-radius);
+    font-size: var(--x-tooltip-font-size);
+    padding: var(--x-tooltip-padding-block) var(--x-tooltip-padding-inline);
+    z-index: var(--x-tooltip-z-index, var(--z-index-20));
     transition-property: var(--default-transition-property);
     transition-timing-function: var(--transition-timing-function-in-out);
     transition-duration: var(--default-transition-duration);
@@ -30,7 +30,7 @@
     &::before {
       --tw-translate-x: -50%;
 
-      margin-block: var(--tooltip-margin-block);
+      margin-block: var(--x-tooltip-margin-block);
       inset-inline-start: 50%;
     }
   }
@@ -39,7 +39,7 @@
     &::before {
       --tw-translate-y: -50%;
 
-      margin-inline: var(--tooltip-margin-inline);
+      margin-inline: var(--x-tooltip-margin-inline);
       inset-block-start: 50%;
     }
   }
@@ -73,8 +73,8 @@
   }
 
   &:not(:hover, :focus)::before {
-    --tw-scale-x: var(--tooltip-scale-x);
-    --tw-scale-y: var(--tooltip-scale-y);
+    --tw-scale-x: var(--x-tooltip-scale-x);
+    --tw-scale-y: var(--x-tooltip-scale-y);
     --tw-opacity: 0;
     --tw-visibility: hidden;
   }

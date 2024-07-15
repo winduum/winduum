@@ -1,8 +1,8 @@
 :root, :host {
-  --rating-inline-size: 1.25rem;
-  --rating-block-size: 1.25rem;
-  --rating-color: var(--color-accent);
-  --rating-gap: 0.25rem;
-  --rating-opacity: 0.2;
-  --rating-icon: var(--mask-star);
+  --x-rating-inline-size: 1.25rem;
+  --x-rating-block-size: 1.25rem;
+  --x-rating-color: var(--color-accent);
+  --x-rating-gap: 0.25rem;
+  --x-rating-opacity: 0.2;
+  --x-rating-icon: var(--mask-star);
 }

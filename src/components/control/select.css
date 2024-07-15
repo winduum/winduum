@@ -1,16 +1,16 @@
-.control:has(select:not([multiple])) {
-  --control-padding-inline-end: calc(var(--control-end) + var(--control-padding-inline) + var(--control-select-icon-margin-inline-end));
+.x-control:has(select:not([multiple])) {
+  --x-control-padding-inline-end: calc(var(--x-control-end) + var(--x-control-padding-inline) + var(--x-control-select-icon-margin-inline-end));
 
   &:has(.ms-auto) {
-    --control-icon-count-end: 2;
+    --x-control-icon-count-end: 2;
   }
 
   &::after {
-    inline-size: var(--control-select-icon-size);
-    block-size: var(--control-select-icon-size);
+    inline-size: var(--x-control-select-icon-size);
+    block-size: var(--x-control-select-icon-size);
     mask: var(--mask-angle-down);
-    margin-inline: auto var(--control-select-icon-margin-inline-end);
-    grid-area: control-padding;
+    margin-inline: auto var(--x-control-select-icon-margin-inline-end);
+    grid-area: x-control-padding;
     background-color: currentColor;
     pointer-events: none;
     align-self: center;
@@ -18,6 +18,6 @@
   }
 
   :where(.ms-auto) {
-    margin-inline-end: var(--control-select-icon-size);
+    margin-inline-end: var(--x-control-select-icon-size);
   }
 }

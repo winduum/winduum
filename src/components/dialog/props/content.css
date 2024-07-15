@@ -1,5 +1,5 @@
 :root, :host {
-  --dialog-content-padding-block: 2rem;
-  --dialog-content-padding-inline: 1.5rem;
-  --dialog-content-inline-size: 35rem;
+  --x-dialog-content-padding-block: 2rem;
+  --x-dialog-content-padding-inline: 1.5rem;
+  --x-dialog-content-inline-size: 35rem;
 }

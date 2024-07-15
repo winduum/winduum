@@ -1,4 +1,4 @@
-.image:where(.avatar) {
+.x-image:where(.avatar) {
   border-radius: var(--radius-full);
   background-color: var(--color-accent);
   color: var(--color-accent-foreground);

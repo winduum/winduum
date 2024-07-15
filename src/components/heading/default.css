@@ -1,8 +1,8 @@
-.heading {
-  font-family: var(--heading-font-family);
-  font-weight: var(--heading-font-weight);
-  font-size: var(--heading-font-size);
-  line-height: var(--heading-line-height);
-  letter-spacing: var(--heading-letter-spacing);
+.x-heading {
+  font-family: var(--x-heading-font-family);
+  font-weight: var(--x-heading-font-weight);
+  font-size: var(--x-heading-font-size);
+  line-height: var(--x-heading-line-height);
+  letter-spacing: var(--x-heading-letter-spacing);
   text-wrap: balance;
 }

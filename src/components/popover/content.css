@@ -1,8 +1,8 @@
-.popover-content {
-  background-color: var(--popover-content-background-color);
-  border-radius: var(--popover-content-border-radius);
-  padding: var(--popover-content-padding-block) var(--popover-content-padding-inline);
-  z-index: var(--popover-content-z-index, var(--z-index-10));
+.x-popover-content {
+  background-color: var(--x-popover-content-background-color);
+  border-radius: var(--x-popover-content-border-radius);
+  padding: var(--x-popover-content-padding-block) var(--x-popover-content-padding-inline);
+  z-index: var(--x-popover-content-z-index, var(--z-index-10));
   transition-property: var(--default-transition-property);
   transition-timing-function: var(--transition-timing-function-in-out);
   transition-duration: var(--default-transition-duration);
@@ -87,8 +87,8 @@
   }
 
   &[popover]:not(.in) {
-    --tw-scale-x: var(--popover-content-scale-x);
-    --tw-scale-y: var(--popover-content-scale-y);
+    --tw-scale-x: var(--x-popover-content-scale-x);
+    --tw-scale-y: var(--x-popover-content-scale-y);
 
     opacity: 0;
     pointer-events: none;
@@ -96,8 +96,8 @@
 
   &:not([popover]) {
     .focus:not(:focus, :focus-within) > &, .hover:not(:hover) > & {
-      --tw-scale-x: var(--popover-content-scale-x);
-      --tw-scale-y: var(--popover-content-scale-y);
+      --tw-scale-x: var(--x-popover-content-scale-x);
+      --tw-scale-y: var(--x-popover-content-scale-y);
 
       opacity: 0;
       visibility: hidden;

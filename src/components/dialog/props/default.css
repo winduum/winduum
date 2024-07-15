@@ -1,6 +1,6 @@
 :root, :host {
-  --dialog-padding-block: 2rem;
-  --dialog-padding-inline: 1.5rem;
-  --dialog-background-color: var(--color-dark);
-  --dialog-background-color-opacity: 80%;
+  --x-dialog-padding-block: 2rem;
+  --x-dialog-padding-inline: 1.5rem;
+  --x-dialog-background-color: var(--color-dark);
+  --x-dialog-background-color-opacity: 80%;
 }

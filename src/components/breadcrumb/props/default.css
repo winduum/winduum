@@ -1,5 +1,5 @@
 :root, :host {
-  --breadcrumb-marker-size: 0.875rem;
-  --breadcrumb-marker: var(--mask-chevron-right);
-  --breadcrumb-gap: var(--spacing-xs);
+  --x-breadcrumb-marker-size: 0.875rem;
+  --x-breadcrumb-marker: var(--mask-chevron-right);
+  --x-breadcrumb-gap: var(--spacing-xs);
 }

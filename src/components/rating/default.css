@@ -1,23 +1,23 @@
-.rating {
+.x-rating {
   display: flex;
   align-items: center;
 
   :where(input) {
-    inline-size: var(--rating-inline-size);
-    block-size: var(--rating-block-size);
-    color: var(--rating-color);
-    opacity: var(--rating-opacity);
+    inline-size: var(--x-rating-inline-size);
+    block-size: var(--x-rating-block-size);
+    color: var(--x-rating-color);
+    opacity: var(--x-rating-opacity);
     transition: var(--transition-opacity);
     display: grid;
     box-sizing: content-box;
 
     &:not(:last-child) {
-      border-inline-end-width: var(--rating-gap);
+      border-inline-end-width: var(--x-rating-gap);
       border-inline-color: transparent;
     }
 
     &::before {
-      mask: var(--rating-icon);
+      mask: var(--x-rating-icon);
       background-color: currentColor;
       content: "";
     }
@@ -27,7 +27,7 @@
     opacity: 1;
 
     &:where(:checked ~ input) {
-      opacity: var(--rating-opacity);
+      opacity: var(--x-rating-opacity);
     }
   }
 
@@ -35,7 +35,7 @@
     opacity: 1;
 
     &:hover ~ input {
-      opacity: var(--rating-opacity);
+      opacity: var(--x-rating-opacity);
     }
   }
 }

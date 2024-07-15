@@ -1,21 +1,21 @@
-.notice {
-  padding: var(--notice-padding-block) var(--notice-padding-inline);
-  font-size: var(--notice-font-size);
-  border-radius: var(--notice-border-radius);
+.x-notice {
+  padding: var(--x-notice-padding-block) var(--x-notice-padding-inline);
+  font-size: var(--x-notice-font-size);
+  border-radius: var(--x-notice-border-radius);
   background-color:
     color-mix(
-      in var(--notice-background-color-space, srgb),
-      var(--notice-background-color, var(--color-accent)) var(--notice-background-color-opacity, 10%),
-      var(--notice-background-color-mix, transparent)
+      in var(--x-notice-background-color-space, srgb),
+      var(--x-notice-background-color, var(--color-accent)) var(--x-notice-background-color-opacity, 10%),
+      var(--x-notice-background-color-mix, transparent)
     );
-  color: var(--notice-color, var(--color-accent));
+  color: var(--x-notice-color, var(--color-accent));
   outline:
-    var(--notice-outline-width) solid
+    var(--x-notice-outline-width) solid
     color-mix(
-      in var(--notice-outline-color-space, srgb),
-      var(--notice-outline-color, var(--color-accent)) var(--notice-outline-color-opacity, 10%),
-      var(--notice-outline-color-mix, transparent)
+      in var(--x-notice-outline-color-space, srgb),
+      var(--x-notice-outline-color, var(--color-accent)) var(--x-notice-outline-color-opacity, 10%),
+      var(--x-notice-outline-color-mix, transparent)
     );
-  outline-offset: var(--notice-outline-offset);
+  outline-offset: var(--x-notice-outline-offset);
   text-wrap: pretty;
 }

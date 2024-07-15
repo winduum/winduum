@@ -1,24 +1,24 @@
-.control {
+.x-control {
   > :where(input) {
     &::-webkit-color-swatch-wrapper {
-      inline-size: var(--control-color-swatch-width);
-      block-size: var(--control-color-swatch-height);
+      inline-size: var(--x-control-color-swatch-width);
+      block-size: var(--x-control-color-swatch-height);
       padding: 0;
     }
 
     &::-moz-color-swatch {
-      inline-size: var(--control-color-swatch-width);
-      block-size: var(--control-color-swatch-height);
-      border-radius: var(--control-color-swatch-border-radius);
+      inline-size: var(--x-control-color-swatch-width);
+      block-size: var(--x-control-color-swatch-height);
+      border-radius: var(--x-control-color-swatch-border-radius);
       margin: 0;
     }
 
     &::-webkit-color-swatch {
-      border-radius: var(--control-color-swatch-border-radius);
+      border-radius: var(--x-control-color-swatch-border-radius);
     }
 
     &[type="color"] ~ label {
-      margin-inline-start: calc(var(--control-padding-inline) + var(--control-color-swatch-width));
+      margin-inline-start: calc(var(--x-control-padding-inline) + var(--x-control-color-swatch-width));
     }
   }
 }

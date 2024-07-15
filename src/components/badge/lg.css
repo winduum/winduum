@@ -1,3 +1,3 @@
-.badge:is(.lg) {
-  --badge-height: 1.75rem;
+.x-badge:is(.lg) {
+  --x-badge-height: 1.75rem;
 }

@@ -1,9 +1,9 @@
 :root, :host {
-  --badge-border-width: 0px;
-  --badge-border-radius: var(--radius-lg);
-  --badge-font-size: var(--font-size-xs);
-  --badge-gap: var(--spacing-xs);
-  --badge-height: 1.5rem;
-  --badge-padding-block: 0;
-  --badge-padding-inline: 0.5rem;
+  --x-badge-border-width: 0px;
+  --x-badge-border-radius: var(--radius-lg);
+  --x-badge-font-size: var(--font-size-xs);
+  --x-badge-gap: var(--spacing-xs);
+  --x-badge-height: 1.5rem;
+  --x-badge-padding-block: 0;
+  --x-badge-padding-inline: 0.5rem;
 }

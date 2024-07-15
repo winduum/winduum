@@ -1,14 +1,14 @@
-.range {
+.x-range {
   :where(input) {
     &:not(:only-of-type) {
-      --range-track-background:
+      --x-range-track-background:
         linear-gradient(
           to right,
           transparent 0%,
-          transparent var(--range-track-start),
-          var(--range-track-background-color) var(--range-track-start),
-          var(--range-track-background-color) var(--range-track-end),
-          transparent var(--range-track-end),
+          transparent var(--x-range-track-start),
+          var(--x-range-track-background-color) var(--x-range-track-start),
+          var(--x-range-track-background-color) var(--x-range-track-end),
+          transparent var(--x-range-track-end),
           transparent 100%
         );
 

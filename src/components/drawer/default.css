@@ -1,10 +1,10 @@
-.drawer {
-  z-index: var(--drawer-z-index, var(--z-index-30));
+.x-drawer {
+  z-index: var(--x-drawer-z-index, var(--z-index-30));
   background-color:
     color-mix(
-      in var(--drawer-background-color-space, srgb),
-      var(--color-dark) calc(var(--background-color-opacity, 0) * var(--drawer-background-color-opacity)),
-      var(--drawer-background-color-mix, transparent)
+      in var(--x-drawer-background-color-space, srgb),
+      var(--color-dark) calc(var(--background-color-opacity, 0) * var(--x-drawer-background-color-opacity)),
+      var(--x-drawer-background-color-mix, transparent)
     );
   position: fixed;
   inset: 0;
