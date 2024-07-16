@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
 <body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex flex-col items-start gap-4 min-h-[200vh]">
-    <button class="x-button" id="dialogFetch">Open dialog</button>
     <button class="x-button" invokeaction="show" invoketarget="customDialog">Open dialog</button>
     <input autofocus>
 
@@ -23,22 +22,14 @@
             <button class="x-button" id="dialogInDialog">Open dialog In</button>
         </div>
     </dialog>
+    <dialog class="x-dialog" id="customDialogNext">
+        <div class="x-dialog-content">
+            <input autofocus value="asd">
+            <button class="x-button" id="dialogHideNext">Close dialog</button>
+        </div>
+    </dialog>
     <script type="module">
         import { showDialog, closeDialog } from '/src/components/dialog'
-        import { showRipple } from '/src/utilities/ripple'
-
-        document.querySelector('#dialogFetch')?.addEventListener('click', async event => {
-            showRipple(event)
-            await insertDialog(`
-                <dialog class="x-dialog">
-                    <div class="x-dialog-content">
-                        <input autofocus>
-                        <button class="x-button" id="dialogHide">Close dialog</button>
-                        <button class="x-button" id="dialogInDialog">Open dialog In</button>
-                    </div>
-                </dialog>
-            `)
-        })
 
         document.querySelector('[invokeaction="show"]').addEventListener('click', async ({ currentTarget }) => {
             await showDialog(document.getElementById(currentTarget.getAttribute('invoketarget')))
@@ -46,7 +37,7 @@
 
         document.addEventListener('click', async ({ target }) => {
             if (target.id === 'dialogHide' || target.id === 'dialogHideNext') {
-                await closeDialog(target.closest('dialog'), { remove: true })
+                await closeDialog(target.closest('dialog'))
             }
 
             if (target.id === 'dialogHideInline') {
@@ -54,14 +45,7 @@
             }
 
             if (target.id === 'dialogInDialog') {
-                await insertDialog(`
-                   <dialog class="x-dialog">
-                       <div class="x-dialog-content">
-                            <input autofocus value="asd">
-                            <button class="x-button" id="dialogHideNext">Close dialog</button>
-                        </div>
-                   </dialog>
-                `, { append: false })
+                await showDialog(document.getElementById('customDialogNext'))
             }
         })
     </script>

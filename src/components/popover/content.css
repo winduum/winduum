@@ -10,7 +10,7 @@
     translate(var(--tw-translate-x), var(--tw-translate-y))
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   will-change: transform;
-  width: max-content;
+  inline-size: max-content;
   position: absolute;
 
   &:where(.bottom), & {

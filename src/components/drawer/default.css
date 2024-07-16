@@ -20,7 +20,7 @@
 
   &::after {
     content: "";
-    min-width: 100vw;
+    min-inline-size: 100vw;
     scroll-snap-align: end;
   }
 

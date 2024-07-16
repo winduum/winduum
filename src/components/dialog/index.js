@@ -4,9 +4,10 @@ import { animationsFinished } from '../../common.js'
  * @type {import("./").DefaultOptions}
 */
 export const defaultOptions = {
-    openClass: 'open',
-    overflowClass: 'overflow-auto',
+    closedAttribute: 'data-closed',
+    openAttribute: 'data-open',
     scrollbarWidthProperty: '--default-scrollbar-width',
+    closable: true,
     remove: false
 }
 
@@ -18,7 +19,6 @@ export const defaultOptions = {
  */
 export const showDialog = async (element, options = {}) => {
     options = {
-        closable: true,
         ...defaultOptions,
         ...options
     }
@@ -40,14 +40,15 @@ export const showDialog = async (element, options = {}) => {
         element._dialogHasEvents = true
     }
 
-    window.HTMLDialogElement
-        ? element.showModal()
-        : element.setAttribute('open', '')
+    element.setAttribute(options.closedAttribute, '')
 
+    element.showModal()
     element.scroll(0, 0)
-    element.classList.add(options.openClass)
+
+    element.removeAttribute(options.closedAttribute)
     await animationsFinished(element.lastElementChild)
-    element.classList.add(options.overflowClass)
+    element.setAttribute(options.openAttribute, '')
+
     element.dispatchEvent(new CustomEvent('x-dialog:show'))
 }
 
@@ -63,13 +64,12 @@ export const closeDialog = async (element, options = {}) => {
         ...options
     }
 
-    element.classList.remove(options.overflowClass, options.openClass)
+    element.removeAttribute(options.openAttribute)
+    element.setAttribute(options.closedAttribute, '')
 
     await animationsFinished(element.lastElementChild)
 
-    window.HTMLDialogElement
-        ? element.close()
-        : element.removeAttribute('open')
+    element.close()
 
     element.dispatchEvent(new CustomEvent('x-dialog:close'))
     options.remove && element.remove()

@@ -6,7 +6,7 @@
   transition: var(--transition-transform), var(--transition-opacity);
   margin: auto;
 
-  :where(dialog:not(.open)) & {
+  :where(dialog[data-closed]) & {
     transform: translateY(-2rem);
     opacity: 0%;
   }

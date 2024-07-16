@@ -1,8 +1,8 @@
 export interface DefaultOptions {
     remove?: boolean | null
     closable?: boolean | null
-    openClass?: string
-    overflowClass?: string
+    openAttribute?: string
+    closedAttribute?: string
     scrollbarWidthProperty?: string
 }
 

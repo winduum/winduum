@@ -37,7 +37,7 @@
 :where(hr) {
   background-color: color-mix(in var(--default-color-space), currentColor 100%, transparent);
   block-size: 1px;
-  width: 100%;
+  inline-size: 100%;
 }
 
 :where(code) {

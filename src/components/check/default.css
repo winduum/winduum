@@ -44,8 +44,8 @@
     flex-shrink: 0;
 
     &::before {
-      width: var(--x-check-icon-size);
-      height: var(--x-check-icon-size);
+      inline-size: var(--x-check-icon-size);
+      block-size: var(--x-check-icon-size);
       color: var(--x-check-icon-color);
       mask: var(--x-check-icon);
       transition: inherit;

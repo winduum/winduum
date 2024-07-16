@@ -170,8 +170,8 @@
       list-style-type: "";
 
       &::before {
-        width: var(--x-text-list-marker-size);
-        height: var(--x-text-list-marker-size);
+        inline-size: var(--x-text-list-marker-size);
+        block-size: var(--x-text-list-marker-size);
         inset-inline-start: var(--x-text-list-marker-inset-inline-start, -0.75em);
         inset-block-start: var(--x-text-list-marker-inset-block-start, 0.5lh);
         border:
