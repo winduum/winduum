@@ -19,10 +19,6 @@
     display: none;
   }
 
-  &:not([data-open]) {
-    overflow: hidden;
-  }
-
   &[data-closed] {
     background-color: transparent;
   }
