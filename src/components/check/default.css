@@ -21,9 +21,9 @@
     border-radius: var(--x-check-border-radius);
     background-color:
       color-mix(
-          in var(--x-check-background-color-space, srgb),
-          var(--x-check-background-color) var(--x-check-background-color-opacity, 0%),
-          var(--x-check-background-color-mix, transparent)
+        in var(--x-check-background-color-space, srgb),
+        var(--x-check-background-color) var(--x-check-background-color-opacity, 0%),
+        var(--x-check-background-color-mix, transparent)
       );
     border:
       var(--x-check-border-width) solid
@@ -51,7 +51,7 @@
       transition: inherit;
       content: "";
       background-color: currentColor;
-      opacity: 0;
+      opacity: 0%;
       transform: scale(0);
       will-change: transform;
       margin: auto;

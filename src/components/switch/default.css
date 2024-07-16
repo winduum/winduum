@@ -12,11 +12,12 @@
     block-size: var(--x-switch-block-size);
     padding: calc((var(--x-switch-block-size) - var(--x-switch-icon-size)) / 2);
     border-radius: var(--x-switch-border-radius);
-    background-color: color-mix(
-      in var(--x-switch-background-color-space, srgb),
-      var(--x-switch-background-color) var(--x-switch-background-color-opacity, 100%),
-      var(--x-switch-background-color-mix, transparent)
-    );
+    background-color:
+      color-mix(
+        in var(--x-switch-background-color-space, srgb),
+        var(--x-switch-background-color) var(--x-switch-background-color-opacity, 100%),
+        var(--x-switch-background-color-mix, transparent)
+      );
     outline:
       var(--x-switch-outline-width) solid
       color-mix(

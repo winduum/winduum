@@ -1,11 +1,12 @@
 .skeleton {
-  background: linear-gradient(
-    to right,
-    var(--skeleton-gradient-from),
-    var(--skeleton-gradient-to),
-    var(--skeleton-gradient-to),
-    var(--skeleton-gradient-from)
-  );
+  background:
+    linear-gradient(
+      to right,
+      var(--skeleton-gradient-from),
+      var(--skeleton-gradient-to),
+      var(--skeleton-gradient-to),
+      var(--skeleton-gradient-from)
+    );
   opacity: var(--skeleton-opacity);
   transition: var(--transition-opacity);
   animation: move-indeterminate 1.5s linear infinite;

@@ -24,7 +24,7 @@
   }
 
   &:has(:checked) input {
-    opacity: 1;
+    opacity: 100%;
 
     &:where(:checked ~ input) {
       opacity: var(--x-rating-opacity);
@@ -32,7 +32,7 @@
   }
 
   &:hover input {
-    opacity: 1;
+    opacity: 100%;
 
     &:hover ~ input {
       opacity: var(--x-rating-opacity);

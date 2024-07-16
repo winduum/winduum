@@ -8,6 +8,6 @@
 
   :where(dialog:not(.open)) & {
     transform: translateY(-2rem);
-    opacity: 0;
+    opacity: 0%;
   }
 }

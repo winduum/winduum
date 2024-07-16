@@ -12,21 +12,23 @@
   &::before, &::after {
     content: "";
     flex-grow: 1;
-    border-block-start: 1px solid color-mix(
-      in var(--divider-border-block-color-space, srgb),
-      var(--divider-border-block-color, var(--color-accent)) var(--divider-border-block-color-opacity, 15%),
-      var(--divider-border-block-color-mix, transparent)
-    );
+    border-block-start:
+      1px solid color-mix(
+        in var(--divider-border-block-color-space, srgb),
+        var(--divider-border-block-color, var(--color-accent)) var(--divider-border-block-color-opacity, 15%),
+        var(--divider-border-block-color-mix, transparent)
+      );
   }
 
   &:where(.flex-col) {
     &::before, &::after {
       border-block-start: 0;
-      border-inline-start: 1px solid color-mix(
-        in var(--divider-border-inline-color-space, srgb),
-        var(--divider-border-inline-color, var(--color-accent)) var(--divider-border-inline-color-opacity, 15%),
-        var(--divider-border-inline-color-mix, transparent)
-      );
+      border-inline-start:
+        1px solid color-mix(
+          in var(--divider-border-inline-color-space, srgb),
+          var(--divider-border-inline-color, var(--color-accent)) var(--divider-border-inline-color-opacity, 15%),
+          var(--divider-border-inline-color-mix, transparent)
+        );
     }
   }
 }

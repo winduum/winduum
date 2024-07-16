@@ -7,8 +7,8 @@
   transition-timing-function: var(--transition-timing-function-in-out);
   transition-duration: var(--default-transition-duration);
   transform:
-      translate(var(--tw-translate-x), var(--tw-translate-y))
-      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    translate(var(--tw-translate-x), var(--tw-translate-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   will-change: transform;
   width: max-content;
   position: absolute;
@@ -90,7 +90,7 @@
     --tw-scale-x: var(--x-popover-content-scale-x);
     --tw-scale-y: var(--x-popover-content-scale-y);
 
-    opacity: 0;
+    opacity: 0%;
     pointer-events: none;
   }
 
@@ -99,9 +99,8 @@
       --tw-scale-x: var(--x-popover-content-scale-x);
       --tw-scale-y: var(--x-popover-content-scale-y);
 
-      opacity: 0;
+      opacity: 0%;
       visibility: hidden;
     }
   }
 }
-

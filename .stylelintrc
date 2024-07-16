@@ -11,7 +11,8 @@
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
     "property-no-vendor-prefix": [true, { "ignoreProperties": "appearance" }],
     "number-max-precision": [4, { "ignoreProperties": "letter-spacing" }],
-    "import-notation": "string"
+    "import-notation": "string",
+    "alpha-value-notation": ["percentage"]
   },
   "ignoreFiles": ["**/+.css", "dist/**/*.css"]
 }

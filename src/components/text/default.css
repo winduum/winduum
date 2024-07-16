@@ -42,11 +42,12 @@
 
   :where(hr) {
     margin-block: var(--x-text-hr-margin-block);
-    background-color: color-mix(
-      in var(--x-text-hr-background-color-space, srgb),
-      var(--x-text-hr-background-color, currentColor) var(--x-text-hr-background-color-opacity, 10%),
-      var(--x-text-hr-background-color-mix, transparent)
-    );
+    background-color:
+      color-mix(
+        in var(--x-text-hr-background-color-space, srgb),
+        var(--x-text-hr-background-color, currentColor) var(--x-text-hr-background-color-opacity, 10%),
+        var(--x-text-hr-background-color-mix, transparent)
+      );
   }
 
   :where(a) {
@@ -55,19 +56,21 @@
     transition: var(--transition-color);
 
     &:hover {
-      color: color-mix(
-        in var(--x-text-link-hover-color-space, srgb),
-        var(--x-text-link-hover-color, var(--color-accent)) var(--x-text-link-hover-color-opacity, 75%),
-        var(--x-text-link-hover-color-mix, transparent)
-      );
+      color:
+        color-mix(
+          in var(--x-text-link-hover-color-space, srgb),
+          var(--x-text-link-hover-color, var(--color-accent)) var(--x-text-link-hover-color-opacity, 75%),
+          var(--x-text-link-hover-color-mix, transparent)
+        );
     }
 
     &:focus-visible {
-      color: color-mix(
-        in var(--x-text-link-focus-color-space, srgb),
-        var(--x-text-link-focus-color, var(--color-accent)) var(--x-text-link-focus-color-opacity, 75%),
-        var(--x-text-link-focus-color-mix, transparent)
-      );
+      color:
+        color-mix(
+          in var(--x-text-link-focus-color-space, srgb),
+          var(--x-text-link-focus-color, var(--color-accent)) var(--x-text-link-focus-color-opacity, 75%),
+          var(--x-text-link-focus-color-mix, transparent)
+        );
     }
   }
 
@@ -117,20 +120,22 @@
 
     :where(thead) {
       font-weight: var(--x-text-table-thead-font-weight, var(--x-text-content-bold));
-      border-block-end: 1px solid color-mix(
-        in var(--x-text-table-thead-border-color-space, srgb),
-        var(--x-text-table-thead-border-color, currentColor) var(--x-text-table-thead-border-color-opacity, 10%),
-        var(--x-text-table-thead-border-color-mix, transparent)
-      );
+      border-block-end:
+        1px solid color-mix(
+          in var(--x-text-table-thead-border-color-space, srgb),
+          var(--x-text-table-thead-border-color, currentColor) var(--x-text-table-thead-border-color-opacity, 10%),
+          var(--x-text-table-thead-border-color-mix, transparent)
+        );
     }
 
     :where(tbody tr) {
       &:nth-of-type(even) {
-        background-color: color-mix(
-          in var(--x-text-table-row-even-background-color-space, srgb),
-          var(--x-text-table-row-even-background-color, currentColor) var(--x-text-table-row-even-background-color-opacity, 5%),
-          var(--x-text-table-row-even-background-color-mix, transparent)
-        );
+        background-color:
+          color-mix(
+            in var(--x-text-table-row-even-background-color-space, srgb),
+            var(--x-text-table-row-even-background-color, currentColor) var(--x-text-table-row-even-background-color-opacity, 5%),
+            var(--x-text-table-row-even-background-color-mix, transparent)
+          );
       }
     }
   }

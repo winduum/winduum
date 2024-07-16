@@ -23,7 +23,7 @@
   > :where(input) {
     pointer-events: auto;
     cursor: grab;
-    opacity: 0;
+    opacity: 0%;
 
     &:active ~ .x-button {
       --x-button-background-color-mix: var(--x-button-active-background-color-mix, var(--color-dark));

@@ -3,7 +3,7 @@
     transition: all var(--default-transition-duration) var(--transition-timing-function-in-out);
 
     &:is(:hover, :focus-visible) {
-      color: var(--x-link-hover-color, var(--color-accent))
+      color: var(--x-link-hover-color, var(--color-accent));
     }
   }
 }

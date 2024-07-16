@@ -7,7 +7,7 @@
 @keyframes ripple {
   to {
     transform: scale(2.5);
-    opacity: 0;
+    opacity: 0%;
   }
 }
 
@@ -23,12 +23,12 @@
 
 @keyframes fade-in {
   from {
-    opacity: 0
+    opacity: 0%;
   }
 }
 
 @keyframes fade-out {
   from {
-    opacity: 1
+    opacity: 100%;
   }
 }
