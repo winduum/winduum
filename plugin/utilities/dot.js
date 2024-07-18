@@ -1,10 +1,10 @@
 export default {
     '.dot': {
         display: 'inline-flex',
-        width: '0.625rem',
-        height: '0.625rem',
+        inlineSize: '0.5rem',
+        blockSize: '0.5rem',
         borderRadius: 'var(--radius-full)',
-        backgroundColor: 'var(--color-accent)',
+        backgroundColor: 'currentColor',
         flexShrink: '0',
         justifyContent: 'center',
         alignItems: 'center'
