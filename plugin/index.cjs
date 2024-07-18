@@ -116,7 +116,7 @@ const textColor = ({ value, corePlugins }, settings) => {
  */
 const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
     const result = {
-        current: 'color-mix(in var(--default-color-space), currentcolor calc(<alpha-value> * 100%), transparent)'
+        current: 'color-mix(in var(--default-color-space), currentcolor calc(<alpha-value> * 100%), var(--default-color-mix, transparent))'
     };
 
     colors.forEach(name => {
@@ -125,7 +125,7 @@ const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
         }
 
         result[name] = colorMix
-            ? `color-mix(in var(--default-color-space), var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
+            ? `color-mix(in var(--default-color-space), var(--color-${name}) calc(<alpha-value> * 100%), var(--default-color-mix, transparent))`
             : `rgb(var(--color-${name}) / <alpha-value>)`;
     });
 
