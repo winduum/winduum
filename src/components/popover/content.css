@@ -86,7 +86,7 @@
     inset-block-start: 50%;
   }
 
-  &[popover]:not(.in) {
+  &[popover]:not([data-open]) {
     --tw-scale-x: var(--x-popover-content-scale-x);
     --tw-scale-y: var(--x-popover-content-scale-y);
 

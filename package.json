@@ -19,7 +19,7 @@
     "publish-next": "npm publish --tag next"
   },
   "devDependencies": {
-    "@floating-ui/dom": "^1.6.7",
+    "@floating-ui/dom": "^1.6.8",
     "@stylistic/stylelint-config": "^1.0.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "@vitejs/plugin-vue": "^5.0.5",
