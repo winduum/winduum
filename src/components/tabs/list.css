@@ -1,0 +1,8 @@
+.x-tabs-list {
+  background-color: var(--x-tabs-list-background-color, var(--color-body-secondary));
+  gap: var(--x-tabs-list-gap, var(--spacing-xs));
+  padding: var(--x-tabs-list-padding, var(--spacing-xs));
+  border-radius: var(--x-tabs-list-border-radius, var(--radius));
+  display: flex;
+  inline-size: max-content;
+}
