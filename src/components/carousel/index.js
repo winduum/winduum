@@ -47,21 +47,21 @@ export const getItemCount = (element, scrollWidth = element.scrollWidth - elemen
 /**
  * @param {HTMLElement | Element} element
  * @param {import("./").ObserveCarouselOptions} options
- * @returns void
+ * @returns IntersectionObserver
  */
 export const observeCarousel = (element, options = {}) => {
     options = {
-        visibleClass: 'visible',
+        visibleAttribute: 'visible',
         observerOptions: {},
         ...options
     }
 
     element._observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            entry.target.classList.toggle(options.visibleClass, entry.isIntersecting)
+            entry.target.toggleAttribute(options.visibleAttribute, entry.isIntersecting)
         })
 
-        const activeElement = [...element.children].find(children => children.classList.contains(options.visibleClass))
+        const activeElement = [...element.children].find(children => children.hasAttribute(options.visibleAttribute))
 
         if (activeElement) {
             element._activeIndex = [...element.children].indexOf(activeElement)
@@ -73,6 +73,8 @@ export const observeCarousel = (element, options = {}) => {
     })
 
     ;[...element.children].forEach(children => element._observer.observe(children))
+
+    return element._observer
 }
 
 /**
@@ -82,7 +84,7 @@ export const observeCarousel = (element, options = {}) => {
  */
 export const scrollCarousel = (element, options = {}) => {
     options.pagination = {
-        activeClass: 'active',
+        activeAttribute: 'data-active',
         ...options.pagination
     }
 
@@ -90,9 +92,9 @@ export const scrollCarousel = (element, options = {}) => {
     const activeItemMax = getItemCount(element)
 
     if (options?.pagination?.element) {
-        ;[...options.pagination.element.children].forEach(children => children.classList.remove(options.pagination.activeClass))
+        ;[...options.pagination.element.children].forEach(children => children.removeAttribute(options.pagination.activeAttribute))
 
-        options.pagination.element.children[activeItem - 1]?.classList.add(options.pagination.activeClass)
+        options.pagination.element.children[activeItem - 1]?.setAttribute(options.pagination.activeAttribute, '')
     }
 
     if (options.progressElement) {
@@ -129,7 +131,7 @@ export const paginationCarousel = (element, options = {}) => {
     ).join(''))
 
     ;[...options.element.children].forEach((children, i) => {
-        (i === 0) && children.classList.add(options.activeClass)
+        (i === 0) && children.setAttribute(options.activeAttribute, '')
         children.addEventListener('click', ({ currentTarget }) => {
             scrollTo(element, [...options.element.children].indexOf(currentTarget))
         })
@@ -173,7 +175,7 @@ export const autoplayCarousel = (element, options = {}) => {
  */
 export const dragCarousel = (element, options = {}) => {
     options = {
-        activeClass: 'grabbing',
+        activeAttribute: 'data-grabbing',
         ...options
     }
 
@@ -188,7 +190,7 @@ export const dragCarousel = (element, options = {}) => {
 
     const endGrabbing = () => {
         isDown = false
-        element.classList.remove(options.activeClass)
+        element.removeAttribute(options.activeAttribute)
 
         scrollTo(element, element._activeIndex)
 
@@ -215,7 +217,7 @@ export const dragCarousel = (element, options = {}) => {
 
         const x = e.pageX - element.offsetLeft
 
-        element.classList.add(options.activeClass)
+        element.setAttribute(options.activeAttribute, '')
         element.style.scrollSnapType = 'unset'
         element.scroll({ left: scrollLeft - ((x - startX) * 1.25), behavior: 'instant' })
         element.ondragstart = e => e.preventDefault()

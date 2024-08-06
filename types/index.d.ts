@@ -29,7 +29,7 @@ declare module 'winduum' {
 
 declare module 'winduum/src/components/carousel' {
 	export interface ObserveCarouselOptions {
-		visibleClass?: string
+		visibleAttribute?: string
 		observerOptions?: {
 			rootMargin?: string
 			threshold?: number | number[]
@@ -39,7 +39,7 @@ declare module 'winduum/src/components/carousel' {
 	export interface PaginationCarouselOptions {
 		element?: HTMLElement | Element
 		itemContent?: string
-		activeClass?: string
+		activeAttribute?: string
 	}
 
 	export interface ScrollCarouselOptions {
@@ -56,7 +56,7 @@ declare module 'winduum/src/components/carousel' {
 	}
 
 	export interface DragCarouselOptions {
-		activeClass?: string
+		activeAttribute?: string
 	}
 
 	export function scrollPrev(element: HTMLElement | Element): void
@@ -213,13 +213,17 @@ declare module 'winduum/src/components/toaster' {
 declare module 'winduum/src/components/popover' {
 	import type { FlipOptions, Middleware, OffsetOptions, Placement, ShiftOptions } from '@floating-ui/dom';
 	export interface ShowPopoverOptions {
-		visibleClass?: string
+		openAttribute?: string
 		compute?: boolean
 		placement?: Placement
 		middleware?: Array<Middleware | null | undefined | false>
 		offset?: OffsetOptions
 		flip?: FlipOptions
 		shift?: ShiftOptions
+	}
+
+	export interface HidePopoverOptions {
+		openAttribute?: string
 	}
 
 	export function showPopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
