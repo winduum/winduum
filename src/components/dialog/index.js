@@ -7,6 +7,7 @@ export const defaultOptions = {
     closedAttribute: 'data-closed',
     openAttribute: 'data-open',
     scrollbarWidthProperty: '--default-scrollbar-width',
+    contentSelector: '.x-dialog-content',
     closable: true,
     remove: false
 }
@@ -46,7 +47,7 @@ export const showDialog = async (element, options = {}) => {
     element.scroll(0, 0)
 
     element.removeAttribute(options.closedAttribute)
-    await animationsFinished(element.lastElementChild)
+    await animationsFinished(element.querySelector(options.contentSelector))
     element.setAttribute(options.openAttribute, '')
 
     element.dispatchEvent(new CustomEvent('x-dialog:show'))
@@ -67,7 +68,7 @@ export const closeDialog = async (element, options = {}) => {
     element.removeAttribute(options.openAttribute)
     element.setAttribute(options.closedAttribute, '')
 
-    await animationsFinished(element.lastElementChild)
+    await animationsFinished(element.querySelector(options.contentSelector))
 
     element.close()
 

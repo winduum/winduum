@@ -13,16 +13,16 @@
     justify-content: flex-end;
   }
 
-  &.in {
+  &[data-open] {
     margin-block: var(--x-toaster-margin-block);
   }
 
-  &.in:where(:nth-last-child(-n+3)) {
+  &[data-open]:where(:nth-last-child(-n+3)) {
     visibility: visible;
     opacity: 100%;
   }
 
-  &.out {
+  &[data-closed] {
     visibility: hidden;
     opacity: 0%;
     height: 0;

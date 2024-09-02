@@ -2,7 +2,7 @@
   --x-button-hover-background-color-mix: var(--color-dark);
   --x-button-hover-background-color-opacity: 80%;
   --x-button-focus-outline-offset: 2px;
-  --x-button-focus-outline-color-opacity: 100%;
+  --x-button-focus-outline-color-opacity: 50%;
   --x-button-active-background-color-mix: var(--color-dark);
   --x-button-active-background-color-opacity: 90%;
   --x-button-disabled-background-color-opacity: 75%;

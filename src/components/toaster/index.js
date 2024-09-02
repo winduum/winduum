@@ -7,24 +7,20 @@ import { animationsFinished, nextRepaint } from '../../common.js'
  */
 export const closeToast = async (element, options = {}) => {
     options = {
-        hiddenClass: 'out',
+        closedAttribute: 'data-closed',
         heightProperty: '--x-toast-block-size',
         ...options
     }
-
-    const toaster = element.parentElement
 
     element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
 
     await nextRepaint()
 
-    element.classList.add(options.hiddenClass)
+    element.setAttribute(options.closedAttribute, '')
 
     await animationsFinished(element)
 
     element.remove()
-
-    if (toaster.children.length < 1) toaster.remove()
 }
 
 /**
@@ -34,7 +30,7 @@ export const closeToast = async (element, options = {}) => {
  */
 export const showToast = async (element, options = {}) => {
     options = {
-        visibleClass: 'in',
+        openAttribute: 'data-open',
         autoHide: null,
         heightProperty: '--x-toast-block-size',
         close: {},
@@ -47,59 +43,11 @@ export const showToast = async (element, options = {}) => {
     await animationsFinished(element)
 
     element.style.height = ''
-    element.classList.add(options.visibleClass)
+    element.setAttribute(options.openAttribute, '')
 
     if (options.autoHide) {
         setTimeout(() => closeToast(element, options.close), options.autoHide * ((element.parentElement.children.length + 1) / 2))
     }
-}
-
-/**
- * @param {HTMLElement} element
- * @param {import('./').InsertToasterOptions} options
- * @returns Promise<void>
- */
-export const insertToaster = async (element, options = {}) => {
-    options = {
-        classes: '',
-        ...options
-    }
-
-    if (!document.querySelector('.x-toaster')) {
-        element.insertAdjacentHTML('beforeend', `<ol class="x-toaster ${options.classes}"></ol>`)
-    }
-}
-
-/**
- * @param {HTMLElement} element
- * @param {import('./').InsertToastOptions} options
- * @returns Promise<void>
- */
-export const insertToast = async (element, options = {}) => {
-    options = {
-        classes: '',
-        title: '',
-        text: '',
-        start: '',
-        end: '',
-        show: {},
-        ...options
-    }
-
-    element.insertAdjacentHTML('beforeend', `
-        <li class="x-toast ${options.classes}" role="status" aria-live="assertive" aria-atomic="true">
-            <div class="x-toast-content">
-               ${options.start}
-                <div class="flex-col">
-                    <div class="x-title">${options.title}</div>           
-                    <div class="x-text">${options.text}</div>
-                </div>
-                ${options.end}
-            </div>
-        </li>
-    `)
-
-    await showToast(element.children[element.children.length - 1], options.show)
 }
 
 /**

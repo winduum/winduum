@@ -13,7 +13,7 @@
   --x-button-hover-color: var(--color-accent);
   --x-button-focus-outline-offset: 0px;
   --x-button-border-width: 1px;
-  --x-button-border-color-opacity: 30%;
+  --x-button-border-color-opacity: 100%;
   --x-button-background-color-opacity: 0%;
   --x-button-color: var(--color-accent);
 }
