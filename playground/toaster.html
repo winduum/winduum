@@ -25,11 +25,11 @@
         showDialog(document.querySelector('dialog'))
 
 
-        document.querySelector('dialog').addEventListener('x-dialog:show', () => {
+        document.querySelector('dialog')?.addEventListener('x-dialog:show', () => {
             document.querySelector('dialog[open]').appendChild(document.querySelector('.x-toaster'))
         })
 
-        document.querySelector('dialog').addEventListener('close', () => {
+        document.querySelector('dialog')?.addEventListener('close', () => {
             document.body.appendChild(document.querySelector('.x-toaster'))
         })
 
@@ -38,7 +38,6 @@
         })
 
         window.insertToast.addEventListener('click', async () => {
-
             const toaster = document.querySelector('.x-toaster')
 
             toaster.insertAdjacentHTML('beforeend', `
