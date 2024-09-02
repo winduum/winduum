@@ -46,7 +46,7 @@
   }
 
   > :where(input, textarea, select) {
-    padding-block: var(--x-control-padding-block);
+    padding-block: var(--x-control-padding-block-start, var(--x-control-padding-block)) var(--x-control-padding-block-end, var(--x-control-padding-block));
     padding-inline: calc(var(--x-control-padding-inline) + var(--x-control-padding-inline-start, 0px)) calc(var(--x-control-padding-inline) + var(--x-control-padding-inline-end, 0px));
     grid-area: x-control;
     text-overflow: ellipsis;
