@@ -1,6 +1,14 @@
 .x-rating {
+  --x-rating-color: var(--color-accent);
+
   display: flex;
   align-items: center;
+  border-radius: var(--radius-full);
+
+  &:focus-within {
+    outline: 2px dotted var(--color-accent);
+    outline-offset: 3px;
+  }
 
   :where(input) {
     inline-size: var(--x-rating-inline-size);

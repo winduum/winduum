@@ -3,8 +3,8 @@
   --x-button-border-color: var(--color-accent);
   --x-button-color: var(--color-accent-foreground);
 
-  inline-size: var(--x-button-width);
-  block-size: var(--x-button-height);
+  inline-size: var(--x-button-inline-size);
+  block-size: var(--x-button-block-size);
   padding: var(--x-button-padding-block) var(--x-button-padding-inline);
   padding-inline: calc(var(--x-button-padding-inline) - var(--x-button-border-width));
   border-radius: var(--x-button-border-radius);

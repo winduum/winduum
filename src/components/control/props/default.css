@@ -7,7 +7,7 @@
   --x-control-border-radius: var(--radius);
   --x-control-border-color: currentColor;
   --x-control-font-weight: var(--font-weight-medium);
-  --x-control-font-size: var(--font-size-sm);
+  --x-control-font-size: var(--font-size-base);
   --x-control-background-color: transparent;
   --x-control-color: currentColor;
   --x-control-outline-width: 3px;

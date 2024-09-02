@@ -1,4 +1,4 @@
 .x-button:is(.sm) {
-  --x-button-height: 2rem;
+  --x-button-block-size: 2rem;
   --x-button-padding-inline: 1rem;
 }

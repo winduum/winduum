@@ -3,8 +3,8 @@
   --x-badge-border-color: var(--color-accent);
   --x-badge-color: var(--color-accent-foreground);
 
-  inline-size: var(--x-badge-width);
-  block-size: var(--x-badge-height);
+  inline-size: var(--x-badge-inline-size);
+  block-size: var(--x-badge-block-size);
   padding: var(--x-badge-padding-block) var(--x-badge-padding-inline);
   padding-inline: calc(var(--x-badge-padding-inline) - var(--x-badge-border-width));
   border-radius: var(--x-badge-border-radius);

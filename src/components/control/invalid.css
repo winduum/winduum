@@ -1,5 +1,5 @@
 .x-control {
-  &.invalid, &:has(:user-invalid), .validated &:has(:invalid) {
+  &:has(:user-invalid) {
     --x-control-background-color: var(--x-control-invalid-background-color, var(--color-error));
     --x-control-background-color-opacity: var(--x-control-invalid-background-color-opacity, 10%);
     --x-control-border-color: var(--x-control-invalid-border-color, var(--color-error));

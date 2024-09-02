@@ -1,4 +1,4 @@
 .x-badge:is(.square) {
   --x-badge-padding-inline: var(--x-badge-padding-block);
-  --x-badge-width: var(--x-badge-height);
+  --x-badge-inline-size: var(--x-badge-block-size);
 }

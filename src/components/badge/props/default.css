@@ -3,7 +3,7 @@
   --x-badge-border-radius: var(--radius-lg);
   --x-badge-font-size: var(--font-size-xs);
   --x-badge-gap: var(--spacing-xs);
-  --x-badge-height: 1.5rem;
+  --x-badge-block-size: 1.5rem;
   --x-badge-padding-block: 0;
   --x-badge-padding-inline: 0.5rem;
 }

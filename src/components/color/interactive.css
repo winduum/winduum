@@ -19,7 +19,7 @@
       }
 
       &:focus-visible {
-        --x-color-outline-color-opacity: var(--x-color-focus-outline-color-opacity, 50%);
+        --x-color-outline-color-opacity: var(--x-color-focus-outline-color-opacity, 100%);
         --x-color-outline-offset: var(--x-color-focus-outline-offset, 3px);
       }
 

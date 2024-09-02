@@ -43,7 +43,7 @@
 
   > :where(.x-button) {
     inset-inline-start: var(--x-compare-position);
-    margin-inline-start: calc(var(--x-button-width) / 2 * -1);
+    margin-inline-start: calc(var(--x-button-inline-size) / 2 * -1);
     margin-block: auto;
   }
 
