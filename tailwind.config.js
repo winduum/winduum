@@ -16,5 +16,8 @@ export default {
         }),
         containerQueries,
         animate
-    ]
+    ],
+    future: {
+        hoverOnlyWhenSupported: true
+    }
 }

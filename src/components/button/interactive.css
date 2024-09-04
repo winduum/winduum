@@ -12,15 +12,17 @@
 
   &:is(button, input, label, :any-link, [role="button"]) {
     &:hover {
-      --x-button-background-color: var(--x-button-hover-background-color, var(--color-accent));
-      --x-button-background-color-mix: var(--x-button-hover-background-color-mix);
-      --x-button-background-color-opacity: var(--x-button-hover-background-color-opacity);
-      --x-button-border-color: var(--x-button-hover-border-color, var(--color-accent));
-      --x-button-border-color-mix: var(--x-button-hover-border-color-mix, transparent);
-      --x-button-border-color-opacity: var(--x-button-hover-border-color-opacity, 100%);
-      --x-button-color: var(--x-button-hover-color, var(--color-accent-foreground));
-      --x-button-color-mix: var(--x-button-hover-color-mix, transparent);
-      --x-button-color-opacity: var(--x-button-hover-color-opacity, 100%);
+      @media (hover: hover) and (pointer: fine) {
+        --x-button-background-color: var(--x-button-hover-background-color, var(--color-accent));
+        --x-button-background-color-mix: var(--x-button-hover-background-color-mix);
+        --x-button-background-color-opacity: var(--x-button-hover-background-color-opacity);
+        --x-button-border-color: var(--x-button-hover-border-color, var(--color-accent));
+        --x-button-border-color-mix: var(--x-button-hover-border-color-mix, transparent);
+        --x-button-border-color-opacity: var(--x-button-hover-border-color-opacity, 100%);
+        --x-button-color: var(--x-button-hover-color, var(--color-accent-foreground));
+        --x-button-color-mix: var(--x-button-hover-color-mix, transparent);
+        --x-button-color-opacity: var(--x-button-hover-color-opacity, 100%);
+      }
     }
 
     &:focus {

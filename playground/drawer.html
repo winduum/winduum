@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <title>Winduum UI</title>
     <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
-    <link rel="stylesheet" href="/src/main.css">
-    <link rel="stylesheet" href="/src/tailwind.css">
+    <link rel="stylesheet" href="/src/test.css">
 </head>
-<body class="p-4xl flex flex flex-col items-start gap-4">
-    <div class="x-drawer invisible" id="drawerLeft" inert>
+<body class="p-4xl flex flex-col items-start gap-4">
+    <dialog class="x-drawer" id="drawerLeft">
         <nav class="x-drawer-content">
             Left
+            <button class="x-button muted square" id="drawerCloseLeft">x</button>
         </nav>
-    </div>
+    </dialog>
 
-    <dialog class="x-drawer invisible after:-order-last backdrop:hidden" id="drawerRight" inert>
+    <dialog class="x-drawer after:-order-last backdrop:hidden" id="drawerRight">
         <div class="x-drawer-content">
             Right
             <button class="x-button muted square" id="drawerClose" autofocus>x</button>
         </div>
     </dialog>
 
-    <div class="x-drawer flex flex-col after:-order-last" id="drawerBottom" inert>
+    <dialog class="x-drawer flex flex-col after:-order-last" id="drawerBottom">
         <div class="x-drawer-content" style="--drawer-content-width: 100%;--drawer-content-height: calc(100vh - 4rem);">
             Bottom
         </div>
-    </div>
+    </dialog>
 
-    <div class="x-drawer flex flex-col" id="drawerTop" inert>
+    <dialog class="x-drawer flex flex-col" id="drawerTop">
         <div class="x-drawer-content" style="--drawer-content-width: 100%;--drawer-content-height: calc(100vh - 4rem);">
             Top
         </div>
-    </div>
+    </dialog>
 
     <button class="x-button" id="openDrawerLeft">Open left drawer</button>
     <button class="x-button" id="openDrawerRight">Open right drawer</button>
@@ -41,21 +41,15 @@
     <script type="module">
         import { showDrawer, closeDrawer, scrollDrawer } from "/src/components/drawer/index.js";
 
-        drawerLeft?.scroll({ left: drawerLeft?.scrollWidth , behavior: 'instant' });
-        drawerLeft?.classList.remove('invisible')
-
         drawerLeft?.addEventListener('scroll', ({ target }) => scrollDrawer(target))
-
-        drawerLeft?.addEventListener('drawer:open', () => drawerLeft.focus())
 
         openDrawerLeft?.addEventListener('click', () => {
             showDrawer(drawerLeft)
         })
 
-
-
-        drawerRight?.scroll({ left: 0 , behavior: 'instant' });
-        drawerRight?.classList.remove('invisible')
+        drawerCloseLeft?.addEventListener('click', () => {
+            closeDrawer(drawerLeft, drawerLeft.scrollWidth)
+        })
 
         drawerRight?.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
             opacityRatio: 0,
@@ -64,20 +58,12 @@
         }))
 
         openDrawerRight?.addEventListener('click', () => {
-            drawerRight.showModal()
-            showDrawer(drawerRight, drawerRight.scrollWidth)
+            showDrawer(drawerRight, () => [drawerRight.scrollWidth, 0])
         })
-
-        drawerRight?.addEventListener('drawer:close', () => drawerRight.close())
-        drawerRight?.addEventListener('close', () => closeDrawer(drawerRight, 0))
 
         drawerClose?.addEventListener('click', () => {
-            closeDrawer(drawerRight, 0)
+            closeDrawer(drawerLeft, drawerLeft.scrollWidth)
         })
-
-
-        drawerBottom?.scroll({ top: 0 , behavior: 'instant' });
-        drawerBottom?.classList.remove('invisible')
 
         drawerBottom.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
             opacityRatio: 0,
@@ -89,13 +75,8 @@
         }))
 
         openDrawerBottom?.addEventListener('click', () => {
-            showDrawer(drawerBottom, drawerBottom.scrollHeight, 'top')
+            showDrawer(drawerBottom, () => [drawerBottom.scrollHeight, 0], 'top')
         })
-
-
-
-        drawerTop?.scroll({ top: drawerTop?.scrollHeight , behavior: 'instant' });
-        drawerTop?.classList.remove('invisible')
 
         drawerTop?.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
             snapClass: 'snap-y snap-mandatory',
@@ -106,7 +87,7 @@
         }))
 
         openDrawerTop?.addEventListener('click', () => {
-            showDrawer(drawerTop, 0, 'top')
+            showDrawer(drawerTop, () => [0, drawerTop?.scrollHeight], 'top')
         })
     </script>
 
