@@ -41,13 +41,9 @@ export const showDialog = async (element, options = {}) => {
         element._dialogHasEvents = true
     }
 
-    element.setAttribute(options.closedAttribute, '')
-
     element.showModal()
     element.scroll(0, 0)
 
-    element.removeAttribute(options.closedAttribute)
-    await animationsFinished(element.querySelector(options.contentSelector))
     element.setAttribute(options.openAttribute, '')
 
     element.dispatchEvent(new CustomEvent('x-dialog:show'))
@@ -65,13 +61,12 @@ export const closeDialog = async (element, options = {}) => {
         ...options
     }
 
-    element.removeAttribute(options.openAttribute)
-    element.setAttribute(options.closedAttribute, '')
-
-    await animationsFinished(element.querySelector(options.contentSelector))
-
     element.close()
 
-    element.dispatchEvent(new CustomEvent('x-dialog:close'))
-    options.remove && element.remove()
+    animationsFinished(element).finally(() => {
+        element.removeAttribute(options.openAttribute)
+
+        element.dispatchEvent(new CustomEvent('x-dialog:close'))
+        options.remove && element.remove()
+    })
 }

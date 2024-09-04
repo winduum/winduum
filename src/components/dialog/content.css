@@ -3,10 +3,15 @@
   border-radius: var(--x-dialog-content-border-radius, var(--radius-3xl));
   padding: var(--x-dialog-content-padding-block) var(--x-dialog-content-padding-inline);
   inline-size: min(100%, var(--x-dialog-content-inline-size));
-  transition: var(--transition-transform), var(--transition-opacity);
+  transition: var(--transition-transform), var(--transition-opacity) allow-discrete, var(--transition-display) allow-discrete;
   margin: auto;
 
-  :where(dialog[data-closed]) & {
+  @starting-style {
+    transform: translateY(-2rem);
+    opacity: 0%;
+  }
+
+  :where(dialog:not([open])) & {
     transform: translateY(-2rem);
     opacity: 0%;
   }
