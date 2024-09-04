@@ -3,6 +3,7 @@
 @import "breakpoints.css";
 @import "config.css";
 @import "keyframes.css";
+@import "transitions.css";
 @import "theme/default.css";
 @import "theme/default-p3.css";
 @import "theme/dark.css";

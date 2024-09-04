@@ -12,8 +12,10 @@
   --transition-transform: transform var(--default-transition-duration) var(--transition-timing-function-in-out);
   --transition-border: border-color var(--default-transition-duration) var(--transition-timing-function-in-out);
   --transition-shadow: box-shadow var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --view-transition-main-duration: 0.15s;
 
   @media (prefers-reduced-motion) {
     --default-transition-duration: 0;
+    --view-transition-main-duration: 0;
   }
 }
