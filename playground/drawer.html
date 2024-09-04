@@ -7,27 +7,27 @@
     <link rel="stylesheet" href="/src/test.css">
 </head>
 <body class="p-4xl flex flex-col items-start gap-4">
-    <dialog class="x-drawer" id="drawerLeft">
+    <dialog class="x-drawer" id="drawerLeft" inert>
         <nav class="x-drawer-content w-[calc(100dvw-4rem)] lg:w-96">
             Left
             <button class="x-button muted square" id="drawerCloseLeft">x</button>
         </nav>
     </dialog>
 
-    <dialog class="x-drawer after:-order-last backdrop:hidden" id="drawerRight">
+    <dialog class="x-drawer after:-order-last backdrop:hidden" id="drawerRight" inert>
         <div class="x-drawer-content w-[calc(100dvw-4rem)] lg:w-96">
             Right
             <button class="x-button muted square" id="drawerClose" autofocus>x</button>
         </div>
     </dialog>
 
-    <dialog class="x-drawer flex flex-col after:-order-last" id="drawerBottom">
+    <dialog class="x-drawer flex flex-col after:-order-last" id="drawerBottom" inert>
         <div class="x-drawer-content h-[calc(100dvh-4rem)] lg:h-96">
             Bottom
         </div>
     </dialog>
 
-    <dialog class="x-drawer flex flex-col" id="drawerTop">
+    <dialog class="x-drawer flex flex-col" id="drawerTop" inert>
         <div class="x-drawer-content h-[calc(100dvh-4rem)] lg:h-96">
             Top
         </div>

@@ -1,4 +1,4 @@
-import { waitFor } from '../../common.js'
+import { nextRepaint } from '../../common.js'
 
 /**
  * @param {HTMLElement | Element} element
@@ -24,15 +24,11 @@ export const closeDrawer = (element, distance = element.scrollWidth, direction =
  * @param {HTMLElement | Element} element
  * @param {number} distance
  * @param {'top' | 'left'} direction
- * @param {number} timeout
  * @returns void
  */
-export const scrollInitDrawer = async (element, distance = element.scrollWidth, direction = 'left', timeout = 10) => {
-    if (element._scrollInitialized) return
-
+export const scrollInitDrawer = async (element, distance = element.scrollWidth, direction = 'left') => {
     element.scroll({ [direction]: distance, behavior: 'instant' })
-    await waitFor(timeout)
-    element._scrollInitialized = true
+    await nextRepaint()
 }
 
 /**
@@ -41,8 +37,6 @@ export const scrollInitDrawer = async (element, distance = element.scrollWidth, 
  * @returns void
  */
 export const scrollDrawer = (element, options = {}) => {
-    if (!element._scrollInitialized) return
-
     options = {
         snapClass: 'snap-x snap-mandatory',
         opacityProperty: '--background-color-opacity',
