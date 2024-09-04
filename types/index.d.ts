@@ -105,6 +105,7 @@ declare module 'winduum/src/components/dialog' {
 		closable?: boolean | null
 		openAttribute?: string
 		closedAttribute?: string
+		contentSelector?: string
 		scrollbarWidthProperty?: string
 	}
 
@@ -128,7 +129,8 @@ declare module 'winduum/src/components/drawer' {
 
 	export function showDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
 	export function closeDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-	export function scrollDrawer(element: HTMLElement | Element, options?: ScrollDrawerOptions): void
+	export function scrollInitDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top', timeout?: number): void
+	export function scrollDrawer(element: HTMLDialogElement | Element, options?: ScrollDrawerOptions): void
 
 	export {};
 }
@@ -137,7 +139,7 @@ declare module 'winduum/src/components/form' {
 	export interface ValidateFormOptions {
 		validateSelectors?: string
 		validateOptions?: ValidateFieldOptions
-		submitterLoadingClass?: string
+		submitterLoadingAttribute?: string
 	}
 
 	export interface ValidateFieldOptions {
@@ -151,11 +153,11 @@ declare module 'winduum/src/components/form' {
 		endParentSelector?: string
 		endSelector?: string
 		endContent?: string
-		validClass?: string
+		validAttribute?: string
 		validIcon?: string | null
-		invalidClass?: string
+		invalidAttribute?: string
 		invalidIcon?: string
-		activeClass?: string
+		activeAttribute?: string
 	}
 
 	export function validateForm(event: Event | SubmitEvent, options?: ValidateFormOptions): void
@@ -177,34 +179,19 @@ declare module 'winduum/src/components/tabs' {
 
 declare module 'winduum/src/components/toaster' {
 	export interface ShowToastOptions {
-		visibleClass?: string
+		openAttribute?: string
 		autoHide?: number | null
 		heightProperty?: string
 		close?: CloseToastOptions
 	}
 
 	export interface CloseToastOptions {
-		hiddenClass?: string
+		closedAttribute?: string
 		heightProperty?: string
-	}
-
-	export interface InsertToasterOptions {
-		classes?: string
-	}
-
-	export interface InsertToastOptions {
-		classes?: string
-		title?: string
-		text?: string
-		start?: string
-		end?: string
-		show?: ShowToastOptions
 	}
 
 	export function closeToast(element: HTMLElement, options?: CloseToastOptions): Promise<void>
 	export function showToast(element: HTMLElement, options?: ShowToastOptions): Promise<void>
-	export function insertToaster(element: HTMLElement, options?: InsertToasterOptions): Promise<void>
-	export function insertToast(element: HTMLElement, options?: InsertToastOptions): Promise<void>
 	export function closeToaster(element: HTMLElement, options?: CloseToastOptions): Promise<void>
 
 	export {};

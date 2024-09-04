@@ -8,27 +8,27 @@
 </head>
 <body class="p-4xl flex flex-col items-start gap-4">
     <dialog class="x-drawer" id="drawerLeft">
-        <nav class="x-drawer-content">
+        <nav class="x-drawer-content w-[calc(100dvw-4rem)] lg:w-96">
             Left
             <button class="x-button muted square" id="drawerCloseLeft">x</button>
         </nav>
     </dialog>
 
     <dialog class="x-drawer after:-order-last backdrop:hidden" id="drawerRight">
-        <div class="x-drawer-content">
+        <div class="x-drawer-content w-[calc(100dvw-4rem)] lg:w-96">
             Right
             <button class="x-button muted square" id="drawerClose" autofocus>x</button>
         </div>
     </dialog>
 
     <dialog class="x-drawer flex flex-col after:-order-last" id="drawerBottom">
-        <div class="x-drawer-content" style="--drawer-content-width: 100%;--drawer-content-height: calc(100vh - 4rem);">
+        <div class="x-drawer-content h-[calc(100dvh-4rem)] lg:h-96">
             Bottom
         </div>
     </dialog>
 
     <dialog class="x-drawer flex flex-col" id="drawerTop">
-        <div class="x-drawer-content" style="--drawer-content-width: 100%;--drawer-content-height: calc(100vh - 4rem);">
+        <div class="x-drawer-content h-[calc(100dvh-4rem)] lg:h-96">
             Top
         </div>
     </dialog>
@@ -39,11 +39,17 @@
     <button class="x-button" id="openDrawerTop">Open top drawer</button>
 
     <script type="module">
-        import { showDrawer, closeDrawer, scrollDrawer } from "/src/components/drawer/index.js";
+        import { showDrawer, closeDrawer, scrollDrawer, scrollInitDrawer } from '/src/components/drawer/index.js'
+
+        // drawerLeft
 
         drawerLeft?.addEventListener('scroll', ({ target }) => scrollDrawer(target))
 
-        openDrawerLeft?.addEventListener('click', () => {
+        openDrawerLeft?.addEventListener('click', async () => {
+            drawerLeft.showModal()
+
+            await scrollInitDrawer(drawerLeft)
+
             showDrawer(drawerLeft)
         })
 
@@ -51,18 +57,25 @@
             closeDrawer(drawerLeft, drawerLeft.scrollWidth)
         })
 
+
+        // drawerRight
+
         drawerRight?.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
             opacityRatio: 0,
             scrollOpen: target.scrollWidth - target.clientWidth,
             scrollClose: 0
         }))
 
-        openDrawerRight?.addEventListener('click', () => {
-            showDrawer(drawerRight, () => [drawerRight.scrollWidth, 0])
+        openDrawerRight?.addEventListener('click', async () => {
+            drawerRight.showModal()
+
+            await scrollInitDrawer(drawerRight, 0)
+
+            showDrawer(drawerRight, drawerRight.scrollWidth)
         })
 
         drawerClose?.addEventListener('click', () => {
-            closeDrawer(drawerLeft, drawerLeft.scrollWidth)
+            closeDrawer(drawerRight, 0)
         })
 
         drawerBottom.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
@@ -74,8 +87,12 @@
             scrollSize: target.scrollHeight - target.clientHeight
         }))
 
-        openDrawerBottom?.addEventListener('click', () => {
-            showDrawer(drawerBottom, () => [drawerBottom.scrollHeight, 0], 'top')
+        openDrawerBottom?.addEventListener('click', async () => {
+            drawerBottom.showModal()
+
+            await scrollInitDrawer(drawerBottom, 0, 'top')
+
+            showDrawer(drawerBottom, drawerBottom.scrollHeight, 'top')
         })
 
         drawerTop?.addEventListener('scroll', ({ target }) => scrollDrawer(target, {
@@ -86,8 +103,12 @@
             scrollClose: target.scrollHeight - target.clientHeight
         }))
 
-        openDrawerTop?.addEventListener('click', () => {
-            showDrawer(drawerTop, () => [0, drawerTop?.scrollHeight], 'top')
+        openDrawerTop?.addEventListener('click', async () => {
+            drawerTop.showModal()
+
+            await scrollInitDrawer(drawerTop,  drawerTop?.scrollHeight, 'top')
+
+            showDrawer(drawerTop, 0, 'top')
         })
     </script>
 

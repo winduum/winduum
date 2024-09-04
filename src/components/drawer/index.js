@@ -1,21 +1,13 @@
 import { waitFor } from '../../common.js'
 
 /**
- * @param {HTMLDialogElement | Element} element
- * @param {[number, number]} distance
+ * @param {HTMLElement | Element} element
+ * @param {number} distance
  * @param {'top' | 'left'} direction
  * @returns void
  */
-export const showDrawer = async (element, distance = () => [0, element.scrollWidth], direction = 'left') => {
-    element.showModal()
-
-    if (!element._scrollInitialized) {
-        element.scroll({ [direction]: distance()[1], behavior: 'instant' })
-        await waitFor(50)
-        element._scrollInitialized = true
-    }
-
-    element.scroll({ [direction]: distance()[0] })
+export const showDrawer = async (element, distance = 0, direction = 'left') => {
+    element.scroll({ [direction]: distance })
 }
 
 /**
@@ -26,6 +18,21 @@ export const showDrawer = async (element, distance = () => [0, element.scrollWid
  */
 export const closeDrawer = (element, distance = element.scrollWidth, direction = 'left') => {
     element.scroll({ [direction]: distance })
+}
+
+/**
+ * @param {HTMLElement | Element} element
+ * @param {number} distance
+ * @param {'top' | 'left'} direction
+ * @param {number} timeout
+ * @returns void
+ */
+export const scrollInitDrawer = async (element, distance = element.scrollWidth, direction = 'left', timeout = 10) => {
+    if (element._scrollInitialized) return
+
+    element.scroll({ [direction]: distance, behavior: 'instant' })
+    await waitFor(timeout)
+    element._scrollInitialized = true
 }
 
 /**
@@ -61,7 +68,7 @@ export const scrollDrawer = (element, options = {}) => {
     if ((options.scrollDirection === options.scrollClose) && !element.inert) {
         element.classList.remove(...options.snapClass.split(/\s/))
         element.inert = true
-        element.close()
+        element.close && element.close()
         element.dispatchEvent(new CustomEvent('x-drawer:close'))
     }
 }
