@@ -19,7 +19,7 @@ export const showDetails = async (element, options = {}) => {
 
     const details = element.closest(options.selector)
     const { down } = await import('slide-element')
-    const content = element.closest(options.summarySelector).nextElementSibling
+    const content = details.querySelector(options.summarySelector).nextElementSibling
 
     details._isHiding = false
     details.open = true
@@ -42,7 +42,7 @@ export const closeDetails = async (element, options = {}) => {
 
     const details = element.closest(options.selector)
     const { up } = await import('slide-element')
-    const content = element.closest(options.summarySelector).nextElementSibling
+    const content = details.querySelector(options.summarySelector).nextElementSibling
 
     details._isHiding = true
 
