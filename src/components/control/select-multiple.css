@@ -1,5 +1,5 @@
 .x-control:has(select[multiple]) {
-  --x-control-height: auto;
+  --x-control-block-size: auto;
 
   select {
     overflow-y: auto;

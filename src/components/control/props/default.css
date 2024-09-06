@@ -1,6 +1,6 @@
 :root, :host {
-  --x-control-height: 3rem;
-  --x-control-height-textarea: 8rem;
+  --x-control-block-size: 3rem;
+  --x-control-block-size-textarea: 8rem;
   --x-control-padding-inline: 0.75rem;
   --x-control-padding-block: 0.75rem;
   --x-control-border-width: 1px;

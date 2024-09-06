@@ -15,9 +15,4 @@
   align-items: center;
   display: flex;
   height: fit-content;
-
-  .x-text {
-    --x-text-font-size: var(--font-size-sm);
-    --x-text-line-height: calc(1em + 0.375rem);
-  }
 }

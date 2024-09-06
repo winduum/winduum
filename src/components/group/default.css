@@ -4,7 +4,7 @@
 
   &:has(.x-control) {
     > :where(.x-button) {
-      min-inline-size: var(--x-control-height);
+      min-inline-size: var(--x-control-block-size);
       height: auto;
     }
 

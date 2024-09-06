@@ -1,6 +1,6 @@
 .x-control {
   display: grid;
-  block-size: var(--x-control-height);
+  block-size: var(--x-control-block-size);
   font-family: var(--x-control-font-family);
   font-weight: var(--x-control-font-weight);
   font-size: var(--x-control-font-size);
@@ -68,7 +68,7 @@
   }
 
   > :where(textarea) {
-    min-block-size: var(--x-control-height-textarea);
+    min-block-size: var(--x-control-block-size-textarea);
     resize: vertical;
   }
 }

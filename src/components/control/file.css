@@ -10,7 +10,7 @@
           var(--x-control-file-background-color, currentColor) var(--x-control-file-background-color-opacity, 15%),
           var(--x-control-file-background-color-mix, transparent)
         );
-      block-size: calc(var(--x-control-height) - var(--x-control-border-width) * 2);
+      block-size: calc(var(--x-control-block-size) - var(--x-control-border-width) * 2);
       padding-inline: var(--x-control-padding-inline);
       margin-inline: calc(var(--x-control-padding-inline) * -1) var(--x-control-padding-inline);
       margin-block-start: calc(var(--x-control-padding-block) * -1);
