@@ -1,4 +1,6 @@
 @theme {
+  --default-color-space: sRGB;
+  --default-color-scheme: light;
   --color-accent: var(--color-primary);
   --color-accent-foreground: var(--color-primary-foreground);
   --color-primary: #3b82f6; /* color.blue.500 */
@@ -21,15 +23,4 @@
   --color-error: #dc2626; /* color.red.600 */
   --color-warning: #eab308; /* color.yellow.500 */
   --color-info: #0ea5e9; /* color.sky.500 */
-}
-
-:root, :host {
-  --default-color-space: sRGB;
-  --default-color-scheme: light;
-
-  @media (prefers-color-scheme: dark) {
-    --default-color-scheme: dark;
-    --color-main: var(--color-light);
-    --color-body: var(--color-dark);
-  }
 }

@@ -9,7 +9,3 @@
 ::view-transition-new(main) {
     animation-delay: var(--view-transition-main-duration);
 }
-
-.view-transition-main {
-    view-transition-name: main;
-}
