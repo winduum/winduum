@@ -1,13 +1,3 @@
-::after, ::before {
-  --tw-content: "";
-}
-
-:where(*),
-:where(*)::before,
-:where(*)::after {
-  border: 0 solid currentColor;
-}
-
 ::selection {
   color: var(--color-primary-foreground);
   background-color: var(--color-primary);

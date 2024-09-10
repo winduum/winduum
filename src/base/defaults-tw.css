@@ -1,0 +1,9 @@
+::after, ::before {
+  --tw-content: "";
+}
+
+:where(*),
+:where(*)::before,
+:where(*)::after {
+  border: 0 solid currentColor;
+}
