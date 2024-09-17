@@ -1,11 +1,11 @@
 @view-transition {
-    navigation: auto;
+  navigation: auto;
 }
 
 ::view-transition-group(main) {
-    animation-duration: var(--view-transition-main-duration);
+  animation-duration: var(--view-transition-main-duration);
 }
 
 ::view-transition-new(main) {
-    animation-delay: var(--view-transition-main-duration);
+  animation-delay: var(--view-transition-main-duration);
 }

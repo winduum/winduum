@@ -9,7 +9,7 @@ export const defaultOptions = {
     scrollbarWidthProperty: '--default-scrollbar-width',
     contentSelector: '.x-dialog-content',
     closable: true,
-    remove: false
+    modal: true
 }
 
 /**
@@ -43,7 +43,7 @@ export const showDialog = async (element, options = {}) => {
 
     element.setAttribute(options.closedAttribute, '')
 
-    element.showModal()
+    options.modal ? element.showModal() : element.show()
     element.scroll(0, 0)
 
     element.removeAttribute(options.closedAttribute)

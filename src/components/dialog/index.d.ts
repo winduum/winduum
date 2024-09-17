@@ -1,6 +1,7 @@
 export interface DefaultOptions {
     remove?: boolean | null
     closable?: boolean | null
+    modal?: boolean
     openAttribute?: string
     closedAttribute?: string
     contentSelector?: string

@@ -9,15 +9,15 @@
 </head>
 <body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid grid-cols-container">
 <div class="w-full flex flex-col gap-4">
-    <div class="x-popover focus w-max">
-        <div class="x-tooltip focus" aria-label="I am tooltip">
+    <div class="x-popover trigger-focus w-max">
+        <div class="x-tooltip" aria-label="I am tooltip">
             <div role="button" class="x-button" tabindex="0">Popover</div>
         </div>
         <div class="x-popover-content right right-start shadow mt-2.5 p-2 w-32 flex flex-col">
             <div class="x-tooltip right" aria-label="I am tooltip">
                 <button class="x-button ghosted accent-main justify-start w-full">Item 1</button>
             </div>
-            <div class="x-popover hover">
+            <div class="x-popover trigger-hover">
                 <button class="x-button ghosted accent-main justify-start w-full">Item 2</button>
                 <div class="x-popover-content right shadow ml-4 p-2 w-32 flex flex-col">
                     <div class="x-tooltip right" aria-label="I am tooltip">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="x-tooltip focus bottom w-max" aria-label="I am tooltip">
+    <div class="x-tooltip trigger-focus bottom w-max" aria-label="I am tooltip">
         <div role="button" class="x-button" tabindex="0">Popover</div>
     </div>
     <div class="x-popover mt-12">
