@@ -1,6 +1,4 @@
 :root, :host {
   --x-progress-block-size: 1rem;
   --x-progress-border-radius: var(--radius-full);
-  --x-progress-transition-duration: 0.3s;
-  --x-progress-indeterminate-transition-duration: 1s;
 }

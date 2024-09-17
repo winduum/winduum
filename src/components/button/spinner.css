@@ -1,0 +1,9 @@
+.x-button:has(.spinner) {
+  pointer-events: none;
+  color: transparent;
+
+  .spinner {
+    color: var(--x-button-color);
+    position: absolute;
+  }
+}
