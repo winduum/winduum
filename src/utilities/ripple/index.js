@@ -1,7 +1,7 @@
 /**
  * Shows a ripple effect.
- * @param {MouseEvent} event - The dialog element to dismiss.
- * @param {HTMLElement} element - The options for closing the dialog.
+ * @param {MouseEvent} event
+ * @param {HTMLElement} element
  * @returns void
  */
 export const showRipple = ({ currentTarget, offsetX, offsetY }, element = currentTarget.querySelector('.ripple')) => {
