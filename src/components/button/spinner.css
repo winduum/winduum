@@ -1,8 +1,8 @@
-.x-button:has(.spinner) {
+.x-button:has(.spinner-absolute) {
   pointer-events: none;
   color: transparent;
 
-  .spinner {
+  .spinner-absolute {
     color: var(--x-button-color);
     position: absolute;
   }
