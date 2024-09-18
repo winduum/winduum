@@ -1,25 +1,25 @@
 /**
  * Shows a ripple effect.
- * @param {MouseEvent} event
- * @param {HTMLElement} element
+ * @param {import("./").ShowRippleOptions} options
+ * @param {HTMLElement} rippleElement
  * @returns void
  */
-export const showRipple = ({ currentTarget, offsetX, offsetY }, element = currentTarget.querySelector('.ripple')) => {
-    if (!element) {
-        currentTarget.insertAdjacentHTML('beforeend', "<div class='ripple'></div>")
-        element = currentTarget.querySelector('.ripple')
+export const showRipple = ({ element, x, y }, rippleElement = element.querySelector('.ripple')) => {
+    if (!rippleElement) {
+        element.insertAdjacentHTML('beforeend', "<div class='ripple'></div>")
+        rippleElement = element.querySelector('.ripple')
     }
 
-    element.classList.remove('animation-ripple')
+    rippleElement.classList.remove('animation-ripple')
 
-    if (element.clientWidth === 0 && element.clientHeight === 0) {
-        const d = Math.max(currentTarget.offsetWidth, currentTarget.offsetHeight)
+    if (rippleElement.clientWidth === 0 && rippleElement.clientHeight === 0) {
+        const d = Math.max(element.offsetWidth, element.offsetHeight)
 
-        element.style.width = d + 'px'
-        element.style.height = d + 'px'
+        rippleElement.style.width = d + 'px'
+        rippleElement.style.height = d + 'px'
     }
 
-    element.style.top = offsetY - (element.clientHeight / 2) + 'px'
-    element.style.left = offsetX - (element.clientWidth / 2) + 'px'
-    element.classList.add('animation-ripple')
+    rippleElement.style.top = y - (rippleElement.clientHeight / 2) + 'px'
+    rippleElement.style.left = x - (rippleElement.clientWidth / 2) + 'px'
+    rippleElement.classList.add('animation-ripple')
 }

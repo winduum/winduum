@@ -1,6 +1,7 @@
 export interface ValidateFormOptions {
     validateSelectors?: string
     validateOptions?: ValidateFieldOptions
+    scrollOptions?: ScrollIntoViewOptions
     submitterLoadingAttribute?: string
 }
 

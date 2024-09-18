@@ -3,6 +3,6 @@ export interface SetPositionOptions {
     positionProperty?: string
 }
 
-export function setPosition(event: Event, options?: SetPositionOptions): void
-export function setKeyboardStep(event: KeyboardEvent, step?: string): void
-export function setMouseStep(event: MouseEvent, step?: string): void
+export function setPosition(element: HTMLInputElement, options?: SetPositionOptions): void
+export function setKeyboardStep(element: HTMLInputElement, key: string, step?: string): void
+export function setMouseStep(element: HTMLInputElement, step?: string): void

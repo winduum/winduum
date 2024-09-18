@@ -8,6 +8,7 @@ export const validateForm = (event, options = {}) => {
         validateSelectors: '.x-control, .x-check, .x-switch, .x-rating, .x-color',
         validateOptions: {},
         submitterLoadingAttribute: 'data-loading',
+        scrollOptions: { behavior: 'smooth', block: 'center' },
         ...options
     }
 
@@ -15,7 +16,7 @@ export const validateForm = (event, options = {}) => {
         event.preventDefault()
         event.stopImmediatePropagation()
 
-        event.target.querySelector(':invalid').scrollIntoView({ behavior: 'smooth', block: 'center' })
+        event.target.querySelector(':invalid').scrollIntoView(options.scrollOptions)
         event.target.querySelector(':invalid').focus()
     } else {
         event?.submitter?.setAttribute(options.submitterLoadingAttribute, '')

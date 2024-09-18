@@ -74,7 +74,7 @@ export const showPopover = async (element, options) => {
     popoverElement._cleanup = autoUpdate(
         element,
         popoverElement,
-        async () => await computePopover(element, popoverElement, options)
+        async () => await computePopover(options.anchorSelector ? document.querySelector(options.anchorSelector) : element, popoverElement, options)
     )
 }
 

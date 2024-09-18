@@ -1,6 +1,7 @@
 import { FlipOptions, Middleware, OffsetOptions, Placement, ShiftOptions } from "@floating-ui/dom";
 
 export interface ShowPopoverOptions {
+    anchorSelector: string,
     openAttribute?: string
     compute?: boolean
     placement?: Placement
