@@ -1,15 +1,12 @@
 .x-button:is(.bordered) {
   --x-button-disabled-background-color-opacity: 0%;
   --x-button-disabled-background-color-mix: transparent;
-  --x-button-disabled-border-color-opacity: 30%;
   --x-button-disabled-color: var(--color-accent);
   --x-button-active-background-color-opacity: 20%;
   --x-button-active-background-color-mix: transparent;
-  --x-button-active-border-color-opacity: 30%;
   --x-button-active-color: var(--color-accent);
   --x-button-hover-background-color-opacity: 10%;
   --x-button-hover-background-color-mix: transparent;
-  --x-button-hover-border-color-opacity: 30%;
   --x-button-hover-color: var(--color-accent);
   --x-button-focus-outline-offset: 0px;
   --x-button-border-width: 1px;
