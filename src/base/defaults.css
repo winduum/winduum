@@ -63,3 +63,7 @@
   color: var(--color-main);
   accent-color: var(--color-accent);
 }
+
+[hidden] {
+  display: none !important;
+}
