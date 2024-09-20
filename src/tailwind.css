@@ -2,4 +2,3 @@
 @import "tailwindcss/components.css";
 @import "tailwindcss/utilities.css";
 @import "tailwindcss/variants.css";
-@import "utilities/index.css" layer(components);

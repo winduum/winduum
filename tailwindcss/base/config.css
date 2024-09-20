@@ -12,19 +12,6 @@
   --z-index-30: 30;
   --z-index-40: 40;
   --z-index-50: 50;
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 0.75rem;
-  --spacing-lg: 1rem;
-  --spacing-xl: 1.25rem;
-  --spacing-2xl: 1.5rem;
-  --spacing-3xl: 1.75rem;
-  --spacing-4xl: 2rem;
-  --spacing-5xl: 2.5rem;
-  --spacing-6xl: 3rem;
-  --spacing-7xl: 3.5rem;
-  --spacing-8xl: 4rem;
-  --spacing-9xl: 5rem;
   --radius: var(--radius-xl);
   --radius-full: calc(infinity * 1px);
 }
