@@ -78,9 +78,9 @@ declare module 'winduum/src/components/compare' {
 		positionProperty?: string
 	}
 
-	export function setPosition(event: Event, options?: SetPositionOptions): void
-	export function setKeyboardStep(event: KeyboardEvent, step?: string): void
-	export function setMouseStep(event: MouseEvent, step?: string): void
+	export function setPosition(element: HTMLInputElement, options?: SetPositionOptions): void
+	export function setKeyboardStep(element: HTMLInputElement, key: string, step?: string): void
+	export function setMouseStep(element: HTMLInputElement, step?: string): void
 
 	export {};
 }
@@ -103,6 +103,7 @@ declare module 'winduum/src/components/dialog' {
 	export interface DefaultOptions {
 		remove?: boolean | null
 		closable?: boolean | null
+		modal?: boolean
 		openAttribute?: string
 		closedAttribute?: string
 		contentSelector?: string
@@ -139,6 +140,7 @@ declare module 'winduum/src/components/form' {
 	export interface ValidateFormOptions {
 		validateSelectors?: string
 		validateOptions?: ValidateFieldOptions
+		scrollOptions?: ScrollIntoViewOptions
 		submitterLoadingAttribute?: string
 	}
 
@@ -200,6 +202,7 @@ declare module 'winduum/src/components/toaster' {
 declare module 'winduum/src/components/popover' {
 	import type { FlipOptions, Middleware, OffsetOptions, Placement, ShiftOptions } from '@floating-ui/dom';
 	export interface ShowPopoverOptions {
+		anchorSelector: string,
 		openAttribute?: string
 		compute?: boolean
 		placement?: Placement
@@ -245,7 +248,13 @@ declare module 'winduum/src/components/range' {
 }
 
 declare module 'winduum/src/utilities/ripple' {
-	export function showRipple(event: MouseEvent, element?: HTMLElement): void
+	export interface ShowRippleOptions {
+		element: HTMLElement | Element
+		x: number
+		y: number
+	}
+
+	export function showRipple(options: ShowRippleOptions, element?: HTMLElement): void
 
 	export {};
 }
