@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "2.0.0-next.23",
+  "version": "2.0.0-next.26",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",
@@ -47,6 +47,7 @@
     "tailwind.config.js",
     "dist",
     "src",
+    "tailwindcss",
     "plugin",
     "types"
   ],
@@ -58,6 +59,7 @@
       "types": "./plugin/types.d.ts"
     },
     "./src/*": "./src/*",
+    "./tailwindcss/*": "./tailwindcss/*",
     "./dist/*": "./dist/*",
     "./plugin/*": "./plugin/*",
     "./src/components/carousel": {

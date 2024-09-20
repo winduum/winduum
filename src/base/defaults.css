@@ -31,14 +31,14 @@
 }
 
 :where(code) {
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-1) var(--spacing-2);
   background: var(--color-body-secondary);
   border-radius: var(--radius-sm);
   color: var(--color-accent);
 }
 
 :where(kbd) {
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-1) var(--spacing-2);
   background: var(--color-body-secondary);
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-body-tertiary);

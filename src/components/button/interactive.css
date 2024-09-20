@@ -1,7 +1,7 @@
 .x-button {
-  transition-property: var(--default-transition-property);
-  transition-timing-function: var(--transition-timing-function-in-out);
-  transition-duration: var(--default-transition-duration);
+  transition-property: var(--x-button-transition-property, var(--default-transition-property));
+  transition-timing-function: var(--x-button-timing-function, var(--transition-timing-function-in-out));
+  transition-duration: var(--x-button-transition-duration, var(--default-transition-duration));
 
   &:where(.accent-primary),
   &:where(.accent-body),
@@ -32,7 +32,7 @@
     }
 
     &:active, &:checked, &.active {
-      --x-button-background-color: var(--x-button-hover-background-color, var(--color-accent));
+      --x-button-background-color: var(--x-button-active-background-color, var(--color-accent));
       --x-button-background-color-mix: var(--x-button-active-background-color-mix);
       --x-button-background-color-opacity: var(--x-button-active-background-color-opacity);
       --x-button-border-color: var(--x-button-active-border-color, var(--color-accent));

@@ -1,4 +1,4 @@
 :root, :host {
-  --x-toaster-padding: var(--spacing-xl);
-  --x-toaster-margin-block: var(--spacing-xs);
+  --x-toaster-padding: var(--spacing-5);
+  --x-toaster-margin-block: var(--spacing-1);
 }

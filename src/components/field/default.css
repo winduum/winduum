@@ -1,5 +1,5 @@
 .x-field {
-  gap: var(--x-field-gap, var(--spacing-sm));
+  gap: var(--x-field-gap, var(--spacing-2));
   display: flex;
   flex-direction: column;
 

@@ -1,6 +1,6 @@
 :root, :host {
   --x-card-background-color: var(--color-body-primary);
   --x-card-border-radius: var(--radius-2xl);
-  --x-card-padding-block: var(--spacing-2xl);
-  --x-card-padding-inline: var(--spacing-3xl);
+  --x-card-padding-block: var(--spacing-6);
+  --x-card-padding-inline: var(--spacing-7);
 }
