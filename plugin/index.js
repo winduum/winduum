@@ -130,9 +130,6 @@ export const createPlugin = (userConfig = {}) => {
         addComponents(tailwindAnimations(userConfig.animations))
         addComponents(tailwindPropertyUtilities('mask', userConfig.mask))
         addComponents(divideGap({ theme, e }))
-        addComponents({
-            ...DotUtility
-        })
     }, {
         corePlugins: {
             preflight: false,

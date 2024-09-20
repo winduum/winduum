@@ -1,8 +1,19 @@
+@theme {
+  --transition-all: all var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --transition-color: color var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --transition-background: background var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --transition-opacity: opacity var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --transition-transform: transform var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --transition-border: border-color var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --transition-shadow: box-shadow var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --transition-display: display var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --transition-overlay: overlay var(--default-transition-duration) var(--transition-timing-function-in-out);
+  --view-transition-main-duration: var(--default-transition-duration);
+}
+
 :root, :host {
-  --default-transition-duration: 150ms;
-  --default-transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, outline-color, outline-offset, visibility, display, overlay;
-  --transition-timing-function-linear: linear;
-  --transition-timing-function-in: cubic-bezier(0.4, 0, 1, 1);
-  --transition-timing-function-out: cubic-bezier(0, 0, 0.2, 1);
-  --transition-timing-function-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  @media (prefers-reduced-motion) {
+    --default-transition-duration: 0;
+    --view-transition-main-duration: 0;
+  }
 }
