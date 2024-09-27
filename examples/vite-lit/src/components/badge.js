@@ -1,7 +1,7 @@
 import { LitElement, unsafeCSS, css, html } from 'lit'
-import UiBadgeCss from 'winduum/src/ui/badge/index.css?inline'
+import BadgeCss from 'winduum/src/components/badge/index.css?inline'
 
-export class UiBadge extends LitElement {
+export class Badge extends LitElement {
     render () {
         return html`<slot />`
     }
@@ -14,10 +14,10 @@ export class UiBadge extends LitElement {
               }
             `, unsafeCSS(
                 // needs to be rewritten as vitePlugin
-                UiBadgeCss.replaceAll('.ui-badge', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
+                BadgeCss.replaceAll('.x-badge', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
             )
         ]
     }
 }
 
-window.customElements.define('ui-badge', UiBadge)
+window.customElements.define('x-badge', Badge)

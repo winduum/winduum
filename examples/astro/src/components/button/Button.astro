@@ -1,0 +1,21 @@
+---
+const { class: className, ...attrs } = Astro.props;
+---
+
+<button class={`x-button ${className}`} {...attrs}>
+    <slot />
+</button>
+
+<script>
+    import { showRipple } from 'winduum/src/utilities/ripple'
+
+    document.querySelectorAll('.x-button').forEach(element => {
+        element.addEventListener('click', ({ currentTarget, offsetX, offsetY }) => {
+            showRipple({
+                element: currentTarget,
+                x: offsetX,
+                y: offsetY
+            })
+        })
+    })
+</script>

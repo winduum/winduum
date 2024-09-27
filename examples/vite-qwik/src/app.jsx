@@ -2,7 +2,7 @@ import { component$, useSignal } from '@builder.io/qwik'
 
 import qwikLogo from './assets/qwik.svg'
 import './app.css'
-import UiBtn from './components/ui/Btn.jsx'
+import Button from './components/Button.jsx'
 
 export const App = component$(() => {
     const count = useSignal(0)
@@ -19,7 +19,7 @@ export const App = component$(() => {
             </div>
             <h1>Vite + Qwik</h1>
             <div class="card">
-                <UiBtn onClick$={() => count.value++}>count is {count.value}</UiBtn>
+                <Button onClick$={() => count.value++}>count is {count.value}</Button>
                 <p>
           Edit <code>src/app.jsx</code> and save to test HMR
                 </p>

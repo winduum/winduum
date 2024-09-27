@@ -1,7 +1,7 @@
 import { LitElement, unsafeCSS, css, html } from 'lit'
-import UiBtnCss from 'winduum/src/ui/btn/index.css?inline'
+import ButtonCss from 'winduum/src/components/button/index.css?inline'
 
-export class UiButton extends LitElement {
+export class Button extends LitElement {
     constructor () {
         super()
 
@@ -35,10 +35,10 @@ export class UiButton extends LitElement {
               
             `, unsafeCSS(
                 // needs to be rewritten as vitePlugin
-                UiBtnCss.replaceAll('.ui-btn', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
+                ButtonCss.replaceAll('.x-button', ':host').replace(/:host((?! \{).*?[^{]+(?=\s*{))/g, ':host($1)')
             )
         ]
     }
 }
 
-window.customElements.define('ui-button', UiButton)
+window.customElements.define('x-button', Button)

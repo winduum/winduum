@@ -9,7 +9,7 @@
     "preview": "serve dist"
   },
   "devDependencies": {
-    "winduum": "latest",
+    "winduum": "^2.0.0-next.30",
     "serve": "latest",
     "vite": "latest"
   },

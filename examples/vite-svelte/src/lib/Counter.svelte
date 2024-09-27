@@ -1,5 +1,5 @@
 <script>
-  import UiBtn from './ui/Btn.svelte'
+  import Button from './Button.svelte'
 
   let count = 0
   const increment = () => {
@@ -7,6 +7,6 @@
   }
 </script>
 
-<UiBtn on:click={increment}>
+<Button on:click={increment}>
   count is {count}
-</UiBtn>
+</Button>

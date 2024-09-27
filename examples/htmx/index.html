@@ -5,11 +5,12 @@
     <title>HTMX</title>
 
     <script src="https://cdn.jsdelivr.net/npm/htmx.org"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/winduum/src/base/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/winduum/src/ui/btn/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/winduum@next/src/base/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/winduum@next/src/theme/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/winduum@next/src/components/button/index.css">
 </head>
-<body style="padding: 2rem">
-    <button class="ui-btn" hx-post="/clicked" hx-swap="outerHTML">
+<body style="padding: var(--spacing-4)">
+    <button class="x-button" hx-post="/clicked" hx-swap="outerHTML">
         Click Me
     </button>
 </body>

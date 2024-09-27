@@ -7,7 +7,7 @@
 </script>
 
 <template>
-    <button class="ui-btn" type="button" :class="[variant, state, size]">
+    <button class="x-button" type="button" :class="[variant, state, size]">
         <slot></slot>
     </button>
 </template>

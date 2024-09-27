@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
-import UiBtn from './components/ui/Btn.jsx'
+import Button from './components/Button.jsx'
 
 function App () {
     const [count, setCount] = useState(0)
@@ -18,8 +18,8 @@ function App () {
                 </a>
             </div>
             <h1>Vite + React</h1>
-            <div className="card p-xl space-y-8">
-                <UiBtn onClick={() => setCount((count) => count + 1)}>count is {count}</UiBtn>
+            <div className="card p-8 space-y-8">
+                <Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
                 <p>
           Edit <code>src/App.jsx</code> and save to test HMR
                 </p>

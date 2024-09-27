@@ -14,7 +14,7 @@
   </div>
   <h1>Vite + Svelte</h1>
 
-  <div class="p-xl">
+  <div class="p-8">
     <Counter />
   </div>
 

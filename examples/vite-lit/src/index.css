@@ -1,9 +1,7 @@
 @import "winduum/src/base/reset.css";
 @import "winduum/src/base/breakpoints.css";
-@import "winduum/src/base/config.css";
 @import "winduum/src/base/keyframes.css";
-@import "winduum/src/base/theme/default.css";
-@import "winduum/src/base/theme/dark.css";
+@import "winduum/src/theme/index.css";
 @import "winduum/src/tailwind.css";
 
 ::after, ::before {
@@ -11,12 +9,21 @@
 }
 
 ::selection {
-  color: var(--color-light);
-  background-color: var(--color-accent);
+  color: var(--color-primary-foreground);
+  background-color: var(--color-primary);
 }
 
-:where(svg) {
-  stroke-width: 1.5;
+:where([tabindex]) {
+  outline: 0;
+}
+
+:where(button:enabled),
+:where([type="checkbox"]:enabled),
+:where([type="radio"]:enabled),
+:where(summary:not([aria-disabled="true"])),
+:where([role="button"]:not([aria-disabled="true"])) {
+  cursor: var(--cursor-pointer, pointer);
+  user-select: none;
 }
 
 :where(svg:not([width])) {
@@ -27,43 +34,30 @@
   height: 1.25rem;
 }
 
-:where(button) {
-  cursor: pointer;
-}
-
 :where(hr) {
-  border-top: 1px solid var(--color-body-tertiary);
-  border-radius: var(--rounded);
-  width: 100%;
+  background-color: color-mix(in var(--default-color-space), currentColor 100%, transparent);
+  block-size: 1px;
+  inline-size: 100%;
 }
 
 :where(code) {
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-1) var(--spacing-2);
   background: var(--color-body-secondary);
-  border-radius: var(--rounded-sm);
+  border-radius: var(--radius-sm);
   color: var(--color-accent);
 }
 
 :where(kbd) {
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-1) var(--spacing-2);
   background: var(--color-body-secondary);
-  border-radius: var(--rounded-sm);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--color-body-tertiary);
 }
 
-:where(:not(pre) > code, kbd) {
-  white-space: nowrap;
-}
-
-:where(pre > code) {
-  display: block;
-  margin: 0;
-}
-
 :where(html) {
-  color-scheme: var(--color-scheme);
-  font-family: var(--font-primary);
-  font-weight: var(--font-normal);
+  color-scheme: var(--default-color-scheme);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-normal);
   block-size: 100%;
   line-height: 1.5;
   text-size-adjust: 100%;
@@ -79,6 +73,11 @@
   color: var(--color-main);
   accent-color: var(--color-accent);
 }
+
+[hidden] {
+  display: none !important;
+}
+
 
 body {
   display: flex;
