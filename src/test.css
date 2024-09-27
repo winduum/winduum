@@ -1,4 +1,4 @@
-@import "base/reset.css";
+@import "theme/index.css";
 @import "../tailwindcss/base/defaults.css";
 @import "tailwindcss/base.css";
 @import "base/index.css";

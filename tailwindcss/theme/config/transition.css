@@ -1,4 +1,5 @@
 @theme {
+  --default-transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, backdrop-filter, outline-color, outline-offset, visibility, display, overlay;
   --transition-all: all var(--default-transition-duration) var(--transition-timing-function-in-out);
   --transition-color: color var(--default-transition-duration) var(--transition-timing-function-in-out);
   --transition-background: background var(--default-transition-duration) var(--transition-timing-function-in-out);
@@ -11,8 +12,8 @@
   --view-transition-main-duration: var(--default-transition-duration);
 }
 
-:root, :host {
-  @media (prefers-reduced-motion) {
+@media (prefers-reduced-motion) {
+  :root, :host {
     --default-transition-duration: 0;
     --view-transition-main-duration: 0;
   }
