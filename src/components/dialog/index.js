@@ -65,6 +65,8 @@ export const closeDialog = async (element, options = {}) => {
         ...options
     }
 
+    element.dispatchEvent(new CustomEvent('x-dialog:close'))
+
     element.removeAttribute(options.openAttribute)
     element.setAttribute(options.closedAttribute, '')
 
@@ -72,6 +74,5 @@ export const closeDialog = async (element, options = {}) => {
 
     element.close()
 
-    element.dispatchEvent(new CustomEvent('x-dialog:close'))
     options.remove && element.remove()
 }

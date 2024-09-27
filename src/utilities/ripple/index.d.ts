@@ -1,7 +1,7 @@
-export interface ShowRippleOptions {
-    element: HTMLElement | Element
-    x: number
-    y: number
+export interface ShowRippleEvent {
+    currentTarget?: EventTarget | HTMLElement;
+    offsetX: number;
+    offsetY: number;
 }
 
-export function showRipple(options: ShowRippleOptions, element?: HTMLElement): void
+export function showRipple(event: MouseEvent | ShowRippleEvent, rippleElement?: HTMLElement): void

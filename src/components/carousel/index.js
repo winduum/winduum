@@ -51,7 +51,7 @@ export const getItemCount = (element, scrollWidth = element.scrollWidth - elemen
  */
 export const observeCarousel = (element, options = {}) => {
     options = {
-        visibleAttribute: 'visible',
+        visibleAttribute: 'data-visible',
         observerOptions: {},
         ...options
     }
@@ -120,7 +120,7 @@ export const scrollCarousel = (element, options = {}) => {
 export const paginationCarousel = (element, options = {}) => {
     options = {
         itemContent: '<div aria-hidden="true"></div>',
-        activeClass: 'active',
+        activeAttribute: 'data-active',
         ...options
     }
 

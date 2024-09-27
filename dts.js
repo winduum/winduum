@@ -12,6 +12,7 @@ await createBundle({
         'winduum/src/components/drawer': 'src/components/drawer/index.js',
         'winduum/src/components/form': 'src/components/form/index.js',
         'winduum/src/components/tabs': 'src/components/tabs/index.js',
+        'winduum/src/components/toast': 'src/components/toast/index.js',
         'winduum/src/components/toaster': 'src/components/toaster/index.js',
         'winduum/src/components/popover': 'src/components/popover/index.js',
         'winduum/src/components/range': 'src/components/range/index.js',

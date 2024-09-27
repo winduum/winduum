@@ -1,4 +1,5 @@
 @import "theme/index.css";
 @import "base/index.css";
+@import "../tailwindcss/base/defaults.css";
 @import "components/index.css";
 @import "utilities/index.css";

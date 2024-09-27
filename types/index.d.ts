@@ -179,7 +179,7 @@ declare module 'winduum/src/components/tabs' {
 	export {};
 }
 
-declare module 'winduum/src/components/toaster' {
+declare module 'winduum/src/components/toast' {
 	export interface ShowToastOptions {
 		openAttribute?: string
 		autoHide?: number | null
@@ -194,6 +194,16 @@ declare module 'winduum/src/components/toaster' {
 
 	export function closeToast(element: HTMLElement, options?: CloseToastOptions): Promise<void>
 	export function showToast(element: HTMLElement, options?: ShowToastOptions): Promise<void>
+
+	export {};
+}
+
+declare module 'winduum/src/components/toaster' {
+	export interface CloseToastOptions {
+		closedAttribute?: string
+		heightProperty?: string
+	}
+
 	export function closeToaster(element: HTMLElement, options?: CloseToastOptions): Promise<void>
 
 	export {};
@@ -227,6 +237,7 @@ declare module 'winduum/src/components/range' {
 	export interface SetTrackPropertyOptions {
 		element: HTMLElement | Element
 		value: string
+		min?: number
 		max?: number
 	}
 
@@ -248,13 +259,13 @@ declare module 'winduum/src/components/range' {
 }
 
 declare module 'winduum/src/utilities/ripple' {
-	export interface ShowRippleOptions {
-		element: HTMLElement | Element
-		x: number
-		y: number
+	export interface ShowRippleEvent {
+		currentTarget?: EventTarget | HTMLElement;
+		offsetX: number;
+		offsetY: number;
 	}
 
-	export function showRipple(options: ShowRippleOptions, element?: HTMLElement): void
+	export function showRipple(event: MouseEvent | ShowRippleEvent, rippleElement?: HTMLElement): void
 
 	export {};
 }

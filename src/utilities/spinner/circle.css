@@ -1,3 +1,5 @@
 .spinner-circle {
   --spinner-border-inline-start-color-opacity: 25%;
+  --spinner-border-inline-end-color-opacity: 25%;
+  --spinner-border-block-end-color-opacity: 25%;
 }
