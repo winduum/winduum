@@ -3,8 +3,8 @@
  * @param {'start' | 'end'} track
  * @returns void
  */
-export const setTrackProperty = ({ element, value, max }, track = 'start') => {
-    element.style.setProperty('--ui-range-track-' + track, `${((value) / max * 100).toString()}%`)
+export const setTrackProperty = ({ element, value, min, max }, track = 'start') => {
+    element.style.setProperty('--ui-range-track-' + track, `${(((value - min) / (max - min)) * 100).toString()}%`)
 }
 
 /**
@@ -42,6 +42,7 @@ export const setValue = (element, options = {}) => {
     setTrackProperty({
         element: parentElement,
         value: element.value,
+        min: Number(element.min) || 0,
         max: Number(element.max) || 100
     }, track)
 }

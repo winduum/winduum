@@ -1,6 +1,7 @@
 export interface SetTrackPropertyOptions {
     element: HTMLElement | Element
     value: string
+    min?: number
     max?: number
 }
 
