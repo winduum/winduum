@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+
 /**
  * @param {[]} colors
  * @param {boolean} colorMix
@@ -32,6 +35,29 @@ export const tailwindVariables = (type, variables = [], values = {}) => {
     variables.forEach((name) => {
         values[name] = `var(--${type}-${name.replace(/\./g, '_')})`
     })
+
+    return values
+}
+
+export const tailwindParseVariables = (type, file) => {
+    const fileContent = readFileSync(resolve(process.cwd(), file)).toString()
+
+    const regex = /(--[\w-]+):\s*([^;]+);/g
+    const matches = [...fileContent.matchAll(regex)]
+    const values = {}
+
+    matches.forEach((match) => {
+        if (!match[1].startsWith(`--${type}-`)) {
+            return
+        }
+
+        const name = match[1].replace(`--${type}-`, '')
+        const value = match[2]
+
+        values[name.replace(/_/g, '.')] = `var(--${type}-${name}, ${value})`
+    })
+
+    console.log(values)
 
     return values
 }
