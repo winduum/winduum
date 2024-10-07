@@ -56,8 +56,8 @@ export const observeCarousel = (element, options = {}) => {
         ...options
     }
 
-    element._observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
+    element._observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             entry.target.toggleAttribute(options.visibleAttribute, entry.isIntersecting)
         })
 
@@ -152,7 +152,7 @@ export const autoplayCarousel = (element, options = {}) => {
 
     let paused
 
-    options.pauseElements.forEach(element => {
+    options.pauseElements.forEach((element) => {
         element?.addEventListener('mouseenter', () => (paused = true))
         element?.addEventListener('mouseleave', () => (paused = false))
     })
@@ -211,7 +211,7 @@ export const dragCarousel = (element, options = {}) => {
         scrollLeft = element.scrollLeft
     })
 
-    element.addEventListener('mousemove', e => {
+    element.addEventListener('mousemove', (e) => {
         if (!isDown) return
         e.preventDefault()
 

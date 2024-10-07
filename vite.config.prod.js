@@ -25,7 +25,7 @@ export default {
         emptyOutDir: false,
         outDir: resolve(process.cwd(), 'dist'),
         rollupOptions: {
-            input: FastGlob.sync(['./src/*.css']).map(entry => resolve(process.cwd(), entry)),
+            input: FastGlob.sync(['./src/main.css', './src/tailwind.css']).map(entry => resolve(process.cwd(), entry)),
             output: {
                 assetFileNames: '[name].[ext]',
                 chunkFileNames: '[name].js'

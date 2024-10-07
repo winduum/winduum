@@ -30,8 +30,8 @@ export const setValue = (element, options = {}) => {
 
     if (Object.keys(parentElement._trackValues).length > 1) {
         if (
-            (track === 'start' && element.value < parentElement._trackValues.end) ||
-            (track === 'end' && parentElement._trackValues.start < element.value)
+            (track === 'start' && element.value < parentElement._trackValues.end)
+            || (track === 'end' && parentElement._trackValues.start < element.value)
         ) {
             parentElement._trackValues[track] = Number(element.value)
         }

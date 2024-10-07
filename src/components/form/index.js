@@ -22,7 +22,7 @@ export const validateForm = (event, options = {}) => {
         event?.submitter?.setAttribute(options.submitterLoadingAttribute, '')
     }
 
-    event.target.querySelectorAll(options.validateSelectors).forEach(element => {
+    event.target.querySelectorAll(options.validateSelectors).forEach((element) => {
         validateField(element, options.validateOptions)
     })
 }
@@ -61,7 +61,7 @@ export const validateField = (element, options = {}) => {
     const infoSelector = options.infoSelector + options.validitySelector
     const endSelector = `${options.endSelector} ${options.validitySelector}`
 
-    const insertIcon = icon => {
+    const insertIcon = (icon) => {
         if (!endParentElement || !icon) return
 
         if (!element?.querySelector(options.endSelector)) {

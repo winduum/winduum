@@ -6,7 +6,7 @@
  */
 export const showRipple = ({ currentTarget, clientX, clientY }, rippleElement = currentTarget.querySelector('.ripple')) => {
     if (!rippleElement) {
-        currentTarget.insertAdjacentHTML('beforeend', "<div class='ripple'></div>")
+        currentTarget.insertAdjacentHTML('beforeend', '<div class="ripple"></div>')
         rippleElement = currentTarget.querySelector('.ripple')
     }
 

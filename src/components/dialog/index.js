@@ -27,7 +27,7 @@ export const showDialog = async (element, options = {}) => {
     document.documentElement.style.setProperty(options.scrollbarWidthProperty, `${window.innerWidth - document.body.clientWidth}px`)
 
     if (!element?._dialogHasEvents) {
-        element.addEventListener('cancel', e => {
+        element.addEventListener('cancel', (e) => {
             e.preventDefault()
             options.closable && closeDialog(element, options)
         })
