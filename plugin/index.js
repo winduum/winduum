@@ -28,7 +28,7 @@ export const defaultConfig = {
     fontFamily: './src/theme/config/font.css',
     fontWeight: './src/theme/config/font.css',
     ease: ['linear', 'in', 'out', 'in-out'],
-    zIndex: ['10', '20', '30', '40', '50', '60'],
+    zIndex: './src/theme/config/z.css',
     fontSize: './src/theme/config/font.css',
     spacing: './src/theme/config/spacing.css',
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
@@ -102,7 +102,7 @@ export const createPlugin = (userConfig = {}) => {
                 fontSize: tailwindParseVariables('font-size', userConfig.fontSize),
                 fontFamily: tailwindParseVariables('font-family', userConfig.fontFamily),
                 fontWeight: tailwindParseVariables('font-weight', userConfig.fontWeight),
-                zIndex: tailwindVariables('z-index', userConfig.zIndex, {
+                zIndex: tailwindParseVariables('z-index', userConfig.zIndex, {
                     0: 0,
                     auto: 'auto'
                 }),

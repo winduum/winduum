@@ -44,17 +44,17 @@ export const tailwindParseVariables = (type, file) => {
 
     const regex = /(--[\w-]+):\s*([^;]+);/g
     const matches = [...fileContent.matchAll(regex)]
+    const variables = matches.map(match => [match[1], match[2]])
     const values = {}
 
-    matches.forEach((match) => {
-        if (!match[1].startsWith(`--${type}-`)) {
+    variables.forEach((match, index) => {
+        if (!match[0].startsWith(`--${type}-`) || match[0].endsWith('--line-height')) {
             return
         }
 
-        const name = match[1].replace(`--${type}-`, '')
-        const value = match[2]
+        const name = match[0].replace(`--${type}-`, '')
 
-        values[name.replace(/_/g, '.')] = `var(--${type}-${name}, ${value})`
+        values[name.replace(/_/g, '.')] = type === 'font-size' ? [`var(${match})`, `var(${variables[index + 1]})`] : `var(${match})`
     })
 
     console.log(values)
