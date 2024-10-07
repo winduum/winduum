@@ -1,6 +1,5 @@
 import plugin from 'tailwindcss/plugin'
 import flattenColorPalette from 'tailwindcss/src/util/flattenColorPalette'
-import DotUtility from './utilities/dot.js'
 import divideGap from './utilities/divide-gap.js'
 import { accentColor, textColor } from './utilities/color.js'
 import { tailwindAnimations, tailwindColors, tailwindPropertyUtilities, tailwindVariables, tailwindVariablesFont } from './utilities/common.js'
@@ -77,20 +76,20 @@ export const defaultConfig = {
             initial: '8rem'
         }
     ],
-    spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'],
+    spacing: ['0', '0_5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '5', '6', '7', '8', '9', '10', '11', '12', '14', '16', '20', '24', '28', '32', '36', '40', '44', '48', '52', '56', '60', '64', '72', '80', '96'],
     borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
     animations: ['ripple', 'spin', 'move-indeterminate'],
     mask: ['check', 'radio', 'angle-up', 'angle-down'],
     screens: {
-        xs: '22.5rem',
-        sm: '26rem',
-        md: '46.5rem',
-        lg: '60rem',
-        xl: '76rem',
+        'xs': '22.5rem',
+        'sm': '26rem',
+        'md': '46.5rem',
+        'lg': '60rem',
+        'xl': '76rem',
         '2xl': '82rem',
         '3xl': '88rem',
         '4xl': '100rem',
-        xxl: '126rem',
+        'xxl': '126rem',
         '2xxl': '158rem'
     },
     settings: {

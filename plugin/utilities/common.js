@@ -9,7 +9,7 @@ export const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
         current: 'color-mix(in var(--default-color-space), currentcolor calc(<alpha-value> * 100%), var(--default-color-mix, transparent))'
     }
 
-    colors.forEach(name => {
+    colors.forEach((name) => {
         if (rgb) {
             result[name + '-rgb'] = `rgb(var(--color-${name}-rgb) / <alpha-value>)`
         }
@@ -29,8 +29,8 @@ export const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
  * @returns {Object}
  */
 export const tailwindVariables = (type, variables = [], values = {}) => {
-    variables.forEach(name => {
-        values[name] = `var(--${type}-${name})`
+    variables.forEach((name) => {
+        values[name] = `var(--${type}-${name.replace(/\./g, '_')})`
     })
 
     return values
@@ -58,7 +58,7 @@ export const tailwindVariablesFont = (type, variables = [], values = {}) => {
 export const tailwindPropertyUtilities = (type, variables = []) => {
     const result = {}
 
-    variables.forEach(name => {
+    variables.forEach((name) => {
         result[`.${type}-${name}`] = {
             [type]: `var(--${type}-${name})`
         }
@@ -74,7 +74,7 @@ export const tailwindPropertyUtilities = (type, variables = []) => {
 export const tailwindAnimations = (values) => {
     const result = {}
 
-    values.forEach(value => {
+    values.forEach((value) => {
         result[`.animation-${value}`] = {
             'animation-name': value
         }
