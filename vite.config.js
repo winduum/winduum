@@ -13,7 +13,9 @@ export default {
     ],
     css: {
         postcss: {
-            plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer]
+            plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer({
+                overrideBrowserslist: ['last 10 chrome versions', 'last 10 firefox versions', 'last 2 safari versions']
+            })]
         }
     },
     resolve: {

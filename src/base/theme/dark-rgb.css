@@ -1,7 +1,0 @@
-:root.dark, :host.dark {
-  --scheme: dark;
-  --color-main: rgb(var(--color-main-rgb));
-  --color-body: rgb(var(--color-body-rgb));
-  --color-main-rgb: 255 255 255;
-  --color-body-rgb: 25 26 27;
-}

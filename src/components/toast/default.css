@@ -1,30 +1,30 @@
-.c-toast {
-  width: min(100%, var(--c-toast-width));
-  height: var(--c-toast-height);
-  transition: all var(--c-toast-duration) var(--ease-in-out);
+.x-toast {
+  inline-size: min(100%, var(--x-toast-inline-size));
+  block-size: var(--x-toast-block-size);
+  transition: all var(--x-toast-transition-duration) var(--x-toast-transition-timing-function, var(--transition-timing-function-in-out));
   position: relative;
   pointer-events: auto;
   display: flex;
   flex-direction: column;
   visibility: hidden;
-  opacity: 0;
+  opacity: 0%;
 
   .flex-col-reverse & {
     justify-content: flex-end;
   }
 
-  &.in {
-    margin-block: var(--c-toaster-spacing-y);
+  &[data-open] {
+    margin-block: var(--x-toaster-margin-block);
   }
 
-  &.in:where(:nth-last-child(-n+3)) {
+  &[data-open]:where(:nth-last-child(-n+3)) {
     visibility: visible;
-    opacity: 1;
+    opacity: 100%;
   }
 
-  &.out {
+  &[data-closed] {
     visibility: hidden;
-    opacity: 0;
+    opacity: 0%;
     height: 0;
     margin-block: 0;
   }

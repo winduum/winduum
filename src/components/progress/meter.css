@@ -1,0 +1,43 @@
+.x-progress {
+  &::-webkit-meter-bar {
+    border: 0;
+    background: transparent;
+    border-radius: inherit;
+  }
+
+  &::-webkit-meter-inner-element {
+    position: relative;
+    display: block;
+    border-radius: inherit;
+  }
+
+  &::-webkit-meter-optimum-value {
+    background: var(--x-progress-meter-success-background, var(--color-success));
+    border-radius: inherit;
+  }
+
+  &::-webkit-meter-suboptimum-value {
+    background: var(--x-progress-meter-warning-background, var(--color-warning));
+    border-radius: inherit;
+  }
+
+  &::-webkit-meter-even-less-good-value {
+    background: var(--x-progress-meter-error-background, var(--color-error));
+    border-radius: inherit;
+  }
+
+  &:-moz-meter-optimum::-moz-meter-bar {
+    background: var(--x-progress-meter-success-background, var(--color-success));
+    border-radius: inherit;
+  }
+
+  &:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: var(--x-progress-meter-warning-background, var(--color-warning));
+    border-radius: inherit;
+  }
+
+  &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: var(--x-progress-meter-error-background, var(--color-error));
+    border-radius: inherit;
+  }
+}

@@ -1,16 +1,16 @@
 declare module 'winduum' {
 	import type { Plugin } from 'tailwindcss/types/config';
 	export interface PluginOptions {
-		colors?: string[]
-		fontFamily?: string[],
-		fontWeight?: string[],
-		ease?: string[],
-		zIndex?: string[],
-		fontSize?: string[],
-		spacing?: string[],
-		borderRadius?: string[],
+		colors?: string[] | string
+		fontFamily?: string[] | string,
+		fontWeight?: string[] | string,
+		ease?: string[] | string,
+		zIndex?: string[] | string,
+		fontSize?: string[] | string,
+		spacing?: string[] | string,
+		borderRadius?: string[] | string,
+		mask?: string[] | string,
 		animations?: string[],
-		mask?: string[],
 		screens?: {
 			[key: string]: string
 		},
@@ -23,11 +23,13 @@ declare module 'winduum' {
 	export const defaultConfig: PluginOptions
 
 	export default function createPlugin(userConfig?: PluginOptions): Plugin
+
+	export {};
 }
 
 declare module 'winduum/src/components/carousel' {
 	export interface ObserveCarouselOptions {
-		visibleClass?: string
+		visibleAttribute?: string
 		observerOptions?: {
 			rootMargin?: string
 			threshold?: number | number[]
@@ -37,7 +39,7 @@ declare module 'winduum/src/components/carousel' {
 	export interface PaginationCarouselOptions {
 		element?: HTMLElement | Element
 		itemContent?: string
-		activeClass?: string
+		activeAttribute?: string
 	}
 
 	export interface ScrollCarouselOptions {
@@ -54,7 +56,7 @@ declare module 'winduum/src/components/carousel' {
 	}
 
 	export interface DragCarouselOptions {
-		activeClass?: string
+		activeAttribute?: string
 	}
 
 	export function scrollPrev(element: HTMLElement | Element): void
@@ -66,6 +68,8 @@ declare module 'winduum/src/components/carousel' {
 	export function paginationCarousel(element: HTMLElement | Element, options?: PaginationCarouselOptions): void
 	export function autoplayCarousel(element: HTMLElement | Element, options?: AutoplayCarouselOptions): void
 	export function dragCarousel(element: HTMLElement | Element, options?: DragCarouselOptions): void
+
+	export {};
 }
 
 declare module 'winduum/src/components/compare' {
@@ -74,9 +78,11 @@ declare module 'winduum/src/components/compare' {
 		positionProperty?: string
 	}
 
-	export function setPosition(event: Event, options?: SetPositionOptions): void
-	export function setKeyboardStep(event: KeyboardEvent, step?: string): void
-	export function setMouseStep(event: MouseEvent, step?: string): void
+	export function setPosition(element: HTMLInputElement, options?: SetPositionOptions): void
+	export function setKeyboardStep(element: HTMLInputElement, key: string, step?: string): void
+	export function setMouseStep(element: HTMLInputElement, step?: string): void
+
+	export {};
 }
 
 declare module 'winduum/src/components/details' {
@@ -89,35 +95,26 @@ declare module 'winduum/src/components/details' {
 	export function showDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
 	export function closeDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
 	export function toggleDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
+
+	export {};
 }
 
 declare module 'winduum/src/components/dialog' {
 	export interface DefaultOptions {
 		remove?: boolean | null
 		closable?: boolean | null
-		openClass?: string
+		modal?: boolean
+		openAttribute?: string
+		closedAttribute?: string
+		contentSelector?: string
 		scrollbarWidthProperty?: string
 	}
 
-	export interface InsertDialogOptions {
-		selector?: string | null
-		class?: string | null
-		append?: boolean | null
-		show?: DefaultOptions
-	}
-
-	export interface FetchDialogOptions {
-		url: string
-		insert?: InsertDialogOptions
-	}
-
 	export const defaultOptions: DefaultOptions
-	export function dialogSelector(selector: string): HTMLDialogElement
-	export function dismissDialog(element: HTMLDialogElement, options?: DefaultOptions): Promise<void>
-	export function showDialog(element: HTMLDialogElement, options?: DefaultOptions): Promise<void>
-	export function closeDialog(element: HTMLDialogElement, options?: DefaultOptions): Promise<void>
-	export function insertDialog(content: string, options?: InsertDialogOptions): Promise<void>
-	export function fetchDialog({ url, insert }: FetchDialogOptions): Promise<void>
+	export function showDialog(element: HTMLDialogElement | HTMLElement, options?: DefaultOptions): Promise<void>
+	export function closeDialog(element: HTMLDialogElement | HTMLElement, options?: DefaultOptions): Promise<void>
+
+	export {};
 }
 
 declare module 'winduum/src/components/drawer' {
@@ -133,14 +130,18 @@ declare module 'winduum/src/components/drawer' {
 
 	export function showDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
 	export function closeDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-	export function scrollDrawer(element: HTMLElement | Element, options?: ScrollDrawerOptions): void
+	export function scrollInitDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
+	export function scrollDrawer(element: HTMLDialogElement | Element, options?: ScrollDrawerOptions): void
+
+	export {};
 }
 
 declare module 'winduum/src/components/form' {
 	export interface ValidateFormOptions {
 		validateSelectors?: string
 		validateOptions?: ValidateFieldOptions
-		submitterLoadingClass?: string
+		scrollOptions?: ScrollIntoViewOptions
+		submitterLoadingAttribute?: string
 	}
 
 	export interface ValidateFieldOptions {
@@ -154,15 +155,17 @@ declare module 'winduum/src/components/form' {
 		endParentSelector?: string
 		endSelector?: string
 		endContent?: string
-		validClass?: string
+		validAttribute?: string
 		validIcon?: string | null
-		invalidClass?: string
+		invalidAttribute?: string
 		invalidIcon?: string
-		activeClass?: string
+		activeAttribute?: string
 	}
 
 	export function validateForm(event: Event | SubmitEvent, options?: ValidateFormOptions): void
 	export function validateField(element: HTMLElement | SubmitEvent, options?: ValidateFieldOptions): void
+
+	export {};
 }
 
 declare module 'winduum/src/components/tabs' {
@@ -172,45 +175,45 @@ declare module 'winduum/src/components/tabs' {
 	}
 
 	export function toggleTab(element: HTMLElement | Element, options?: ToggleTabOptions): void
+
+	export {};
 }
 
-declare module 'winduum/src/components/toaster' {
+declare module 'winduum/src/components/toast' {
 	export interface ShowToastOptions {
-		visibleClass?: string
+		openAttribute?: string
 		autoHide?: number | null
 		heightProperty?: string
 		close?: CloseToastOptions
 	}
 
 	export interface CloseToastOptions {
-		hiddenClass?: string
+		closedAttribute?: string
 		heightProperty?: string
-	}
-
-	export interface InsertToasterOptions {
-		classes?: string
-	}
-
-	export interface InsertToastOptions {
-		classes?: string
-		title?: string
-		text?: string
-		start?: string
-		end?: string
-		show?: ShowToastOptions
 	}
 
 	export function closeToast(element: HTMLElement, options?: CloseToastOptions): Promise<void>
 	export function showToast(element: HTMLElement, options?: ShowToastOptions): Promise<void>
-	export function insertToaster(element: HTMLElement, options?: InsertToasterOptions): Promise<void>
-	export function insertToast(element: HTMLElement, options?: InsertToastOptions): Promise<void>
+
+	export {};
+}
+
+declare module 'winduum/src/components/toaster' {
+	export interface CloseToastOptions {
+		closedAttribute?: string
+		heightProperty?: string
+	}
+
 	export function closeToaster(element: HTMLElement, options?: CloseToastOptions): Promise<void>
+
+	export {};
 }
 
 declare module 'winduum/src/components/popover' {
 	import type { FlipOptions, Middleware, OffsetOptions, Placement, ShiftOptions } from '@floating-ui/dom';
 	export interface ShowPopoverOptions {
-		visibleClass?: string
+		anchorSelector: string,
+		openAttribute?: string
 		compute?: boolean
 		placement?: Placement
 		middleware?: Array<Middleware | null | undefined | false>
@@ -219,15 +222,22 @@ declare module 'winduum/src/components/popover' {
 		shift?: ShiftOptions
 	}
 
+	export interface HidePopoverOptions {
+		openAttribute?: string
+	}
+
 	export function showPopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
 	export function hidePopover(element: HTMLElement | Element): Promise<void>
 	export function togglePopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
+
+	export {};
 }
 
-declare module 'winduum/src/ui/range' {
+declare module 'winduum/src/components/range' {
 	export interface SetTrackPropertyOptions {
 		element: HTMLElement | Element
 		value: string
+		min?: number
 		max?: number
 	}
 
@@ -244,14 +254,26 @@ declare module 'winduum/src/ui/range' {
 	export function setTrackProperty(options: SetTrackPropertyOptions, track: 'start' | 'end'): void
 	export function setValue(element: HTMLInputElement, options?: SetValueOptions): void
 	export function setOutputValue(element: HTMLInputElement, outputElement: HTMLOutputElement | Element, options?: SetOutputOptions): void
+
+	export {};
 }
 
 declare module 'winduum/src/utilities/ripple' {
-	export function showRipple(event: MouseEvent, element?: HTMLElement): void
+	export interface ShowRippleEvent {
+		currentTarget?: EventTarget | HTMLElement;
+		offsetX: number;
+		offsetY: number;
+	}
+
+	export function showRipple(event: MouseEvent | ShowRippleEvent, rippleElement?: HTMLElement): void
+
+	export {};
 }
 
 declare module 'winduum/src/utilities/swap' {
 	export function toggleSwap(element: HTMLElement): void
+
+	export {};
 }
 
 //# sourceMappingURL=index.d.ts.map

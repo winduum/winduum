@@ -5,9 +5,10 @@
  */
 export const validateForm = (event, options = {}) => {
     options = {
-        validateSelectors: '.ui-control, .ui-check, .ui-switch, .ui-rating, .ui-color',
+        validateSelectors: '.x-control, .x-check, .x-switch, .x-rating, .x-color',
         validateOptions: {},
-        submitterLoadingClass: 'loading',
+        submitterLoadingAttribute: 'data-loading',
+        scrollOptions: { behavior: 'smooth', block: 'center' },
         ...options
     }
 
@@ -15,13 +16,13 @@ export const validateForm = (event, options = {}) => {
         event.preventDefault()
         event.stopImmediatePropagation()
 
-        event.target.querySelector(':invalid').scrollIntoView({ behavior: 'smooth', block: 'center' })
+        event.target.querySelector(':invalid').scrollIntoView(options.scrollOptions)
         event.target.querySelector(':invalid').focus()
     } else {
-        event?.submitter?.classList.add(options.submitterLoadingClass)
+        event?.submitter?.setAttribute(options.submitterLoadingAttribute, '')
     }
 
-    event.target.querySelectorAll(options.validateSelectors).forEach(element => {
+    event.target.querySelectorAll(options.validateSelectors).forEach((element) => {
         validateField(element, options.validateOptions)
     })
 }
@@ -37,17 +38,17 @@ export const validateField = (element, options = {}) => {
         selector: 'input:not([type="hidden"]), textarea, select',
         ignoreMatch: /(data-novalidate|readonly)/,
         validitySelector: '.validity',
-        infoParentSelector: '.c-field',
-        infoSelector: '.ui-info',
-        infoContent: '<div class="ui-info text-error validity"></div>',
-        endParentSelector: '.ui-control',
+        infoParentSelector: '.x-field',
+        infoSelector: '.x-info',
+        infoContent: '<div class="x-info text-error validity"></div>',
+        endParentSelector: '.x-control',
         endSelector: '.ms-auto',
         endContent: '<div class="ms-auto"></div>',
-        validClass: 'valid',
+        validAttribute: 'data-valid',
         validIcon: null,
-        invalidClass: 'invalid',
+        invalidAttribute: 'data-invalid',
         invalidIcon: '<svg class="text-error validity" aria-hidden="true"><use href="#icon-exclamation-circle"></use></svg>',
-        activeClass: 'active',
+        activeAttribute: 'data-active',
         ...options
     }
 
@@ -60,7 +61,7 @@ export const validateField = (element, options = {}) => {
     const infoSelector = options.infoSelector + options.validitySelector
     const endSelector = `${options.endSelector} ${options.validitySelector}`
 
-    const insertIcon = icon => {
+    const insertIcon = (icon) => {
         if (!endParentElement || !icon) return
 
         if (!element?.querySelector(options.endSelector)) {
@@ -71,23 +72,24 @@ export const validateField = (element, options = {}) => {
     }
 
     if (validationElement.value !== '') {
-        element.classList.add(options.activeClass)
+        element.setAttribute(options.activeAttribute, '')
     } else {
-        element.classList.remove(options.activeClass)
+        element.removeAttribute(options.activeAttribute)
     }
 
     if (!validationElement.outerHTML.match(options.ignoreMatch) && options.validate) {
-        element?.classList?.remove(options.validClass, options.invalidClass)
+        element?.removeAttribute(options.validAttribute)
+        element?.removeAttribute(options.invalidAttribute)
 
         infoParentElement?.querySelector(infoSelector)?.remove()
         endParentElement?.querySelector(endSelector)?.remove()
 
         if (validationElement.checkValidity()) {
-            element.classList.add(options.validClass)
+            element.setAttribute(options.validAttribute, '')
 
             insertIcon(options.validIcon)
         } else {
-            element.classList.add(options.invalidClass)
+            element.setAttribute(options.invalidAttribute, '')
 
             insertIcon(options.invalidIcon)
 

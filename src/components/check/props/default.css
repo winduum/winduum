@@ -1,0 +1,13 @@
+:root, :host {
+  --x-check-size: 1.25rem;
+  --x-check-icon-size: 1.125rem;
+  --x-check-icon: var(--mask-check);
+  --x-check-gap: var(--spacing-3);
+  --x-check-font-size: var(--font-size-sm);
+  --x-check-line-height: calc(1em + 0.25rem);
+  --x-check-border-radius: var(--radius-md);
+  --x-check-border-width: 1px;
+  --x-check-background-color: currentColor;
+  --x-check-border-color: currentColor;
+  --x-check-outline-width: 2px;
+}

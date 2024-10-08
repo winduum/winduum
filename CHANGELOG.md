@@ -1,3 +1,25 @@
+## 2.0.0 (2024-10-08)
+* feat: added compatibility for **TailwindCSS v4**
+* feat: added CSS view transitions
+* feat: added `winduum-stimulus` package
+* feat: added new `spinner` utility class
+* feat: most of the CSS custom properties renamed to be compatible with **TailwindCSS v4**
+* feat: most of the CSS custom properties renamed to follow the same CSS property naming
+* feat: `c-` and `ui-` prefixes renamed to `x-` prefix
+* feat: `ui-btn` renamed to `x-button`
+* feat: directory paths restructure
+* feat: path `winduum/src/base/index.css` now has separate `winduum/src/theme/index.css` path
+* feat: removed path `winduum/src/ui/index.css`, use `winduum/src/components/index.css` instead
+* feat: removed path `winduum/src/base/tailwind.css`, use `winduum/tailwindcss/index.css` instead
+* feat: `.ui-btn.hover-fill` renamed to  `.x-button.fill`
+* feat: most of the JavaScript methods are now using `data-` attributes instead of classes
+* feat: removed `loading` Button token, use the `spinner` utility element instead
+* feat: removed `gradient` and `gradient-bordered` Button tokens
+* feat: renamed `focus` and `hover` Popover tokens, use `trigger-focus` and `trigger-hover` instead
+* feat: removed `flex` shorthand utility classes `flex-col`, `flex-between`, `flex-center`
+* feat: CSS custom properties for spacing use TailwindCSS v4 variables now
+* feat: TailwindCSS v3 plugin now supports TailwindCSS v4 CSS custom properties syntax
+
 ## 1.2.1 (2024-06-03)
 * fix: tw plugin build
 

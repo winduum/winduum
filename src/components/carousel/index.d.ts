@@ -1,5 +1,5 @@
 export interface ObserveCarouselOptions {
-    visibleClass?: string
+    visibleAttribute?: string
     observerOptions?: {
         rootMargin?: string
         threshold?: number | number[]
@@ -9,7 +9,7 @@ export interface ObserveCarouselOptions {
 export interface PaginationCarouselOptions {
     element?: HTMLElement | Element
     itemContent?: string
-    activeClass?: string
+    activeAttribute?: string
 }
 
 export interface ScrollCarouselOptions {
@@ -26,7 +26,7 @@ export interface AutoplayCarouselOptions {
 }
 
 export interface DragCarouselOptions {
-    activeClass?: string
+    activeAttribute?: string
 }
 
 export function scrollPrev(element: HTMLElement | Element): void

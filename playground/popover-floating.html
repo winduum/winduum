@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/test.css">
+</head>
+<body class="bg-blue-100/10 dark:bg-dark p-4 items-start gap-4 grid grid-cols-container h-[200vh]">
+<div class="w-full flex gap-4 mt-[90vh]">
+    <div class="x-popover">
+        <button class="x-button" popovertargetaction="toggle" popovertarget="popover">Popover 1</button>
+        <div class="x-popover-content shadow h-[586px]" id="popover" popover="manual">
+            <input type="text" autofocus>
+        </div>
+    </div>
+    <div class="x-popover">
+        <button class="x-button" popovertargetaction="toggle" popovertarget="popover2">Popover 2</button>
+        <div class="x-popover-content shadow h-48" id="popover2" popover="manual">
+            <input type="text" autofocus>
+        </div>
+    </div>
+</div>
+<script type="module">
+    import { togglePopover, hidePopover } from '/src/components/popover/index.js'
+
+    document?.querySelectorAll('[popovertargetaction="toggle"]').forEach((popoverActionElement) => {
+        popoverActionElement?.addEventListener('click', async (e) => {
+            e.preventDefault()
+            const currentTarget = e.currentTarget
+            currentTarget.scrollIntoView()
+            await togglePopover(currentTarget)
+        })
+
+        // close on esc
+        window.addEventListener('keydown', ({ key }) => {
+            if (key === 'Escape') {
+                hidePopover(popoverActionElement)
+            }
+        })
+
+        // outside dismiss
+        window.addEventListener('click', ({ target }) => {
+            if (!window.popover?.contains(target) && !popoverActionElement?.isEqualNode(target) && popoverActionElement?.ariaExpanded === 'true') {
+                hidePopover(popoverActionElement)
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "latest",
     "react-dom": "latest",
-    "winduum": "latest"
+    "winduum": "^2"
   },
   "devDependencies": {
     "@types/react": "^18",

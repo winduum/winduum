@@ -1,10 +1,9 @@
-.c-carousel-content {
+.x-carousel-content {
   display: flex;
   overflow: auto;
   user-select: none;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: none;
   position: relative;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
@@ -22,6 +21,7 @@
     }
   }
 
+  /* TODO grabbing */
   &:is(.grabbing) {
     &, & * {
       cursor: grabbing;

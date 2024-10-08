@@ -1,5 +1,0 @@
-.ui-rating {
-  &.invalid, .validated & :where(input):invalid {
-    --ui-rating-color: var(--color-error);
-  }
-}

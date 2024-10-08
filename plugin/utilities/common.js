@@ -1,3 +1,7 @@
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { resolve, dirname } from 'node:path'
+
 /**
  * @param {[]} colors
  * @param {boolean} colorMix
@@ -6,16 +10,16 @@
  */
 export const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
     const result = {
-        current: 'color-mix(in var(--space), currentcolor calc(<alpha-value> * 100%), transparent)'
+        current: 'color-mix(in var(--default-color-space), currentcolor calc(<alpha-value> * 100%), var(--default-color-mix, transparent))'
     }
 
-    colors.forEach(name => {
+    colors.forEach((name) => {
         if (rgb) {
             result[name + '-rgb'] = `rgb(var(--color-${name}-rgb) / <alpha-value>)`
         }
 
         result[name] = colorMix
-            ? `color-mix(in var(--space), var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
+            ? `color-mix(in var(--default-color-space), var(--color-${name}) calc(<alpha-value> * 100%), var(--default-color-mix, transparent))`
             : `rgb(var(--color-${name}) / <alpha-value>)`
     })
 
@@ -29,11 +33,46 @@ export const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
  * @returns {Object}
  */
 export const tailwindVariables = (type, variables = [], values = {}) => {
-    variables.forEach(name => {
-        values[name] = `var(--${type}-${name})`
+    if (!Array.isArray(variables)) {
+        return values
+    }
+
+    variables.forEach((name) => {
+        values[name] = `var(--${type}-${name.replace(/\./g, '_')})`
     })
 
     return values
+}
+
+export const tailwindParseVariables = (type, file, customValues = {}, customPath, initialValues = true) => {
+    const parseFile = (fileContent) => {
+        const regex = /(--[\w-]+):\s*([^;]+);/g
+        const matches = [...fileContent.matchAll(regex)]
+        const variables = matches.map(match => [match[1], match[2]])
+        const values = {}
+
+        variables.forEach((match, index) => {
+            if (!match[0].startsWith(`--${type}-`) || match[0].endsWith('--line-height')) {
+                return
+            }
+
+            const name = match[0].replace(`--${type}-`, '')
+
+            values[name.replace(/_/g, '.')] = type === 'font-size' ? [`var(${match})`, `var(${variables[index + 1]})`] : `var(${initialValues ? match : match[0]})`
+        })
+
+        return values
+    }
+
+    const fileContent = readFileSync(file).toString()
+    const values = parseFile(fileContent)
+
+    if (customPath) {
+        const customFileContent = readFileSync(resolve(process.cwd(), customPath)).toString()
+        customValues = { ...customValues, ...parseFile(customFileContent) }
+    }
+
+    return { ...values, ...customValues }
 }
 
 /**
@@ -43,8 +82,8 @@ export const tailwindVariables = (type, variables = [], values = {}) => {
  * @returns {Object}
  */
 export const tailwindVariablesFont = (type, variables = [], values = {}) => {
-    variables.forEach(name => {
-        values[name] = [`var(--${type}-${name})`, `calc(var(--${type}-${name}) + 0.5rem)`]
+    variables.forEach(({ value, initial }) => {
+        values[value] = [`var(--${type}-${value}, ${initial})`, `calc(var(--${type}-${value}) + 0.5rem)`]
     })
 
     return values
@@ -58,7 +97,7 @@ export const tailwindVariablesFont = (type, variables = [], values = {}) => {
 export const tailwindPropertyUtilities = (type, variables = []) => {
     const result = {}
 
-    variables.forEach(name => {
+    variables.forEach((name) => {
         result[`.${type}-${name}`] = {
             [type]: `var(--${type}-${name})`
         }
@@ -74,7 +113,7 @@ export const tailwindPropertyUtilities = (type, variables = []) => {
 export const tailwindAnimations = (values) => {
     const result = {}
 
-    values.forEach(value => {
+    values.forEach((value) => {
         result[`.animation-${value}`] = {
             'animation-name': value
         }

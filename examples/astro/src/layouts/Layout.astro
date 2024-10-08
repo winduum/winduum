@@ -21,11 +21,15 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-    @import "winduum/src/base/index.css" layer(base);
-	@import "winduum/src/utilities/index.css" layer(components);
-	@import "winduum/src/ui/btn/index.css" layer(components);
-	@import "winduum/src/components/dialog/index.css" layer(components);
-	@import "winduum/src/base/tailwind.css";
+    @import "winduum/src/base/index.css";
+    @import "winduum/src/theme/index.css";
+	@import "winduum/src/components/button/index.css";
+	@import "winduum/src/components/dialog/index.css";
+	@import "winduum/src/utilities/index.css";
+	@import "tailwindcss/base.css";
+	@import "tailwindcss/components.css";
+	@import "tailwindcss/utilities.css";
+	@import "tailwindcss/variants.css";
 
 	@layer base {
 		:root {

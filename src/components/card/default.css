@@ -1,9 +1,7 @@
-.c-card {
-  --c-card-p: var(--c-card-py) var(--c-card-px);
-
-  background-color: var(--color-body-primary);
-  border-radius: var(--rounded-2xl);
-  padding: var(--c-card-p);
+.x-card {
+  background-color: var(--x-card-background-color);
+  border-radius: var(--x-card-border-radius);
+  padding: var(--x-card-padding-block) var(--x-card-padding-inline);
   display: flex;
   flex-direction: column;
 }

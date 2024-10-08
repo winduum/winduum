@@ -7,23 +7,23 @@
     <link rel="stylesheet" href="/src/main.css">
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
-<body class="bg-blue-100/10 dark:bg-dark dark:text-light py-md grid-cols-container gap-y-4" style="--container-width: 50rem">
-    <div class="ui-image before:skeleton rounded max-w-fit">
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light py-md grid grid-cols-container gap-y-4" style="--container-width: 50rem">
+    <div class="x-image before:skeleton rounded max-w-fit">
         <img src="hhttps://via.placeholder.com/128x128" alt="" width="128" height="128" loading="lazy">
     </div>
     <div class="skeleton h-24"></div>
     <div>
-        <div class="ui-image avatar size-32">
+        <div class="x-image avatar size-32">
             <span>LB</span>
             <div aria-label="Online" class="dot accent-success size-[15%] absolute bottom-[7%] end-[7%] outline outline-2 outline-body"></div>
         </div>
     </div>
-    <button class="ui-heading lg">Heading H1</button>
-    <h2 class="ui-heading">Heading H2</h2>
-    <h3 class="ui-heading sm">Heading H3</h3>
-    <h4 class="ui-title lg">Title H4</h4>
-    <h5 class="ui-title">Title H5</h5>
-    <h6 class="ui-title sm">Title H6</h6>
+    <button class="x-heading lg">Heading H1</button>
+    <h2 class="x-heading">Heading H2</h2>
+    <h3 class="x-heading sm">Heading H3</h3>
+    <h4 class="x-title lg">Title H4</h4>
+    <h5 class="x-title">Title H5</h5>
+    <h6 class="x-title sm">Title H6</h6>
 
     <ul style="max-width: 400px">
         <li>Lorem ipsum dolor sit amet, consectetur. Donec eget efficitur metus In
@@ -38,78 +38,79 @@
         <div>C</div>
     </div>
 
-    <div class="flex-col items-start gap-2.5">
-        <button class="ui-link" disabled>
+    <div class="flex flex-col items-start gap-2.5">
+        <button class="x-link" disabled>
             Link
         </button>
 
-        <a href="#" class="ui-link underline">
+        <a href="#" class="x-link underline">
             Link
         </a>
 
-        <a href="#" class="ui-link text-primary underline underline-transparent">
+        <a href="#" class="x-link text-primary underline underline-transparent">
             Link
         </a>
     </div>
 
-    <a href="#" class="ui-title underline hover:text-primary">
+    <a href="#" class="x-title underline transition hover:text-primary">
         Title Link
     </a>
-    <a href="#" class="ui-title flex-center underline underline-transparent">
+    <a href="#" class="x-title flex-center underline underline-transparent">
         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
         </svg>
         Title Link Transparent
     </a>
-    <a href="#" class="ui-title underline underline-transparent hover:decoration-primary">Title Link Transparent</a>
+    <a href="#" class="x-title underline underline-transparent hover:decoration-primary">Title Link Transparent</a>
 
 
-    <h3 class="ui-title uppercase text-accent sm">Title H3</h3>
+    <h3 class="x-title uppercase text-accent sm">Title H3</h3>
 
-    <div class="ui-tooltip" aria-label="Tooltip!">
-        <div class="ui-title"></div>
+    <div class="x-tooltip" aria-label="Tooltip!">
+        <div class="x-title"></div>
     </div>
-    <div class="c-popover">
-        <div role="button" class="ui-title" tabindex="0"></div>
-        <div class="c-popover-content" tabindex="0">
+    <div class="x-popover">
+        <div role="button" class="x-title" tabindex="0"></div>
+        <div class="x-popover-content" tabindex="0">
         </div>
     </div>
 
-    <dialog class="c-dialog c-dialog-login">
-        <div class="c-dialog-content"></div>
+    <dialog class="x-dialog dialog-login">
+        <div class="x-dialog-content"></div>
     </dialog>
 
-    <div class="c-toast">
-        <div class="c-toast-item">
+    <div class="x-toast">
+        <div class="x-toast-item">
         </div>
     </div>
 
-    <div class="flex-col gap-4">
-        <meter class="ui-progress bg-warning/10" value="50" min="0" max="100" low="33" optimum="80" high="66"></meter>
-        <progress class="ui-progress accent-error" value="50" max="100">15%</progress>
-        <progress class="ui-progress sm" max="100">15%</progress>
+    <div class="flex flex-col gap-4">
+        <meter class="x-progress bg-warning/10" value="50" min="0" max="100" low="33" optimum="80" high="66"></meter>
+        <progress class="x-progress accent-error" value="50" max="100">15%</progress>
+        <progress class="x-progress sm" max="100">15%</progress>
     </div>
 
-    <div class="ui-notice accent-success">
+    <div class="x-notice accent-success">
         Success notice
     </div>
 
-    <div class="ui-notice accent-error">
-        <div class="ui-text">
+    <div class="x-notice accent-error">
+        <div class="x-text">
             <h4>Nicely done!</h4>
             <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Nullam in elit iaculis, tristique nisi ut, mollis tellus. Nunc venenatis elit vel placerat commodo. Vestibulum odio neque, hendrerit nec venenatis at, tincidunt ut magna. Etiam hendrerit ultrices pharetra.</p>
         </div>
-        <button class="ui-btn">
+        <hr>
+        <button class="x-button">
             <span>Button</span>
         </button>
     </div>
 
-    <div class="ui-text">
+    <div class="x-text">
         <h4>Nicely done!</h4>
         <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Nullam in elit iaculis, tristique nisi ut, mollis tellus. Nunc venenatis elit vel placerat commodo. Vestibulum odio neque, hendrerit nec venenatis at, tincidunt ut magna. Etiam hendrerit ultrices pharetra.</p>
     </div>
 
-    <div class="ui-text lg">
+    <div class="x-text lg">
         <h1>h1 heading</h1>
         <h2>h2 heading</h2>
         <h3>h3 heading</h3>
@@ -252,7 +253,7 @@
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="560" height="315" frameborder="0"></iframe>
     </div>
 
-    <div class="ui-text lg">
+    <div class="x-text lg">
         <p class="lead">Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.</p>
         <p>By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you <em>really are</em> just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.</p>
         <p>We get lots of complaints about it actually, with people regularly asking us things like:</p>

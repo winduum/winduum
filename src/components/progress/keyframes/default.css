@@ -1,0 +1,9 @@
+@keyframes move-indeterminate {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}

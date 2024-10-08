@@ -1,0 +1,9 @@
+.x-check {
+  :user-invalid {
+    --x-check-border-color: var(--x-check-invalid-border-color, var(--color-error));
+    --x-check-outline-color: var(--x-check-invalid-outline-color, var(--color-error));
+    --x-check-background-color: var(--x-check-invalid-background-color, var(--color-error));
+    --x-check-background-color-opacity: var(--x-check-invalid-background-color-opacity, 15%);
+    --x-check-border-color-opacity: var(--x-check-invalid-border-color-opacity, 100%);
+  }
+}

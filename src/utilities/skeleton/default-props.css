@@ -1,5 +1,0 @@
-:root, :host {
-  --skeleton-opacity: 0.5;
-  --skeleton-from: color-mix(in var(--space), var(--color-body) 50%, var(--color-main));
-  --skeleton-to: color-mix(in var(--space), var(--color-body) 80%, var(--color-main));
-}

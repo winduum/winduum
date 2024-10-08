@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "astro": "latest",
-    "winduum": "latest"
+    "winduum": "^2"
   },
   "devDependencies": {
     "autoprefixer": "^10",

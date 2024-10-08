@@ -1,0 +1,5 @@
+.x-badge:is(.circle) {
+  --x-badge-padding-inline: var(--x-badge-padding-block);
+  --x-badge-inline-size: var(--x-badge-block-size);
+  --x-badge-border-radius: var(--radius-full);
+}

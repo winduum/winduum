@@ -1,0 +1,15 @@
+.spinner-ring {
+  --spinner-animation-duration: 2s;
+
+  transform-origin: center;
+  border: 0;
+
+  circle {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: spinner-ring-stretch calc(var(--spinner-animation-duration) * 0.75) ease-in-out infinite;
+    fill: none;
+    stroke: currentColor;
+  }
+}

@@ -1,4 +1,0 @@
-:root, :host {
-  --c-toast-width: 20rem;
-  --c-toast-duration: calc(var(--duration) * 2);
-}

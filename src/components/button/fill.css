@@ -1,0 +1,6 @@
+.x-button:is(.fill) {
+  --x-button-hover-background-color-mix: var(--color-dark);
+  --x-button-hover-background-color-opacity: 100%;
+  --x-button-active-background-color-mix: var(--color-dark);
+  --x-button-active-background-color-opacity: 90%;
+}

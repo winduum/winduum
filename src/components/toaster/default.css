@@ -1,7 +1,7 @@
-.c-toaster {
-  z-index: var(--z-50);
-  padding: var(--c-toaster-p);
-  margin-block: calc(var(--c-toaster-spacing-y) * -1);
+.x-toaster {
+  z-index: var(--x-toaster-z-index, var(--z-index-50));
+  padding: var(--x-toaster-padding);
+  margin-block: calc(var(--x-toaster-margin-block) * -1);
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -9,4 +9,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+
+  &:not(:has(> *)) {
+    display: none;
+  }
 }

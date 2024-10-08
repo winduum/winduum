@@ -4,19 +4,14 @@
   }
 }
 
-@keyframes ripple {
-  to {
-    transform: scale(2.5);
-    opacity: 0;
+@keyframes fade-in {
+  from {
+    opacity: 0%;
   }
 }
 
-@keyframes move-indeterminate {
+@keyframes fade-out {
   from {
-    background-position: 200% 0;
-  }
-
-  to {
-    background-position: -200% 0;
+    opacity: 100%;
   }
 }

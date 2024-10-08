@@ -5,32 +5,32 @@
     <link rel="stylesheet" href="/src/main.css">
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
-<body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid-cols-container">
-    <div class="w-full flex-col gap-4 items-start">
-        <div class="flex gap-2.5">
-            <label class="ui-color text-info">
+<body class="bg-blue-100/10 dark:bg-dark p-4 items-start gap-4 grid grid-cols-container">
+    <div class="w-full flex flex-col gap-4 items-start">
+        <div class="flex gap-4">
+            <label class="x-color text-info">
                 <input type="checkbox">
             </label>
-            <label class="ui-color text-error">
+            <label class="x-color text-error">
                 <input type="checkbox">
             </label>
-            <label class="ui-color text-success">
+            <label class="x-color text-success">
                 <input type="checkbox">
             </label>
-            <label class="ui-color text-warning">
+            <label class="x-color text-warning">
                 <input type="checkbox" disabled>
             </label>
-            <label class="ui-color text-primary">
+            <label class="x-color text-primary" style="--x-color-secondary: red">
                 <input type="checkbox">
             </label>
-            <label class="ui-color text-light" style="--ui-color-border-color: var(--color-main)">
-                <input type="checkbox">
+            <label class="x-color text-light">
+                <input type="checkbox" class="border border-dark/20">
             </label>
-            <label class="ui-color text-dark" style="--ui-color-border-color: var(--color-main)">
+            <label class="x-color text-dark" style="--x-color-border-color: var(--color-main)">
                 <input type="checkbox">
             </label>
         </div>
-        <label class="ui-check">
+        <label class="x-check">
             <input type="checkbox">
         </label>
     </div>

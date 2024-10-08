@@ -1,0 +1,15 @@
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-group(main) {
+  animation-duration: var(--view-transition-main-duration);
+}
+
+::view-transition-new(main) {
+  animation-delay: var(--view-transition-main-duration);
+}

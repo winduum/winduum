@@ -2,7 +2,7 @@ import { createSignal } from 'solid-js'
 import solidLogo from './assets/solid.svg'
 import './App.css'
 
-import UiBtn from './components/ui/Btn.jsx'
+import Button from './components/Button.jsx'
 
 function App () {
     const [count, setCount] = createSignal(0)
@@ -19,9 +19,9 @@ function App () {
             </div>
             <h1>Vite + Solid</h1>
             <div class="card">
-                <UiBtn onClick={() => setCount((count) => count + 1)}>
+                <Button onClick={() => setCount((count) => count + 1)}>
           count is {count()}
-                </UiBtn>
+                </Button>
                 <p>
           Edit <code>src/App.jsx</code> and save to test HMR
                 </p>

@@ -1,4 +1,4 @@
-@import "default-props.css";
+@import "props/default.css";
+@import "props/content.css";
 @import "default.css";
-@import "content-props.css";
 @import "content.css";

@@ -1,0 +1,56 @@
+.x-check {
+  --x-check-hover-border-color: var(--color-accent);
+  --x-check-hover-background-color: var(--color-accent);
+  --x-check-checked-background-color: var(--color-accent);
+  --x-check-focus-border-color: var(--color-accent);
+
+  :where(input) {
+    transition-property: var(--default-transition-property);
+    transition-timing-function: var(--transition-timing-function-in-out);
+    transition-duration: var(--default-transition-duration);
+
+    &:where(:hover, :focus-visible) {
+      --x-check-background-color: var(--x-check-hover-background-color);
+      --x-check-background-color-opacity: var(--x-check-hover-background-color-opacity, 10%);
+      --x-check-border-color: var(--x-check-hover-border-color);
+      --x-check-border-color-opacity: var(--x-check-hover-border-color-opacity, 75%);
+    }
+
+    &:focus {
+      --x-check-border-color: var(--x-check-focus-border-color);
+      --x-check-border-color-opacity: var(--x-check-focus-border-color-opacity, 75%);
+      --x-check-outline-color-opacity: var(--x-check-focus-outline-opacity, 20%);
+      --x-check-outline-offset: var(--x-check-focus-outline-offset);
+    }
+
+    &:disabled {
+      --x-check-background-color: var(--x-check-disabled-background-color, currentColor);
+      --x-check-background-color-mix: var(--x-check-disabled-background-color-mix, transparent);
+      --x-check-background-color-opacity: var(--x-check-disabled-background-color-opacity, 5%);
+      --x-check-border-color: var(--x-check-disabled-border-color, currentColor);
+      --x-check-border-color-mix: var(--x-check-disabled-border-color-mix, transparent);
+      --x-check-border-color-opacity: var(--x-check-disabled-border-color-opacity, 15%);
+
+      cursor: not-allowed;
+    }
+
+    &:where([type="checkbox"]):indeterminate {
+      --x-check-icon: var(--mask-indeterminate);
+    }
+
+    &:is(:checked, [type="checkbox"]:indeterminate) {
+      --x-check-background-color: var(--x-check-checked-background-color);
+      --x-check-background-color-opacity: 100%;
+      --x-check-border-color-opacity: 0%;
+
+      &:disabled {
+        opacity: var(--x-check-checked-disabled-opacity, 75%);
+      }
+
+      &::before {
+        opacity: 100%;
+        transform: scale(1);
+      }
+    }
+  }
+}

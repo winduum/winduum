@@ -1,0 +1,99 @@
+.x-range {
+  --x-range-thumb-background-color: var(--color-accent);
+  --x-range-thumb-border-color: var(--x-range-thumb-background-color);
+  --x-range-track-background-color: var(--color-accent);
+  --x-range-track-background:
+    linear-gradient(
+      to right,
+      var(--x-range-track-background-color) 0%,
+      var(--x-range-track-background-color) var(--x-range-track-start),
+      transparent var(--x-range-track-start),
+      transparent var(--x-range-track-end)
+    );
+
+  min-block-size: var(--x-range-thumb-size);
+  display: grid;
+
+  :where(input) {
+    block-size: var(--x-range-track-block-size);
+    background-color:
+      color-mix(
+        in var(--x-range-background-color-space, srgb),
+        var(--x-range-background-color, var(--color-accent)) var(--x-range-background-color-opacity, 10%),
+        var(--x-range-background-color-mix, var(--color-body))
+      );
+    position: relative;
+    grid-area: 1/1;
+
+    &::-webkit-slider-runnable-track {
+      block-size: var(--x-range-track-block-size);
+      border-radius: var(--x-range-track-border-radius, var(--radius-full));
+      background: var(--x-range-track-background);
+    }
+
+    &::-moz-range-track {
+      block-size: var(--x-range-track-block-size);
+      border-radius: var(--radius-full);
+      background: var(--x-range-track-background);
+    }
+
+    &::-webkit-slider-thumb {
+      inline-size: var(--x-range-thumb-size);
+      block-size: var(--x-range-thumb-size);
+      background-color: var(--x-range-thumb-background-color);
+      border-radius: var(--radius-full);
+      border: var(--x-range-thumb-border-width) solid var(--x-range-thumb-border-color);
+      outline:
+        var(--x-range-thumb-outline-width) solid
+        color-mix(
+          in var(--x-range-thumb-outline-color-space, srgb),
+          var(--x-range-thumb-outline-color, var(--x-range-thumb-background-color)) var(--x-range-thumb-outline-color-opacity, 0%),
+          var(--x-range-thumb-outline-color-mix, transparent)
+        );
+      margin-block-start: calc((var(--x-range-thumb-size) - var(--x-range-track-block-size)) / 2 * -1);
+      transition: outline-color var(--default-transition-duration), outline-offset var(--default-transition-duration);
+      cursor: var(--x-range-thumb-cursor, grab);
+      appearance: none;
+      pointer-events: auto;
+
+      &:active {
+        --x-range-thumb-cursor: grabbing;
+        --x-range-thumb-outline-color-opacity: var(--x-range-thumb-focus-outline-opacity);
+      }
+    }
+
+    &::-moz-range-thumb {
+      inline-size: var(--x-range-thumb-size);
+      block-size: var(--x-range-thumb-size);
+      background-color: var(--x-range-thumb-background-color);
+      border-radius: var(--radius-full);
+      border: var(--x-range-thumb-border-width) solid var(--x-range-thumb-border-color);
+      outline:
+        var(--x-range-thumb-outline-width) solid
+        color-mix(
+          in var(--x-range-thumb-outline-color-space, srgb),
+          var(--x-range-thumb-outline-color, var(--x-range-thumb-background-color)) var(--x-range-thumb-outline-color-opacity, 0%),
+          var(--x-range-thumb-outline-color-mix, transparent)
+        );
+      transition: outline-color var(--default-transition-duration), outline-offset var(--default-transition-duration);
+      cursor: var(--x-range-thumb-cursor, grab);
+      appearance: none;
+      pointer-events: auto;
+
+      &:active {
+        --x-range-thumb-cursor: grabbing;
+        --x-range-thumb-outline-color-opacity: var(--x-range-thumb-focus-outline-opacity);
+      }
+    }
+
+    &:focus-visible {
+      &::-webkit-slider-thumb {
+        --x-range-thumb-outline-color-opacity: var(--x-range-thumb-focus-outline-opacity);
+      }
+
+      &::-moz-range-thumb {
+        --x-range-thumb-outline-color-opacity: var(--x-range-thumb-focus-outline-opacity);
+      }
+    }
+  }
+}

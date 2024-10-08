@@ -1,0 +1,9 @@
+:root, :host {
+  --x-range-track-block-size: 0.375rem;
+  --x-range-thumb-size: 1.125rem;
+  --x-range-thumb-border-width: 0;
+  --x-range-thumb-outline-width: 2px;
+  --x-range-thumb-focus-outline-opacity: 50%;
+  --x-range-track-start: 0%;
+  --x-range-track-end: 100%;
+}

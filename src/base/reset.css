@@ -19,7 +19,6 @@
 :where(h1, h2, h3, h4, h5, h6),
 :where(hgroup),
 :where(hr),
-:where(html),
 :where(input),
 :where(kbd),
 :where(label),
@@ -44,7 +43,8 @@
 :where(tr),
 :where(ul),
 :where(progress),
-:where(meter) {
+:where(meter),
+:where([popover]) {
   all: unset;
   display: revert;
 }
@@ -180,10 +180,4 @@ Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
 /* Remove details summary webkit styles */
 ::-webkit-details-marker {
   display: none;
-}
-
-/* Fix popover default colors */
-:where([popover]) {
-  background-color: inherit;
-  color: inherit;
 }

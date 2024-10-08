@@ -1,12 +1,11 @@
 import winduum from './plugin/index.js'
 import containerQueries from '@tailwindcss/container-queries'
-import animate from 'tailwindcss-animate'
 
 export default {
     darkMode: 'class',
     content: [
         './src/**/*.{js,html}',
-        './playground/**/*.{js,html,vue}'
+        process.argv.includes('vite.config.prod.js') ? './playground/tailwind.html' : './playground/**/*.{js,html,vue}'
     ],
     plugins: [
         winduum({
@@ -14,7 +13,9 @@ export default {
                 rgb: false
             }
         }),
-        containerQueries,
-        animate
-    ]
+        containerQueries
+    ],
+    future: {
+        hoverOnlyWhenSupported: true
+    }
 }

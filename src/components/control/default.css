@@ -1,0 +1,74 @@
+.x-control {
+  display: grid;
+  block-size: var(--x-control-block-size);
+  font-family: var(--x-control-font-family);
+  font-weight: var(--x-control-font-weight);
+  font-size: var(--x-control-font-size);
+  letter-spacing: var(--x-control-letter-spacing);
+  color: var(--x-control-color);
+  border-radius: var(--x-control-border-radius);
+  background-color:
+    color-mix(
+      in var(--x-control-background-color-space, srgb),
+      var(--x-control-background-color) var(--x-control-background-color-opacity, 100%),
+      var(--x-control-background-color-mix, transparent)
+    );
+  border:
+    var(--x-control-border-width) solid
+    color-mix(
+      in var(--x-control-border-color-space, srgb),
+      var(--x-control-border-color) var(--x-control-border-color-opacity, 15%),
+      var(--x-control-border-color-mix, transparent)
+    );
+  outline:
+    var(--x-control-outline-width) solid
+    color-mix(
+      in var(--x-control-outline-color-space, srgb),
+      var(--x-control-outline-color, var(--color-accent)) var(--x-control-outline-color-opacity, 0%),
+      var(--x-control-outline-color-mix, transparent)
+    );
+  outline-offset: var(--x-control-outline-offset);
+  grid-template:
+    [x-control-start] calc(var(--x-control-padding-block) - var(--x-control-border-width))
+    [x-control-padding] 1fr
+    calc(var(--x-control-padding-block) - var(--x-control-border-width)) [x-control-end] /
+    [x-control-start] var(--x-control-padding-inline)
+    [x-control-padding] 1fr
+    var(--x-control-padding-inline) [x-control-end];
+
+  &:has(textarea) {
+    height: auto;
+  }
+
+  > :where(*) {
+    grid-area: x-control-padding;
+    align-self: center;
+  }
+
+  > :where(input, textarea, select) {
+    padding-block: var(--x-control-padding-block-start, var(--x-control-padding-block)) var(--x-control-padding-block-end, var(--x-control-padding-block));
+    padding-inline: calc(var(--x-control-padding-inline) + var(--x-control-padding-inline-start, 0px)) calc(var(--x-control-padding-inline) + var(--x-control-padding-inline-end, 0px));
+    grid-area: x-control;
+    text-overflow: ellipsis;
+    overflow: clip;
+    align-self: stretch;
+    align-items: center;
+    border-radius: inherit;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  > :where(input, textarea) {
+    &::placeholder {
+      color: var(--x-control-placeholder-color);
+      opacity: var(--x-control-placeholder-opacity);
+    }
+  }
+
+  > :where(textarea) {
+    min-block-size: var(--x-control-block-size-textarea);
+    resize: vertical;
+  }
+}

@@ -1,45 +1,36 @@
 import plugin from 'tailwindcss/plugin'
 import flattenColorPalette from 'tailwindcss/src/util/flattenColorPalette'
-import FlexUtility from './utilities/flex.js'
-import DotUtility from './utilities/dot.js'
 import divideGap from './utilities/divide-gap.js'
 import { accentColor, textColor } from './utilities/color.js'
-import { tailwindAnimations, tailwindColors, tailwindPropertyUtilities, tailwindVariables, tailwindVariablesFont } from './utilities/common.js'
+import {
+    tailwindAnimations,
+    tailwindColors,
+    tailwindParseVariables,
+    tailwindPropertyUtilities,
+    tailwindVariables,
+    tailwindVariablesFont
+} from './utilities/common.js'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const relativePath = file => resolve(dirname(fileURLToPath(import.meta.url)), file)
 
 /**
  * @type {import('./').PluginOptions} options.
  */
 export const defaultConfig = {
-    colors: [
-        'primary', 'accent',
-        'warning', 'error', 'info', 'success', 'light', 'dark',
-        'main', 'main-primary', 'main-secondary', 'main-tertiary',
-        'body', 'body-primary', 'body-secondary', 'body-tertiary',
-        'primary-foreground', 'accent-foreground',
-        'warning-foreground', 'error-foreground', 'info-foreground', 'success-foreground', 'light-foreground', 'dark-foreground',
-        'main-foreground', 'main-primary-foreground', 'main-secondary-foreground', 'main-tertiary-foreground',
-        'body-foreground', 'body-primary-foreground', 'body-secondary-foreground', 'body-tertiary-foreground'
-    ],
-    fontFamily: ['primary', 'secondary'],
-    fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
-    ease: ['linear', 'in', 'out', 'in-out'],
-    zIndex: ['10', '20', '30', '40', '50', '60'],
-    fontSize: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
-    spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'],
-    borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
-    animations: ['ripple', 'spin', 'move-indeterminate'],
-    mask: ['check', 'radio', 'angle-up', 'angle-down'],
+    animations: ['ripple', 'spin', 'move-indeterminate', 'fade-in', 'fade-out'],
     screens: {
-        xs: '22.5em',
-        sm: '26em',
-        md: '48em',
-        lg: '60em',
-        xl: '76em',
-        '2xl': '82em',
-        '3xl': '88em',
-        '4xl': '100em',
-        xxl: '126em',
-        '2xxl': '158em'
+        'xs': '22.5rem',
+        'sm': '26rem',
+        'md': '46.5rem',
+        'lg': '60rem',
+        'xl': '76rem',
+        '2xl': '82rem',
+        '3xl': '88rem',
+        '4xl': '100rem',
+        'xxl': '126rem',
+        '2xxl': '158rem'
     },
     settings: {
         rgb: false,
@@ -76,12 +67,10 @@ export const createPlugin = (userConfig = {}) => {
             { values: flattenColorPalette(theme('textColor')), type: ['color', 'any'] }
         )
         addComponents(tailwindAnimations(userConfig.animations))
-        addComponents(tailwindPropertyUtilities('mask', userConfig.mask))
+        addComponents(tailwindPropertyUtilities('mask', Object.keys(tailwindParseVariables('mask', relativePath('../src/theme/config/mask.css'), {
+            ...tailwindVariables('mask', userConfig.mask ?? [])
+        }, userConfig.mask, false))))
         addComponents(divideGap({ theme, e }))
-        addComponents({
-            ...FlexUtility,
-            ...DotUtility
-        })
     }, {
         corePlugins: {
             preflight: false,
@@ -91,24 +80,38 @@ export const createPlugin = (userConfig = {}) => {
         theme: {
             extend: {
                 transitionProperty: {
-                    DEFAULT: 'var(--transition)'
+                    DEFAULT: 'var(--default-transition-property)'
                 },
                 transitionDuration: {
-                    DEFAULT: 'var(--duration)'
+                    DEFAULT: 'var(--default-transition-duration)'
                 },
-                transitionTimingFunction: tailwindVariables('ease', userConfig.ease),
-                colors: tailwindColors(userConfig.colors, settings.colorMix, settings.rgb),
-                fontSize: tailwindVariablesFont('text', userConfig.fontSize),
-                fontFamily: tailwindVariables('font', userConfig.fontFamily),
-                fontWeight: tailwindVariables('font', userConfig.fontWeight),
-                zIndex: tailwindVariables('z', userConfig.zIndex, {
+                transitionTimingFunction: tailwindParseVariables('transition-timing-function', relativePath('../src/theme/config/transition.css'), {
+                    ...tailwindVariables('transition-timing-function', userConfig.ease ?? [])
+                }, userConfig.ease),
+                colors: tailwindColors(Object.keys(tailwindParseVariables('color', relativePath('../src/theme/default.css'), {
+                    ...tailwindVariables('color', userConfig.colors ?? [])
+                }, userConfig.colors)), settings.colorMix, settings.rgb),
+                fontSize: tailwindParseVariables('font-size', relativePath('../src/theme/config/font.css'), {
+                    ...tailwindVariables('font-weight', userConfig.fontSize ?? [])
+                }, userConfig.fontSize),
+                fontFamily: tailwindParseVariables('font-family', relativePath('../src/theme/config/font.css'), {
+                    ...tailwindVariables('font-weight', userConfig.fontFamily ?? [])
+                }, userConfig.fontFamily),
+                fontWeight: tailwindParseVariables('font-weight', relativePath('../src/theme/config/font.css'), {
+                    ...tailwindVariables('font-weight', userConfig.fontWeight ?? [])
+                }, userConfig.fontWeight),
+                zIndex: tailwindParseVariables('z-index', relativePath('../src/theme/config/z.css'), {
+                    ...tailwindVariables('z-index', userConfig.zIndex ?? []),
                     0: 0,
                     auto: 'auto'
-                }),
-                spacing: tailwindVariables('spacing', userConfig.spacing),
-                borderRadius: tailwindVariables('rounded', userConfig.borderRadius, {
-                    DEFAULT: 'var(--rounded)'
-                }),
+                }, userConfig.zIndex),
+                spacing: tailwindParseVariables('spacing', relativePath('../src/theme/config/spacing.css'), {
+                    ...tailwindVariables('spacing', userConfig.spacing ?? [])
+                }, userConfig.spacing),
+                borderRadius: tailwindParseVariables('radius', relativePath('../src/theme/config/radius.css'), {
+                    ...tailwindVariables('radius', userConfig.borderRadius ?? []),
+                    DEFAULT: 'var(--radius)'
+                }, userConfig.borderRadius),
                 screens: userConfig.screens
             }
         }

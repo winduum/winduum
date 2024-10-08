@@ -1,17 +1,17 @@
-.c-field {
-  gap: var(--spacing-sm);
+.x-field {
+  gap: var(--x-field-gap, var(--spacing-2));
   display: flex;
   flex-direction: column;
 
-  .validated &:has(:invalid) {
-    :where(.ui-info[hidden]) {
-      display: flex;
+  &:has(:user-invalid) {
+    :where(.x-info[hidden]) {
+      display: revert;
     }
   }
 
-  &:has([required]) :where(.ui-label) {
+  &:has([required]) :where(.x-label) {
     &::after {
-      color: var(--color-error);
+      color: var(--x-field-required-color, var(--color-error));
       content: " *";
     }
   }

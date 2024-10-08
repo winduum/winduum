@@ -1,0 +1,3 @@
+.x-progress:is(.sm) {
+  --x-progress-block-size: 0.5rem;
+}

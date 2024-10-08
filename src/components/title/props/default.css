@@ -1,0 +1,5 @@
+:root, :host {
+  --x-title-font-weight: var(--font-weight-semibold);
+  --x-title-font-size: var(--font-size-sm);
+  --x-title-line-height: calc(1em + 0.25rem);
+}

@@ -6,34 +6,11 @@ var plugin = require('tailwindcss/plugin');
 var flattenColorPalette = require('tailwindcss/src/util/flattenColorPalette');
 var withAlphaVariable = require('tailwindcss/src/util/withAlphaVariable');
 var toColorValue = require('tailwindcss/src/util/toColorValue');
+var node_fs = require('node:fs');
+var node_url = require('node:url');
+var node_path = require('node:path');
 
-var FlexUtility = {
-    '.flex-center': {
-        display: 'flex',
-        alignItems: 'center',
-        gap: 'var(--spacing-sm)'
-    },
-    '.flex-between': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        gap: 'var(--spacing-sm)'
-    }
-};
-
-var DotUtility = {
-    '.dot': {
-        '--tw-bg-opacity': '1',
-        display: 'inline-flex',
-        width: '0.625rem',
-        height: '0.625rem',
-        borderRadius: 'var(--rounded-full)',
-        backgroundColor: 'color-mix(in srgb, var(--color-accent) calc(var(--tw-bg-opacity) * 100%), transparent)',
-        flexShrink: '0',
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-};
-
+var _documentCurrentScript = typeof document !== 'undefined' ? document.currentScript : null;
 function divideGap ({ theme, e }) {
     return [
         ...Object.entries(theme('spacing')).map(([key, value]) => {
@@ -130,16 +107,16 @@ const textColor = ({ value, corePlugins }, settings) => {
  */
 const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
     const result = {
-        current: 'color-mix(in var(--space), currentcolor calc(<alpha-value> * 100%), transparent)'
+        current: 'color-mix(in var(--default-color-space), currentcolor calc(<alpha-value> * 100%), var(--default-color-mix, transparent))'
     };
 
-    colors.forEach(name => {
+    colors.forEach((name) => {
         if (rgb) {
             result[name + '-rgb'] = `rgb(var(--color-${name}-rgb) / <alpha-value>)`;
         }
 
         result[name] = colorMix
-            ? `color-mix(in var(--space), var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
+            ? `color-mix(in var(--default-color-space), var(--color-${name}) calc(<alpha-value> * 100%), var(--default-color-mix, transparent))`
             : `rgb(var(--color-${name}) / <alpha-value>)`;
     });
 
@@ -153,11 +130,46 @@ const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
  * @returns {Object}
  */
 const tailwindVariables = (type, variables = [], values = {}) => {
-    variables.forEach(name => {
-        values[name] = `var(--${type}-${name})`;
+    if (!Array.isArray(variables)) {
+        return values
+    }
+
+    variables.forEach((name) => {
+        values[name] = `var(--${type}-${name.replace(/\./g, '_')})`;
     });
 
     return values
+};
+
+const tailwindParseVariables = (type, file, customValues = {}, customPath, initialValues = true) => {
+    const parseFile = (fileContent) => {
+        const regex = /(--[\w-]+):\s*([^;]+);/g;
+        const matches = [...fileContent.matchAll(regex)];
+        const variables = matches.map(match => [match[1], match[2]]);
+        const values = {};
+
+        variables.forEach((match, index) => {
+            if (!match[0].startsWith(`--${type}-`) || match[0].endsWith('--line-height')) {
+                return
+            }
+
+            const name = match[0].replace(`--${type}-`, '');
+
+            values[name.replace(/_/g, '.')] = type === 'font-size' ? [`var(${match})`, `var(${variables[index + 1]})`] : `var(${initialValues ? match : match[0]})`;
+        });
+
+        return values
+    };
+
+    const fileContent = node_fs.readFileSync(file).toString();
+    const values = parseFile(fileContent);
+
+    if (customPath) {
+        const customFileContent = node_fs.readFileSync(node_path.resolve(process.cwd(), customPath)).toString();
+        customValues = { ...customValues, ...parseFile(customFileContent) };
+    }
+
+    return { ...values, ...customValues }
 };
 
 /**
@@ -167,8 +179,8 @@ const tailwindVariables = (type, variables = [], values = {}) => {
  * @returns {Object}
  */
 const tailwindVariablesFont = (type, variables = [], values = {}) => {
-    variables.forEach(name => {
-        values[name] = [`var(--${type}-${name})`, `calc(var(--${type}-${name}) + 0.5rem)`];
+    variables.forEach(({ value, initial }) => {
+        values[value] = [`var(--${type}-${value}, ${initial})`, `calc(var(--${type}-${value}) + 0.5rem)`];
     });
 
     return values
@@ -182,7 +194,7 @@ const tailwindVariablesFont = (type, variables = [], values = {}) => {
 const tailwindPropertyUtilities = (type, variables = []) => {
     const result = {};
 
-    variables.forEach(name => {
+    variables.forEach((name) => {
         result[`.${type}-${name}`] = {
             [type]: `var(--${type}-${name})`
         };
@@ -198,7 +210,7 @@ const tailwindPropertyUtilities = (type, variables = []) => {
 const tailwindAnimations = (values) => {
     const result = {};
 
-    values.forEach(value => {
+    values.forEach((value) => {
         result[`.animation-${value}`] = {
             'animation-name': value
         };
@@ -207,40 +219,24 @@ const tailwindAnimations = (values) => {
     return result
 };
 
+const relativePath = file => node_path.resolve(node_path.dirname(node_url.fileURLToPath((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.cjs', document.baseURI).href)))), file);
+
 /**
  * @type {import('./').PluginOptions} options.
  */
 const defaultConfig = {
-    colors: [
-        'primary', 'accent',
-        'warning', 'error', 'info', 'success', 'light', 'dark',
-        'main', 'main-primary', 'main-secondary', 'main-tertiary',
-        'body', 'body-primary', 'body-secondary', 'body-tertiary',
-        'primary-foreground', 'accent-foreground',
-        'warning-foreground', 'error-foreground', 'info-foreground', 'success-foreground', 'light-foreground', 'dark-foreground',
-        'main-foreground', 'main-primary-foreground', 'main-secondary-foreground', 'main-tertiary-foreground',
-        'body-foreground', 'body-primary-foreground', 'body-secondary-foreground', 'body-tertiary-foreground'
-    ],
-    fontFamily: ['primary', 'secondary'],
-    fontWeight: ['light', 'normal', 'medium', 'semibold', 'bold', 'extrabold'],
-    ease: ['linear', 'in', 'out', 'in-out'],
-    zIndex: ['10', '20', '30', '40', '50', '60'],
-    fontSize: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '3xl', '4xl', '5xl', '6xl', '7xl', '7xl', '8xl', '9xl'],
-    spacing: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'],
-    borderRadius: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', 'full'],
-    animations: ['ripple', 'spin', 'move-indeterminate'],
-    mask: ['check', 'radio', 'angle-up', 'angle-down'],
+    animations: ['ripple', 'spin', 'move-indeterminate', 'fade-in', 'fade-out'],
     screens: {
-        xs: '22.5em',
-        sm: '26em',
-        md: '48em',
-        lg: '60em',
-        xl: '76em',
-        '2xl': '82em',
-        '3xl': '88em',
-        '4xl': '100em',
-        xxl: '126em',
-        '2xxl': '158em'
+        'xs': '22.5rem',
+        'sm': '26rem',
+        'md': '46.5rem',
+        'lg': '60rem',
+        'xl': '76rem',
+        '2xl': '82rem',
+        '3xl': '88rem',
+        '4xl': '100rem',
+        'xxl': '126rem',
+        '2xxl': '158rem'
     },
     settings: {
         rgb: false,
@@ -277,12 +273,10 @@ const createPlugin = (userConfig = {}) => {
             { values: flattenColorPalette(theme('textColor')), type: ['color', 'any'] }
         );
         addComponents(tailwindAnimations(userConfig.animations));
-        addComponents(tailwindPropertyUtilities('mask', userConfig.mask));
+        addComponents(tailwindPropertyUtilities('mask', Object.keys(tailwindParseVariables('mask', relativePath('../src/theme/config/mask.css'), {
+            ...tailwindVariables('mask', userConfig.mask ?? [])
+        }, userConfig.mask, false))));
         addComponents(divideGap({ theme, e }));
-        addComponents({
-            ...FlexUtility,
-            ...DotUtility
-        });
     }, {
         corePlugins: {
             preflight: false,
@@ -292,24 +286,38 @@ const createPlugin = (userConfig = {}) => {
         theme: {
             extend: {
                 transitionProperty: {
-                    DEFAULT: 'var(--transition)'
+                    DEFAULT: 'var(--default-transition-property)'
                 },
                 transitionDuration: {
-                    DEFAULT: 'var(--duration)'
+                    DEFAULT: 'var(--default-transition-duration)'
                 },
-                transitionTimingFunction: tailwindVariables('ease', userConfig.ease),
-                colors: tailwindColors(userConfig.colors, settings.colorMix, settings.rgb),
-                fontSize: tailwindVariablesFont('text', userConfig.fontSize),
-                fontFamily: tailwindVariables('font', userConfig.fontFamily),
-                fontWeight: tailwindVariables('font', userConfig.fontWeight),
-                zIndex: tailwindVariables('z', userConfig.zIndex, {
+                transitionTimingFunction: tailwindParseVariables('transition-timing-function', relativePath('../src/theme/config/transition.css'), {
+                    ...tailwindVariables('transition-timing-function', userConfig.ease ?? [])
+                }, userConfig.ease),
+                colors: tailwindColors(Object.keys(tailwindParseVariables('color', relativePath('../src/theme/default.css'), {
+                    ...tailwindVariables('color', userConfig.colors ?? [])
+                }, userConfig.colors)), settings.colorMix, settings.rgb),
+                fontSize: tailwindParseVariables('font-size', relativePath('../src/theme/config/font.css'), {
+                    ...tailwindVariables('font-weight', userConfig.fontSize ?? [])
+                }, userConfig.fontSize),
+                fontFamily: tailwindParseVariables('font-family', relativePath('../src/theme/config/font.css'), {
+                    ...tailwindVariables('font-weight', userConfig.fontFamily ?? [])
+                }, userConfig.fontFamily),
+                fontWeight: tailwindParseVariables('font-weight', relativePath('../src/theme/config/font.css'), {
+                    ...tailwindVariables('font-weight', userConfig.fontWeight ?? [])
+                }, userConfig.fontWeight),
+                zIndex: tailwindParseVariables('z-index', relativePath('../src/theme/config/z.css'), {
+                    ...tailwindVariables('z-index', userConfig.zIndex ?? []),
                     0: 0,
                     auto: 'auto'
-                }),
-                spacing: tailwindVariables('spacing', userConfig.spacing),
-                borderRadius: tailwindVariables('rounded', userConfig.borderRadius, {
-                    DEFAULT: 'var(--rounded)'
-                }),
+                }, userConfig.zIndex),
+                spacing: tailwindParseVariables('spacing', relativePath('../src/theme/config/spacing.css'), {
+                    ...tailwindVariables('spacing', userConfig.spacing ?? [])
+                }, userConfig.spacing),
+                borderRadius: tailwindParseVariables('radius', relativePath('../src/theme/config/radius.css'), {
+                    ...tailwindVariables('radius', userConfig.borderRadius ?? []),
+                    DEFAULT: 'var(--radius)'
+                }, userConfig.borderRadius),
                 screens: userConfig.screens
             }
         }

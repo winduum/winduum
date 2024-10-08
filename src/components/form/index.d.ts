@@ -1,7 +1,8 @@
 export interface ValidateFormOptions {
     validateSelectors?: string
     validateOptions?: ValidateFieldOptions
-    submitterLoadingClass?: string
+    scrollOptions?: ScrollIntoViewOptions
+    submitterLoadingAttribute?: string
 }
 
 export interface ValidateFieldOptions {
@@ -15,11 +16,11 @@ export interface ValidateFieldOptions {
     endParentSelector?: string
     endSelector?: string
     endContent?: string
-    validClass?: string
+    validAttribute?: string
     validIcon?: string | null
-    invalidClass?: string
+    invalidAttribute?: string
     invalidIcon?: string
-    activeClass?: string
+    activeAttribute?: string
 }
 
 export function validateForm(event: Event | SubmitEvent, options?: ValidateFormOptions): void

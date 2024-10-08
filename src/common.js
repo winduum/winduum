@@ -1,5 +1,5 @@
 export const nextRepaint = () => {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 resolve()

@@ -1,0 +1,6 @@
+.x-badge:is(.bordered) {
+  --x-badge-border-width: 1px;
+  --x-badge-border-color-opacity: 100%;
+  --x-badge-background-color-opacity: 0%;
+  --x-badge-color: var(--color-accent);
+}

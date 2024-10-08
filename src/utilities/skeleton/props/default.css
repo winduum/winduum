@@ -1,0 +1,5 @@
+:root, :host {
+  --skeleton-opacity: 50%;
+  --skeleton-gradient-from: color-mix(in var(--default-color-space), var(--color-body) 50%, var(--color-main));
+  --skeleton-gradient-to: color-mix(in var(--default-color-space), var(--color-body) 80%, var(--color-main));
+}

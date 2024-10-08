@@ -1,9 +1,12 @@
-.c-dialog {
-  --tw-bg-opacity: var(--c-dialog-bg-opacity);
-
-  z-index: var(--z-30);
-  padding: var(--c-dialog-py) var(--c-dialog-px);
-  background-color: color-mix(in var(--space), var(--c-dialog-bg) calc(var(--tw-bg-opacity) * 100%), transparent);
+.x-dialog {
+  z-index: var(--x-dialog-z-index, var(--z-index-30));
+  padding: var(--x-dialog-padding-block) var(--x-dialog-padding-inline);
+  background-color:
+    color-mix(
+      in var(--x-dialog-background-color-space, srgb),
+      var(--x-dialog-background-color) var(--x-dialog-background-color-opacity),
+      var(--x-dialog-background-color-mix, transparent)
+    );
   transition: var(--transition-background);
   display: flex;
   position: fixed;
@@ -12,18 +15,17 @@
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 
-  &, &::backdrop {
-    visibility: hidden;
+  &::backdrop, &:not([open]) {
+    display: none;
   }
 
-  &:not([open]) {
+  &[data-closed] {
     background-color: transparent;
-    pointer-events: none;
   }
 }
 
-html:has(.c-dialog.visible) {
-  padding-inline-end: var(--c-dialog-scrollbar-width);
+html:has(.x-dialog[open]) {
+  padding-inline-end: var(--default-scrollbar-width);
   scrollbar-width: none;
 
   &::-webkit-scrollbar {

@@ -1,6 +1,6 @@
 <script setup>
     import { ref } from 'vue'
-    import UiBtn from './ui/Btn.vue'
+    import Button from './Button.vue'
 
     defineProps({
       msg: String,
@@ -12,8 +12,8 @@
 <template>
   <h1>{{ msg }}</h1>
 
-  <div class="card p-xl space-y-8">
-    <UiBtn @click="count++" variant="bordered">count is {{ count }}</UiBtn>
+  <div class="card p-8 space-y-8">
+    <Button @click="count++" variant="bordered">count is {{ count }}</Button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR

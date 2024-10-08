@@ -1,4 +1,0 @@
-.ui-badge:is(.square) {
-  --ui-badge-px: var(--ui-badge-py);
-  --ui-badge-width: var(--ui-badge-height);
-}

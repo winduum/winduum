@@ -1,7 +1,7 @@
-.c-table {
-  max-width: 100%;
-  border-radius: var(--c-table-border-radius);
-  background-color: var(--color-body-primary);
+.x-table {
+  border-radius: var(--x-table-border-radius);
+  background-color: var(--x-table-background-color, var(--color-body-primary));
+  max-inline-size: 100%;
   overflow: auto;
 
   :where(table) {
@@ -11,22 +11,22 @@
   }
 
   :where(thead tr:not(:first-child), tbody tr, tfoot tr) {
-    border-block-start: var(--c-table-cell-border-block-width) solid var(--color-body-tertiary);
+    border-block-start: var(--x-table-cell-border-block-width) solid var(--x-table-border-color, var(--color-body-tertiary));
   }
 
   :where(td, th) {
-    padding: var(--c-table-cell-spacing-y) var(--c-table-cell-spacing-x);
-    height: var(--c-table-cell-height);
-    border-color: var(--color-body-tertiary);
-    border-inline-width: var(--c-table-cell-border-inline-width, 0);
+    padding: var(--x-table-cell-spacing-y) var(--x-table-cell-spacing-x);
+    block-size: var(--x-table-cell-block-size);
+    border-color: var(--x-table-border-color, var(--color-body-tertiary));
+    border-inline-width: var(--x-table-cell-border-inline-width, 0);
 
     &:first-child {
-      padding-inline-start: var(--c-table-px);
+      padding-inline-start: var(--x-table-padding-inline);
       border-inline-start: 0;
     }
 
     &:last-child {
-      padding-inline-end: var(--c-table-px);
+      padding-inline-end: var(--x-table-padding-inline);
       border-inline-end: 0;
     }
   }

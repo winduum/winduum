@@ -1,8 +1,0 @@
-.ui-info {
-  font-family: var(--ui-info-font-family);
-  font-weight: var(--ui-info-font-weight);
-  font-size: var(--ui-info-font-size);
-  line-height: var(--ui-info-line-height);
-  letter-spacing: var(--ui-info-letter-spacing);
-  text-wrap: pretty;
-}

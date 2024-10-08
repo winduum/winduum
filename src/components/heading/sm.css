@@ -1,0 +1,3 @@
+.x-heading:is(.sm) {
+  --x-heading-font-size: var(--font-size-lg);
+}

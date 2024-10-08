@@ -1,0 +1,49 @@
+.x-rating {
+  --x-rating-color: var(--color-accent);
+
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+
+  &:focus-within {
+    outline: 2px dotted var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  :where(input) {
+    inline-size: var(--x-rating-inline-size);
+    block-size: var(--x-rating-block-size);
+    color: var(--x-rating-color);
+    opacity: var(--x-rating-opacity);
+    transition: var(--transition-opacity);
+    display: grid;
+    box-sizing: content-box;
+
+    &:not(:last-child) {
+      border-inline-end-width: var(--x-rating-gap);
+      border-inline-color: transparent;
+    }
+
+    &::before {
+      mask: var(--x-rating-icon);
+      background-color: currentColor;
+      content: "";
+    }
+  }
+
+  &:has(:checked) input {
+    opacity: 100%;
+
+    &:where(:checked ~ input) {
+      opacity: var(--x-rating-opacity);
+    }
+  }
+
+  &:hover input {
+    opacity: 100%;
+
+    &:hover ~ input {
+      opacity: var(--x-rating-opacity);
+    }
+  }
+}

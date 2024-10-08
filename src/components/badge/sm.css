@@ -1,0 +1,4 @@
+.x-badge:is(.sm) {
+  --x-badge-block-size: 1.25rem;
+  --x-badge-font-size: var(--font-size-xs);
+}

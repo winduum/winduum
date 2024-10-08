@@ -1,0 +1,19 @@
+.x-control {
+  transition-property: var(--default-transition-property);
+  transition-timing-function: var(--transition-timing-function-in-out);
+  transition-duration: var(--default-transition-duration);
+
+  &:focus-within {
+    --x-control-border-color: var(--x-control-focus-border-color, var(--color-accent));
+    --x-control-border-color-opacity: var(--x-control-focus-border-color-opacity, 100%);
+    --x-control-outline-offset: var(--x-control-focus-outline-offset);
+    --x-control-outline-color-opacity: var(--x-control-focus-outline-color-opacity, 20%);
+  }
+
+  &.disabled, &:has(:where(input, textarea, select):disabled) {
+    --x-control-background-color: var(--x-control-disabled-background-color, currentColor);
+    --x-control-background-color-opacity: var(--x-control-disabled-background-color-opacity, 5%);
+    --x-control-border-color: var(--x-control-disabled-border-color, currentColor);
+    --x-control-border-color-opacity: var(--x-control-disabled-border-color-opacity);
+  }
+}

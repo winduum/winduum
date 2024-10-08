@@ -7,94 +7,94 @@
     <link rel="stylesheet" href="/src/main.css">
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
-<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-md flex flex-col items-start gap-4 accent-warning validated">
+<body class="bg-blue-100/10 dark:bg-dark dark:text-light p-4 flex flex flex-col items-start gap-4 accent-warning validated">
     <div class="col flex-row gap-2">
         <button class="bg-white p-xs" id="action-btn-disabled">disabled</button>
         <button class="bg-white p-xs" id="action-btn-loading">loading</button>
         <button class="bg-white p-xs" id="action-btn-dark">dark</button>
     </div>
 
-    <div class="c-field">
-        <label class="ui-label" for="input">Label</label>
-        <div class="ui-control">
+    <div class="x-field">
+        <label class="x-label" for="input">Label</label>
+        <div class="x-control">
             <input type="text" id="input" placeholder=" " required>
         </div>
-        <em class="ui-info">
+        <em class="x-info">
             Not good
         </em>
     </div>
 
-    <div class="c-field">
-        <div class="ui-control floating">
+    <div class="x-field">
+        <div class="x-control floating">
             <input type="text" id="input-label" placeholder=" " required>
             <label for="input-label">Name</label>
         </div>
-        <em class="ui-info">
+        <em class="x-info">
             Not good
         </em>
     </div>
 
-    <div class="c-field">
-        <label class="ui-label">Name</label>
-        <div class="ui-group">
-            <div class="ui-btn square raised bg-gray-200 text-dark">@</div>
-            <div class="ui-control">
+    <div class="x-field">
+        <label class="x-label">Name</label>
+        <div class="x-group">
+            <div class="x-button square raised bg-gray-200 text-dark">@</div>
+            <div class="x-control">
                 <input type="tel" required>
             </div>
-            <button class="ui-btn">Button</button>
+            <button class="x-button">Button</button>
         </div>
-        <em class="ui-info">Validation</em>
+        <em class="x-info">Validation</em>
     </div>
 
     <div class="flex gap-8">
-        <div class="c-field">
-            <label class="ui-label">Label</label>
-            <div class="ui-control">
+        <div class="x-field">
+            <label class="x-label">Label</label>
+            <div class="x-control">
                 <input type="text" placeholder=" " required>
             </div>
-            <em class="ui-info">
+            <em class="x-info">
                 Not good
             </em>
         </div>
-        <div class="c-field">
-            <label class="ui-label">Label</label>
-            <div class="ui-check input-offset">
+        <div class="x-field">
+            <label class="x-label">Label</label>
+            <div class="x-check input-offset">
                 <input type="checkbox" id="checkbox" required>
                 <label for="checkbox">Name</label>
             </div>
-            <em class="ui-info">Not valid</em>
+            <em class="x-info">Not valid</em>
         </div>
     </div>
     <div>
-        <div class="c-field">
-            <label class="ui-label">Name</label>
-            <div class="ui-switch">
+        <div class="x-field">
+            <label class="x-label">Name</label>
+            <div class="x-switch">
                 <input type="checkbox" id="checkbox" required>
             </div>
-            <em class="ui-info">Not valid</em>
+            <em class="x-info">Not valid</em>
         </div>
     </div>
 
-    <div class="c-field horizontal gap-4">
+    <div class="x-field horizontal gap-4">
         <div class="col">
-            <label class="ui-label">Label</label>
+            <label class="x-label">Label</label>
         </div>
         <div class="col">
-            <div class="ui-control">
+            <div class="x-control">
                 <input type="text" placeholder=" " required>
             </div>
-            <em class="ui-info w-full">
+            <em class="x-info w-full">
                 Not good
             </em>
         </div>
     </div>
 
-    <div class="c-field horizontal gap-4">
+    <div class="x-field horizontal gap-4">
         <div class="col">
-            <label class="ui-label">Label</label>
+            <label class="x-label">Label</label>
         </div>
         <div class="col input-offset">
-            <label class="ui-check">
+            <label class="x-check">
                 <input type="checkbox" required>
                 This is a checkbox
             </label>
@@ -103,33 +103,33 @@
 
 
 
-    <label class="ui-radio">
+    <label class="radio">
         <input type="checkbox" required>
         <span>Name</span>
     </label>
 
     <script>
         document.getElementById('action-btn-active').addEventListener('click', () => {
-            if (!document.querySelector('.ui-control.active')) {
-                document.querySelectorAll('.ui-control').forEach(element => element.classList.add('active'))
+            if (!document.querySelector('.control.active')) {
+                document.querySelectorAll('.control').forEach(element => element.classList.add('active'))
             } else {
-                document.querySelectorAll('.ui-control').forEach(element => element.classList.remove('active'))
+                document.querySelectorAll('.control').forEach(element => element.classList.remove('active'))
             }
         })
 
         document.getElementById('action-btn-loading').addEventListener('click', () => {
-            if (!document.querySelector('.ui-control.loading')) {
-                document.querySelectorAll('.ui-control').forEach(element => element.classList.add('loading'))
+            if (!document.querySelector('.control.loading')) {
+                document.querySelectorAll('.control').forEach(element => element.classList.add('loading'))
             } else {
-                document.querySelectorAll('.ui-control').forEach(element => element.classList.remove('loading'))
+                document.querySelectorAll('.control').forEach(element => element.classList.remove('loading'))
             }
         })
 
         document.getElementById('action-btn-disabled').addEventListener('click', () => {
-            if (!document.querySelector(':where(.ui-control, .ui-control) :where(input,select,textarea):disabled')) {
-                document.querySelectorAll(':where(.ui-control, .ui-control) :where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
+            if (!document.querySelector(':where(.control, .control) :where(input,select,textarea):disabled')) {
+                document.querySelectorAll(':where(.control, .control) :where(input,select,textarea)').forEach(element => element.setAttribute('disabled', ''))
             } else {
-                document.querySelectorAll(':where(.ui-control, .ui-control) :where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
+                document.querySelectorAll(':where(.control, .control) :where(input,select,textarea)').forEach(element => element.removeAttribute('disabled'))
             }
         })
 

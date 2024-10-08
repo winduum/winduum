@@ -1,0 +1,14 @@
+.x-button:is(.ghosted) {
+  --x-button-disabled-background-color-opacity: 0%;
+  --x-button-disabled-background-color-mix: transparent;
+  --x-button-disabled-color: var(--color-accent);
+  --x-button-active-background-color-opacity: 20%;
+  --x-button-active-background-color-mix: transparent;
+  --x-button-active-color: var(--color-accent);
+  --x-button-hover-background-color-opacity: 10%;
+  --x-button-hover-background-color-mix: transparent;
+  --x-button-hover-color: var(--color-accent);
+  --x-button-focus-outline-offset: -2px;
+  --x-button-color: var(--color-accent);
+  --x-button-background-color-opacity: 0%;
+}

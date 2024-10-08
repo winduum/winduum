@@ -7,33 +7,33 @@
     <link rel="stylesheet" href="/src/main.css">
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
-<body class="bg-blue-100/10 dark:bg-dark p-md items-start gap-4 grid-cols-container     bg-primary">
-<div class="w-full flex-col gap-4">
-    <div class="c-popover focus w-max">
-        <div class="c-tooltip focus bottom" aria-label="I am tooltip">
-            <div role="button" class="ui-btn" tabindex="0">Popover</div>
+<body class="bg-blue-100/10 dark:bg-dark p-4 items-start gap-4 grid grid-cols-container">
+<div class="w-full flex flex-col gap-4">
+    <div class="x-popover trigger-focus w-max">
+        <div class="x-tooltip" aria-label="I am tooltip">
+            <div role="button" class="x-button" tabindex="0">Popover</div>
         </div>
-        <div class="c-popover-content shadow mt-2.5 p-2 w-32 flex-col">
-            <div class="c-tooltip right" aria-label="I am tooltip">
-                <button class="ui-btn ghosted accent-main justify-start w-full">Item 1</button>
+        <div class="x-popover-content right right-start shadow mt-2.5 p-2 w-32 flex flex-col">
+            <div class="x-tooltip right" aria-label="I am tooltip">
+                <button class="x-button ghosted accent-main justify-start w-full">Item 1</button>
             </div>
-            <div class="c-popover hover">
-                <button class="ui-btn ghosted accent-main justify-start w-full">Item 2</button>
-                <div class="c-popover-content right shadow ml-4 p-2 w-32 flex-col">
-                    <div class="c-tooltip right" aria-label="I am tooltip">
-                        <button class="ui-btn ghosted accent-main justify-start w-full">Item 1</button>
+            <div class="x-popover trigger-hover">
+                <button class="x-button ghosted accent-main justify-start w-full">Item 2</button>
+                <div class="x-popover-content right shadow ml-4 p-2 w-32 flex flex-col">
+                    <div class="x-tooltip right" aria-label="I am tooltip">
+                        <button class="x-button ghosted accent-main justify-start w-full">Item 1</button>
                     </div>
-                    <button class="ui-btn ghosted accent-main justify-start">Item 2</button>
+                    <button class="x-button ghosted accent-main justify-start">Item 2</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="c-tooltip focus bottom w-max" aria-label="I am tooltip">
-        <div role="button" class="ui-btn" tabindex="0">Popover</div>
+    <div class="x-tooltip trigger-focus bottom w-max" aria-label="I am tooltip">
+        <div role="button" class="x-button" tabindex="0">Popover</div>
     </div>
-    <div class="c-popover mt-12">
-        <button class="ui-btn" popovertargetaction="toggle" popovertarget="popover">Popover</button>
-        <div class="c-popover-content shadow h-48" id="popover" popover="manual">
+    <div class="x-popover mt-12">
+        <button class="x-button" popovertargetaction="toggle" popovertarget="popover">Popover</button>
+        <div class="x-popover-content shadow h-48" id="popover" popover="manual">
             <input type="text" autofocus>
         </div>
     </div>

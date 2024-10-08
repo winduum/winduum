@@ -1,0 +1,63 @@
+.x-button {
+  --x-button-background-color: var(--color-accent);
+  --x-button-border-color: var(--color-accent);
+  --x-button-color: var(--color-accent-foreground);
+
+  inline-size: var(--x-button-inline-size);
+  block-size: var(--x-button-block-size);
+  padding: var(--x-button-padding-block) var(--x-button-padding-inline);
+  padding-inline: calc(var(--x-button-padding-inline) - var(--x-button-border-width));
+  border-radius: var(--x-button-border-radius);
+  font-family: var(--x-button-font-family);
+  font-size: var(--x-button-font-size);
+  font-weight: var(--x-button-font-weight);
+  letter-spacing: var(--x-button-letter-spacing);
+  background-color:
+    color-mix(
+      in var(--x-button-background-color-space, srgb),
+      var(--x-button-background-color) var(--x-button-background-color-opacity, 100%),
+      var(--x-button-background-color-mix, transparent)
+    );
+  color:
+    color-mix(
+      in var(--x-button-color-space, srgb),
+      var(--x-button-color) var(--x-button-color-opacity, 100%),
+      var(--x-button-color-mix, transparent)
+    );
+  border:
+    var(--x-button-border-width)
+    solid
+    color-mix(
+      in var(--x-button-border-color-space, srgb),
+      var(--x-button-border-color) var(--x-button-border-color-opacity, 100%),
+      var(--x-button-border-color-mix, transparent)
+    );
+  outline:
+    var(--x-button-outline-width)
+    solid
+    color-mix(
+      in var(--x-button-outline-color-space, srgb),
+      var(--x-button-outline-color, transparent) var(--x-button-outline-color-opacity, 100%),
+      var(--x-button-outline-color-mix, transparent)
+    );
+  outline-offset: var(--x-button-outline-offset);
+  gap: var(--x-button-gap);
+  user-select: none;
+  overflow: clip;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  line-height: 1;
+  flex-shrink: 0;
+  z-index: 0;
+
+  :where(*) {
+    pointer-events: none;
+  }
+
+  &:where(input)::after {
+    content: attr(aria-label);
+  }
+}

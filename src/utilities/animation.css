@@ -1,0 +1,4 @@
+.animation {
+  animation-duration: var(--default-animation-duration, var(--default-transition-duration, 150ms));
+  animation-fill-mode: both;
+}

@@ -1,0 +1,11 @@
+:root, :host {
+  --x-button-outline-width: 2px;
+  --x-button-border-width: 0px;
+  --x-button-border-radius: var(--radius);
+  --x-button-font-size: var(--font-size-sm);
+  --x-button-font-weight: var(--font-weight-medium);
+  --x-button-gap: var(--spacing-2);
+  --x-button-block-size: 2.25rem;
+  --x-button-padding-block: 0.375rem;
+  --x-button-padding-inline: 0.75rem;
+}

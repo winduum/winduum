@@ -1,9 +1,9 @@
-import UiBtn from '@/app/components/ui/Btn'
+import Button from '@/app/components/Button'
 
 export default function Page () {
     return (
-        <div className="p-sm">
-            <UiBtn>Winduum Button</UiBtn>
+        <div className="p-4">
+            <Button>Winduum Button</Button>
         </div>
     )
 }

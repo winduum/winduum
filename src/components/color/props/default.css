@@ -1,0 +1,6 @@
+:root, :host {
+  --x-color-primary: currentColor;
+  --x-color-secondary: transparent;
+  --x-color-size: 1.5rem;
+  --x-color-border-radius: var(--radius-full);
+}

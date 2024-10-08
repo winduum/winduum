@@ -1,7 +1,7 @@
-.c-drawer-content {
-  width: var(--c-drawer-content-width);
-  height: var(--c-drawer-content-height);
+.x-drawer-content {
+  inline-size: var(--x-drawer-content-inline-size);
+  block-size: var(--x-drawer-content-block-size);
+  background-color: var(--x-drawer-content-background-color);
   flex-shrink: 0;
   scroll-snap-align: end;
-  background-color: var(--color-body-primary);
 }

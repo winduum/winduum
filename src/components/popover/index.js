@@ -1,4 +1,4 @@
-import { animationsFinished } from '../../common.js'
+import { animationsFinished, nextRepaint } from '../../common.js'
 
 /**
  * @param {HTMLElement | Element} element
@@ -6,12 +6,10 @@ import { animationsFinished } from '../../common.js'
  * @param {import("./").ShowPopoverOptions} options
  * @returns Promise<void>
  */
-export const computePopover = async (element, popoverElement, options) => {
+export const computePopover = async (element, popoverElement, options = {}) => {
     const { computePosition, flip, shift, offset } = await import('@floating-ui/dom')
 
     popoverElement.classList.remove(popoverElement._placement)
-
-    popoverElement.style.minWidth = `${element.offsetWidth / 16}rem`
 
     await computePosition(element, popoverElement, {
         placement: options?.placement,
@@ -22,18 +20,19 @@ export const computePopover = async (element, popoverElement, options) => {
         })
 
         popoverElement._placement = placement
-        popoverElement.classList.add(popoverElement._placement, options?.visibleClass ?? 'in')
+        popoverElement.classList.add(popoverElement._placement)
     })
 }
 
 /**
  * @param {HTMLElement | Element} element - The HTML content to insert into the dialog.
+ * @param {import("./").HidePopoverOptions} options
  * @returns Promise<void>
  */
-export const hidePopover = async (element) => {
+export const hidePopover = async (element, options = { openAttribute: 'data-open' }) => {
     const popoverElement = document.getElementById(element.getAttribute('popovertarget'))
 
-    popoverElement.classList.remove('in')
+    popoverElement.removeAttribute(options?.openAttribute)
     await animationsFinished(popoverElement)
     popoverElement._cleanup && popoverElement._cleanup()
     popoverElement.hidePopover && popoverElement.hidePopover()
@@ -48,7 +47,7 @@ export const hidePopover = async (element) => {
  */
 export const showPopover = async (element, options) => {
     options = {
-        visibleClass: 'in',
+        openAttribute: 'data-open',
         compute: true,
         ...options
     }
@@ -64,15 +63,18 @@ export const showPopover = async (element, options) => {
 
     popoverElement.showPopover && popoverElement.showPopover()
 
+    await nextRepaint()
+
+    popoverElement.setAttribute(options?.openAttribute, '')
+
     if (!options.compute) {
-        popoverElement.classList.add(options.visibleClass)
         return
     }
 
     popoverElement._cleanup = autoUpdate(
         element,
         popoverElement,
-        async () => await computePopover(element, popoverElement, options)
+        async () => await computePopover(options.anchorSelector ? document.querySelector(options.anchorSelector) : element, popoverElement, options)
     )
 }
 

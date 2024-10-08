@@ -1,16 +1,16 @@
-.c-popover-content {
+.x-popover-content {
+  background-color: var(--x-popover-content-background-color);
+  border-radius: var(--x-popover-content-border-radius);
+  padding: var(--x-popover-content-padding-block) var(--x-popover-content-padding-inline);
+  z-index: var(--x-popover-content-z-index, var(--z-index-10));
+  transition-property: var(--default-transition-property);
+  transition-timing-function: var(--transition-timing-function-in-out);
+  transition-duration: var(--default-transition-duration);
   transform:
-      translate(var(--tw-translate-x), var(--tw-translate-y))
-      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  transition-property: var(--transition);
-  transition-timing-function: var(--ease-in-out);
-  transition-duration: var(--duration);
+    translate(var(--tw-translate-x), var(--tw-translate-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   will-change: transform;
-  background-color: var(--c-popover-content-bg);
-  border-radius: var(--c-popover-content-border-radius);
-  padding: var(--c-popover-content-py) var(--c-popover-content-px);
-  z-index: var(--z-10);
-  width: max-content;
+  inline-size: max-content;
   position: absolute;
 
   &:where(.bottom), & {
@@ -22,6 +22,7 @@
   }
 
   &:where(.bottom-end) {
+    inset-inline-end: 0;
     transform-origin: top right;
   }
 
@@ -36,6 +37,7 @@
   }
 
   &:where(.right-end) {
+    inset-block: auto 0;
     transform-origin: left bottom;
   }
 
@@ -50,6 +52,7 @@
   }
 
   &:where(.left-end) {
+    inset-block: auto 0;
     transform-origin: right bottom;
   }
 
@@ -63,18 +66,11 @@
   }
 
   &:where(.top-end) {
+    inset-inline-end: 0;
     transform-origin: bottom right;
   }
 
-  &:where(.end) {
-    inset-inline-end: 0;
-  }
-
-  &:where(.block-end) {
-    inset-block: auto 0;
-  }
-
-  &:where(.center) {
+  &:where(.inline-center) {
     --tw-translate-x: -50%;
 
     inset-inline-start: 50%;
@@ -86,22 +82,21 @@
     inset-block-start: 50%;
   }
 
-  &[popover]:not(.in) {
-    --tw-scale-x: var(--c-popover-content-scale-x);
-    --tw-scale-y: var(--c-popover-content-scale-y);
+  &[popover]:not([data-open]) {
+    --tw-scale-x: var(--x-popover-content-scale-x);
+    --tw-scale-y: var(--x-popover-content-scale-y);
 
-    opacity: 0;
+    opacity: 0%;
     pointer-events: none;
   }
 
   &:not([popover]) {
-    .focus:not(:focus, :focus-within) > &, .hover:not(:hover) > & {
-      --tw-scale-x: var(--c-popover-content-scale-x);
-      --tw-scale-y: var(--c-popover-content-scale-y);
+    .trigger-focus:not(:focus, :focus-within) > &, .trigger-hover:not(:hover) > & {
+      --tw-scale-x: var(--x-popover-content-scale-x);
+      --tw-scale-y: var(--x-popover-content-scale-y);
 
-      opacity: 0;
+      opacity: 0%;
       visibility: hidden;
     }
   }
 }
-

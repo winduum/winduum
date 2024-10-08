@@ -1,0 +1,4 @@
+:root, :host {
+  --x-toast-inline-size: 20rem;
+  --x-toast-transition-duration: calc(var(--default-transition-duration) * 2);
+}

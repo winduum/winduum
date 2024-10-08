@@ -1,0 +1,13 @@
+.x-control:where(:has(:not([type="color"]) ~ label)) {
+  --x-control-label-focus-opacity: 50%;
+  --x-control-placeholder-color: transparent;
+
+  > :where(input, textarea, select) {
+    &:is(:focus, :not(:placeholder-shown)) {
+      ~ label {
+        transform: translateY(calc(var(--x-control-label-translate-y) * -1)) scale(var(--x-control-label-scale));
+        opacity: var(--x-control-label-focus-opacity);
+      }
+    }
+  }
+}

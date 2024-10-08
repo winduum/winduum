@@ -1,0 +1,43 @@
+.x-switch {
+  font-weight: var(--x-switch-font-weight);
+  font-size: var(--x-switch-font-size);
+  line-height: var(--x-switch-line-height);
+  letter-spacing: var(--x-switch-letter-spacing);
+  gap: var(--x-switch-gap);
+  display: inline-flex;
+  text-wrap: pretty;
+
+  :where(input) {
+    inline-size: var(--x-switch-inline-size);
+    block-size: var(--x-switch-block-size);
+    padding: calc((var(--x-switch-block-size) - var(--x-switch-icon-size)) / 2);
+    border-radius: var(--x-switch-border-radius);
+    background-color:
+      color-mix(
+        in var(--x-switch-background-color-space, srgb),
+        var(--x-switch-background-color) var(--x-switch-background-color-opacity, 100%),
+        var(--x-switch-background-color-mix, transparent)
+      );
+    outline:
+      var(--x-switch-outline-width) solid
+      color-mix(
+        in var(--x-switch-outline-color-space, srgb),
+        var(--x-switch-outline-color) var(--x-switch-outline-color-opacity, 0%),
+        var(--x-switch-outline-color-mix, transparent)
+      );
+    outline-offset: var(--x-switch-outline-offset);
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+
+    &::before {
+      inline-size: var(--x-switch-icon-size);
+      block-size: var(--x-switch-icon-size);
+      background-color: var(--color-light);
+      transition: var(--transition-all);
+      border-radius: inherit;
+      margin-block: auto;
+      content: "";
+    }
+  }
+}

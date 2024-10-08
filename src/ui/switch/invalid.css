@@ -1,6 +1,0 @@
-.ui-switch {
-  &.invalid :where(input), .validated & :where(input):invalid {
-    --ui-switch-outline-color: var(--color-error);
-    --ui-switch-bg: var(--color-error);
-  }
-}

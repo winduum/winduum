@@ -1,0 +1,36 @@
+.x-control:where(:has(:not([type="color"]) ~ label)) {
+  > :where(label) {
+    margin-inline: var(--x-control-padding-inline-start, 0) var(--x-control-padding-inline-end, 0);
+    transition: var(--transition-transform), var(--transition-color), var(--transition-opacity);
+    pointer-events: none;
+    transform-origin: 0 50%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: clip;
+    will-change: transform;
+  }
+
+  > :where(textarea) {
+    padding-block-start: calc(var(--x-control-padding-block) + var(--x-control-label-translate-y) * var(--x-control-label-scale));
+
+    + :where(label) {
+      align-self: start;
+    }
+  }
+
+  > :where(input, select) {
+    padding-block: calc(var(--x-control-padding-block) + var(--x-control-label-translate-y) * var(--x-control-label-scale)) calc(var(--x-control-padding-block) - var(--x-control-label-translate-y) * var(--x-control-label-scale));
+
+    &::-webkit-calendar-picker-indicator,
+    &::-webkit-search-cancel-button,
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      transform: translateY(calc(var(--x-control-label-translate-y) * var(--x-control-label-scale) * -1));
+    }
+  }
+
+  &:where(:has(:required)) :where(label)::after {
+    color: var(--x-control-required-color, var(--color-error));
+    content: " *";
+  }
+}

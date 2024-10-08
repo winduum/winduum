@@ -1,0 +1,46 @@
+.x-progress {
+  inline-size: var(--x-progress-inline-size, 100%);
+  block-size: var(--x-progress-block-size);
+  border-radius: var(--x-progress-border-radius);
+  background-color:
+    color-mix(
+      in var(--x-progress-background-color-space, srgb),
+      var(--x-progress-background-color, var(--color-accent)) var(--x-progress-background-color-opacity, 10%),
+      var(--x-progress-background-color-mix, var(--color-body))
+    );
+  position: relative;
+  overflow: clip;
+
+  &::-moz-progress-bar {
+    background-color: var(--x-progress-bar-background-color, var(--color-accent));
+    transition: all var(--x-progress-transition-duration, 0.3s) var(--transition-timing-function-in-out);
+    border-radius: inherit;
+  }
+
+  &::-webkit-progress-bar {
+    background-color: transparent;
+    border-radius: inherit;
+  }
+
+  &::-webkit-progress-inner-element {
+    border-radius: inherit;
+  }
+
+  &::-webkit-progress-value {
+    background-color: var(--x-progress-bar-background-color, var(--color-accent));
+    transition: all var(--x-progress-transition-duration, 0.3s) var(--transition-timing-function-in-out);
+    border-radius: inherit;
+  }
+
+  &:indeterminate {
+    animation: var(--x-progress-indeterminate-animation-duration, 1s) var(--x-progress-indeterminate-animation-timing-function, var(--transition-timing-function-linear)) infinite move-indeterminate;
+    background-image: linear-gradient(to right, var(--color-accent) 33.33%, transparent 0%);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 150%;
+
+    &::-moz-progress-bar {
+      background-color: transparent;
+    }
+  }
+}

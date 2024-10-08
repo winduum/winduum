@@ -1,0 +1,9 @@
+@import "theme/index.css";
+@import "../tailwindcss/base/defaults.css";
+@import "tailwindcss/base.css";
+@import "base/index.css";
+@import "components/index.css" layer(components);
+@import "utilities/index.css" layer(components);
+@import "tailwindcss/components.css";
+@import "tailwindcss/utilities.css";
+@import "tailwindcss/variants.css";

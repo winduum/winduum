@@ -1,10 +1,12 @@
+import { nextRepaint } from '../../common.js'
+
 /**
  * @param {HTMLElement | Element} element
  * @param {number} distance
  * @param {'top' | 'left'} direction
  * @returns void
  */
-export const showDrawer = (element, distance = 0, direction = 'left') => {
+export const showDrawer = async (element, distance = 0, direction = 'left') => {
     element.scroll({ [direction]: distance })
 }
 
@@ -20,13 +22,24 @@ export const closeDrawer = (element, distance = element.scrollWidth, direction =
 
 /**
  * @param {HTMLElement | Element} element
+ * @param {number} distance
+ * @param {'top' | 'left'} direction
+ * @returns void
+ */
+export const scrollInitDrawer = async (element, distance = element.scrollWidth, direction = 'left') => {
+    element.scroll({ [direction]: distance, behavior: 'instant' })
+    await nextRepaint()
+}
+
+/**
+ * @param {HTMLDialogElement | Element} element
  * @param {import("./").ScrollDrawerOptions} options
  * @returns void
  */
 export const scrollDrawer = (element, options = {}) => {
     options = {
         snapClass: 'snap-x snap-mandatory',
-        opacityProperty: '--tw-bg-opacity',
+        opacityProperty: '--background-color-opacity',
         opacityRatio: 1,
         scrollOpen: 0,
         scrollClose: element.scrollWidth - element.clientWidth,
@@ -43,12 +56,13 @@ export const scrollDrawer = (element, options = {}) => {
     if (options.scrollDirection === options.scrollOpen) {
         element.classList.add(...options.snapClass.split(/\s/))
         element.inert = false
-        element.dispatchEvent(new CustomEvent('c-drawer:open'))
+        element.dispatchEvent(new CustomEvent('x-drawer:open'))
     }
 
     if ((options.scrollDirection === options.scrollClose) && !element.inert) {
         element.classList.remove(...options.snapClass.split(/\s/))
         element.inert = true
-        element.dispatchEvent(new CustomEvent('c-drawer:close'))
+        element.close && element.close()
+        element.dispatchEvent(new CustomEvent('x-drawer:close'))
     }
 }

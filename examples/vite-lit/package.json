@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "lit": "^3",
-    "winduum": "latest"
+    "winduum": "^2"
   },
   "devDependencies": {
     "vite": "latest",

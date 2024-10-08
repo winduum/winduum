@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import UiBtn from '../components/ui/Btn.astro';
+import UiBtn from '../components/button/Button.astro';
 import Dialog from '../components/dialog/Dialog.astro';
 import DialogContent from '../components/dialog/DialogContent.astro';
 ---
@@ -16,13 +16,13 @@ import DialogContent from '../components/dialog/DialogContent.astro';
 		<UiBtn class="mb-4" id="showDialog">Hello world</UiBtn>
 		<Dialog>
 			<DialogContent>
-				<div class="ui-heading">Example dialog</div>
+				<div class="x-heading">Example dialog</div>
 				<br>
-				<div class="ui-text">
+				<div class="x-text">
 					<p>You can close this dialog with Esc, clicking outside, or by form submit</p>
 				</div>
 				<br>
-				<button class="ui-btn">Close dialog</button>
+				<button class="x-button">Close dialog</button>
 			</DialogContent>
 		</Dialog>
 		<ul role="list" class="link-card-grid">

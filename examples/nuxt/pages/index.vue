@@ -1,3 +1,3 @@
 <template>
-    <UiBtn>Button</UiBtn>
+    <Button>Button</Button>
 </template>

@@ -8,7 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "winduum": "latest"
+    "winduum": "^2"
   },
   "devDependencies": {
     "nuxt": "latest",

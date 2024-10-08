@@ -1,0 +1,42 @@
+.x-badge {
+  --x-badge-background-color: var(--color-accent);
+  --x-badge-border-color: var(--color-accent);
+  --x-badge-color: var(--color-accent-foreground);
+
+  inline-size: var(--x-badge-inline-size);
+  block-size: var(--x-badge-block-size);
+  padding: var(--x-badge-padding-block) var(--x-badge-padding-inline);
+  padding-inline: calc(var(--x-badge-padding-inline) - var(--x-badge-border-width));
+  border-radius: var(--x-badge-border-radius);
+  font-family: var(--x-badge-font-family);
+  font-weight: var(--x-badge-font-weight);
+  font-size: var(--x-badge-font-size);
+  letter-spacing: var(--x-badge-letter-spacing);
+  background-color:
+    color-mix(
+      in var(--x-badge-background-color-space, srgb),
+      var(--x-badge-background-color) var(--x-badge-background-color-opacity, 100%),
+      var(--x-badge-background-color-mix, transparent)
+    );
+  color:
+    color-mix(
+      in var(--x-badge-color-space, srgb),
+      var(--x-badge-color) var(--x-badge-color-opacity, 100%),
+      var(--x-badge-color-mix, transparent)
+    );
+  border:
+    var(--x-badge-border-width)
+    solid
+    color-mix(
+      in var(--x-badge-border-color-space, srgb),
+      var(--x-badge-border-color) var(--x-badge-border-color-opacity, 100%),
+      var(--x-badge-border-color-mix, transparent)
+    );
+  gap: var(--x-badge-gap);
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}

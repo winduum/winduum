@@ -1,22 +1,18 @@
-.c-toast-content {
-  --c-toast-bg: var(--color-accent);
-  --c-toast-color: var(--color-accent);
-  --tw-border-mix: var(--color-body-primary);
-  --tw-border-opacity: 0.15;
-
-  border-radius: var(--c-toast-content-border-radius);
-  padding: var(--c-toast-content-py) var(--c-toast-content-px);
-  gap: var(--c-toast-content-gap);
-  background-color: var(--c-toast-content-bg);
-  color: var(--c-toast-color);
-  border: 1px solid color-mix(in var(--space), var(--c-toast-bg) calc(var(--tw-border-opacity) * 100%), var(--tw-border-mix));
+.x-toast-content {
+  border-radius: var(--x-toast-content-border-radius);
+  padding: var(--x-toast-content-padding-block) var(--x-toast-content-padding-inline);
+  gap: var(--x-toast-content-gap);
+  background-color: var(--x-toast-content-background-color);
+  color: var(--x-toast-content-color, var(--color-accent));
+  border:
+    var(--x-toast-content-border-width, 1px) solid
+    color-mix(
+      in var(--x-toast-content-border-color-space, srgb),
+      var(--x-toast-content-border-color, var(--color-accent)) var(--x-toast-content-border-color-opacity, 15%),
+      var(--x-toast-content-border-color-mix, var(--color-body-primary))
+    );
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
   align-items: center;
   display: flex;
   height: fit-content;
-
-  .ui-text {
-    --ui-text-font-size: var(--text-sm);
-    --ui-text-line-height: calc(1em + 0.375rem);
-  }
 }

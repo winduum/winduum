@@ -1,0 +1,4 @@
+.x-button:is(.lg) {
+  --x-button-block-size: 3rem;
+  --x-button-padding-inline: 1.75rem;
+}

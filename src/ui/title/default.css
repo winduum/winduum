@@ -1,8 +1,0 @@
-.ui-title {
-  font-family: var(--ui-title-font-family);
-  font-weight: var(--ui-title-font-weight);
-  font-size: var(--ui-title-font-size);
-  line-height: var(--ui-title-line-height);
-  letter-spacing: var(--ui-title-letter-spacing);
-  text-wrap: pretty;
-}

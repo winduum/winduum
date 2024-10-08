@@ -1,0 +1,58 @@
+.x-button {
+  transition-property: var(--x-button-transition-property, var(--default-transition-property));
+  transition-timing-function: var(--x-button-timing-function, var(--transition-timing-function-in-out));
+  transition-duration: var(--x-button-transition-duration, var(--default-transition-duration));
+
+  &:where(.accent-primary),
+  &:where(.accent-body),
+  &:where(.accent-light),
+  &:where(.accent-dark) {
+    --x-button-hover-background-color-mix: var(--color-accent-foreground);
+  }
+
+  &:is(button, input, label, :any-link, [role="button"]) {
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        --x-button-background-color: var(--x-button-hover-background-color, var(--color-accent));
+        --x-button-background-color-mix: var(--x-button-hover-background-color-mix);
+        --x-button-background-color-opacity: var(--x-button-hover-background-color-opacity);
+        --x-button-border-color: var(--x-button-hover-border-color, var(--color-accent));
+        --x-button-border-color-mix: var(--x-button-hover-border-color-mix, transparent);
+        --x-button-border-color-opacity: var(--x-button-hover-border-color-opacity, 100%);
+        --x-button-color: var(--x-button-hover-color, var(--color-accent-foreground));
+        --x-button-color-mix: var(--x-button-hover-color-mix, transparent);
+        --x-button-color-opacity: var(--x-button-hover-color-opacity, 100%);
+      }
+    }
+
+    &:focus {
+      --x-button-outline-offset: var(--x-button-focus-outline-offset);
+      --x-button-outline-color: var(--x-button-focus-outline-color, var(--color-accent));
+      --x-button-outline-color-opacity: var(--x-button-focus-outline-color-opacity);
+    }
+
+    &:active, &:checked, &.active {
+      --x-button-background-color: var(--x-button-active-background-color, var(--color-accent));
+      --x-button-background-color-mix: var(--x-button-active-background-color-mix);
+      --x-button-background-color-opacity: var(--x-button-active-background-color-opacity);
+      --x-button-border-color: var(--x-button-active-border-color, var(--color-accent));
+      --x-button-border-color-mix: var(--x-button-active-border-color-mix, transparent);
+      --x-button-border-color-opacity: var(--x-button-active-border-color-opacity, 100%);
+      --x-button-color: var(--x-button-active-color, var(--color-accent-foreground));
+      --x-button-color-mix: var(--x-button-active-color-mix, transparent);
+      --x-button-color-opacity: var(--x-button-active-color-opacity, 100%);
+    }
+
+    &:disabled {
+      --x-button-background-color: var(--x-button-disabled-background-color, var(--color-accent));
+      --x-button-background-color-mix: var(--x-button-disabled-background-color-mix, transparent);
+      --x-button-background-color-opacity: var(--x-button-disabled-background-color-opacity, 50%);
+      --x-button-border-color: var(--x-button-disabled-border-color, var(--color-accent));
+      --x-button-border-color-mix: var(--x-button-disabled-border-color-mix, transparent);
+      --x-button-border-color-opacity: var(--x-button-disabled-border-color-opacity, 50%);
+      --x-button-color: var(--x-button-disabled-color, var(--color-accent-foreground));
+      --x-button-color-mix: var(--x-button-disabled-color-mix, transparent);
+      --x-button-color-opacity: var(--x-button-disabled-color-opacity, 50%);
+    }
+  }
+}

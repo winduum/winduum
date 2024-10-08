@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="/src/main.css">
     <link rel="stylesheet" href="/src/tailwind.css">
 </head>
-<body class="p-md grid-cols-container">
-    <div class="w-full flex-col gap-4">
-        <nav class="c-tabs accent-main">
-            <button class="ui-btn wide" data-action="toggleTab" role="tab" aria-controls="tab-all" id="all" aria-selected="true">
+<body class="p-4 grid grid-cols-container">
+    <div class="w-full flex flex-col gap-4">
+        <nav class="x-tabs accent-main">
+            <button class="x-button wide" data-action="toggleTab" role="tab" aria-controls="tab-all" id="all" aria-selected="true">
                 All
             </button>
-            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-photos" id="photos">
+            <button class="x-button ghosted" data-action="toggleTab" role="tab" aria-controls="tab-photos" id="photos">
                 Photos
             </button>
-            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-music" id="music">
+            <button class="x-button ghosted" data-action="toggleTab" role="tab" aria-controls="tab-music" id="music">
                 Music
             </button>
-            <button class="ui-btn ghosted" data-action="toggleTab" role="tab" aria-controls="tab-documents" id="documents">
+            <button class="x-button ghosted" data-action="toggleTab" role="tab" aria-controls="tab-documents" id="documents">
                 Documents
             </button>
         </nav>
@@ -58,7 +58,7 @@
             })
         </script>
 
-        <nav class="c-tabs gap-0 p-0 bg-transparent">
+        <nav class="x-tabs gap-0 p-0 bg-transparent">
             <button class="p-2 border-b-2 border-b-main border-opacity-25 aria-selected:border-opacity-100" data-action="toggleTab2" role="tab" aria-controls="tab-all2" aria-selected="true">
                 All
             </button>

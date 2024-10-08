@@ -1,4 +1,4 @@
-import winduum from 'winduum/plugin'
+import winduum from 'winduum'
 
 export default {
     darkMode: 'class',

@@ -1,0 +1,6 @@
+.x-button:is(.raised) {
+  --x-button-border-width: 1px;
+  --x-button-border-color-opacity: 75%;
+  --x-button-border-color: var(--x-button-background-color);
+  --x-button-border-color-mix: var(--x-button-color);
+}

@@ -1,0 +1,15 @@
+.ripple {
+  inline-size: var(--ripple-size, 2rem);
+  block-size: var(--ripple-size, 2rem);
+  background-color:
+      color-mix(
+          in var(--ripple-background-color-space, srgb),
+          var(--ripple-background-color, currentColor) var(--ripple-background-color-opacity, 40%),
+          var(--ripple-background-color-mix, transparent)
+      );
+  animation-duration: var(--ripple-animation-duration, 1s);
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+}

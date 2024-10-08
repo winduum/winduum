@@ -1,34 +1,35 @@
 /**
- * @param {Event & { currentTarget: HTMLElement | Element }} event
+ * @param {HTMLInputElement} element
  * @param {import("./").SetPositionOptions} options
  * @returns void
  */
-export const setPosition = ({ currentTarget }, options = {}) => {
+export const setPosition = (element, options = {}) => {
     const { selector, positionProperty } = {
-        selector: '.c-compare',
-        positionProperty: '--c-compare-position',
+        selector: '.x-compare',
+        positionProperty: '--x-compare-position',
         ...options
     }
 
-    currentTarget?.closest(selector)?.style.setProperty(positionProperty, `${currentTarget.value}%`)
+    element?.closest(selector)?.style.setProperty(positionProperty, `${element.value}%`)
 }
 
 /**
- * @param {KeyboardEvent & { currentTarget: HTMLInputElement | EventTarget }} event
+ * @param {HTMLInputElement} element
+ * @param {string} key
  * @param {string} step
  * @returns void
  */
-export const setKeyboardStep = ({ key, currentTarget }, step = '10') => {
+export const setKeyboardStep = (element, key, step = '10') => {
     if (key?.toLowerCase() !== 'arrowright' && key?.toLowerCase() !== 'arrowleft') return
 
-    currentTarget.step = step
+    element.step = step
 }
 
 /**
- * @param {MouseEvent & { currentTarget: HTMLInputElement | EventTarget }} event
+ * @param {HTMLInputElement} element
  * @param {string} step
  * @returns void
  */
-export const setMouseStep = ({ currentTarget }, step = '0.1') => {
-    currentTarget.step = step
+export const setMouseStep = (element, step = '0.1') => {
+    element.step = step
 }

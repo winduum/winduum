@@ -1,6 +1,6 @@
-.c-compare {
-  --c-compare-position: 50%;
-  --c-compare-clip-path: polygon(0% 0, var(--c-compare-position) 0%, var(--c-compare-position) 100%, 0 100%);
+.x-compare {
+  --x-compare-position: 50%;
+  --x-compare-clip-path: polygon(0% 0, var(--x-compare-position) 0%, var(--x-compare-position) 100%, 0 100%);
 
   display: grid;
   overflow: hidden;
@@ -15,7 +15,7 @@
 
   &::before {
     background-color: var(--color-accent);
-    inset-inline-start: var(--c-compare-position);
+    inset-inline-start: var(--x-compare-position);
     inline-size: 1px;
     content: "";
   }
@@ -23,18 +23,17 @@
   > :where(input) {
     pointer-events: auto;
     cursor: grab;
-    opacity: 0;
+    opacity: 0%;
 
-    &:is(:focus-visible, :active) {
-      ~ .ui-btn {
-        --tw-bg-mix: var(--ui-btn-hover-bg-mix, var(--color-dark));
-        --tw-bg-opacity: 0.8;
-      }
+    &:active ~ .x-button {
+      --x-button-background-color-mix: var(--x-button-active-background-color-mix, var(--color-dark));
+      --x-button-background-color-opacity: var(--x-button-active-background-color-opacity, 80%);
     }
 
-    &:focus-visible ~ .ui-btn {
-      --ui-btn-outline-offset: 2px;
-      --tw-outline-opacity: 0.5;
+    &:focus-visible ~ .x-button {
+      --x-button-outline-color: var(--x-button-focus-outline-color, var(--color-accent));
+      --x-button-outline-offset: var(--x-button-focus-outline-offset, 2px);
+      --x-button-outline-color-opacity: var(--x-button-focus-outline-opacity, 50%);
     }
 
     &:active {
@@ -42,13 +41,13 @@
     }
   }
 
-  > :where(.ui-btn) {
-    inset-inline-start: var(--c-compare-position);
-    margin-inline-start: calc(var(--ui-btn-width) / 2 * -1);
+  > .x-button {
+    inset-inline-start: var(--x-compare-position);
+    margin-inline-start: calc(var(--x-button-inline-size) / 2 * -1);
     margin-block: auto;
   }
 
-  > :where(.ui-image) {
+  > .x-image {
     display: grid;
     z-index: 0;
 
@@ -58,7 +57,7 @@
       grid-area: 1/1;
 
       &:first-child {
-        clip-path: var(--c-compare-clip-path);
+        clip-path: var(--x-compare-clip-path);
         position: relative;
       }
     }

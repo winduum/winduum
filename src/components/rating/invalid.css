@@ -1,0 +1,5 @@
+.x-rating {
+  :user-invalid {
+    --x-rating-color: var(--x-rating-invalid-color, var(--color-error));
+  }
+}

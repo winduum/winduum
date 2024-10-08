@@ -1,13 +1,13 @@
 .swap {
+  cursor: var(--cursor-pointer, pointer);
   display: inline-grid;
-  cursor: var(--cursor, pointer);
 
   > :where(*) {
-    transition-property: var(--transition);
-    transition-timing-function: var(--ease-in-out);
-    transition-duration: var(--duration);
+    transition-property: var(--default-transition-property);
+    transition-timing-function: var(--transition-timing-function-in-out);
+    transition-duration: var(--default-transition-duration);
     grid-area: 1/-1;
-    opacity: 0;
+    opacity: 0%;
   }
 
   > [aria-hidden="false"],
@@ -15,6 +15,6 @@
   input:indeterminate ~ :where(*:nth-last-child(2)),
   input:checked ~ :where(*:last-child) {
     transform: none;
-    opacity: 1;
+    opacity: 100%;
   }
 }

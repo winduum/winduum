@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",
@@ -19,34 +19,35 @@
     "publish-next": "npm publish --tag next"
   },
   "devDependencies": {
-    "@floating-ui/dom": "^1.6.5",
-    "@stylistic/stylelint-config": "^1.0.1",
+    "@floating-ui/dom": "^1.6.11",
+    "@stylistic/stylelint-config": "^2.0.0",
     "@tailwindcss/container-queries": "^0.1.1",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "autoprefixer": "^10.4.19",
-    "css-has-pseudo": "^6.0.5",
-    "dts-buddy": "^0.4.7",
-    "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "autoprefixer": "^10.4.20",
+    "css-has-pseudo": "^7.0.0",
+    "dts-buddy": "^0.5.3",
+    "eslint": "^9.12.0",
     "fast-glob": "^3.3.2",
-    "postcss": "^8.4.38",
-    "postcss-custom-media": "^10.0.6",
+    "neostandard": "^0.11.6",
+    "postcss": "^8.4.47",
+    "postcss-custom-media": "^11.0.2",
     "postcss-import": "^16.1.0",
-    "postcss-nesting": "^12.1.5",
+    "postcss-nesting": "^13.0.0",
     "slide-element": "^2.3.1",
-    "stylelint": "^16.6.1",
-    "stylelint-config-standard": "^36.0.0",
-    "tailwindcss": "^3.4.3",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.1",
+    "tailwindcss": "^3.4.13",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.12",
-    "vue": "^3.4.27"
+    "typescript": "^5",
+    "vite": "^5.4.8",
+    "vue": "^3.5.11"
   },
   "files": [
     "index.js",
     "tailwind.config.js",
     "dist",
     "src",
+    "tailwindcss",
     "plugin",
     "types"
   ],
@@ -58,6 +59,7 @@
       "types": "./plugin/types.d.ts"
     },
     "./src/*": "./src/*",
+    "./tailwindcss/*": "./tailwindcss/*",
     "./dist/*": "./dist/*",
     "./plugin/*": "./plugin/*",
     "./src/components/carousel": {
@@ -88,6 +90,10 @@
       "default": "./src/components/tabs/index.js",
       "types": "./src/components/tabs/index.d.ts"
     },
+    "./src/components/toast": {
+      "default": "./src/components/toast/index.js",
+      "types": "./src/components/toast/index.d.ts"
+    },
     "./src/components/toaster": {
       "default": "./src/components/toaster/index.js",
       "types": "./src/components/toaster/index.d.ts"
@@ -96,9 +102,9 @@
       "default": "./src/components/popover/index.js",
       "types": "./src/components/popover/index.d.ts"
     },
-    "./src/ui/range": {
-      "default": "./src/ui/range/index.js",
-      "types": "./src/ui/range/index.d.ts"
+    "./src/components/range": {
+      "default": "./src/components/range/index.js",
+      "types": "./src/components/range/index.d.ts"
     },
     "./src/utilities/ripple": {
       "default": "./src/utilities/ripple/index.js",

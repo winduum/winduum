@@ -1,0 +1,8 @@
+.x-link {
+  font-family: var(--x-link-font-family);
+  font-weight: var(--x-link-font-weight);
+  font-size: var(--x-link-font-size);
+  line-height: var(--x-link-line-height);
+  letter-spacing: var(--x-link-letter-spacing);
+  text-wrap: pretty;
+}

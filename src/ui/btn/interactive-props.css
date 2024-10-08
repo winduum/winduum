@@ -1,9 +1,0 @@
-:root, :host {
-  --ui-btn-hover-bg-mix: var(--color-dark);
-  --ui-btn-hover-bg-opacity: 0.8;
-  --ui-btn-focus-outline-offset: 2px;
-  --ui-btn-focus-outline-opacity: 0.5;
-  --ui-btn-active-bg-mix: var(--color-dark);
-  --ui-btn-active-bg-opacity: 0.9;
-  --ui-btn-disabled-opacity: 0.75;
-}

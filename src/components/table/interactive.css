@@ -1,14 +1,12 @@
-.c-table {
-  --c-table-outline-accent-color: var(--color-accent);
-
+.x-table {
   :where(tbody:first-child, tfoot:first-child) {
     :where(tr:first-child) {
       &, :where(th,td):where(:first-child) {
-        border-start-start-radius: var(--c-table-border-radius);
+        border-start-start-radius: var(--x-table-border-radius);
       }
 
       &, :where(th,td):where(:last-child) {
-        border-start-end-radius: var(--c-table-border-radius);
+        border-start-end-radius: var(--x-table-border-radius);
       }
     }
   }
@@ -16,26 +14,28 @@
   :where(tbody:last-child, tfoot:last-child) {
     :where(tr:last-child) {
       &, :where(th,td):where(:first-child) {
-        border-end-start-radius: var(--c-table-border-radius);
+        border-end-start-radius: var(--x-table-border-radius);
       }
 
       &, :where(th,td):where(:last-child) {
-        border-end-end-radius: var(--c-table-border-radius);
+        border-end-end-radius: var(--x-table-border-radius);
       }
     }
   }
 
   :where(tr, th, td):where([tabindex="0"]), :where(.outline) {
     transition: var(--transition-all);
-    outline: var(--c-table-outline-width) solid transparent;
-    outline-offset: calc(var(--c-table-outline-width) * -1);
+    outline: var(--x-table-outline-width, 1px) solid transparent;
+    outline-offset: calc(var(--x-table-outline-width, 1px) * -1);
 
     &:is(:hover, :focus-visible, .active) {
-      --tw-bg-opacity: var(--c-table-outline-bg-opacity);
-      --tw-bg-mix: transparent;
-
-      background-color: color-mix(in var(--space), var(--c-table-outline-accent-color) calc(var(--tw-bg-opacity) * 100%), var(--tw-bg-mix));
-      outline-color: var(--c-table-outline-accent-color);
+      background-color:
+        color-mix(
+          in var(--x-table-outline-background-color-space, srgb),
+          var(--x-table-outline-accent-color, var(--color-accent)) var(--x-table-outline-background-color-opacity, 5%),
+          var(--x-table-outline-background-color-mix, transparent)
+        );
+      outline-color: var(--x-table-outline-accent-color, var(--color-accent));
     }
   }
 }

@@ -1,0 +1,8 @@
+.x-info {
+  font-family: var(--x-info-font-family);
+  font-weight: var(--x-info-font-weight);
+  font-size: var(--x-info-font-size);
+  line-height: var(--x-info-line-height);
+  letter-spacing: var(--x-info-letter-spacing);
+  text-wrap: pretty;
+}

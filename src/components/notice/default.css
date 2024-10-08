@@ -1,0 +1,21 @@
+.x-notice {
+  padding: var(--x-notice-padding-block) var(--x-notice-padding-inline);
+  font-size: var(--x-notice-font-size);
+  border-radius: var(--x-notice-border-radius);
+  background-color:
+    color-mix(
+      in var(--x-notice-background-color-space, srgb),
+      var(--x-notice-background-color, var(--color-accent)) var(--x-notice-background-color-opacity, 10%),
+      var(--x-notice-background-color-mix, transparent)
+    );
+  color: var(--x-notice-color, var(--color-accent));
+  outline:
+    var(--x-notice-outline-width) solid
+    color-mix(
+      in var(--x-notice-outline-color-space, srgb),
+      var(--x-notice-outline-color, var(--color-accent)) var(--x-notice-outline-color-opacity, 10%),
+      var(--x-notice-outline-color-mix, transparent)
+    );
+  outline-offset: var(--x-notice-outline-offset);
+  text-wrap: pretty;
+}
