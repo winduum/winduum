@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { resolve, dirname } from 'node:path'
 
 /**
  * @param {[]} colors
@@ -32,6 +33,10 @@ export const tailwindColors = (colors = [], colorMix = true, rgb = false) => {
  * @returns {Object}
  */
 export const tailwindVariables = (type, variables = [], values = {}) => {
+    if (!Array.isArray(variables)) {
+        return values
+    }
+
     variables.forEach((name) => {
         values[name] = `var(--${type}-${name.replace(/\./g, '_')})`
     })
@@ -39,27 +44,36 @@ export const tailwindVariables = (type, variables = [], values = {}) => {
     return values
 }
 
-export const tailwindParseVariables = (type, file) => {
-    const fileContent = readFileSync(resolve(process.cwd(), file)).toString()
+export const tailwindParseVariables = (type, file, customValues = {}, customPath, initialValues = true) => {
+    const parseFile = (fileContent) => {
+        const regex = /(--[\w-]+):\s*([^;]+);/g
+        const matches = [...fileContent.matchAll(regex)]
+        const variables = matches.map(match => [match[1], match[2]])
+        const values = {}
 
-    const regex = /(--[\w-]+):\s*([^;]+);/g
-    const matches = [...fileContent.matchAll(regex)]
-    const variables = matches.map(match => [match[1], match[2]])
-    const values = {}
+        variables.forEach((match, index) => {
+            if (!match[0].startsWith(`--${type}-`) || match[0].endsWith('--line-height')) {
+                return
+            }
 
-    variables.forEach((match, index) => {
-        if (!match[0].startsWith(`--${type}-`) || match[0].endsWith('--line-height')) {
-            return
-        }
+            const name = match[0].replace(`--${type}-`, '')
 
-        const name = match[0].replace(`--${type}-`, '')
+            values[name.replace(/_/g, '.')] = type === 'font-size' ? [`var(${match})`, `var(${variables[index + 1]})`] : `var(${initialValues ? match : match[0]})`
+        })
 
-        values[name.replace(/_/g, '.')] = type === 'font-size' ? [`var(${match})`, `var(${variables[index + 1]})`] : `var(${match})`
-    })
+        return values
+    }
 
-    console.log(values)
+    const filename = fileURLToPath(import.meta.url)
+    const fileContent = readFileSync(resolve(dirname(filename), file)).toString()
+    const values = parseFile(fileContent)
 
-    return values
+    if (customPath) {
+        const customFileContent = readFileSync(resolve(process.cwd(), customPath)).toString()
+        customValues = { ...customValues, ...parseFile(customFileContent) }
+    }
+
+    return { ...values, ...customValues }
 }
 
 /**
