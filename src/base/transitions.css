@@ -2,6 +2,10 @@
   navigation: auto;
 }
 
+::view-transition {
+  pointer-events: none;
+}
+
 ::view-transition-group(main) {
   animation-duration: var(--view-transition-main-duration);
 }
