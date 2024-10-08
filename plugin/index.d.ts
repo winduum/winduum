@@ -9,8 +9,8 @@ export interface PluginOptions {
     fontSize?: string[] | string,
     spacing?: string[] | string,
     borderRadius?: string[] | string,
-    animations?: string[] | string,
     mask?: string[] | string,
+    animations?: string[],
     screens?: {
         [key: string]: string
     },
