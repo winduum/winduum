@@ -4,7 +4,7 @@
  * @param {HTMLElement} rippleElement
  * @returns void
  */
-export const showRipple = ({ currentTarget, clientX, clientY }, rippleElement = currentTarget.querySelector('.ripple')) => {
+export const showRipple = ({ currentTarget, offsetX, offsetY }, rippleElement = currentTarget.querySelector('.ripple')) => {
     if (!rippleElement) {
         currentTarget.insertAdjacentHTML('beforeend', '<div class="ripple"></div>')
         rippleElement = currentTarget.querySelector('.ripple')
@@ -19,7 +19,7 @@ export const showRipple = ({ currentTarget, clientX, clientY }, rippleElement = 
         rippleElement.style.height = d + 'px'
     }
 
-    rippleElement.style.top = clientY - (rippleElement.clientHeight / 2) + 'px'
-    rippleElement.style.left = clientX - (rippleElement.clientWidth / 2) + 'px'
+    rippleElement.style.top = offsetY - (rippleElement.clientHeight / 2) + 'px'
+    rippleElement.style.left = offsetX - (rippleElement.clientWidth / 2) + 'px'
     rippleElement.classList.add('animation-ripple')
 }
