@@ -64,8 +64,7 @@ export const tailwindParseVariables = (type, file, customValues = {}, customPath
         return values
     }
 
-    const filename = fileURLToPath(import.meta.url)
-    const fileContent = readFileSync(resolve(dirname(filename), file)).toString()
+    const fileContent = readFileSync(file).toString()
     const values = parseFile(fileContent)
 
     if (customPath) {
