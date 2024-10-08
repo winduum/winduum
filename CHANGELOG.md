@@ -18,6 +18,7 @@
 * feat: renamed `focus` and `hover` Popover tokens, use `trigger-focus` and `trigger-hover` instead
 * feat: removed `flex` shorthand utility classes `flex-col`, `flex-between`, `flex-center`
 * feat: CSS custom properties for spacing use TailwindCSS v4 variables now
+* feat: TailwindCSS v3 plugin now supports TailwindCSS v4 CSS custom properties syntax
 
 ## 1.2.1 (2024-06-03)
 * fix: tw plugin build
