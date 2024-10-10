@@ -1,3 +1,6 @@
+## 2.0.1 (2024-10-10)
+* feat: improved ripple default styles
+
 ## 2.0.0 (2024-10-08)
 * feat: added compatibility for **TailwindCSS v4**
 * feat: added CSS view transitions
