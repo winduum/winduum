@@ -88,6 +88,8 @@ export const closeDialog = async (element, options = {}) => {
         ...options
     }
 
+    element.dispatchEvent(new CustomEvent('c-dialog:close'))
+
     window.HTMLDialogElement
         ? element.close()
         : element.removeAttribute('open')

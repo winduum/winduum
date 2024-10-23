@@ -1,3 +1,6 @@
+## 1.2.2 (2024-10-23)
+* feat: added dialog close custom event
+
 ## 1.2.1 (2024-06-03)
 * fix: tw plugin build
 
