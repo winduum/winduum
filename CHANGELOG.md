@@ -1,3 +1,6 @@
+## 2.0.2 (2024-10-23)
+* fix: npm version
+
 ## 2.0.1 (2024-10-10)
 * feat: improved ripple default styles
 
