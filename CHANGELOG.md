@@ -1,4 +1,7 @@
-## 1.2.2 (2024-10-23)
+## 1.2.3 (2024-10-23)
+* fix: npm version
+
+## 1.2.2 (2024-10-22)
 * feat: added dialog close custom event
 
 ## 1.2.1 (2024-06-03)
