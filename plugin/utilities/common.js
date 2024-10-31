@@ -67,7 +67,7 @@ export const tailwindParseVariables = (type, file, customValues = {}, customPath
     const fileContent = readFileSync(file).toString()
     const values = parseFile(fileContent)
 
-    if (customPath) {
+    if (customPath && !Array.isArray(customPath)) {
         const customFileContent = readFileSync(resolve(process.cwd(), customPath)).toString()
         customValues = { ...customValues, ...parseFile(customFileContent) }
     }

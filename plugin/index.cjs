@@ -164,7 +164,7 @@ const tailwindParseVariables = (type, file, customValues = {}, customPath, initi
     const fileContent = node_fs.readFileSync(file).toString();
     const values = parseFile(fileContent);
 
-    if (customPath) {
+    if (customPath && !Array.isArray(customPath)) {
         const customFileContent = node_fs.readFileSync(node_path.resolve(process.cwd(), customPath)).toString();
         customValues = { ...customValues, ...parseFile(customFileContent) };
     }
@@ -298,10 +298,10 @@ const createPlugin = (userConfig = {}) => {
                     ...tailwindVariables('color', userConfig.colors ?? [])
                 }, userConfig.colors)), settings.colorMix, settings.rgb),
                 fontSize: tailwindParseVariables('font-size', relativePath('../src/theme/config/font.css'), {
-                    ...tailwindVariables('font-weight', userConfig.fontSize ?? [])
+                    ...tailwindVariables('font-size', userConfig.fontSize ?? [])
                 }, userConfig.fontSize),
                 fontFamily: tailwindParseVariables('font-family', relativePath('../src/theme/config/font.css'), {
-                    ...tailwindVariables('font-weight', userConfig.fontFamily ?? [])
+                    ...tailwindVariables('font-family', userConfig.fontFamily ?? [])
                 }, userConfig.fontFamily),
                 fontWeight: tailwindParseVariables('font-weight', relativePath('../src/theme/config/font.css'), {
                     ...tailwindVariables('font-weight', userConfig.fontWeight ?? [])

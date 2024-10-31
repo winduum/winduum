@@ -1,3 +1,6 @@
+## 2.0.3 (2024-10-31)
+* fix: tailwindcss plugin userConfig options
+
 ## 2.0.2 (2024-10-23)
 * fix: npm version
 
