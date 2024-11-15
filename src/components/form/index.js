@@ -6,20 +6,24 @@
 export const validateForm = (event, options = {}) => {
     options = {
         validateSelectors: '.x-control, .x-check, .x-switch, .x-rating, .x-color',
-        validateOptions: {},
+        validateOptions: {
+            validate: true
+        },
         submitterLoadingAttribute: 'data-loading',
         scrollOptions: { behavior: 'smooth', block: 'center' },
         ...options
     }
 
-    if (!event.target.checkValidity()) {
-        event.preventDefault()
-        event.stopImmediatePropagation()
+    if (options.validateOptions.validate) {
+        if (!event.target.checkValidity()) {
+            event.preventDefault()
+            event.stopImmediatePropagation()
 
-        event.target.querySelector(':invalid').scrollIntoView(options.scrollOptions)
-        event.target.querySelector(':invalid').focus()
-    } else {
-        event?.submitter?.setAttribute(options.submitterLoadingAttribute, '')
+            event.target.querySelector(':invalid').scrollIntoView(options.scrollOptions)
+            event.target.querySelector(':invalid').focus()
+        } else {
+            event?.submitter?.setAttribute(options.submitterLoadingAttribute, '')
+        }
     }
 
     event.target.querySelectorAll(options.validateSelectors).forEach((element) => {

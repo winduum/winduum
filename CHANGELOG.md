@@ -1,3 +1,6 @@
+## 2.0.4 (2024-11-15)
+* feat: form soft validate
+
 ## 2.0.3 (2024-10-31)
 * fix: tailwindcss plugin userConfig options
 
