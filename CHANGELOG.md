@@ -1,3 +1,6 @@
+## 1.2.4 (2024-10-23)
+* feat: c-dialog as modal option
+
 ## 1.2.3 (2024-10-23)
 * fix: npm version
 

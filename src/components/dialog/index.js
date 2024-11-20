@@ -43,6 +43,7 @@ export const dismissDialog = async (element, options = defaultOptions) => {
 export const showDialog = async (element, options = {}) => {
     options = {
         closable: true,
+        modal: true,
         ...defaultOptions,
         ...options
     }
@@ -72,7 +73,7 @@ export const showDialog = async (element, options = {}) => {
     await nextRepaint()
 
     window.HTMLDialogElement
-        ? element.showModal()
+        ? options.modal ? element.showModal() : element.show()
         : element.setAttribute('open', '')
 }
 

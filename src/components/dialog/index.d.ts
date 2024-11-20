@@ -1,6 +1,7 @@
 export interface DefaultOptions {
     remove?: boolean | null
     closable?: boolean | null
+    modal?: boolean | null
     openClass?: string
     scrollbarWidthProperty?: string
 }
