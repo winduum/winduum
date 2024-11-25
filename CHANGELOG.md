@@ -1,3 +1,6 @@
+## 2.0.5 (2024-11-15)
+* fix: `x-rating` focus-visible
+
 ## 2.0.4 (2024-11-15)
 * feat: form soft validate
 

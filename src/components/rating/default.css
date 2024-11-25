@@ -5,7 +5,7 @@
   align-items: center;
   border-radius: var(--radius-full);
 
-  &:focus-within {
+  &:has(:focus-visible) {
     outline: 2px dotted var(--color-accent);
     outline-offset: 3px;
   }
