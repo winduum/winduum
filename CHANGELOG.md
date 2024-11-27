@@ -1,4 +1,7 @@
-## 2.0.5 (2024-11-15)
+## 2.0.6 (2024-11-27)
+* fix: `x-dialog` await repaint before remove
+
+## 2.0.5 (2024-11-25)
 * fix: `x-rating` focus-visible
 
 ## 2.0.4 (2024-11-15)

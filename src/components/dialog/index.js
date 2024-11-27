@@ -1,4 +1,4 @@
-import { animationsFinished } from '../../common.js'
+import { animationsFinished, nextRepaint } from '../../common.js'
 
 /**
  * @type {import("./").DefaultOptions}
@@ -73,6 +73,8 @@ export const closeDialog = async (element, options = {}) => {
     await animationsFinished(element.querySelector(options.contentSelector))
 
     element.close()
+
+    await nextRepaint()
 
     options.remove && element.remove()
 }
