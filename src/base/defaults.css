@@ -7,13 +7,21 @@
   outline: 0;
 }
 
+:where(button),
+:where([type="checkbox"]),
+:where([type="radio"]),
+:where([role="button"]),
+:where(summary) {
+  touch-action: manipulation;
+  user-select: none;
+}
+
 :where(button:enabled),
 :where([type="checkbox"]:enabled),
 :where([type="radio"]:enabled),
-:where(summary:not([aria-disabled="true"])),
-:where([role="button"]:not([aria-disabled="true"])) {
+:where([role="button"]:not([aria-disabled="true"])),
+:where(summary) {
   cursor: var(--cursor-pointer, pointer);
-  user-select: none;
 }
 
 :where(svg:not([width])) {

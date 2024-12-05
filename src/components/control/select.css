@@ -8,7 +8,7 @@
   &::after {
     inline-size: var(--x-control-select-icon-size);
     block-size: var(--x-control-select-icon-size);
-    mask: var(--mask-angle-down);
+    mask: var(--x-control-select-icon-mask, var(--mask-angle-down));
     margin-inline: auto var(--x-control-select-icon-margin-inline-end);
     grid-area: x-control-padding;
     background-color: currentColor;

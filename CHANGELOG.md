@@ -1,3 +1,9 @@
+## 2.0.8 (2024-12-05)
+* feat: improved touch-action on interactive elements
+
+## 2.0.7 (2024-11-28)
+* feat: added `--x-control-select-icon-mask` css custom property
+
 ## 2.0.6 (2024-11-27)
 * fix: `x-dialog` await repaint before remove
 
