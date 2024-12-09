@@ -9,6 +9,7 @@ export const validateForm = (event, options = {}) => {
         validateOptions: {
             validate: true
         },
+        validateField,
         submitterLoadingAttribute: 'data-loading',
         scrollOptions: { behavior: 'smooth', block: 'center' },
         ...options
@@ -27,7 +28,7 @@ export const validateForm = (event, options = {}) => {
     }
 
     event.target.querySelectorAll(options.validateSelectors).forEach((element) => {
-        validateField(element, options.validateOptions)
+        options.validateField(element, options.validateOptions)
     })
 }
 
