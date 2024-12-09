@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",

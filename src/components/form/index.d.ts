@@ -6,6 +6,7 @@ export interface ValidateFormOptions {
 
 export interface ValidateFieldOptions {
     validate?: boolean
+    validationMessage?: string
     selector?: string
     ignoreMatch?: RegExp
     validitySelector?: string

@@ -54,7 +54,7 @@ export const validateField = (element, options = {}) => {
     if (!element.querySelector(options.selector)) return
 
     const validationElement = element.querySelector(options.selector)
-    const validationMessage = validationElement.dataset.validationMessage ?? validationElement.validationMessage
+    const validationMessage = options.validationMessage ?? validationElement.dataset.validationMessage ?? validationElement.validationMessage
     const infoParentElement = validationElement?.closest(options.infoParentSelector)
     const endParentElement = validationElement.closest(options.endParentSelector)
     const infoSelector = options.infoSelector + options.validitySelector
