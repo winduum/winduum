@@ -105,6 +105,7 @@ declare module 'winduum/src/components/dialog' {
 		closable?: boolean | null
 		modal?: boolean | null
 		openClass?: string
+		contentSelector?: string
 		scrollbarWidthProperty?: string
 	}
 

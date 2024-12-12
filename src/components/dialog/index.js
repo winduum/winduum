@@ -6,6 +6,7 @@ import { animationsFinished, nextRepaint } from '../../common.js'
 export const defaultOptions = {
     openClass: 'visible',
     scrollbarWidthProperty: '--c-dialog-scrollbar-width',
+    contentSelector: '.c-dialog-content',
     remove: false
 }
 
@@ -22,7 +23,7 @@ export const dialogSelector = selector => document.querySelectorAll(selector)[do
  * @returns Promise<void>
  */
 export const dismissDialog = async (element, options = defaultOptions) => {
-    await animationsFinished(element)
+    await animationsFinished(element.querySelector(options.contentSelector))
     element.inert = true
     element.classList.remove(options.openClass)
     element.dispatchEvent(new CustomEvent('c-dialog:dismiss'))

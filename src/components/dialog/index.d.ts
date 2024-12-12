@@ -3,6 +3,7 @@ export interface DefaultOptions {
     closable?: boolean | null
     modal?: boolean | null
     openClass?: string
+    contentSelector?: string
     scrollbarWidthProperty?: string
 }
 

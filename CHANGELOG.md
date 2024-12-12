@@ -1,3 +1,6 @@
+## 1.3.3 (2024-12-12)
+* feat: added contentSelector for dialog
+
 ## 1.2.5 (2024-12-09)
 * feat: added custom validationMessage to c-form validateField
 
