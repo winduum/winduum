@@ -132,6 +132,7 @@ Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
 :where(input, textarea) {
   user-select: auto;
   cursor: revert;
+  background-color: revert;
 }
 
 /* revert the 'white-space' property for textarea elements on Safari */

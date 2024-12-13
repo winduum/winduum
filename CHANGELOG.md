@@ -1,4 +1,7 @@
-## 1.3.3 (2024-12-12)
+## 1.3.1 (2024-12-13)
+* fix: safari input time and date placeholder color
+
+## 1.3.0 (2024-12-12)
 * feat: added contentSelector for dialog
 
 ## 1.2.5 (2024-12-09)
