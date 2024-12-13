@@ -1,3 +1,6 @@
+## 2.0.10 (2024-12-05)
+* fix: safari input time and date placeholder color
+
 ## 2.0.9 (2024-12-05)
 * feat: added custom validationMessage to x-form validateField
 

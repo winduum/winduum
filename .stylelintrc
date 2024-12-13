@@ -12,7 +12,8 @@
     "property-no-vendor-prefix": [true, { "ignoreProperties": "appearance" }],
     "number-max-precision": [4, { "ignoreProperties": "letter-spacing" }],
     "import-notation": "string",
-    "alpha-value-notation": ["percentage"]
+    "alpha-value-notation": ["percentage"],
+    "custom-property-pattern": null
   },
   "ignoreFiles": ["**/+.css", "dist/**/*.css"]
 }

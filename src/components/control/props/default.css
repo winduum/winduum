@@ -8,7 +8,7 @@
   --x-control-border-color: currentColor;
   --x-control-font-weight: var(--font-weight-medium);
   --x-control-font-size: var(--font-size-base);
-  --x-control-background-color: transparent;
+  --x-control-background-color: var(--color-body-primary);
   --x-control-color: currentColor;
   --x-control-outline-width: 3px;
   --x-control-placeholder-color: currentColor;

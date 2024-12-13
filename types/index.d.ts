@@ -140,6 +140,7 @@ declare module 'winduum/src/components/form' {
 	export interface ValidateFormOptions {
 		validateSelectors?: string
 		validateOptions?: ValidateFieldOptions
+		validateField?: typeof validateField
 		scrollOptions?: ScrollIntoViewOptions
 		submitterLoadingAttribute?: string
 	}

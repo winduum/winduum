@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",
@@ -24,11 +24,10 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@vitejs/plugin-vue": "^5.2.1",
     "autoprefixer": "^10.4.20",
-    "css-has-pseudo": "^7.0.1",
     "dts-buddy": "^0.5.4",
     "eslint": "^9.16.0",
     "fast-glob": "^3.3.2",
-    "neostandard": "^0.11.9",
+    "neostandard": "^0.12.0",
     "postcss": "^8.4.49",
     "postcss-custom-media": "^11.0.5",
     "postcss-import": "^16.1.0",
@@ -53,66 +52,66 @@
   ],
   "exports": {
     ".": {
-      "default": "./plugin/index.js",
+      "types": "./plugin/types.d.ts",
       "require": "./plugin/index.cjs",
       "import": "./plugin/index.js",
-      "types": "./plugin/types.d.ts"
+      "default": "./plugin/index.js"
     },
     "./src/*": "./src/*",
     "./tailwindcss/*": "./tailwindcss/*",
     "./dist/*": "./dist/*",
     "./plugin/*": "./plugin/*",
     "./src/components/carousel": {
-      "default": "./src/components/carousel/index.js",
-      "types": "./src/components/carousel/index.d.ts"
+      "types": "./src/components/carousel/index.d.ts",
+      "default": "./src/components/carousel/index.js"
     },
     "./src/components/compare": {
-      "default": "./src/components/compare/index.js",
-      "types": "./src/components/compare/index.d.ts"
+      "types": "./src/components/compare/index.d.ts",
+      "default": "./src/components/compare/index.js"
     },
     "./src/components/details": {
-      "default": "./src/components/details/index.js",
-      "types": "./src/components/details/index.d.ts"
+      "types": "./src/components/details/index.d.ts",
+      "default": "./src/components/details/index.js"
     },
     "./src/components/dialog": {
-      "default": "./src/components/dialog/index.js",
-      "types": "./src/components/dialog/index.d.ts"
+      "types": "./src/components/dialog/index.d.ts",
+      "default": "./src/components/dialog/index.js"
     },
     "./src/components/drawer": {
-      "default": "./src/components/drawer/index.js",
-      "types": "./src/components/drawer/index.d.ts"
+      "types": "./src/components/drawer/index.d.ts",
+      "default": "./src/components/drawer/index.js"
     },
     "./src/components/form": {
-      "default": "./src/components/form/index.js",
-      "types": "./src/components/form/index.d.ts"
+      "types": "./src/components/form/index.d.ts",
+      "default": "./src/components/form/index.js"
     },
     "./src/components/tabs": {
-      "default": "./src/components/tabs/index.js",
-      "types": "./src/components/tabs/index.d.ts"
+      "types": "./src/components/tabs/index.d.ts",
+      "default": "./src/components/tabs/index.js"
     },
     "./src/components/toast": {
-      "default": "./src/components/toast/index.js",
-      "types": "./src/components/toast/index.d.ts"
+      "types": "./src/components/toast/index.d.ts",
+      "default": "./src/components/toast/index.js"
     },
     "./src/components/toaster": {
-      "default": "./src/components/toaster/index.js",
-      "types": "./src/components/toaster/index.d.ts"
+      "types": "./src/components/toaster/index.d.ts",
+      "default": "./src/components/toaster/index.js"
     },
     "./src/components/popover": {
-      "default": "./src/components/popover/index.js",
-      "types": "./src/components/popover/index.d.ts"
+      "types": "./src/components/popover/index.d.ts",
+      "default": "./src/components/popover/index.js"
     },
     "./src/components/range": {
-      "default": "./src/components/range/index.js",
-      "types": "./src/components/range/index.d.ts"
+      "types": "./src/components/range/index.d.ts",
+      "default": "./src/components/range/index.js"
     },
     "./src/utilities/ripple": {
-      "default": "./src/utilities/ripple/index.js",
-      "types": "./src/utilities/ripple/index.d.ts"
+      "types": "./src/utilities/ripple/index.d.ts",
+      "default": "./src/utilities/ripple/index.js"
     },
     "./src/utilities/swap": {
-      "default": "./src/utilities/ripple/index.js",
-      "types": "./src/utilities/ripple/index.d.ts"
+      "types": "./src/utilities/ripple/index.d.ts",
+      "default": "./src/utilities/ripple/index.js"
     }
   },
   "engines": {

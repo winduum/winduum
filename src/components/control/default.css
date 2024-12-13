@@ -54,6 +54,7 @@
     align-self: stretch;
     align-items: center;
     border-radius: inherit;
+    background-color: inherit;
 
     &:disabled {
       cursor: not-allowed;

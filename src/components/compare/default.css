@@ -20,27 +20,6 @@
     content: "";
   }
 
-  > :where(input) {
-    pointer-events: auto;
-    cursor: grab;
-    opacity: 0%;
-
-    &:active ~ .x-button {
-      --x-button-background-color-mix: var(--x-button-active-background-color-mix, var(--color-dark));
-      --x-button-background-color-opacity: var(--x-button-active-background-color-opacity, 80%);
-    }
-
-    &:focus-visible ~ .x-button {
-      --x-button-outline-color: var(--x-button-focus-outline-color, var(--color-accent));
-      --x-button-outline-offset: var(--x-button-focus-outline-offset, 2px);
-      --x-button-outline-color-opacity: var(--x-button-focus-outline-opacity, 50%);
-    }
-
-    &:active {
-      cursor: grabbing;
-    }
-  }
-
   > .x-button {
     inset-inline-start: var(--x-compare-position);
     margin-inline-start: calc(var(--x-button-inline-size) / 2 * -1);
@@ -60,6 +39,27 @@
         clip-path: var(--x-compare-clip-path);
         position: relative;
       }
+    }
+  }
+
+  > :where(input) {
+    pointer-events: auto;
+    cursor: grab;
+    opacity: 0%;
+
+    &:active ~ .x-button {
+      --x-button-background-color-mix: var(--x-button-active-background-color-mix, var(--color-dark));
+      --x-button-background-color-opacity: var(--x-button-active-background-color-opacity, 80%);
+    }
+
+    &:focus-visible ~ .x-button {
+      --x-button-outline-color: var(--x-button-focus-outline-color, var(--color-accent));
+      --x-button-outline-offset: var(--x-button-focus-outline-offset, 2px);
+      --x-button-outline-color-opacity: var(--x-button-focus-outline-opacity, 50%);
+    }
+
+    &:active {
+      cursor: grabbing;
     }
   }
 }
