@@ -1,0 +1,13 @@
+@utility divide-gap-x-* {
+    > :where(*:not(:first-child)) {
+        padding-left: calc(--var(--spacing) * --value(integer, [integer]));
+        margin-left: calc(--var(--spacing) * --value(integer, [integer]));
+    }
+}
+
+@utility divide-gap-y-* {
+    > :where(*:not(:first-child)) {
+        padding-top: calc(--var(--spacing) * --value(integer, [integer]));
+        margin-top: calc(--var(--spacing) * --value(integer, [integer]));
+    }
+}
