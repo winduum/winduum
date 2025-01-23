@@ -1,5 +1,5 @@
-@import "reset.css";
-@import "defaults.css";
-@import "breakpoints.css";
-@import "keyframes.css";
-@import "transitions.css";
+@import "./reset.css";
+@import "./defaults.css";
+@import "./breakpoints.css";
+@import "./keyframes.css";
+@import "./transitions.css";

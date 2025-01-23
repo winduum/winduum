@@ -1,8 +1,8 @@
-@import "default.css";
-@import "props/default.css";
-@import "sm.css";
-@import "lg.css";
-@import "bordered.css";
-@import "muted.css";
-@import "square.css";
-@import "circle.css";
+@import "./default.css";
+@import "./props/default.css";
+@import "./sm.css";
+@import "./lg.css";
+@import "./bordered.css";
+@import "./muted.css";
+@import "./square.css";
+@import "./circle.css";

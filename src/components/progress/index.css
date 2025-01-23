@@ -1,6 +1,6 @@
-@import "props/default.css";
-@import "keyframes/default.css";
-@import "default.css";
-@import "meter.css";
-@import "sm.css";
-@import "lg.css";
+@import "./props/default.css";
+@import "./keyframes/default.css";
+@import "./default.css";
+@import "./meter.css";
+@import "./sm.css";
+@import "./lg.css";
