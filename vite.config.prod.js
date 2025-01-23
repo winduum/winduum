@@ -1,18 +1,11 @@
 import { resolve } from 'path'
-import tailwindcss from 'tailwindcss'
-import tailwindcssNesting from 'tailwindcss/nesting'
-import autoprefixer from 'autoprefixer'
-import postcssImport from 'postcss-import'
-import postcssNesting from 'postcss-nesting'
-import postcssCustomMedia from 'postcss-custom-media'
+import tailwindcss from '@tailwindcss/vite'
 import FastGlob from 'fast-glob'
 
 export default {
-    css: {
-        postcss: {
-            plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer]
-        }
-    },
+    plugins: [
+        tailwindcss()
+    ],
     resolve: {
         alias: {
             '/src': resolve(process.cwd(), 'src')
