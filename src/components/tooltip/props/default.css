@@ -2,11 +2,11 @@
   --x-tooltip-background-color: var(--color-main);
   --x-tooltip-color: var(--color-main-foreground);
   --x-tooltip-border-radius: var(--radius-md);
-  --x-tooltip-font-size: var(--font-size-sm);
-  --x-tooltip-padding-block: var(--spacing-1);
-  --x-tooltip-padding-inline: var(--spacing-2);
-  --x-tooltip-margin-block: var(--spacing-1);
-  --x-tooltip-margin-inline: var(--spacing-1);
+  --x-tooltip-font-size: var(--text-sm);
+  --x-tooltip-padding-block: calc(var(--spacing) * 1);
+  --x-tooltip-padding-inline: calc(var(--spacing) * 2);
+  --x-tooltip-margin-block: calc(var(--spacing) * 1);
+  --x-tooltip-margin-inline: calc(var(--spacing) * 1);
   --x-tooltip-scale-x: 0.75;
   --x-tooltip-scale-y: 0.75;
 }

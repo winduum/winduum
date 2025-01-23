@@ -39,14 +39,14 @@
 }
 
 :where(code) {
-  padding: var(--spacing-1) var(--spacing-2);
+  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
   background: var(--color-body-secondary);
   border-radius: var(--radius-sm);
   color: var(--color-accent);
 }
 
 :where(kbd) {
-  padding: var(--spacing-1) var(--spacing-2);
+  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
   background: var(--color-body-secondary);
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-body-tertiary);
@@ -54,7 +54,7 @@
 
 :where(html) {
   color-scheme: var(--default-color-scheme);
-  font-family: var(--font-family-primary);
+  font-family: var(--font-primary);
   font-weight: var(--font-weight-normal);
   block-size: 100%;
   line-height: 1.5;

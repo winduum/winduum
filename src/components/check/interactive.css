@@ -6,7 +6,7 @@
 
   :where(input) {
     transition-property: var(--default-transition-property);
-    transition-timing-function: var(--transition-timing-function-in-out);
+    transition-timing-function: var(--ease-in-out);
     transition-duration: var(--default-transition-duration);
 
     &:where(:hover, :focus-visible) {

@@ -13,7 +13,7 @@
 
   &::-moz-progress-bar {
     background-color: var(--x-progress-bar-background-color, var(--color-accent));
-    transition: all var(--x-progress-transition-duration, 0.3s) var(--transition-timing-function-in-out);
+    transition: all var(--x-progress-transition-duration, 0.3s) var(--ease-in-out);
     border-radius: inherit;
   }
 
@@ -28,12 +28,12 @@
 
   &::-webkit-progress-value {
     background-color: var(--x-progress-bar-background-color, var(--color-accent));
-    transition: all var(--x-progress-transition-duration, 0.3s) var(--transition-timing-function-in-out);
+    transition: all var(--x-progress-transition-duration, 0.3s) var(--ease-in-out);
     border-radius: inherit;
   }
 
   &:indeterminate {
-    animation: var(--x-progress-indeterminate-animation-duration, 1s) var(--x-progress-indeterminate-animation-timing-function, var(--transition-timing-function-linear)) infinite move-indeterminate;
+    animation: var(--x-progress-indeterminate-animation-duration, 1s) var(--x-progress-indeterminate-animation-timing-function, linear) infinite move-indeterminate;
     background-image: linear-gradient(to right, var(--color-accent) 33.33%, transparent 0%);
     background-position: top left;
     background-repeat: no-repeat;
