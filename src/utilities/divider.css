@@ -6,7 +6,7 @@
   align-self: stretch;
 
   &:where(:not(:empty)) {
-    gap: var(--divider-gap, var(--spacing-3));
+    gap: var(--divider-gap, calc(var(--spacing) * 3));
   }
 
   &::before, &::after {

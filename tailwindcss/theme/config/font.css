@@ -1,6 +1,6 @@
 @theme {
-  --font-family-primary: var(--default-font-family);
-  --font-family-secondary: var(--default-font-family);
+  --font-primary: var(--default-font-family);
+  --font-secondary: var(--default-font-family);
   --font-weight-black: 900;
   --font-weight-extrabold: 800;
   --font-weight-bold: 700;

@@ -1,7 +1,7 @@
 .x-toast {
   inline-size: min(100%, var(--x-toast-inline-size));
   block-size: var(--x-toast-block-size);
-  transition: all var(--x-toast-transition-duration) var(--x-toast-transition-timing-function, var(--transition-timing-function-in-out));
+  transition: all var(--x-toast-transition-duration) var(--x-toast-transition-timing-function, var(--ease-in-out));
   position: relative;
   pointer-events: auto;
   display: flex;

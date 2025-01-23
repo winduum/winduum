@@ -86,23 +86,23 @@
   }
 
   :where(h1) {
-    --x-text-heading-font-size: var(--x-text-heading-1-font-size, var(--font-size-4xl));
+    --x-text-heading-font-size: var(--x-text-heading-1-font-size, var(--text-4xl));
   }
 
   :where(h2) {
-    --x-text-heading-font-size: var(--x-text-heading-2-font-size, var(--font-size-3xl));
+    --x-text-heading-font-size: var(--x-text-heading-2-font-size, var(--text-3xl));
   }
 
   :where(h3) {
-    --x-text-heading-font-size: var(--x-text-heading-3-font-size, var(--font-size-2xl));
+    --x-text-heading-font-size: var(--x-text-heading-3-font-size, var(--text-2xl));
   }
 
   :where(h4) {
-    --x-text-heading-font-size: var(--x-text-heading-4-font-size, var(--font-size-xl));
+    --x-text-heading-font-size: var(--x-text-heading-4-font-size, var(--text-xl));
   }
 
   :where(h5) {
-    --x-text-heading-font-size: var(--x-text-heading-5-font-size, var(--font-size-lg));
+    --x-text-heading-font-size: var(--x-text-heading-5-font-size, var(--text-lg));
   }
 
   :where(h6) {

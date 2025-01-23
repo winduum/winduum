@@ -1,8 +1,8 @@
-@import "container/index.css";
-@import "divider.css";
-@import "dot.css";
-@import "ripple/index.css";
-@import "skeleton/index.css";
-@import "spinner/index.css";
-@import "swap/index.css";
-@import "underline.css";
+@import "./container/index.css";
+@import "./divider.css";
+@import "./dot.css";
+@import "./ripple/index.css";
+@import "./skeleton/index.css";
+@import "./spinner/index.css";
+@import "./swap/index.css";
+@import "./underline.css";

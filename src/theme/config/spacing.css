@@ -1,4 +1,5 @@
 :root, :host {
+  --spacing: 0.25rem;
   --spacing-px: 1px;
   --spacing-0: 0px;
   --spacing-0_5: 0.125rem;

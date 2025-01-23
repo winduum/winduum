@@ -1,3 +1,11 @@
+## 2.1.0 (2024-01-23)
+* feat: added TailwindCSS v4.0 stable support
+* feat: added css `--spacing` default variable
+* feat(bc): renamed css `--font-family-*` to `--font-*` to match tw v4 stable
+* feat(bc): renamed css `--font-size-*` to `--text-*` to match tw v4 stable
+* feat(bc): renamed css `--transition-timing-function-*` to `--ease-*` to match tw v4
+* feat(bc): removed css `--transition-timing-function-linear`
+
 ## 2.0.10 (2024-12-05)
 * fix: safari input time and date placeholder color
 

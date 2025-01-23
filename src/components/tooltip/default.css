@@ -12,7 +12,7 @@
     padding: var(--x-tooltip-padding-block) var(--x-tooltip-padding-inline);
     z-index: var(--x-tooltip-z-index, var(--z-index-20));
     transition-property: var(--default-transition-property);
-    transition-timing-function: var(--transition-timing-function-in-out);
+    transition-timing-function: var(--ease-in-out);
     transition-duration: var(--default-transition-duration);
     content: var(--tw-content);
     opacity: var(--tw-opacity);

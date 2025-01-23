@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>Winduum UI</title>
     <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
-    <link rel="stylesheet" href="/src/main.css">
-    <link rel="stylesheet" href="/src/main-rgbb.css">
-    <link rel="stylesheet" href="/src/tailwind.css">
+    <link rel="stylesheet" href="/src/test.css">
 </head>
 <body class="bg-blue-100/10 dark:bg-dark dark:text-light p-4 flex flex flex-col items-start gap-4 accent-warning">
     <div class="col flex-row gap-2">
@@ -67,7 +65,7 @@
         </div>
     </div>
 
-    <div class="x-control [--x-control-padding-inline-start:theme(spacing.8)] [--x-control-padding-inline-end:theme(spacing.14)]">
+    <div class="x-control [var(--x-control-padding-inline-start):theme(spacing.8)] [--x-control-padding-inline-end:theme(spacing.14)]">
         <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
         </svg>
@@ -277,7 +275,7 @@
     </div>
 
     <div class="x-group">
-        <div class="x-control bg-body-secondary w-[--x-control-height] flex items-center justify-center">
+        <div class="x-control bg-body-secondary w-(--x-control-block-size) flex items-center justify-center">
             @
         </div>
         <button class="x-button accent-info">Button</button>

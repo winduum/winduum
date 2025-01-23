@@ -1,4 +1,4 @@
-@import "keyframes/ring.css";
-@import "default.css";
-@import "circle.css";
-@import "ring.css";
+@import "./keyframes/ring.css";
+@import "./default.css";
+@import "./circle.css";
+@import "./ring.css";
