@@ -1,4 +1,4 @@
-## 2.1.0 (2024-01-23)
+## 2.1.0 (2025-01-23)
 * feat: added TailwindCSS v4.0 stable support
 * feat: added css `--spacing` default variable
 * feat(bc): renamed css `--font-family-*` to `--font-*` to match tw v4 stable
