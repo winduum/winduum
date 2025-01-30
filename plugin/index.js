@@ -85,17 +85,17 @@ export const createPlugin = (userConfig = {}) => {
                 transitionDuration: {
                     DEFAULT: 'var(--default-transition-duration)'
                 },
-                transitionTimingFunction: tailwindParseVariables('transition-timing-function', relativePath('../src/theme/config/transition.css'), {
-                    ...tailwindVariables('transition-timing-function', userConfig.ease ?? [])
+                transitionTimingFunction: tailwindParseVariables('ease', relativePath('../src/theme/config/transition.css'), {
+                    ...tailwindVariables('ease', userConfig.ease ?? [])
                 }, userConfig.ease),
                 colors: tailwindColors(Object.keys(tailwindParseVariables('color', relativePath('../src/theme/default.css'), {
                     ...tailwindVariables('color', userConfig.colors ?? [])
                 }, userConfig.colors)), settings.colorMix, settings.rgb),
-                fontSize: tailwindParseVariables('font-size', relativePath('../src/theme/config/font.css'), {
-                    ...tailwindVariables('font-size', userConfig.fontSize ?? [])
+                fontSize: tailwindParseVariables('text', relativePath('../src/theme/config/font.css'), {
+                    ...tailwindVariables('text', userConfig.fontSize ?? [])
                 }, userConfig.fontSize),
-                fontFamily: tailwindParseVariables('font-family', relativePath('../src/theme/config/font.css'), {
-                    ...tailwindVariables('font-family', userConfig.fontFamily ?? [])
+                fontFamily: tailwindParseVariables('font', relativePath('../src/theme/config/font.css'), {
+                    ...tailwindVariables('font', userConfig.fontFamily ?? [])
                 }, userConfig.fontFamily),
                 fontWeight: tailwindParseVariables('font-weight', relativePath('../src/theme/config/font.css'), {
                     ...tailwindVariables('font-weight', userConfig.fontWeight ?? [])

@@ -1,3 +1,6 @@
+## 2.1.1 (2025-01-30)
+* fix: renaming `font-family`, `font-size`, `transition-timing-function` names also in plugin
+
 ## 2.1.0 (2025-01-23)
 * feat: added TailwindCSS v4.0 stable support
 * feat: added css `--spacing` default variable
