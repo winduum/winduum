@@ -1,9 +1,4 @@
 @theme {
   --radius: var(--radius-xl);
-  --radius-xs: 0.125rem;
-  --radius-sm: 0.25rem;
-  --radius-4xl: 2rem;
-  --radius-5xl: 2.5rem;
-  --radius-6xl: 3rem;
   --radius-full: calc(infinity * 1px);
 }

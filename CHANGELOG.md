@@ -1,3 +1,6 @@
+## 2.1.2 (2025-02-06)
+* fix: remove redundant @theme radius values
+
 ## 2.1.1 (2025-01-30)
 * fix: renaming `font-family`, `font-size`, `transition-timing-function` names also in plugin
 
