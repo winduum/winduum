@@ -61,6 +61,10 @@
     }
   }
 
+  > :where(input, select) {
+    white-space: nowrap;
+  }
+
   > :where(input, textarea) {
     &::placeholder {
       color: var(--x-control-placeholder-color);
