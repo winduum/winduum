@@ -1,3 +1,6 @@
+## 2.1.3 (2025-03-25)
+* feat: changed `--radius` to `--radius-xl` in all components, `--radius` is depricated and shouldn't be used anymore
+
 ## 2.1.2 (2025-02-06)
 * fix: remove redundant @theme radius values
 

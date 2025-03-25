@@ -1,6 +1,6 @@
 .x-group {
   display: flex;
-  border-radius: var(--radius);
+  border-radius: var(--radius-xl);
 
   &:has(.x-control) {
     > :where(.x-button) {

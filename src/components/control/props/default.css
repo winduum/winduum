@@ -4,7 +4,7 @@
   --x-control-padding-inline: 0.75rem;
   --x-control-padding-block: 0.75rem;
   --x-control-border-width: 1px;
-  --x-control-border-radius: var(--radius);
+  --x-control-border-radius: var(--radius-xl);
   --x-control-border-color: currentColor;
   --x-control-font-weight: var(--font-weight-medium);
   --x-control-font-size: var(--text-base);

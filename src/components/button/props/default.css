@@ -1,7 +1,7 @@
 :root, :host {
   --x-button-outline-width: 2px;
   --x-button-border-width: 0px;
-  --x-button-border-radius: var(--radius);
+  --x-button-border-radius: var(--radius-xl);
   --x-button-font-size: var(--text-sm);
   --x-button-font-weight: var(--font-weight-medium);
   --x-button-gap: calc(var(--spacing) * 2);

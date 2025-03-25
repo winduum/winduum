@@ -110,7 +110,7 @@ export const createPlugin = (userConfig = {}) => {
                 }, userConfig.spacing),
                 borderRadius: tailwindParseVariables('radius', relativePath('../src/theme/config/radius.css'), {
                     ...tailwindVariables('radius', userConfig.borderRadius ?? []),
-                    DEFAULT: 'var(--radius)'
+                    DEFAULT: 'var(--radius-xl)'
                 }, userConfig.borderRadius),
                 screens: userConfig.screens
             }

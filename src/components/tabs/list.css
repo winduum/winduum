@@ -2,7 +2,7 @@
   background-color: var(--x-tabs-list-background-color, var(--color-body-secondary));
   gap: var(--x-tabs-list-gap, calc(var(--spacing) * 1));
   padding: var(--x-tabs-list-padding, calc(var(--spacing) * 1));
-  border-radius: var(--x-tabs-list-border-radius, var(--radius));
+  border-radius: var(--x-tabs-list-border-radius, var(--radius-xl));
   display: flex;
   inline-size: max-content;
 }
