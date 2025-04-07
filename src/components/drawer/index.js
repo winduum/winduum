@@ -59,7 +59,9 @@ export const scrollDrawer = (element, options = {}) => {
         element.dispatchEvent(new CustomEvent('x-drawer:open'))
     }
 
-    if ((options.scrollDirection === options.scrollClose) && !element.inert) {
+    const closeDirection = options.scrollClose ? options.scrollDirection >= options.scrollClose : options.scrollDirection <= options.scrollClose
+
+    if (closeDirection && !element.inert) {
         element.classList.remove(...options.snapClass.split(/\s/))
         element.inert = true
         element.close && element.close()

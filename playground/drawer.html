@@ -14,20 +14,20 @@
         </nav>
     </dialog>
 
-    <dialog class="x-drawer after:-order-last backdrop:hidden" id="drawerRight" inert>
+    <dialog class="x-drawer after:order-first backdrop:hidden" id="drawerRight" inert>
         <div class="x-drawer-content w-[calc(100dvw-4rem)] lg:w-96">
             Right
             <button class="x-button muted square" id="drawerClose" autofocus>x</button>
         </div>
     </dialog>
 
-    <dialog class="x-drawer flex flex-col after:-order-last" id="drawerBottom" inert>
+    <dialog class="x-drawer open:flex flex-col after:order-first" id="drawerBottom" inert>
         <div class="x-drawer-content h-[calc(100dvh-4rem)] lg:h-96">
             Bottom
         </div>
     </dialog>
 
-    <dialog class="x-drawer flex flex-col" id="drawerTop" inert>
+    <dialog class="x-drawer open:flex flex-col" id="drawerTop" inert>
         <div class="x-drawer-content h-[calc(100dvh-4rem)] lg:h-96">
             Top
         </div>
