@@ -1,0 +1,14 @@
+@utility underline {
+  text-underline-offset: var(--default-underline-offset, 0.125em);
+}
+
+@utility underline-transparent {
+  &:where(:any-link, button:enabled, [role="button"]) {
+    transition: all var(--default-transition-duration) var(--ease-in-out);
+
+    &:not(:hover, :focus-visible) {
+      text-underline-offset: var(--default-underline-transparent-offset, -0.25em);
+      text-decoration-color: transparent;
+    }
+  }
+}

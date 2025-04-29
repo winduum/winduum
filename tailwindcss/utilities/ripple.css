@@ -1,0 +1,16 @@
+@utility ripple {
+  inline-size: var(--ripple-size, 5rem);
+  block-size: var(--ripple-size, 5rem);
+  background-color:
+    color-mix(
+      in var(--ripple-background-color-space, srgb),
+      var(--ripple-background-color, currentColor) var(--ripple-background-color-opacity, 15%),
+      var(--ripple-background-color-mix, transparent)
+    );
+  animation-duration: var(--ripple-animation-duration, 500ms);
+  animation-timing-function: var(--ripple-animation-timing-function, var(--ease-in-out));
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+}
