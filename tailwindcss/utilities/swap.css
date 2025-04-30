@@ -14,7 +14,8 @@
   input:not(:checked, :indeterminate) + :where(*),
   input:indeterminate ~ :where(*:nth-last-child(2)),
   input:checked ~ :where(*:last-child) {
-    transform: none;
+    scale: none;
+    translate: none;
     rotate: none;
     opacity: 100%;
   }

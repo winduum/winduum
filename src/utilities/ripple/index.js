@@ -10,7 +10,7 @@ export const showRipple = ({ currentTarget, offsetX, offsetY }, rippleElement = 
         rippleElement = currentTarget.querySelector('.ripple')
     }
 
-    rippleElement.classList.remove('animation-ripple')
+    rippleElement.classList.remove('animation-[ripple]')
 
     if (rippleElement.clientWidth === 0 && rippleElement.clientHeight === 0) {
         const d = Math.max(currentTarget.offsetWidth, currentTarget.offsetHeight)
@@ -21,5 +21,5 @@ export const showRipple = ({ currentTarget, offsetX, offsetY }, rippleElement = 
 
     rippleElement.style.top = offsetY - (rippleElement.clientHeight / 2) + 'px'
     rippleElement.style.left = offsetX - (rippleElement.clientWidth / 2) + 'px'
-    rippleElement.classList.add('animation-ripple')
+    rippleElement.classList.add('animation-[ripple]')
 }
