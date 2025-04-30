@@ -7,7 +7,7 @@
 
     > li {
       &:not(:last-child)::after {
-        mask: var(--x-breadcrumb-marker);
+        mask: var(--x-breadcrumb-marker-mask);
         background-color: var(--x-breadcrumb-marker-background-color, currentColor);
         margin-inline: var(--x-breadcrumb-gap);
         inline-size: var(--x-breadcrumb-marker-size);

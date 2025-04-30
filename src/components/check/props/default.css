@@ -1,7 +1,5 @@
 :root, :host {
   --x-check-size: 1.25rem;
-  --x-check-icon-size: 1.125rem;
-  --x-check-icon: var(--mask-check);
   --x-check-gap: calc(var(--spacing) * 3);
   --x-check-font-size: var(--text-sm);
   --x-check-line-height: calc(1em + 0.25rem);
@@ -10,4 +8,8 @@
   --x-check-background-color: currentColor;
   --x-check-border-color: currentColor;
   --x-check-outline-width: 2px;
+  --x-check-icon-size: 1.125rem;
+  --x-check-icon-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>');
+  --x-check-radio-icon-mask: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-53.019 0-96 42.981-96 96v0c0 53.019 42.981 96 96 96v0c53.019 0 96-42.981 96-96v0c0-53.019-42.981-96-96-96z"></path></svg>');
+  --x-check-indeterminate-icon-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" /></svg>');
 }

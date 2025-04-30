@@ -4,8 +4,11 @@
 @import "./theme/dark.css" layer(theme);
 @import "./base/reset.css" layer(base);
 @import "./base/defaults.css" layer(base);
-@import "./components/index.css" layer(components);
-@import "./utilities/index.css" layer(utilities);
+@import "./components/index.css" layer(utilities);
+@import "./utilities/container/props/default.css" layer(theme);
+@import "./utilities/ripple/keyframes/default.css";
+@import "./utilities/skeleton/props/default.css" layer(theme);
+@import "./utilities/spinner/keyframes/ring.css";
 @import "../tailwindcss/utilities/index.css";
 @import "tailwindcss/utilities" layer(utilities);
 @import "../tailwindcss/variants/dark.css";

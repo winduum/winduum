@@ -25,7 +25,7 @@
     }
 
     &::before {
-      mask: var(--x-rating-icon);
+      mask: var(--x-rating-icon-mask);
       background-color: currentColor;
       content: "";
     }

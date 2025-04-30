@@ -6,14 +6,17 @@
   "rules": {
     "@stylistic/selector-list-comma-newline-after": "always-multi-line",
     "@stylistic/max-line-length": 240,
-    "at-rule-no-unknown": [true, {"ignoreAtRules": ["layer", "tailwind", "theme", "utility"]}],
+    "at-rule-no-unknown": [true, {"ignoreAtRules": ["layer", "tailwind", "theme", "utility", "variant", "custom-variant", "source"]}],
     "length-zero-no-unit": [true, {"ignore": ["custom-properties"]}],
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
     "property-no-vendor-prefix": [true, { "ignoreProperties": "appearance" }],
     "number-max-precision": [4, { "ignoreProperties": "letter-spacing" }],
     "import-notation": "string",
     "alpha-value-notation": ["percentage"],
-    "custom-property-pattern": null
+    "custom-property-pattern": null,
+    "property-no-unknown": [true, { "ignoreProperties": ["/^mso-/"]} ],
+    "selector-pseudo-element-no-unknown": [true, {"ignorePseudoElements": ["picker", "picker-icon", "checkmark"]}],
+    "declaration-property-value-no-unknown": [true, {"ignoreProperties": {"appearance": ["base-select"]}}]
   },
   "ignoreFiles": ["**/+.css", "dist/**/*.css"]
 }

@@ -10,6 +10,7 @@
   &::before, &::after {
     content: "";
     flex-grow: 1;
+    border: 0;
     border-block-start:
       1px solid color-mix(
         in var(--divider-border-block-color-space, srgb),
@@ -19,11 +20,11 @@
   }
 }
 
-@utility divder-vertical {
+@utility divider-vertical {
   flex-direction: column;
 
   &::before, &::after {
-    border-block-start: 0;
+    border: 0;
     border-inline-start:
       1px solid color-mix(
         in var(--divider-border-inline-color-space, srgb),
