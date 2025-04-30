@@ -11,8 +11,8 @@
   text-wrap: pretty;
 
   &:has([type="radio"]) {
-    --x-check-icon: var(--mask-radio);
-    --x-check-border-radius: 50%;
+    --x-check-icon-mask: var(--x-check-radio-icon-mask);
+    --x-check-border-radius: var(--x-check-radio-border-radius, 50%);
   }
 
   :where(input) {
@@ -47,7 +47,7 @@
       inline-size: var(--x-check-icon-size);
       block-size: var(--x-check-icon-size);
       color: var(--x-check-icon-color);
-      mask: var(--x-check-icon);
+      mask: var(--x-check-icon-mask);
       transition: inherit;
       content: "";
       background-color: currentColor;

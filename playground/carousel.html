@@ -10,16 +10,16 @@
     <div class="x-carousel w-[1280px]" data-controller="carousel">
         <div class="x-carousel-content gap-4" data-carousel-target="content" id="carousel">
             <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item1">
-                <img src="https://via.placeholder.com/1200x750" alt="" loading="lazy">
+                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
             </div>
             <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item2">
-                <img src="https://via.placeholder.com/1200x750" alt="" loading="lazy">
+                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
             </div>
             <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item3">
-                <img src="https://via.placeholder.com/1200x750" alt="" loading="lazy">
+                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
             </div>
             <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item4">
-                <img src="https://via.placeholder.com/1200x750" alt="" loading="lazy">
+                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
             </div>
         </div>
         <div class="dots flex gap-1.5 h-4 py-4" data-carousel-target="pagination"></div>
@@ -46,7 +46,7 @@
         const pagination = {
             element: paginationElement,
             activeClass: 'bg-error',
-            itemContent: '<div class="dot"></div>'
+            itemContent: '<div class="dot data-active:bg-primary"></div>'
         }
 
         const scrollOptions = {

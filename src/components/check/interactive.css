@@ -35,7 +35,7 @@
     }
 
     &:where([type="checkbox"]):indeterminate {
-      --x-check-icon: var(--mask-indeterminate);
+      --x-check-icon-mask: var(--x-check-indeterminate-icon-mask);
     }
 
     &:is(:checked, [type="checkbox"]:indeterminate) {

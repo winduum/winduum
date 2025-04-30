@@ -3,6 +3,7 @@
 @import "./props/icon.css";
 @import "./props/floating.css";
 @import "./props/select.css";
+@import "./props/select-picker.css";
 @import "./default.css";
 @import "./interactive.css";
 @import "./invalid.css";
@@ -13,3 +14,4 @@
 @import "./floating-interactive.css";
 @import "./select.css";
 @import "./select-multiple.css";
+@import "./select-picker.css";

@@ -1,0 +1,35 @@
+@utility spinner {
+  inline-size: var(--spinner-inline-size, 1rem);
+  block-size: var(--spinner-block-size, 1rem);
+  border-radius: 50%;
+  border-width: var(--spinner-border-width, 2px);
+  border-color:
+    color-mix(in var(--default-color-space), currentColor var(--spinner-border-block-start-color-opacity, 100%), transparent)
+    color-mix(in var(--default-color-space), currentColor var(--spinner-border-inline-end-color-opacity, 100%), transparent)
+    color-mix(in var(--default-color-space), currentColor var(--spinner-border-block-end-color-opacity, 100%), transparent)
+    color-mix(in var(--default-color-space), currentColor var(--spinner-border-inline-start-color-opacity, 0%), transparent);
+  border-style: solid;
+  animation: linear var(--spinner-animation-duration, 1s) infinite spin;
+}
+
+@utility spinner-circle {
+  --spinner-border-inline-start-color-opacity: 25%;
+  --spinner-border-inline-end-color-opacity: 25%;
+  --spinner-border-block-end-color-opacity: 25%;
+}
+
+@utility spinner-ring {
+  --spinner-animation-duration: 2s;
+
+  transform-origin: center;
+  border: 0;
+
+  circle {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: spinner-ring-stretch calc(var(--spinner-animation-duration) * 0.75) ease-in-out infinite;
+    fill: none;
+    stroke: currentColor;
+  }
+}

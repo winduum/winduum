@@ -1,3 +1,10 @@
+## 2.2.0
+* feat(bc): removed `--mask-` properties and `mask-` utility class in favor of TailwindCSS v4.1 `mask-`
+* feat(bc): contents of `--mask-` were was inlined on most used places
+* feat(bc): renaming of `--x-breadcrumb-marker` → `--x-breadcrumb-marker-mask`, `--x-check-icon` → `--x-check-icon-mask`, `--x-rating-icon` -> `--x-rating-icon-mask`
+* feat: all utilities duplicated to `tailwindcss/utilities` directory with `@utility` at rule
+* feat: added new `control/select-picker.css` variant for native css `::picker`
+
 ## 2.1.4 (2025-03-25)
 * fix: x-drawer on android
 

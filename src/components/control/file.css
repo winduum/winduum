@@ -10,14 +10,14 @@
           var(--x-control-file-background-color, currentColor) var(--x-control-file-background-color-opacity, 15%),
           var(--x-control-file-background-color-mix, transparent)
         );
-      block-size: calc(var(--x-control-block-size) - var(--x-control-border-width) * 2);
+      block-size: var(--x-control-block-size);
       padding-inline: var(--x-control-padding-inline);
       margin-inline: calc(var(--x-control-padding-inline) * -1) var(--x-control-padding-inline);
       margin-block-start: calc(var(--x-control-padding-block) * -1);
       border-start-end-radius: var(--x-control-border-radius);
       border-end-end-radius: var(--x-control-border-radius);
       transition: var(--transition-background);
-      cursor: pointer;
+      cursor: var(--cursor-pointer, pointer);
     }
 
     &:is(:hover, :focus) {
