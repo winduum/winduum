@@ -1,4 +1,4 @@
 @utility accent-* {
   --color-accent: --value(--color-*, [color]);
-  --color-accent-foreground: --value(--color-* -foreground);
+  --color-accent-foreground: --value(--color-*-foreground);
 }
