@@ -1,3 +1,6 @@
+## 2.2.1
+* fix: `x-popover` and `x-tooltip` transform animation
+
 ## 2.2.0
 * feat(bc): removed `--mask-` properties and `mask-` utility class in favor of TailwindCSS v4.1 `mask-`
 * feat(bc): contents of `--mask-` were was inlined on most used places

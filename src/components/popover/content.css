@@ -7,8 +7,8 @@
   transition-timing-function: var(--ease-in-out);
   transition-duration: var(--default-transition-duration);
   transform:
-    translate(var(--tw-translate-x), var(--tw-translate-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    translate(var(--tw-translate-x, 0), var(--tw-translate-y, 0))
+    scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1));
   will-change: transform;
   inline-size: max-content;
   position: absolute;
