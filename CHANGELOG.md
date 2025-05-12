@@ -1,3 +1,7 @@
+## 2.2.2
+* feat: added additional default transition properties
+* fix: utility accent arbitrary values
+
 ## 2.2.1
 * fix: `x-popover` and `x-tooltip` transform animation
 
