@@ -1,3 +1,6 @@
+## 2.2.3
+* fix: `x-check` descendant styles
+
 ## 2.2.2
 * feat: added additional default transition properties
 * fix: utility accent arbitrary values

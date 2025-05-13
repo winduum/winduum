@@ -15,7 +15,7 @@
     --x-check-border-radius: var(--x-check-radio-border-radius, 50%);
   }
 
-  :where(input) {
+  > :where(input) {
     inline-size: var(--x-check-size);
     block-size: var(--x-check-size);
     border-radius: var(--x-check-border-radius);
