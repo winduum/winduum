@@ -33,6 +33,7 @@
       cursor: auto;
       transform-origin: top center;
       scrollbar-width: thin;
+      color: inherit;
     }
 
     &:not(:open)::picker(select) {
