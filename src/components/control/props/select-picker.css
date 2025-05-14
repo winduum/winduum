@@ -10,7 +10,6 @@
   --x-control-select-picker-scrollbar-color: currentColor var(--color-body-primary);
   --x-control-select-option-padding-block: 0.75rem;
   --x-control-select-option-padding-inline: 0.75rem;
-  --x-control-select-option-font-weight: var(--font-weight-medium);
   --x-control-select-option-border-radius: var(--radius-md);
   --x-control-select-option-hocus-background-color: var(--color-body-secondary);
 }

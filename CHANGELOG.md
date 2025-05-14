@@ -1,4 +1,4 @@
-## 2.2.4 (2025-05-14)
+## 2.2.4-2.2.5 (2025-05-14)
 * fix(bc): typo `--x-button-timing-function` -> `--x-button-transition-timing-function`
 * feat: improved `x-control/select-picker` default styles
 
