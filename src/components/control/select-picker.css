@@ -1,15 +1,4 @@
 .x-control:has(select:not([multiple])) {
-  &::after {
-    will-change: transform;
-    transition: var(--transition-transform);
-  }
-
-  &:has(select:open) {
-    &::after {
-      transform: rotate(180deg);
-    }
-  }
-
   select {
     &, &::picker(select) {
       appearance: base-select;
@@ -33,33 +22,32 @@
       padding-block: var(--x-control-select-picker-padding-block);
       padding-inline: var(--x-control-select-picker-padding-inline);
       gap: var(--x-control-select-picker-gap);
+      scrollbar-color: var(--x-control-select-picker-scrollbar-color);
+      transition-property: var(--x-control-select-picker-transition-property, var(--default-transition-property));
+      transition-duration: var(--x-control-select-picker-transition-duration, var(--default-transition-duration));
+      transition-timing-function: var(--x-control-select-picker-transition-timing-function, var(--ease-in-out));
+      transition-behavior: allow-discrete;
+      will-change: var(--x-control-select-picker-will-change, transform, opacity);
       display: flex;
       flex-direction: column;
       cursor: auto;
       transform-origin: top center;
       scrollbar-width: thin;
-      scrollbar-color: var(--x-control-select-picker-scrollbar-color);
-      will-change: transform, opacity;
-      transition:
-        opacity var(--default-transition-duration) var(--ease-in-out),
-        transform var(--default-transition-duration) var(--ease-out),
-        display var(--default-transition-duration) allow-discrete,
-        overlay var(--default-transition-duration) allow-discrete;
     }
 
     &:not(:open)::picker(select) {
-      opacity: 0%;
-      transform: scale(0.9);
+      opacity: var(--x-control-select-picker-closed-opacity, 0%);
+      transform: var(--x-control-select-picker-closed-transform, scale(0.9));
       display: revert;
     }
 
     &:open::picker(select) {
-      opacity: 100%;
-      transform: scale(1);
+      opacity: var(--x-control-select-picker-open-opacity, revert);
+      transform: var(--x-control-select-picker-open-transform, revert);
 
       @starting-style {
-        opacity: 0%;
-        transform: scale(0.95);
+        opacity: var(--x-control-select-picker-closed-opacity, 0%);
+        transform: var(--x-control-select-picker-closed-opacity, scale(0.9));
       }
     }
 

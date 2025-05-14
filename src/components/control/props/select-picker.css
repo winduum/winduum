@@ -3,16 +3,14 @@
   --x-control-select-picker-border-radius: var(--radius-lg);
   --x-control-select-picker-border-color: currentColor;
   --x-control-select-picker-background-color: var(--color-body-primary);
-  --x-control-select-picker-margin-block: 0.25rem;
-  --x-control-select-picker-padding-block: 0.25rem;
-  --x-control-select-picker-padding-inline: 0.25rem;
-  --x-control-select-picker-gap: 0.125rem;
+  --x-control-select-picker-margin-block: 0.375rem;
+  --x-control-select-picker-padding-block: 0.375rem;
+  --x-control-select-picker-padding-inline: 0.375rem;
+  --x-control-select-picker-gap: 0.25rem;
   --x-control-select-picker-scrollbar-color: currentColor var(--color-body-primary);
-  --x-control-select-option-padding-block: 0.5rem;
-  --x-control-select-option-padding-inline: 0.5rem;
-  --x-control-select-option-font-size: var(--text-sm);
-  --x-control-select-option-font-weight: var(--font-weight-semibold);
-  --x-control-select-option-line-height: calc(1em + 0.125rem);
+  --x-control-select-option-padding-block: 0.75rem;
+  --x-control-select-option-padding-inline: 0.75rem;
+  --x-control-select-option-font-weight: var(--font-weight-medium);
   --x-control-select-option-border-radius: var(--radius-md);
   --x-control-select-option-hocus-background-color: var(--color-body-secondary);
 }

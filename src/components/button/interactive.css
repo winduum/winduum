@@ -1,6 +1,6 @@
 .x-button {
   transition-property: var(--x-button-transition-property, var(--default-transition-property));
-  transition-timing-function: var(--x-button-timing-function, var(--ease-in-out));
+  transition-timing-function: var(--x-button-transition-timing-function, var(--ease-in-out));
   transition-duration: var(--x-button-transition-duration, var(--default-transition-duration));
 
   &:where(.accent-primary),

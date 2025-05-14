@@ -1,14 +1,18 @@
-## 2.2.3
+## 2.2.4 (2025-05-14)
+* fix(bc): typo `--x-button-timing-function` -> `--x-button-transition-timing-function`
+* feat: improved `x-control/select-picker` default styles
+
+## 2.2.3 (2025-05-13)
 * fix: `x-check` descendant styles
 
-## 2.2.2
+## 2.2.2 (2025-05-12)
 * feat: added additional default transition properties
 * fix: utility accent arbitrary values
 
-## 2.2.1
+## 2.2.1 (2025-05-12)
 * fix: `x-popover` and `x-tooltip` transform animation
 
-## 2.2.0
+## 2.2.0 (2025-04-30)
 * feat(bc): removed `--mask-` properties and `mask-` utility class in favor of TailwindCSS v4.1 `mask-`
 * feat(bc): contents of `--mask-` were was inlined on most used places
 * feat(bc): renaming of `--x-breadcrumb-marker` → `--x-breadcrumb-marker-mask`, `--x-check-icon` → `--x-check-icon-mask`, `--x-rating-icon` -> `--x-rating-icon-mask`

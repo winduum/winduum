@@ -10,11 +10,19 @@
     block-size: var(--x-control-select-icon-size);
     mask: var(--x-control-select-icon-mask);
     margin-inline: auto var(--x-control-select-icon-margin-inline-end);
+    transition: var(--transition-transform);
+    will-change: transform;
     grid-area: x-control-padding;
     background-color: currentColor;
     pointer-events: none;
     align-self: center;
     content: "";
+  }
+
+  &:has(select:open) {
+    &::after {
+      transform: var(--x-control-select-open-icon-transform, rotate(180deg));
+    }
   }
 
   :where(.ms-auto) {
