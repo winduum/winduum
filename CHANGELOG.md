@@ -1,3 +1,6 @@
+## 2.2.6-2.2.7 (2025-06-05)
+* feat: added a remove option for `x-toast`
+
 ## 2.2.4-2.2.5 (2025-05-14)
 * fix(bc): typo `--x-button-timing-function` -> `--x-button-transition-timing-function`
 * feat: improved `x-control/select-picker` default styles

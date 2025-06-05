@@ -8,6 +8,7 @@ export interface ShowToastOptions {
 export interface CloseToastOptions {
     closedAttribute?: string
     heightProperty?: string
+    remove?: boolean
 }
 
 export function closeToast(element: HTMLElement, options?: CloseToastOptions): Promise<void>

@@ -20,7 +20,7 @@ export const closeToast = async (element, options = {}) => {
 
     await animationsFinished(element)
 
-    element.remove()
+    options.remove && element.remove()
 }
 
 /**
