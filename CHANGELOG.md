@@ -1,3 +1,6 @@
+## 2.2.8 (2025-07-09)
+* fix: fade-out keyframe typo
+
 ## 2.2.6-2.2.7 (2025-06-05)
 * feat: added a remove option for `x-toast`
 
