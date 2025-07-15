@@ -1,3 +1,6 @@
+## 2.2.9 (2025-07-15)
+* fix: drawer scrollState detection on some devices
+
 ## 2.2.8 (2025-07-09)
 * fix: fade-out keyframe typo
 

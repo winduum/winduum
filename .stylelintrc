@@ -16,7 +16,7 @@
     "custom-property-pattern": null,
     "property-no-unknown": [true, { "ignoreProperties": ["/^mso-/"]} ],
     "selector-pseudo-element-no-unknown": [true, {"ignorePseudoElements": ["picker", "picker-icon", "checkmark"]}],
-    "declaration-property-value-no-unknown": [true, {"ignoreProperties": {"appearance": ["base-select"]}}]
+    "declaration-property-value-no-unknown": [true, {"ignoreProperties": {"appearance": ["base-select"], "-webkit-line-break": ["after-white-space"]}}]
   },
   "ignoreFiles": ["**/+.css", "dist/**/*.css"]
 }

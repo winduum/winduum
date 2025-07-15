@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",
@@ -26,7 +26,7 @@
     "@vitejs/plugin-vue": "^6.0.0",
     "autoprefixer": "^10.4.21",
     "dts-buddy": "^0.6.2",
-    "eslint": "^9.30.1",
+    "eslint": "^9.31.0",
     "fast-glob": "^3.3.3",
     "neostandard": "^0.12.2",
     "postcss": "^8.5.6",
@@ -39,7 +39,7 @@
     "tailwindcss": "^4.1.11",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5",
-    "vite": "^7.0.3",
+    "vite": "^7.0.4",
     "vue": "^3.5.17"
   },
   "files": [
