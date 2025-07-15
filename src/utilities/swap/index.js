@@ -4,9 +4,9 @@
  * @returns void
  */
 export const toggleSwap = (element) => {
-    const ariaVisible = element.querySelector('[aria-hidden="false"]')
-    const ariaHidden = element.querySelector('[aria-hidden="true"]')
+  const ariaVisible = element.querySelector('[aria-hidden="false"]')
+  const ariaHidden = element.querySelector('[aria-hidden="true"]')
 
-    ariaVisible.ariaHidden = 'true'
-    ariaHidden.ariaHidden = 'false'
+  ariaVisible.ariaHidden = 'true'
+  ariaHidden.ariaHidden = 'false'
 }

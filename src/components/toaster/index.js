@@ -6,7 +6,7 @@ import { closeToast } from '../toast/index.js'
  * @returns Promise<void>
  */
 export const closeToaster = (element, options = {}) => {
-    [...element.children].forEach(toast =>
-        closeToast(toast, options)
-    )
+  [...element.children].forEach(toast =>
+    closeToast(toast, options),
+  )
 }

@@ -1,5 +1,4 @@
 import winduum from './plugin/index.js'
-import containerQueries from '@tailwindcss/container-queries'
 
 export default {
     darkMode: 'class',
@@ -12,8 +11,7 @@ export default {
             settings: {
                 rgb: false
             }
-        }),
-        containerQueries
+        })
     ],
     future: {
         hoverOnlyWhenSupported: true

@@ -4,10 +4,10 @@
  * @returns void
  */
 export const toggleTab = (element, options = {}) => {
-    options.tabElements?.forEach(element => (element.ariaSelected = 'false'))
-    options.tabPanelElements?.forEach(target => (target.ariaHidden = 'true'))
-    element.ariaSelected = 'true'
+  options.tabElements?.forEach(element => (element.ariaSelected = 'false'))
+  options.tabPanelElements?.forEach(target => (target.ariaHidden = 'true'))
+  element.ariaSelected = 'true'
 
-    const ariaControls = document.getElementById(element.getAttribute('aria-controls'))
-    if (ariaControls) (ariaControls.ariaHidden = 'false')
+  const ariaControls = document.getElementById(element.getAttribute('aria-controls'))
+  if (ariaControls) (ariaControls.ariaHidden = 'false')
 }

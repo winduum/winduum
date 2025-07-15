@@ -4,13 +4,13 @@
  * @returns void
  */
 export const setPosition = (element, options = {}) => {
-    const { selector, positionProperty } = {
-        selector: '.x-compare',
-        positionProperty: '--x-compare-position',
-        ...options
-    }
+  const { selector, positionProperty } = {
+    selector: '.x-compare',
+    positionProperty: '--x-compare-position',
+    ...options,
+  }
 
-    element?.closest(selector)?.style.setProperty(positionProperty, `${element.value}%`)
+  element?.closest(selector)?.style.setProperty(positionProperty, `${element.value}%`)
 }
 
 /**
@@ -20,9 +20,9 @@ export const setPosition = (element, options = {}) => {
  * @returns void
  */
 export const setKeyboardStep = (element, key, step = '10') => {
-    if (key?.toLowerCase() !== 'arrowright' && key?.toLowerCase() !== 'arrowleft') return
+  if (key?.toLowerCase() !== 'arrowright' && key?.toLowerCase() !== 'arrowleft') return
 
-    element.step = step
+  element.step = step
 }
 
 /**
@@ -31,5 +31,5 @@ export const setKeyboardStep = (element, key, step = '10') => {
  * @returns void
  */
 export const setMouseStep = (element, step = '0.1') => {
-    element.step = step
+  element.step = step
 }

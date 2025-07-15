@@ -19,16 +19,16 @@
     "publish-next": "npm publish --tag next"
   },
   "devDependencies": {
+    "@eslint/js": "^9.31.0",
     "@floating-ui/dom": "^1.7.2",
+    "@stylistic/eslint-plugin": "^5.1.0",
     "@stylistic/stylelint-config": "^2.0.0",
-    "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/vite": "^4.1.11",
     "@vitejs/plugin-vue": "^6.0.0",
     "autoprefixer": "^10.4.21",
     "dts-buddy": "^0.6.2",
     "eslint": "^9.31.0",
     "fast-glob": "^3.3.3",
-    "neostandard": "^0.12.2",
     "postcss": "^8.5.6",
     "postcss-custom-media": "^11.0.6",
     "postcss-import": "^16.1.1",
@@ -37,7 +37,6 @@
     "stylelint": "^16.21.1",
     "stylelint-config-standard": "^38.0.0",
     "tailwindcss": "^4.1.11",
-    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5",
     "vite": "^7.0.4",
     "vue": "^3.5.17"

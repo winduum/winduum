@@ -6,21 +6,21 @@ import { animationsFinished, nextRepaint } from '../../common.js'
  * @returns Promise<void>
  */
 export const closeToast = async (element, options = {}) => {
-    options = {
-        closedAttribute: 'data-closed',
-        heightProperty: '--x-toast-block-size',
-        ...options
-    }
+  options = {
+    closedAttribute: 'data-closed',
+    heightProperty: '--x-toast-block-size',
+    ...options,
+  }
 
-    element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
+  element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
 
-    await nextRepaint()
+  await nextRepaint()
 
-    element.setAttribute(options.closedAttribute, '')
+  element.setAttribute(options.closedAttribute, '')
 
-    await animationsFinished(element)
+  await animationsFinished(element)
 
-    options.remove && element.remove()
+  options.remove && element.remove()
 }
 
 /**
@@ -29,23 +29,23 @@ export const closeToast = async (element, options = {}) => {
  * @returns Promise<void>
  */
 export const showToast = async (element, options = {}) => {
-    options = {
-        openAttribute: 'data-open',
-        autoHide: null,
-        heightProperty: '--x-toast-block-size',
-        close: {},
-        ...options
-    }
+  options = {
+    openAttribute: 'data-open',
+    autoHide: null,
+    heightProperty: '--x-toast-block-size',
+    close: {},
+    ...options,
+  }
 
-    element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
-    element.style.height = '0'
+  element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
+  element.style.height = '0'
 
-    await animationsFinished(element)
+  await animationsFinished(element)
 
-    element.style.height = ''
-    element.setAttribute(options.openAttribute, '')
+  element.style.height = ''
+  element.setAttribute(options.openAttribute, '')
 
-    if (options.autoHide) {
-        setTimeout(() => closeToast(element, options.close), options.autoHide * ((element.parentElement.children.length + 1) / 2))
-    }
+  if (options.autoHide) {
+    setTimeout(() => closeToast(element, options.close), options.autoHide * ((element.parentElement.children.length + 1) / 2))
+  }
 }

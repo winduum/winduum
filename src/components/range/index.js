@@ -4,7 +4,7 @@
  * @returns void
  */
 export const setTrackProperty = ({ element, value, min, max }, track = 'start') => {
-    element.style.setProperty('--x-range-track-' + track, `${(((value - min) / (max - min)) * 100).toString()}%`)
+  element.style.setProperty('--x-range-track-' + track, `${(((value - min) / (max - min)) * 100).toString()}%`)
 }
 
 /**
@@ -13,38 +13,38 @@ export const setTrackProperty = ({ element, value, min, max }, track = 'start') 
  * @returns void
  */
 export const setValue = (element, options = {}) => {
-    const { selector, track } = {
-        selector: '.x-range',
-        track: 'start',
-        ...options
+  const { selector, track } = {
+    selector: '.x-range',
+    track: 'start',
+    ...options,
+  }
+
+  const parentElement = element.closest(selector)
+
+  if (!parentElement._trackValues) {
+    parentElement._trackValues = {
+      start: 0,
+      end: Infinity,
+    }
+  }
+
+  if (Object.keys(parentElement._trackValues).length > 1) {
+    if (
+      (track === 'start' && element.value < parentElement._trackValues.end)
+      || (track === 'end' && parentElement._trackValues.start < element.value)
+    ) {
+      parentElement._trackValues[track] = Number(element.value)
     }
 
-    const parentElement = element.closest(selector)
+    element.value = parentElement._trackValues[track]
+  }
 
-    if (!parentElement._trackValues) {
-        parentElement._trackValues = {
-            start: 0,
-            end: Infinity
-        }
-    }
-
-    if (Object.keys(parentElement._trackValues).length > 1) {
-        if (
-            (track === 'start' && element.value < parentElement._trackValues.end)
-            || (track === 'end' && parentElement._trackValues.start < element.value)
-        ) {
-            parentElement._trackValues[track] = Number(element.value)
-        }
-
-        element.value = parentElement._trackValues[track]
-    }
-
-    setTrackProperty({
-        element: parentElement,
-        value: element.value,
-        min: Number(element.min) || 0,
-        max: Number(element.max) || 100
-    }, track)
+  setTrackProperty({
+    element: parentElement,
+    value: element.value,
+    min: Number(element.min) || 0,
+    max: Number(element.max) || 100,
+  }, track)
 }
 
 /**
@@ -54,15 +54,15 @@ export const setValue = (element, options = {}) => {
  * @returns void
  */
 export const setOutputValue = (element, outputElement, options = {}) => {
-    options = {
-        lang: document.documentElement.lang,
-        formatOptions: {
-            style: 'decimal',
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-        },
-        ...options
-    }
+  options = {
+    lang: document.documentElement.lang,
+    formatOptions: {
+      style: 'decimal',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    },
+    ...options,
+  }
 
-    outputElement.innerHTML = Number(element.value).toLocaleString(options.lang, options.formatOptions)
+  outputElement.innerHTML = Number(element.value).toLocaleString(options.lang, options.formatOptions)
 }
