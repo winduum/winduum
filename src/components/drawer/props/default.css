@@ -1,3 +1,4 @@
-:root, :host {
+:root,
+:host {
   --x-drawer-background-color-opacity: 75%;
 }

@@ -1,6 +1,7 @@
 .x-control:has(select:not([multiple])) {
   select {
-    &, &::picker(select) {
+    &,
+    &::picker(select) {
       appearance: base-select;
     }
 
@@ -65,7 +66,8 @@
         display: none;
       }
 
-      &:hover, &:focus-visible {
+      &:hover,
+      &:focus-visible {
         background-color: var(--x-control-select-option-hocus-background-color);
       }
 

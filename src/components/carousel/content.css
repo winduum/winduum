@@ -23,7 +23,8 @@
 
   /* TODO grabbing */
   &:is(.grabbing) {
-    &, & * {
+    &,
+    & * {
       cursor: grabbing;
     }
 

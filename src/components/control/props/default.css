@@ -1,16 +1,17 @@
-:root, :host {
+:root,
+:host {
   --x-control-block-size: 3rem;
   --x-control-block-size-textarea: 8rem;
   --x-control-padding-inline: 0.75rem;
   --x-control-padding-block: 0.75rem;
   --x-control-border-width: 1px;
   --x-control-border-radius: var(--radius-xl);
-  --x-control-border-color: currentColor;
+  --x-control-border-color: currentcolor;
   --x-control-font-weight: var(--font-weight-medium);
   --x-control-font-size: var(--text-base);
   --x-control-background-color: var(--color-body-primary);
-  --x-control-color: currentColor;
+  --x-control-color: currentcolor;
   --x-control-outline-width: 3px;
-  --x-control-placeholder-color: currentColor;
+  --x-control-placeholder-color: currentcolor;
   --x-control-placeholder-opacity: 50%;
 }

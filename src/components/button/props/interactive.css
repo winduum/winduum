@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-button-hover-background-color-mix: var(--color-dark);
   --x-button-hover-background-color-opacity: 80%;
   --x-button-focus-outline-offset: 2px;

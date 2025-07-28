@@ -10,6 +10,6 @@
     stroke-linecap: round;
     animation: spinner-ring-stretch calc(var(--spinner-animation-duration) * 0.75) ease-in-out infinite;
     fill: none;
-    stroke: currentColor;
+    stroke: currentcolor;
   }
 }

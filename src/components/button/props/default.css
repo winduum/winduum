@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-button-outline-width: 2px;
   --x-button-border-width: 0px;
   --x-button-border-radius: var(--radius-xl);

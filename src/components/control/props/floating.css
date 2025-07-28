@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-control-label-translate-y: 0.625rem;
   --x-control-label-scale: 0.8;
 }

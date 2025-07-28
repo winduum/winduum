@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-dialog-padding-block: 2rem;
   --x-dialog-padding-inline: 1.5rem;
   --x-dialog-background-color: var(--color-dark);

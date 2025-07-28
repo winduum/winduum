@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-control-select-icon-size: 1.25rem;
   --x-control-select-icon-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor"><path d="M10.998 15.467c.491.71 1.513.71 2.004 0l3.767-5.453c.581-.843 0-2.013-1.002-2.014H8.234C7.232 8 6.65 9.17 7.231 10.014z" /></svg>');
   --x-control-select-icon-margin-inline-end: -0.25rem;

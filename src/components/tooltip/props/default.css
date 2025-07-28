@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-tooltip-background-color: var(--color-main);
   --x-tooltip-color: var(--color-main-foreground);
   --x-tooltip-border-radius: var(--radius-md);

@@ -1,5 +1,6 @@
-:root, :host {
-  --default-color-space: sRGB;
+:root,
+:host {
+  --default-color-space: srgb;
   --default-color-scheme: light;
   --color-current: rgb(var(--color-current-rgb));
   --color-current-foreground: rgb(var(--color-current-foreground-rgb));

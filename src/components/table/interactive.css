@@ -1,11 +1,13 @@
 .x-table {
   :where(tbody:first-child, tfoot:first-child) {
     :where(tr:first-child) {
-      &, :where(th,td):where(:first-child) {
+      &,
+      :where(th,td):where(:first-child) {
         border-start-start-radius: var(--x-table-border-radius);
       }
 
-      &, :where(th,td):where(:last-child) {
+      &,
+      :where(th,td):where(:last-child) {
         border-start-end-radius: var(--x-table-border-radius);
       }
     }
@@ -13,17 +15,20 @@
 
   :where(tbody:last-child, tfoot:last-child) {
     :where(tr:last-child) {
-      &, :where(th,td):where(:first-child) {
+      &,
+      :where(th,td):where(:first-child) {
         border-end-start-radius: var(--x-table-border-radius);
       }
 
-      &, :where(th,td):where(:last-child) {
+      &,
+      :where(th,td):where(:last-child) {
         border-end-end-radius: var(--x-table-border-radius);
       }
     }
   }
 
-  :where(tr, th, td):where([tabindex="0"]), :where(.outline) {
+  :where(tr, th, td):where([tabindex="0"]),
+  :where(.outline) {
     transition: var(--transition-all);
     outline: var(--x-table-outline-width, 1px) solid transparent;
     outline-offset: calc(var(--x-table-outline-width, 1px) * -1);

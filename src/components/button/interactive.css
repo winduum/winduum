@@ -31,7 +31,9 @@
       --x-button-outline-color-opacity: var(--x-button-focus-outline-color-opacity);
     }
 
-    &:active, &:checked, &.active {
+    &:active,
+    &:checked,
+    &.active {
       --x-button-background-color: var(--x-button-active-background-color, var(--color-accent));
       --x-button-background-color-mix: var(--x-button-active-background-color-mix);
       --x-button-background-color-opacity: var(--x-button-active-background-color-opacity);

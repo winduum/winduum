@@ -50,7 +50,7 @@
       mask: var(--x-check-icon-mask);
       transition: inherit;
       content: "";
-      background-color: currentColor;
+      background-color: currentcolor;
       opacity: 0%;
       transform: scale(0);
       will-change: transform;

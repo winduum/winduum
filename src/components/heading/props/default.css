@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-heading-font-family: var(--font-primary);
   --x-heading-font-weight: var(--font-weight-semibold);
   --x-heading-font-size: var(--text-xl);

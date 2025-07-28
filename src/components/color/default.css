@@ -17,7 +17,8 @@
     outline-offset: var(--x-color-outline-offset);
     display: inline-grid;
 
-    &::before, &::after {
+    &::before,
+    &::after {
       border: 1px solid transparent;
       border-radius: inherit;
       grid-area: 1/-1;

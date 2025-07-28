@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-progress-block-size: 1rem;
   --x-progress-border-radius: var(--radius-full);
 }

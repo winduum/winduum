@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-info-font-size: var(--text-xs);
   --x-info-line-height: calc(1em + 0.25rem);
 }

@@ -7,7 +7,8 @@
     gap: var(--divider-gap, calc(var(--spacing) * 3));
   }
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: "";
     flex-grow: 1;
     border: 0;
@@ -23,7 +24,8 @@
 @utility divider-vertical {
   flex-direction: column;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     border: 0;
     border-inline-start:
       1px solid color-mix(

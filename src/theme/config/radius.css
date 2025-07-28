@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --radius: var(--radius-xl);
   --radius-xs: 0.125rem;
   --radius-sm: 0.25rem;

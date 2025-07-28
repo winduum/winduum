@@ -13,7 +13,8 @@
   inline-size: max-content;
   position: absolute;
 
-  &:where(.bottom), & {
+  &:where(.bottom),
+  & {
     transform-origin: top;
   }
 
@@ -91,7 +92,8 @@
   }
 
   &:not([popover]) {
-    .trigger-focus:not(:focus, :focus-within) > &, .trigger-hover:not(:hover) > & {
+    .trigger-focus:not(:focus, :focus-within) > &,
+    .trigger-hover:not(:hover) > & {
       --tw-scale-x: var(--x-popover-content-scale-x);
       --tw-scale-y: var(--x-popover-content-scale-y);
 

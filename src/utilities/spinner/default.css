@@ -4,10 +4,10 @@
   border-radius: 50%;
   border-width: var(--spinner-border-width, 2px);
   border-color:
-    color-mix(in var(--default-color-space), currentColor var(--spinner-border-block-start-color-opacity, 100%), transparent)
-    color-mix(in var(--default-color-space), currentColor var(--spinner-border-inline-end-color-opacity, 100%), transparent)
-    color-mix(in var(--default-color-space), currentColor var(--spinner-border-block-end-color-opacity, 100%), transparent)
-    color-mix(in var(--default-color-space), currentColor var(--spinner-border-inline-start-color-opacity, 0%), transparent);
+    color-mix(in var(--default-color-space), currentcolor var(--spinner-border-block-start-color-opacity, 100%), transparent)
+    color-mix(in var(--default-color-space), currentcolor var(--spinner-border-inline-end-color-opacity, 100%), transparent)
+    color-mix(in var(--default-color-space), currentcolor var(--spinner-border-block-end-color-opacity, 100%), transparent)
+    color-mix(in var(--default-color-space), currentcolor var(--spinner-border-inline-start-color-opacity, 0%), transparent);
   border-style: solid;
   animation: linear var(--spinner-animation-duration, 1s) infinite spin;
 }

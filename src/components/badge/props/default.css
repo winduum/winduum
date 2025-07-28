@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-badge-border-width: 0px;
   --x-badge-border-radius: var(--radius-lg);
   --x-badge-font-size: var(--text-xs);

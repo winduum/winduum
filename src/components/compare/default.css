@@ -6,7 +6,8 @@
   overflow: hidden;
   border-radius: inherit;
 
-  > *, &::before {
+  > *,
+  &::before {
     position: relative;
     pointer-events: none;
     grid-area: 1/1;

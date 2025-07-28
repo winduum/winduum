@@ -33,7 +33,7 @@
 }
 
 :where(hr) {
-  background-color: color-mix(in var(--default-color-space), currentColor 100%, transparent);
+  background-color: color-mix(in var(--default-color-space), currentcolor 100%, transparent);
   block-size: 1px;
   inline-size: 100%;
 }

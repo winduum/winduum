@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-rating-inline-size: 1.25rem;
   --x-rating-block-size: 1.25rem;
   --x-rating-gap: 0.25rem;

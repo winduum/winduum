@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --container: min(100% - (var(--container-padding) * 2), var(--container-width));
   --container-breakout: min(100% - (var(--container-padding) * 2), var(--container-breakout-width));
   --container-width: 80rem;

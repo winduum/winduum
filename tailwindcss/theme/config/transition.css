@@ -13,7 +13,8 @@
 }
 
 @media (prefers-reduced-motion) {
-  :root, :host {
+  :root,
+  :host {
     --default-transition-duration: 0;
     --view-transition-main-duration: 0;
   }

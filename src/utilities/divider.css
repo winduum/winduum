@@ -1,5 +1,5 @@
 .divider {
-  --color-accent: currentColor;
+  --color-accent: currentcolor;
 
   display: flex;
   align-items: center;
@@ -9,7 +9,8 @@
     gap: var(--divider-gap, calc(var(--spacing) * 3));
   }
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: "";
     flex-grow: 1;
     border: 0;
@@ -22,7 +23,8 @@
   }
 
   &:where(.flex-col) {
-    &::before, &::after {
+    &::before,
+    &::after {
       border: 0;
       border-inline-start:
         1px solid color-mix(

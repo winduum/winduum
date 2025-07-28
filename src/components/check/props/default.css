@@ -1,12 +1,13 @@
-:root, :host {
+:root,
+:host {
   --x-check-size: 1.25rem;
   --x-check-gap: calc(var(--spacing) * 3);
   --x-check-font-size: var(--text-sm);
   --x-check-line-height: calc(1em + 0.25rem);
   --x-check-border-radius: var(--radius-md);
   --x-check-border-width: 1px;
-  --x-check-background-color: currentColor;
-  --x-check-border-color: currentColor;
+  --x-check-background-color: currentcolor;
+  --x-check-border-color: currentcolor;
   --x-check-outline-width: 2px;
   --x-check-icon-size: 1.125rem;
   --x-check-icon-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>');

@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-notice-padding-block: 1.25rem;
   --x-notice-padding-inline: 1.5rem;
   --x-notice-font-size: var(--text-sm);

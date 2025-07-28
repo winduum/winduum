@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-table-border-radius: var(--radius-xl);
   --x-table-padding-inline: 1rem;
   --x-table-cell-spacing-x: 0.625rem;

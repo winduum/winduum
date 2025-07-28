@@ -26,7 +26,8 @@
     pointer-events: none;
   }
 
-  &:where(.top), &:where(.bottom) {
+  &:where(.top),
+  &:where(.bottom) {
     &::before {
       --tw-translate-x: -50%;
 
@@ -35,7 +36,8 @@
     }
   }
 
-  &:where(.left), &:where(.right) {
+  &:where(.left),
+  &:where(.right) {
     &::before {
       --tw-translate-y: -50%;
 

@@ -1,4 +1,5 @@
-:root.dark, :host.dark {
+:root.dark,
+:host.dark {
   --default-color-scheme: dark;
   --color-main: var(--color-light);
   --color-body: var(--color-dark);

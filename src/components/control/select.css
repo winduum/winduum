@@ -13,7 +13,7 @@
     transition: var(--transition-transform);
     will-change: transform;
     grid-area: x-control-padding;
-    background-color: currentColor;
+    background-color: currentcolor;
     pointer-events: none;
     align-self: center;
     content: "";

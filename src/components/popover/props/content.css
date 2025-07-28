@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-popover-content-background-color: var(--color-body-primary);
   --x-popover-content-border-radius: var(--radius-xl);
   --x-popover-content-padding-block: calc(var(--spacing) * 2);

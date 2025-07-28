@@ -3,7 +3,8 @@
   --x-control-end: calc(var(--x-control-icon-count-end, 1) * (var(--x-control-icon-size) + var(--x-control-icon-gap)) - var(--x-control-icon-gap));
 
   &:has(textarea) {
-    :where(.me-auto), :where(.ms-auto) {
+    :where(.me-auto),
+    :where(.ms-auto) {
       align-self: start;
     }
   }
@@ -24,7 +25,8 @@
     --x-control-icon-count-end: 2;
   }
 
-  :where(.me-auto), :where(.ms-auto) {
+  :where(.me-auto),
+  :where(.ms-auto) {
     gap: var(--x-control-icon-gap);
     display: flex;
     align-items: center;

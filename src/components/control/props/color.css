@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-control-color-swatch-inline-size: 1.25rem;
   --x-control-color-swatch-block-size: 1.25rem;
   --x-control-color-swatch-border-radius: var(--radius-full);

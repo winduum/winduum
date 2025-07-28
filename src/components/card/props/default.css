@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-card-background-color: var(--color-body-primary);
   --x-card-border-radius: var(--radius-2xl);
   --x-card-padding-block: calc(var(--spacing) * 6);

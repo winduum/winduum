@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-text-content-bold: var(--font-weight-semibold);
   --x-text-content-margin-block: calc(var(--spacing) * 5);
   --x-text-list-marker-size: 0.375em;

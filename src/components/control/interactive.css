@@ -10,7 +10,8 @@
     --x-control-outline-color-opacity: var(--x-control-focus-outline-color-opacity, 20%);
   }
 
-  &.disabled, &:has(:where(input, textarea, select):disabled) {
+  &.disabled,
+  &:has(:where(input, textarea, select):disabled) {
     --x-control-background-color: var(--x-control-disabled-background-color, currentColor);
     --x-control-background-color-opacity: var(--x-control-disabled-background-color-opacity, 5%);
     --x-control-border-color: var(--x-control-disabled-border-color, currentColor);

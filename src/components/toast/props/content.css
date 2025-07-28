@@ -1,4 +1,5 @@
-:root, :host {
+:root,
+:host {
   --x-toast-content-border-radius: var(--radius-2xl);
   --x-toast-content-padding-block: calc(var(--spacing) * 3);
   --x-toast-content-padding-inline: calc(var(--spacing) * 4);

@@ -1,6 +1,7 @@
 .x-breadcrumb {
   > :where(ul, ol) {
-    &, > li {
+    &,
+    > li {
       display: flex;
       align-items: center;
     }

@@ -73,7 +73,10 @@
 }
 
 /* Improve consistency of default fonts in all browsers. */
-:where(code), :where(kbd), :where(samp), :where(pre) {
+:where(code),
+:where(kbd),
+:where(samp),
+:where(pre) {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 1em;
 }
