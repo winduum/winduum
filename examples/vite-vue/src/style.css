@@ -8,15 +8,13 @@
 @import "tailwindcss/utilities.css";
 @import "tailwindcss/variants.css";
 
-
 :root {
   font-synthesis: none;
-  text-rendering: optimizelegibility;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
 }
-
 
 body {
   display: flex;

@@ -1,21 +1,22 @@
 import { resolve } from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
+import process from 'node:process'
 
 export default {
-    plugins: [
-        tailwindcss(),
-        vue()
-    ],
-    resolve: {
-        alias: {
-            '/src': resolve(process.cwd(), 'src')
-        }
+  plugins: [
+    tailwindcss(),
+    vue(),
+  ],
+  resolve: {
+    alias: {
+      '/src': resolve(process.cwd(), 'src'),
     },
-    root: resolve(process.cwd(), 'playground'),
-    publicDir: resolve(process.cwd(), 'public'),
-    envDir: process.cwd(),
-    build: {
-        outDir: resolve(process.cwd(), 'dist')
-    }
+  },
+  root: resolve(process.cwd(), 'playground'),
+  publicDir: resolve(process.cwd(), 'public'),
+  envDir: process.cwd(),
+  build: {
+    outDir: resolve(process.cwd(), 'dist'),
+  },
 }

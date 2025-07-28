@@ -5,7 +5,7 @@
   ],
   "rules": {
     "@stylistic/selector-list-comma-newline-after": "always-multi-line",
-    "@stylistic/max-line-length": 240,
+    "@stylistic/max-line-length": [240, { "ignorePattern": "/^\\s*--default-transition-property/" }],
     "at-rule-no-unknown": [true, {"ignoreAtRules": ["layer", "tailwind", "theme", "utility", "variant", "custom-variant", "source"]}],
     "length-zero-no-unit": [true, {"ignore": ["custom-properties"]}],
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
@@ -18,5 +18,5 @@
     "selector-pseudo-element-no-unknown": [true, {"ignorePseudoElements": ["picker", "picker-icon", "checkmark"]}],
     "declaration-property-value-no-unknown": [true, {"ignoreProperties": {"appearance": ["base-select"], "-webkit-line-break": ["after-white-space"]}}]
   },
-  "ignoreFiles": ["**/+.css", "dist/**/*.css"]
+  "ignoreFiles": ["dist/**"]
 }

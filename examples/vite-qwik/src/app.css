@@ -9,12 +9,15 @@
   height: 6em;
   padding: 1.5em;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.qwik:hover {
   filter: drop-shadow(0 0 2em #673ab8aa);
 }
+
 .card {
   padding: 2em;
 }
