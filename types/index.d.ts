@@ -107,7 +107,7 @@ declare module 'winduum/src/components/dialog' {
 		openAttribute?: string
 		closedAttribute?: string
 		contentSelector?: string
-		scrollbarWidthProperty?: string
+		scrollbarWidthProperty?: string | null
 	}
 
 	export const defaultOptions: DefaultOptions

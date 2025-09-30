@@ -1,3 +1,6 @@
+## 2.2.10 (2025-09-30)
+* feat: optional scrollbarWidthProperty for `x-dialog`
+
 ## 2.2.9 (2025-07-15)
 * fix: drawer scrollState detection on some devices
 

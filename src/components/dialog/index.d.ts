@@ -5,7 +5,7 @@ export interface DefaultOptions {
     openAttribute?: string
     closedAttribute?: string
     contentSelector?: string
-    scrollbarWidthProperty?: string
+    scrollbarWidthProperty?: string | null
 }
 
 export const defaultOptions: DefaultOptions
