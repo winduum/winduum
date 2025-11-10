@@ -40,7 +40,7 @@
 
 :where(code) {
   padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
-  background: var(--color-body-secondary);
+  background-color: var(--color-body-secondary);
   border-radius: var(--radius-sm);
   color: var(--color-accent);
 }

@@ -1,3 +1,6 @@
+## 2.2.11 (2025-09-30)
+* feat: added `pre` for `x-text`
+
 ## 2.2.10 (2025-09-30)
 * feat: optional scrollbarWidthProperty for `x-dialog`
 

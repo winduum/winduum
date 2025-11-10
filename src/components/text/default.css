@@ -202,7 +202,7 @@
       var(--x-text-blockquote-border-inline-start-width, 0.375em) solid
       var(--x-text-blockquote-border-inline-start-color, var(--color-accent));
     margin-block: var(--x-text-blockquote-margin-block, var(--x-text-content-margin-block));
-    padding: var(--x-text-blockquote-padding-block, 0.5em) var(--x-text-blockquote-padding-inline, 1.25em);
+    padding: var(--x-text-blockquote-padding-block, 0) var(--x-text-blockquote-padding-inline, 1.25em);
     font-size: var(--x-text-blockquote-font-size, inherit);
   }
 
@@ -219,5 +219,20 @@
     font-weight: var(--x-text-figcaption-font-weight, var(--font-weight-semibold));
     line-height: var(--x-text-figcaption-line-height, 1.5);
     margin-block-start: var(--x-text-figcaption-margin-block-start, 0.5em);
+  }
+
+  :where(pre) {
+    padding: var(--x-text-pre-padding-block, 0.25rem) var(--x-text-pre-padding-inline, 0.5rem);
+    background-color: var(--x-text-pre-background-color, var(--color-body-secondary));
+    border-radius: var(--x-pre-border-radius, var(--radius-md));
+    scrollbar-color: var(--x-pre-scrollbar-color, currentcolor var(--color-body-secondary));
+    overflow-x: auto;
+    overscroll-behavior: contain;
+
+    > :where(code) {
+      background: transparent;
+      width: max-content;
+      color: inherit;
+    }
   }
 }
