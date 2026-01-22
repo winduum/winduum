@@ -10,6 +10,7 @@ export default {
     'alpha-value-notation': ['percentage'],
     'declaration-property-value-no-unknown': [true, { ignoreProperties: { 'appearance': ['base-select'], '-webkit-line-break': ['after-white-space'] } }],
     'import-notation': 'string',
+    'nesting-selector-no-missing-scoping-root': null,
   },
   ignoreFiles: ['dist/**', 'src/theme/config/font.css', 'src/theme/config/spacing.css'],
 }

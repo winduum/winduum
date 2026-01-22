@@ -1,3 +1,7 @@
+## 2.2.12 (2026-01-22)
+* feat: divide-gap fractional support (#22)
+* feat: deps update
+
 ## 2.2.11 (2025-09-30)
 * feat: added `pre` for `x-text`
 

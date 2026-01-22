@@ -8,9 +8,9 @@ export const accentColor = ({ value }, settings) => {
   if (matchValue) {
     if (settings.rgb) {
       colorProperties['--color-accent-rgb']
-                = `var(${matchValue[1].includes('-rgb') ? matchValue[1] : matchValue[1] + '-rgb'})`
+        = `var(${matchValue[1].includes('-rgb') ? matchValue[1] : matchValue[1] + '-rgb'})`
       colorProperties['--color-accent-foreground-rgb']
-                = `var(${matchValue[1].includes('-rgb') ? matchValue[1].replace('-rgb', '-foreground-rgb') : matchValue[1] + '-foreground-rgb, var(--color-light-rgb)'})`
+        = `var(${matchValue[1].includes('-rgb') ? matchValue[1].replace('-rgb', '-foreground-rgb') : matchValue[1] + '-foreground-rgb, var(--color-light-rgb)'})`
     }
 
     if (toColorValue(value).includes('calc(1 * 100%)') || toColorValue(value).includes(' / 1')) {
