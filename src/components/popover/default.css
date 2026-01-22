@@ -1,4 +1,27 @@
 .x-popover {
-  position: relative;
-  display: inline-block;
+  --x-popover-starting-scale: 0.75;
+  --x-popover-starting-opacity: 0;
+
+  background-color: var(--x-popover-background-color);
+  border-radius: var(--x-popover-border-radius);
+  padding: var(--x-popover-padding-block) var(--x-popover-padding-inline);
+  z-index: var(--x-popover-z-index, var(--z-index-10));
+  transition-property: var(--default-transition-property);
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: var(--default-transition-duration);
+  position: absolute;
+  inset: auto;
+  transition-behavior: allow-discrete;
+  will-change: transform;
+  inline-size: max-content;
+
+  @starting-style {
+    scale: var(--x-popover-starting-scale);
+  }
+
+  &:not(:popover-open) {
+    scale: var(--x-popover-starting-scale);
+    opacity: var(--x-popover-starting-opacity);
+    display: none;
+  }
 }

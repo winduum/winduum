@@ -1,20 +1,16 @@
-import { FlipOptions, Middleware, OffsetOptions, Placement, ShiftOptions } from "@floating-ui/dom";
+import type { ComputePositionConfig } from '@floating-ui/dom'
+import type { Placement } from '@floating-ui/utils'
 
-export interface ShowPopoverOptions {
-    anchorSelector: string,
-    openAttribute?: string
-    compute?: boolean
-    placement?: Placement
-    middleware?: Array<Middleware | null | undefined | false>
-    offset?: OffsetOptions
-    flip?: FlipOptions
-    shift?: ShiftOptions
-}
+export declare function computePositionPopover(
+  referenceElement: HTMLElement,
+  floatingElement: HTMLElement & { $currentPlacement?: string },
+  placement: Placement,
+  options?: ComputePositionConfig | boolean
+): Promise<void>
 
-export interface HidePopoverOptions {
-    openAttribute?: string
-}
-
-export function showPopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
-export function hidePopover(element: HTMLElement | Element): Promise<void>
-export function togglePopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
+export declare function autoUpdatePopover(
+  referenceElement: HTMLElement,
+  floatingElement: HTMLElement,
+  placement: Placement,
+  options?: ComputePositionConfig | boolean
+): Promise<() => void>

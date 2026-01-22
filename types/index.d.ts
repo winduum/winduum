@@ -85,34 +85,7 @@ declare module 'winduum/src/components/compare' {
 	export {};
 }
 
-declare module 'winduum/src/components/details' {
-	export interface DefaultOptions {
-		selector?: string
-		summarySelector?: string
-	}
-
-	export const defaultOptions: DefaultOptions
-	export function showDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
-	export function closeDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
-	export function toggleDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
-
-	export {};
-}
-
 declare module 'winduum/src/components/dialog' {
-	export interface DefaultOptions {
-		remove?: boolean | null
-		closable?: boolean | null
-		modal?: boolean
-		openAttribute?: string
-		closedAttribute?: string
-		contentSelector?: string
-		scrollbarWidthProperty?: string | null
-	}
-
-	export const defaultOptions: DefaultOptions
-	export function showDialog(element: HTMLDialogElement | HTMLElement, options?: DefaultOptions): Promise<void>
-	export function closeDialog(element: HTMLDialogElement | HTMLElement, options?: DefaultOptions): Promise<void>
 
 	export {};
 }
@@ -215,25 +188,21 @@ declare module 'winduum/src/components/toaster' {
 }
 
 declare module 'winduum/src/components/popover' {
-	import type { FlipOptions, Middleware, OffsetOptions, Placement, ShiftOptions } from '@floating-ui/dom';
-	export interface ShowPopoverOptions {
-		anchorSelector: string,
-		openAttribute?: string
-		compute?: boolean
-		placement?: Placement
-		middleware?: Array<Middleware | null | undefined | false>
-		offset?: OffsetOptions
-		flip?: FlipOptions
-		shift?: ShiftOptions
-	}
+	import type { ComputePositionConfig } from '@floating-ui/dom';
+	import type { Placement } from '@floating-ui/utils';
+  export function computePositionPopover(
+	referenceElement: HTMLElement,
+	floatingElement: HTMLElement & { $currentPlacement?: string },
+	placement: Placement,
+	options?: ComputePositionConfig | boolean
+  ): Promise<void>
 
-	export interface HidePopoverOptions {
-		openAttribute?: string
-	}
-
-	export function showPopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
-	export function hidePopover(element: HTMLElement | Element): Promise<void>
-	export function togglePopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
+  export function autoUpdatePopover(
+	referenceElement: HTMLElement,
+	floatingElement: HTMLElement,
+	placement: Placement,
+	options?: ComputePositionConfig | boolean
+  ): Promise<() => void>
 
 	export {};
 }

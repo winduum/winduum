@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "es2020",
     "module": "es2022",
+    "moduleResolution": "bundler",
     "allowJs": true,
     "checkJs": false,
     "outDir": "types",

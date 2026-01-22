@@ -48,6 +48,10 @@
   display: revert;
 }
 
+:where([popover]) {
+  position-anchor: auto;
+}
+
 /* Revert table vertical-align */
 :where(tr, th, td),
 :where(thead, tbody, tfoot) {

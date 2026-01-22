@@ -1,0 +1,9 @@
+:root,
+:host {
+  --x-popover-background-color: var(--color-body-primary);
+  --x-popover-border-radius: var(--radius-xl);
+  --x-popover-padding-block: calc(var(--spacing) * 2);
+  --x-popover-padding-inline: calc(var(--spacing) * 2);
+  --x-popover-scale-y: 0.75;
+  --x-popover-scale-x: 0.75;
+}
