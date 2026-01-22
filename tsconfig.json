@@ -1,6 +1,8 @@
 {
   "include": ["src/**/*"],
   "compilerOptions": {
+    "target": "es2020",
+    "module": "es2022",
     "allowJs": true,
     "checkJs": false,
     "outDir": "types",

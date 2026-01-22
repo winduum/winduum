@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "2.2.12",
+  "version": "3.0.0-next.1",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",
@@ -29,6 +29,7 @@
     "dts-buddy": "^0.6.2",
     "eslint": "^9.39.2",
     "fast-glob": "^3.3.3",
+    "invokers-polyfill": "^0.6.1",
     "postcss": "^8.5.6",
     "postcss-custom-media": "^12.0.0",
     "postcss-import": "^16.1.1",
@@ -39,7 +40,8 @@
     "tailwindcss": "^4.1.18",
     "typescript": "^5",
     "vite": "^7.3.1",
-    "vue": "^3.5.27"
+    "vue": "^3.5.27",
+    "webuum": "^0.1.0"
   },
   "files": [
     "index.js",
