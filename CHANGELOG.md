@@ -1,3 +1,7 @@
+## 2.2.13 (2026-03-03)
+* feat: minor default changes
+* feat: deps update
+
 ## 2.2.12 (2026-01-22)
 * feat: divide-gap fractional support (#22)
 * feat: deps update
