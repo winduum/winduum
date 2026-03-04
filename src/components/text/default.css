@@ -25,6 +25,7 @@
   :where(img) {
     display: block;
     height: auto;
+    border-radius: var(--x-text-img-border-radius);
   }
 
   :where(p) {
@@ -204,6 +205,9 @@
     margin-block: var(--x-text-blockquote-margin-block, var(--x-text-content-margin-block));
     padding: var(--x-text-blockquote-padding-block, 0) var(--x-text-blockquote-padding-inline, 1.25em);
     font-size: var(--x-text-blockquote-font-size, inherit);
+    font-style: var(--x-text-blockquote-font-style);
+    letter-spacing: var(--x-text-blockquote-letter-spacing, inherit);
+    line-height: var(--x-text-blockquote-line-height, inherit);
   }
 
   :where(code) {
@@ -217,8 +221,12 @@
   :where(figcaption) {
     font-size: var(--x-text-figcaption-font-size, 87.5%);
     font-weight: var(--x-text-figcaption-font-weight, var(--font-weight-semibold));
+    font-style: var(--x-text-figcaption-font-style);
     line-height: var(--x-text-figcaption-line-height, 1.5);
+    letter-spacing: var(--x-text-figcaption-letter-spacing);
     margin-block-start: var(--x-text-figcaption-margin-block-start, 0.5em);
+    padding-inline-start: var(--x-text-figcaption-padding-inline-start);
+    border-inline-start: var(--x-text-figcaption-border-inline-start);
   }
 
   :where(pre) {

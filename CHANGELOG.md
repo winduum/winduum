@@ -1,3 +1,6 @@
+## 2.2.14 (2026-03-04)
+* feat: additional properties for `x-text`
+
 ## 2.2.13 (2026-03-03)
 * feat: minor default changes
 * feat: deps update
