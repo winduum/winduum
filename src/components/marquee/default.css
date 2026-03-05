@@ -1,0 +1,15 @@
+.x-marquee {
+  > * {
+    offset:
+      shape(
+        from calc(var(--x-marquee-item-width) / -2) 50%,
+        hline by calc(
+          var(--x-marquee-sibling-count, sibling-count()) *
+          max(100% / var(--x-marquee-visible-count), var(--x-marquee-item-width) + var(--x-marquee-gap))
+        )
+      );
+    animation:
+      marquee var(--x-marquee-duration) linear infinite
+      calc(-1 * var(--x-marquee-sibling-index, sibling-index()) * var(--x-marquee-duration) / var(--x-marquee-sibling-count, sibling-count()));
+  }
+}
