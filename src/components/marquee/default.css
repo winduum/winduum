@@ -1,5 +1,5 @@
 .x-marquee {
-  > * {
+  > :where(*) {
     offset:
       shape(
         from calc(var(--x-marquee-item-inline-size) / -2) 50%,

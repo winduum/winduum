@@ -1,3 +1,6 @@
+## 2.2.15 (2026-03-05)
+* feat: added `x-marquee` component
+
 ## 2.2.14 (2026-03-04)
 * feat: additional properties for `x-text`
 
