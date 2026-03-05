@@ -2,14 +2,14 @@
   > :where(*) {
     offset:
       shape(
-        from calc(var(--x-marquee-item-inline-size) / -2) 50%,
+        from calc(var(--x-marquee-inline-size) / -2) 50%,
         hline by calc(
           var(--x-marquee-sibling-count, sibling-count()) *
-          max(100% / var(--x-marquee-visible-count), var(--x-marquee-item-inline-size) + var(--x-marquee-gap))
+          max(100% / var(--x-marquee-visible-count, 1), var(--x-marquee-inline-size) + var(--x-marquee-gap, 0px))
         )
       );
     animation:
-      marquee var(--x-marquee-animation-duration) var(--x-marquee-animation-timing-function, linear) infinite
-      calc(-1 * var(--x-marquee-sibling-index, sibling-index()) * var(--x-marquee-animation-duration) / var(--x-marquee-sibling-count, sibling-count()));
+      marquee var(--x-marquee-animation-duration, 30s) var(--x-marquee-animation-timing-function, linear) infinite
+      calc(-1 * var(--x-marquee-sibling-index, sibling-index()) * var(--x-marquee-animation-duration, 30s) / var(--x-marquee-sibling-count, sibling-count()));
   }
 }
