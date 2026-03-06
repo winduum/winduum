@@ -12,5 +12,5 @@ export default {
     'import-notation': 'string',
     'nesting-selector-no-missing-scoping-root': null,
   },
-  ignoreFiles: ['dist/**', 'src/theme/config/font.css', 'src/theme/config/spacing.css'],
+  ignoreFiles: ['dist/**', 'src/theme/config/font.css', 'src/theme/config/spacing.css', 'tailwindcss/theme/config/font.css'],
 }

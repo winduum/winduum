@@ -1,3 +1,6 @@
+## 2.2.17 (2026-03-06)
+* feat: added `--text-2xs` and `--text-2xs--line-height` tailwindcss theme variables
+
 ## 2.2.15-2.2.16 (2026-03-05)
 * feat: added `x-marquee` component
 
