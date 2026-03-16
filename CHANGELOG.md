@@ -1,3 +1,6 @@
+## 2.2.18 (2026-03-16)
+* feat: enhance default styles with extended support for SVGs, images, lists, and input types
+
 ## 2.2.17 (2026-03-06)
 * feat: added `--text-2xs` and `--text-2xs--line-height` tailwindcss theme variables
 
