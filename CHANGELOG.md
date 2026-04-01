@@ -1,3 +1,7 @@
+## 2.2.20 (2026-04-01)
+* feat: added tailwindcss link utility
+* feat: added tailwindcss interest variant
+
 ## 2.2.18-2.2.19 (2026-03-16)
 * feat: enhance default styles with extended support for SVGs, images, lists, and input types
 * feat: added `hocus` tailwindcss variant

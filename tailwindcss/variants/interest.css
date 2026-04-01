@@ -1,0 +1,11 @@
+@custom-variant interest-target {
+  &:is(:interest-target, .interest-target) {
+    @slot;
+  }
+}
+
+@custom-variant interest-source {
+  &:is(:interest-source, .interest-source) {
+    @slot;
+  }
+}
