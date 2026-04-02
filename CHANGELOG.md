@@ -1,3 +1,6 @@
+## 2.2.21 (2026-04-02)
+* feat: added new easing curves
+
 ## 2.2.20 (2026-04-01)
 * feat: added tailwindcss link utility
 * feat: added tailwindcss interest variant
