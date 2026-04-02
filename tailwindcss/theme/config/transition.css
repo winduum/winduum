@@ -10,6 +10,7 @@
   --transition-display: display var(--default-transition-duration) var(--default-transition-timing-function);
   --transition-overlay: overlay var(--default-transition-duration) var(--default-transition-timing-function);
   --view-transition-main-duration: var(--default-transition-duration);
+  --ease-anticipate: cubic-bezier(1, -0.4, 0.35, 0.95);
 }
 
 @media (prefers-reduced-motion) {
