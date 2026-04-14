@@ -1,0 +1,38 @@
+:where(svg) {
+  display: block;
+
+  &:has([href*="-outline"]) {
+    stroke-width: 1.5;
+    stroke: currentcolor;
+    fill: none;
+  }
+
+  &:has([href*="-solid"], [href*="-mini"], [href*="-micro"]) {
+    fill: currentcolor;
+  }
+}
+
+:where(img) {
+  display: block;
+  font-size: 0;
+}
+
+:where(ol:not([type]), ul, menu) {
+  padding: 0;
+  margin: 0;
+}
+
+:where([type="number"]) {
+  appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+}
+
+:where([type="search"]) {
+  &::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}

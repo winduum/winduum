@@ -11,6 +11,7 @@ export default {
     'declaration-property-value-no-unknown': [true, { ignoreProperties: { 'appearance': ['base-select'], '-webkit-line-break': ['after-white-space'] } }],
     'import-notation': 'string',
     'nesting-selector-no-missing-scoping-root': null,
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: [/^interest-(target|source)$/] }],
   },
-  ignoreFiles: ['dist/**', 'src/theme/config/font.css', 'src/theme/config/spacing.css'],
+  ignoreFiles: ['dist/**', 'src/theme/config/font.css', 'src/theme/config/spacing.css', 'tailwindcss/theme/config/font.css'],
 }

@@ -12,6 +12,8 @@
   --font-weight-light: 300;
   --font-weight-extralight: 200;
   --font-weight-thin: 100;
+  --text-2xs: 0.625rem;
+  --text-2xs--line-height: 0.75rem;
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
   --text-sm: 0.875rem;

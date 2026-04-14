@@ -1,3 +1,27 @@
+## 2.2.21 (2026-04-02)
+* feat: added new easing curves
+
+## 2.2.20 (2026-04-01)
+* feat: added tailwindcss link utility
+* feat: added tailwindcss interest variant
+
+## 2.2.18-2.2.19 (2026-03-16)
+* feat: enhance default styles with extended support for SVGs, images, lists, and input types
+* feat: added `hocus` tailwindcss variant
+
+## 2.2.17 (2026-03-06)
+* feat: added `--text-2xs` and `--text-2xs--line-height` tailwindcss theme variables
+
+## 2.2.15-2.2.16 (2026-03-05)
+* feat: added `x-marquee` component
+
+## 2.2.14 (2026-03-04)
+* feat: additional properties for `x-text`
+
+## 2.2.13 (2026-03-03)
+* feat: minor default changes
+* feat: deps update
+
 ## 2.2.12 (2026-01-22)
 * feat: divide-gap fractional support (#22)
 * feat: deps update

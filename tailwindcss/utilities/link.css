@@ -1,0 +1,9 @@
+@utility link {
+  &:where(:any-link, button:enabled, [role="button"]) {
+    transition: all var(--default-transition-duration) var(--ease-in-out);
+
+    &:is(:hover, :focus-visible) {
+      color: var(--link-hover-color, var(--color-accent));
+    }
+  }
+}

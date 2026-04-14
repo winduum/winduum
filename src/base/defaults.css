@@ -66,10 +66,13 @@
 }
 
 :where(body) {
-  min-block-size: 100%;
   background-color: var(--color-body);
   color: var(--color-main);
   accent-color: var(--color-accent);
+  min-block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
 }
 
 [hidden] {
