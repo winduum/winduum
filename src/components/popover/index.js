@@ -2,7 +2,7 @@ import { supportsAnchor } from '../../common.js'
 
 /**
  * @param {HTMLElement} referenceElement
- * @param {HTMLElement & { $currentPlacement?: string }} floatingElement
+ * @param {HTMLElement & { _currentPlacement?: import('@floating-ui/utils').Placement }} floatingElement
  * @param {import('@floating-ui/utils').Placement} placement
  * @param {import('@floating-ui/dom').ComputePositionConfig | boolean} [options={}]
  * @returns {Promise<void>}
@@ -18,7 +18,7 @@ export const computePositionPopover = async (
   const autoUpdate = options === true
   const middleware = autoUpdate ? [flip()] : []
 
-  floatingElement.classList.remove(floatingElement.$currentPlacement ?? placement)
+  floatingElement.classList.remove(floatingElement._currentPlacement ?? placement)
   floatingElement.style.setProperty('--anchor-size', !supportsAnchor ? `${referenceElement.offsetWidth}px` : '')
 
   await computePosition(referenceElement, floatingElement, {
@@ -28,7 +28,7 @@ export const computePositionPopover = async (
   }).then(({ x, y, placement }) => {
     floatingElement.style.inset = !supportsAnchor ? `${y}px auto auto ${x}px` : ''
     floatingElement.classList.add(placement)
-    floatingElement.$currentPlacement = placement
+    floatingElement._currentPlacement = placement
   })
 }
 

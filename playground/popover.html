@@ -9,27 +9,42 @@
 <body class="bg-blue-100/10 dark:bg-dark p-4 items-start gap-4 grid grid-cols-container">
 <div class="w-full flex flex-col gap-4">
     <div class="w-max">
-        <div class="x-tooltip bottom" aria-label="I am tooltip">
+        <div class="x-tooltip tooltip-bottom" aria-label="I am tooltip">
             <button class="x-button">Tooltip</button>
         </div>
     </div>
-    <div class="w-max">
-        <button class="x-button" command="toggle-popover" commandfor="popoverElement" aria-controls="popoverElement">Popover</button>
-        <div id="popoverElement" class="x-popover bottom shadow flex flex-col" popover style="--position-margin: 0.5rem">
-            <div class="x-tooltip top" aria-label="I am tooltip">
-                <button class="x-button ghosted accent-main justify-start w-full">Item 1</button>
-            </div>
-            <button class="x-button ghosted accent-main justify-start w-full" command="toggle-popover" commandfor="popoverElementInner" aria-controls="popoverElement">Item 2</button>
-            <div class="x-popover right-start shadow p-2 w-32 flex flex-col" popover id="popoverElementInner" style="--position-margin: 1rem">
-                <div class="x-tooltip right" aria-label="I am tooltip">
-                    <button class="x-button ghosted accent-main justify-start w-full">Item 1</button>
+    <div class="w-max flex gap-2">
+        <div class="w-fit">
+            <button class="x-button" command="toggle-popover" commandfor="popoverElement" aria-controls="popoverElement">Popover toggle</button>
+            <x-popover id="popoverElement" class="x-popover bottom w-(--anchor-size,anchor-size(inline)) my-(--margin)" popover style="--margin: 0.5rem">
+                <div class="x-popover-content shadow flex flex-col w-full">
+                    <div class="x-tooltip tooltip-top" aria-label="I am tooltip">
+                        <button class="x-button ghosted accent-main justify-start w-full">Item 1</button>
+                    </div>
+                    <button class="x-button ghosted accent-main justify-start w-full" command="toggle-popover" commandfor="popoverElementInner" aria-controls="popoverElement">Item 2</button>
+                    <div class="x-popover right-start mx-(--margin)" popover id="popoverElementInner" style="--margin: 1rem">
+                        <div class="x-popover-content shadow p-2 w-32 flex flex-col">
+                            <div class="x-tooltip tooltip-right" aria-label="I am tooltip">
+                                <button class="x-button ghosted accent-main justify-start w-full">Item 1</button>
+                            </div>
+                            <button class="x-button ghosted accent-main justify-start">Item 2</button>
+                        </div>
+                    </div>
                 </div>
-                <button class="x-button ghosted accent-main justify-start">Item 2</button>
-            </div>
+            </x-popover>
         </div>
         <button class="x-button" command="show-popover" commandfor="popoverElementSecond" aria-controls="popoverElementSecond">Popover</button>
-        <div class="x-popover bottom mt-12 shadow h-48" popover id="popoverElementSecond">
-            <input type="text" autofocus>
+        <x-popover class="x-popover bottom my-4" popover id="popoverElementSecond">
+            <div class="x-popover-content shadow h-48">
+                <input type="text" autofocus>
+            </div>
+        </x-popover>
+    </div>
+
+    <div class="relative group w-max mt-2">
+        <a href="#" class="x-text link">Menu item</a>
+        <div class="x-popover-content border border-body-secondary shadow-lg transition-all origin-top absolute not-group-hover:opacity-0 not-group-hover:invisible not-group-hover:scale-75">
+            Popover
         </div>
     </div>
 </div>

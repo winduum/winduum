@@ -1,71 +1,179 @@
 @utility bottom {
   position-area: block-end center;
-  transform-origin: top;
-  margin-block-start: var(--position-margin);
+  position-try-fallbacks: flip-block;
+
+  > * {
+    transform-origin: top;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: bottom;
+    }
+  }
 }
 
 @utility bottom-start {
   position-area: block-end span-inline-end;
-  transform-origin: top left;
-  margin-block-start: var(--position-margin);
+  position-try-fallbacks: flip-block;
+
+  > * {
+    transform-origin: top left;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: bottom left;
+    }
+  }
 }
 
 @utility bottom-end {
   position-area: block-end span-inline-start;
-  transform-origin: top right;
-  margin-block-start: var(--position-margin);
+  position-try-fallbacks: flip-block;
+
+  > * {
+    transform-origin: top right;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: bottom right;
+    }
+  }
 }
 
 @utility top {
   position-area: block-start center;
-  transform-origin: bottom;
-  margin-block-end: var(--position-margin);
+  position-try-fallbacks: flip-block;
+
+  > * {
+    transform-origin: bottom;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: top;
+    }
+  }
 }
 
 @utility top-start {
   position-area: block-start span-inline-end;
-  transform-origin: bottom left;
-  margin-block-end: var(--position-margin);
+  position-try-fallbacks: flip-block;
+
+  > * {
+    transform-origin: bottom left;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: top left;
+    }
+  }
 }
 
 @utility top-end {
   position-area: block-start span-inline-start;
-  transform-origin: bottom right;
-  margin-block-end: var(--position-margin);
+  position-try-fallbacks: flip-block;
+
+  > * {
+    transform-origin: bottom right;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: top right;
+    }
+  }
 }
 
 @utility left {
   position-area: inline-start center;
-  transform-origin: right;
-  margin-inline-end: var(--position-margin);
+  position-try-fallbacks: flip-inline;
+
+  > * {
+    transform-origin: right;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: left;
+    }
+  }
 }
 
 @utility left-start {
   position-area: inline-start span-block-end;
-  transform-origin: right top;
-  margin-inline-end: var(--position-margin);
+  position-try-fallbacks: flip-inline;
+
+  > * {
+    transform-origin: right top;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: left top;
+    }
+  }
 }
 
 @utility left-end {
   position-area: inline-start span-block-start;
-  transform-origin: right bottom;
-  margin-inline-end: var(--position-margin);
+  position-try-fallbacks: flip-inline;
+
+  > * {
+    transform-origin: right bottom;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: left bottom;
+    }
+  }
 }
 
 @utility right {
   position-area: inline-end center;
-  transform-origin: bottom;
-  margin-inline-start: var(--position-margin);
+  position-try-fallbacks: flip-inline;
+
+  > * {
+    transform-origin: left;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: right;
+    }
+  }
 }
 
 @utility right-start {
   position-area: inline-end span-block-end;
-  transform-origin: left top;
-  margin-inline-start: var(--position-margin);
+  position-try-fallbacks: flip-inline;
+
+  > * {
+    transform-origin: left top;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: right top;
+    }
+  }
 }
 
 @utility right-end {
   position-area: inline-end span-block-start;
-  transform-origin: left bottom;
-  margin-inline-start: var(--position-margin);
+  position-try-fallbacks: flip-inline;
+
+  > * {
+    transform-origin: left bottom;
+  }
+
+  @container anchored(fallback: flip-block) {
+    > * {
+      transform-origin: right bottom;
+    }
+  }
 }

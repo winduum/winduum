@@ -1,0 +1,15 @@
+.x-popover-content {
+  background-color: var(--x-popover-content-background-color);
+  border-radius: var(--x-popover-content-border-radius);
+  padding: var(--x-popover-content-padding-block) var(--x-popover-content-padding-inline);
+  transition: inherit;
+  will-change: transform;
+
+  @starting-style {
+    scale: var(--x-popover-content-starting-scale);
+  }
+
+  :where(.x-popover:not(:popover-open)) > & {
+    scale: var(--x-popover-content-starting-scale);
+  }
+}
