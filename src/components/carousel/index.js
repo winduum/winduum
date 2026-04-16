@@ -1,142 +1,92 @@
 /**
- * @param {HTMLElement | Element} element
+ * @param {HTMLElement} element
+ * @param {object} options
+ * @param {number} [options.direction=1]
+ * @param {number} [options.distance]
+ * @param {'left' | 'top'} [options.position='left']
+ * @param {number} [options.ratio=0.85]
+ * @returns void
+ */
+export const scrollBy = (element, { direction = 1, distance, position = 'left', ratio = 0.85 }) => {
+  distance ??= element.clientWidth * ratio
+
+  element.scrollBy({
+    [position]: distance * direction,
+  })
+}
+
+/**
+ * @param {HTMLElement} element
+ * @param {object} options
+ * @param {HTMLButtonElement | null} [options.prevElement]
+ * @param {HTMLButtonElement | null} [options.nextElement]
+ * @param {boolean} [options.scrollStart]
+ * @param {boolean} [options.scrollEnd]
+ * @param {boolean} [options.scrollNone]
+ * @returns void
+ */
+export const toggleScrollState = (element, { prevElement, nextElement, scrollStart, scrollEnd, scrollNone }) => {
+  scrollStart ??= element.scrollLeft <= 0
+  scrollEnd ??= element.scrollLeft >= element.scrollWidth - element.clientWidth
+  scrollNone ??= element.scrollWidth - element.clientWidth === 0
+
+  if (prevElement) prevElement.disabled = scrollStart
+  if (nextElement) nextElement.disabled = scrollEnd
+
+  element.toggleAttribute('data-scroll-start', scrollStart)
+  element.toggleAttribute('data-scroll-end', scrollEnd)
+  element.toggleAttribute('data-scroll-none', scrollNone)
+}
+
+/**
+ * @param {HTMLElement} element
  * @param {number} index
+ * @param {string} [attributeName='data-current']
  * @returns void
  */
-export const scrollTo = (element, index = 0) => {
-  const scrollPaddingLeft = parseInt(getComputedStyle(element).scrollPaddingLeft)
-
-  element.scroll({ left: element?.children[index]?.offsetLeft - (isNaN(scrollPaddingLeft) ? 0 : scrollPaddingLeft) })
+export const setCurrentAttribute = (element, index, attributeName = 'data-current') => {
+  [...element.children].forEach(el => el.removeAttribute(attributeName))
+  element.children[index].setAttribute(attributeName, '')
 }
 
 /**
- * @param {HTMLElement | Element & { _activeIndex: number }} element
- * @returns void
- */
-export const scrollPrev = (element) => {
-  scrollTo(element, element._activeIndex - 1)
-}
-
-/**
- * @param {HTMLElement | Element & { _activeIndex: number }} element
- * @returns void
- */
-export const scrollNext = (element) => {
-  scrollTo(element, element._activeIndex + 1)
-}
-
-/**
- * @param {HTMLElement | Element} element
- * @param {number} scrollWidth
- * @param {boolean} mathFloor
+ * @param {HTMLElement & { _markerIndex?: number | null }} element
+ * @param {HTMLElement} target
+ * @param {HTMLElement | null} markerGroupElement
  * @returns number
  */
-export const getItemCount = (element, scrollWidth = element.scrollWidth - element.clientWidth, mathFloor = false) => {
-  const gap = parseInt(getComputedStyle(element).rowGap)
-  const mathRound = (value, floor) => floor ? Math.floor(value) : Math.ceil(value)
+export const setSnappedAttribute = (element, target, markerGroupElement) => {
+  const snappedIndex = [...element.children].indexOf(target)
+  const index = element._markerIndex ?? snappedIndex
 
-  return [...element.children].reduce((count, children) => {
-    if (mathRound(scrollWidth / (children.offsetWidth + (isNaN(gap) ? 0 : gap)), mathFloor) > count) {
-      return count + 1
-    }
-    else {
-      return count
-    }
-  }, 0) + 1
+  setCurrentAttribute(element, snappedIndex, 'data-snapped')
+
+  if (markerGroupElement) setCurrentAttribute(markerGroupElement, index)
+
+  element._markerIndex = null
+
+  return index
 }
 
 /**
- * @param {HTMLElement | Element} element
- * @param {import("./").ObserveCarouselOptions} options
- * @returns IntersectionObserver
+ * @param {HTMLElement & { _markerIndex?: number | null }} element
+ * @param {HTMLElement} target
+ * @param {HTMLElement} markerGroupElement
+ * @returns number
  */
-export const observeCarousel = (element, options = {}) => {
-  options = {
-    visibleAttribute: 'data-visible',
-    observerOptions: {},
-    ...options,
-  }
+export const scrollToMarker = (element, target, markerGroupElement) => {
+  const index = [...markerGroupElement.children].indexOf(target)
 
-  element._observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      entry.target.toggleAttribute(options.visibleAttribute, entry.isIntersecting)
-    })
+  element._markerIndex = index
 
-    const activeElement = [...element.children].find(children => children.hasAttribute(options.visibleAttribute))
+  setCurrentAttribute(markerGroupElement, index)
 
-    if (activeElement) {
-      element._activeIndex = [...element.children].indexOf(activeElement)
-    }
-  }, {
-    root: element,
-    threshold: 0.75,
-    ...options.observerOptions,
+  element.children[index]?.scrollIntoView({
+    inline: 'start',
+    block: 'nearest',
   })
 
-  ;[...element.children].forEach(children => element._observer.observe(children))
-
-  return element._observer
-}
-
-/**
- * @param {HTMLElement | Element} element
- * @param {import("./").ScrollCarouselOptions} options
- * @returns void
- */
-export const scrollCarousel = (element, options = {}) => {
-  options.pagination = {
-    activeAttribute: 'data-active',
-    ...options.pagination,
-  }
-
-  const activeItem = getItemCount(element, element.scrollLeft, element.scrollLeft < element._lastScrollLeft)
-  const activeItemMax = getItemCount(element)
-
-  if (options?.pagination?.element) {
-    ;[...options.pagination.element.children].forEach(children => children.removeAttribute(options.pagination.activeAttribute))
-
-    options.pagination.element.children[activeItem - 1]?.setAttribute(options.pagination.activeAttribute, '')
-  }
-
-  if (options.progressElement) {
-    options.progressElement.value = activeItem / activeItemMax * 100
-  }
-
-  if (options.counterMinElement) {
-    options.counterMinElement.innerHTML = `${activeItem}`
-  }
-
-  if (options.counterMaxElement) {
-    options.counterMaxElement.innerHTML = `${activeItemMax}`
-  }
-
-  element._lastScrollLeft = element.scrollLeft <= 0 ? 0 : element.scrollLeft
-}
-
-/**
- * @param {HTMLElement | Element} element
- * @param {import("./").PaginationCarouselOptions} options
- * @returns void
- */
-export const paginationCarousel = (element, options = {}) => {
-  options = {
-    itemContent: '<div aria-hidden="true"></div>',
-    activeAttribute: 'data-active',
-    ...options,
-  }
-
-  if (!options.element) return
-
-  options.element.insertAdjacentHTML('beforeend', [...Array(getItemCount(element))].map(
-    () => options.itemContent,
-  ).join(''))
-
-  ;[...options.element.children].forEach((children, i) => {
-    (i === 0) && children.setAttribute(options.activeAttribute, '')
-    children.addEventListener('click', ({ currentTarget }) => {
-      scrollTo(element, [...options.element.children].indexOf(currentTarget))
-    })
-  })
+  return index
 }
 
 /**
@@ -161,11 +111,13 @@ export const autoplayCarousel = (element, options = {}) => {
   setInterval(() => {
     if (paused) return
 
+    // TODO vertical support
     if (element.scrollLeft < element.scrollWidth - element.clientWidth) {
-      scrollNext(element)
+      scrollBy(1)
     }
     else {
-      scrollTo(element, 0)
+      // TODO
+      element.scrollTo(0, 0)
     }
   }, options.delay)
 }
@@ -194,7 +146,8 @@ export const dragCarousel = (element, options = {}) => {
     isDown = false
     element.removeAttribute(options.activeAttribute)
 
-    scrollTo(element, element._activeIndex)
+    // TODO
+    // scrollTo(element, element._activeIndex)
 
     clearTimeout(timeout)
 
