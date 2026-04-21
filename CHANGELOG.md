@@ -1,4 +1,7 @@
-## 2.2.21 (2026-04-02)
+## 2.2.22 (2026-04-21)
+* feat: added tailwindcss grid-area utility
+
+* ## 2.2.21 (2026-04-02)
 * feat: added new easing curves
 
 ## 2.2.20 (2026-04-01)
