@@ -1,3 +1,8 @@
+## 2.2.23 (2026-04-22)
+* feat: added experimenta animation-timeline and animation-trigger support
+* feat: added tailwindcss radius variables based on calculated values
+* feat(possible-bc): deprecated `--radius` now uses the base xs radius `0.125rem` instead of xl `var(--radius-xl)`
+
 ## 2.2.22 (2026-04-21)
 * feat: added tailwindcss grid-area utility
 

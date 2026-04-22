@@ -1,3 +1,51 @@
 @utility animation-* {
   animation-name: --value(--animation-*, [family-name]);
 }
+
+@utility from-translate-y-* {
+  --tw-animation-from-translate-y: --value([length]);
+  --tw-animation-from-translate-y: calc(var(--spacing) * --value(number, [number]));
+}
+
+@utility from-translate-x-* {
+  --tw-animation-from-translate-x: --value([length]);
+  --tw-animation-from-translate-x: calc(var(--spacing) * --value(number, [number]));
+}
+
+@utility to-translate-y-* {
+  --tw-animation-to-translate-y: --value([length]);
+  --tw-animation-to-translate-y: calc(var(--spacing) * --value(number, [number]));
+}
+
+@utility to-translate-x-* {
+  --tw-animation-to-translate-x: --value([length]);
+  --tw-animation-to-translate-x: calc(var(--spacing) * --value(number, [number]));
+}
+
+@utility from-opacity-* {
+  --tw-animation-from-opacity: --value(percentage, [percentage]);
+  --tw-animation-from-opacity: calc(--value(integer) * 1%);
+}
+
+@utility to-opacity-* {
+  --tw-animation-to-opacity: --value(percentage, [percentage]);
+  --tw-animation-to-opacity: calc(--value(integer) * 1%);
+}
+
+@utility from-scale-* {
+  --tw-animation-from-scale: --value(percentage, [percentage]);
+  --tw-animation-from-scale: calc(--value(integer) * 1%);
+}
+
+@utility to-scale-* {
+  --tw-animation-to-scale: --value(percentage, [percentage]);
+  --tw-animation-to-scale: calc(--value(integer) * 1%);
+}
+
+@utility from-rotate-* {
+  --tw-animation-from-rotate: --value(angle, [angle]);
+}
+
+@utility to-rotate-* {
+  --tw-animation-to-rotate: --value(angle, [angle]);
+}

@@ -1,0 +1,38 @@
+@utility timeline-trigger-reveal {
+  timeline-trigger: --reveal view() entry var(--tw-timeline-trigger-entry, 20%) exit var(--tw-timeline-trigger-exit, 0%);
+  trigger-scope: --reveal;
+}
+
+@utility timeline-trigger-* {
+  timeline-trigger: --value([*]) view() entry var(--tw-timeline-trigger-entry, 20%) exit var(--tw-timeline-trigger-exit, 0%);
+  trigger-scope: --value([*]);
+}
+
+@utility animation-trigger-reveal {
+  animation-duration: var(--animation-duration, 1.75s);
+  animation-timing-function: var(--animation-timing-function, var(--ease-emphasized));
+  animation-fill-mode: var(--animation-fill-mode, both);
+  animation-trigger: --reveal var(--animation-trigger-action, play-once);
+
+  @supports (timeline-trigger-name: --v) {
+    animation-name: reveal;
+  }
+
+  @supports not (timeline-trigger-name: --v) {
+    &:is([data-in]),
+    :is([data-in]) & {
+      animation-name: reveal;
+    }
+  }
+}
+
+@utility animation-trigger-* {
+  animation-duration: var(--animation-duration, 1.75s);
+  animation-timing-function: var(--animation-timing-function, var(--ease-emphasized));
+  animation-fill-mode: var(--animation-fill-mode, both);
+  animation-trigger: --modifier([*]) var(--animation-trigger-action, play-once);
+
+  @supports (timeline-trigger: --v) {
+    animation-name: --value([*]);
+  }
+}

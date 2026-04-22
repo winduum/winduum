@@ -1,5 +1,7 @@
 @import "./accent.css";
 @import "./animation.css";
+@import "./animation-timeline.css";
+@import "./animation-trigger.css";
 @import "./divide-gap.css";
 @import "./divider.css";
 @import "./dot.css";
