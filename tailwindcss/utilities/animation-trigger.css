@@ -13,13 +13,10 @@
   animation-timing-function: var(--tw-animation-timing-function, var(--ease-emphasized));
   animation-fill-mode: var(--tw-animation-fill-mode, both);
   animation-trigger: --enter var(--tw-animation-trigger-action, play-once);
+  animation-name: enter;
 
   @media (prefers-reduced-motion) {
     animation: none;
-  }
-
-  @supports (timeline-trigger-name: --v) {
-    animation-name: enter;
   }
 }
 
@@ -28,12 +25,9 @@
   animation-timing-function: var(--tw-animation-timing-function, var(--ease-emphasized));
   animation-fill-mode: var(--tw-animation-fill-mode, both);
   animation-trigger: --modifier([*]) var(--tw-animation-trigger-action, play-once);
+  animation-name: --value([*]);
 
   @media (prefers-reduced-motion) {
     animation: none;
-  }
-
-  @supports (timeline-trigger: --v) {
-    animation-name: --value([*]);
   }
 }

@@ -1,4 +1,4 @@
-## 2.2.23-2.2.24 (2026-04-22)
+## 2.2.23-2.2.25 (2026-04-22)
 * feat: added experimental animation-timeline and animation-trigger support
 * feat: added enter and exit keyframes and tailwindcss related utilities
 * feat: added tailwindcss radius variables based on calculated values
