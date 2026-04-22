@@ -1,6 +1,6 @@
-@utility timeline-trigger-reveal {
-  timeline-trigger: --reveal view() entry var(--tw-timeline-trigger-entry, 20%) exit var(--tw-timeline-trigger-exit, 0%);
-  trigger-scope: --reveal;
+@utility timeline-trigger-enter {
+  timeline-trigger: --enter view() entry var(--tw-timeline-trigger-entry, 20%) exit var(--tw-timeline-trigger-exit, 0%);
+  trigger-scope: --enter;
 }
 
 @utility timeline-trigger-* {
@@ -8,29 +8,29 @@
   trigger-scope: --value([*]);
 }
 
-@utility animation-trigger-reveal {
-  animation-duration: var(--animation-duration, 1.75s);
-  animation-timing-function: var(--animation-timing-function, var(--ease-emphasized));
-  animation-fill-mode: var(--animation-fill-mode, both);
-  animation-trigger: --reveal var(--animation-trigger-action, play-once);
+@utility animation-trigger-enter {
+  animation-duration: var(--tw-animation-duration, 1.75s);
+  animation-timing-function: var(--tw-animation-timing-function, var(--ease-emphasized));
+  animation-fill-mode: var(--tw-animation-fill-mode, both);
+  animation-trigger: --enter var(--tw-animation-trigger-action, play-once);
 
   @supports (timeline-trigger-name: --v) {
-    animation-name: reveal;
+    animation-name: enter;
   }
 
   @supports not (timeline-trigger-name: --v) {
     &:is([data-in]),
     :is([data-in]) & {
-      animation-name: reveal;
+      animation-name: enter;
     }
   }
 }
 
 @utility animation-trigger-* {
-  animation-duration: var(--animation-duration, 1.75s);
-  animation-timing-function: var(--animation-timing-function, var(--ease-emphasized));
-  animation-fill-mode: var(--animation-fill-mode, both);
-  animation-trigger: --modifier([*]) var(--animation-trigger-action, play-once);
+  animation-duration: var(--tw-animation-duration, 1.75s);
+  animation-timing-function: var(--tw-animation-timing-function, var(--ease-emphasized));
+  animation-fill-mode: var(--tw-animation-fill-mode, both);
+  animation-trigger: --modifier([*]) var(--tw-animation-trigger-action, play-once);
 
   @supports (timeline-trigger: --v) {
     animation-name: --value([*]);

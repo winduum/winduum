@@ -15,3 +15,35 @@
     opacity: 0%;
   }
 }
+
+@keyframes enter {
+  from {
+    opacity: var(--tw-animation-from-opacity, 0%);
+    translate: var(--tw-animation-from-translate-x, 0) var(--tw-animation-from-translate-y, 0);
+    scale: var(--tw-animation-from-scale, none);
+    rotate: var(--tw-animation-from-rotate, none);
+  }
+
+  to {
+    opacity: var(--tw-animation-to-opacity, 100%);
+    translate: var(--tw-animation-to-translate-x, 0) var(--tw-animation-to-translate-y, 0);
+    scale: var(--tw-animation-to-scale, none);
+    rotate: var(--tw-animation-to-rotate, none);
+  }
+}
+
+@keyframes exit {
+  from {
+    opacity: var(--tw-animation-from-opacity, 100%);
+    translate: var(--tw-animation-from-translate-x, 0) var(--tw-animation-from-translate-y, 0);
+    scale: var(--tw-animation-from-scale, none);
+    rotate: var(--tw-animation-from-rotate, none);
+  }
+
+  to {
+    opacity: var(--tw-animation-to-opacity, 0%);
+    translate: var(--tw-animation-to-translate-x, 0) var(--tw-animation-to-translate-y, 0);
+    scale: var(--tw-animation-to-scale, none);
+    rotate: var(--tw-animation-to-rotate, none);
+  }
+}

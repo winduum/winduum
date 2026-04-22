@@ -7,19 +7,39 @@
   --tw-animation-from-translate-y: calc(var(--spacing) * --value(number, [number]));
 }
 
-@utility from-translate-x-* {
-  --tw-animation-from-translate-x: --value([length]);
-  --tw-animation-from-translate-x: calc(var(--spacing) * --value(number, [number]));
-}
-
 @utility to-translate-y-* {
   --tw-animation-to-translate-y: --value([length]);
   --tw-animation-to-translate-y: calc(var(--spacing) * --value(number, [number]));
 }
 
+@utility -from-translate-y-* {
+  --tw-animation-from-translate-y: calc(--value([length]) * -1);
+  --tw-animation-from-translate-y: calc(var(--spacing) * --value(number, [number]) * -1);
+}
+
+@utility -to-translate-y-* {
+  --tw-animation-to-translate-y: calc(--value([length]) * -1);
+  --tw-animation-to-translate-y: calc(var(--spacing) * --value(number, [number]) * -1);
+}
+
+@utility from-translate-x-* {
+  --tw-animation-from-translate-x: --value([length]);
+  --tw-animation-from-translate-x: calc(var(--spacing) * --value(number, [number]));
+}
+
 @utility to-translate-x-* {
   --tw-animation-to-translate-x: --value([length]);
   --tw-animation-to-translate-x: calc(var(--spacing) * --value(number, [number]));
+}
+
+@utility -from-translate-x-* {
+  --tw-animation-from-translate-x: calc(--value([length]) * -1);
+  --tw-animation-from-translate-x: calc(var(--spacing) * --value(number, [number]) * -1);
+}
+
+@utility -to-translate-x-* {
+  --tw-animation-to-translate-x: calc(--value([length]) * -1);
+  --tw-animation-to-translate-x: calc(var(--spacing) * --value(number, [number]) * -1);
 }
 
 @utility from-opacity-* {
@@ -32,6 +52,16 @@
   --tw-animation-to-opacity: calc(--value(integer) * 1%);
 }
 
+@utility -from-opacity-* {
+  --tw-animation-from-opacity: calc(--value([percentage]) * -1);
+  --tw-animation-from-opacity: calc(--value(integer) * -1 * 1%);
+}
+
+@utility -to-opacity-* {
+  --tw-animation-to-opacity: calc(--value([percentage]) * -1);
+  --tw-animation-to-opacity: calc(--value(integer) * -1 * 1%);
+}
+
 @utility from-scale-* {
   --tw-animation-from-scale: --value(percentage, [percentage]);
   --tw-animation-from-scale: calc(--value(integer) * 1%);
@@ -42,10 +72,20 @@
   --tw-animation-to-scale: calc(--value(integer) * 1%);
 }
 
+@utility -from-scale-* {
+  --tw-animation-from-scale: calc(--value([percentage]) * -1);
+  --tw-animation-from-scale: calc(--value(integer) * -1 * 1%);
+}
+
+@utility -to-scale-* {
+  --tw-animation-to-scale: calc(--value([percentage]) * -1);
+  --tw-animation-to-scale: calc(--value(integer) * -1 * 1%);
+}
+
 @utility from-rotate-* {
-  --tw-animation-from-rotate: --value(angle, [angle]);
+  --tw-animation-from-rotate: --value([*]);
 }
 
 @utility to-rotate-* {
-  --tw-animation-to-rotate: --value(angle, [angle]);
+  --tw-animation-to-rotate: --value([*]);
 }

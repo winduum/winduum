@@ -1,5 +1,6 @@
 ## 2.2.23 (2026-04-22)
-* feat: added experimenta animation-timeline and animation-trigger support
+* feat: added experimental animation-timeline and animation-trigger support
+* feat: added enter and exit keyframes and tailwindcss related utilities
 * feat: added tailwindcss radius variables based on calculated values
 * feat(possible-bc): deprecated `--radius` now uses the base xs radius `0.125rem` instead of xl `var(--radius-xl)`
 
