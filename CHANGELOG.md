@@ -1,3 +1,6 @@
+## 2.2.26 (2026-04-23)
+* feat: added experimental scroll-state tailwindcss variants
+
 ## 2.2.23-2.2.25 (2026-04-22)
 * feat: added experimental animation-timeline and animation-trigger support
 * feat: added enter and exit keyframes and tailwindcss related utilities
