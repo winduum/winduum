@@ -5,6 +5,7 @@
 		"PluginOptions",
 		"defaultConfig",
 		"createPlugin",
+		"supportsTimelineTrigger",
 		"ObserveCarouselOptions",
 		"PaginationCarouselOptions",
 		"ScrollCarouselOptions",
@@ -65,6 +66,7 @@
 	],
 	"sources": [
 		"../plugin/index.d.ts",
+		"../src/supports.js",
 		"../src/components/carousel/index.d.ts",
 		"../src/components/compare/index.d.ts",
 		"../src/components/details/index.d.ts",
@@ -93,8 +95,9 @@
 		null,
 		null,
 		null,
+		null,
 		null
 	],
-	"mappings": ";;kBAEiBA,aAAaA;;;;;;;;;;;;;;;;;;;;cAoBjBC,aAAaA;;yBAEFC,YAAYA;;;;;;kBCxBnBC,sBAAsBA;;;;;;;;kBAQtBC,yBAAyBA;;;;;;kBAMzBC,qBAAqBA;;;;;;;;kBAQrBC,uBAAuBA;;;;;kBAKvBC,mBAAmBA;;;;iBAIpBC,UAAUA;iBACVC,UAAUA;iBACVC,QAAQA;iBACRC,YAAYA;iBACZC,eAAeA;iBACfC,cAAcA;iBACdC,kBAAkBA;iBAClBC,gBAAgBA;iBAChBC,YAAYA;;;;;;kBCvCXC,kBAAkBA;;;;;iBAKnBC,WAAWA;iBACXC,eAAeA;iBACfC,YAAYA;;;;;;kBCPXC,cAAcA;;;;;cAKlBC,cAAcA;iBACXC,WAAWA;iBACXC,YAAYA;iBACZC,aAAaA;;;;;;kBCRZJ,cAAcA;;;;;;;;;;cAUlBC,cAAcA;iBACXI,UAAUA;iBACVC,WAAWA;;;;;;kBCZVC,mBAAmBA;;;;;;;;;;iBAUpBC,UAAUA;iBACVC,WAAWA;iBACXC,gBAAgBA;iBAChBC,sBAAsBA;iBACtBC,iBAAiBA;iBACjBC,YAAYA;;;;;;kBCfXC,mBAAmBA;;;;;;;;kBAQnBC,oBAAoBA;;;;;;;;;;;;;;;;;;;iBAmBrBC,YAAYA;iBACZC,aAAaA;;;;;;WC5BnBC,gBAAgBA;;;;;iBAKVC,SAASA;;;;;;kBCLRC,gBAAgBA;;;;;;;kBAOhBC,iBAAiBA;;;;;;iBAMlBC,UAAUA;iBACVC,SAASA;;;;;;kBCdRF,iBAAiBA;;;;;iBAKlBG,YAAYA;;;;;;;kBCHXC,kBAAkBA;;;;;;;;;;;kBAWlBC,kBAAkBA;;;;iBAInBC,WAAWA;iBACXC,WAAWA;iBACXC,aAAaA;;;;;;kBCnBZC,uBAAuBA;;;;;;;kBAOvBC,eAAeA;;;;;kBAKfC,gBAAgBA;;;;;iBAKjBC,gBAAgBA;iBAChBC,QAAQA;iBACRC,cAAcA;;;;;;kBCnBbC,eAAeA;;;;;;iBAMhBC,UAAUA;;;;;;iBCNVC,UAAUA",
+	"mappings": ";;kBAEiBA,aAAaA;;;;;;;;;;;;;;;;;;;;cAoBjBC,aAAaA;;yBAEFC,YAAYA;;;;;;cCrBvBC,uBAAuBA;;;;;;kBCHnBC,sBAAsBA;;;;;;;;kBAQtBC,yBAAyBA;;;;;;kBAMzBC,qBAAqBA;;;;;;;;kBAQrBC,uBAAuBA;;;;;kBAKvBC,mBAAmBA;;;;iBAIpBC,UAAUA;iBACVC,UAAUA;iBACVC,QAAQA;iBACRC,YAAYA;iBACZC,eAAeA;iBACfC,cAAcA;iBACdC,kBAAkBA;iBAClBC,gBAAgBA;iBAChBC,YAAYA;;;;;;kBCvCXC,kBAAkBA;;;;;iBAKnBC,WAAWA;iBACXC,eAAeA;iBACfC,YAAYA;;;;;;kBCPXC,cAAcA;;;;;cAKlBC,cAAcA;iBACXC,WAAWA;iBACXC,YAAYA;iBACZC,aAAaA;;;;;;kBCRZJ,cAAcA;;;;;;;;;;cAUlBC,cAAcA;iBACXI,UAAUA;iBACVC,WAAWA;;;;;;kBCZVC,mBAAmBA;;;;;;;;;;iBAUpBC,UAAUA;iBACVC,WAAWA;iBACXC,gBAAgBA;iBAChBC,sBAAsBA;iBACtBC,iBAAiBA;iBACjBC,YAAYA;;;;;;kBCfXC,mBAAmBA;;;;;;;;kBAQnBC,oBAAoBA;;;;;;;;;;;;;;;;;;;iBAmBrBC,YAAYA;iBACZC,aAAaA;;;;;;WC5BnBC,gBAAgBA;;;;;iBAKVC,SAASA;;;;;;kBCLRC,gBAAgBA;;;;;;;kBAOhBC,iBAAiBA;;;;;;iBAMlBC,UAAUA;iBACVC,SAASA;;;;;;kBCdRF,iBAAiBA;;;;;iBAKlBG,YAAYA;;;;;;;kBCHXC,kBAAkBA;;;;;;;;;;;kBAWlBC,kBAAkBA;;;;iBAInBC,WAAWA;iBACXC,WAAWA;iBACXC,aAAaA;;;;;;kBCnBZC,uBAAuBA;;;;;;;kBAOvBC,eAAeA;;;;;kBAKfC,gBAAgBA;;;;;iBAKjBC,gBAAgBA;iBAChBC,QAAQA;iBACRC,cAAcA;;;;;;kBCnBbC,eAAeA;;;;;;iBAMhBC,UAAUA;;;;;;iBCNVC,UAAUA",
 	"ignoreList": []
 }

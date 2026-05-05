@@ -27,6 +27,12 @@ declare module 'winduum' {
 	export {};
 }
 
+declare module 'winduum/supports' {
+	export const supportsTimelineTrigger: boolean;
+
+	export {};
+}
+
 declare module 'winduum/src/components/carousel' {
 	export interface ObserveCarouselOptions {
 		visibleAttribute?: string

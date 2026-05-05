@@ -58,6 +58,10 @@
       "import": "./plugin/index.js",
       "default": "./plugin/index.js"
     },
+    "./supports": {
+      "types": "./types/index.d.ts",
+      "default": "./src/supports.js"
+    },
     "./src/*": "./src/*",
     "./tailwindcss/*": "./tailwindcss/*",
     "./dist/*": "./dist/*",
