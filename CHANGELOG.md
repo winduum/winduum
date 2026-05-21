@@ -1,3 +1,6 @@
+## 2.2.27 (2026-05-21)
+* feat: added experimental timelineTrigger polyfill and supports helpers
+
 ## 2.2.26 (2026-04-23)
 * feat: added experimental scroll-state tailwindcss variants
 
