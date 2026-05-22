@@ -30,6 +30,8 @@ declare module 'winduum' {
 declare module 'winduum/supports' {
 	export const supportsTimelineTrigger: boolean;
 
+	export const supportsInterestFor: boolean;
+
 	export {};
 }
 
