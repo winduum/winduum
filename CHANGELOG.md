@@ -1,3 +1,6 @@
+## 2.2.28 (2026-05-22)
+* feat: added supportsInterestFor support check
+
 ## 2.2.27 (2026-05-21)
 * feat: added experimental timelineTrigger polyfill and supports helpers
 
