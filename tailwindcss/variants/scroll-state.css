@@ -1,0 +1,245 @@
+@variant scrollable-none {
+  @container scroll-state(scrollable: none) {
+    @slot;
+  }
+}
+
+@variant scrollable-top {
+  @container scroll-state(scrollable: top) {
+    @slot;
+  }
+}
+
+@variant scrollable-right {
+  @container scroll-state(scrollable: right) {
+    @slot;
+  }
+}
+
+@variant scrollable-bottom {
+  @container scroll-state(scrollable: bottom) {
+    @slot;
+  }
+}
+
+@variant scrollable-left {
+  @container scroll-state(scrollable: left) {
+    @slot;
+  }
+}
+
+@variant scrollable-x {
+  @container scroll-state(scrollable: x) {
+    @slot;
+  }
+}
+
+@variant scrollable-y {
+  @container scroll-state(scrollable: y) {
+    @slot;
+  }
+}
+
+@variant scrollable-block-start {
+  @container scroll-state(scrollable: block-start) {
+    @slot;
+  }
+}
+
+@variant scrollable-block-end {
+  @container scroll-state(scrollable: block-end) {
+    @slot;
+  }
+}
+
+@variant scrollable-inline-start {
+  @container scroll-state(scrollable: inline-start) {
+    @slot;
+  }
+}
+
+@variant scrollable-inline-end {
+  @container scroll-state(scrollable: inline-end) {
+    @slot;
+  }
+}
+
+@variant scrollable-block {
+  @container scroll-state(scrollable: block) {
+    @slot;
+  }
+}
+
+@variant scrollable-inline {
+  @container scroll-state(scrollable: inline) {
+    @slot;
+  }
+}
+
+@variant scrolled-none {
+  @container scroll-state(scrolled: none) {
+    @slot;
+  }
+}
+
+@variant scrolled-top {
+  @container scroll-state(scrolled: top) {
+    @slot;
+  }
+}
+
+@variant scrolled-right {
+  @container scroll-state(scrolled: right) {
+    @slot;
+  }
+}
+
+@variant scrolled-bottom {
+  @container scroll-state(scrolled: bottom) {
+    @slot;
+  }
+}
+
+@variant scrolled-left {
+  @container scroll-state(scrolled: left) {
+    @slot;
+  }
+}
+
+@variant scrolled-x {
+  @container scroll-state(scrolled: x) {
+    @slot;
+  }
+}
+
+@variant scrolled-y {
+  @container scroll-state(scrolled: y) {
+    @slot;
+  }
+}
+
+@variant scrolled-block-start {
+  @container scroll-state(scrolled: block-start) {
+    @slot;
+  }
+}
+
+@variant scrolled-block-end {
+  @container scroll-state(scrolled: block-end) {
+    @slot;
+  }
+}
+
+@variant scrolled-inline-start {
+  @container scroll-state(scrolled: inline-start) {
+    @slot;
+  }
+}
+
+@variant scrolled-inline-end {
+  @container scroll-state(scrolled: inline-end) {
+    @slot;
+  }
+}
+
+@variant scrolled-block {
+  @container scroll-state(scrolled: block) {
+    @slot;
+  }
+}
+
+@variant scrolled-inline {
+  @container scroll-state(scrolled: inline) {
+    @slot;
+  }
+}
+
+@variant snapped-none {
+  @container scroll-state(snapped: none) {
+    @slot;
+  }
+}
+
+@variant snapped-x {
+  @container scroll-state(snapped: x) {
+    @slot;
+  }
+}
+
+@variant snapped-y {
+  @container scroll-state(snapped: y) {
+    @slot;
+  }
+}
+
+@variant snapped-block {
+  @container scroll-state(snapped: block) {
+    @slot;
+  }
+}
+
+@variant snapped-inline {
+  @container scroll-state(snapped: inline) {
+    @slot;
+  }
+}
+
+@variant snapped-both {
+  @container scroll-state(snapped: both) {
+    @slot;
+  }
+}
+
+@variant stuck-none {
+  @container scroll-state(stuck: none) {
+    @slot;
+  }
+}
+
+@variant stuck-top {
+  @container scroll-state(stuck: top) {
+    @slot;
+  }
+}
+
+@variant stuck-right {
+  @container scroll-state(stuck: right) {
+    @slot;
+  }
+}
+
+@variant stuck-bottom {
+  @container scroll-state(stuck: bottom) {
+    @slot;
+  }
+}
+
+@variant stuck-left {
+  @container scroll-state(stuck: left) {
+    @slot;
+  }
+}
+
+@variant stuck-block-start {
+  @container scroll-state(stuck: block-start) {
+    @slot;
+  }
+}
+
+@variant stuck-block-end {
+  @container scroll-state(stuck: block-end) {
+    @slot;
+  }
+}
+
+@variant stuck-inline-start {
+  @container scroll-state(stuck: inline-start) {
+    @slot;
+  }
+}
+
+@variant stuck-inline-end {
+  @container scroll-state(stuck: inline-end) {
+    @slot;
+  }
+}

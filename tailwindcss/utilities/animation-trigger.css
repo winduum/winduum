@@ -1,0 +1,33 @@
+@utility timeline-trigger-enter {
+  timeline-trigger: --enter view() entry var(--tw-timeline-trigger-entry, 20%) exit var(--tw-timeline-trigger-exit, 0%);
+  trigger-scope: --enter;
+}
+
+@utility timeline-trigger-* {
+  timeline-trigger: --value([*]) view() entry var(--tw-timeline-trigger-entry, 20%) exit var(--tw-timeline-trigger-exit, 0%);
+  trigger-scope: --value([*]);
+}
+
+@utility animation-trigger-enter {
+  animation-duration: var(--tw-animation-duration, 1.75s);
+  animation-timing-function: var(--tw-animation-timing-function, var(--ease-emphasized));
+  animation-fill-mode: var(--tw-animation-fill-mode, both);
+  animation-trigger: --enter var(--tw-animation-trigger-action, play-once);
+  animation-name: enter;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+}
+
+@utility animation-trigger-* {
+  animation-duration: var(--tw-animation-duration, 1.75s);
+  animation-timing-function: var(--tw-animation-timing-function, var(--ease-emphasized));
+  animation-fill-mode: var(--tw-animation-fill-mode, both);
+  animation-trigger: --modifier([*]) var(--tw-animation-trigger-action, play-once);
+  animation-name: --value([*]);
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+}

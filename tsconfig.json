@@ -1,11 +1,12 @@
 {
   "include": ["src/**/*"],
   "compilerOptions": {
-    "target": "es2020",
+    "target": "ES2024",
     "module": "es2022",
     "moduleResolution": "bundler",
     "allowJs": true,
     "checkJs": false,
+    "rootDir": "src",
     "outDir": "types",
     "declaration": true,
     "emitDeclarationOnly": true,

@@ -1,3 +1,21 @@
+## 2.2.28 (2026-05-22)
+* feat: added supportsInterestFor support check
+
+## 2.2.27 (2026-05-21)
+* feat: added experimental timelineTrigger polyfill and supports helpers
+
+## 2.2.26 (2026-04-23)
+* feat: added experimental scroll-state tailwindcss variants
+
+## 2.2.23-2.2.25 (2026-04-22)
+* feat: added experimental animation-timeline and animation-trigger support
+* feat: added enter and exit keyframes and tailwindcss related utilities
+* feat: added tailwindcss radius variables based on calculated values
+* feat(possible-bc): deprecated `--radius` now uses the base xs radius `0.125rem` instead of xl `var(--radius-xl)`
+
+## 2.2.22 (2026-04-21)
+* feat: added tailwindcss grid-area utility
+
 ## 2.2.21 (2026-04-02)
 * feat: added new easing curves
 

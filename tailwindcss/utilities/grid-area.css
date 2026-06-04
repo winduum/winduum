@@ -1,0 +1,7 @@
+@utility grid-area-* {
+  grid-area: --value(number, [*]);
+}
+
+@utility grid-area-full {
+  grid-area: 1/-1;
+}

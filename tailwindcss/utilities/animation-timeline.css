@@ -1,0 +1,51 @@
+@utility timeline-scope-* {
+  timeline-scope: --value([*]) y;
+}
+
+@utility scroll-timeline-y-* {
+  scroll-timeline: --value([*]) y;
+}
+
+@utility scroll-timeline-x-* {
+  scroll-timeline: --value([*]) x;
+}
+
+@utility scroll-timeline-block {
+  scroll-timeline: --value([*]) block;
+}
+
+@utility view-timeline-y-* {
+  view-timeline: --value([*]) y;
+}
+
+@utility view-timeline-x-* {
+  view-timeline: --value([*]) x;
+}
+
+@utility view-timeline-block {
+  view-timeline: --value([*]) block;
+}
+
+@utility animation-timeline-scroll {
+  animation-timeline: scroll();
+}
+
+@utility animation-timeline-scroll-y {
+  animation-timeline: scroll(y);
+}
+
+@utility animation-timeline-scroll-x {
+  animation-timeline: scroll(x);
+}
+
+@utility animation-timeline-view {
+  animation-timeline: view();
+}
+
+@utility animation-timeline-* {
+  animation-timeline: --value("auto", "none", [ *]);
+}
+
+@utility animation-range-* {
+  animation-range: --value([*]);
+}
