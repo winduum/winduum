@@ -8,10 +8,8 @@
  * @returns void
  */
 export const scrollBy = (element, { direction = 1, distance, position = 'left', ratio = 0.85 }) => {
-  distance ??= element.clientWidth * ratio
-
   element.scrollBy({
-    [position]: distance * direction,
+    [position]: (distance ?? element.clientWidth * ratio) * direction,
   })
 }
 
@@ -28,7 +26,7 @@ export const scrollBy = (element, { direction = 1, distance, position = 'left', 
 export const toggleScrollState = (element, { prevElement, nextElement, scrollStart, scrollEnd, scrollNone }) => {
   scrollStart ??= element.scrollLeft <= 0
   scrollEnd ??= element.scrollLeft >= element.scrollWidth - element.clientWidth
-  scrollNone ??= element.scrollWidth - element.clientWidth === 0
+  scrollNone ??= !(element.scrollWidth - element.clientWidth)
 
   if (prevElement) prevElement.disabled = scrollStart
   if (nextElement) nextElement.disabled = scrollEnd
@@ -44,137 +42,49 @@ export const toggleScrollState = (element, { prevElement, nextElement, scrollSta
  * @param {string} [attributeName='data-current']
  * @returns void
  */
-export const setCurrentAttribute = (element, index, attributeName = 'data-current') => {
-  [...element.children].forEach(el => el.removeAttribute(attributeName))
-  element.children[index].setAttribute(attributeName, '')
+export const setCurrentAttribute = (element, index, attributeName = 'aria-current') => {
+  element.querySelector(`[${attributeName}]`)?.removeAttribute(attributeName)
+  element.children[index].setAttribute(attributeName, 'true')
 }
 
 /**
  * @param {HTMLElement & { _markerIndex?: number | null }} element
  * @param {HTMLElement} target
  * @param {HTMLElement | null} markerGroupElement
- * @returns number
+ * @returns void
  */
 export const setSnappedAttribute = (element, target, markerGroupElement) => {
   const snappedIndex = [...element.children].indexOf(target)
-  const index = element._markerIndex ?? snappedIndex
 
   setCurrentAttribute(element, snappedIndex, 'data-snapped')
 
-  if (markerGroupElement) setCurrentAttribute(markerGroupElement, index)
+  if (markerGroupElement) {
+    const markerTarget = markerGroupElement.querySelector(`[href="#${target.id}"]`)
+    const index = element._markerIndex ?? (markerTarget && [...markerGroupElement.children].indexOf(markerTarget)) ?? snappedIndex
 
-  element._markerIndex = null
+    setCurrentAttribute(markerGroupElement, index)
 
-  return index
+    element._markerIndex = null
+  }
 }
 
 /**
  * @param {HTMLElement & { _markerIndex?: number | null }} element
- * @param {HTMLElement} target
+ * @param {HTMLElement | HTMLLinkElement} target
  * @param {HTMLElement} markerGroupElement
- * @returns number
+ * @returns void
  */
 export const scrollToMarker = (element, target, markerGroupElement) => {
-  const index = [...markerGroupElement.children].indexOf(target)
+  const snappedTarget = document.getElementById(target.getAttribute('href').slice(1))
+  const markerTargetIndex = [...markerGroupElement.children].indexOf(target)
+  const index = snappedTarget ? [...element.children].indexOf(snappedTarget) : markerTargetIndex
 
-  element._markerIndex = index
+  element._markerIndex = markerTargetIndex
 
-  setCurrentAttribute(markerGroupElement, index)
+  setCurrentAttribute(markerGroupElement, markerTargetIndex)
 
   element.children[index]?.scrollIntoView({
     inline: 'start',
     block: 'nearest',
-  })
-
-  return index
-}
-
-/**
- * @param {HTMLElement | Element} element
- * @param {import("./").AutoplayCarouselOptions} options
- * @returns void
- */
-export const autoplayCarousel = (element, options = {}) => {
-  options = {
-    delay: 4000,
-    pauseElements: [],
-    ...options,
-  }
-
-  let paused
-
-  options.pauseElements.forEach((element) => {
-    element?.addEventListener('mouseenter', () => (paused = true))
-    element?.addEventListener('mouseleave', () => (paused = false))
-  })
-
-  setInterval(() => {
-    if (paused) return
-
-    // TODO vertical support
-    if (element.scrollLeft < element.scrollWidth - element.clientWidth) {
-      scrollBy(1)
-    }
-    else {
-      // TODO
-      element.scrollTo(0, 0)
-    }
-  }, options.delay)
-}
-
-/**
- * @param {HTMLElement | Element & { _activeIndex: number }} element
- * @param {import("./").DragCarouselOptions} options
- * @returns void
- */
-export const dragCarousel = (element, options = {}) => {
-  options = {
-    activeAttribute: 'data-grabbing',
-    ...options,
-  }
-
-  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    return
-  }
-
-  let isDown
-  let startX
-  let scrollLeft
-  let timeout
-
-  const endGrabbing = () => {
-    isDown = false
-    element.removeAttribute(options.activeAttribute)
-
-    // TODO
-    // scrollTo(element, element._activeIndex)
-
-    clearTimeout(timeout)
-
-    timeout = setTimeout(() => {
-      element.style.scrollSnapType = ''
-    }, 300)
-  }
-
-  element.addEventListener('mouseleave', endGrabbing)
-
-  element.addEventListener('mouseup', endGrabbing)
-
-  element.addEventListener('mousedown', ({ pageX }) => {
-    isDown = true
-    startX = pageX - element.offsetLeft
-    scrollLeft = element.scrollLeft
-  })
-
-  element.addEventListener('mousemove', (e) => {
-    if (!isDown) return
-    e.preventDefault()
-
-    const x = e.pageX - element.offsetLeft
-
-    element.setAttribute(options.activeAttribute, '')
-    element.style.scrollSnapType = 'unset'
-    element.scroll({ left: scrollLeft - ((x - startX) * 1.25), behavior: 'instant' })
-    element.ondragstart = e => e.preventDefault()
   })
 }
