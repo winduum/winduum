@@ -6,7 +6,7 @@ import { nextRepaint } from '../../common.js'
  * @param {'top' | 'left'} direction
  * @returns void
  */
-export const showDrawer = async (element, distance = 0, direction = 'left') => {
+export const showDrawer = (element, distance = 0, direction = 'left') => {
   element.scroll({ [direction]: distance })
 }
 
