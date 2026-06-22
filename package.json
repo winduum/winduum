@@ -25,6 +25,7 @@
     "@stylistic/stylelint-config": "^5.0.0",
     "@tailwindcss/vite": "^4.3.0",
     "@vitejs/plugin-vue": "^6.0.7",
+    "@webreflection/custom-elements-builtin": "^0.4.1",
     "autoprefixer": "^10.5.0",
     "dts-buddy": "^0.8.0",
     "eslint": "^10.4.1",

@@ -1,40 +1,38 @@
 .x-drawer {
-  z-index: var(--x-drawer-z-index, var(--z-index-30));
-  background-color:
-    color-mix(
-      in var(--x-drawer-background-color-space, srgb),
-      var(--color-dark) calc(var(--background-color-opacity, 0) * var(--x-drawer-background-color-opacity)),
-      var(--x-drawer-background-color-mix, transparent)
-    );
   position: fixed;
   inset: 0;
-  display: flex;
-  overflow: auto hidden;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
+  width: 100dvw;
+  height: 100dvh;
+  timeline-scope: --x-drawer-backdrop;
+  animation: x-drawer-backdrop-opacity linear both;
+  animation-timeline: --x-drawer-backdrop;
 
-  &:not([open]),
   &::backdrop {
-    display: none;
-  }
+    background-color:
+      color-mix(
+        in var(--x-drawer-background-color-space, srgb),
+        var(--color-dark) calc(var(--x-drawer-backdrop-opacity, 0) * var(--x-drawer-background-color-opacity)),
+        var(--x-drawer-background-color-mix, transparent)
+      );
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  &::after {
-    content: "";
-    min-inline-size: 100vw;
-    scroll-snap-align: end;
-  }
-
-  &.flex-col {
-    overflow: hidden auto;
-
-    &::after {
-      min-block-size: 100dvh;
+    @supports not (animation-timeline: --x) {
+      --x-drawer-backdrop-opacity: 1;
     }
   }
+}
+
+@keyframes x-drawer-backdrop-opacity {
+  0% {
+    --x-drawer-backdrop-opacity: 1;
+  }
+
+  100% {
+    --x-drawer-backdrop-opacity: 0;
+  }
+}
+
+@property --x-drawer-backdrop-opacity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
 }
