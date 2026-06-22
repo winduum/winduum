@@ -1,0 +1,32 @@
+.x-drawer-scroller {
+  display: flex;
+  width: 100dvw;
+  height: 100svh;
+  overflow: auto hidden;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-snap-type: x mandatory;
+  scroll-timeline: --x-drawer-fade x;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    min-inline-size: 100vw;
+    scroll-snap-align: end;
+    scroll-initial-target: nearest;
+  }
+
+  &.flex-col {
+    overflow: hidden auto;
+    scroll-timeline: --x-drawer-fade y;
+
+    &::after {
+      min-block-size: 100dvh;
+    }
+  }
+}

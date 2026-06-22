@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winduum UI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/src/test.css">
+</head>
+<body class="p-4xl flex flex-col items-start gap-4">
+    <dialog class="x-drawer" is="x-drawer" id="drawerLeft" closedby="any">
+        <div class="x-drawer-scroller">
+            <nav class="x-drawer-content" data-x-drawer-part="content">
+                Drawer content
+                <button command="request-close" commandfor="drawerLeft">Close</button>
+            </nav>
+        </div>
+    </dialog>
+
+    <dialog class="x-drawer after:order-first backdrop:hidden" id="drawerRight" inert>
+        <div class="x-drawer-content w-[calc(100dvw-4rem)] lg:w-96">
+            Right
+            <button class="x-button muted square" id="drawerClose" autofocus>x</button>
+        </div>
+    </dialog>
+
+    <dialog class="x-drawer open:flex flex-col after:order-first" id="drawerBottom" inert>
+        <div class="x-drawer-content h-[calc(100dvh-4rem)] lg:h-96">
+            Bottom
+        </div>
+    </dialog>
+
+    <dialog class="x-drawer open:flex flex-col" id="drawerTop" inert>
+        <div class="x-drawer-content h-[calc(100dvh-4rem)] lg:h-96">
+            Top
+        </div>
+    </dialog>
+
+    <button class="x-button" command="show-modal" commandfor="drawerLeft">Open left drawer</button>
+    <button class="x-button" id="openDrawerRight">Open right drawer</button>
+    <button class="x-button" id="openDrawerBottom">Open bottom drawer</button>
+    <button class="x-button" id="openDrawerTop">Open top drawer</button>
+
+    <script type="module">
+      import { initializeController } from "webuum";
+      import {supportsScrollInitialTarget} from "/src/supports.js";
+
+      customElements.define('x-drawer', class Drawer extends HTMLDialogElement {
+        static parts = {
+          $content: null,
+        }
+
+        static props = {
+          $placement: 'left',
+        }
+
+        constructor() {
+          super()
+          initializeController(this)
+        }
+
+        connectedCallback() {
+          this.addEventListener('cancel', (event) => {
+            event.preventDefault()
+            this.closeDrawer()
+          })
+
+          const visibleThreshold = 1 / (
+            ['top', 'bottom'].includes(this.$placement)
+              ? window.innerHeight
+              : window.innerWidth
+          )
+          this.$observer = new IntersectionObserver(
+            (entries) => {
+              const entry = entries.at(-1)
+
+              if (entry.intersectionRatio < visibleThreshold) {
+                this.close()
+              }
+            },
+            { root: this, threshold: [visibleThreshold, 1] },
+          )
+
+          this.$observer.observe(this.$content)
+        }
+
+        disconnectedCallback() {
+          this.$observer?.disconnect()
+        }
+
+        async showModal() {
+          super.showModal()
+          await this.showDrawer()
+        }
+
+        async showDrawer() {
+          const { showDrawer, scrollInitDrawer } = await import('/src/components/drawer/index.js')
+
+          const scroller = this.firstElementChild
+
+          const [distance, distanceClosed, direction] = {
+            right: [scroller.offsetWidth, 0, 'left'],
+            bottom: [scroller.offsetHeight, 0, 'top'],
+            top: [0, scroller.offsetHeight, 'top'],
+          }[this.$placement] ?? []
+
+
+          if (!supportsScrollInitialTarget) {
+            await scrollInitDrawer(scroller, distanceClosed, direction)
+          }
+
+          showDrawer(scroller, distance, direction)
+        }
+
+        async closeDrawer() {
+          const { closeDrawer } = await import('/src/components/drawer/index.js')
+
+          const scroller = this.firstElementChild
+
+          const [distance, direction] = {
+            right: [0, 'left'],
+            bottom: [0, 'top'],
+            top: [scroller.offsetHeight, 'top'],
+          }[this.$placement] ?? []
+
+          closeDrawer(scroller, distance, direction)
+        }
+      }, { extends: 'dialog' })
+    </script>
+
+    <svg class="hidden">
+        <symbol id="icon-exclamation-circle" class="ms-auto text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </symbol>
+    </svg>
+</body>
+</html>
