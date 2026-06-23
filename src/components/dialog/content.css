@@ -6,7 +6,6 @@
   transition: var(--transition-transform), var(--transition-opacity) allow-discrete, var(--transition-display) allow-discrete;
   margin: auto;
   pointer-events: auto;
-  height: 200vh;
 
   @starting-style {
     transform: translateY(-2rem);

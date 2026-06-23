@@ -20,19 +20,3 @@
     }
   }
 }
-
-@keyframes x-drawer-backdrop-opacity {
-  0% {
-    --x-drawer-backdrop-opacity: 1;
-  }
-
-  100% {
-    --x-drawer-backdrop-opacity: 0;
-  }
-}
-
-@property --x-drawer-backdrop-opacity {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 0;
-}

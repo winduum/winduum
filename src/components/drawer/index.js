@@ -54,8 +54,11 @@ export const closeDrawer = (element, placement) => {
  */
 export const drawerEvents = (element, contentElement, placement, signal) => {
   element.addEventListener('cancel', (event) => {
-    event.preventDefault()
-    closeDrawer(element.firstElementChild, placement)
+    const scroller = element.firstElementChild
+
+    if (scroller.scrollHeight > 0 || scroller.scrollWidth > 0) event.preventDefault()
+
+    closeDrawer(scroller, placement)
   }, { signal })
 
   element.addEventListener('click', ({ target }) => {

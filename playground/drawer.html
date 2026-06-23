@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="min-height: 150dvh;">
 <head>
     <meta charset="UTF-8">
     <title>Winduum UI</title>
@@ -7,50 +7,108 @@
     <link rel="stylesheet" href="/src/test.css">
 </head>
 <body class="p-4xl flex flex-col items-start gap-4">
-<dialog class="x-drawer noscript:starting:-translate-x-full noscript:not-open:-translate-x-full noscript:duration-500" is="x-drawer" id="drawerLeft" closedby="any">
-    <div class="x-drawer-scroller snap-x snap-mandatory noscript:after:content-none">
-        <nav class="x-drawer-content" data-x-drawer-part="content">
-            Drawer content
-            <button command="request-close" commandfor="drawerLeft">Close</button>
-        </nav>
-    </div>
-</dialog>
+    <dialog data-modal="false" class="x-drawer noscript:starting:-translate-x-full noscript:not-open:-translate-x-full noscript:duration-500" is="x-drawer" id="drawerLeft" closedby="any">
+        <div class="x-drawer-scroller snap-x snap-mandatory noscript:after:content-none">
+            <nav class="x-drawer-content" data-x-drawer-part="content">
+                Drawer content
+                <button class="x-button muted" command="request-close" commandfor="drawerLeft">Close</button>
+            </nav>
+        </div>
+    </dialog>
 
-<dialog class="x-drawer noscript:starting:translate-x-full noscript:not-open:translate-x-full noscript:ms-auto noscript:duration-500" style="animation-direction: reverse" is="x-drawer" id="drawerRight" closedby="any" data-placement="right">
-    <div class="x-drawer-scroller after:order-first snap-x snap-mandatory noscript:after:content-none">
-        <nav class="x-drawer-content" data-x-drawer-part="content">
-            Drawer content
-            <button command="request-close" commandfor="drawerRight">Close</button>
-        </nav>
-    </div>
-</dialog>
+    <dialog class="x-drawer noscript:starting:translate-x-full noscript:not-open:translate-x-full noscript:ms-auto noscript:duration-500" style="animation-direction: reverse" is="x-drawer" id="drawerRight" closedby="any" data-placement="right">
+        <div class="x-drawer-scroller after:order-first snap-x snap-mandatory noscript:after:content-none">
+            <nav class="x-drawer-content" data-x-drawer-part="content">
+                Drawer content
+                <button class="x-button muted" command="request-close" commandfor="drawerRight">Close</button>
+            </nav>
+        </div>
+    </dialog>
 
-<dialog class="x-drawer noscript:starting:translate-y-full noscript:not-open:translate-y-full noscript:mbs-auto noscript:duration-500" style="animation-direction: reverse" is="x-drawer" id="drawerBottom" closedby="any" data-placement="bottom">
-    <div class="x-drawer-scroller flex flex-col after:order-first snap-y snap-mandatory noscript:after:content-none">
-        <nav class="x-drawer-content" data-x-drawer-part="content" style="--x-drawer-content-inline-size: 100dvw;--x-drawer-content-block-size: calc(100vh - 4rem);">
-            Drawer content
-            <button command="request-close" commandfor="drawerBottom">Close</button>
-        </nav>
-    </div>
-</dialog>
+    <dialog class="x-drawer noscript:starting:translate-y-full noscript:not-open:translate-y-full noscript:mbs-auto noscript:duration-500" style="animation-direction: reverse" is="x-drawer" id="drawerBottom" closedby="any" data-placement="bottom">
+        <div class="x-drawer-scroller flex flex-col after:order-first snap-y snap-mandatory noscript:after:content-none">
+            <nav class="x-drawer-content" data-x-drawer-part="content" style="--x-drawer-content-inline-size: 100dvw;--x-drawer-content-block-size: calc(100vh - 4rem);">
+                Drawer content
+                <button class="x-button muted" command="request-close" commandfor="drawerBottom">Close</button>
+            </nav>
+        </div>
+    </dialog>
 
-<dialog class="x-drawer noscript:starting:-translate-y-full noscript:not-open:-translate-y-full noscript:duration-500" is="x-drawer" id="drawerTop" closedby="any" data-placement="top">
-    <div class="x-drawer-scroller flex flex-col snap-y snap-mandatory noscript:after:content-none">
-        <nav class="x-drawer-content" data-x-drawer-part="content" style="--x-drawer-content-inline-size: 100dvw;--x-drawer-content-block-size: calc(100vh - 4rem);">
-            Drawer content
-            <button command="request-close" commandfor="drawerTop">Close</button>
-        </nav>
-    </div>
-</dialog>
+    <dialog class="x-drawer noscript:starting:-translate-y-full noscript:not-open:-translate-y-full noscript:duration-500" is="x-drawer" id="drawerTop" closedby="any" data-placement="top">
+        <div class="x-drawer-scroller flex flex-col snap-y snap-mandatory noscript:after:content-none">
+            <nav class="x-drawer-content" data-x-drawer-part="content" style="--x-drawer-content-inline-size: 100dvw;--x-drawer-content-block-size: calc(100vh - 4rem);">
+                Drawer content
+                <button class="x-button muted" command="request-close" commandfor="drawerTop">Close</button>
+            </nav>
+        </div>
+    </dialog>
+
+    <dialog class="x-dialog drawer max-lg:bg-transparent max-lg:p-0 max-lg:backdrop:block" style="animation-direction: reverse" is="x-drawer" id="drawerBottomMobile" closedby="any" data-placement="bottom">
+        <div class="x-drawer-scroller scroll-pt-6 flex flex-col after:order-first snap-y snap-mandatory lg:contents lg:after:content-none noscript:after:content-none">
+            <nav class="x-dialog-content max-lg:mt-6 max-lg:opacity-100 max-lg:transform-none shrink-0 max-lg:snap-end max-lg:w-dvw max-lg:min-h-[calc(100dvh-4rem)] max-lg:rounded-b-none" data-x-drawer-part="content">
+                <button class="x-button muted lg:hidden" command="request-close" commandfor="drawerBottomMobile">Close</button>
+                <button class="x-button muted max-lg:hidden" command="close" commandfor="drawerBottomMobile">Close</button>
+                <div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis imperdiet non tellus at cursus. Nulla fermentum nunc quis ultricies semper. Aliquam nisl ipsum, vehicula eu risus in, dapibus ullamcorper leo. Proin vehicula turpis ac ultrices tristique. Donec at consequat felis. Quisque ligula justo, molestie a consequat in, eleifend quis lacus. In congue lobortis nulla, vitae gravida velit scelerisque at. Fusce imperdiet venenatis tempor. Vestibulum enim enim, semper eget quam a, posuere tempor neque. Donec ultrices, mauris gravida sodales accumsan, ante libero efficitur est, laoreet pellentesque nibh mauris id ante.
+                    </p>
+                    <p>
+                        Aliquam at purus nulla. Vestibulum id mauris id dolor bibendum mattis. Proin volutpat odio at lectus accumsan aliquam. Nulla congue sapien sed posuere commodo. Sed molestie eros id lectus venenatis dignissim. Aenean sed ligula metus. Donec sem nibh, commodo nec arcu sed, mollis ultrices leo. Nullam pulvinar posuere eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque est nunc, et ultricies purus condimentum ac. Mauris ac sollicitudin nulla. Morbi rhoncus mauris at sapien viverra imperdiet. Proin maximus tempus lorem, id euismod lacus sollicitudin hendrerit. Praesent tortor est, bibendum id sem non, faucibus fermentum massa.
+                    </p>
+                    <p>
+                        In at ipsum vel eros viverra vehicula. Aliquam quis urna eros. Praesent bibendum dignissim nibh faucibus pretium. Ut pellentesque blandit elit bibendum feugiat. Curabitur et purus eu eros bibendum dignissim vitae ornare ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus a libero sagittis, pretium erat id, vulputate ipsum. Duis posuere lectus et nisl varius accumsan. Etiam condimentum purus at purus hendrerit, in lobortis massa eleifend.
+                    </p>
+                    <p>
+                        Nulla leo ipsum, iaculis at tristique eu, vehicula sed purus. Sed ultricies est ac urna sollicitudin, quis feugiat dui aliquam. Fusce in nibh a lacus lobortis convallis. Donec egestas dui vel eros mattis, placerat elementum ante iaculis. Cras consequat fermentum ex, vitae laoreet arcu porttitor ac. Proin eu hendrerit enim, non fermentum ante. Praesent molestie felis mi, aliquam convallis nisl pellentesque non. Quisque placerat congue lacinia. Morbi non massa eget metus efficitur tristique. Aenean auctor enim laoreet justo vulputate pulvinar. Fusce vel blandit ante. Mauris tincidunt ante sed erat facilisis, sed dictum mauris volutpat. In eu ante diam.
+                    </p>
+                    <p>
+                        Sed vitae tellus eu ligula pulvinar consectetur vel eu turpis. Morbi non orci augue. Sed tincidunt mi urna, nec efficitur ipsum eleifend a. Praesent ultrices dictum felis, et convallis nulla dapibus quis. Praesent tincidunt viverra eros, ac ornare odio malesuada eu. Sed ornare risus risus, at faucibus tellus tincidunt a. Sed id lectus in ipsum rhoncus faucibus in vel odio. Aliquam erat volutpat. Donec ac ligula laoreet, varius dui eu, sagittis leo. Aliquam eget augue ac libero maximus fermentum ut a nunc.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis imperdiet non tellus at cursus. Nulla fermentum nunc quis ultricies semper. Aliquam nisl ipsum, vehicula eu risus in, dapibus ullamcorper leo. Proin vehicula turpis ac ultrices tristique. Donec at consequat felis. Quisque ligula justo, molestie a consequat in, eleifend quis lacus. In congue lobortis nulla, vitae gravida velit scelerisque at. Fusce imperdiet venenatis tempor. Vestibulum enim enim, semper eget quam a, posuere tempor neque. Donec ultrices, mauris gravida sodales accumsan, ante libero efficitur est, laoreet pellentesque nibh mauris id ante.
+                    </p>
+                    <p>
+                        Aliquam at purus nulla. Vestibulum id mauris id dolor bibendum mattis. Proin volutpat odio at lectus accumsan aliquam. Nulla congue sapien sed posuere commodo. Sed molestie eros id lectus venenatis dignissim. Aenean sed ligula metus. Donec sem nibh, commodo nec arcu sed, mollis ultrices leo. Nullam pulvinar posuere eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque est nunc, et ultricies purus condimentum ac. Mauris ac sollicitudin nulla. Morbi rhoncus mauris at sapien viverra imperdiet. Proin maximus tempus lorem, id euismod lacus sollicitudin hendrerit. Praesent tortor est, bibendum id sem non, faucibus fermentum massa.
+                    </p>
+                    <p>
+                        In at ipsum vel eros viverra vehicula. Aliquam quis urna eros. Praesent bibendum dignissim nibh faucibus pretium. Ut pellentesque blandit elit bibendum feugiat. Curabitur et purus eu eros bibendum dignissim vitae ornare ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus a libero sagittis, pretium erat id, vulputate ipsum. Duis posuere lectus et nisl varius accumsan. Etiam condimentum purus at purus hendrerit, in lobortis massa eleifend.
+                    </p>
+                    <p>
+                        Nulla leo ipsum, iaculis at tristique eu, vehicula sed purus. Sed ultricies est ac urna sollicitudin, quis feugiat dui aliquam. Fusce in nibh a lacus lobortis convallis. Donec egestas dui vel eros mattis, placerat elementum ante iaculis. Cras consequat fermentum ex, vitae laoreet arcu porttitor ac. Proin eu hendrerit enim, non fermentum ante. Praesent molestie felis mi, aliquam convallis nisl pellentesque non. Quisque placerat congue lacinia. Morbi non massa eget metus efficitur tristique. Aenean auctor enim laoreet justo vulputate pulvinar. Fusce vel blandit ante. Mauris tincidunt ante sed erat facilisis, sed dictum mauris volutpat. In eu ante diam.
+                    </p>
+                    <p>
+                        Sed vitae tellus eu ligula pulvinar consectetur vel eu turpis. Morbi non orci augue. Sed tincidunt mi urna, nec efficitur ipsum eleifend a. Praesent ultrices dictum felis, et convallis nulla dapibus quis. Praesent tincidunt viverra eros, ac ornare odio malesuada eu. Sed ornare risus risus, at faucibus tellus tincidunt a. Sed id lectus in ipsum rhoncus faucibus in vel odio. Aliquam erat volutpat. Donec ac ligula laoreet, varius dui eu, sagittis leo. Aliquam eget augue ac libero maximus fermentum ut a nunc.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis imperdiet non tellus at cursus. Nulla fermentum nunc quis ultricies semper. Aliquam nisl ipsum, vehicula eu risus in, dapibus ullamcorper leo. Proin vehicula turpis ac ultrices tristique. Donec at consequat felis. Quisque ligula justo, molestie a consequat in, eleifend quis lacus. In congue lobortis nulla, vitae gravida velit scelerisque at. Fusce imperdiet venenatis tempor. Vestibulum enim enim, semper eget quam a, posuere tempor neque. Donec ultrices, mauris gravida sodales accumsan, ante libero efficitur est, laoreet pellentesque nibh mauris id ante.
+                    </p>
+                    <p>
+                        Aliquam at purus nulla. Vestibulum id mauris id dolor bibendum mattis. Proin volutpat odio at lectus accumsan aliquam. Nulla congue sapien sed posuere commodo. Sed molestie eros id lectus venenatis dignissim. Aenean sed ligula metus. Donec sem nibh, commodo nec arcu sed, mollis ultrices leo. Nullam pulvinar posuere eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque est nunc, et ultricies purus condimentum ac. Mauris ac sollicitudin nulla. Morbi rhoncus mauris at sapien viverra imperdiet. Proin maximus tempus lorem, id euismod lacus sollicitudin hendrerit. Praesent tortor est, bibendum id sem non, faucibus fermentum massa.
+                    </p>
+                    <p>
+                        In at ipsum vel eros viverra vehicula. Aliquam quis urna eros. Praesent bibendum dignissim nibh faucibus pretium. Ut pellentesque blandit elit bibendum feugiat. Curabitur et purus eu eros bibendum dignissim vitae ornare ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus a libero sagittis, pretium erat id, vulputate ipsum. Duis posuere lectus et nisl varius accumsan. Etiam condimentum purus at purus hendrerit, in lobortis massa eleifend.
+                    </p>
+                    <p>
+                        Nulla leo ipsum, iaculis at tristique eu, vehicula sed purus. Sed ultricies est ac urna sollicitudin, quis feugiat dui aliquam. Fusce in nibh a lacus lobortis convallis. Donec egestas dui vel eros mattis, placerat elementum ante iaculis. Cras consequat fermentum ex, vitae laoreet arcu porttitor ac. Proin eu hendrerit enim, non fermentum ante. Praesent molestie felis mi, aliquam convallis nisl pellentesque non. Quisque placerat congue lacinia. Morbi non massa eget metus efficitur tristique. Aenean auctor enim laoreet justo vulputate pulvinar. Fusce vel blandit ante. Mauris tincidunt ante sed erat facilisis, sed dictum mauris volutpat. In eu ante diam.
+                    </p>
+                    <p>
+                        Sed vitae tellus eu ligula pulvinar consectetur vel eu turpis. Morbi non orci augue. Sed tincidunt mi urna, nec efficitur ipsum eleifend a. Praesent ultrices dictum felis, et convallis nulla dapibus quis. Praesent tincidunt viverra eros, ac ornare odio malesuada eu. Sed ornare risus risus, at faucibus tellus tincidunt a. Sed id lectus in ipsum rhoncus faucibus in vel odio. Aliquam erat volutpat. Donec ac ligula laoreet, varius dui eu, sagittis leo. Aliquam eget augue ac libero maximus fermentum ut a nunc.
+                    </p>
+                </div>
+            </nav>
+        </div>
+    </dialog>
 
     <button class="x-button" command="show-modal" commandfor="drawerLeft">Open left drawer</button>
     <button class="x-button" command="show-modal" commandfor="drawerRight">Open right drawer</button>
     <button class="x-button" command="show-modal" commandfor="drawerBottom">Open bottom drawer</button>
     <button class="x-button" command="show-modal" commandfor="drawerTop">Open top drawer</button>
+    <button class="x-button" command="show-modal" commandfor="drawerBottomMobile">Open dialog drawer</button>
 
     <script type="module">
       import { initializeController } from "webuum";
       import { supportsIs } from "webuum/supports";
+      import '/src/components/dialog/index.js'
 
       if (!supportsIs()) {
         await import('@webreflection/custom-elements-builtin')
@@ -63,6 +121,7 @@
 
         static props = {
           $placement: 'left',
+          $modal: true,
         }
 
         constructor() {
@@ -93,7 +152,8 @@
         async showModal() {
           const { showDrawer } = await import('/src/components/drawer/index.js')
 
-          super.showModal()
+          if (this.$modal) super.showModal()
+          else super.show()
 
           showDrawer(this.firstElementChild, this.$placement)
         }
