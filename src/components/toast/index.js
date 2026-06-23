@@ -9,6 +9,7 @@ export const closeToast = async (element, options = {}) => {
   options = {
     closedAttribute: 'data-closed',
     heightProperty: '--x-toast-block-size',
+    remove: true,
     ...options,
   }
 

@@ -9,6 +9,12 @@
   visibility: hidden;
   opacity: 0%;
 
+  :where(:root, :host):has(dialog[open]) & {
+    button {
+      display: none;
+    }
+  }
+
   .flex-col-reverse & {
     justify-content: flex-end;
   }

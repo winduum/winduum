@@ -82,8 +82,7 @@ export const drawerObserver = (element, placement) => {
   }, {
     root: element,
     threshold: [visibleThreshold, 1],
-  },
-  )
+  })
 }
 
 /**
