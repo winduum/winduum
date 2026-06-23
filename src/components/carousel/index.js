@@ -2,12 +2,21 @@
  * @param {HTMLElement} element
  * @param {object} options
  * @param {number} [options.direction=1]
- * @param {number} [options.distance]
- * @param {'left' | 'top'} [options.position='left']
+ * @param {boolean} [options.vertical=false]
  * @param {number} [options.ratio=0.85]
  * @returns void
  */
-export const scrollBy = (element, { direction = 1, distance, position = 'left', ratio = 0.85 }) => {
+export const scrollBy = (element, { direction = 1, vertical = false, ratio = 0.85 }) => {
+  const { distance, position } = vertical
+    ? {
+        distance: element.clientHeight * ratio,
+        position: 'top',
+      }
+    : {
+        distance: element.clientWidth * ratio,
+        position: 'left',
+      }
+
   element.scrollBy({
     [position]: (distance ?? element.clientWidth * ratio) * direction,
   })
@@ -18,15 +27,21 @@ export const scrollBy = (element, { direction = 1, distance, position = 'left', 
  * @param {object} options
  * @param {HTMLButtonElement | null} [options.prevElement]
  * @param {HTMLButtonElement | null} [options.nextElement]
- * @param {boolean} [options.scrollStart]
- * @param {boolean} [options.scrollEnd]
- * @param {boolean} [options.scrollNone]
+ * @param {boolean} vertical
  * @returns void
  */
-export const toggleScrollState = (element, { prevElement, nextElement, scrollStart, scrollEnd, scrollNone }) => {
-  scrollStart ??= element.scrollLeft <= 0
-  scrollEnd ??= element.scrollLeft >= element.scrollWidth - element.clientWidth
-  scrollNone ??= !(element.scrollWidth - element.clientWidth)
+export const toggleScrollState = (element, { prevElement, nextElement, vertical = false }) => {
+  const { scrollStart, scrollEnd, scrollNone } = vertical
+    ? {
+        scrollStart: element.scrollTop <= 0,
+        scrollEnd: element.scrollTop >= element.scrollHeight - element.clientHeight,
+        scrollNone: !(element.scrollHeight - element.clientHeight),
+      }
+    : {
+        scrollStart: element.scrollLeft <= 0,
+        scrollEnd: element.scrollLeft >= element.scrollWidth - element.clientWidth,
+        scrollNone: !(element.scrollWidth - element.clientWidth),
+      }
 
   if (prevElement) prevElement.disabled = scrollStart
   if (nextElement) nextElement.disabled = scrollEnd
