@@ -16,12 +16,13 @@
 
   &::after {
     content: "";
-    min-inline-size: 100vw;
+    min-inline-size: 100dvw;
     scroll-snap-align: end;
+    scroll-initial-target: nearest;
   }
 
   &:where(.snap-y) {
-    overflow: hidden auto;
+    overflow: clip auto;
     scroll-timeline: --x-drawer-backdrop y;
 
     &::after {

@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/src/test.css">
 </head>
 <body class="p-4xl flex flex-col items-start gap-4">
-<dialog class="x-drawer noscript:starting:-translate-x-full noscript:not-open:-translate-x-full" is="x-drawer" id="drawerLeft" closedby="any">
-    <div class="x-drawer-scroller snap-x snap-mandatory">
+<dialog class="x-drawer noscript:starting:-translate-x-full noscript:not-open:-translate-x-full noscript:duration-500" is="x-drawer" id="drawerLeft" closedby="any">
+    <div class="x-drawer-scroller snap-x snap-mandatory noscript:after:content-none">
         <nav class="x-drawer-content" data-x-drawer-part="content">
             Drawer content
             <button command="request-close" commandfor="drawerLeft">Close</button>
@@ -16,8 +16,8 @@
     </div>
 </dialog>
 
-<dialog class="x-drawer noscript:starting:translate-x-full noscript:not-open:translate-x-full noscript:ms-auto" style="animation-direction: reverse" is="x-drawer" id="drawerRight" closedby="any" data-placement="right">
-    <div class="x-drawer-scroller after:order-first snap-x snap-mandatory">
+<dialog class="x-drawer noscript:starting:translate-x-full noscript:not-open:translate-x-full noscript:ms-auto noscript:duration-500" style="animation-direction: reverse" is="x-drawer" id="drawerRight" closedby="any" data-placement="right">
+    <div class="x-drawer-scroller after:order-first snap-x snap-mandatory noscript:after:content-none">
         <nav class="x-drawer-content" data-x-drawer-part="content">
             Drawer content
             <button command="request-close" commandfor="drawerRight">Close</button>
@@ -25,8 +25,8 @@
     </div>
 </dialog>
 
-<dialog class="x-drawer noscript:starting:translate-y-full noscript:not-open:translate-y-full noscript:mbs-auto" style="animation-direction: reverse" is="x-drawer" id="drawerBottom" closedby="any" data-placement="bottom">
-    <div class="x-drawer-scroller flex flex-col after:order-first snap-y snap-mandatory">
+<dialog class="x-drawer noscript:starting:translate-y-full noscript:not-open:translate-y-full noscript:mbs-auto noscript:duration-500" style="animation-direction: reverse" is="x-drawer" id="drawerBottom" closedby="any" data-placement="bottom">
+    <div class="x-drawer-scroller flex flex-col after:order-first snap-y snap-mandatory noscript:after:content-none">
         <nav class="x-drawer-content" data-x-drawer-part="content" style="--x-drawer-content-inline-size: 100dvw;--x-drawer-content-block-size: calc(100vh - 4rem);">
             Drawer content
             <button command="request-close" commandfor="drawerBottom">Close</button>
@@ -34,8 +34,8 @@
     </div>
 </dialog>
 
-<dialog class="x-drawer noscript:starting:-translate-y-full noscript:not-open:-translate-y-full" is="x-drawer" id="drawerTop" closedby="any" data-placement="top">
-    <div class="x-drawer-scroller flex flex-col snap-y snap-mandatory">
+<dialog class="x-drawer noscript:starting:-translate-y-full noscript:not-open:-translate-y-full noscript:duration-500" is="x-drawer" id="drawerTop" closedby="any" data-placement="top">
+    <div class="x-drawer-scroller flex flex-col snap-y snap-mandatory noscript:after:content-none">
         <nav class="x-drawer-content" data-x-drawer-part="content" style="--x-drawer-content-inline-size: 100dvw;--x-drawer-content-block-size: calc(100vh - 4rem);">
             Drawer content
             <button command="request-close" commandfor="drawerTop">Close</button>
