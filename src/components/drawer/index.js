@@ -1,5 +1,5 @@
-import { supportsScrollInitialTarget } from '/src/supports.js'
-import { nextRepaint } from '/src/common.js'
+import { supportsScrollInitialTarget } from '../../supports.js'
+import { nextRepaint } from '../../common.js'
 
 /**
  * @param {'left' | 'right' | 'top' | 'bottom'} placement
