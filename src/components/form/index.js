@@ -1,5 +1,5 @@
 /**
- * @param {Event | SubmitEvent} event
+ * @param {SubmitEvent & { target: HTMLFormElement }}
  * @param {import("./").ValidateFormOptions} options
  * @returns void
  */
@@ -23,7 +23,7 @@ export const validateForm = (event, options = {}) => {
       event.target.querySelector(':invalid').scrollIntoView(options.scrollOptions)
       event.target.querySelector(':invalid').focus()
     }
-    else {
+    else if (options.submitterLoadingAttribute) {
       event?.submitter?.setAttribute(options.submitterLoadingAttribute, '')
     }
   }
@@ -58,9 +58,10 @@ export const validateField = (element, options = {}) => {
     ...options,
   }
 
-  if (!element.querySelector(options.selector)) return
+  const validationElement = /** @type {HTMLInputElement} */ (element.querySelector(options.selector))
 
-  const validationElement = element.querySelector(options.selector)
+  if (!validationElement) return
+
   const validationMessage = options.validationMessage ?? validationElement.dataset.validationMessage ?? validationElement.validationMessage
   const infoParentElement = validationElement?.closest(options.infoParentSelector)
   const endParentElement = validationElement.closest(options.endParentSelector)
