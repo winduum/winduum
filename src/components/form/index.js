@@ -1,5 +1,5 @@
 /**
- * @param {SubmitEvent & { target: HTMLFormElement }}
+ * @param {SubmitEvent & { target: HTMLFormElement }} event
  * @param {import("./").ValidateFormOptions} options
  * @returns void
  */
