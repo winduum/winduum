@@ -32,7 +32,7 @@ export const closeToast = async (element, options = {}) => {
 export const showToast = async (element, options = {}) => {
   options = {
     openAttribute: 'data-open',
-    autoHide: null,
+    autoHide: 7500,
     heightProperty: '--x-toast-block-size',
     close: {},
     ...options,
