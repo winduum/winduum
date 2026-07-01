@@ -6,11 +6,13 @@
     transform-origin: top;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: bottom;
     }
   }
+   */
 }
 
 @utility bottom-start {
@@ -21,11 +23,13 @@
     transform-origin: top left;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: bottom left;
     }
   }
+   */
 }
 
 @utility bottom-end {
@@ -36,11 +40,13 @@
     transform-origin: top right;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: bottom right;
     }
   }
+ */
 }
 
 @utility top {
@@ -51,11 +57,13 @@
     transform-origin: bottom;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: top;
     }
   }
+   */
 }
 
 @utility top-start {
@@ -66,11 +74,13 @@
     transform-origin: bottom left;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: top left;
     }
   }
+   */
 }
 
 @utility top-end {
@@ -81,11 +91,13 @@
     transform-origin: bottom right;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: top right;
     }
   }
+   */
 }
 
 @utility left {
@@ -96,11 +108,13 @@
     transform-origin: right;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: left;
     }
   }
+   */
 }
 
 @utility left-start {
@@ -111,11 +125,13 @@
     transform-origin: right top;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: left top;
     }
   }
+   */
 }
 
 @utility left-end {
@@ -126,11 +142,13 @@
     transform-origin: right bottom;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: left bottom;
     }
   }
+   */
 }
 
 @utility right {
@@ -141,11 +159,13 @@
     transform-origin: left;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: right;
     }
   }
+   */
 }
 
 @utility right-start {
@@ -156,11 +176,13 @@
     transform-origin: left top;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: right top;
     }
   }
+   */
 }
 
 @utility right-end {
@@ -171,9 +193,11 @@
     transform-origin: left bottom;
   }
 
+  /*
   @container anchored(fallback: flip-block) {
     > * {
       transform-origin: right bottom;
     }
   }
+   */
 }
