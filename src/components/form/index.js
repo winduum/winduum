@@ -47,7 +47,7 @@ export const validateField = (element, options = {}) => {
     endParentSelector: '.x-control',
     endSelector: '.ms-auto',
     endContent: '<div class="ms-auto"></div>',
-    invalidIcon: '<svg class="text-error" data-validity aria-hidden="true"><use href="#icon-exclamation-circle"></use></svg>',
+    invalidIcon: '<svg class="text-error" data-validity aria-hidden="true"><use href="#heroicons-outline/exclamation-circle"></use></svg>',
     ...options,
   }
 
