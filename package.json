@@ -77,12 +77,7 @@
       "types": "./src/components/compare/index.d.ts",
       "default": "./src/components/compare/index.js"
     },
-    "./src/components/details": {
-      "types": "./src/components/details/index.d.ts",
-      "default": "./src/components/details/index.js"
-    },
     "./src/components/dialog": {
-      "types": "./src/components/dialog/index.d.ts",
       "default": "./src/components/dialog/index.js"
     },
     "./src/components/drawer": {

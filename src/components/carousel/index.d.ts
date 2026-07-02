@@ -1,40 +1,19 @@
-export interface ObserveCarouselOptions {
-    visibleAttribute?: string
-    observerOptions?: {
-        rootMargin?: string
-        threshold?: number | number[]
-    }
+export type CarouselPlacement = 'left' | 'right' | 'top' | 'bottom'
+
+export interface ScrollByOptions {
+    direction?: number
+    vertical?: boolean
+    ratio?: number
 }
 
-export interface PaginationCarouselOptions {
-    element?: HTMLElement | Element
-    itemContent?: string
-    activeAttribute?: string
+export interface ToggleScrollStateOptions {
+    prevElement?: HTMLButtonElement | null
+    nextElement?: HTMLButtonElement | null
+    vertical?: boolean
 }
 
-export interface ScrollCarouselOptions {
-    observe?: ObserveCarouselOptions
-    pagination?: PaginationCarouselOptions
-    progressElement?: HTMLProgressElement | Element
-    counterMinElement?: HTMLElement | Element
-    counterMaxElement?: HTMLElement | Element
-}
-
-export interface AutoplayCarouselOptions {
-    delay?: number
-    pauseElements?: HTMLElement[] | Element[]
-}
-
-export interface DragCarouselOptions {
-    activeAttribute?: string
-}
-
-export function scrollPrev(element: HTMLElement | Element): void
-export function scrollNext(element: HTMLElement | Element): void
-export function scrollTo(element: HTMLElement | Element, selected?: number): void
-export function getItemCount(element: HTMLElement | Element, scrollWidth?: number, mathFloor?: boolean): number
-export function observeCarousel(element: HTMLElement | Element, options?: ObserveCarouselOptions): void
-export function scrollCarousel(element: HTMLElement | Element, options?: ScrollCarouselOptions): void
-export function paginationCarousel(element: HTMLElement | Element, options?: PaginationCarouselOptions): void
-export function autoplayCarousel(element: HTMLElement | Element, options?: AutoplayCarouselOptions): void
-export function dragCarousel(element: HTMLElement | Element, options?: DragCarouselOptions): void
+export function scrollBy(element: HTMLElement, options?: ScrollByOptions): void
+export function toggleScrollState(element: HTMLElement, options?: ToggleScrollStateOptions): void
+export function setCurrentAttribute(element: HTMLElement, index: number, attributeName?: string): void
+export function setSnappedAttribute(element: HTMLElement, target: HTMLElement, markerGroupElement?: HTMLElement | null): void
+export function scrollToMarker(element: HTMLElement, target: HTMLElement, markerGroupElement: HTMLElement, scrollIntoViewOptions?: ScrollIntoViewOptions): void
