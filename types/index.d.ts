@@ -129,14 +129,14 @@ declare module 'winduum/src/components/form' {
 	}
 
 	export interface ValidateFieldOptions {
-		validate?: boolean
 		validationMessage?: string
 		selector?: string
 		validitySelector?: string
 		infoContent?: string
-		endParentSelector?: string
-		endSelector?: string
-		endContent?: string
+		iconParentSelector?: string
+		iconSelector?: string
+		iconContent?: string
+		validIcon?: string | null
 		invalidIcon?: string
 	}
 
