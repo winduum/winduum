@@ -21,31 +21,5 @@
         </div>
     </div>
 </div>
-<script type="module">
-    import { togglePopover, hidePopover } from '/src/components/popover/index.js'
-
-    document?.querySelectorAll('[popovertargetaction="toggle"]').forEach((popoverActionElement) => {
-        popoverActionElement?.addEventListener('click', async (e) => {
-            e.preventDefault()
-            const currentTarget = e.currentTarget
-            currentTarget.scrollIntoView()
-            await togglePopover(currentTarget)
-        })
-
-        // close on esc
-        window.addEventListener('keydown', ({ key }) => {
-            if (key === 'Escape') {
-                hidePopover(popoverActionElement)
-            }
-        })
-
-        // outside dismiss
-        window.addEventListener('click', ({ target }) => {
-            if (!window.popover?.contains(target) && !popoverActionElement?.isEqualNode(target) && popoverActionElement?.ariaExpanded === 'true') {
-                hidePopover(popoverActionElement)
-            }
-        })
-    })
-</script>
 </body>
 </html>

@@ -4,6 +4,5 @@
   --x-popover-content-border-radius: var(--radius-xl);
   --x-popover-content-padding-block: calc(var(--spacing) * 2);
   --x-popover-content-padding-inline: calc(var(--spacing) * 2);
-  --x-popover-content-scale-y: 0.75;
-  --x-popover-content-scale-x: 0.75;
+  --x-popover-content-starting-scale: 0.75;
 }

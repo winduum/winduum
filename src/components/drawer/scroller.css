@@ -1,0 +1,32 @@
+.x-drawer-scroller {
+  display: flex;
+  width: inherit;
+  height: inherit;
+  overflow: auto clip;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  scroll-snap-type: x mandatory;
+  scroll-timeline: --x-drawer-backdrop x;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    min-inline-size: 100dvw;
+    scroll-snap-align: end;
+    scroll-initial-target: nearest;
+  }
+
+  &:where(.snap-y) {
+    overflow: clip auto;
+    scroll-timeline: --x-drawer-backdrop y;
+
+    &::after {
+      min-block-size: 100dvh;
+    }
+  }
+}

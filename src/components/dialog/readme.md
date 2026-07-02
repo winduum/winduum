@@ -29,12 +29,8 @@ You can also copy and paste the code from this directory to your project and rem
 @import "@/components/dialog/assets/index.css" layer(components);
 ```
 
-```js
-import { showDialog } from '@/components/dialog/assets/index.js'
-```
-
 ### Docs
-Visit [docs](https://winduum.dev/docs/components/dialog.html) to learn more about Javascript API and see usage examples.
+Visit [docs](https://winduum.dev/docs/components/dialog.html) to learn more about usage examples.
 
 ### Frameworks
 * [winduum/winduum-vue](https://github.com/winduum/winduum-vue/blob/main/src/components/dialog)

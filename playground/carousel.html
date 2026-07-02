@@ -5,69 +5,228 @@
     <title>Winduum UI</title>
     <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1, viewport-fit=cover"/>
     <link rel="stylesheet" href="/src/test.css">
+
+    <style>
+      .x-carousel-content {
+        scroll-marker-group: after;
+
+        &::scroll-marker-group {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          height: 20px;
+        }
+
+        & > :where(*) {
+          &::scroll-marker {
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            border: 2px solid black;
+            border-radius: 50%;
+            content: "";
+            display: block;
+            box-sizing: border-box;
+          }
+
+          &::scroll-marker:target-current {
+            background-color: black;
+          }
+        }
+      }
+
+      .x-carousel-marker-group {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .x-carousel-marker {
+        width: 16px;
+        height: 16px;
+        background-color: transparent;
+        border: 2px solid black;
+        border-radius: 50%;
+        display: block;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        &:is([aria-current]) {
+          background-color: red;
+        }
+      }
+    </style>
 </head>
-<body class="p-4xl flex flex flex-col items-start gap-4">
-    <div class="x-carousel w-[1280px]" data-controller="carousel">
-        <div class="x-carousel-content gap-4" data-carousel-target="content" id="carousel">
-            <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item1">
-                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
-            </div>
-            <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item2">
-                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
-            </div>
-            <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item3">
-                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
-            </div>
-            <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item4">
-                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
-            </div>
+<body>
+    <x-carousel class="x-carousel group/carousel max-w-6xl block mx-auto mt-8" id="defaultCarousel" role="region" aria-roledescription="carousel" aria-label="Carousel gallery">
+        <div
+            class="x-carousel-content flex gap-6 rounded-2xl"
+            tabindex="-1"
+            data-x-carousel-part="content"
+        >
+            <img id="slide-1" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy" data-snapped>
+            <img id="slide-2" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-3" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-4" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-5" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-6" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-7" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-8" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
         </div>
-        <div class="dots flex gap-1.5 h-4 py-4" data-carousel-target="pagination"></div>
-        <progress class="x-progress sm" value="50" max="100" data-carousel-target="progress"></progress>
-        <div class="flex">
-            <div data-carousel-target="counterMin"></div>/
-            <div data-carousel-target="counterMax"></div>
+        <nav
+            class="x-carousel-marker-group"
+            data-x-carousel-part="markerGroup"
+            aria-label="Carousel navigation"
+        >
+            <a href="#slide-1" class="x-carousel-marker" aria-label="Slide 1" data-x-carousel-part="marker" aria-current="true"></a>
+            <a href="#slide-2" class="x-carousel-marker" aria-label="Slide 2" data-x-carousel-part="marker"></a>
+            <a href="#slide-3" class="x-carousel-marker" aria-label="Slide 3" data-x-carousel-part="marker"></a>
+            <a href="#slide-4" class="x-carousel-marker" aria-label="Slide 4" data-x-carousel-part="marker"></a>
+            <a href="#slide-5" class="x-carousel-marker" aria-label="Slide 5" data-x-carousel-part="marker"></a>
+            <a href="#slide-6" class="x-carousel-marker" aria-label="Slide 6" data-x-carousel-part="marker"></a>
+            <a href="#slide-7" class="x-carousel-marker" aria-label="Slide 7" data-x-carousel-part="marker"></a>
+            <a href="#slide-8" class="x-carousel-marker" aria-label="Slide 8" data-x-carousel-part="marker"></a>
+        </nav>
+        <div class="flex items-center gap-4 justify-end mt-6 group-data-scroll-none/carousel:hidden">
+            <button
+                class="x-button square md:lg px-0 disabled:opacity-50"
+                type="button"
+                data-x-carousel-part="prev"
+                command="--scrollPrev"
+                commandfor="defaultCarousel"
+                aria-controls="defaultCarousel"
+                aria-label="Previous"
+                disabled
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+            </button>
+            <button
+                class="x-button square md:lg px-0 disabled:opacity-50"
+                type="button"
+                data-x-carousel-part="next"
+                command="--scrollNext"
+                commandfor="defaultCarousel"
+                aria-controls="defaultCarousel"
+                aria-label="Next"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </button>
         </div>
-        <button class="x-button square" data-action="click->carousel#prev">Prev</button>
-        <button class="x-button square" data-action="click->carousel#next">Next</button>
-    </div>
+    </x-carousel>
+
+    <x-carousel class="x-carousel group/carousel max-w-6xl block mx-auto mt-8" id="verticalCarousel" data-vertical="true">
+        <div
+            class="x-carousel-content flex flex-col gap-6 rounded-2xl max-h-[50vh] snap-y snap-mandatory"
+            tabindex="-1"
+            data-x-carousel-part="content"
+        >
+            <img id="slide-vertical-1" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy" data-snapped>
+            <img id="slide-vertical-2" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-vertical-3" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-vertical-4" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-vertical-5" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-vertical-6" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-vertical-7" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+            <img id="slide-vertical-8" class="aspect-3/2 rounded-2xl max-w-full lg:max-w-105 md:max-w-[calc(50%-0.75rem)]" src="https://placehold.co/420x280" alt=" " width="420" height="280" loading="lazy">
+        </div>
+
+        <nav
+            class="x-carousel-marker-group"
+            data-x-carousel-part="markerGroup"
+            aria-label="Carousel navigation"
+        >
+            <a href="#slide-vertical-1" class="x-carousel-marker" aria-label="Slide 1" data-x-carousel-part="marker" aria-current="true"></a>
+            <a href="#slide-vertical-2" class="x-carousel-marker" aria-label="Slide 2" data-x-carousel-part="marker"></a>
+            <a href="#slide-vertical-3" class="x-carousel-marker" aria-label="Slide 3" data-x-carousel-part="marker"></a>
+            <a href="#slide-vertical-4" class="x-carousel-marker" aria-label="Slide 4" data-x-carousel-part="marker"></a>
+            <a href="#slide-vertical-5" class="x-carousel-marker" aria-label="Slide 5" data-x-carousel-part="marker"></a>
+            <a href="#slide-vertical-6" class="x-carousel-marker" aria-label="Slide 6" data-x-carousel-part="marker"></a>
+            <a href="#slide-vertical-7" class="x-carousel-marker" aria-label="Slide 7" data-x-carousel-part="marker"></a>
+            <a href="#slide-vertical-8" class="x-carousel-marker" aria-label="Slide 8" data-x-carousel-part="marker"></a>
+        </nav>
+        <div class="flex items-center gap-4 justify-end mt-6 group-data-scroll-none/carousel:hidden">
+            <button class="x-button square md:lg px-0 disabled:opacity-50" type="button" data-x-carousel-part="prev" command="--scrollPrev" value="vertical" commandfor="verticalCarousel" aria-label="{_'Předchozí'}" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+            </button>
+            <button class="x-button square md:lg px-0 disabled:opacity-50" type="button" data-x-carousel-part="next" command="--scrollNext" value="vertical" commandfor="verticalCarousel" aria-label="{_'Následující'}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </button>
+        </div>
+    </x-carousel>
 
     <script type="module">
-        import { scrollPrev, scrollNext, dragCarousel, paginationCarousel, observeCarousel, scrollCarousel } from "/src/components/carousel/index.js";
+      import {WebuumElement} from "webuum";
 
-        const contentElement = document.querySelector('[data-carousel-target="content"]')
-        const paginationElement = document.querySelector('[data-carousel-target="pagination"]')
-        const progressElement = document.querySelector('[data-carousel-target="progress"]')
-        const counterMinElement = document.querySelector('[data-carousel-target="counterMin"]')
-        const counterMaxElement = document.querySelector('[data-carousel-target="counterMax"]')
-        const prevElement = document.querySelector('[data-action="click->carousel#prev"]')
-        const nextElement = document.querySelector('[data-action="click->carousel#next"]')
-
-        const pagination = {
-            element: paginationElement,
-            activeClass: 'bg-error',
-            itemContent: '<div class="dot data-active:bg-primary"></div>'
+      customElements.define('x-carousel', class Carousel extends WebuumElement {
+        static parts = {
+          $content: null,
+          $markerGroup: null,
+          $marker: null,
+          $prev: null,
+          $next: null,
         }
 
-        const scrollOptions = {
-            counterMinElement,
-            counterMaxElement,
-            progressElement,
-            pagination
+        static props = {
+          $vertical: false,
         }
 
-        dragCarousel(contentElement)
+        async connectedCallback() {
+          const { scrollToMarker, setSnappedAttribute, toggleScrollState } = await import('/src/components/carousel/index.js')
 
-        observeCarousel(contentElement)
+          this.$controller = new AbortController()
 
-        paginationCarousel(contentElement, pagination)
+          const { signal } = this.$controller
 
-        scrollCarousel(contentElement, scrollOptions)
+          this.$marker.forEach((element) => {
+            element.addEventListener('click', (event) => {
+              event.preventDefault()
 
-        contentElement.addEventListener('scroll', () => scrollCarousel(contentElement, scrollOptions), { passive: true })
+              scrollToMarker(this.$content, event.target, this.$markerGroup, this.$vertical ? { block: 'start' } : {})
+            }, { signal })
+          })
 
-        prevElement.addEventListener('click', () => scrollPrev(contentElement))
-        nextElement.addEventListener('click', () => scrollNext(contentElement))
+          this.$content.addEventListener('scrollsnapchanging', (event) => {
+            setSnappedAttribute(this.$content, event.snapTargetInline ?? event.snapTargetBlock, this.$markerGroup)
+          }, { signal })
+
+          this.$content.addEventListener('scroll', () => {
+            toggleScrollState(this.$content, {
+              prevElement: this.$prev,
+              nextElement: this.$next,
+              vertical: this.$vertical,
+            })
+          }, { signal })
+        }
+
+        disconnectedCallback() {
+          this.$controller?.abort()
+        }
+
+        async $scroll(direction) {
+          const { scrollBy } = await import('/src/components/carousel/index.js')
+
+          scrollBy(this.$content, {
+            direction,
+            vertical: this.$vertical,
+          })
+        }
+
+        scrollPrev() {
+          this.$scroll(-1)
+        }
+
+        scrollNext() {
+          this.$scroll(1)
+        }
+      })
     </script>
 
     <svg class="hidden">

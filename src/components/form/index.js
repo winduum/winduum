@@ -5,30 +5,26 @@
  */
 export const validateForm = (event, options = {}) => {
   options = {
-    validateSelectors: '.x-control, .x-check, .x-switch, .x-rating, .x-color',
-    validateOptions: {
-      validate: true,
-    },
+    validateSelector: '.x-field',
+    validateOptions: {},
     validateField,
     submitterLoadingAttribute: 'data-loading',
     scrollOptions: { behavior: 'smooth', block: 'center' },
     ...options,
   }
 
-  if (options.validateOptions.validate) {
-    if (!event.target.checkValidity()) {
-      event.preventDefault()
-      event.stopImmediatePropagation()
+  if (!event.target.checkValidity()) {
+    event.preventDefault()
+    event.stopImmediatePropagation()
 
-      event.target.querySelector(':invalid').scrollIntoView(options.scrollOptions)
-      event.target.querySelector(':invalid').focus()
-    }
-    else if (options.submitterLoadingAttribute) {
-      event?.submitter?.setAttribute(options.submitterLoadingAttribute, '')
-    }
+    event.target.querySelector(':invalid').scrollIntoView(options.scrollOptions)
+    event.target.querySelector(':invalid').focus()
+  }
+  else if (options.submitterLoadingAttribute) {
+    event?.submitter?.setAttribute(options.submitterLoadingAttribute, '')
   }
 
-  event.target.querySelectorAll(options.validateSelectors).forEach((element) => {
+  event.target.querySelectorAll(options.validateSelector).forEach((element) => {
     options.validateField(element, options.validateOptions)
   })
 }
@@ -40,74 +36,42 @@ export const validateForm = (event, options = {}) => {
  */
 export const validateField = (element, options = {}) => {
   options = {
-    validate: true,
-    selector: 'input:not([type="hidden"]), textarea, select',
-    ignoreMatch: /(data-novalidate|readonly)/,
-    validitySelector: '.validity',
-    infoParentSelector: '.x-field',
-    infoSelector: '.x-info',
-    infoContent: '<div class="x-info text-error validity"></div>',
-    endParentSelector: '.x-control',
-    endSelector: '.ms-auto',
-    endContent: '<div class="ms-auto"></div>',
-    validAttribute: 'data-valid',
+    selector: ':is(input:not([type="hidden"]), textarea, select):not([readonly], [data-novalidate])',
+    validitySelector: '[data-validity]',
+    infoContent: '<div class="x-info text-error" data-validity></div>',
+    iconParentSelector: '.x-control',
+    iconSelector: '.ms-auto',
+    iconContent: '<div class="ms-auto"></div>',
     validIcon: null,
-    invalidAttribute: 'data-invalid',
-    invalidIcon: '<svg class="text-error validity" aria-hidden="true"><use href="#icon-exclamation-circle"></use></svg>',
-    activeAttribute: 'data-active',
+    invalidIcon: '<svg class="text-error" data-validity aria-hidden="true"><use href="#heroicons-outline/exclamation-circle"></use></svg>',
     ...options,
   }
 
-  const validationElement = /** @type {HTMLInputElement} */ (element.querySelector(options.selector))
+  const validationElements = [...element.querySelectorAll(options.selector)]
 
-  if (!validationElement) return
+  if (!validationElements.length) return
 
-  const validationMessage = options.validationMessage ?? validationElement.dataset.validationMessage ?? validationElement.validationMessage
-  const infoParentElement = validationElement?.closest(options.infoParentSelector)
-  const endParentElement = validationElement.closest(options.endParentSelector)
-  const infoSelector = options.infoSelector + options.validitySelector
-  const endSelector = `${options.endSelector} ${options.validitySelector}`
+  element.querySelectorAll(options.validitySelector).forEach(el => el.remove())
 
-  const insertIcon = (icon) => {
-    if (!endParentElement || !icon) return
+  const invalidElements = validationElements.filter(validationElement => !validationElement.checkValidity())
 
-    if (!element?.querySelector(options.endSelector)) {
-      element?.insertAdjacentHTML('beforeend', options.endContent)
+  validationElements.forEach((validationElement) => {
+    const icon = invalidElements.includes(validationElement) ? options.invalidIcon : options.validIcon
+    const iconParentElement = validationElement.closest(options.iconParentSelector)
+
+    if (!iconParentElement || !icon) return
+
+    if (!iconParentElement.querySelector(options.iconSelector)) {
+      iconParentElement.insertAdjacentHTML('beforeend', options.iconContent)
     }
 
-    element.querySelector(options.endSelector).insertAdjacentHTML('afterbegin', icon)
-  }
+    iconParentElement.querySelector(options.iconSelector).insertAdjacentHTML('afterbegin', icon)
+  })
 
-  if (validationElement.value !== '') {
-    element.setAttribute(options.activeAttribute, '')
-  }
-  else {
-    element.removeAttribute(options.activeAttribute)
-  }
+  if (!invalidElements.length) return
 
-  if (!validationElement.outerHTML.match(options.ignoreMatch) && options.validate) {
-    element?.removeAttribute(options.validAttribute)
-    element?.removeAttribute(options.invalidAttribute)
-
-    infoParentElement?.querySelector(infoSelector)?.remove()
-    endParentElement?.querySelector(endSelector)?.remove()
-
-    if (validationElement.checkValidity()) {
-      element.setAttribute(options.validAttribute, '')
-
-      insertIcon(options.validIcon)
-    }
-    else {
-      element.setAttribute(options.invalidAttribute, '')
-
-      insertIcon(options.invalidIcon)
-
-      if (infoParentElement) {
-        infoParentElement.insertAdjacentHTML('beforeend', options.infoContent)
-        infoParentElement.querySelector(infoSelector).textContent = validationMessage
-      }
-    }
-  }
+  element.insertAdjacentHTML('beforeend', options.infoContent)
+  element.lastElementChild.textContent = options.validationMessage ?? invalidElements[0].dataset.validationMessage ?? invalidElements[0].validationMessage
 }
 
 export default {

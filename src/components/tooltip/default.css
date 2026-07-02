@@ -26,8 +26,8 @@
     pointer-events: none;
   }
 
-  &:where(.top),
-  &:where(.bottom) {
+  &:where(.tooltip-top),
+  &:where(.tooltip-bottom) {
     &::before {
       --tw-translate-x: -50%;
 
@@ -36,8 +36,8 @@
     }
   }
 
-  &:where(.left),
-  &:where(.right) {
+  &:where(.tooltip-left),
+  &:where(.tooltip-right) {
     &::before {
       --tw-translate-y: -50%;
 
@@ -46,28 +46,28 @@
     }
   }
 
-  &:where(.bottom) {
+  &:where(.tooltip-bottom) {
     &::before {
       inset-block-start: 100%;
       transform-origin: top;
     }
   }
 
-  &:where(.top) {
+  &:where(.tooltip-top) {
     &::before {
       inset-block-end: 100%;
       transform-origin: bottom;
     }
   }
 
-  &:where(.left) {
+  &:where(.tooltip-left) {
     &::before {
       inset-inline-end: 100%;
       transform-origin: right;
     }
   }
 
-  &:where(.right) {
+  &:where(.tooltip-right) {
     &::before {
       inset-inline-start: 100%;
       transform-origin: left;
