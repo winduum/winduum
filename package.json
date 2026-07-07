@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "3.0.0-next.7",
+  "version": "3.0.0-next.8",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",
@@ -31,6 +31,7 @@
     "eslint": "^10.6.0",
     "fast-glob": "^3.3.3",
     "globals": "^17.7.0",
+    "interestfor": "^1.0.8",
     "invokers-polyfill": "^1.0.3",
     "postcss": "^8.5.16",
     "postcss-custom-media": "^12.0.1",
@@ -65,6 +66,9 @@
       "types": "./types/index.d.ts",
       "default": "./src/supports.js"
     },
+    "./polyfill": {
+      "default": "./src/polyfill.js"
+    },
     "./src/*": "./src/*",
     "./tailwindcss/*": "./tailwindcss/*",
     "./dist/*": "./dist/*",
@@ -76,6 +80,10 @@
     "./src/components/compare": {
       "types": "./src/components/compare/index.d.ts",
       "default": "./src/components/compare/index.js"
+    },
+    "./src/components/details": {
+      "types": "./src/components/details/index.d.ts",
+      "default": "./src/components/details/index.js"
     },
     "./src/components/dialog": {
       "default": "./src/components/dialog/index.js"
