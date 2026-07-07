@@ -4,3 +4,4 @@ export interface CloseToastOptions {
 }
 
 export function closeToaster(element: HTMLElement, options?: CloseToastOptions): Promise<void>
+export function toasterObserver(): MutationObserver
