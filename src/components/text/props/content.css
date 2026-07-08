@@ -1,0 +1,9 @@
+:root,
+:host {
+  --x-text-content-bold: var(--font-weight-semibold);
+  --x-text-list-marker-size: 0.375em;
+  --x-text-content-margin-block: 1.25em;
+  --x-text-hr-margin-block: 3em;
+  --x-text-heading-line-height: 1.2;
+  --x-text-img-border-radius: var(--radius-2xl);
+}

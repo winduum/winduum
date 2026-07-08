@@ -1,5 +1,5 @@
 .x-drawer {
-  &:is(.no-snap) {
+  &:where(.no-snap) {
     --x-drawer-backdrop-opacity: 1;
 
     width: fit-content;
