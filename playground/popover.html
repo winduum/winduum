@@ -8,9 +8,17 @@
 </head>
 <body class="bg-blue-100/10 dark:bg-dark p-4 items-start gap-4 grid grid-cols-container">
 <div class="w-full flex flex-col gap-4">
-    <div class="w-max">
+    <div class="w-max flex gap-2">
         <div class="x-tooltip tooltip-bottom" aria-label="I am tooltip">
             <button class="x-button">Tooltip</button>
+        </div>
+        <div>
+            <button class="x-button" interestfor="tooltipPopover" style="interest-delay: 0s;">Tooltip</button>
+            <x-popover class="x-popover tooltip bottom my-1" id="tooltipPopover" popover="hint">
+                <div class="x-popover-content">
+                    Popover
+                </div>
+            </x-popover>
         </div>
     </div>
     <div class="w-max flex gap-2">

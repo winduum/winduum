@@ -17,3 +17,8 @@ export const supportsScrollInitialTarget = CSS.supports('scroll-initial-target',
  * @type {boolean}
  */
 export const supportsAnimationTimeline = CSS.supports('animation-timeline: scroll()')
+
+/**
+ * @type {boolean}
+ */
+export const supportsScrollSnapEvents = ('onscrollsnapchanging' in window)

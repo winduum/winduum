@@ -164,6 +164,7 @@
 
     <script type="module">
       import {WebuumElement} from "webuum";
+      import 'scrollsnap-events/scrollsnapchanging'
 
       customElements.define('x-carousel', class Carousel extends WebuumElement {
         static parts = {
@@ -219,12 +220,26 @@
           })
         }
 
-        scrollPrev() {
-          this.$scroll(-1)
+        async scrollPrev() {
+          //this.$scroll(-1)
+          const { scrollToMarker } = await import('/src/components/carousel/index.js')
+
+          const target = this.$marker.filter(marker => marker.getAttribute('aria-current') === 'true')?.[0]?.previousElementSibling
+
+          if (target) {
+            scrollToMarker(this.$content, target, this.$markerGroup, this.$vertical ? { block: 'start' } : {})
+          }
         }
 
-        scrollNext() {
-          this.$scroll(1)
+        async scrollNext() {
+          //this.$scroll(1)
+          const { scrollToMarker } = await import('/src/components/carousel/index.js')
+
+          const target = this.$marker.filter(marker => marker.getAttribute('aria-current') === 'true')?.[0]?.nextElementSibling
+
+          if (target) {
+            scrollToMarker(this.$content, target, this.$markerGroup, this.$vertical ? { block: 'start' } : {})
+          }
         }
       })
     </script>

@@ -1,5 +1,5 @@
 import { supportsCommand, supportsIs } from 'webuum/supports'
-import { supportsTimelineTrigger, supportsInterestFor } from './supports.js'
+import { supportsTimelineTrigger, supportsInterestFor, supportsScrollSnapEvents } from './supports.js'
 
 if (!supportsCommand) {
   import('invokers-polyfill')
@@ -15,4 +15,8 @@ if (!supportsInterestFor) {
 
 if (!supportsTimelineTrigger) {
   import('./polyfills/timelineTrigger.js')
+}
+
+if (!supportsScrollSnapEvents) {
+  import('scrollsnap-events/scrollsnapchanging')
 }

@@ -2,6 +2,8 @@
   background-color: var(--x-popover-content-background-color);
   border-radius: var(--x-popover-content-border-radius);
   padding: var(--x-popover-content-padding-block) var(--x-popover-content-padding-inline);
+  color: var(--x-popover-content-color);
+  font-size: var(--x-popover-font-size);
   transition: inherit;
   will-change: transform;
 
