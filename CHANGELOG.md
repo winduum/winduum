@@ -1,10 +1,13 @@
 ## 3.0.0 (2026-xx-xx)
+* feat: added a new winduum-elements package with native Web Components based on [webuum](https://webuum.dev)
 * feat(bc): rewritten `x-carousel`, respect the native Carousel API and supports all [Carousel Gallery](https://chrome.dev/carousel/) examples
 * feat(bc): removed `x-details` js implementation, added x-details css implementation
 * feat(bc): removed `x-dialog` js implementation, rewritten for full native Dialog API
 * feat(bc): rewritten `x-drawer`, added native scroller animation timeline, added new noscript, nosnap variants
 * feat(bc): rewritten `x-popover` to use native Popover API and Anchor API
-* feat(bc): `x-tooltip` replaced top, bottom, left, right variants with tooltip- prefix
+* feat(bc): `x-tooltip` replaced top, bottom, left, right variants with tooltip- prefix and depricated in favor of `x-popover.tooltip`
+* feat(bc): `x-text` is now splitted to `x-text` and `x-text.content` variant
+* feat(bc): changed defaults styles, see migration guide for more info
 * refactor: `x-toast` is now removed by default
 * feat: added new tailwindcss position utilities
 * feat: released a new winduum-elements package with native Web Components based on [webuum](https://webuum.dev)

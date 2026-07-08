@@ -32,50 +32,35 @@ declare module 'winduum/supports' {
 
 	export const supportsInterestFor: boolean;
 
+	export const supportsScrollInitialTarget: boolean;
+
+	export const supportsAnimationTimeline: boolean;
+
+	export const supportsScrollSnapEvents: boolean;
+
 	export {};
 }
 
 declare module 'winduum/src/components/carousel' {
-	export interface ObserveCarouselOptions {
-		visibleAttribute?: string
-		observerOptions?: {
-			rootMargin?: string
-			threshold?: number | number[]
-		}
+	export type CarouselPlacement = 'left' | 'right' | 'top' | 'bottom'
+
+	export interface ScrollByOptions {
+		direction?: number
+		vertical?: boolean
+		ratio?: number
 	}
 
-	export interface PaginationCarouselOptions {
-		element?: HTMLElement | Element
-		itemContent?: string
-		activeAttribute?: string
+	export interface ToggleScrollStateOptions {
+		prevElement?: HTMLButtonElement | null
+		nextElement?: HTMLButtonElement | null
+		vertical?: boolean
 	}
 
-	export interface ScrollCarouselOptions {
-		observe?: ObserveCarouselOptions
-		pagination?: PaginationCarouselOptions
-		progressElement?: HTMLProgressElement | Element
-		counterMinElement?: HTMLElement | Element
-		counterMaxElement?: HTMLElement | Element
-	}
-
-	export interface AutoplayCarouselOptions {
-		delay?: number
-		pauseElements?: HTMLElement[] | Element[]
-	}
-
-	export interface DragCarouselOptions {
-		activeAttribute?: string
-	}
-
-	export function scrollPrev(element: HTMLElement | Element): void
-	export function scrollNext(element: HTMLElement | Element): void
-	export function scrollTo(element: HTMLElement | Element, selected?: number): void
-	export function getItemCount(element: HTMLElement | Element, scrollWidth?: number, mathFloor?: boolean): number
-	export function observeCarousel(element: HTMLElement | Element, options?: ObserveCarouselOptions): void
-	export function scrollCarousel(element: HTMLElement | Element, options?: ScrollCarouselOptions): void
-	export function paginationCarousel(element: HTMLElement | Element, options?: PaginationCarouselOptions): void
-	export function autoplayCarousel(element: HTMLElement | Element, options?: AutoplayCarouselOptions): void
-	export function dragCarousel(element: HTMLElement | Element, options?: DragCarouselOptions): void
+	export function scrollBy(element: HTMLElement, options?: ScrollByOptions): void
+	export function toggleScrollState(element: HTMLElement, options?: ToggleScrollStateOptions): void
+	export function setCurrentAttribute(element: HTMLElement, index: number, attributeName?: string): void
+	export function setSnappedAttribute(element: HTMLElement, target: HTMLElement, markerGroupElement?: HTMLElement | null): void
+	export function scrollToMarker(element: HTMLElement, target: HTMLElement, markerGroupElement: HTMLElement, scrollIntoViewOptions?: ScrollIntoViewOptions): void
 
 	export {};
 }
@@ -99,22 +84,33 @@ declare module 'winduum/src/components/dialog' {
 }
 
 declare module 'winduum/src/components/drawer' {
-	export interface ScrollDrawerOptions {
-		snapClass?: string
-		opacityProperty?: string
-		opacityRatio?: number
-		scrollOpen?: number
-		scrollClose?: number
-		scrollSize?: number
-		scrollDirection?:number
+	export type DrawerPlacement = 'left' | 'right' | 'top' | 'bottom'
+
+	export function isVerticalDrawer(placement: DrawerPlacement): boolean
+	export function scrollDrawer(element: HTMLElement | Element, placement: DrawerPlacement, reverse?: boolean, behavior?: 'auto' | 'instant'): void
+	export function showDrawer(element: HTMLElement | Element, placement: DrawerPlacement): Promise<void>
+	export function closeDrawer(element: HTMLElement | Element, placement: DrawerPlacement): void
+	export function drawerEvents(element: HTMLDialogElement | Element, contentElement: HTMLElement | Element, placement: DrawerPlacement, signal?: AbortSignal): void
+	export function drawerObserver(element: HTMLDialogElement | Element, placement: DrawerPlacement): IntersectionObserver
+	export function drawerProperties(element: HTMLElement | Element, placement: DrawerPlacement): ['top' | 'left', number, number]
+
+	export {};
+}
+
+declare module 'winduum/src/components/field' {
+	export interface ValidateFieldOptions {
+		validationMessage?: string
+		selector?: string
+		validitySelector?: string
+		infoContent?: string
+		iconParentSelector?: string
+		iconSelector?: string
+		iconContent?: string
+		validIcon?: string | null
+		invalidIcon?: string
 	}
 
-	export function showDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-	export function closeDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-	export function scrollInitDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-	export function toggleDrawerAttributes(element: HTMLDialogElement | Element, state?: 'open' | 'close', snapClass?: string): void
-	export function scrollDrawerState(scrollState: number, scrollDirection: number): boolean
-	export function scrollDrawer(element: HTMLDialogElement | Element, options?: ScrollDrawerOptions): void
+	export function validateField(element: HTMLElement, options?: ValidateFieldOptions): void
 
 	export {};
 }
@@ -128,7 +124,8 @@ declare module 'winduum/src/components/form' {
 		submitterLoadingAttribute?: string
 	}
 
-	export interface ValidateFieldOptions {
+	export function validateForm(event: Event | SubmitEvent, options?: ValidateFormOptions): void
+	interface ValidateFieldOptions {
 		validationMessage?: string
 		selector?: string
 		validitySelector?: string
@@ -140,16 +137,15 @@ declare module 'winduum/src/components/form' {
 		invalidIcon?: string
 	}
 
-	export function validateForm(event: Event | SubmitEvent, options?: ValidateFormOptions): void
-	export function validateField(element: HTMLElement, options?: ValidateFieldOptions): void
+	function validateField(element: HTMLElement, options?: ValidateFieldOptions): void
 
 	export {};
 }
 
 declare module 'winduum/src/components/tabs' {
 	interface ToggleTabOptions {
-		tabElements?: NodeListOf<Element>
-		tabPanelElements?: NodeListOf<Element>
+		tabElements?: NodeListOf<Element> | Element[]
+		tabPanelElements?: NodeListOf<Element> | Element[]
 	}
 
 	export function toggleTab(element: HTMLElement | Element, options?: ToggleTabOptions): void
@@ -184,6 +180,7 @@ declare module 'winduum/src/components/toaster' {
 	}
 
 	export function closeToaster(element: HTMLElement, options?: CloseToastOptions): Promise<void>
+	export function toasterObserver(): MutationObserver
 
 	export {};
 }
