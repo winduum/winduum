@@ -1,4 +1,4 @@
 :root,
 :host {
-  --x-text-line-height: 1.5;
+  --x-text-line-height: calc(1em + 0.5rem);
 }
