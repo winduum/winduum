@@ -7,7 +7,3 @@ if (!supportsInterestFor) {
 if (!supportsTimelineTrigger) {
   import('./polyfills/timelineTrigger.js')
 }
-
-if (!supportsScrollSnapEvents) {
-  import('./polyfills/scrollSnapChanging.js')
-}
