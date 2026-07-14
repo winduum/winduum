@@ -1,4 +1,4 @@
-import { supportsTimelineTrigger, supportsInterestFor, supportsScrollSnapEvents } from './supports.js'
+import { supportsTimelineTrigger, supportsInterestFor } from './supports.js'
 
 if (!supportsInterestFor) {
   import('interestfor/src/interestfor.js')
@@ -6,8 +6,4 @@ if (!supportsInterestFor) {
 
 if (!supportsTimelineTrigger) {
   import('./polyfills/timelineTrigger.js')
-}
-
-if (!supportsScrollSnapEvents) {
-  import('scrollsnap-events/scrollsnapchanging')
 }
