@@ -1,6 +1,6 @@
 {
   "name": "winduum",
-  "version": "3.0.0-next.11",
+  "version": "3.0.0-next.13",
   "type": "module",
   "types": "types/index.d.ts",
   "main": "plugin/index.cjs",
@@ -96,6 +96,10 @@
     "./src/components/form": {
       "types": "./src/components/form/index.d.ts",
       "default": "./src/components/form/index.js"
+    },
+    "./src/components/field": {
+      "types": "./src/components/field/index.d.ts",
+      "default": "./src/components/field/index.js"
     },
     "./src/components/tabs": {
       "types": "./src/components/tabs/index.d.ts",
