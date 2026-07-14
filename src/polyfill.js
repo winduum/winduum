@@ -9,5 +9,5 @@ if (!supportsTimelineTrigger) {
 }
 
 if (!supportsScrollSnapEvents) {
-  import('scrollsnap-events/scrollsnapchanging')
+  import('./polyfills/scrollSnapChanging.js')
 }
