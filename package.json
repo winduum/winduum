@@ -78,6 +78,10 @@
       "types": "./src/components/carousel/index.d.ts",
       "default": "./src/components/carousel/index.js"
     },
+    "./src/components/carousel-experimental": {
+      "types": "./src/components/carousel-experimental/index.d.ts",
+      "default": "./src/components/carousel-experimental/index.js"
+    },
     "./src/components/compare": {
       "types": "./src/components/compare/index.d.ts",
       "default": "./src/components/compare/index.js"

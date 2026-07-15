@@ -7,6 +7,7 @@ await createBundle({
     'winduum': 'plugin/index.js',
     'winduum/supports': 'src/supports.js',
     'winduum/src/components/carousel': 'src/components/carousel/index.js',
+    'winduum/src/components/carousel-experimental': 'src/components/carousel-experimental/index.js',
     'winduum/src/components/compare': 'src/components/compare/index.js',
     'winduum/src/components/dialog': 'src/components/dialog/index.js',
     'winduum/src/components/drawer': 'src/components/drawer/index.js',

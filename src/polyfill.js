@@ -1,4 +1,4 @@
-import { supportsTimelineTrigger, supportsInterestFor, supportsScrollSnapEvents } from './supports.js'
+import { supportsTimelineTrigger, supportsInterestFor } from './supports.js'
 
 if (!supportsInterestFor) {
   import('interestfor/src/interestfor.js')
