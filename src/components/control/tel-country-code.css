@@ -13,7 +13,7 @@
         }
       }
 
-      :where(option) {
+      :where(option[data-icon]) {
         &::before {
           content: attr(data-icon);
           margin-inline-end: 0.5ch;
