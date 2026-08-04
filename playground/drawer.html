@@ -106,9 +106,8 @@
     <button class="x-button" command="show-modal" commandfor="drawerBottomMobile">Open dialog drawer</button>
 
     <script type="module">
-      import { initializeController } from "webuum";
+      import { defineElement } from "webuum";
       import { supportsIs } from "webuum/supports";
-      import '/src/components/dialog/index.js'
 
       if (!supportsIs()) {
         await import('@webreflection/custom-elements-builtin')
@@ -126,7 +125,7 @@
 
         constructor() {
           super()
-          initializeController(this)
+          defineElement(this)
           this.$controller = new AbortController()
         }
 
