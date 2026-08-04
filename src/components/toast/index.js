@@ -9,6 +9,7 @@ export const closeToast = async (element, options = {}) => {
   options = {
     closedAttribute: 'data-closed',
     heightProperty: '--x-toast-block-size',
+    remove: true,
     ...options,
   }
 
@@ -31,16 +32,15 @@ export const closeToast = async (element, options = {}) => {
 export const showToast = async (element, options = {}) => {
   options = {
     openAttribute: 'data-open',
-    autoHide: null,
+    autoHide: 7500,
     heightProperty: '--x-toast-block-size',
-    close: {},
     ...options,
   }
 
   element.style.setProperty(options.heightProperty, `${element.offsetHeight}px`)
   element.style.height = '0'
 
-  await animationsFinished(element)
+  await nextRepaint()
 
   element.style.height = ''
   element.setAttribute(options.openAttribute, '')

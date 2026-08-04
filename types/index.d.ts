@@ -28,9 +28,19 @@ declare module 'winduum' {
 }
 
 declare module 'winduum/supports' {
+	export const supportsAnchor: boolean;
+
+	export const supportsAnchoredContainer: boolean;
+
 	export const supportsTimelineTrigger: boolean;
 
 	export const supportsInterestFor: boolean;
+
+	export const supportsScrollInitialTarget: boolean;
+
+	export const supportsAnimationTimeline: boolean;
+
+	export const supportsScrollSnapEvents: boolean;
 
 	export {};
 }
@@ -71,11 +81,35 @@ declare module 'winduum/src/components/carousel' {
 	export function scrollNext(element: HTMLElement | Element): void
 	export function scrollTo(element: HTMLElement | Element, selected?: number): void
 	export function getItemCount(element: HTMLElement | Element, scrollWidth?: number, mathFloor?: boolean): number
-	export function observeCarousel(element: HTMLElement | Element, options?: ObserveCarouselOptions): void
+	export function observeCarousel(element: HTMLElement | Element, options?: ObserveCarouselOptions): IntersectionObserver
 	export function scrollCarousel(element: HTMLElement | Element, options?: ScrollCarouselOptions): void
 	export function paginationCarousel(element: HTMLElement | Element, options?: PaginationCarouselOptions): void
 	export function autoplayCarousel(element: HTMLElement | Element, options?: AutoplayCarouselOptions): void
 	export function dragCarousel(element: HTMLElement | Element, options?: DragCarouselOptions): void
+
+	export {};
+}
+
+declare module 'winduum/src/components/carousel-experimental' {
+	export type CarouselPlacement = 'left' | 'right' | 'top' | 'bottom'
+
+	export interface ScrollByOptions {
+		direction?: number
+		vertical?: boolean
+		ratio?: number
+	}
+
+	export interface ToggleScrollStateOptions {
+		prevElement?: HTMLButtonElement | null
+		nextElement?: HTMLButtonElement | null
+		vertical?: boolean
+	}
+
+	export function scrollBy(element: HTMLElement, options?: ScrollByOptions): void
+	export function toggleScrollState(element: HTMLElement, options?: ToggleScrollStateOptions): void
+	export function setCurrentAttribute(element: HTMLElement, index: number, attributeName?: string): void
+	export function setSnappedAttribute(element: HTMLElement, target: HTMLElement, markerGroupElement?: HTMLElement | null): void
+	export function scrollToMarker(element: HTMLElement, target: HTMLElement, markerGroupElement: HTMLElement, scrollIntoViewOptions?: ScrollIntoViewOptions): void
 
 	export {};
 }
@@ -93,97 +127,74 @@ declare module 'winduum/src/components/compare' {
 	export {};
 }
 
-declare module 'winduum/src/components/details' {
-	export interface DefaultOptions {
-		selector?: string
-		summarySelector?: string
-	}
-
-	export const defaultOptions: DefaultOptions
-	export function showDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
-	export function closeDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
-	export function toggleDetails(selector: HTMLInputElement | HTMLElement, options?: DefaultOptions): Promise<void>
-
-	export {};
-}
-
 declare module 'winduum/src/components/dialog' {
-	export interface DefaultOptions {
-		remove?: boolean | null
-		closable?: boolean | null
-		modal?: boolean
-		openAttribute?: string
-		closedAttribute?: string
-		contentSelector?: string
-		scrollbarWidthProperty?: string | null
-	}
-
-	export const defaultOptions: DefaultOptions
-	export function showDialog(element: HTMLDialogElement | HTMLElement, options?: DefaultOptions): Promise<void>
-	export function closeDialog(element: HTMLDialogElement | HTMLElement, options?: DefaultOptions): Promise<void>
 
 	export {};
 }
 
 declare module 'winduum/src/components/drawer' {
-	export interface ScrollDrawerOptions {
-		snapClass?: string
-		opacityProperty?: string
-		opacityRatio?: number
-		scrollOpen?: number
-		scrollClose?: number
-		scrollSize?: number
-		scrollDirection?:number
+	export type DrawerPlacement = 'left' | 'right' | 'top' | 'bottom'
+
+	export function isVerticalDrawer(placement: DrawerPlacement): boolean
+	export function scrollDrawer(element: HTMLElement | Element, placement: DrawerPlacement, reverse?: boolean, behavior?: 'auto' | 'instant'): void
+	export function showDrawer(element: HTMLElement | Element, placement: DrawerPlacement): Promise<void>
+	export function closeDrawer(element: HTMLElement | Element, placement: DrawerPlacement): void
+	export function drawerEvents(element: HTMLDialogElement | Element, contentElement: HTMLElement | Element, placement: DrawerPlacement, signal?: AbortSignal): void
+	export function drawerObserver(element: HTMLDialogElement | Element, placement: DrawerPlacement): IntersectionObserver
+	export function drawerProperties(element: HTMLElement | Element, placement: DrawerPlacement): ['top' | 'left', number, number]
+
+	export {};
+}
+
+declare module 'winduum/src/components/field' {
+	export interface ValidateFieldOptions {
+		validationMessage?: string
+		selector?: string
+		validitySelector?: string
+		infoContent?: string
+		iconParentSelector?: string
+		iconSelector?: string
+		iconContent?: string
+		validIcon?: string | null
+		invalidIcon?: string
 	}
 
-	export function showDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-	export function closeDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-	export function scrollInitDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-	export function toggleDrawerAttributes(element: HTMLDialogElement | Element, state?: 'open' | 'close', snapClass?: string): void
-	export function scrollDrawerState(scrollState: number, scrollDirection: number): boolean
-	export function scrollDrawer(element: HTMLDialogElement | Element, options?: ScrollDrawerOptions): void
+	export function validateField(element: HTMLElement, options?: ValidateFieldOptions): void
 
 	export {};
 }
 
 declare module 'winduum/src/components/form' {
 	export interface ValidateFormOptions {
-		validateSelectors?: string
+		validateSelector?: string
 		validateOptions?: ValidateFieldOptions
 		validateField?: typeof validateField
 		scrollOptions?: ScrollIntoViewOptions
 		submitterLoadingAttribute?: string
 	}
 
-	export interface ValidateFieldOptions {
-		validate?: boolean
+	export function validateForm(event: Event | SubmitEvent, options?: ValidateFormOptions): void
+	interface ValidateFieldOptions {
 		validationMessage?: string
 		selector?: string
-		ignoreMatch?: RegExp
 		validitySelector?: string
-		infoParentSelector?: string
-		infoSelector?: string
 		infoContent?: string
-		endParentSelector?: string
-		endSelector?: string
-		endContent?: string
-		validAttribute?: string
+		iconParentSelector?: string
+		iconSelector?: string
+		iconContent?: string
 		validIcon?: string | null
-		invalidAttribute?: string
 		invalidIcon?: string
-		activeAttribute?: string
 	}
 
-	export function validateForm(event: Event | SubmitEvent, options?: ValidateFormOptions): void
-	export function validateField(element: HTMLElement | SubmitEvent, options?: ValidateFieldOptions): void
+	function validateField(element: HTMLElement, options?: ValidateFieldOptions): void
 
 	export {};
 }
 
 declare module 'winduum/src/components/tabs' {
 	interface ToggleTabOptions {
-		tabElements?: NodeListOf<Element>
-		tabPanelElements?: NodeListOf<Element>
+		tabElements?: NodeListOf<Element> | Element[]
+		tabPanelElements?: NodeListOf<Element> | Element[]
 	}
 
 	export function toggleTab(element: HTMLElement | Element, options?: ToggleTabOptions): void
@@ -218,30 +229,27 @@ declare module 'winduum/src/components/toaster' {
 	}
 
 	export function closeToaster(element: HTMLElement, options?: CloseToastOptions): Promise<void>
+	export function toasterObserver(): MutationObserver
 
 	export {};
 }
 
 declare module 'winduum/src/components/popover' {
-	import type { FlipOptions, Middleware, OffsetOptions, Placement, ShiftOptions } from '@floating-ui/dom';
-	export interface ShowPopoverOptions {
-		anchorSelector: string,
-		openAttribute?: string
-		compute?: boolean
-		placement?: Placement
-		middleware?: Array<Middleware | null | undefined | false>
-		offset?: OffsetOptions
-		flip?: FlipOptions
-		shift?: ShiftOptions
-	}
+	import type { ComputePositionConfig } from '@floating-ui/dom';
+	import type { Placement } from '@floating-ui/utils';
+  export function computePositionPopover(
+	referenceElement: HTMLElement,
+	floatingElement: HTMLElement & { $currentPlacement?: string },
+	placement: Placement,
+	options?: ComputePositionConfig | boolean
+  ): Promise<void>
 
-	export interface HidePopoverOptions {
-		openAttribute?: string
-	}
-
-	export function showPopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
-	export function hidePopover(element: HTMLElement | Element): Promise<void>
-	export function togglePopover(element: HTMLElement | Element, options?: ShowPopoverOptions): Promise<void>
+  export function autoUpdatePopover(
+	referenceElement: HTMLElement,
+	floatingElement: HTMLElement,
+	placement: Placement,
+	options?: ComputePositionConfig | boolean
+  ): Promise<() => void>
 
 	export {};
 }

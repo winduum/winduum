@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollsnapchanging polyfill</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+      body { margin: 0; font: 14px/1.4 system-ui; padding: 12px; display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+      body > div { min-width: 0; }
+      h2 { font-size: 13px; margin: 0 0 4px; }
+      .snap-y { height: 220px; overflow-y: auto; scroll-snap-type: y mandatory; scroll-padding-top: 20px; border: 1px solid #999; }
+      .snap-y > section { height: 200px; scroll-snap-align: start; display: grid; place-items: center; font-size: 32px; }
+      .snap-y > section:nth-child(odd) { background: #dde6f7; }
+      .snap-y > section:nth-child(even) { background: #f7e6dd; }
+      .snap-x { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; border: 1px solid #999; }
+      .snap-x > article { flex: 0 0 180px; height: 90px; scroll-snap-align: center; display: grid; place-items: center; font-size: 24px; background: #e2f0e2; }
+      .snap-x > article:nth-child(even) { background: #efe2f0; }
+      #rtl > article { scroll-snap-align: start; }
+      .snap-proximity { height: 220px; overflow-y: auto; scroll-snap-type: y proximity; border: 1px solid #999; }
+      .snap-proximity > div { height: 100px; scroll-snap-align: start; background: #ddd; margin-bottom: 400px; display: grid; place-items: center; }
+      #log { grid-column: 1 / -1; height: 180px; overflow-y: auto; font: 11px/1.5 ui-monospace, monospace; border: 1px solid #ccc; padding: 6px; margin: 0; }
+      #log .polyfill { color: #0a7; }
+      #log .native { color: #06c; }
+    </style>
+</head>
+<body>
+    <div>
+      <h2>y mandatory, align start, scroll-padding-top 20</h2>
+      <div class="snap-y" id="vertical">
+        <section id="v1">v1</section>
+        <section id="v2">v2</section>
+        <section id="v3">v3</section>
+        <section id="v4">v4</section>
+        <section id="v5">v5</section>
+      </div>
+    </div>
+    <div>
+      <h2>y proximity, sparse areas</h2>
+      <div class="snap-proximity" id="proximity">
+        <div id="p1">p1</div>
+        <div id="p2">p2</div>
+        <div id="p3">p3</div>
+      </div>
+    </div>
+    <div>
+      <h2>x mandatory, align center</h2>
+      <div class="snap-x" id="horizontal">
+        <article id="h1">h1</article>
+        <article id="h2">h2</article>
+        <article id="h3">h3</article>
+        <article id="h4">h4</article>
+        <article id="h5">h5</article>
+        <article id="h6">h6</article>
+      </div>
+    </div>
+    <div>
+      <h2>x mandatory, align start, dir=rtl</h2>
+      <div class="snap-x" id="rtl" dir="rtl">
+        <article id="r1">r1</article>
+        <article id="r2">r2</article>
+        <article id="r3">r3</article>
+        <article id="r4">r4</article>
+        <article id="r5">r5</article>
+        <article id="r6">r6</article>
+      </div>
+    </div>
+    <pre id="log"></pre>
+
+    <script>
+      // ?nonative simulates a browser without native support to test the full install path
+      if (new URLSearchParams(location.search).has('nonative')) {
+        for (const { prototype } of [Window, Document, HTMLElement, SVGElement]) delete prototype.onscrollsnapchanging
+        delete window.onscrollsnapchanging
+        delete window.SnapEvent
+      }
+    </script>
+    <script type="module">
+      import '/src/polyfills/scrollSnapChanging.js'
+
+      window.__log = []
+
+      const logElement = document.getElementById('log')
+
+      const record = name => (event) => {
+        const entry = {
+          container: name,
+          source: event.isTrusted ? 'native' : 'polyfill',
+          block: event.snapTargetBlock?.id ?? null,
+          inline: event.snapTargetInline?.id ?? null,
+          time: Math.round(performance.now()),
+        }
+
+        window.__log.push(entry)
+
+        const line = document.createElement('div')
+        line.className = entry.source
+        line.textContent = `${entry.time} [${entry.container}] ${entry.source} block=${entry.block} inline=${entry.inline}`
+        logElement.prepend(line)
+      }
+
+      for (const id of ['vertical', 'horizontal', 'rtl', 'proximity']) {
+        document.getElementById(id).addEventListener('scrollsnapchanging', record(id))
+      }
+
+      window.__nativeSupport = 'onscrollsnapchanging' in HTMLElement.prototype
+    </script>
+</body>
+</html>

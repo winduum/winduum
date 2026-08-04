@@ -7,31 +7,27 @@
     <link rel="stylesheet" href="/src/test.css">
 </head>
 <body class="bg-blue-100/10 dark:bg-dark p-4 items-start gap-4 grid grid-cols-container">
-    <dialog class="x-dialog">
+    <dialog class="x-dialog" closedby="any">
         <div class="x-dialog-content w-full flex flex-col gap-4 items-start">
             <button class="x-button" id="insertToast">Show toast</button>
             <button class="x-button" id="closeToaster">Close toaster</button>
             <button class="x-button muted accent-main" id="action-btn-dark">dark</button>
         </div>
     </dialog>
-    <ol class="x-toaster items-end"></ol>
+    <ol class="x-toaster items-end" id="toasterElement" popover="manual"></ol>
 
     <script type="module">
-        import { closeToaster } from '/src/components/toaster/index.js'
+        import '/src/components/dialog/index.js'
+        import { closeToaster, toasterObserver } from '/src/components/toaster/index.js'
         import { closeToast, showToast } from '/src/components/toast/index.js'
 
-        import { showDialog } from "/src/components/dialog/index.js"
+        const observer = toasterObserver()
 
-        showDialog(document.querySelector('dialog'))
-
-
-        document.querySelector('dialog')?.addEventListener('x-dialog:show', () => {
-            document.querySelector('dialog[open]').appendChild(document.querySelector('.x-toaster'))
+        observer.observe(window.toasterElement, {
+          childList: true,
         })
 
-        document.querySelector('dialog')?.addEventListener('close', () => {
-            document.body.appendChild(document.querySelector('.x-toaster'))
-        })
+        document.querySelector('dialog')?.showModal()
 
         window.closeToaster.addEventListener(`click`, async () => {
             await closeToaster(document.querySelector('.x-toaster'))
@@ -41,7 +37,7 @@
             const toaster = document.querySelector('.x-toaster')
 
             toaster.insertAdjacentHTML('beforeend', `
-                <li class="x-toast" role="status" aria-live="assertive" aria-atomic="true" popover="manual">
+                <li class="x-toast" role="status" aria-live="assertive" aria-atomic="true">
                     <div class="x-toast-content">
                         <div class="flex-col">
                             <div class="x-title">Hello toast</div>

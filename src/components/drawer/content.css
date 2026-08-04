@@ -1,7 +1,8 @@
 .x-drawer-content {
+  background-color: var(--x-drawer-content-background-color);
+  padding: var(--x-drawer-content-padding-block) var(--x-drawer-content-padding-inline);
   inline-size: var(--x-drawer-content-inline-size);
   block-size: var(--x-drawer-content-block-size);
-  background-color: var(--x-drawer-content-background-color);
   flex-shrink: 0;
   scroll-snap-align: end;
 }

@@ -1,5 +1,6 @@
 :root,
 :host {
-  --x-label-font-size: var(--text-sm);
-  --x-label-line-height: calc(1em + 0.25rem);
+  --x-label-font-size: var(--text-2xs);
+  --x-label-line-height: calc(1em + 0.125rem);
+  --x-label-font-weight: var(--font-weight-medium);
 }

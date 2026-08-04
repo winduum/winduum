@@ -1,3 +1,23 @@
+## 3.0.0 (2026-xx-xx)
+* feat: added the new `winduum-elements` package with native Web Components based on [webuum](https://webuum.dev)
+* feat: updated `winduum-vue` and `winduum-react` to v3 and added all previously missing components, especially interactive components
+* feat: updated `winduum-stimulus` to v3 with support for Winduum 3
+* feat: added `x-carousel-experimental` with horizontal and vertical scrolling, scroll-state controls, marker helpers, and support for the [Carousel Gallery](https://chrome.dev/carousel/) examples
+* feat(bc): removed the animated `showDetails`, `closeDetails`, and `defaultOptions` JavaScript APIs from `x-details`; added native CSS transitions and a synchronous `toggleDetails` helper
+* feat(bc): removed the `showDialog`, `closeDialog`, and `defaultOptions` JavaScript APIs from `x-dialog` in favor of the native Dialog API; added `closedby` handling and dynamic scrollbar width calculation
+* feat(bc): rewritten `x-drawer` with placement-based JavaScript APIs, native scroller animation timelines, modal and non-modal support, and new `noscript`, `nosnap`, and dialog variants
+* feat(bc): rewritten `x-popover` to use the native Popover and Anchor APIs; replaced `showPopover`, `hidePopover`, `togglePopover`, and `computePopover` with `computePositionPopover` and `autoUpdatePopover`
+* feat(bc): deprecated `x-tooltip` in favor of `x-popover.tooltip` and renamed the `top`, `bottom`, `left`, and `right` variants to use the `tooltip-` prefix
+* feat(bc): split `x-text` into the base `x-text` component and the `x-text.content` variant
+* feat(bc): extracted `validateField` from `x-form` into a standalone `field` JavaScript export; changed the default validation selector to `.x-field`, renamed `validateSelectors` to `validateSelector`, and streamlined the validation options
+* feat(bc): `showToast` now auto-hides toasts after 7500 ms by default and `closeToast` removes closed toasts from the DOM by default
+* feat: added `toasterObserver` for automatically showing and hiding a popover toaster based on its contents
+* feat: added the `winduum/polyfill` entry point for loading supported feature polyfills
+* feat: added `supportsScrollInitialTarget`, `supportsAnimationTimeline`, `supportsScrollSnapEvents`, `supportsAnchor`, and `supportsAnchoredContainer` support checks
+* feat: added new Tailwind CSS position utilities and an `animation-trigger-enter` fallback utility
+* feat: added `tel-country-code` styles for country-code select controls
+* feat(bc): updated default typography, select, and container styles, including heading and label sizes, container width and responsive padding, and root scroll/container behavior
+
 ## 2.2.28 (2026-05-22)
 * feat: added supportsInterestFor support check
 
