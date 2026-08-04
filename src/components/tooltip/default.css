@@ -74,7 +74,7 @@
     }
   }
 
-  &:not(:hover, :focus)::before {
+  &:not(:hover, :focus-visible)::before {
     --tw-scale-x: var(--x-tooltip-scale-x);
     --tw-scale-y: var(--x-tooltip-scale-y);
     --tw-opacity: 0;

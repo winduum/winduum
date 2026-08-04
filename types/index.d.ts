@@ -28,6 +28,10 @@ declare module 'winduum' {
 }
 
 declare module 'winduum/supports' {
+	export const supportsAnchor: boolean;
+
+	export const supportsAnchoredContainer: boolean;
+
 	export const supportsTimelineTrigger: boolean;
 
 	export const supportsInterestFor: boolean;

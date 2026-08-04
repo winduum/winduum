@@ -20,7 +20,7 @@
       cursor: var(--cursor-pointer, pointer);
     }
 
-    &:is(:hover, :focus) {
+    &:is(:hover, :focus-visible) {
       --x-control-file-background-color-opacity: 20%;
     }
   }

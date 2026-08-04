@@ -1,4 +1,4 @@
-import { supportsAnchor } from '../../common.js'
+import { supportsAnchor } from '../../supports.js'
 
 /**
  * @param {HTMLElement} referenceElement

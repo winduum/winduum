@@ -1,6 +1,16 @@
 /**
  * @type {boolean}
  */
+export const supportsAnchor = CSS.supports('anchor-name', '--')
+
+/**
+ * @type {boolean}
+ */
+export const supportsAnchoredContainer = CSS.supports('container-type: anchored')
+
+/**
+ * @type {boolean}
+ */
 export const supportsTimelineTrigger = CSS.supports('timeline-trigger-name: --v')
 
 /**

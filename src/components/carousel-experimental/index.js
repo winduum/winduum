@@ -54,7 +54,7 @@ export const toggleScrollState = (element, { prevElement, nextElement, vertical 
 /**
  * @param {HTMLElement} element
  * @param {number} index
- * @param {string} [attributeName='data-current']
+ * @param {string} [attributeName='aria-current']
  * @returns void
  */
 export const setCurrentAttribute = (element, index, attributeName = 'aria-current') => {

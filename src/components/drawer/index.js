@@ -62,7 +62,7 @@ export const drawerEvents = (element, contentElement, placement, signal) => {
   }, { signal })
 
   element.addEventListener('click', ({ target }) => {
-    if (!contentElement.contains(target) && !contentElement.isEqualNode(target))
+    if (!contentElement.contains(target) && target !== contentElement)
       closeDrawer(element.firstElementChild, placement)
   }, { signal })
 }

@@ -14,6 +14,3 @@ export const animationsFinished = async (element) => {
 
   return results.filter(r => r.status === 'fulfilled').map(r => r.value)
 }
-
-export const supportsAnchor = CSS.supports('anchor-name', '--')
-export const supportsAnchoredContainer = CSS.supports('container-type: anchored')

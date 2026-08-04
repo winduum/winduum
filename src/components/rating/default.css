@@ -6,8 +6,8 @@
   border-radius: var(--radius-full);
 
   &:has(:focus-visible) {
-    outline: 2px dotted var(--color-accent);
-    outline-offset: 3px;
+    outline: var(--x-rating-outline-width, 2px) var(--x-rating-outline-style, dotted) var(--x-rating-outline-color, var(--color-accent));
+    outline-offset: var(--x-rating-outline-offset, 3px);
   }
 
   :where(input) {
