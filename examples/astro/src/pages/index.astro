@@ -13,8 +13,8 @@ import DialogContent from '../components/dialog/DialogContent.astro';
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
-		<UiBtn class="mb-4" id="showDialog">Hello world</UiBtn>
-		<Dialog>
+		<UiBtn class="mb-4" command="show-modal" commandfor="exampleDialog">Hello world</UiBtn>
+		<Dialog id="exampleDialog">
 			<DialogContent>
 				<div class="x-heading">Example dialog</div>
 				<br>
@@ -50,14 +50,6 @@ import DialogContent from '../components/dialog/DialogContent.astro';
 	</main>
 </Layout>
 
-<script>
-	import { showDialog } from 'winduum/src/components/dialog'
-
-	document.querySelector('#showDialog').addEventListener('click', () => {
-		showDialog(document.querySelector('dialog'))
-	})
-</script>
-
 <style>
 	main {
 		margin: auto;
@@ -79,7 +71,7 @@ import DialogContent from '../components/dialog/DialogContent.astro';
 	.instructions {
 		line-height: 1.6;
 		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
+		border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
 		background-color: white;
 		padding: 1rem;
 		border-radius: 0.4rem;
@@ -87,13 +79,13 @@ import DialogContent from '../components/dialog/DialogContent.astro';
 	.instructions code {
 		font-size: 0.875em;
 		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
+		background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+		color: var(--color-accent);
 		border-radius: 4px;
 		padding: 0.3em 0.45em;
 	}
 	.instructions strong {
-		color: rgb(var(--accent));
+		color: var(--color-accent);
 	}
 	.link-card-grid {
 		display: grid;

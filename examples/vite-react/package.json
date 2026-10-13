@@ -11,18 +11,14 @@
   "dependencies": {
     "react": "latest",
     "react-dom": "latest",
-    "winduum": "^2"
+    "winduum": "^3"
   },
   "devDependencies": {
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@tailwindcss/vite": "^4",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
-    "tailwindcss": "^3",
-    "autoprefixer": "^10",
-    "postcss": "^8",
-    "postcss-import": "^16",
-    "postcss-nesting": "^12",
-    "postcss-custom-media": "^10"
+    "tailwindcss": "^4",
+    "vite": "latest"
   }
 }

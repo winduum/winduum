@@ -9,17 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "winduum": "^2"
+    "winduum": "^3"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "latest",
+    "@tailwindcss/vite": "^4",
     "svelte": "latest",
-    "vite": "latest",
-    "tailwindcss": "^3",
-    "autoprefixer": "^10",
-    "postcss": "^8",
-    "postcss-import": "^16",
-    "postcss-nesting": "^12",
-    "postcss-custom-media": "^10"
+    "tailwindcss": "^4",
+    "vite": "latest"
   }
 }

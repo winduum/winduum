@@ -1,83 +1,21 @@
-@import "winduum/src/base/reset.css";
+@import "tailwindcss/theme.css" layer(theme);
+@import "winduum/tailwindcss/theme/config/index.css" layer(theme);
+@import "winduum/tailwindcss/theme/default.css" layer(theme);
+@import "winduum/src/theme/dark.css" layer(theme);
+@import "winduum/src/base/reset.css" layer(base);
+@import "winduum/src/base/defaults.css" layer(base);
+@import "winduum/src/utilities/container/props/default.css" layer(theme);
+@import "winduum/src/utilities/ripple/keyframes/default.css";
+@import "winduum/src/utilities/skeleton/props/default.css" layer(theme);
+@import "winduum/src/utilities/spinner/keyframes/ring.css";
+@import "winduum/tailwindcss/utilities/index.css";
+@import "tailwindcss/utilities" layer(utilities);
+@import "winduum/tailwindcss/variants/index.css";
 @import "winduum/src/base/breakpoints.css";
 @import "winduum/src/base/keyframes.css";
-@import "winduum/src/theme/index.css";
-@import "winduum/src/tailwind.css";
+@import "winduum/src/base/transitions.css";
 
-::after,
-::before {
-  --tw-content: "";
-}
-
-::selection {
-  color: var(--color-primary-foreground);
-  background-color: var(--color-primary);
-}
-
-:where([tabindex]) {
-  outline: 0;
-}
-
-:where(button:enabled),
-:where([type="checkbox"]:enabled),
-:where([type="radio"]:enabled),
-:where(summary:not([aria-disabled="true"])),
-:where([role="button"]:not([aria-disabled="true"])) {
-  cursor: var(--cursor-pointer, pointer);
-  user-select: none;
-}
-
-:where(svg:not([width])) {
-  width: 1.25rem;
-}
-
-:where(svg:not([height])) {
-  height: 1.25rem;
-}
-
-:where(hr) {
-  background-color: color-mix(in var(--default-color-space), currentcolor 100%, transparent);
-  block-size: 1px;
-  inline-size: 100%;
-}
-
-:where(code) {
-  padding: var(--spacing-1) var(--spacing-2);
-  background: var(--color-body-secondary);
-  border-radius: var(--radius-sm);
-  color: var(--color-accent);
-}
-
-:where(kbd) {
-  padding: var(--spacing-1) var(--spacing-2);
-  background: var(--color-body-secondary);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-body-tertiary);
-}
-
-:where(html) {
-  color-scheme: var(--default-color-scheme);
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-normal);
-  block-size: 100%;
-  line-height: 1.5;
-  text-size-adjust: 100%;
-
-  @media (prefers-reduced-motion: no-preference) {
-    scroll-behavior: smooth;
-  }
-}
-
-:where(body) {
-  min-block-size: 100%;
-  background-color: var(--color-body);
-  color: var(--color-main);
-  accent-color: var(--color-accent);
-}
-
-[hidden] {
-  display: none !important;
-}
+@source "../node_modules/winduum/src";
 
 body {
   display: flex;

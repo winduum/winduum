@@ -1,3 +1,11 @@
-<dialog class="x-dialog">
+---
+const { class: className, ...attrs } = Astro.props;
+---
+
+<dialog class:list={['x-dialog', className]} closedby="any" {...attrs}>
     <slot/>
 </dialog>
+
+<script>
+    import 'winduum/src/components/dialog'
+</script>

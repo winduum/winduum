@@ -10,16 +10,12 @@
   },
   "dependencies": {
     "solid-js": "latest",
-    "winduum": "^2"
+    "winduum": "^3"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4",
+    "tailwindcss": "^4",
     "vite": "latest",
-    "vite-plugin-solid": "latest",
-    "tailwindcss": "^3",
-    "autoprefixer": "^10",
-    "postcss": "^8",
-    "postcss-import": "^16",
-    "postcss-nesting": "^12",
-    "postcss-custom-media": "^10"
+    "vite-plugin-solid": "latest"
   }
 }

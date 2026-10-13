@@ -1,3 +1,7 @@
-<button class="x-button" {...$$restProps} on:click>
-    <slot />
+<script>
+  let { children, ...props } = $props()
+</script>
+
+<button class="x-button" {...props}>
+  {@render children?.()}
 </button>

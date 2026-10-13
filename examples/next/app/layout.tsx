@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="bg-dark text-light">
+    <html lang="en" className="bg-dark text-light">
       <head>
         <title>Next.js Turbopack App Winduum</title>
       </head>

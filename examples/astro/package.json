@@ -11,15 +11,10 @@
   },
   "dependencies": {
     "astro": "latest",
-    "winduum": "^2"
+    "winduum": "^3"
   },
   "devDependencies": {
-    "autoprefixer": "^10",
-    "css-has-pseudo": "^6",
-    "postcss": "^8",
-    "postcss-custom-media": "^10",
-    "postcss-import": "^16",
-    "postcss-nesting": "^12",
-    "tailwindcss": "^3"
+    "@tailwindcss/vite": "^4",
+    "tailwindcss": "^4"
   }
 }

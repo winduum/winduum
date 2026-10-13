@@ -1,0 +1,38 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "winduum/tailwindcss/theme/config/index.css" layer(theme);
+@import "winduum/tailwindcss/theme/default.css" layer(theme);
+@import "winduum/src/theme/dark.css" layer(theme);
+@import "winduum/src/base/reset.css" layer(base);
+@import "winduum/src/base/defaults.css" layer(base);
+@import "winduum/src/components/button/index.css" layer(utilities);
+@import "winduum/src/components/dialog/index.css" layer(utilities);
+@import "winduum/src/components/heading/index.css" layer(utilities);
+@import "winduum/src/components/text/index.css" layer(utilities);
+@import "winduum/src/utilities/container/props/default.css" layer(theme);
+@import "winduum/src/utilities/ripple/keyframes/default.css";
+@import "winduum/src/utilities/skeleton/props/default.css" layer(theme);
+@import "winduum/src/utilities/spinner/keyframes/ring.css";
+@import "winduum/tailwindcss/utilities/index.css";
+@import "tailwindcss/utilities" layer(utilities);
+@import "winduum/tailwindcss/variants/index.css";
+@import "winduum/src/base/breakpoints.css";
+@import "winduum/src/base/keyframes.css";
+@import "winduum/src/base/transitions.css";
+
+@source "../../node_modules/winduum/src";
+
+@layer base {
+  :root {
+    --color-accent: rgb(124 58 237);
+    --accent-gradient: linear-gradient(45deg, var(--color-accent), #da62c4 30%, white 60%);
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: #f6f6f6;
+  }
+
+  code {
+    font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+  }
+}

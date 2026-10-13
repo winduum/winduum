@@ -1,12 +1,22 @@
-@import "winduum/src/base/index.css";
-@import "winduum/src/theme/index.css";
-@import "winduum/src/components/button/index.css" layer(components);
-@import "winduum/src/utilities/index.css" layer(components);
-@import "winduum/tailwindcss/base/defaults.css";
-@import "tailwindcss/base.css";
-@import "tailwindcss/components.css";
-@import "tailwindcss/utilities.css";
-@import "tailwindcss/variants.css";
+@import "tailwindcss/theme.css" layer(theme);
+@import "winduum/tailwindcss/theme/config/index.css" layer(theme);
+@import "winduum/tailwindcss/theme/default.css" layer(theme);
+@import "winduum/src/theme/dark.css" layer(theme);
+@import "winduum/src/base/reset.css" layer(base);
+@import "winduum/src/base/defaults.css" layer(base);
+@import "winduum/src/components/button/index.css" layer(utilities);
+@import "winduum/src/utilities/container/props/default.css" layer(theme);
+@import "winduum/src/utilities/ripple/keyframes/default.css";
+@import "winduum/src/utilities/skeleton/props/default.css" layer(theme);
+@import "winduum/src/utilities/spinner/keyframes/ring.css";
+@import "winduum/tailwindcss/utilities/index.css";
+@import "tailwindcss/utilities" layer(utilities);
+@import "winduum/tailwindcss/variants/index.css";
+@import "winduum/src/base/breakpoints.css";
+@import "winduum/src/base/keyframes.css";
+@import "winduum/src/base/transitions.css";
+
+@source "../node_modules/winduum/src";
 
 :root {
   font-synthesis: none;
@@ -31,19 +41,4 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
 }
