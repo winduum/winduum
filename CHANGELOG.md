@@ -1,4 +1,4 @@
-## 3.0.0 (2026-xx-xx)
+## 3.0.0 (2026-10-13)
 * feat: added the new `winduum-elements` package with native Web Components based on [webuum](https://webuum.dev)
 * feat: updated `winduum-vue` and `winduum-react` to v3 and added all previously missing components, especially interactive components
 * feat: updated `winduum-stimulus` to v3 with support for Winduum 3
