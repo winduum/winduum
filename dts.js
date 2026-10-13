@@ -4,7 +4,6 @@ await createBundle({
   project: 'tsconfig.json',
   output: 'types/index.d.ts',
   modules: {
-    'winduum': 'plugin/index.js',
     'winduum/supports': 'src/supports.js',
     'winduum/src/components/carousel': 'src/components/carousel/index.js',
     'winduum/src/components/carousel-experimental': 'src/components/carousel-experimental/index.js',

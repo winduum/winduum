@@ -2,6 +2,7 @@
 * feat: added the new `winduum-elements` package with native Web Components based on [webuum](https://webuum.dev)
 * feat: updated `winduum-vue` and `winduum-react` to v3 and added all previously missing components, especially interactive components
 * feat: updated `winduum-stimulus` to v3 with support for Winduum 3
+* feat(bc): removed TailwindCSS v3 support, including the `winduum` JavaScript plugin (`winduum/plugin/*`), `winduum/tailwindcss/index.css`, `winduum/tailwindcss/base/defaults.css` and the RGB themes `src/theme/default-rgb.css` and `src/theme/dark-rgb.css`
 * feat: added `x-carousel-experimental` with horizontal and vertical scrolling, scroll-state controls, marker helpers, and support for the [Carousel Gallery](https://chrome.dev/carousel/) examples
 * feat(bc): removed the animated `showDetails`, `closeDetails`, and `defaultOptions` JavaScript APIs from `x-details`; added native CSS transitions and a synchronous `toggleDetails` helper
 * feat(bc): removed the `showDialog`, `closeDialog`, and `defaultOptions` JavaScript APIs from `x-dialog` in favor of the native Dialog API; added `closedby` handling and dynamic scrollbar width calculation
