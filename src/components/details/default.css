@@ -1,0 +1,14 @@
+.x-details {
+  &::details-content {
+    transition:
+      height var(--default-transition-duration) var(--default-transition-timing-function),
+      content-visibility var(--default-transition-duration) var(--default-transition-timing-function) allow-discrete;
+    height: 0;
+    overflow: clip;
+    interpolate-size: allow-keywords;
+  }
+
+  &[open]::details-content {
+    height: auto;
+  }
+}

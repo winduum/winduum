@@ -7,73 +7,73 @@
     <link rel="stylesheet" href="/src/test.css">
 </head>
 <body class="p-4xl flex flex flex-col items-start gap-4">
-    <div class="x-carousel w-[1280px]" data-controller="carousel">
-        <div class="x-carousel-content gap-4" data-carousel-target="content" id="carousel">
-            <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item1">
-                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
-            </div>
-            <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item2">
-                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
-            </div>
-            <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item3">
-                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
-            </div>
-            <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item4">
-                <img src="https://placehold.co/1200x750" alt="" loading="lazy">
-            </div>
+<div class="x-carousel w-[1280px]" data-controller="carousel">
+    <div class="x-carousel-content gap-4" data-carousel-target="content" id="carousel">
+        <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item1">
+            <img src="https://placehold.co/1200x750" alt="" loading="lazy">
         </div>
-        <div class="dots flex gap-1.5 h-4 py-4" data-carousel-target="pagination"></div>
-        <progress class="x-progress sm" value="50" max="100" data-carousel-target="progress"></progress>
-        <div class="flex">
-            <div data-carousel-target="counterMin"></div>/
-            <div data-carousel-target="counterMax"></div>
+        <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item2">
+            <img src="https://placehold.co/1200x750" alt="" loading="lazy">
         </div>
-        <button class="x-button square" data-action="click->carousel#prev">Prev</button>
-        <button class="x-button square" data-action="click->carousel#next">Next</button>
+        <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item3">
+            <img src="https://placehold.co/1200x750" alt="" loading="lazy">
+        </div>
+        <div class="x-image w-[30rem] h-auto rounded-md overflow-hidden aspect-[8/5]" id="item4">
+            <img src="https://placehold.co/1200x750" alt="" loading="lazy">
+        </div>
     </div>
+    <div class="dots flex gap-1.5 h-4 py-4" data-carousel-target="pagination"></div>
+    <progress class="x-progress sm" value="50" max="100" data-carousel-target="progress"></progress>
+    <div class="flex">
+        <div data-carousel-target="counterMin"></div>/
+        <div data-carousel-target="counterMax"></div>
+    </div>
+    <button class="x-button square" data-action="click->carousel#prev">Prev</button>
+    <button class="x-button square" data-action="click->carousel#next">Next</button>
+</div>
 
-    <script type="module">
-        import { scrollPrev, scrollNext, dragCarousel, paginationCarousel, observeCarousel, scrollCarousel } from "/src/components/carousel/index.js";
+<script type="module">
+  import { scrollPrev, scrollNext, dragCarousel, paginationCarousel, observeCarousel, scrollCarousel } from "/src/components/carousel/index.js";
 
-        const contentElement = document.querySelector('[data-carousel-target="content"]')
-        const paginationElement = document.querySelector('[data-carousel-target="pagination"]')
-        const progressElement = document.querySelector('[data-carousel-target="progress"]')
-        const counterMinElement = document.querySelector('[data-carousel-target="counterMin"]')
-        const counterMaxElement = document.querySelector('[data-carousel-target="counterMax"]')
-        const prevElement = document.querySelector('[data-action="click->carousel#prev"]')
-        const nextElement = document.querySelector('[data-action="click->carousel#next"]')
+  const contentElement = document.querySelector('[data-carousel-target="content"]')
+  const paginationElement = document.querySelector('[data-carousel-target="pagination"]')
+  const progressElement = document.querySelector('[data-carousel-target="progress"]')
+  const counterMinElement = document.querySelector('[data-carousel-target="counterMin"]')
+  const counterMaxElement = document.querySelector('[data-carousel-target="counterMax"]')
+  const prevElement = document.querySelector('[data-action="click->carousel#prev"]')
+  const nextElement = document.querySelector('[data-action="click->carousel#next"]')
 
-        const pagination = {
-            element: paginationElement,
-            activeClass: 'bg-error',
-            itemContent: '<div class="dot data-active:bg-primary"></div>'
-        }
+  const pagination = {
+    element: paginationElement,
+    activeClass: 'bg-error',
+    itemContent: '<div class="dot data-active:bg-primary"></div>'
+  }
 
-        const scrollOptions = {
-            counterMinElement,
-            counterMaxElement,
-            progressElement,
-            pagination
-        }
+  const scrollOptions = {
+    counterMinElement,
+    counterMaxElement,
+    progressElement,
+    pagination
+  }
 
-        dragCarousel(contentElement)
+  dragCarousel(contentElement)
 
-        observeCarousel(contentElement)
+  observeCarousel(contentElement)
 
-        paginationCarousel(contentElement, pagination)
+  paginationCarousel(contentElement, pagination)
 
-        scrollCarousel(contentElement, scrollOptions)
+  scrollCarousel(contentElement, scrollOptions)
 
-        contentElement.addEventListener('scroll', () => scrollCarousel(contentElement, scrollOptions), { passive: true })
+  contentElement.addEventListener('scroll', () => scrollCarousel(contentElement, scrollOptions), { passive: true })
 
-        prevElement.addEventListener('click', () => scrollPrev(contentElement))
-        nextElement.addEventListener('click', () => scrollNext(contentElement))
-    </script>
+  prevElement.addEventListener('click', () => scrollPrev(contentElement))
+  nextElement.addEventListener('click', () => scrollNext(contentElement))
+</script>
 
-    <svg class="hidden">
-        <symbol id="icon-exclamation-circle" class="ms-auto text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-        </symbol>
-    </svg>
+<svg class="hidden">
+    <symbol id="icon-exclamation-circle" class="ms-auto text-error" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+    </symbol>
+</svg>
 </body>
 </html>

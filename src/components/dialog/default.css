@@ -7,21 +7,35 @@
       var(--x-dialog-background-color) var(--x-dialog-background-color-opacity),
       var(--x-dialog-background-color-mix, transparent)
     );
-  transition: var(--transition-background);
+  transition: var(--transition-background) allow-discrete, var(--transition-display) allow-discrete, var(--transition-overlay) allow-discrete;
   display: flex;
   position: fixed;
   inset: 0;
   overflow: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+
+  @starting-style {
+    background-color: transparent;
+  }
 
   &::backdrop,
   &:not([open]) {
     display: none;
   }
 
-  &[data-closed] {
+  &:not([open]) {
     background-color: transparent;
+
+    html:not(:has(.x-dialog[open])) & {
+      scrollbar-gutter: auto;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 }
 

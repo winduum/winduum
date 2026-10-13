@@ -1,4 +1,17 @@
 .x-popover {
-  position: relative;
-  display: inline-block;
+  transition-property: var(--default-transition-property);
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: var(--default-transition-duration);
+  transition-behavior: allow-discrete;
+  position: fixed;
+  inset: auto;
+  container-type: anchored;
+
+  @starting-style {
+    opacity: var(--x-popover-starting-opacity);
+  }
+
+  &:not(:popover-open) {
+    opacity: var(--x-popover-starting-opacity);
+  }
 }

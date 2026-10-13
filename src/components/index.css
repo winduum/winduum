@@ -3,6 +3,7 @@
 @import "./check/index.css";
 @import "./color/index.css";
 @import "./control/index.css";
+@import "./details/index.css";
 @import "./group/index.css";
 @import "./heading/index.css";
 @import "./image/index.css";
@@ -23,6 +24,7 @@
 @import "./drawer/index.css";
 @import "./field/index.css";
 @import "./carousel/index.css";
+@import "./carousel-experimental/index.css";
 @import "./compare/index.css";
 @import "./pagination/index.css";
 @import "./popover/index.css";

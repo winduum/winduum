@@ -1,0 +1,4 @@
+:root,
+:host {
+  --x-popover-starting-opacity: 0;
+}

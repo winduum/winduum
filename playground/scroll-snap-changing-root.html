@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollsnapchanging polyfill – root scroller</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+      html { scroll-snap-type: y mandatory; }
+      body { margin: 0; font: 14px/1.4 system-ui; }
+      section { height: 100vh; scroll-snap-align: start; display: grid; place-items: center; font-size: 48px; }
+      section:nth-child(odd) { background: #dde6f7; }
+      section:nth-child(even) { background: #f7e6dd; }
+    </style>
+</head>
+<body>
+    <section id="s1">s1</section>
+    <section id="s2">s2</section>
+    <section id="s3">s3</section>
+    <section id="s4">s4</section>
+
+    <script>
+      // ?nonative simulates a browser without native support to test the full install path
+      if (new URLSearchParams(location.search).has('nonative')) {
+        for (const { prototype } of [Window, Document, HTMLElement, SVGElement]) delete prototype.onscrollsnapchanging
+        delete window.onscrollsnapchanging
+        delete window.SnapEvent
+      }
+    </script>
+    <script type="module">
+      import '/src/polyfills/scrollSnapChanging.js'
+
+      window.__log = []
+
+      const record = target => (event) => {
+        window.__log.push({
+          target,
+          source: event.isTrusted ? 'native' : 'polyfill',
+          block: event.snapTargetBlock?.id ?? null,
+          inline: event.snapTargetInline?.id ?? null,
+          time: Math.round(performance.now()),
+        })
+      }
+
+      document.addEventListener('scrollsnapchanging', record('document'))
+      window.addEventListener('scrollsnapchanging', record('window'))
+    </script>
+</body>
+</html>

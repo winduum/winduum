@@ -1,0 +1,18 @@
+@utility animation-trigger-enter {
+  @supports not (timeline-trigger-name: --v) {
+    animation-play-state: paused;
+
+    @media (scripting: none) {
+      animation: none;
+    }
+
+    &:is([data-enter]),
+    :is([data-enter]) & {
+      animation-play-state: running;
+    }
+  }
+
+  @media (prefers-reduced-motion), print {
+    animation: none;
+  }
+}

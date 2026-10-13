@@ -1,16 +1,9 @@
-export interface ScrollDrawerOptions {
-    snapClass?: string
-    opacityProperty?: string
-    opacityRatio?: number
-    scrollOpen?: number
-    scrollClose?: number
-    scrollSize?: number
-    scrollDirection?:number
-}
+export type DrawerPlacement = 'left' | 'right' | 'top' | 'bottom'
 
-export function showDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-export function closeDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-export function scrollInitDrawer(element: HTMLElement | Element, distance?: number, direction?: 'left' | 'top'): void
-export function toggleDrawerAttributes(element: HTMLDialogElement | Element, state?: 'open' | 'close', snapClass?: string): void
-export function scrollDrawerState(scrollState: number, scrollDirection: number): boolean
-export function scrollDrawer(element: HTMLDialogElement | Element, options?: ScrollDrawerOptions): void
+export function isVerticalDrawer(placement: DrawerPlacement): boolean
+export function scrollDrawer(element: HTMLElement | Element, placement: DrawerPlacement, reverse?: boolean, behavior?: 'auto' | 'instant'): void
+export function showDrawer(element: HTMLElement | Element, placement: DrawerPlacement): Promise<void>
+export function closeDrawer(element: HTMLElement | Element, placement: DrawerPlacement): void
+export function drawerEvents(element: HTMLDialogElement | Element, contentElement: HTMLElement | Element, placement: DrawerPlacement, signal?: AbortSignal): void
+export function drawerObserver(element: HTMLDialogElement | Element, placement: DrawerPlacement): IntersectionObserver
+export function drawerProperties(element: HTMLElement | Element, placement: DrawerPlacement): ['top' | 'left', number, number]

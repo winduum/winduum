@@ -1,0 +1,20 @@
+.x-dialog {
+  &:is(.drawer) {
+    timeline-scope: --x-drawer-backdrop;
+    animation: x-drawer-backdrop-opacity linear both;
+    animation-timeline: --x-drawer-backdrop;
+
+    &::backdrop {
+      background-color:
+        color-mix(
+          in var(--x-drawer-background-color-space, srgb),
+          var(--color-dark) calc(var(--x-drawer-backdrop-opacity, 0) * var(--x-drawer-background-color-opacity)),
+          var(--x-drawer-background-color-mix, transparent)
+        );
+
+      @supports not (animation-timeline: --x) {
+        --x-drawer-backdrop-opacity: 1;
+      }
+    }
+  }
+}

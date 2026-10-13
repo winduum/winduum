@@ -49,7 +49,7 @@
 
       @starting-style {
         opacity: var(--x-control-select-picker-closed-opacity, 0%);
-        transform: var(--x-control-select-picker-closed-opacity, scale(0.9));
+        transform: var(--x-control-select-picker-closed-transform, scale(0.9));
       }
     }
 

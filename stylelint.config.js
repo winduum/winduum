@@ -6,7 +6,7 @@ export default {
   ],
   rules: {
     '@stylistic/max-line-length': [240, { ignorePattern: '/^\\s*--/' }],
-    'at-rule-no-unknown': [true, { ignoreAtRules: ['layer', 'tailwind', 'theme', 'utility', 'variant', 'custom-variant', 'source'] }],
+    'at-rule-no-unknown': [true, { ignoreAtRules: ['layer', 'theme', 'utility', 'variant', 'custom-variant', 'source'] }],
     'alpha-value-notation': ['percentage'],
     'declaration-property-value-no-unknown': [true, { ignoreProperties: { 'appearance': ['base-select'], '-webkit-line-break': ['after-white-space'] } }],
     'import-notation': 'string',

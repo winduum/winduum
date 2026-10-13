@@ -1,0 +1,36 @@
+.x-carousel-experimental-content {
+  display: flex;
+  overflow: auto;
+  user-select: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > :where(*) {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    &:last-child {
+      scroll-snap-align: end;
+    }
+  }
+
+  /* TODO grabbing */
+  &:is(.grabbing) {
+    &,
+    & * {
+      cursor: grabbing;
+    }
+
+    & a {
+      pointer-events: none;
+    }
+  }
+}

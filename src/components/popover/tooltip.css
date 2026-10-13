@@ -1,0 +1,11 @@
+.x-popover {
+  &:is(.tooltip) {
+    --x-popover-content-background-color: var(--color-main);
+    --x-popover-content-color: var(--color-main-foreground);
+    --x-popover-content-border-radius: var(--radius-md);
+    --x-popover-content-padding-block: calc(var(--spacing) * 1);
+    --x-popover-content-padding-inline: calc(var(--spacing) * 2);
+    --x-popover-font-size: var(--text-sm);
+    --x-popover-content-starting-scale: 0.75;
+  }
+}

@@ -1,0 +1,32 @@
+.x-drawer {
+  @media (scripting: none) {
+    --x-drawer-backdrop-opacity: 1;
+
+    width: fit-content;
+    height: fit-content;
+    transition-property: var(--default-transition-property);
+    transition-timing-function: var(--ease-in-out);
+    transition-duration: var(--default-transition-duration);
+    transition-behavior: allow-discrete;
+
+    &::backdrop {
+      transition: inherit;
+    }
+
+    &:not([open]) {
+      &::backdrop {
+        opacity: 0%;
+      }
+    }
+
+    @starting-style {
+      &[open] {
+        opacity: 0%;
+
+        &::backdrop {
+          opacity: 0%;
+        }
+      }
+    }
+  }
+}

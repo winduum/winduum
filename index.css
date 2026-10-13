@@ -1,0 +1,17 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "./tailwindcss/theme/config/index.css" layer(theme);
+@import "./tailwindcss/theme/default.css" layer(theme);
+@import "./src/theme/dark.css" layer(theme);
+@import "./src/base/reset.css" layer(base);
+@import "./src/base/defaults.css" layer(base);
+@import "./src/components/index.css" layer(utilities);
+@import "./src/utilities/container/props/default.css" layer(theme);
+@import "./src/utilities/ripple/keyframes/default.css";
+@import "./src/utilities/skeleton/props/default.css" layer(theme);
+@import "./src/utilities/spinner/keyframes/ring.css";
+@import "./tailwindcss/utilities/index.css";
+@import "tailwindcss/utilities" layer(utilities);
+@import "./tailwindcss/variants/index.css";
+@import "./src/base/breakpoints.css";
+@import "./src/base/keyframes.css";
+@import "./src/base/transitions.css";

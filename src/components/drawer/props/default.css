@@ -2,3 +2,9 @@
 :host {
   --x-drawer-background-color-opacity: 75%;
 }
+
+@property --x-drawer-backdrop-opacity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
